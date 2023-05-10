@@ -1,0 +1,93 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MTRS-Skript",
+    "section": "",
+    "text": "Willkommen zum Skript"
+  },
+  {
+    "objectID": "index.html#verbessern",
+    "href": "index.html#verbessern",
+    "title": "MTRS-Skript",
+    "section": "Verbessern",
+    "text": "Verbessern\nIch freue mich über alle Fehlerkorrekturen und Verbesserungsvorschläge die mich erreichen. Am einfachsten ist dies via Mail."
+  },
+  {
+    "objectID": "index.html#mitwirken",
+    "href": "index.html#mitwirken",
+    "title": "MTRS-Skript",
+    "section": "Mitwirken",
+    "text": "Mitwirken\nWer am Skriptum mitarbeiten möchte kann mich gerne kontaktieren. Meine Kontaktdaten sind auf der Homepage der HTL-Anichstrasse zu finden.\nViel Vergnügen mit MTRS und dem interaktiven Quarto Book!"
+  },
+  {
+    "objectID": "Messtechnik/Frequenz_und_Periode.html#warum-die-frequenz-messen",
+    "href": "Messtechnik/Frequenz_und_Periode.html#warum-die-frequenz-messen",
+    "title": "1  Messung der Zeit, Frequenz und Periode",
+    "section": "1.1 Warum die Frequenz messen",
+    "text": "1.1 Warum die Frequenz messen\nEs gibt primäre Gründe die Frequenz zu messen wie zum Beipiel in der Frequenztechnik. Dort will man sicherstellen, dass die geqünschte Frequenz auch tatsächlich eingestellt ist. So soll ein WLAN Signal im \\(2,4 \\ \\mathrm{GHz}\\) Bereich auf Kanal 1 zwischen \\(2399,5 \\ \\mathrm{MHz}\\) und \\(2424,5 \\ \\mathrm{MHz}\\) funken. Dies muss Messtechnisch sicherhgestellt werden.\nDa sich Frequenzen aber hervorragend digitalisieren lassen sind Frequenzen auch sehr beliebt als Messignale anderer physikalischer Größen. Zum Beispiel lässt sich die Geschwindigkeit als Frequenz übertragen, wenn bekannt ist, dass jede Periode einem definierten Weg entspicht. \\[ Geschwindigkeit =  \\frac{Weg \\ pro \\ Periode }{Periodendauer} = Weg \\ pro \\ Periode \\cdot Frequenz\\]\nNoch einfacher ist es die Durchflussmenge mittels Frequenz zu übertragen. Dazu muss aus dem Datenblatt gelesen werden wie viel Volumen einer Periode entspricht. \\[ Durchlussmenge = Anzahl \\ der Perioden \\ \\cdot Volumen \\ pro \\ Periode \\]"
+  },
+  {
+    "objectID": "Messtechnik/Frequenz_und_Periode.html#periodische-signale",
+    "href": "Messtechnik/Frequenz_und_Periode.html#periodische-signale",
+    "title": "1  Messung der Zeit, Frequenz und Periode",
+    "section": "1.2 Periodische Signale",
+    "text": "1.2 Periodische Signale\nBevor mit der eigentlichen Messung begonnen wird soll hier noch einmal auf die Grundlagen eingegangen werden. Man spricht von einem periodischen Signal wenn es sich nach einer bestimmten Zeitdauer, der Periodendauer, wiederholt. Ein Sinussignal ist ein Beispiel dafür.\n\n\n\n\n\nAbbildung 1.1: Sinussignal mit drei Perioden\n\n\n\n\nDie Einheit der Frequenz ist das Herz \\(f\\). In SI-Baisiseinheiten ausgedrückt ist es der Kehrwert der Zeit \\(\\mathrm{Hz =1/s}\\). Der Zusammenhang zwischen der Periodendauer und der Frequenz lässt sich bereits aus der Einheit der Frequenz ablesen. Es ist wiederum der Kehrwert \\(f = 1/T\\)."
+  },
+  {
+    "objectID": "Messtechnik/Frequenz_und_Periode.html#messung",
+    "href": "Messtechnik/Frequenz_und_Periode.html#messung",
+    "title": "1  Messung der Zeit, Frequenz und Periode",
+    "section": "1.3 Messung",
+    "text": "1.3 Messung\nSowohl die Periodendauer als auch die Frequenz können mit einem ähnlichen Messaufbau gemessen werden.\n\n\n\nAbbildung 1.2: Blockschaltbild der Frequenzmessung\n\n\nMit der Information des Zählers und der Frequenz des Taktes kann nun die Frequenz des Signales berechnet werden.\n\n1.3.1 Frequenzmessung\nDie Messung benötigt einen Zähler und einen Takt mit bekannter Periodendauer. Wenn die Anzahl der Perioden in einer bestimmten Zeit gezählt werden, kann daraus die Frequenz und die Periodendauer berechent werden. Die dargestellte Quelle ist symbolisch für das zu messende Signal. Vorraussetzung ist, dass es sich um ein periodisches Signal handelt. Es muss kein Sinussignal sein. Es kann zum Beispiel auch ein Rechteck- oder Sägezahnsignal sein. Sollange das Signal periodisch ist funktioniert die Messung.\n\n\n\n\n\nAbbildung 1.3: Eingangssignal\n\n\n\n\n\n\n\n\n\nAbbildung 1.4: Taktsignal und logische Verknüpfung"
+  },
+  {
+    "objectID": "Drehstrom/02_Drehstrom.html",
+    "href": "Drehstrom/02_Drehstrom.html",
+    "title": "Drehstrom",
+    "section": "",
+    "text": "BlaBla"
+  },
+  {
+    "objectID": "Drehstrom/02.01_Grundlagen.html",
+    "href": "Drehstrom/02.01_Grundlagen.html",
+    "title": "2  Mathematische Grundlagen der 3-Pahsen-Drehstromtechnik",
+    "section": "",
+    "text": "\\(\\underline{U}_{12}\\) … Spannung zwischen Phase L1 und L2\n\n\n\\(\\underline{U}_{23}\\) … Spannung zwischen Phase L2 und L3\n\n\n\\(\\underline{U}_{31}\\) … Spannung zwischen Phase L3 und L1\n\n\n\\(\\underline{U}_{1N}\\) … Spannung zwischen Phase L1 und N\n\n\n\\(\\underline{U}_{2N}\\) … Spannung zwischen Phase L2 und N\n\n\n\\(\\underline{U}_{3N}\\) … Spannung zwischen Phase L3 und N\n\n\n\\[\n\\underline{U}_{1N} = U_{ss}\n\\tag{2.1}\\]\n\n\n\\[\n\\underline{U}_{2N} = U_{ss} e^{\\frac{2 i \\pi}{3}}\n\\tag{2.2}\\]\n\n\n\\[\n\\underline{U}_{3N} = U_{ss} e^{- \\frac{2 i \\pi}{3}}\n\\tag{2.3}\\]\n\n\n\\[\n\\underline{U}_{12} = \\underline{U}_{1N} - \\underline{U}_{2N}\n\\tag{2.4}\\]\n\n\n\\[\n\\underline{U}_{12} = U_{ss} - U_{ss} e^{\\frac{2 i \\pi}{3}}\n\\tag{2.5}\\]\n\n\n\\[\n\\underline{U}_{23} = \\underline{U}_{2N} - \\underline{U}_{3N}\n\\tag{2.6}\\]\n\n\n\\[\n\\underline{U}_{23} = U_{ss} e^{\\frac{2 i \\pi}{3}} - U_{ss} e^{- \\frac{2 i \\pi}{3}}\n\\tag{2.7}\\]\n\n\n\\[\n\\underline{U}_{31} = - \\underline{U}_{1N} + \\underline{U}_{3N}\n\\tag{2.8}\\]\n\n\n\\[\n\\underline{U}_{31} = - U_{ss} + U_{ss} e^{- \\frac{2 i \\pi}{3}}\n\\tag{2.9}\\]"
+  },
+  {
+    "objectID": "SteuerRegel/01_SteuerRegel.html",
+    "href": "SteuerRegel/01_SteuerRegel.html",
+    "title": "Steuer- und Regelungstechnik",
+    "section": "",
+    "text": "In diesem Kapitel geht es darum wie wir Maschinen und Schaltungen dazu bringen, ein gewünschtes Verhalten zu zeigen. Zum Beipiel soll ein Roboterarm ein Werkstück von der Position A zur Position B stellen. Oder eine Drohne trotz Windes ihre Postion halten.\nWir sprechen von Steuern, wenn wir eine Befehlskette vorgeben und keine Möglichkeit haben auf Störungen einfluss zu nehmen.\nVon Regeln sprechen wir, wenn wir Informationen über das zu erreichende Ziel erhalten und damit auf Störungen eingehen können. Es gibt beim Regeln daher eine Feedbackschleife oder auch Rückkopplung genannt."
+  },
+  {
+    "objectID": "SteuerRegel/01.02_Regelungstechnik.html#warum-wir-regeln",
+    "href": "SteuerRegel/01.02_Regelungstechnik.html#warum-wir-regeln",
+    "title": "3  Regelungstechnik",
+    "section": "3.1 Warum wir regeln",
+    "text": "3.1 Warum wir regeln\n\nViele Aufgaben von Maschinen können auch durch Steuern umgesetzt werden. Eine Regelung erlaubt es aber auf unerwünschte Einflüsse, sogenannte Störgrößen, zu reagieren. Als Beispiel soll der Tempomat, Geschwindigkeitsregelanlage, des Autos dienen. Die Aufgabe des Tempomates ist es, die Geschwindigkeit, Regelgröße, konstant zu halten. Als unerwünschte Einflüsse, Störgrößen, sind alle physikalischen Größen zu betrachten, welche die Geschwindigkeit beeinflussen. Beispiele sind die Steigung der Straße und Wind.\nDie Geschwindigkeit des Autos wird über die Leistung, Stellgröße, bestimmt. Führt die Straße Bergauf wird mehr Leistung für die gleiche Geschwindigkeit benötigt. Es muss also die Leistung laufend angepasst werden, um eine konstante Geschwindigkeit zu erhalten.\nBei einer Steuerung würde eine Leistung eingestellt werden und sich daraus eine Geschwindigkeit ergeben. Dieses wäre jedoch nur für einen voreingestellten Fall identisch mit der gewünschten Geschwindigkeit."
+  },
+  {
+    "objectID": "SteuerRegel/01.02_Regelungstechnik.html#wie-wir-regeln---der-standardregelkreis",
+    "href": "SteuerRegel/01.02_Regelungstechnik.html#wie-wir-regeln---der-standardregelkreis",
+    "title": "3  Regelungstechnik",
+    "section": "3.2 Wie wir regeln - Der Standardregelkreis",
+    "text": "3.2 Wie wir regeln - Der Standardregelkreis\n\nRegeln ist ein Vorgang, bei dem der IST-Wert einer Größe gemessen und, durch Nachstellen der Stellgröße, dem SOLL-Wert angeglichen wird.\nDazu wird das Ergebnis an den Eingang zurück geführt und vom Sollwert subtrahiert. Es entsteht eine Rückkopplung. Durch das negative Vorzeichen handelt es sich um eine Rückkopplung im Spezialfall einer Gegenkopplung. Die Differenz aus dem Sollwert und dem zurückgeführten Istwert ist die sogenannte Regelabweichung welche über den Regler zur Stellgröße wird. Die Stellgröße ist nun die physikalische Größe die die Regelstrecke zum gewünschten Verhalten führt.\n\n\n\n\nAbbildung 3.1: Standardregelkreis\n\n\n\n3.2.1 Reglertypen\nEs kann zwischen zwei Arten von Reglern unterschieden werden. Erstere sind einfache Regler die die Stellgröße nur zwischen verschiedenen Zuständen hin und her Schalten können. Zum Beispiel Ein / Aus. Oder die Gänge eines Automatikgetriebes. Diese Regler werden unstetige Regler genannt. Unstetige Regler können gut mittels Hysteresen beschrieben werden.\nDer zweite Typ von Regler kann die Stellgröße kontinurierlich anpassen. Diese Regler werden stetige Regler genannt. Stetige Regler können gut mit mathematische Gleichungen im Laplacebereich beschrieben werden."
+  },
+  {
+    "objectID": "SteuerRegel/01.02_Regelungstechnik.html#unstetige-regler",
+    "href": "SteuerRegel/01.02_Regelungstechnik.html#unstetige-regler",
+    "title": "3  Regelungstechnik",
+    "section": "3.3 Unstetige Regler",
+    "text": "3.3 Unstetige Regler\nKlassische unstetige Regler sind Bimetallschalter. Diese werden zum Beipiel bei Heizlüftern eingesetzt. TODO\n\n\n\\(T_{ref}\\) … Referenz Temperatur\n\n\n\\(\\Delta T_{ein}\\) … Einschaltschwelle\n\n\n\\(T\\) … Temperatur\n\n\n\\(\\Delta T_{aus}\\) … Ausschaltschwelle\n\n\n\n\n\n\n3.3.1 Zweipunktregler\nDer Zweipunktregler kann, wie der name schon sagt, die Stellgröße zwischen zwei Zuständen schalten. Zum Beipiel die Heizung einschalten wenn die Temperatur zu niedrig ist und wieder Abschalten wenn die Temperatur hoch genug ist.\nDie Schaltpunkte werden über eine Hysterese definiert."
+  },
+  {
+    "objectID": "SteuerRegel/01.02_Regelungstechnik.html#stetige-regler",
+    "href": "SteuerRegel/01.02_Regelungstechnik.html#stetige-regler",
+    "title": "3  Regelungstechnik",
+    "section": "3.4 Stetige Regler",
+    "text": "3.4 Stetige Regler\nFür das Verständnis von stetigen Reglern ist es hilfreich die Regelungstechnik mathematisch zu betrachten, da sich die ein Regler sehr gut mit Formeln beschreiben und erklären lässt. In einem eigenen Kapitel soll bewhandelt werden wie Regler praxisnahe implementiert werden können.\nDer oben gezeigte Regelkreis, Abbildung 3.1, lässt sich mathematisch als Übertragungsfunktion beschreiben. Hier werden ausschließlich SISO (Single Input Single Output) Systeme betrachtet. Das Bedeutet Systeme die einen Eingang und einen Ausgang haben. Jeder Block kann einzeln mit einer Übertragungsfunktion, analog der Vierpoltheorie aus KSN, beschrieben werden. Wie auch in der Vierpoltheorie kann aber auch eine Verschaltung von Blöcken als Übertragungsfunktion beschrieben werden. Ein Block wird in der Regelungstechnik auch als Strecke bezeichnet.\n\n3.4.1 Die Übertragungsfunktion\nDie Übertragungsfunktion Beschreibt den Zusammenhang zwischen Ausgang und Eingang. Um die Mathematik möglichst einfach zu halten wird in der Regelungstechnik im Laplace Bereich gearbeitet. Dadurch ist es nicht notwendig die Diffenrentialgleichung bei physikalischen Systemen, die durch eine Differentialgleichung beschrieben werden, zu lösen.\n\n\n\\[\nV = \\frac{A}{E}\n\\tag{3.1}\\]\n\n\n\\(V\\) … Verarbeitung, die Übertragungsfunktion\n\n\n\\(A\\) … Ausgang\n\n\n\\(E\\) … Eingang\n\n\nGängige Bezeichnungen der Übertragungsfunktion der einzelnen Blöcke ist wie folgt.\n\n\n\\(G\\) … Übertragungsfunktion der zu Regelnden Strecke\n\n\n\\(M\\) … Übertragungsfunktion des Sensors\n\n\n\\(R\\) … Übertragungsfunktion des Reglers\n\n\n\n\n3.4.2 Die Laplace Transformation\noder die Anstrengung der Faulen.\n\n3.4.2.1 Warum Laplace\nUm eine Übertragungsfunktion zu Berechnen muss der Ausgang durch den Eingang dividiert werden. Wird das physikalische System durch eine lineare Gleichung beschrieben ist das sehr Einfach möglich und die Laplace Transformation ist nicht notwendig. Ein Beispiel dafür is das Ohm’sche Gesetz.\n\n\n\\[\nR_{ohm} = \\frac{U}{I}\n\\tag{3.2}\\]\n\n\n\\(I\\) … Strom am Widerstand als Eingang\n\n\n\\(U\\) … Spannung am Widerstand als Ausgang\n\n\n\\(R_{ohm}\\) … Ohm’scher Widerstand als Übertragungsfunktion\n\n\nWird das physikalische System aber durch eine Differentialgleichung beschrieben, wie zum Beispiel bei einem Tiefpass, so wäre es notwendig zuerst die Differentialgleichung zu lösen um die Übertragungsfunktion zu berechnen. Hier bietet die Lapalce Transformation eine erhebliche erleichterung.\n\n\n\nAbbildung 3.2: Tiefpass\n\n\n\n\n\\[\ni_{c}{\\left(t \\right)} = \\frac{\\frac{d}{d t} u_{c}{\\left(t \\right)}}{C}\n\\tag{3.3}\\]\n\n\n\\[\ni_{c}{\\left(t \\right)} = \\frac{- u_{c}{\\left(t \\right)} + u_{in}{\\left(t \\right)}}{R_{ohm}}\n\\tag{3.4}\\]\n\n\nDurch Gleichsetzten von Gleichung 3.3 und Gleichung 3.4 ergibt sich die allgemeine Differenzialgleichung 1. Ordnung für den Tiefpass.\n\n\n\\[\n\\frac{d}{d t} u_{c}{\\left(t \\right)} + \\frac{u_{c}{\\left(t \\right)}}{C R_{ohm}} = \\frac{u_{in}{\\left(t \\right)}}{C R_{ohm}}\n\\tag{3.5}\\]\n\n\n\\(t\\) … Zeit\n\n\n\\(R_{ohm}\\) … Ohmscher Widerstand\n\n\n\\(C\\) … Kapazität\n\n\n\\(u_{in}{\\left(t \\right)}\\) … Eingangsspannung\n\n\n\\(u_{c}{\\left(t \\right)}\\) … Ausgangsspannung\n\n\n\\(i_{c}{\\left(t \\right)}\\) … Strom\n\n\nMüsste nun von dieser Differentialgleichung die Übertragungsfunktion, also \\(G=Ausgang/Eingang\\), angegeben werden, so müsste zunächst die Differentialgleichung gelöst werden.\nDie Laplace Transformation bietet hier einen alternativen Weg der mit weiteren Vorteilen verbunden ist wenn es darum geht Blöcke miteinander zu kombinieren oder Aussagen über das System zu treffen.\n\n\n3.4.2.2 Wie Laplace\nDie tiefere Mathematik der Laplacetransofrmation überlassen wir hier den Mathematiker:innen und den ersten Semstern eines Studiums. Wir wollen die Laplacetransformation lediglich als Werkzeug zur vereinfachung unserer Arbeit verwenden. Dazu benötigen wir folgende Grundregeln.\nVereinfacht ist die Laplacetransformation als eine Übersetzung aus dem Zeitbereich, also mit der varaible \\(t\\), in den Frequenzbereich mit der Variable \\(s\\) zu verstehen. Die Übersetzung erfolgt in vielen Fällen sehr einfach mittels Tabelle. Hier wird die Transformation nur für ausgewählte Signale und mathematische Operationen angeführt.\n\n\n\n\n\n\n\n\nZeitbereich x(t)\nFrequenzbereich X(s)\nBemerkung\n\n\n\n\n\\(\\frac{d \\ x(t)}{d \\ t}\\)\n\\(s \\cdot X(s) - x(0)\\)\nTransformation der Ableitung nach der Zeit, \\(x(0)\\) ist dabei der Wert zum Zeitpunkt Null. Bei einem Kondensator wäre dies zum Beispiel der Ladezustand zu Beginn.\n\n\n\\({ \\int x(t) \\, d \\ t}\\)\n\\(\\frac{1}{s} \\cdot X(s)\\)\nTransformation der Integration über der Zeit\n\n\n\\(\\delta (t)\\)\n\\(1\\)\nTransformation des Impulses\n\n\n\\(\\sigma (t)\\)\n\\(\\frac{1}{s}\\)\nTransformation des Sprunges\n\n\n\\(e^{at}\\)\n\\(\\frac{1}{s -a}\\)\n\n\n\n\\(\\frac{1}{a} e^{\\frac{-t}{a}}\\)\n\\(\\frac{1}{1 + as}\\)\n\n\n\n\n\n\n\n3.4.3 Zusammenschaltung von Blöcken\nWerden Blöcke kombiniert können die resultierenden Übertragungsfunktionen berechnet werden.\nZur vereinfachung kann die Übertragungsfunktion des Sensors mit \\(M=1\\) angenommen werden, \\(M=1\\), wenn dieser im Verhälnis zur Strecke und zum Regler vernachlässigbar ist. Dies ist zum Beispiel der Fall wenn der Sensor viel schneller ist als die Strecke und der Regler. Diese Vorraussetzung ist für viele Systeme gegeben.\nFür den Regelkreis, Abbildung 3.1, ergebn sich folgende Möglichkeiten.\n\n3.4.3.1 Die Führungsübertragungsfunktion\nDie Führungsübertragungsfunktion gibt das Verhältnis zwischen Sollgröße und Istgröße an. Sie Beschreibt damit das Verhalten des Regelkreises mit der Sollgröße als Eingang und der Istgröße als Ausgang. Ist eine Regelstrecke ideal so ist die die Führungsübertragungsfunktion gleich Eins.\n\n\n\\[\nF_{w} = \\frac{G M R}{G M R + 1}\n\\tag{3.6}\\]\n\n\n\\(F_{w}\\) … Führungsübertragungsfunktion\n\n\n\n\n3.4.3.2 Die Schleifenübertragungsfunktion\nDie Schleifenübertragungsfunktion ist die Übertragungsfunktion des offenen Regelkreises, also ohne Rückkopplung und ist im Laplace Bereich eine einfache Multiplikation.\n\n\n\\[\nF_{o} = G R\n\\tag{3.7}\\]\n\n\n\\(F_{o}\\) … Schleifenübertragungsfunktion\n\n\n\n\n3.4.3.3 Die Störübertragungsfunktion\nDie Störübertragungsfunktion beschreibt wie sich die Störgröße auf den Ausgang auswirkt.\n\n\n\\[\nF_{s} = \\frac{G}{F_{o} + 1}\n\\tag{3.8}\\]\n\n\n\\(F_{s}\\) … Störübertragungsfunktion"
+  }
+]
