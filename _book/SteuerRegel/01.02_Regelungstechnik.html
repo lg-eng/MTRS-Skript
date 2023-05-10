@@ -228,16 +228,16 @@ Der zweite Typ von Regler kann die Stellgröße kontinurierlich anpassen. Diese 
 <p>Klassische unstetige Regler sind Bimetallschalter. Diese werden zum Beipiel bei Heizlüftern eingesetzt. <strong>TODO</strong></p>
 <div class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(\Delta T_{aus}\)</span> … Ausschaltschwelle</p>
+<p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(\Delta T_{ein}\)</span> … Einschaltschwelle</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
+<p><span class="math inline">\(T\)</span> … Temperatur</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(T\)</span> … Temperatur</p>
+<p><span class="math inline">\(\Delta T_{aus}\)</span> … Ausschaltschwelle</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="01.02_Regelungstechnik_files/figure-html/cell-3-output-5.png" width="590" height="411"></p>
@@ -263,25 +263,25 @@ V = \frac{A}{E}
 \tag{3.1}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display">
+<p><span class="math inline">\(V\)</span> … Verarbeitung, die Übertragungsfunktion</p>
+</div>
+<div class="cell-output cell-output-display">
 <p><span class="math inline">\(A\)</span> … Ausgang</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(E\)</span> … Eingang</p>
 </div>
-<div class="cell-output cell-output-display">
-<p><span class="math inline">\(V\)</span> … Verarbeitung, die Übertragungsfunktion</p>
-</div>
 </div>
 <p>Gängige Bezeichnungen der Übertragungsfunktion der einzelnen Blöcke ist wie folgt.</p>
 <div class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<p><span class="math inline">\(G\)</span> … Übertragungsfunktion der zu Regelnden Strecke</p>
+</div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(M\)</span> … Übertragungsfunktion des Sensors</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(R\)</span> … Übertragungsfunktion des Reglers</p>
-</div>
-<div class="cell-output cell-output-display">
-<p><span class="math inline">\(G\)</span> … Übertragungsfunktion der zu Regelnden Strecke</p>
 </div>
 </div>
 </section>
@@ -346,10 +346,10 @@ i_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)
 <p><span class="math inline">\(u_{in}{\left(t \right)}\)</span> … Eingangsspannung</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(i_{c}{\left(t \right)}\)</span> … Strom</p>
+<p><span class="math inline">\(u_{c}{\left(t \right)}\)</span> … Ausgangsspannung</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(u_{c}{\left(t \right)}\)</span> … Ausgangsspannung</p>
+<p><span class="math inline">\(i_{c}{\left(t \right)}\)</span> … Strom</p>
 </div>
 </div>
 <p>Müsste nun von dieser Differentialgleichung die Übertragungsfunktion, also <span class="math inline">\(G=Ausgang/Eingang\)</span>, angegeben werden, so müsste zunächst die Differentialgleichung gelöst werden.<br>
