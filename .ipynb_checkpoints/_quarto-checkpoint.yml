@@ -1,0 +1,48 @@
+project:
+  type: book
+
+lang: de
+book:
+    title: "MTRS-Skript"
+    author: "Leopold Götsch"
+#    date: "9/29/2022"
+    chapters:
+    - index.qmd
+    - part: Messtechnik/Messtechnik.qmd
+      chapters:
+        - Messtechnik/Frequenz_und_Periode.ipynb  
+    - part: Drehstrom/02_Drehstrom.qmd
+      chapters: 
+        - Drehstrom/02.01_Grundlagen.qmd
+    - part: SteuerRegel/01_SteuerRegel.qmd
+      chapters: 
+        - SteuerRegel/01.02_Regelungstechnik.qmd
+#        - SteuerRegel/Laplace.qmd
+    - references.qmd
+    
+    
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    default-image-extension: svg
+  pdf:
+    documentclass: scrreprt
+    default-image-extension: pdf
+  docx:
+    toc: true
+    number-sections: true
+
+downloads: [pdf]
+sidebar:
+    pinned: true
+    
+execute:
+    echo: false
+    output: true
+    
+ 
+
+
