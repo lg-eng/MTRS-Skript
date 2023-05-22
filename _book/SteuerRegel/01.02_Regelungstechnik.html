@@ -228,6 +228,9 @@ Der zweite Typ von Regler kann die Stellgröße kontinurierlich anpassen. Diese 
 <p>Klassische unstetige Regler sind Bimetallschalter. Diese werden zum Beipiel bei Heizlüftern eingesetzt. <strong>TODO</strong></p>
 <div class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
+<p><span class="math inline">\(\Delta T_{aus}\)</span> … Ausschaltschwelle</p>
+</div>
+<div class="cell-output cell-output-display">
 <p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
 </div>
 <div class="cell-output cell-output-display">
@@ -235,9 +238,6 @@ Der zweite Typ von Regler kann die Stellgröße kontinurierlich anpassen. Diese 
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(T\)</span> … Temperatur</p>
-</div>
-<div class="cell-output cell-output-display">
-<p><span class="math inline">\(\Delta T_{aus}\)</span> … Ausschaltschwelle</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="01.02_Regelungstechnik_files/figure-html/cell-3-output-5.png" width="590" height="411"></p>
@@ -298,10 +298,10 @@ R_{ohm} = \frac{U}{I}
 \tag{3.2}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(I\)</span> … Strom am Widerstand als Eingang</p>
+<p><span class="math inline">\(U\)</span> … Spannung am Widerstand als Ausgang</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(U\)</span> … Spannung am Widerstand als Ausgang</p>
+<p><span class="math inline">\(I\)</span> … Strom am Widerstand als Eingang</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(R_{ohm}\)</span> … Ohm’scher Widerstand als Übertragungsfunktion</p>
@@ -334,22 +334,22 @@ i_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)
 \tag{3.5}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display">
+<p><span class="math inline">\(C\)</span> … Kapazität</p>
+</div>
+<div class="cell-output cell-output-display">
 <p><span class="math inline">\(t\)</span> … Zeit</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(R_{ohm}\)</span> … Ohmscher Widerstand</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(C\)</span> … Kapazität</p>
-</div>
-<div class="cell-output cell-output-display">
-<p><span class="math inline">\(u_{in}{\left(t \right)}\)</span> … Eingangsspannung</p>
-</div>
-<div class="cell-output cell-output-display">
 <p><span class="math inline">\(u_{c}{\left(t \right)}\)</span> … Ausgangsspannung</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(i_{c}{\left(t \right)}\)</span> … Strom</p>
+</div>
+<div class="cell-output cell-output-display">
+<p><span class="math inline">\(u_{in}{\left(t \right)}\)</span> … Eingangsspannung</p>
 </div>
 </div>
 <p>Müsste nun von dieser Differentialgleichung die Übertragungsfunktion, also <span class="math inline">\(G=Ausgang/Eingang\)</span>, angegeben werden, so müsste zunächst die Differentialgleichung gelöst werden.<br>
