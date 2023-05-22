@@ -6,14 +6,19 @@ book:
     title: "MTRS-Skript"
     author: "Leopold Götsch"
 #    date: "9/29/2022"
+    downloads: [pdf]
+    repo-url: "https://github.com/lg-eng/MTRS-Skript"
+    #issue-url: "https://github.com/lg-eng/MTRS-Skript/issues"
+    cookie-consent:
+      type: express
     chapters:
     - index.qmd
-    - part: Messtechnik/Messtechnik.qmd
-      chapters:
-        - Messtechnik/Frequenz_und_Periode.ipynb  
-    - part: Drehstrom/02_Drehstrom.qmd
-      chapters: 
-        - Drehstrom/02.01_Grundlagen.qmd
+    #- part: Messtechnik/Messtechnik.qmd
+    #  chapters:
+    #    - Messtechnik/Frequenz_und_Periode.ipynb  
+    #- part: Drehstrom/02_Drehstrom.qmd
+    #  chapters: 
+    #    - Drehstrom/02.01_Grundlagen.qmd
     - part: SteuerRegel/01_SteuerRegel.qmd
       chapters: 
         - SteuerRegel/01.02_Regelungstechnik.qmd
@@ -26,14 +31,17 @@ bibliography: references.bib
 
 format:
   html:
+    toc: true
+    toc-depth: 4
+    toc-expand: 4
     theme: cosmo
     default-image-extension: svg
   pdf:
     documentclass: scrreprt
     default-image-extension: pdf
-  docx:
-    toc: true
-    number-sections: true
+  # docx:
+  #   toc: true
+  #   number-sections: true
 
 downloads: [pdf]
 sidebar:

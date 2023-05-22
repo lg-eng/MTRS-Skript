@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MTRS-Skript - 3&nbsp; Regelungstechnik</title>
+<title>MTRS-Skript - 1&nbsp; Regelungstechnik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,6 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <link href="../references.html" rel="next">
 <link href="../SteuerRegel/01_SteuerRegel.html" rel="prev">
+<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -61,6 +63,22 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"express",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  });
+});
+</script> 
+  
+
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -71,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -85,6 +103,10 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">MTRS-Skript</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lg-eng/MTRS-Skript" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="../MTRS-Skript.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+</div>
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -101,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../Messtechnik/Messtechnik.html" class="sidebar-item-text sidebar-link">Messtechnik und Sensorik</a>
+            <a href="../SteuerRegel/01_SteuerRegel.html" class="sidebar-item-text sidebar-link">Steuer- und Regelungstechnik</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -109,37 +131,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Messtechnik/Frequenz_und_Periode.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Messung der Zeit, Frequenz und Periode</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../Drehstrom/02_Drehstrom.html" class="sidebar-item-text sidebar-link">Drehstrom</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Drehstrom/02.01_Grundlagen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mathematische Grundlagen der 3-Pahsen-Drehstromtechnik</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../SteuerRegel/01_SteuerRegel.html" class="sidebar-item-text sidebar-link">Steuer- und Regelungstechnik</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></a>
+  <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></a>
   </div>
 </li>
       </ul>
@@ -158,20 +150,29 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#warum-wir-regeln" id="toc-warum-wir-regeln" class="nav-link active" data-scroll-target="#warum-wir-regeln"><span class="toc-section-number">3.1</span>  Warum wir regeln</a></li>
-  <li><a href="#wie-wir-regeln---der-standardregelkreis" id="toc-wie-wir-regeln---der-standardregelkreis" class="nav-link" data-scroll-target="#wie-wir-regeln---der-standardregelkreis"><span class="toc-section-number">3.2</span>  Wie wir regeln - Der Standardregelkreis</a>
-  <ul class="collapse">
-  <li><a href="#reglertypen" id="toc-reglertypen" class="nav-link" data-scroll-target="#reglertypen"><span class="toc-section-number">3.2.1</span>  Reglertypen</a></li>
+  <li><a href="#warum-wir-regeln" id="toc-warum-wir-regeln" class="nav-link active" data-scroll-target="#warum-wir-regeln"><span class="toc-section-number">1.1</span>  Warum wir regeln</a></li>
+  <li><a href="#wie-wir-regeln---der-standardregelkreis" id="toc-wie-wir-regeln---der-standardregelkreis" class="nav-link" data-scroll-target="#wie-wir-regeln---der-standardregelkreis"><span class="toc-section-number">1.2</span>  Wie wir regeln - Der Standardregelkreis</a>
+  <ul>
+  <li><a href="#reglertypen" id="toc-reglertypen" class="nav-link" data-scroll-target="#reglertypen"><span class="toc-section-number">1.2.1</span>  Reglertypen</a></li>
   </ul></li>
-  <li><a href="#unstetige-regler" id="toc-unstetige-regler" class="nav-link" data-scroll-target="#unstetige-regler"><span class="toc-section-number">3.3</span>  Unstetige Regler</a>
-  <ul class="collapse">
-  <li><a href="#zweipunktregler" id="toc-zweipunktregler" class="nav-link" data-scroll-target="#zweipunktregler"><span class="toc-section-number">3.3.1</span>  Zweipunktregler</a></li>
+  <li><a href="#unstetige-regler" id="toc-unstetige-regler" class="nav-link" data-scroll-target="#unstetige-regler"><span class="toc-section-number">1.3</span>  Unstetige Regler</a>
+  <ul>
+  <li><a href="#zweipunktregler" id="toc-zweipunktregler" class="nav-link" data-scroll-target="#zweipunktregler"><span class="toc-section-number">1.3.1</span>  Zweipunktregler</a></li>
   </ul></li>
-  <li><a href="#stetige-regler" id="toc-stetige-regler" class="nav-link" data-scroll-target="#stetige-regler"><span class="toc-section-number">3.4</span>  Stetige Regler</a>
+  <li><a href="#stetige-regler" id="toc-stetige-regler" class="nav-link" data-scroll-target="#stetige-regler"><span class="toc-section-number">1.4</span>  Stetige Regler</a>
+  <ul>
+  <li><a href="#die-übertragungsfunktion" id="toc-die-übertragungsfunktion" class="nav-link" data-scroll-target="#die-übertragungsfunktion"><span class="toc-section-number">1.4.1</span>  Die Übertragungsfunktion</a></li>
+  <li><a href="#die-laplace-transformation" id="toc-die-laplace-transformation" class="nav-link" data-scroll-target="#die-laplace-transformation"><span class="toc-section-number">1.4.2</span>  Die Laplace Transformation</a>
   <ul class="collapse">
-  <li><a href="#die-übertragungsfunktion" id="toc-die-übertragungsfunktion" class="nav-link" data-scroll-target="#die-übertragungsfunktion"><span class="toc-section-number">3.4.1</span>  Die Übertragungsfunktion</a></li>
-  <li><a href="#die-laplace-transformation" id="toc-die-laplace-transformation" class="nav-link" data-scroll-target="#die-laplace-transformation"><span class="toc-section-number">3.4.2</span>  Die Laplace Transformation</a></li>
-  <li><a href="#zusammenschaltung-von-blöcken" id="toc-zusammenschaltung-von-blöcken" class="nav-link" data-scroll-target="#zusammenschaltung-von-blöcken"><span class="toc-section-number">3.4.3</span>  Zusammenschaltung von Blöcken</a></li>
+  <li><a href="#warum-laplace" id="toc-warum-laplace" class="nav-link" data-scroll-target="#warum-laplace"><span class="toc-section-number">1.4.2.1</span>  Warum Laplace</a></li>
+  <li><a href="#wie-laplace" id="toc-wie-laplace" class="nav-link" data-scroll-target="#wie-laplace"><span class="toc-section-number">1.4.2.2</span>  Wie Laplace</a></li>
+  </ul></li>
+  <li><a href="#zusammenschaltung-von-blöcken" id="toc-zusammenschaltung-von-blöcken" class="nav-link" data-scroll-target="#zusammenschaltung-von-blöcken"><span class="toc-section-number">1.4.3</span>  Zusammenschaltung von Blöcken</a>
+  <ul class="collapse">
+  <li><a href="#die-führungsübertragungsfunktion" id="toc-die-führungsübertragungsfunktion" class="nav-link" data-scroll-target="#die-führungsübertragungsfunktion"><span class="toc-section-number">1.4.3.1</span>  Die Führungsübertragungsfunktion</a></li>
+  <li><a href="#die-schleifenübertragungsfunktion" id="toc-die-schleifenübertragungsfunktion" class="nav-link" data-scroll-target="#die-schleifenübertragungsfunktion"><span class="toc-section-number">1.4.3.2</span>  Die Schleifenübertragungsfunktion</a></li>
+  <li><a href="#die-störübertragungsfunktion" id="toc-die-störübertragungsfunktion" class="nav-link" data-scroll-target="#die-störübertragungsfunktion"><span class="toc-section-number">1.4.3.3</span>  Die Störübertragungsfunktion</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -181,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></h1>
 </div>
 
 
@@ -197,16 +198,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>In diesem Teil des Skriptums geht es darum wie wir Maschinen und Schaltungen dazu bringen, trotz Störeinflüssen das gewünsche Verhalten zu Zeigen. Zum Beipiel soll ein Tempomant des Autos die Geschwindigkeit halten, trotz starkem Gegenwindes. Es werden die Grundlagen der Regelungstechnik vermittelt. Dabei wird das theoretische Wissen anhand konkreter Anwendungen erarbeitet.</p>
-<section id="warum-wir-regeln" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="warum-wir-regeln"><span class="header-section-number">3.1</span> Warum wir regeln</h2>
+<section id="warum-wir-regeln" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="warum-wir-regeln"><span class="header-section-number">1.1</span> Warum wir regeln</h2>
 <div style="text-align: justify">
-<p>Viele Aufgaben von Maschinen können auch durch Steuern umgesetzt werden. Eine Regelung erlaubt es aber auf unerwünschte Einflüsse, sogenannte Störgrößen, zu reagieren. Als Beispiel soll der Tempomat, Geschwindigkeitsregelanlage, des Autos dienen. Die Aufgabe des Tempomates ist es, die Geschwindigkeit, Regelgröße, konstant zu halten. Als unerwünschte Einflüsse, Störgrößen, sind alle physikalischen Größen zu betrachten, welche die Geschwindigkeit beeinflussen. Beispiele sind die Steigung der Straße und Wind.<br>
+<p>Viele Aufgaben von Maschinen können auch durch Steuern umgesetzt werden. Eine Regelung erlaubt es aber, auf unerwünschte Einflüsse, sogenannte Störgrößen, zu reagieren. Als Beispiel soll der Tempomat, Geschwindigkeitsregelanlage, des Autos dienen. Die Aufgabe des Tempomates ist es, die Geschwindigkeit, Regelgröße, konstant zu halten. Als unerwünschte Einflüsse, Störgrößen, sind alle physikalischen Größen zu betrachten, welche die Geschwindigkeit beeinflussen. Beispiele sind die Steigung der Straße und Wind.<br>
 Die Geschwindigkeit des Autos wird über die Leistung, Stellgröße, bestimmt. Führt die Straße Bergauf wird mehr Leistung für die gleiche Geschwindigkeit benötigt. Es muss also die Leistung laufend angepasst werden, um eine konstante Geschwindigkeit zu erhalten.<br>
 Bei einer Steuerung würde eine Leistung eingestellt werden und sich daraus eine Geschwindigkeit ergeben. Dieses wäre jedoch nur für einen voreingestellten Fall identisch mit der gewünschten Geschwindigkeit.</p>
 </div>
 </section>
-<section id="wie-wir-regeln---der-standardregelkreis" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="wie-wir-regeln---der-standardregelkreis"><span class="header-section-number">3.2</span> Wie wir regeln - Der Standardregelkreis</h2>
+<section id="wie-wir-regeln---der-standardregelkreis" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="wie-wir-regeln---der-standardregelkreis"><span class="header-section-number">1.2</span> Wie wir regeln - Der Standardregelkreis</h2>
 <div style="text-align: justify">
 <p>Regeln ist ein Vorgang, bei dem der IST-Wert einer Größe gemessen und, durch Nachstellen der Stellgröße, dem SOLL-Wert angeglichen wird.<br>
 Dazu wird das Ergebnis an den Eingang zurück geführt und vom Sollwert subtrahiert. Es entsteht eine Rückkopplung. Durch das negative Vorzeichen handelt es sich um eine Rückkopplung im Spezialfall einer Gegenkopplung. Die Differenz aus dem Sollwert und dem zurückgeführten Istwert ist die sogenannte Regelabweichung welche über den Regler zur Stellgröße wird. Die Stellgröße ist nun die physikalische Größe die die Regelstrecke zum gewünschten Verhalten führt.</p>
@@ -214,130 +215,130 @@ Dazu wird das Ergebnis an den Eingang zurück geführt und vom Sollwert subtrahi
 <div id="fig-Regelkreis" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/Vollsändiger_Regelkreis.svg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Abbildung&nbsp;3.1: Standardregelkreis</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Abbildung&nbsp;1.1: Standardregelkreis</figcaption><p></p>
 </figure>
 </div>
-<section id="reglertypen" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="reglertypen"><span class="header-section-number">3.2.1</span> Reglertypen</h3>
+<section id="reglertypen" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="reglertypen"><span class="header-section-number">1.2.1</span> Reglertypen</h3>
 <p>Es kann zwischen zwei Arten von Reglern unterschieden werden. Erstere sind einfache Regler die die Stellgröße nur zwischen verschiedenen Zuständen hin und her Schalten können. Zum Beispiel Ein / Aus. Oder die Gänge eines Automatikgetriebes. Diese Regler werden <strong>unstetige Regler</strong> genannt. Unstetige Regler können gut mittels Hysteresen beschrieben werden.<br>
 Der zweite Typ von Regler kann die Stellgröße kontinurierlich anpassen. Diese Regler werden <strong>stetige Regler</strong> genannt. Stetige Regler können gut mit mathematische Gleichungen im Laplacebereich beschrieben werden.</p>
 </section>
 </section>
-<section id="unstetige-regler" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="unstetige-regler"><span class="header-section-number">3.3</span> Unstetige Regler</h2>
+<section id="unstetige-regler" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="unstetige-regler"><span class="header-section-number">1.3</span> Unstetige Regler</h2>
 <p>Klassische unstetige Regler sind Bimetallschalter. Diese werden zum Beipiel bei Heizlüftern eingesetzt. <strong>TODO</strong></p>
 <div class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(\Delta T_{aus}\)</span> … Ausschaltschwelle</p>
-</div>
-<div class="cell-output cell-output-display">
-<p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
+<p><span class="math inline">\(T\)</span> … Temperatur</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(\Delta T_{ein}\)</span> … Einschaltschwelle</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(T\)</span> … Temperatur</p>
+<p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="01.02_Regelungstechnik_files/figure-html/cell-3-output-5.png" width="590" height="411"></p>
+<p><span class="math inline">\(\Delta T_{aus}\)</span> … Ausschaltschwelle</p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="01.02_Regelungstechnik_files/figure-html/cell-3-output-5.png" width="588" height="429"></p>
 </div>
 </div>
-<section id="zweipunktregler" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="zweipunktregler"><span class="header-section-number">3.3.1</span> Zweipunktregler</h3>
-<p>Der Zweipunktregler kann, wie der name schon sagt, die Stellgröße zwischen zwei Zuständen schalten. Zum Beipiel die Heizung einschalten wenn die Temperatur zu niedrig ist und wieder Abschalten wenn die Temperatur hoch genug ist.<br>
+<section id="zweipunktregler" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="zweipunktregler"><span class="header-section-number">1.3.1</span> Zweipunktregler</h3>
+<p>Der Zweipunktregler kann, wie der Name schon sagt, die Stellgröße zwischen zwei Zuständen schalten. Zum Beipiel die Heizung einschalten wenn die Temperatur zu niedrig ist und wieder Abschalten wenn die Temperatur hoch genug ist.<br>
 Die Schaltpunkte werden über eine Hysterese definiert.</p>
 </section>
 </section>
-<section id="stetige-regler" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="stetige-regler"><span class="header-section-number">3.4</span> Stetige Regler</h2>
+<section id="stetige-regler" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="stetige-regler"><span class="header-section-number">1.4</span> Stetige Regler</h2>
 <p>Für das Verständnis von stetigen Reglern ist es hilfreich die Regelungstechnik mathematisch zu betrachten, da sich die ein Regler sehr gut mit Formeln beschreiben und erklären lässt. In einem eigenen Kapitel soll bewhandelt werden wie Regler praxisnahe implementiert werden können.<br>
-Der oben gezeigte Regelkreis, <a href="#fig-Regelkreis">Abbildung&nbsp;<span>3.1</span></a>, lässt sich mathematisch als Übertragungsfunktion beschreiben. Hier werden ausschließlich SISO (Single Input Single Output) Systeme betrachtet. Das Bedeutet Systeme die einen Eingang und einen Ausgang haben. Jeder Block kann einzeln mit einer Übertragungsfunktion, analog der Vierpoltheorie aus KSN, beschrieben werden. Wie auch in der Vierpoltheorie kann aber auch eine Verschaltung von Blöcken als Übertragungsfunktion beschrieben werden. Ein Block wird in der Regelungstechnik auch als <strong>Strecke</strong> bezeichnet.</p>
-<section id="die-übertragungsfunktion" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="die-übertragungsfunktion"><span class="header-section-number">3.4.1</span> Die Übertragungsfunktion</h3>
+Der oben gezeigte Regelkreis, <a href="#fig-Regelkreis">Abbildung&nbsp;<span>1.1</span></a>, lässt sich mathematisch als Übertragungsfunktion beschreiben. Hier werden ausschließlich SISO (Single Input Single Output) Systeme betrachtet. Das Bedeutet Systeme die einen Eingang und einen Ausgang haben. Jeder Block kann einzeln mit einer Übertragungsfunktion, analog der Vierpoltheorie aus KSN, beschrieben werden. Wie auch in der Vierpoltheorie kann aber auch eine Verschaltung von Blöcken als Übertragungsfunktion beschrieben werden. Ein Block wird in der Regelungstechnik auch als <strong>Strecke</strong> bezeichnet.</p>
+<section id="die-übertragungsfunktion" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="die-übertragungsfunktion"><span class="header-section-number">1.4.1</span> Die Übertragungsfunktion</h3>
 <p>Die Übertragungsfunktion Beschreibt den Zusammenhang zwischen Ausgang und Eingang. Um die Mathematik möglichst einfach zu halten wird in der Regelungstechnik im Laplace Bereich gearbeitet. Dadurch ist es nicht notwendig die Diffenrentialgleichung bei physikalischen Systemen, die durch eine Differentialgleichung beschrieben werden, zu lösen.</p>
 <div class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <p><span id="eq-EVA"><span class="math display">\[
 V = \frac{A}{E}
-\tag{3.1}\]</span></span></p>
+\tag{1.1}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(V\)</span> … Verarbeitung, die Übertragungsfunktion</p>
+<p><span class="math inline">\(E\)</span> … Eingang</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(A\)</span> … Ausgang</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(E\)</span> … Eingang</p>
+<p><span class="math inline">\(V\)</span> … Verarbeitung, die Übertragungsfunktion</p>
 </div>
 </div>
 <p>Gängige Bezeichnungen der Übertragungsfunktion der einzelnen Blöcke ist wie folgt.</p>
 <div class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<p><span class="math inline">\(R\)</span> … Übertragungsfunktion des Reglers</p>
+</div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(G\)</span> … Übertragungsfunktion der zu Regelnden Strecke</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(M\)</span> … Übertragungsfunktion des Sensors</p>
 </div>
-<div class="cell-output cell-output-display">
-<p><span class="math inline">\(R\)</span> … Übertragungsfunktion des Reglers</p>
-</div>
 </div>
 </section>
-<section id="die-laplace-transformation" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="die-laplace-transformation"><span class="header-section-number">3.4.2</span> Die Laplace Transformation</h3>
+<section id="die-laplace-transformation" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="die-laplace-transformation"><span class="header-section-number">1.4.2</span> Die Laplace Transformation</h3>
 <p>oder die Anstrengung der Faulen.</p>
-<section id="warum-laplace" class="level4" data-number="3.4.2.1">
-<h4 data-number="3.4.2.1" class="anchored" data-anchor-id="warum-laplace"><span class="header-section-number">3.4.2.1</span> Warum Laplace</h4>
+<section id="warum-laplace" class="level4" data-number="1.4.2.1">
+<h4 data-number="1.4.2.1" class="anchored" data-anchor-id="warum-laplace"><span class="header-section-number">1.4.2.1</span> Warum Laplace</h4>
 <p>Um eine Übertragungsfunktion zu Berechnen muss der Ausgang durch den Eingang dividiert werden. Wird das physikalische System durch eine lineare Gleichung beschrieben ist das sehr Einfach möglich und die Laplace Transformation ist nicht notwendig. Ein Beispiel dafür is das Ohm’sche Gesetz.</p>
 <div class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <p><span id="eq-Ohm_eq"><span class="math display">\[
 R_{ohm} = \frac{U}{I}
-\tag{3.2}\]</span></span></p>
+\tag{1.2}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(U\)</span> … Spannung am Widerstand als Ausgang</p>
+<p><span class="math inline">\(R_{ohm}\)</span> … Ohm’scher Widerstand als Übertragungsfunktion</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(I\)</span> … Strom am Widerstand als Eingang</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(R_{ohm}\)</span> … Ohm’scher Widerstand als Übertragungsfunktion</p>
+<p><span class="math inline">\(U\)</span> … Spannung am Widerstand als Ausgang</p>
 </div>
 </div>
 <p>Wird das physikalische System aber durch eine Differentialgleichung beschrieben, wie zum Beispiel bei einem Tiefpass, so wäre es notwendig zuerst die Differentialgleichung zu lösen um die Übertragungsfunktion zu berechnen. Hier bietet die Lapalce Transformation eine erhebliche erleichterung.</p>
 <div id="fig-Tiefpass" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/Tiefpass.svg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Abbildung&nbsp;3.2: Tiefpass</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Abbildung&nbsp;1.2: Tiefpass</figcaption><p></p>
 </figure>
 </div>
 <div class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <p><span id="eq-ict_eq1"><span class="math display">\[
 i_{c}{\left(t \right)} = \frac{\frac{d}{d t} u_{c}{\left(t \right)}}{C}
-\tag{3.3}\]</span></span></p>
+\tag{1.3}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span id="eq-ict_eq2"><span class="math display">\[
 i_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)}}{R_{ohm}}
-\tag{3.4}\]</span></span></p>
+\tag{1.4}\]</span></span></p>
 </div>
 </div>
-<p>Durch Gleichsetzten von <a href="#eq-ict_eq1">Gleichung&nbsp;<span>3.3</span></a> und <a href="#eq-ict_eq2">Gleichung&nbsp;<span>3.4</span></a> ergibt sich die allgemeine Differenzialgleichung 1. Ordnung für den Tiefpass.</p>
+<p>Durch Gleichsetzten von <a href="#eq-ict_eq1">Gleichung&nbsp;<span>1.3</span></a> und <a href="#eq-ict_eq2">Gleichung&nbsp;<span>1.4</span></a> ergibt sich die allgemeine Differenzialgleichung 1. Ordnung für den Tiefpass.</p>
 <div class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <p><span id="eq-Dummy"><span class="math display">\[
 \frac{d}{d t} u_{c}{\left(t \right)} + \frac{u_{c}{\left(t \right)}}{C R_{ohm}} = \frac{u_{in}{\left(t \right)}}{C R_{ohm}}
-\tag{3.5}\]</span></span></p>
-</div>
-<div class="cell-output cell-output-display">
-<p><span class="math inline">\(C\)</span> … Kapazität</p>
+\tag{1.5}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(t\)</span> … Zeit</p>
+</div>
+<div class="cell-output cell-output-display">
+<p><span class="math inline">\(C\)</span> … Kapazität</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(R_{ohm}\)</span> … Ohmscher Widerstand</p>
@@ -355,8 +356,8 @@ i_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)
 <p>Müsste nun von dieser Differentialgleichung die Übertragungsfunktion, also <span class="math inline">\(G=Ausgang/Eingang\)</span>, angegeben werden, so müsste zunächst die Differentialgleichung gelöst werden.<br>
 Die Laplace Transformation bietet hier einen alternativen Weg der mit weiteren Vorteilen verbunden ist wenn es darum geht Blöcke miteinander zu kombinieren oder Aussagen über das System zu treffen.</p>
 </section>
-<section id="wie-laplace" class="level4" data-number="3.4.2.2">
-<h4 data-number="3.4.2.2" class="anchored" data-anchor-id="wie-laplace"><span class="header-section-number">3.4.2.2</span> Wie Laplace</h4>
+<section id="wie-laplace" class="level4" data-number="1.4.2.2">
+<h4 data-number="1.4.2.2" class="anchored" data-anchor-id="wie-laplace"><span class="header-section-number">1.4.2.2</span> Wie Laplace</h4>
 <p>Die tiefere Mathematik der Laplacetransofrmation überlassen wir hier den Mathematiker:innen und den ersten Semstern eines Studiums. Wir wollen die Laplacetransformation lediglich als Werkzeug zur vereinfachung unserer Arbeit verwenden. Dazu benötigen wir folgende Grundregeln.<br>
 Vereinfacht ist die Laplacetransformation als eine Übersetzung aus dem Zeitbereich, also mit der varaible <span class="math inline">\(t\)</span>, in den Frequenzbereich mit der Variable <span class="math inline">\(s\)</span> zu verstehen. Die Übersetzung erfolgt in vielen Fällen sehr einfach mittels Tabelle. Hier wird die Transformation nur für ausgewählte Signale und mathematische Operationen angeführt.</p>
 <table class="table">
@@ -407,47 +408,47 @@ Vereinfacht ist die Laplacetransformation als eine Übersetzung aus dem Zeitbere
 </table>
 </section>
 </section>
-<section id="zusammenschaltung-von-blöcken" class="level3" data-number="3.4.3">
-<h3 data-number="3.4.3" class="anchored" data-anchor-id="zusammenschaltung-von-blöcken"><span class="header-section-number">3.4.3</span> Zusammenschaltung von Blöcken</h3>
+<section id="zusammenschaltung-von-blöcken" class="level3" data-number="1.4.3">
+<h3 data-number="1.4.3" class="anchored" data-anchor-id="zusammenschaltung-von-blöcken"><span class="header-section-number">1.4.3</span> Zusammenschaltung von Blöcken</h3>
 <p>Werden Blöcke kombiniert können die resultierenden Übertragungsfunktionen berechnet werden.<br>
 Zur vereinfachung kann die Übertragungsfunktion des Sensors mit <span class="math inline">\(M=1\)</span> angenommen werden, <span class="math inline">\(M=1\)</span>, wenn dieser im Verhälnis zur Strecke und zum Regler vernachlässigbar ist. Dies ist zum Beispiel der Fall wenn der Sensor viel schneller ist als die Strecke und der Regler. Diese Vorraussetzung ist für viele Systeme gegeben.</p>
-<p>Für den Regelkreis, <a href="#fig-Regelkreis">Abbildung&nbsp;<span>3.1</span></a>, ergebn sich folgende Möglichkeiten.</p>
-<section id="die-führungsübertragungsfunktion" class="level4" data-number="3.4.3.1">
-<h4 data-number="3.4.3.1" class="anchored" data-anchor-id="die-führungsübertragungsfunktion"><span class="header-section-number">3.4.3.1</span> Die Führungsübertragungsfunktion</h4>
+<p>Für den Regelkreis, <a href="#fig-Regelkreis">Abbildung&nbsp;<span>1.1</span></a>, ergebn sich folgende Möglichkeiten.</p>
+<section id="die-führungsübertragungsfunktion" class="level4" data-number="1.4.3.1">
+<h4 data-number="1.4.3.1" class="anchored" data-anchor-id="die-führungsübertragungsfunktion"><span class="header-section-number">1.4.3.1</span> Die Führungsübertragungsfunktion</h4>
 <p>Die Führungsübertragungsfunktion gibt das Verhältnis zwischen Sollgröße und Istgröße an. Sie Beschreibt damit das Verhalten des Regelkreises mit der Sollgröße als Eingang und der Istgröße als Ausgang. Ist eine Regelstrecke ideal so ist die die Führungsübertragungsfunktion gleich Eins.</p>
 <div class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <p><span id="eq-Fw_eq"><span class="math display">\[
 F_{w} = \frac{G M R}{G M R + 1}
-\tag{3.6}\]</span></span></p>
+\tag{1.6}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(F_{w}\)</span> … Führungsübertragungsfunktion</p>
 </div>
 </div>
 </section>
-<section id="die-schleifenübertragungsfunktion" class="level4" data-number="3.4.3.2">
-<h4 data-number="3.4.3.2" class="anchored" data-anchor-id="die-schleifenübertragungsfunktion"><span class="header-section-number">3.4.3.2</span> Die Schleifenübertragungsfunktion</h4>
+<section id="die-schleifenübertragungsfunktion" class="level4" data-number="1.4.3.2">
+<h4 data-number="1.4.3.2" class="anchored" data-anchor-id="die-schleifenübertragungsfunktion"><span class="header-section-number">1.4.3.2</span> Die Schleifenübertragungsfunktion</h4>
 <p>Die Schleifenübertragungsfunktion ist die Übertragungsfunktion des offenen Regelkreises, also ohne Rückkopplung und ist im Laplace Bereich eine einfache Multiplikation.</p>
 <div class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <p><span id="eq-Dummy"><span class="math display">\[
 F_{o} = G R
-\tag{3.7}\]</span></span></p>
+\tag{1.7}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(F_{o}\)</span> … Schleifenübertragungsfunktion</p>
 </div>
 </div>
 </section>
-<section id="die-störübertragungsfunktion" class="level4" data-number="3.4.3.3">
-<h4 data-number="3.4.3.3" class="anchored" data-anchor-id="die-störübertragungsfunktion"><span class="header-section-number">3.4.3.3</span> Die Störübertragungsfunktion</h4>
+<section id="die-störübertragungsfunktion" class="level4" data-number="1.4.3.3">
+<h4 data-number="1.4.3.3" class="anchored" data-anchor-id="die-störübertragungsfunktion"><span class="header-section-number">1.4.3.3</span> Die Störübertragungsfunktion</h4>
 <p>Die Störübertragungsfunktion beschreibt wie sich die Störgröße auf den Ausgang auswirkt.</p>
 <div class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <p><span id="eq-Dummy"><span class="math display">\[
 F_{s} = \frac{G}{F_{o} + 1}
-\tag{3.8}\]</span></span></p>
+\tag{1.8}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(F_{s}\)</span> … Störübertragungsfunktion</p>
@@ -606,6 +607,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center"><div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+  </div>
+</footer>
 
 
 

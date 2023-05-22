@@ -15,12 +15,18 @@ deltaTaus = MySymbol('\Delta T_aus',description='Ausschaltschwelle')
 T.value = np.arange(15,25,0.01)
 Tref.value = 20
 
-plt.plot(T.value,-np.sign(T.value-Tref.value))
+fig, ax = plt.subplots()
+ax.plot(T.value,-np.sign(T.value-Tref.value))
+ax.set_xlabel('Temperatur in °C')
+ax.set_ylabel('Schaltzustand')
+ax.set_yticks([-1,1])
+ax.set_yticklabels(['Off','On'])
+#plt.grid()
 
 QBookHelpers.print_description({T,Tref,deltaTein,deltaTaus})
 
 ```
 
 ### Zweipunktregler
-Der Zweipunktregler kann, wie der name schon sagt, die Stellgröße zwischen zwei Zuständen schalten. Zum Beipiel die Heizung einschalten wenn die Temperatur zu niedrig ist und wieder Abschalten wenn die Temperatur hoch genug ist.  
+Der Zweipunktregler kann, wie der Name schon sagt, die Stellgröße zwischen zwei Zuständen schalten. Zum Beipiel die Heizung einschalten wenn die Temperatur zu niedrig ist und wieder Abschalten wenn die Temperatur hoch genug ist.  
 Die Schaltpunkte werden über eine Hysterese definiert.

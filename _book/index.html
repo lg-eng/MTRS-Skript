@@ -31,7 +31,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Messtechnik/Messtechnik.html" rel="next">
+<link href="./SteuerRegel/01_SteuerRegel.html" rel="next">
+<script src="site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -61,6 +63,22 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"express",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  });
+});
+</script> 
+  
+
 
 </head>
 
@@ -84,6 +102,10 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">MTRS-Skript</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lg-eng/MTRS-Skript" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="./MTRS-Skript.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+</div>
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -100,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./Messtechnik/Messtechnik.html" class="sidebar-item-text sidebar-link">Messtechnik und Sensorik</a>
+            <a href="./SteuerRegel/01_SteuerRegel.html" class="sidebar-item-text sidebar-link">Steuer- und Regelungstechnik</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -108,37 +130,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Messtechnik/Frequenz_und_Periode.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Messung der Zeit, Frequenz und Periode</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./Drehstrom/02_Drehstrom.html" class="sidebar-item-text sidebar-link">Drehstrom</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Drehstrom/02.01_Grundlagen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mathematische Grundlagen der 3-Pahsen-Drehstromtechnik</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./SteuerRegel/01_SteuerRegel.html" class="sidebar-item-text sidebar-link">Steuer- und Regelungstechnik</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./SteuerRegel/01.02_Regelungstechnik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></a>
+  <a href="./SteuerRegel/01.02_Regelungstechnik.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></a>
   </div>
 </li>
       </ul>
@@ -158,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#willkommen-zum-skript" id="toc-willkommen-zum-skript" class="nav-link active" data-scroll-target="#willkommen-zum-skript">Willkommen zum Skript</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#verbessern" id="toc-verbessern" class="nav-link" data-scroll-target="#verbessern">Verbessern</a></li>
   <li><a href="#mitwirken" id="toc-mitwirken" class="nav-link" data-scroll-target="#mitwirken">Mitwirken</a></li>
   </ul></li>
@@ -347,12 +339,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Messtechnik/Messtechnik.html" class="pagination-link">
-        <span class="nav-page-text">Messtechnik und Sensorik</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./SteuerRegel/01_SteuerRegel.html" class="pagination-link">
+        <span class="nav-page-text">Steuer- und Regelungstechnik</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center"><div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+  </div>
+</footer>
 
 
 
