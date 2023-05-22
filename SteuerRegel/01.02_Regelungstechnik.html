@@ -226,28 +226,35 @@ Der zweite Typ von Regler kann die Stellgröße kontinurierlich anpassen. Diese 
 </section>
 <section id="unstetige-regler" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="unstetige-regler"><span class="header-section-number">1.3</span> Unstetige Regler</h2>
-<p>Klassische unstetige Regler sind Bimetallschalter. Diese werden zum Beipiel bei Heizlüftern eingesetzt. <strong>TODO</strong></p>
+<p>Klassische unstetige Regler sind Bimetallschalter. Diese werden zum Beipiel bei Heizlüftern eingesetzt.<br>
+Ist der Raum, und damit das Bimetall kalt so ist der Kontakt geschlossen und der Lüfter läuft. Wird die Raumluft und damit das Bimetall warm wird der Kontakt geöffnet und der Lüfter hört auf zu heizen.</p>
 <div class="cell" data-execution_count="2">
-<div class="cell-output cell-output-display">
-<p><span class="math inline">\(\Delta T_{aus}\)</span> … Ausschaltschwelle</p>
-</div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(\Delta T_{ein}\)</span> … Einschaltschwelle</p>
+<p><span class="math inline">\(T_{ein}\)</span> … Einschaltschwelle</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(T\)</span> … Temperatur</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="01.02_Regelungstechnik_files/figure-html/cell-3-output-5.png" width="588" height="429"></p>
+<p><span class="math inline">\(T_{aus}\)</span> … Ausschaltschwelle</p>
+</div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div id="fig-zweipunktreglerplot" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="01.02_Regelungstechnik_files/figure-html/fig-zweipunktreglerplot-output-1.png" width="584" height="428" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Abbildung&nbsp;1.2: Zweipunktregler eines einfachen Heizlüfters</figcaption><p></p>
+</figure>
+</div>
 </div>
 </div>
 <section id="zweipunktregler" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="zweipunktregler"><span class="header-section-number">1.3.1</span> Zweipunktregler</h3>
-<p>Der Zweipunktregler kann, wie der Name schon sagt, die Stellgröße zwischen zwei Zuständen schalten. Zum Beipiel die Heizung einschalten wenn die Temperatur zu niedrig ist und wieder Abschalten wenn die Temperatur hoch genug ist.<br>
-Die Schaltpunkte werden über eine Hysterese definiert.</p>
+<p>Der Zweipunktregler kann, wie der Name schon sagt, die Stellgröße zwischen zwei Zuständen schalten. Zum Beipiel die Heizung einschalten wenn die Temperatur zu niedrig ist und wieder Abschalten wenn die Temperatur hoch genug ist. Siehe dazu die Kennlinie <a href="#fig-zweipunktreglerplot">Abbildung&nbsp;<span>1.2</span></a>. Die Kennlinie stellt eine Hysterese dar. Die Umsetzung ist auch mittels Operationsverstärker möglich.</p>
 </section>
 </section>
 <section id="stetige-regler" class="level2" data-number="1.4">
@@ -257,11 +264,14 @@ Der oben gezeigte Regelkreis, <a href="#fig-Regelkreis">Abbildung&nbsp;<span>1.1
 <section id="die-übertragungsfunktion" class="level3" data-number="1.4.1">
 <h3 data-number="1.4.1" class="anchored" data-anchor-id="die-übertragungsfunktion"><span class="header-section-number">1.4.1</span> Die Übertragungsfunktion</h3>
 <p>Die Übertragungsfunktion Beschreibt den Zusammenhang zwischen Ausgang und Eingang. Um die Mathematik möglichst einfach zu halten wird in der Regelungstechnik im Laplace Bereich gearbeitet. Dadurch ist es nicht notwendig die Diffenrentialgleichung bei physikalischen Systemen, die durch eine Differentialgleichung beschrieben werden, zu lösen.</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <p><span id="eq-EVA"><span class="math display">\[
 V = \frac{A}{E}
 \tag{1.1}\]</span></span></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><span class="math inline">\(V\)</span> … Verarbeitung, die Übertragungsfunktion</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(A\)</span> … Ausgang</p>
@@ -269,20 +279,17 @@ V = \frac{A}{E}
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(E\)</span> … Eingang</p>
 </div>
-<div class="cell-output cell-output-display">
-<p><span class="math inline">\(V\)</span> … Verarbeitung, die Übertragungsfunktion</p>
-</div>
 </div>
 <p>Gängige Bezeichnungen der Übertragungsfunktion der einzelnen Blöcke ist wie folgt.</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(M\)</span> … Übertragungsfunktion des Sensors</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(G\)</span> … Übertragungsfunktion der zu Regelnden Strecke</p>
+<p><span class="math inline">\(R\)</span> … Übertragungsfunktion des Reglers</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(R\)</span> … Übertragungsfunktion des Reglers</p>
+<p><span class="math inline">\(G\)</span> … Übertragungsfunktion der zu Regelnden Strecke</p>
 </div>
 </div>
 </section>
@@ -292,17 +299,17 @@ V = \frac{A}{E}
 <section id="warum-laplace" class="level4" data-number="1.4.2.1">
 <h4 data-number="1.4.2.1" class="anchored" data-anchor-id="warum-laplace"><span class="header-section-number">1.4.2.1</span> Warum Laplace</h4>
 <p>Um eine Übertragungsfunktion zu Berechnen muss der Ausgang durch den Eingang dividiert werden. Wird das physikalische System durch eine lineare Gleichung beschrieben ist das sehr Einfach möglich und die Laplace Transformation ist nicht notwendig. Ein Beispiel dafür is das Ohm’sche Gesetz.</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <p><span id="eq-Ohm_eq"><span class="math display">\[
 R_{ohm} = \frac{U}{I}
 \tag{1.2}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(I\)</span> … Strom am Widerstand als Eingang</p>
+<p><span class="math inline">\(R_{ohm}\)</span> … Ohm’scher Widerstand als Übertragungsfunktion</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(R_{ohm}\)</span> … Ohm’scher Widerstand als Übertragungsfunktion</p>
+<p><span class="math inline">\(I\)</span> … Strom am Widerstand als Eingang</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(U\)</span> … Spannung am Widerstand als Ausgang</p>
@@ -312,10 +319,10 @@ R_{ohm} = \frac{U}{I}
 <div id="fig-Tiefpass" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/Tiefpass.svg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Abbildung&nbsp;1.2: Tiefpass</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Abbildung&nbsp;1.3: Tiefpass</figcaption><p></p>
 </figure>
 </div>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <p><span id="eq-ict_eq1"><span class="math display">\[
 i_{c}{\left(t \right)} = \frac{\frac{d}{d t} u_{c}{\left(t \right)}}{C}
@@ -328,20 +335,20 @@ i_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)
 </div>
 </div>
 <p>Durch Gleichsetzten von <a href="#eq-ict_eq1">Gleichung&nbsp;<span>1.3</span></a> und <a href="#eq-ict_eq2">Gleichung&nbsp;<span>1.4</span></a> ergibt sich die allgemeine Differenzialgleichung 1. Ordnung für den Tiefpass.</p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <p><span id="eq-Dummy"><span class="math display">\[
 \frac{d}{d t} u_{c}{\left(t \right)} + \frac{u_{c}{\left(t \right)}}{C R_{ohm}} = \frac{u_{in}{\left(t \right)}}{C R_{ohm}}
 \tag{1.5}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display">
+<p><span class="math inline">\(C\)</span> … Kapazität</p>
+</div>
+<div class="cell-output cell-output-display">
 <p><span class="math inline">\(R_{ohm}\)</span> … Ohmscher Widerstand</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(t\)</span> … Zeit</p>
-</div>
-<div class="cell-output cell-output-display">
-<p><span class="math inline">\(C\)</span> … Kapazität</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(i_{c}{\left(t \right)}\)</span> … Strom</p>
@@ -416,7 +423,7 @@ Zur vereinfachung kann die Übertragungsfunktion des Sensors mit <span class="ma
 <section id="die-führungsübertragungsfunktion" class="level4" data-number="1.4.3.1">
 <h4 data-number="1.4.3.1" class="anchored" data-anchor-id="die-führungsübertragungsfunktion"><span class="header-section-number">1.4.3.1</span> Die Führungsübertragungsfunktion</h4>
 <p>Die Führungsübertragungsfunktion gibt das Verhältnis zwischen Sollgröße und Istgröße an. Sie Beschreibt damit das Verhalten des Regelkreises mit der Sollgröße als Eingang und der Istgröße als Ausgang. Ist eine Regelstrecke ideal so ist die die Führungsübertragungsfunktion gleich Eins.</p>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <p><span id="eq-Fw_eq"><span class="math display">\[
 F_{w} = \frac{G M R}{G M R + 1}
@@ -430,7 +437,7 @@ F_{w} = \frac{G M R}{G M R + 1}
 <section id="die-schleifenübertragungsfunktion" class="level4" data-number="1.4.3.2">
 <h4 data-number="1.4.3.2" class="anchored" data-anchor-id="die-schleifenübertragungsfunktion"><span class="header-section-number">1.4.3.2</span> Die Schleifenübertragungsfunktion</h4>
 <p>Die Schleifenübertragungsfunktion ist die Übertragungsfunktion des offenen Regelkreises, also ohne Rückkopplung und ist im Laplace Bereich eine einfache Multiplikation.</p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <p><span id="eq-Dummy"><span class="math display">\[
 F_{o} = G R
@@ -444,7 +451,7 @@ F_{o} = G R
 <section id="die-störübertragungsfunktion" class="level4" data-number="1.4.3.3">
 <h4 data-number="1.4.3.3" class="anchored" data-anchor-id="die-störübertragungsfunktion"><span class="header-section-number">1.4.3.3</span> Die Störübertragungsfunktion</h4>
 <p>Die Störübertragungsfunktion beschreibt wie sich die Störgröße auf den Ausgang auswirkt.</p>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <p><span id="eq-Dummy"><span class="math display">\[
 F_{s} = \frac{G}{F_{o} + 1}
