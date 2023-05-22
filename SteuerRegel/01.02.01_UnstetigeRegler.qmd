@@ -1,32 +1,48 @@
 ## Unstetige Regler
-Klassische unstetige Regler sind Bimetallschalter. Diese werden zum Beipiel bei Heizlüftern eingesetzt. 
-**TODO**
+Klassische unstetige Regler sind Bimetallschalter. Diese werden zum Beipiel bei Heizlüftern eingesetzt.  
+Ist der Raum, und damit das Bimetall kalt so ist der Kontakt geschlossen und der Lüfter läuft. Wird die Raumluft und damit das Bimetall warm wird der Kontakt geöffnet und der Lüfter hört auf zu heizen.
 
 ```{python}
 #| code-fold: true
 #| echo: false
-#| 
 
 T = MySymbol('T',description='Temperatur')
 Tref = MySymbol('T_ref',description='Referenz Temperatur')
-deltaTein = MySymbol('\Delta T_ein',description='Einschaltschwelle')
-deltaTaus = MySymbol('\Delta T_aus',description='Ausschaltschwelle')
+deltaTein = MySymbol('T_ein',description='Einschaltschwelle')
+deltaTaus = MySymbol('T_aus',description='Ausschaltschwelle')
 
 T.value = np.arange(15,25,0.01)
 Tref.value = 20
-
-fig, ax = plt.subplots()
-ax.plot(T.value,-np.sign(T.value-Tref.value))
-ax.set_xlabel('Temperatur in °C')
-ax.set_ylabel('Schaltzustand')
-ax.set_yticks([-1,1])
-ax.set_yticklabels(['Off','On'])
-#plt.grid()
+deltaTaus.value = 2
+deltaTein.value = -2
 
 QBookHelpers.print_description({T,Tref,deltaTein,deltaTaus})
 
 ```
 
+```{python}
+#| code-fold: true
+#| label: fig-zweipunktreglerplot
+#| fig-cap: "Zweipunktregler eines einfachen Heizlüfters"
+#| echo: false
+
+plt.rcParams['text.usetex'] = true
+fig, ax = plt.subplots()
+ax.plot(T.value,-np.sign(T.value-Tref.value-deltaTaus.value),'b',alpha=0.8)
+ax.plot(T.value,-np.sign(T.value-Tref.value-deltaTein.value),'r',alpha=0.8)
+ax.set_xlabel('Temperatur in °C')
+ax.set_ylabel('Schaltzustand')
+ax.set_yticks([-1,1])
+ax.set_yticklabels(['Off','On'])
+ax.set_xticks([Tref.value,Tref.value+deltaTaus.value,Tref.value+deltaTein.value])
+ax.set_xticklabels(['$' + latex(Tref) + '$','$T_{off}$','$T_{on}$'])
+
+plt.grid()
+
+
+```
+
 ### Zweipunktregler
-Der Zweipunktregler kann, wie der Name schon sagt, die Stellgröße zwischen zwei Zuständen schalten. Zum Beipiel die Heizung einschalten wenn die Temperatur zu niedrig ist und wieder Abschalten wenn die Temperatur hoch genug ist.  
-Die Schaltpunkte werden über eine Hysterese definiert.
+Der Zweipunktregler kann, wie der Name schon sagt, die Stellgröße zwischen zwei Zuständen schalten. Zum Beipiel die Heizung einschalten wenn die Temperatur zu niedrig ist und wieder Abschalten wenn die Temperatur hoch genug ist.  Siehe dazu die Kennlinie @fig-zweipunktreglerplot.
+Die Kennlinie stellt eine Hysterese dar. Die Umsetzung ist auch mittels Operationsverstärker möglich.
+
