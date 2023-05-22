@@ -32,6 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <link href="../references.html" rel="next">
 <link href="../SteuerRegel/01_SteuerRegel.html" rel="prev">
+<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -61,6 +63,22 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"express",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  });
+});
+</script> 
+  
+
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -85,6 +103,10 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">MTRS-Skript</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lg-eng/MTRS-Skript" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="../MTRS-Skript.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+</div>
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -130,18 +152,27 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#warum-wir-regeln" id="toc-warum-wir-regeln" class="nav-link active" data-scroll-target="#warum-wir-regeln"><span class="toc-section-number">1.1</span>  Warum wir regeln</a></li>
   <li><a href="#wie-wir-regeln---der-standardregelkreis" id="toc-wie-wir-regeln---der-standardregelkreis" class="nav-link" data-scroll-target="#wie-wir-regeln---der-standardregelkreis"><span class="toc-section-number">1.2</span>  Wie wir regeln - Der Standardregelkreis</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#reglertypen" id="toc-reglertypen" class="nav-link" data-scroll-target="#reglertypen"><span class="toc-section-number">1.2.1</span>  Reglertypen</a></li>
   </ul></li>
   <li><a href="#unstetige-regler" id="toc-unstetige-regler" class="nav-link" data-scroll-target="#unstetige-regler"><span class="toc-section-number">1.3</span>  Unstetige Regler</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#zweipunktregler" id="toc-zweipunktregler" class="nav-link" data-scroll-target="#zweipunktregler"><span class="toc-section-number">1.3.1</span>  Zweipunktregler</a></li>
   </ul></li>
   <li><a href="#stetige-regler" id="toc-stetige-regler" class="nav-link" data-scroll-target="#stetige-regler"><span class="toc-section-number">1.4</span>  Stetige Regler</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#die-übertragungsfunktion" id="toc-die-übertragungsfunktion" class="nav-link" data-scroll-target="#die-übertragungsfunktion"><span class="toc-section-number">1.4.1</span>  Die Übertragungsfunktion</a></li>
-  <li><a href="#die-laplace-transformation" id="toc-die-laplace-transformation" class="nav-link" data-scroll-target="#die-laplace-transformation"><span class="toc-section-number">1.4.2</span>  Die Laplace Transformation</a></li>
-  <li><a href="#zusammenschaltung-von-blöcken" id="toc-zusammenschaltung-von-blöcken" class="nav-link" data-scroll-target="#zusammenschaltung-von-blöcken"><span class="toc-section-number">1.4.3</span>  Zusammenschaltung von Blöcken</a></li>
+  <li><a href="#die-laplace-transformation" id="toc-die-laplace-transformation" class="nav-link" data-scroll-target="#die-laplace-transformation"><span class="toc-section-number">1.4.2</span>  Die Laplace Transformation</a>
+  <ul class="collapse">
+  <li><a href="#warum-laplace" id="toc-warum-laplace" class="nav-link" data-scroll-target="#warum-laplace"><span class="toc-section-number">1.4.2.1</span>  Warum Laplace</a></li>
+  <li><a href="#wie-laplace" id="toc-wie-laplace" class="nav-link" data-scroll-target="#wie-laplace"><span class="toc-section-number">1.4.2.2</span>  Wie Laplace</a></li>
+  </ul></li>
+  <li><a href="#zusammenschaltung-von-blöcken" id="toc-zusammenschaltung-von-blöcken" class="nav-link" data-scroll-target="#zusammenschaltung-von-blöcken"><span class="toc-section-number">1.4.3</span>  Zusammenschaltung von Blöcken</a>
+  <ul class="collapse">
+  <li><a href="#die-führungsübertragungsfunktion" id="toc-die-führungsübertragungsfunktion" class="nav-link" data-scroll-target="#die-führungsübertragungsfunktion"><span class="toc-section-number">1.4.3.1</span>  Die Führungsübertragungsfunktion</a></li>
+  <li><a href="#die-schleifenübertragungsfunktion" id="toc-die-schleifenübertragungsfunktion" class="nav-link" data-scroll-target="#die-schleifenübertragungsfunktion"><span class="toc-section-number">1.4.3.2</span>  Die Schleifenübertragungsfunktion</a></li>
+  <li><a href="#die-störübertragungsfunktion" id="toc-die-störübertragungsfunktion" class="nav-link" data-scroll-target="#die-störübertragungsfunktion"><span class="toc-section-number">1.4.3.3</span>  Die Störübertragungsfunktion</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -170,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="warum-wir-regeln" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="warum-wir-regeln"><span class="header-section-number">1.1</span> Warum wir regeln</h2>
 <div style="text-align: justify">
-<p>Viele Aufgaben von Maschinen können auch durch Steuern umgesetzt werden. Eine Regelung erlaubt es aber auf unerwünschte Einflüsse, sogenannte Störgrößen, zu reagieren. Als Beispiel soll der Tempomat, Geschwindigkeitsregelanlage, des Autos dienen. Die Aufgabe des Tempomates ist es, die Geschwindigkeit, Regelgröße, konstant zu halten. Als unerwünschte Einflüsse, Störgrößen, sind alle physikalischen Größen zu betrachten, welche die Geschwindigkeit beeinflussen. Beispiele sind die Steigung der Straße und Wind.<br>
+<p>Viele Aufgaben von Maschinen können auch durch Steuern umgesetzt werden. Eine Regelung erlaubt es aber, auf unerwünschte Einflüsse, sogenannte Störgrößen, zu reagieren. Als Beispiel soll der Tempomat, Geschwindigkeitsregelanlage, des Autos dienen. Die Aufgabe des Tempomates ist es, die Geschwindigkeit, Regelgröße, konstant zu halten. Als unerwünschte Einflüsse, Störgrößen, sind alle physikalischen Größen zu betrachten, welche die Geschwindigkeit beeinflussen. Beispiele sind die Steigung der Straße und Wind.<br>
 Die Geschwindigkeit des Autos wird über die Leistung, Stellgröße, bestimmt. Führt die Straße Bergauf wird mehr Leistung für die gleiche Geschwindigkeit benötigt. Es muss also die Leistung laufend angepasst werden, um eine konstante Geschwindigkeit zu erhalten.<br>
 Bei einer Steuerung würde eine Leistung eingestellt werden und sich daraus eine Geschwindigkeit ergeben. Dieses wäre jedoch nur für einen voreingestellten Fall identisch mit der gewünschten Geschwindigkeit.</p>
 </div>
@@ -198,24 +229,24 @@ Der zweite Typ von Regler kann die Stellgröße kontinurierlich anpassen. Diese 
 <p>Klassische unstetige Regler sind Bimetallschalter. Diese werden zum Beipiel bei Heizlüftern eingesetzt. <strong>TODO</strong></p>
 <div class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(\Delta T_{ein}\)</span> … Einschaltschwelle</p>
-</div>
-<div class="cell-output cell-output-display">
-<p><span class="math inline">\(T\)</span> … Temperatur</p>
-</div>
-<div class="cell-output cell-output-display">
 <p><span class="math inline">\(\Delta T_{aus}\)</span> … Ausschaltschwelle</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="01.02_Regelungstechnik_files/figure-html/cell-3-output-5.png" width="590" height="411"></p>
+<p><span class="math inline">\(\Delta T_{ein}\)</span> … Einschaltschwelle</p>
+</div>
+<div class="cell-output cell-output-display">
+<p><span class="math inline">\(T\)</span> … Temperatur</p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="01.02_Regelungstechnik_files/figure-html/cell-3-output-5.png" width="588" height="429"></p>
 </div>
 </div>
 <section id="zweipunktregler" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="zweipunktregler"><span class="header-section-number">1.3.1</span> Zweipunktregler</h3>
-<p>Der Zweipunktregler kann, wie der name schon sagt, die Stellgröße zwischen zwei Zuständen schalten. Zum Beipiel die Heizung einschalten wenn die Temperatur zu niedrig ist und wieder Abschalten wenn die Temperatur hoch genug ist.<br>
+<p>Der Zweipunktregler kann, wie der Name schon sagt, die Stellgröße zwischen zwei Zuständen schalten. Zum Beipiel die Heizung einschalten wenn die Temperatur zu niedrig ist und wieder Abschalten wenn die Temperatur hoch genug ist.<br>
 Die Schaltpunkte werden über eine Hysterese definiert.</p>
 </section>
 </section>
@@ -233,13 +264,13 @@ V = \frac{A}{E}
 \tag{1.1}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display">
+<p><span class="math inline">\(A\)</span> … Ausgang</p>
+</div>
+<div class="cell-output cell-output-display">
 <p><span class="math inline">\(E\)</span> … Eingang</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(V\)</span> … Verarbeitung, die Übertragungsfunktion</p>
-</div>
-<div class="cell-output cell-output-display">
-<p><span class="math inline">\(A\)</span> … Ausgang</p>
 </div>
 </div>
 <p>Gängige Bezeichnungen der Übertragungsfunktion der einzelnen Blöcke ist wie folgt.</p>
@@ -268,13 +299,13 @@ R_{ohm} = \frac{U}{I}
 \tag{1.2}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(U\)</span> … Spannung am Widerstand als Ausgang</p>
-</div>
-<div class="cell-output cell-output-display">
 <p><span class="math inline">\(I\)</span> … Strom am Widerstand als Eingang</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(R_{ohm}\)</span> … Ohm’scher Widerstand als Übertragungsfunktion</p>
+</div>
+<div class="cell-output cell-output-display">
+<p><span class="math inline">\(U\)</span> … Spannung am Widerstand als Ausgang</p>
 </div>
 </div>
 <p>Wird das physikalische System aber durch eine Differentialgleichung beschrieben, wie zum Beispiel bei einem Tiefpass, so wäre es notwendig zuerst die Differentialgleichung zu lösen um die Übertragungsfunktion zu berechnen. Hier bietet die Lapalce Transformation eine erhebliche erleichterung.</p>
@@ -304,22 +335,22 @@ i_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)
 \tag{1.5}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(t\)</span> … Zeit</p>
+<p><span class="math inline">\(R_{ohm}\)</span> … Ohmscher Widerstand</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(R_{ohm}\)</span> … Ohmscher Widerstand</p>
+<p><span class="math inline">\(t\)</span> … Zeit</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(C\)</span> … Kapazität</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(u_{in}{\left(t \right)}\)</span> … Eingangsspannung</p>
+<p><span class="math inline">\(i_{c}{\left(t \right)}\)</span> … Strom</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(u_{c}{\left(t \right)}\)</span> … Ausgangsspannung</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(i_{c}{\left(t \right)}\)</span> … Strom</p>
+<p><span class="math inline">\(u_{in}{\left(t \right)}\)</span> … Eingangsspannung</p>
 </div>
 </div>
 <p>Müsste nun von dieser Differentialgleichung die Übertragungsfunktion, also <span class="math inline">\(G=Ausgang/Eingang\)</span>, angegeben werden, so müsste zunächst die Differentialgleichung gelöst werden.<br>
@@ -576,6 +607,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center"><div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+  </div>
+</footer>
 
 
 
