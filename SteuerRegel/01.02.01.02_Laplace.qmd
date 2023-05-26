@@ -1,8 +1,8 @@
-### Die Laplace Transformation
+### Die Laplace Transformation {#sec-Laplace}
 oder die Anstrengung der Faulen.
 
 #### Warum Laplace
- Um eine Übertragungsfunktion zu Berechnen muss der Ausgang durch den Eingang dividiert werden. Wird das physikalische System durch eine lineare Gleichung beschrieben ist das sehr Einfach möglich und die Laplace Transformation ist nicht notwendig. Ein Beispiel dafür is das Ohm'sche Gesetz.
+Um eine Übertragungsfunktion zu Berechnen muss der Ausgang durch den Eingang dividiert werden. Wird das physikalische System durch eine lineare Gleichung beschrieben ist das sehr Einfach möglich und die Laplace Transformation ist nicht notwendig. Ein Beispiel dafür is das Ohm'sche Gesetz.
 
 ```{python}
 #| code-fold: true
@@ -18,7 +18,10 @@ QBookHelpers.print_description(R_ohm_eq.free_symbols)
 
 ```
 
-Wird das physikalische System aber durch eine Differentialgleichung beschrieben, wie zum Beispiel bei einem Tiefpass, so wäre es notwendig zuerst die Differentialgleichung zu lösen um die Übertragungsfunktion zu berechnen. Hier bietet die Lapalce Transformation eine erhebliche erleichterung.
+Wird das physikalische System aber durch eine Differentialgleichung beschrieben, wie zum Beispiel bei einem Tiefpass, so wäre es notwendig zuerst die Differentialgleichung zu lösen um die Übertragungsfunktion zu berechnen. Hier bietet die Lapalce Transformation eine erhebliche erleichterung.  
+Wird die Übertragungsfunktion im Laplace-Bereich angeschrieben, ergeben sich weitere Vorteile, wenn es später darum geht einen Regler zu entwerfen und die Stabilität einer Strecke zu beurteilen.  
+
+##### Beispiel Übertragungsfunktion eines Tiefapsses
 
 ![Tiefpass](images/Tiefpass){#fig-Tiefpass}
 
@@ -50,9 +53,10 @@ Durch Gleichsetzten von  @eq-ict_eq1 und @eq-ict_eq2 ergibt sich die allgemeine 
 ```{python}
 #| code-fold: true
 
+
 RCTP_eq = Eq(diff(uct,t)+1/(R_ohm*C_cap)*uct,1/(R_ohm*C_cap)*uint)
 
-QBookHelpers.print_equation(RCTP_eq)
+QBookHelpers.print_equation(RCTP_eq,label='eq-RCTP')
 QBookHelpers.print_description(RCTP_eq.free_symbols)
 QBookHelpers.print_description({ict,uct,uint})
 
@@ -61,7 +65,7 @@ QBookHelpers.print_description({ict,uct,uint})
 Müsste nun von dieser Differentialgleichung die Übertragungsfunktion, also $G=Ausgang/Eingang$, angegeben werden, so müsste zunächst die Differentialgleichung gelöst werden.  
 Die Laplace Transformation bietet hier einen alternativen Weg der mit weiteren Vorteilen verbunden ist wenn es darum geht Blöcke miteinander zu kombinieren oder Aussagen über das System zu treffen.
 
-#### Wie Laplace
+#### Laplacetransformation
 Die tiefere Mathematik der Laplacetransofrmation überlassen wir hier den Mathematiker:innen und den ersten Semstern eines Studiums. Wir wollen die Laplacetransformation lediglich als Werkzeug zur vereinfachung unserer Arbeit verwenden. Dazu benötigen wir folgende Grundregeln.  
 Vereinfacht ist die Laplacetransformation als eine Übersetzung aus dem Zeitbereich, also mit der varaible $t$, in den Frequenzbereich mit der Variable $s$ zu verstehen. Die Übersetzung erfolgt in vielen Fällen sehr einfach mittels Tabelle. Hier wird die Transformation nur für ausgewählte Signale und mathematische Operationen angeführt.  
 
@@ -75,3 +79,28 @@ Vereinfacht ist die Laplacetransformation als eine Übersetzung aus dem Zeitbere
 | $e^{at}$| $\frac{1}{s -a}$| |
 | $\frac{1}{a} e^{\frac{-t}{a}}$| $\frac{1}{1 + as}$| |
 
+:Laplacetransformationstabelle {#tbl-laplace}
+
+Wird nun Gleichung @eq-RCTP mittels der Tabelle @tbl-laplace transformiert erhalten wir eine Gleichung aus der wir durch einfaches Umformen eine Übertragungsfunktion erhalten. Es wird angenommen, dass $ x(0) = 0 $ ist.
+
+```{python}
+#| code-fold: true
+
+from sympy.abc import s, p, a
+
+from sympy.physics.control.lti import TransferFunction
+
+UC = MySymbol('U_{C}',description = 'Ausgangsspannng im Laplacebereich')
+UIN = MySymbol('U_{IN}',description = 'Eingangsspannung im Laplacebereich')
+
+RCTPLap_eq = Eq(s*UC+1/(R_ohm*C_cap)*UC,1/(R_ohm*C_cap)*UIN)
+QBookHelpers.print_equation(RCTPLap_eq)
+
+RCTPLap_eq = Eq(G,UC/UIN)
+QBookHelpers.print_equation(RCTPLap_eq)
+
+tf1 = Eq(G,TransferFunction(1, s + R_ohm*C_cap, s))
+QBookHelpers.print_equation(tf1)
+
+
+```
