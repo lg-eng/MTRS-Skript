@@ -256,16 +256,16 @@ Der zweite Typ von Regler kann die Stellgröße kontinurierlich anpassen. Diese 
 Ist der Raum, und damit das Bimetall kalt so ist der Kontakt geschlossen und der Lüfter läuft. Wird die Raumluft und damit das Bimetall warm wird der Kontakt geöffnet und der Lüfter hört auf zu heizen.</p>
 <div class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
+<p><span class="math inline">\(T_{ein}\)</span> … Einschaltschwelle</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(T_{ein}\)</span> … Einschaltschwelle</p>
+<p><span class="math inline">\(T\)</span> … Temperatur</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(T_{aus}\)</span> … Ausschaltschwelle</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(T\)</span> … Temperatur</p>
+<p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
 </div>
 </div>
 <div class="cell" data-execution_count="3">
@@ -334,13 +334,13 @@ V = \frac{A}{E}
 <p>Gängige Bezeichnungen der Übertragungsfunktion der einzelnen Blöcke ist wie folgt.</p>
 <div class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(M\)</span> … Übertragungsfunktion des Sensors</p>
+<p><span class="math inline">\(R\)</span> … Übertragungsfunktion des Reglers</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(G\)</span> … Übertragungsfunktion der zu Regelnden Strecke</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(R\)</span> … Übertragungsfunktion des Reglers</p>
+<p><span class="math inline">\(M\)</span> … Übertragungsfunktion des Sensors</p>
 </div>
 </div>
 </section>
@@ -369,13 +369,13 @@ R_{ohm} = \frac{U}{I}
 \tag{1.2}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display">
+<p><span class="math inline">\(U\)</span> … Spannung am Widerstand als Ausgang</p>
+</div>
+<div class="cell-output cell-output-display">
 <p><span class="math inline">\(R_{ohm}\)</span> … Ohm’scher Widerstand als Übertragungsfunktion</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(I\)</span> … Strom am Widerstand als Eingang</p>
-</div>
-<div class="cell-output cell-output-display">
-<p><span class="math inline">\(U\)</span> … Spannung am Widerstand als Ausgang</p>
 </div>
 </div>
 <p>Wird das physikalische System aber durch eine Differentialgleichung beschrieben, wie zum Beispiel bei einem Tiefpass, so wäre es notwendig zuerst die Differentialgleichung zu lösen um die Übertragungsfunktion zu berechnen. Hier bietet die Lapalce Transformation eine erhebliche erleichterung.<br>
@@ -408,13 +408,13 @@ i_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)
 \tag{1.5}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(C\)</span> … Kapazität</p>
+<p><span class="math inline">\(t\)</span> … Zeit</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(R_{ohm}\)</span> … Ohmscher Widerstand</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(t\)</span> … Zeit</p>
+<p><span class="math inline">\(C\)</span> … Kapazität</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(u_{c}{\left(t \right)}\)</span> … Ausgangsspannung</p>
