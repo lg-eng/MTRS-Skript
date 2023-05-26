@@ -7,16 +7,20 @@ Der oben gezeigte Regelkreis, @fig-Regelkreis, lässt sich mathematisch als Übe
 Die Übertragungsfunktion Beschreibt den Zusammenhang zwischen Ausgang und Eingang.  
 Ist die Übertragungsfunktion bekannt, so kann die Strecke und deren Verhalten (der Ausgang) auf verschiedene Eingänge berechnet werden. Dies wird auch Simulation genannt. Für Marketingzwecke könnte die Übertragungsfunktion auch als einfache Form eines "digitalen Zwillings" bezeichnet werden.
 Ist die Übertragungsfunktion mathematisch beschrieben, können Regler entworfen und getestet werden, ohne das tatsächliche physikalische Modell benutzen zu müssen. Dies ist speziell sinnvoll wenn, das physikalische System für Testzwecke nicht zur Verfügung steht bzw. nicht für Testzwecke geeignet ist.
-Eine Strecke (=physikalisches System) steht z.B. nicht zur Verfügung, wenn:  
-- Es sich geographisch woanders befindet  
-- Es für die Produktion benötigt wird  
-- Es noch nicht gebaut wurde  
+Eine Strecke (=physikalisches System) steht z.B. nicht zur Verfügung, wenn: 
+
+* Es sich geographisch woanders befindet  
+* Es für die Produktion benötigt wird  
+* Es noch nicht gebaut wurde  
+
 Eine Strecke (=physikalisches System) ist nicht geeignet für Testzwecke wenn z.B.:  
-- Das System sehr langsam ist (Heizung eines Gebäudes)  
-- Ein fehlerhafter Regler großen Schaden anrichten kann  
+
+* Das System sehr langsam ist (Heizung eines Gebäudes)  
+* Ein fehlerhafter Regler großen Schaden anrichten kann  
 
 #### Streckenidentifikation {#sec-Streckenidentifikation}
 Als Streckenidentifiaktion wird der Vorgang beschrieben, von einem physikalischem System das mathematische Modell, die Übertragungsfunktion, zu erstellen. Zwei Methoden wie dieses Ziel erreicht werden kann, werden hier beschrieben.  
+
 * Der mathematische Ansatz, @sec-MathStreckenidentifikation  
 * Der messtechnische Ansatz, @sec-MessStreckenidentifikation  
 

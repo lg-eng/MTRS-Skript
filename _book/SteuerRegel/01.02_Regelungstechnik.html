@@ -105,7 +105,21 @@ cookieconsent.run({
       <a href="../">MTRS-Skript</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/lg-eng/MTRS-Skript" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="../MTRS-Skript.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="../MTRS-Skript.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="../MTRS-Skript.docx">
+            <i class="bi bi-bi-file-word pe-1"></i>
+          Download Docx
+          </a>
+        </li>
+    </ul>
 </div>
     </div>
       </div>
@@ -245,10 +259,10 @@ Ist der Raum, und damit das Bimetall kalt so ist der Kontakt geschlossen und der
 <p><span class="math inline">\(T_{aus}\)</span> … Ausschaltschwelle</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(T\)</span> … Temperatur</p>
+<p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
+<p><span class="math inline">\(T\)</span> … Temperatur</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(T_{ein}\)</span> … Einschaltschwelle</p>
@@ -278,19 +292,29 @@ Der oben gezeigte Regelkreis, <a href="#fig-Regelkreis">Abbildung&nbsp;<span>1.1
 <section id="motivation" class="level4" data-number="1.4.1.1">
 <h4 data-number="1.4.1.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">1.4.1.1</span> Motivation</h4>
 <p>Die Übertragungsfunktion Beschreibt den Zusammenhang zwischen Ausgang und Eingang.<br>
-Ist die Übertragungsfunktion bekannt, so kann die Strecke und deren Verhalten (der Ausgang) auf verschiedene Eingänge berechnet werden. Dies wird auch Simulation genannt. Für Marketingzwecke könnte die Übertragungsfunktion auch als einfache Form eines “digitalen Zwillings” bezeichnet werden. Ist die Übertragungsfunktion mathematisch beschrieben, können Regler entworfen und getestet werden, ohne das tatsächliche physikalische Modell benutzen zu müssen. Dies ist speziell sinnvoll wenn, das physikalische System für Testzwecke nicht zur Verfügung steht bzw. nicht für Testzwecke geeignet ist. Eine Strecke (=physikalisches System) steht z.B. nicht zur Verfügung, wenn:<br>
-- Es sich geographisch woanders befindet<br>
-- Es für die Produktion benötigt wird<br>
-- Es noch nicht gebaut wurde<br>
-Eine Strecke (=physikalisches System) ist nicht geeignet für Testzwecke wenn z.B.:<br>
-- Das System sehr langsam ist (Heizung eines Gebäudes)<br>
-- Ein fehlerhafter Regler großen Schaden anrichten kann</p>
+Ist die Übertragungsfunktion bekannt, so kann die Strecke und deren Verhalten (der Ausgang) auf verschiedene Eingänge berechnet werden. Dies wird auch Simulation genannt. Für Marketingzwecke könnte die Übertragungsfunktion auch als einfache Form eines “digitalen Zwillings” bezeichnet werden. Ist die Übertragungsfunktion mathematisch beschrieben, können Regler entworfen und getestet werden, ohne das tatsächliche physikalische Modell benutzen zu müssen. Dies ist speziell sinnvoll wenn, das physikalische System für Testzwecke nicht zur Verfügung steht bzw. nicht für Testzwecke geeignet ist. Eine Strecke (=physikalisches System) steht z.B. nicht zur Verfügung, wenn:</p>
+<ul>
+<li>Es sich geographisch woanders befindet<br>
+</li>
+<li>Es für die Produktion benötigt wird<br>
+</li>
+<li>Es noch nicht gebaut wurde</li>
+</ul>
+<p>Eine Strecke (=physikalisches System) ist nicht geeignet für Testzwecke wenn z.B.:</p>
+<ul>
+<li>Das System sehr langsam ist (Heizung eines Gebäudes)<br>
+</li>
+<li>Ein fehlerhafter Regler großen Schaden anrichten kann</li>
+</ul>
 </section>
 <section id="sec-Streckenidentifikation" class="level4" data-number="1.4.1.2">
 <h4 data-number="1.4.1.2" class="anchored" data-anchor-id="sec-Streckenidentifikation"><span class="header-section-number">1.4.1.2</span> Streckenidentifikation</h4>
-<p>Als Streckenidentifiaktion wird der Vorgang beschrieben, von einem physikalischem System das mathematische Modell, die Übertragungsfunktion, zu erstellen. Zwei Methoden wie dieses Ziel erreicht werden kann, werden hier beschrieben.<br>
-* Der mathematische Ansatz, <a href="#sec-MathStreckenidentifikation"><span>Kapitel&nbsp;1.4.2</span></a><br>
-* Der messtechnische Ansatz, <a href="#sec-MessStreckenidentifikation"><span>Kapitel&nbsp;1.4.3</span></a></p>
+<p>Als Streckenidentifiaktion wird der Vorgang beschrieben, von einem physikalischem System das mathematische Modell, die Übertragungsfunktion, zu erstellen. Zwei Methoden wie dieses Ziel erreicht werden kann, werden hier beschrieben.</p>
+<ul>
+<li>Der mathematische Ansatz, <a href="#sec-MathStreckenidentifikation"><span>Kapitel&nbsp;1.4.2</span></a><br>
+</li>
+<li>Der messtechnische Ansatz, <a href="#sec-MessStreckenidentifikation"><span>Kapitel&nbsp;1.4.3</span></a></li>
+</ul>
 <div class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <p><span id="eq-EVA"><span class="math display">\[
@@ -298,25 +322,25 @@ V = \frac{A}{E}
 \tag{1.1}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display">
+<p><span class="math inline">\(A\)</span> … Ausgang</p>
+</div>
+<div class="cell-output cell-output-display">
 <p><span class="math inline">\(V\)</span> … Verarbeitung, die Übertragungsfunktion</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(E\)</span> … Eingang</p>
 </div>
-<div class="cell-output cell-output-display">
-<p><span class="math inline">\(A\)</span> … Ausgang</p>
-</div>
 </div>
 <p>Gängige Bezeichnungen der Übertragungsfunktion der einzelnen Blöcke ist wie folgt.</p>
 <div class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(R\)</span> … Übertragungsfunktion des Reglers</p>
+<p><span class="math inline">\(G\)</span> … Übertragungsfunktion der zu Regelnden Strecke</p>
 </div>
 <div class="cell-output cell-output-display">
 <p><span class="math inline">\(M\)</span> … Übertragungsfunktion des Sensors</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(G\)</span> … Übertragungsfunktion der zu Regelnden Strecke</p>
+<p><span class="math inline">\(R\)</span> … Übertragungsfunktion des Reglers</p>
 </div>
 </div>
 </section>
@@ -348,10 +372,10 @@ R_{ohm} = \frac{U}{I}
 <p><span class="math inline">\(I\)</span> … Strom am Widerstand als Eingang</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(R_{ohm}\)</span> … Ohm’scher Widerstand als Übertragungsfunktion</p>
+<p><span class="math inline">\(U\)</span> … Spannung am Widerstand als Ausgang</p>
 </div>
 <div class="cell-output cell-output-display">
-<p><span class="math inline">\(U\)</span> … Spannung am Widerstand als Ausgang</p>
+<p><span class="math inline">\(R_{ohm}\)</span> … Ohm’scher Widerstand als Übertragungsfunktion</p>
 </div>
 </div>
 <p>Wird das physikalische System aber durch eine Differentialgleichung beschrieben, wie zum Beispiel bei einem Tiefpass, so wäre es notwendig zuerst die Differentialgleichung zu lösen um die Übertragungsfunktion zu berechnen. Hier bietet die Lapalce Transformation eine erhebliche erleichterung.<br>

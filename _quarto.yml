@@ -1,12 +1,14 @@
 project:
   type: book
 
+license: "CC BY"
+
 lang: de
 book:
     title: "MTRS-Skript"
     author: "Leopold Götsch"
 #    date: "9/29/2022"
-    downloads: [pdf]
+    downloads: [pdf, docx]
     repo-url: "https://github.com/lg-eng/MTRS-Skript"
     #issue-url: "https://github.com/lg-eng/MTRS-Skript/issues"
     cookie-consent:
@@ -39,11 +41,11 @@ format:
   pdf:
     documentclass: scrreprt
     default-image-extension: pdf
-  # docx:
-  #   toc: true
-  #   number-sections: true
+  docx:
+    toc: true
+    number-sections: true
 
-downloads: [pdf]
+downloads: [pdf,docx]
 sidebar:
     pinned: true
     
