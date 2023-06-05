@@ -7,12 +7,16 @@ lang: de
 book:
     title: "MTRS-Skript"
     author: "Leopold Götsch"
-#    date: "9/29/2022"
+    date: today
+#    date-format: short
     downloads: [pdf, docx]
     repo-url: "https://github.com/lg-eng/MTRS-Skript"
     #issue-url: "https://github.com/lg-eng/MTRS-Skript/issues"
     cookie-consent:
       type: express
+#    page-footer:
+#      right: "{{< meta date >}}"
+        
     chapters:
     - index.qmd
     #- part: Messtechnik/Messtechnik.qmd
@@ -26,6 +30,8 @@ book:
         - SteuerRegel/01.02_Regelungstechnik.qmd
 #        - SteuerRegel/Laplace.qmd
     - references.qmd
+
+
     
     
 
@@ -38,9 +44,11 @@ format:
     toc-expand: 4
     theme: cosmo
     default-image-extension: svg
+
   pdf:
     documentclass: scrreprt
     default-image-extension: pdf
+
   docx:
     toc: true
     number-sections: true

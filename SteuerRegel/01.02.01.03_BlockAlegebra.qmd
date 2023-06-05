@@ -11,7 +11,7 @@ Die Führungsübertragungsfunktion gibt das Verhältnis zwischen Sollgröße und
 #| code-fold: true
 Fw = MySymbol('F_w',description = 'Führungsübertragungsfunktion')
 
-Fw_eq=Eq(Fw,R*G*M/(1+R*G*M))
+Fw_eq=Eq(Fw,R*G/(1+R*G*M))
 
 display(Markdown(f'$$\n{latex(Fw_eq)}\n$${{#eq-Fw_eq}}'))
 
