@@ -12,3 +12,5 @@ Ich freue mich über alle Fehlerkorrekturen und Verbesserungsvorschläge die mic
 Wer am Skriptum mitarbeiten möchte kann mich gerne kontaktieren. Meine Kontaktdaten sind auf der Homepage der HTL-Anichstrasse zu finden.
   
  <strong>Viel Vergnügen mit MTRS und dem interaktiven Quarto Book! </strong>
+
+

@@ -1,0 +1,202 @@
+### Interaktiver PID Simulator
+
+<span style="color:#888"> Eingangssignal $w$ </span>  
+<span style="color:#34f"> Ausgangssignal $y$ </span>  
+<span style="color:#fb2f03"> Regelabweichung $e$ </span>  
+<span style="color:#d7fb03"> Stellgröße $u$ </span>  
+
+
+```{ojs}
+// The basic code layout was found on source: https://observablehq.com/@mbostock/inputs
+// be aware, the code variables do not yet match the variable names in the document
+
+Plot.plot({
+  y: {
+    grid: true,
+  //  domain: [0, 4]
+  },
+  marks: [
+    Plot.line(y_PID, {
+      x: "t_PID",
+      y: "s_PID",
+      stroke: '#888'
+    }),
+    Plot.line(y_PID, { x: "t_PID", y: "u_PID", stroke: '#34f' }), //BLue
+    Plot.line(y_PID, { x: "t_PID", y: "e_PID", stroke: '#fb2f03' }), //RED
+    Plot.line(y_PID, { x: "t_PID", y: "y_PID", stroke: '#d7fb03' }),  //Greenisch
+  ]
+})
+```
+
+
+Reglereinstellungen:
+```{ojs}
+
+viewof Kp_PID = Range([1e-12, 10e3], {
+  label: tex`K_P`,
+  value: 1,
+  transform: Math.log
+})
+
+viewof Ki_PID = Range([1e-12, 10e2], {
+  label: tex`K_I`,
+  value: 0,
+  transform: Math.log
+})
+
+viewof Kd_PID = Range([1e-12, 10e1], {
+  label: tex`K_d`,
+  value: 0,
+  transform: Math.log
+})
+
+//viewof dt = Range([1e-4, 0.1], {
+//  value: 0.001,
+//  transform: Math.log,
+//  label: tex`\Delta t`
+//})
+
+```
+
+
+Streckeneinstellungen:
+```{ojs}
+
+viewof Kpt2_PID = Range([1e-12, 10e3], {
+  value: 1,
+  transform: Math.log,
+  label: tex`K_{pt2}`
+})
+
+viewof D_PID = Range([1e-12, 10], {
+  value: 1,
+  transform: Math.log,
+  label: tex`D`
+})
+
+viewof T_PID = Range([1e-12, 5], {
+  value: 1,
+  transform: Math.log,
+  label: tex`T`
+})
+
+```
+
+Auswahl Eingangssignal:
+
+```{ojs}
+
+viewof input_PID = Select(
+  ['step', 'hardstep', 'smoothstep', 'ramp', 'quadratic ramp'],
+  {
+    value: 'step',
+    label: 'Input'
+  }
+)
+
+```
+
+Simulationseinstellungen:
+```{ojs}
+
+viewof tMax_PID = Range([1, 10e3], {
+  value: 10,
+  transform: Math.log,
+  label: tex`t_{max}`
+})
+
+y_PID = {
+  const output_PID = [];
+
+  let p_PID; 
+  let t0_PID = -0.5;
+  //let tMax_PID = 20;
+
+  let t_PID = t0_PID;
+  let d_PID = 0;
+  let u_PID = 0;
+  let i_PID = 0;
+  let e_PID = 0;
+  let eprev_PID = e_PID;
+  let pu_PID = u_PID;
+  let ppu_PID = u_PID;
+  let du_PID = 0;
+  let ddu_PID = 0;
+  let pdu_PID = 0;
+  let y_PID = 0;
+  let py_PID = 0;
+  let ppy_PID = 0;
+  let dy_PID = 0;
+  let ddy_PID = 0;
+  let pdy_PID = 0;
+  let de_PID = 0;
+  let dt_PID = 0.001;
+  let s_PID = setPoint(t0_PID);
+  output_PID.push({ t_PID, u_PID, s_PID });
+
+  let j_PID = 1;
+  while (t_PID < tMax_PID) {
+    t_PID = t0_PID + j_PID * dt_PID;
+
+    s_PID = setPoint_PID(t_PID);
+   
+    e_PID = s_PID - u_PID;
+    de_PID = eprev_PID-e_PID;
+
+    //du = (u-pu)/dt;
+    //ddu = (du - pdu)/dt;
+
+    //dy = (py - y)/dt;
+    //ddy = (dy - pdy)/dt;
+
+    p_PID = e_PID;
+    i_PID += e_PID * dt_PID;
+    d_PID = de_PID/dt_PID;
+
+    y_PID = (Kp_PID * p_PID + Ki_PID * i_PID + Kd_PID * d_PID);
+    
+    u_PID = (2*D_PID*T_PID*dt_PID*pu_PID + Kpt2_PID*dt_PID**2*y_PID - T_PID**2*ppu_PID + 2*T_PID**2*pu_PID)/(2*D_PID*T_PID*dt_PID + T_PID**2 + dt_PID**2);
+
+    ppu_PID = pu_PID;
+    pu_PID = u_PID;
+    //pdu = du;
+
+    //ppy = py;
+    //py = y;
+    //pdy = dy;
+
+    eprev_PID = e_PID;
+
+    output_PID.push({ t_PID, u_PID, s_PID, e_PID, y_PID });
+    j_PID++;
+  }
+
+  return output_PID;
+}
+
+setPoint_PID = {
+  function hardstep_PID(x) {
+    return Math.max(0, Math.min(1, x));
+  }
+  function smoothstep_PID(x) {
+    var x = hardstep_PID(x);
+    return x * x * (3 - 2 * x);
+  }
+  switch (input) {
+    case 'step':
+      return t_PID => (t_PID >= 0 ? 1 : 0);
+    case 'ramp':
+      return t_PID => (t_PID >= 0 ? t_PID : 0);
+    case 'quadratic ramp':
+      return t_PID => (t_PID >= 0 ? t_PID * t_PID : 0);
+    case 'smoothstep':
+      return smoothstep_PID;
+    case 'hardstep':
+      return hardstep_PID;
+    default:
+      throw new Error('Invalid input');
+  }
+}
+
+//import { Range, Select } from '@observablehq/inputs'
+```

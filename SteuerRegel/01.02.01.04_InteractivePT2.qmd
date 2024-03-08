@@ -1,0 +1,171 @@
+##### Interaktiver PT2 Simulator
+
+```{ojs}
+//| echo: false
+
+Plot.plot({
+  y: {
+    grid: true,
+  //  domain: [0, 4]
+  },
+  marks: [
+    Plot.line(y, {
+      x: "t",
+      y: "s",
+      stroke: '#888'
+    }),
+    Plot.line(y, { x: "t", y: "u", stroke: '#34f' })
+  ]
+})
+
+viewof input = Select(
+  ['step', 'hardstep', 'smoothstep', 'ramp', 'quadratic ramp'],
+  {
+    value: 'step',
+    label: 'Input'
+  }
+)
+
+//viewof Kp = Range([1e-12, 100], {
+//  label: tex`K_P`,
+//  value: 1,
+//  transform: Math.log
+//})
+
+//viewof Ki = Range([1e-12, 10], {
+//  label: tex`K_I`,
+//  value: 0,
+//  transform: Math.log
+//})
+
+//viewof Kd = Range([1e-12, 1], {
+//  label: tex`K_d`,
+//  value: 0,
+//  transform: Math.log
+//})
+
+//viewof dt = Range([1e-4, 0.1], {
+//  value: 0.001,
+//  transform: Math.log,
+//  label: tex`\Delta t`
+//})
+
+viewof Kpt2 = Range([1e-12, 5], {
+  value: 1,
+  transform: Math.log,
+  label: tex`K_{pt2}`
+})
+
+viewof D = Range([1e-12, 10], {
+  value: 0.5,
+  transform: Math.log,
+  label: tex`D`
+})
+
+viewof T = Range([1e-12, 5], {
+  value: 1,
+  transform: Math.log,
+  label: tex`T`
+})
+
+viewof tMax = Range([1, 10e3], {
+  value: 10,
+  transform: Math.log,
+  label: tex`t_{max}`
+})
+
+y = {
+  const output = [];
+
+  let p; 
+  let t0 = -0.5;
+  //let tMax = 20;
+
+  let t = t0;
+  let d = 0;
+  let u = 0;
+  let i = 0;
+  let e = 0;
+  let eprev = e;
+  let pu = u;
+  let ppu = u;
+  let du = 0;
+  let ddu = 0;
+  let pdu = 0;
+  let y = 0;
+  let py = 0;
+  let ppy = 0;
+  let dy = 0;
+  let ddy = 0;
+  let pdy = 0;
+  let de = 0;
+  let dt = 0.001;
+  let s = setPoint(t0);
+  output.push({ t, u, s });
+
+  let j = 1;
+  while (t < tMax) {
+    t = t0 + j * dt;
+
+    s = setPoint(t);
+   
+    e = s - u;
+    de = eprev-e;
+
+    //du = (u-pu)/dt;
+    //ddu = (du - pdu)/dt;
+
+    //dy = (py - y)/dt;
+    //ddy = (dy - pdy)/dt;
+
+    p = e;
+    i += e * dt;
+    d = de/dt;
+
+    y = s; //(Kp * p + Ki * i + Kd * d) * dt;
+    
+    u = (2*D*T*dt*pu + Kpt2*dt**2*y - T**2*ppu + 2*T**2*pu)/(2*D*T*dt + T**2 + dt**2);
+
+    ppu = pu;
+    pu = u;
+    //pdu = du;
+
+    //ppy = py;
+    //py = y;
+    //pdy = dy;
+
+    eprev = e;
+
+    output.push({ t, u, s });
+    j++;
+  }
+
+  return output;
+}
+
+setPoint = {
+  function hardstep(x) {
+    return Math.max(0, Math.min(1, x));
+  }
+  function smoothstep(x) {
+    var x = hardstep(x);
+    return x * x * (3 - 2 * x);
+  }
+  switch (input) {
+    case 'step':
+      return t => (t >= 0 ? 1 : 0);
+    case 'ramp':
+      return t => (t >= 0 ? t : 0);
+    case 'quadratic ramp':
+      return t => (t >= 0 ? t * t : 0);
+    case 'smoothstep':
+      return smoothstep;
+    case 'hardstep':
+      return hardstep;
+    default:
+      throw new Error('Invalid input');
+  }
+}
+
+import { Range, Select } from '@observablehq/inputs'
+```

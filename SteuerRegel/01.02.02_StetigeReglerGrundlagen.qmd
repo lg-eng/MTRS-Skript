@@ -68,4 +68,8 @@ Dabei wird am Eingang der Strecke ein Testssignal aufgeschalten und der Ausgang 
 
 {{< include 01.02.02.03_Signale_und_Streckenverhalten.qmd >}}
 
+
 {{< include 01.02.01.03_BlockAlegebra.qmd >}}
+
+
+{{< include 01.02.01.04_InteractivePID.qmd >}}

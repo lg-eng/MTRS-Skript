@@ -28,3 +28,7 @@ Der zweite Typ von Regler kann die Stellgröße kontinurierlich anpassen. Diese 
 {{< include 01.02.01_UnstetigeRegler.qmd >}}
 
 {{< include 01.02.02_StetigeReglerGrundlagen.qmd >}}
+
+
+
+
