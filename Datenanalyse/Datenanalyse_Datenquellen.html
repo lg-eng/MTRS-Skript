@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>MTRS-Skript - 2&nbsp; Datenquellen</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../Datenanalyse/Datenanalyse_Darstellungsformen.html" rel="next">
+<link href="../Datenanalyse/01_Datenanalyse.html" rel="prev">
+<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"express",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  ,
+"language":"de"
+  });
+});
+</script> 
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Datenanalyse/01_Datenanalyse.html">Datenanalyse</a></li><li class="breadcrumb-item"><a href="../Datenanalyse/Datenanalyse_Datenquellen.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Datenquellen</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">MTRS-Skript</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lg-eng/MTRS-Skript" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Willkommen zum Skript</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../Messtechnik/Messtechnik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Messtechnik und Sensorik</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/Frequenz_und_Periode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Messung der Zeit, Frequenz und Periode</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../Datenanalyse/01_Datenanalyse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datenanalyse</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Datenanalyse/Datenanalyse_Datenquellen.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Datenquellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Datenanalyse/Datenanalyse_Darstellungsformen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../SteuerRegel/01_SteuerRegel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Steuer- und Regelungstechnik</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="4">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#csv-dateien" id="toc-csv-dateien" class="nav-link active" data-scroll-target="#csv-dateien"><span class="header-section-number">2.1</span> CSV-Dateien</a>
+  <ul>
+  <li><a href="#einlesen-von-csv-dateien" id="toc-einlesen-von-csv-dateien" class="nav-link" data-scroll-target="#einlesen-von-csv-dateien"><span class="header-section-number">2.1.1</span> Einlesen von CSV-Dateien</a></li>
+  </ul></li>
+  <li><a href="#bild" id="toc-bild" class="nav-link" data-scroll-target="#bild"><span class="header-section-number">2.2</span> Bild</a></li>
+  <li><a href="#restful-api" id="toc-restful-api" class="nav-link" data-scroll-target="#restful-api"><span class="header-section-number">2.3</span> RESTful API</a>
+  <ul>
+  <li><a href="#einlesen-von-daten-einer-restful-api" id="toc-einlesen-von-daten-einer-restful-api" class="nav-link" data-scroll-target="#einlesen-von-daten-einer-restful-api"><span class="header-section-number">2.3.1</span> Einlesen von Daten einer RESTful API</a></li>
+  </ul></li>
+  <li><a href="#datenbanken" id="toc-datenbanken" class="nav-link" data-scroll-target="#datenbanken"><span class="header-section-number">2.4</span> Datenbanken</a></li>
+  <li><a href="#mqtt" id="toc-mqtt" class="nav-link" data-scroll-target="#mqtt"><span class="header-section-number">2.5</span> MQTT</a></li>
+  <li><a href="#weiterführende-links" id="toc-weiterführende-links" class="nav-link" data-scroll-target="#weiterführende-links"><span class="header-section-number">2.6</span> Weiterführende Links</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Datenanalyse/01_Datenanalyse.html">Datenanalyse</a></li><li class="breadcrumb-item"><a href="../Datenanalyse/Datenanalyse_Datenquellen.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Datenquellen</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-data-sources" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Datenquellen</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Grob können Datenquellen in folgende Gruppen eingeteilt werden, wobei analoge Datenquellen außer acht gelassen werden. Die Liste hat auch keinen Anspruch auf Vollständigkeit.<br>
+Um Daten analysieren zu können müssen sie zuerst eingelesen werden. Das bedeutet in den meisten Fällen, dass sie in den Arbeitsspeicher geladen werden. Um Daten effektiv zu analysieren, ist es sinnvoll die verschiedenen Datenquellen in ein einheitliches Format zu bringen. In Python wird dazu oft die Bibliothek <em>pandas</em> verwendet.</p>
+<p><strong>Statische Datenquellen</strong> Unter <em>statische Datenquellen</em> sind Daten gemeint die vorab gespeichert wurden. Zum Beispiel ein Foto welches auf der Festplatte gespeichert ist.</p>
+<ul>
+<li>Dateien
+<ul>
+<li>Textdateien<br>
+</li>
+<li>Tabellen<br>
+</li>
+<li>CSV-Dateien<br>
+</li>
+<li>JSON-Dateien<br>
+</li>
+<li>XML-Dateien<br>
+</li>
+<li>Binärdateien<br>
+</li>
+<li>Bild- und Videodateien<br>
+</li>
+</ul></li>
+<li>Datenbanken
+<ul>
+<li>Zeitreihendatenbanken
+<ul>
+<li>InfluxDB</li>
+</ul></li>
+<li>Relationale Datenbanken
+<ul>
+<li>MySQL</li>
+<li>MariaDB</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Dynamische Datenquellen</strong> Unter <em>dynamische Datenquellen</em> sind Daten gemeint die in Echtzeit generiert werden. Zum Beispiel die Temperatur eines Sensors oder die Position eines GPS-Empfängers. Dabei spielt neben dem Datenformat auch die Datenverbindung eine Rolle. Es können zum Beipiel oben geannten Datenformate über verschiedene Protokolle übertragen werden.</p>
+<p><strong>Datenübertragung</strong> Egal ob die Daten statisch vorliegen oder dynamisch generiert werden, sie müssen übertragen werden. Neben dem klassischen Datenspeicher wie Festplatte oder SSD gibt es viele Möglichkeiten Daten zu übertragen. Hier eine kleine Auswahl:</p>
+<ul>
+<li>MQTT - Message Queuing Telemetry Transport</li>
+<li>I2C</li>
+<li>SPI</li>
+<li>RS232</li>
+<li>RS485</li>
+<li>CAN</li>
+<li>Modbus</li>
+<li>Feldbusse</li>
+<li>Ethernet/IP</li>
+<li>APIs - Application Programming Interface
+<ul>
+<li><strong>RESTful</strong> APIs - Representational State Transfer</li>
+<li>SOAP APIs - Simple Object Access Protocol<br>
+</li>
+<li>GraphQL APIs - Query Language for APIs</li>
+</ul></li>
+</ul>
+<p>Eine kleine Auswahl an Datenquellen wird im Folgenden vorgestellt und gezeigt wie sie mittels Python eingelesen werden können.</p>
+<section id="csv-dateien" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="csv-dateien"><span class="header-section-number">2.1</span> CSV-Dateien</h2>
+<p>CSV-Dateien sind Textdateien, die Daten in Tabellenform speichern. CSV steht für Comma Separated Values. Die Werte in einer Zeile sind durch ein Trennzeichen getrennt, meistens ein Komma. Das Trennzeichen kann aber auch ein Semikolon oder ein Tabulator sein. Ein Beispiel für eine CSV-Datei könnte so aussehen:</p>
+<pre><code>-5.056e-02,0.0599999,0.00399998
+-5.040e-02,0.0599999,0.012
+-5.024e-02,0.0599999,0.012
+-5.008e-02,0.0599999,0.012</code></pre>
+<p>Praktisch ist es wenn die erste Zeile die Spaltennamen enthält. Zum Beispiel so:</p>
+<pre><code>TIME,CH1,CH2
+-5.056e-02,0.0599999,0.00399998
+-5.040e-02,0.0599999,0.012
+-5.024e-02,0.0599999,0.012</code></pre>
+<p>Wenn die Spaltennamen erlaube Python Variablennamen sind, können die Daten nach dem einlesen direkt mit dem Namen der Spalte angesprochen werden.<br>
+Of gibt es auch sogenannte <em>Header Zeile</em>. Hier wird sogenannte Metainformation gespeichert. Zum Beispiel die Einsteillungen eines messgerätes zum Zeitpunkt der Messung.</p>
+<pre><code>Model,TBS1072C
+Firmware Version,v2015-08-04-prequal4ch70_v1.3
+
+Point Format,Y,
+Horizontal Units,S,
+Horizontal Scale,0.02,
+Sample Interval,0.00016,
+Filter Frequency,2e+08,
+Record Length,2000,
+Gating,0.0% to 100.0%,0.0% to 100.0%
+Probe Attenuation,1,1
+Vertical Units,V,V
+Vertical Offset,0,0
+Vertical Scale,1,0.2
+Label,,
+TIME,CH1,CH2
+-5.056e-02,0.0599999,0.00399998
+-5.040e-02,0.0599999,0.012
+-5.024e-02,0.0599999,0.012
+-5.008e-02,0.0599999,0.012</code></pre>
+<p>Diese <em>Header Zeilen</em> müssen beim einlesen ignoriert werden. Werden Informationen daraus benötigt, müssen sie explizit ausgelesen werden.</p>
+<section id="einlesen-von-csv-dateien" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="einlesen-von-csv-dateien"><span class="header-section-number">2.1.1</span> Einlesen von CSV-Dateien</h3>
+<p>Da <em>CSV</em> ein sehr weit verbreitetes Format ist, gibt es auch in Python viele Möglichkeiten CSV-Dateien einzulesen. In diesem Dokument wird die Bibliothek <em>pandas</em> verwendet. Als Datensatz werden Daten eines Oszilloskops verwendet. Die Datei, TEK00003.CSV, ist auf Github zu finden.<br>
+Zuerst wird die Datei mit einem Texteditor geöffnet um sich einen Überblick über die Struktur zu verschaffen. und festzustellen ob es <em>Header Zeilen</em> gibt. In diesem Fall gibt es 15 Zeilen die ignoriert werden müssen.</p>
+<div id="803b7bbb" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co"># Importieren der Bibliothek pandas</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'TEK00003.CSV'</span>,skiprows<span class="op">=</span><span class="dv">15</span>) <span class="co"># Einlesen der Datei und überspringen der ersten 15 Zeilen</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>display(df) <span class="co"># Ausgabe</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">TIME</th>
+<th data-quarto-table-cell-role="th">CH1</th>
+<th data-quarto-table-cell-role="th">CH2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>-0.05056</td>
+<td>0.06</td>
+<td>0.004</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>-0.05040</td>
+<td>0.06</td>
+<td>0.012</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>-0.05024</td>
+<td>0.06</td>
+<td>0.012</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>-0.05008</td>
+<td>0.06</td>
+<td>0.012</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>-0.04992</td>
+<td>0.06</td>
+<td>0.004</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1936</td>
+<td>0.25920</td>
+<td>4.98</td>
+<td>0.972</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1937</td>
+<td>0.25940</td>
+<td>5.02</td>
+<td>0.996</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1938</td>
+<td>0.25950</td>
+<td>5.02</td>
+<td>1.028</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1939</td>
+<td>0.25970</td>
+<td>5.02</td>
+<td>1.036</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1940</td>
+<td>0.25980</td>
+<td>4.98</td>
+<td>1.020</td>
+</tr>
+</tbody>
+</table>
+
+<p>1941 rows × 3 columns</p>
+</div>
+</div>
+</div>
+</div>
+<p>Nun kann die Datenanalyse beginnen. Dazu aber in späteren Kapiteln.</p>
+<p>Als Testdaten kann zum Beispiel die Statistik der Programmiersprachen auf Github verwendet werden. <a href="https://github.com/github/innovationgraph/blob/main/data/languages.csv">Global-metrics programming-languages</a></p>
+</section>
+</section>
+<section id="bild" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="bild"><span class="header-section-number">2.2</span> Bild</h2>
+<p>Es soll ein Bild eingelesen und die RGB in einem Pandas DataFrame gespeichert werden.</p>
+<div id="a87f3633" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.image <span class="im">as</span> mpimg</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> mpimg.imread(<span class="st">'htl-logo_rauten.bmp'</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(img.reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">3</span>),columns<span class="op">=</span>[<span class="st">'R'</span>,<span class="st">'G'</span>,<span class="st">'B'</span>])</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>display(df)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">R</th>
+<th data-quarto-table-cell-role="th">G</th>
+<th data-quarto-table-cell-role="th">B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>255</td>
+<td>255</td>
+<td>254</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>255</td>
+<td>255</td>
+<td>254</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>255</td>
+<td>255</td>
+<td>254</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>255</td>
+<td>255</td>
+<td>254</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>255</td>
+<td>255</td>
+<td>254</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">74499</td>
+<td>234</td>
+<td>229</td>
+<td>224</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">74500</td>
+<td>234</td>
+<td>229</td>
+<td>224</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">74501</td>
+<td>235</td>
+<td>229</td>
+<td>224</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">74502</td>
+<td>234</td>
+<td>229</td>
+<td>224</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">74503</td>
+<td>236</td>
+<td>231</td>
+<td>227</td>
+</tr>
+</tbody>
+</table>
+
+<p>74504 rows × 3 columns</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="restful-api" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="restful-api"><span class="header-section-number">2.3</span> RESTful API</h2>
+<p>Eine RESTful API ist eine Schnittstelle, die auf dem HTTP-Protokoll basiert und die CRUD-Operationen (Create, Read, Update, Delete) unterstützt. Viele Webseiten und Dienste bieten eine RESTful API an, um Daten abzurufen oder zu speichern. Beispiele dafür sind soziale Netzwerke wie Twitter oder Facebook, Wetterdienste wie OpenWeatherMap oder Finanzdienste.</p>
+<section id="einlesen-von-daten-einer-restful-api" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="einlesen-von-daten-einer-restful-api"><span class="header-section-number">2.3.1</span> Einlesen von Daten einer RESTful API</h3>
+<p>In diesem Beispiel wird die RESTful API von <em>jsonplaceholder</em> verwendet. Diese API stellt Testdaten zur Verfügung.</p>
+<div id="8a8358eb" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://jsonplaceholder.typicode.com/posts'</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> response.json()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>display(df.head())</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">userId</th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">body</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>1</td>
+<td>sunt aut facere repellat provident occaecati e...</td>
+<td>quia et suscipit\nsuscipit recusandae consequu...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>2</td>
+<td>qui est esse</td>
+<td>est rerum tempore vitae\nsequi sint nihil repr...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1</td>
+<td>3</td>
+<td>ea molestias quasi exercitationem repellat qui...</td>
+<td>et iusto sed quo iure\nvoluptatem occaecati om...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1</td>
+<td>4</td>
+<td>eum et est occaecati</td>
+<td>ullam et saepe reiciendis voluptatem adipisci\...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1</td>
+<td>5</td>
+<td>nesciunt quas odio</td>
+<td>repudiandae veniam quaerat sunt sed\nalias aut...</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="datenbanken" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="datenbanken"><span class="header-section-number">2.4</span> Datenbanken</h2>
+<p>Datenbanken sind ein mächtiges Werkzeug um Daten zu speichern und zu verwalten. Der Aufbau und die Funktion wird an dieser Stelle nicht weiter erläutert und auf die entsprechende Unterrichtsfächer verwiesen.</p>
+</section>
+<section id="mqtt" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="mqtt"><span class="header-section-number">2.5</span> MQTT</h2>
+<p>MQTT ist ein leichtgewichtiges Protokoll, das für die Kommunikation zwischen Geräten in einem Netzwerk entwickelt wurde. Es wird oft in IoT-Anwendungen verwendet. In diesem Beispiel wird die Bibliothek <em>paho-mqtt</em> verwendet.</p>
+<div id="84551705" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> paho.mqtt.client <span class="im">as</span> mqtt <span class="co">#import the mqtt client</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co">#import the pandas library</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time <span class="co">#import the time library</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json <span class="co">#import the json library</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime, timedelta, date <span class="co">#import the datetime library</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> on_connect(client, userdata, flags, rc): <span class="co">#define the on_connect function</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    client.subscribe(<span class="st">"test"</span>) <span class="co">#subscribe to the test topic, replace with your own topic</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> on_message(client, userdata, msg): <span class="co">#define the on_message function</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    val_string <span class="op">=</span> msg.payload.decode() <span class="co">#decode the message</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> val <span class="co">#make the val variable global</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    val <span class="op">=</span> json.loads(val_string) <span class="co">#load the json string into the val variable</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>val <span class="op">=</span> <span class="va">None</span> <span class="co">#initialize the val variable</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame() <span class="co">#initialize the dataframe</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> mqtt.Client() <span class="co">#create a new mqtt client</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>client.on_connect <span class="op">=</span> on_connect <span class="co">#set the on_connect function</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>client.on_message <span class="op">=</span> on_message <span class="co">#set the on_message function</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>mqtt_server_url <span class="op">=</span> <span class="st">"test.mosquitto.org"</span> <span class="co">#define the mqtt server url</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>client.<span class="ex">connect</span>(mqtt_server_url, <span class="dv">1883</span>, <span class="dv">60</span>) <span class="co">#connect to the mqtt server</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>client.loop_start() <span class="co">#start the loop</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>): <span class="co">#run the loop for x times resulting in x messages being received</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> val <span class="kw">is</span> <span class="va">None</span>: <span class="co">#wait for the message to be received</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="fl">0.1</span>) <span class="co">#sleep for 0.1 seconds</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    date <span class="op">=</span> datetime.now() <span class="co">#get the current date and time</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    timestamp_dict <span class="op">=</span> {<span class="st">"time"</span>:datetime.now()} <span class="co">#create a dictionary with the timestamp</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    val.update(timestamp_dict) <span class="co">#add the timestamp to the dictionary</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    df_dictionary <span class="op">=</span> pd.DataFrame([val]) <span class="co">#create a dataframe from the dictionary</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.concat([df, df_dictionary], ignore_index<span class="op">=</span><span class="va">True</span>) <span class="co">#concatenate the dataframes</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    val <span class="op">=</span> <span class="va">None</span> <span class="co">#reset the val variable</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>client.loop_stop() <span class="co">#stop the loop</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>display(df) <span class="co">#display the dataframe</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">temperature</th>
+<th data-quarto-table-cell-role="th">humidity</th>
+<th data-quarto-table-cell-role="th">time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>62</td>
+<td>5</td>
+<td>2024-05-01 09:06:04.244398</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>31</td>
+<td>25</td>
+<td>2024-05-01 09:06:06.252853</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="weiterführende-links" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="weiterführende-links"><span class="header-section-number">2.6</span> Weiterführende Links</h2>
+<p><a href="https://pandas.pydata.org/pandas-docs/stable/reference/io.html">Pandas Input/Output</a></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../Datenanalyse/01_Datenanalyse.html" class="pagination-link" aria-label="Datenanalyse">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Datenanalyse</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../Datenanalyse/Datenanalyse_Darstellungsformen.html" class="pagination-link" aria-label="Darstellungsformen von Daten">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+
+<div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
