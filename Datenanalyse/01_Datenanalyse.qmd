@@ -1,0 +1,12 @@
+# Datenanalyse
+
+In diesem Kapitel geht es um die verschieden  Arten von Daten die in der Messtechnik erfasst werden und wie Informationen aus diesen Daten gewonnen werden können.  
+Der erste Schritt ist immer festzulegen welche Information gesucht ist, also das Ziel festlegen.  
+Im zweiten Schritt muss eine Bestandsaufnahme der vorhandenen Daten gemacht werden.  
+Sind die Daten nicht ausreichend muss:  
+a. weitere Daten erfasst werden  
+b. die Ziele  angepasst werden  
+
+
+## Weiterführende Literatur
+[Analyzing IoT Data with Python](https://campus.datacamp.com/courses/analyzing-iot-data-in-python/accessing-iot-data?ex=12)

@@ -1,0 +1,192 @@
+# Datenquellen {#sec-data-sources}
+Grob können Datenquellen in folgende Gruppen eingeteilt werden, wobei analoge Datenquellen außer acht gelassen werden. Die Liste hat auch keinen Anspruch auf Vollständigkeit.  
+Um Daten analysieren zu können müssen sie zuerst eingelesen werden. Das bedeutet in den meisten Fällen, dass sie in den Arbeitsspeicher geladen werden. Um Daten effektiv zu analysieren, ist es sinnvoll die verschiedenen Datenquellen in ein einheitliches Format zu bringen. In Python wird dazu oft die Bibliothek *pandas* verwendet.
+
+**Statische Datenquellen**
+Unter *statische Datenquellen* sind Daten gemeint die vorab gespeichert wurden. Zum Beispiel ein Foto welches auf der Festplatte gespeichert ist.
+
++ Dateien  
+    * Textdateien  
+    * Tabellen  
+    * CSV-Dateien  
+    * JSON-Dateien  
+    * XML-Dateien  
+    * Binärdateien  
+    * Bild- und Videodateien  
+- Datenbanken  
+  * Zeitreihendatenbanken  
+    + InfluxDB
+  * Relationale Datenbanken  
+    + MySQL
+    + MariaDB
+
+
+**Dynamische Datenquellen**
+Unter *dynamische Datenquellen* sind Daten gemeint die in Echtzeit generiert werden. Zum Beispiel die Temperatur eines Sensors oder die Position eines GPS-Empfängers. Dabei spielt neben dem Datenformat auch die Datenverbindung eine Rolle. Es können zum Beipiel oben geannten Datenformate über verschiedene Protokolle übertragen werden.
+
+**Datenübertragung**
+Egal ob die Daten statisch vorliegen oder dynamisch generiert werden, sie müssen übertragen werden. Neben dem klassischen Datenspeicher wie Festplatte oder SSD gibt es viele Möglichkeiten Daten zu übertragen. Hier eine kleine Auswahl:
+
+* MQTT - Message Queuing Telemetry Transport
+* I2C
+* SPI
+* RS232
+* RS485
+* CAN
+* Modbus
+* Feldbusse
+* Ethernet/IP
+* APIs - Application Programming Interface
+    * **RESTful** APIs - Representational State Transfer
+    * SOAP APIs - Simple Object Access Protocol  
+    * GraphQL APIs - Query Language for APIs
+
+Eine kleine Auswahl an Datenquellen wird im Folgenden vorgestellt und gezeigt wie sie mittels Python eingelesen werden können.
+
+## CSV-Dateien
+CSV-Dateien sind Textdateien, die Daten in Tabellenform speichern. CSV steht für Comma Separated Values. Die Werte in einer Zeile sind durch ein Trennzeichen getrennt, meistens ein Komma. Das Trennzeichen kann aber auch ein Semikolon oder ein Tabulator sein.
+Ein Beispiel für eine CSV-Datei könnte so aussehen:
+```
+-5.056e-02,0.0599999,0.00399998
+-5.040e-02,0.0599999,0.012
+-5.024e-02,0.0599999,0.012
+-5.008e-02,0.0599999,0.012
+```
+
+Praktisch ist es wenn die erste Zeile die Spaltennamen enthält. Zum Beispiel so:
+```
+TIME,CH1,CH2
+-5.056e-02,0.0599999,0.00399998
+-5.040e-02,0.0599999,0.012
+-5.024e-02,0.0599999,0.012
+```
+Wenn die Spaltennamen erlaube Python Variablennamen sind, können die Daten nach dem einlesen direkt mit dem Namen der Spalte angesprochen werden.  
+Of gibt es auch sogenannte *Header Zeile*. Hier wird sogenannte Metainformation gespeichert. Zum Beispiel die Einsteillungen eines messgerätes zum Zeitpunkt der Messung.
+```
+Model,TBS1072C
+Firmware Version,v2015-08-04-prequal4ch70_v1.3
+
+Point Format,Y,
+Horizontal Units,S,
+Horizontal Scale,0.02,
+Sample Interval,0.00016,
+Filter Frequency,2e+08,
+Record Length,2000,
+Gating,0.0% to 100.0%,0.0% to 100.0%
+Probe Attenuation,1,1
+Vertical Units,V,V
+Vertical Offset,0,0
+Vertical Scale,1,0.2
+Label,,
+TIME,CH1,CH2
+-5.056e-02,0.0599999,0.00399998
+-5.040e-02,0.0599999,0.012
+-5.024e-02,0.0599999,0.012
+-5.008e-02,0.0599999,0.012
+```
+
+Diese *Header Zeilen* müssen beim einlesen ignoriert werden. Werden Informationen daraus benötigt, müssen sie explizit ausgelesen werden.
+
+### Einlesen von CSV-Dateien
+Da *CSV* ein sehr weit verbreitetes Format ist, gibt es auch in Python viele Möglichkeiten CSV-Dateien einzulesen. In diesem Dokument wird die Bibliothek *pandas* verwendet. Als Datensatz werden Daten eines Oszilloskops verwendet. Die Datei, TEK00003.CSV, ist auf Github zu finden.  
+Zuerst wird die Datei mit einem Texteditor geöffnet um sich einen Überblick über die Struktur zu verschaffen. und festzustellen ob es *Header Zeilen* gibt. In diesem Fall gibt es 15 Zeilen die ignoriert werden müssen. 
+
+```{python}
+#| code-fold: false
+#| echo: true
+import pandas as pd # Importieren der Bibliothek pandas
+df = pd.read_csv('TEK00003.CSV',skiprows=15) # Einlesen der Datei und überspringen der ersten 15 Zeilen
+display(df) # Ausgabe
+
+```
+
+Nun kann die Datenanalyse beginnen. Dazu aber in späteren Kapiteln.
+
+Als Testdaten kann zum Beispiel die Statistik der Programmiersprachen auf Github verwendet werden.
+[Global-metrics programming-languages](https://github.com/github/innovationgraph/blob/main/data/languages.csv)
+
+
+## Bild
+Es soll ein Bild eingelesen und die RGB in einem Pandas DataFrame gespeichert werden. 
+```{python}
+#| code-fold: false
+#| echo: true
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+
+img = mpimg.imread('htl-logo_rauten.bmp')
+df = pd.DataFrame(img.reshape(-1,3),columns=['R','G','B'])
+display(df)
+```
+
+## RESTful API
+Eine RESTful API ist eine Schnittstelle, die auf dem HTTP-Protokoll basiert und die CRUD-Operationen (Create, Read, Update, Delete) unterstützt. Viele Webseiten und Dienste bieten eine RESTful API an, um Daten abzurufen oder zu speichern. Beispiele dafür sind soziale Netzwerke wie Twitter oder Facebook, Wetterdienste wie OpenWeatherMap oder Finanzdienste.  
+
+### Einlesen von Daten einer RESTful API
+In diesem Beispiel wird die RESTful API von *jsonplaceholder* verwendet. Diese API stellt Testdaten zur Verfügung.
+```{python}
+#| code-fold: false
+#| echo: true
+import requests
+import pandas as pd
+
+url = 'https://jsonplaceholder.typicode.com/posts'
+response = requests.get(url)
+data = response.json()
+df = pd.DataFrame(data)
+display(df.head())
+
+```
+
+
+
+## Datenbanken
+Datenbanken sind ein mächtiges Werkzeug um Daten zu speichern und zu verwalten. Der Aufbau und die Funktion wird an dieser Stelle nicht weiter erläutert und auf die entsprechende Unterrichtsfächer verwiesen.
+
+## MQTT
+MQTT ist ein leichtgewichtiges Protokoll, das für die Kommunikation zwischen Geräten in einem Netzwerk entwickelt wurde. Es wird oft in IoT-Anwendungen verwendet. In diesem Beispiel wird die Bibliothek *paho-mqtt* verwendet.
+```{python}
+#| code-fold: false
+#| echo: true
+import paho.mqtt.client as mqtt #import the mqtt client
+import pandas as pd #import the pandas library
+import time #import the time library
+import json #import the json library
+from datetime import datetime, timedelta, date #import the datetime library
+
+def on_connect(client, userdata, flags, rc): #define the on_connect function
+    client.subscribe("test") #subscribe to the test topic, replace with your own topic
+
+def on_message(client, userdata, msg): #define the on_message function
+    val_string = msg.payload.decode() #decode the message
+    global val #make the val variable global
+    val = json.loads(val_string) #load the json string into the val variable
+
+val = None #initialize the val variable
+df = pd.DataFrame() #initialize the dataframe
+client = mqtt.Client() #create a new mqtt client
+client.on_connect = on_connect #set the on_connect function
+client.on_message = on_message #set the on_message function
+
+mqtt_server_url = "test.mosquitto.org" #define the mqtt server url
+client.connect(mqtt_server_url, 1883, 60) #connect to the mqtt server
+
+client.loop_start() #start the loop
+for i in range(2): #run the loop for x times resulting in x messages being received
+    while val is None: #wait for the message to be received
+        time.sleep(0.1) #sleep for 0.1 seconds
+    date = datetime.now() #get the current date and time
+    timestamp_dict = {"time":datetime.now()} #create a dictionary with the timestamp
+    val.update(timestamp_dict) #add the timestamp to the dictionary
+    df_dictionary = pd.DataFrame([val]) #create a dataframe from the dictionary
+    df = pd.concat([df, df_dictionary], ignore_index=True) #concatenate the dataframes
+    val = None #reset the val variable
+client.loop_stop() #stop the loop
+display(df) #display the dataframe
+
+```
+
+
+## Weiterführende Links
+[Pandas Input/Output](https://pandas.pydata.org/pandas-docs/stable/reference/io.html)

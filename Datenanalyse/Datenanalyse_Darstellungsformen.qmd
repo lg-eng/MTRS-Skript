@@ -1,0 +1,66 @@
+## Darstellungsformen von Daten
+Je nach Zielsetzung und Art der Daten können unterschiedliche Darstellungsformen sinnvoll sein. Hier sind einige Beispiele:  
+
+- **Tabellen**  
+- **Grafen** Eine gute Übersicht gibt hier Excel @fig-ExcelCharts. Hier sind einige Beispiele für Diagrammtypen:  
+    + Zeitreihen  
+    + Frequenzverteilungen  
+    + Verteilungsfunktionen  
+    + Korrelationsdiagramme  
+    + Streudiagramme  
+    + Balkendiagramme  
+    + Tortendiagramme  
+- **Bilder** im weitesten Sinn ist natürlich jede grafische Darstellung ein Bild. Hier ist jedoch die Rede von Bildern im Sinne von Fotos oder anderen Bildern, die mit einer Kamera oder einem Scanner aufgenommen wurden.  
+
+![Excel Charts](ExcelChartsShot.png){#fig-ExcelCharts}
+
+Ausgehend von den Datenquellen in @sec-data-sources werden hier einige Darstellungsformen gezeigt. Die Umsetzung erfolgt in Python mit den Bibliotheken `pandas`, `matplotlib` und `plotly`.
+
+## Zeitreihen
+Die Bezeichnung bezieht sich auf die Größe auf der x-Achse, die Zeit.
+
+```{python}
+#| label: fig-DCMotorStepResponse
+#| fig-cap: "Sprungantwort eines DC-Motors"
+#| code-fold: false
+#| echo: true
+
+import pandas as pd # Importieren der Bibliothek pandas
+import matplotlib.pyplot as plt # Importieren der Bibliothek matplotlib
+
+df = pd.read_csv('TEK00003.CSV',skiprows=15) # Einlesen der Datei und überspringen der ersten 15 Zeilen
+#display(df) # Ausgabe
+
+# Erstellen des Diagramms
+plt.plot(df.TIME,df.CH1,label='Spannung am Eingang des Motors') # x-Achse: Zeit, y-Achse: Kanal 1
+plt.plot(df.TIME,df.CH2,label='Spannung am Ausgang des mechanisch gekoppelten Tachogenerators') # x-Achse: Zeit, y-Achse: Kanal 2
+plt.xlabel('Zeit in s') # Beschriftung der x-Achse
+plt.ylabel('Spannung in V') # Beschriftung der y-Achse
+plt.title('Sprungantwort eines DC-Motors') # Titel des Diagramms
+plt.grid() # Gitternetzlinien einblenden
+plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1)) # Legende einblenden und Position anpassen
+plt.show() # Diagramm anzeigen
+
+```
+
+## Histogramme - Häufigkeitsverteilungen
+```{python}
+#| label: fig-Histogram
+#| fig-cap: "Histogramm der Spannungen am Ausgang des Tachogenerators"
+#| code-fold: false
+#| echo: true
+
+import pandas as pd # Importieren der Bibliothek pandas
+import matplotlib.pyplot as plt # Importieren der Bibliothek matplotlib
+
+df = pd.read_csv('TEK00003.CSV',skiprows=15) # Einlesen der Datei und überspringen der ersten 15 Zeilen
+#display(df) # Ausgabe
+
+# Erstellen des Diagramms
+plt.hist(df.CH2,bins=50,edgecolor='black') # Erstellen des Histogramms
+plt.xlabel('Spannung in V') # Beschriftung der x-Achse
+plt.ylabel('Häufigkeit') # Beschriftung der y-Achse
+plt.title('Histogramm der Spannungen am Ausgang des Tachogenerators') # Titel des Diagramms
+plt.grid() # Gitternetzlinien einblenden
+plt.show() # Diagramm anzeigen
+```

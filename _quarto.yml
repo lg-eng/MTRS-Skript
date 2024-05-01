@@ -19,12 +19,19 @@ book:
         
     chapters:
     - index.qmd
-    #- part: Messtechnik/Messtechnik.qmd
-    #  chapters:
-    #    - Messtechnik/Frequenz_und_Periode.ipynb  
+    - part: Messtechnik/Messtechnik.qmd
+      chapters:
+        - Messtechnik/Frequenz_und_Periode.ipynb  
     #- part: Drehstrom/02_Drehstrom.qmd
     #  chapters: 
     #    - Drehstrom/02.01_Grundlagen.qmd
+    - part: Datenanalyse/01_Datenanalyse.qmd
+      chapters: 
+        - Datenanalyse/Datenanalyse_Datenquellen.qmd
+        - Datenanalyse/Datenanalyse_Darstellungsformen.qmd
+#        - Datenanalyse/Datenanalyse_Werkzeuge.qmd
+#        - Datenanalyse/Datenanalyse_Statistik.qmd
+#        - Datenanalyse/Datenanalyse_KI.qmd
     - part: SteuerRegel/01_SteuerRegel.qmd
       chapters: 
         - SteuerRegel/01.02_Regelungstechnik.qmd
