@@ -1,6 +1,7 @@
 # Datenquellen {#sec-data-sources}
 Grob können Datenquellen in folgende Gruppen eingeteilt werden, wobei analoge Datenquellen außer acht gelassen werden. Die Liste hat auch keinen Anspruch auf Vollständigkeit.  
-Um Daten analysieren zu können müssen sie zuerst eingelesen werden. Das bedeutet in den meisten Fällen, dass sie in den Arbeitsspeicher geladen werden. Um Daten effektiv zu analysieren, ist es sinnvoll die verschiedenen Datenquellen in ein einheitliches Format zu bringen. In Python wird dazu oft die Bibliothek *pandas* verwendet.
+Um Daten analysieren zu können müssen sie zuerst eingelesen werden. Das bedeutet in den meisten Fällen, dass sie in den Arbeitsspeicher geladen werden. Um Daten effektiv zu analysieren, ist es sinnvoll die verschiedenen Datenquellen in ein einheitliches Format zu bringen. In Python wird dazu oft die Bibliothek *pandas* verwendet.  
+Ein großteil der Arbeit eines Data Scientists besteht darin, Daten aus den verschiedenen Quellen auszubreiten. 
 
 **Statische Datenquellen**
 Unter *statische Datenquellen* sind Daten gemeint die vorab gespeichert wurden. Zum Beispiel ein Foto welches auf der Festplatte gespeichert ist.
@@ -159,9 +160,8 @@ def on_connect(client, userdata, flags, rc): #define the on_connect function
     client.subscribe("test") #subscribe to the test topic, replace with your own topic
 
 def on_message(client, userdata, msg): #define the on_message function
-    val_string = msg.payload.decode() #decode the message
     global val #make the val variable global
-    val = json.loads(val_string) #load the json string into the val variable
+    val = msg.payload.decode() #decode the message
 
 val = None #initialize the val variable
 df = pd.DataFrame() #initialize the dataframe
@@ -173,15 +173,17 @@ mqtt_server_url = "test.mosquitto.org" #define the mqtt server url
 client.connect(mqtt_server_url, 1883, 60) #connect to the mqtt server
 
 client.loop_start() #start the loop
+vals = [] #initialize the vals list
+timestamps = [] #initialize the timestamps list
 for i in range(2): #run the loop for x times resulting in x messages being received
     while val is None: #wait for the message to be received
         time.sleep(0.1) #sleep for 0.1 seconds
-    date = datetime.now() #get the current date and time
-    timestamp_dict = {"time":datetime.now()} #create a dictionary with the timestamp
-    val.update(timestamp_dict) #add the timestamp to the dictionary
-    df_dictionary = pd.DataFrame([val]) #create a dataframe from the dictionary
-    df = pd.concat([df, df_dictionary], ignore_index=True) #concatenate the dataframes
+    timestamps.append(datetime.now()) #get the current date and time
+    vals.append(val) #load the json message
     val = None #reset the val variable
+
+df = pd.DataFrame(vals, index=timestamps) #create the dataframe
+   
 client.loop_stop() #stop the loop
 display(df) #display the dataframe
 

@@ -64,7 +64,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../references.html" rel="next">
 <link href="../SteuerRegel/01_SteuerRegel.html" rel="prev">
 <script src="../site_libs/cookie-consent/cookie-consent.js"></script>
 <link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
@@ -220,7 +219,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../Datenanalyse/01_Datenanalyse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Datenanalyse</span></a>
+ <span class="menu-text">Datenanalyse - Data Analysis</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -257,12 +256,6 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -370,18 +363,18 @@ Der zweite Typ von Regler kann die Stellgröße kontinurierlich anpassen. Diese 
 <h2 data-number="4.3" class="anchored" data-anchor-id="unstetige-regler"><span class="header-section-number">4.3</span> Unstetige Regler</h2>
 <p>Klassische unstetige Regler sind Bimetallschalter. Diese werden zum Beipiel bei Heizlüftern eingesetzt.<br>
 Ist der Raum, und damit das Bimetall kalt so ist der Kontakt geschlossen und der Lüfter läuft. Wird die Raumluft und damit das Bimetall warm wird der Kontakt geöffnet und der Lüfter hört auf zu heizen.</p>
-<div id="5a0b768b" class="cell" data-execution_count="2">
+<div id="823777b4" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(T_{ein}\)</span> … Einschaltschwelle</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(T_{aus}\)</span> … Ausschaltschwelle</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(T\)</span> … Temperatur</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
-</div>
-<div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(T_{aus}\)</span> … Ausschaltschwelle</p>
 </div>
 </div>
 <div id="cell-fig-zweipunktreglerplot" class="cell" data-execution_count="3">
@@ -435,7 +428,7 @@ Ist die Übertragungsfunktion bekannt, so kann die Strecke und deren Verhalten (
 </li>
 <li>Der messtechnische Ansatz, <a href="#sec-MessStreckenidentifikation" class="quarto-xref"><span>Kapitel 4.4.3</span></a></li>
 </ul>
-<div id="3d7ee991" class="cell" data-execution_count="4">
+<div id="33055eec" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-EVA"><span class="math display">\[
 V = \frac{A}{E}
@@ -445,22 +438,22 @@ V = \frac{A}{E}
 <p><span class="math inline">\(V\)</span> … Verarbeitung, die Übertragungsfunktion</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(E\)</span> … Eingang</p>
+<p><span class="math inline">\(A\)</span> … Ausgang</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(A\)</span> … Ausgang</p>
+<p><span class="math inline">\(E\)</span> … Eingang</p>
 </div>
 </div>
 <p>Gängige Bezeichnungen der Übertragungsfunktion der einzelnen Blöcke ist wie folgt.</p>
-<div id="0944af0f" class="cell" data-execution_count="5">
+<div id="b996dcaa" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(M\)</span> … Übertragungsfunktion des Sensors</p>
+<p><span class="math inline">\(G\)</span> … Übertragungsfunktion der zu Regelnden Strecke</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(R\)</span> … Übertragungsfunktion des Reglers</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(G\)</span> … Übertragungsfunktion der zu Regelnden Strecke</p>
+<p><span class="math inline">\(M\)</span> … Übertragungsfunktion des Sensors</p>
 </div>
 </div>
 </section>
@@ -482,20 +475,20 @@ Dabei wird am Eingang der Strecke ein Testssignal aufgeschalten und der Ausgang 
 <section id="warum-laplace" class="level4" data-number="4.4.4.1">
 <h4 data-number="4.4.4.1" class="anchored" data-anchor-id="warum-laplace"><span class="header-section-number">4.4.4.1</span> Warum Laplace</h4>
 <p>Um eine Übertragungsfunktion zu Berechnen muss der Ausgang durch den Eingang dividiert werden. Wird das physikalische System durch eine lineare Gleichung beschrieben ist das sehr Einfach möglich und die Laplace Transformation ist nicht notwendig. Ein Beispiel dafür is das Ohm’sche Gesetz.</p>
-<div id="655224a8" class="cell" data-execution_count="6">
+<div id="df0177f3" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Ohm_eq"><span class="math display">\[
 R_{ohm} = \frac{U}{I}
 \tag{4.2}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(U\)</span> … Spannung am Widerstand als Ausgang</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(R_{ohm}\)</span> … Ohm’scher Widerstand als Übertragungsfunktion</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(I\)</span> … Strom am Widerstand als Eingang</p>
-</div>
-<div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(U\)</span> … Spannung am Widerstand als Ausgang</p>
 </div>
 </div>
 <p>Wird das physikalische System aber durch eine Differentialgleichung beschrieben, wie zum Beispiel bei einem Tiefpass, so wäre es notwendig zuerst die Differentialgleichung zu lösen um die Übertragungsfunktion zu berechnen. Hier bietet die Lapalce Transformation eine erhebliche erleichterung.<br>
@@ -512,7 +505,7 @@ Abbildung&nbsp;4.3: Tiefpass
 </figcaption>
 </figure>
 </div>
-<div id="d4ec5baf" class="cell" data-execution_count="7">
+<div id="f1f9f14e" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-ict_eq1"><span class="math display">\[
 i_{c}{\left(t \right)} = \frac{\frac{d}{d t} u_{c}{\left(t \right)}}{C}
@@ -525,7 +518,7 @@ i_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)
 </div>
 </div>
 <p>Durch Gleichsetzten von <a href="#eq-ict_eq1" class="quarto-xref">Gleichung&nbsp;<span>4.3</span></a> und <a href="#eq-ict_eq2" class="quarto-xref">Gleichung&nbsp;<span>4.4</span></a> ergibt sich die allgemeine Differenzialgleichung 1. Ordnung für den Tiefpass.</p>
-<div id="cfc9559c" class="cell" data-execution_count="8">
+<div id="56b221c9" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-RCTP"><span class="math display">\[
 \frac{d}{d t} u_{c}{\left(t \right)} + \frac{u_{c}{\left(t \right)}}{C R_{ohm}} = \frac{u_{in}{\left(t \right)}}{C R_{ohm}}
@@ -535,19 +528,19 @@ i_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)
 <p><span class="math inline">\(R_{ohm}\)</span> … Ohmscher Widerstand</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(C\)</span> … Kapazität</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(t\)</span> … Zeit</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(C\)</span> … Kapazität</p>
+<p><span class="math inline">\(u_{c}{\left(t \right)}\)</span> … Ausgangsspannung</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(i_{c}{\left(t \right)}\)</span> … Strom</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(u_{in}{\left(t \right)}\)</span> … Eingangsspannung</p>
-</div>
-<div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(u_{c}{\left(t \right)}\)</span> … Ausgangsspannung</p>
 </div>
 </div>
 <p>Müsste nun von dieser Differentialgleichung die Übertragungsfunktion, also <span class="math inline">\(G=Ausgang/Eingang\)</span>, angegeben werden, so müsste zunächst die Differentialgleichung gelöst werden.<br>
@@ -614,7 +607,7 @@ Tabelle&nbsp;4.1: Laplacetransformationstabelle
 </figure>
 </div>
 <p>Wird nun Gleichung <a href="#eq-RCTP" class="quarto-xref">Gleichung&nbsp;<span>4.5</span></a> mittels der Tabelle <a href="#tbl-laplace" class="quarto-xref">Tabelle&nbsp;<span>4.1</span></a> transformiert erhalten wir eine Gleichung aus der wir durch einfaches Umformen eine Übertragungsfunktion erhalten. Es wird angenommen, dass $ x(0) = 0 $ ist.</p>
-<div id="4769070b" class="cell" data-execution_count="9">
+<div id="e92ce2a1" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
 U_{C} s + \frac{U_{C}}{C R_{ohm}} = \frac{U_{IN}}{C R_{ohm}}
@@ -885,7 +878,7 @@ Zur vereinfachung kann die Übertragungsfunktion des Sensors mit <span class="ma
 <section id="die-führungsübertragungsfunktion" class="level4" data-number="4.4.6.1">
 <h4 data-number="4.4.6.1" class="anchored" data-anchor-id="die-führungsübertragungsfunktion"><span class="header-section-number">4.4.6.1</span> Die Führungsübertragungsfunktion</h4>
 <p>Die Führungsübertragungsfunktion gibt das Verhältnis zwischen Sollgröße und Istgröße an. Sie Beschreibt damit das Verhalten des Regelkreises mit der Sollgröße als Eingang und der Istgröße als Ausgang. Ist eine Regelstrecke ideal so ist die die Führungsübertragungsfunktion gleich Eins.</p>
-<div id="6baea271" class="cell" data-execution_count="10">
+<div id="076bc5af" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Fw_eq"><span class="math display">\[
 F_{w} = \frac{G R}{G M R + 1}
@@ -899,7 +892,7 @@ F_{w} = \frac{G R}{G M R + 1}
 <section id="die-schleifenübertragungsfunktion" class="level4" data-number="4.4.6.2">
 <h4 data-number="4.4.6.2" class="anchored" data-anchor-id="die-schleifenübertragungsfunktion"><span class="header-section-number">4.4.6.2</span> Die Schleifenübertragungsfunktion</h4>
 <p>Die Schleifenübertragungsfunktion ist die Übertragungsfunktion des offenen Regelkreises, also ohne Rückkopplung und ist im Laplace Bereich eine einfache Multiplikation.</p>
-<div id="1a694ffd" class="cell" data-execution_count="11">
+<div id="8132cf8b" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
 F_{o} = G R
@@ -913,7 +906,7 @@ F_{o} = G R
 <section id="die-störübertragungsfunktion" class="level4" data-number="4.4.6.3">
 <h4 data-number="4.4.6.3" class="anchored" data-anchor-id="die-störübertragungsfunktion"><span class="header-section-number">4.4.6.3</span> Die Störübertragungsfunktion</h4>
 <p>Die Störübertragungsfunktion beschreibt wie sich die Störgröße auf den Ausgang auswirkt.</p>
-<div id="1a1bb919" class="cell" data-execution_count="12">
+<div id="4fb13bd1" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
 F_{s} = \frac{G}{F_{o} + 1}
@@ -1587,9 +1580,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

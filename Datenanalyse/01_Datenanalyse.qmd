@@ -1,4 +1,4 @@
-# Datenanalyse
+# Datenanalyse - Data Analysis
 
 In diesem Kapitel geht es um die verschieden  Arten von Daten die in der Messtechnik erfasst werden und wie Informationen aus diesen Daten gewonnen werden können.  
 Der erste Schritt ist immer festzulegen welche Information gesucht ist, also das Ziel festlegen.  
@@ -7,6 +7,9 @@ Sind die Daten nicht ausreichend muss:
 a. weitere Daten erfasst werden  
 b. die Ziele  angepasst werden  
 
+Eine Person die sich mit der Datenanalyse beschäftigt wird als Data Scientist bezeichnet.
+
 
 ## Weiterführende Literatur
 [Analyzing IoT Data with Python](https://campus.datacamp.com/courses/analyzing-iot-data-in-python/accessing-iot-data?ex=12)
+[Kaggle](https://www.kaggle.com/)

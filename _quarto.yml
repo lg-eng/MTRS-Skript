@@ -36,13 +36,10 @@ book:
       chapters: 
         - SteuerRegel/01.02_Regelungstechnik.qmd
 #        - SteuerRegel/Laplace.qmd
-    - references.qmd
-
-
-    
-    
+#    - references.qmd
 
 bibliography: references.bib
+csl: diabetologia.csl
 
 format:
   html:

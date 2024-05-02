@@ -64,3 +64,30 @@ plt.title('Histogramm der Spannungen am Ausgang des Tachogenerators') # Titel de
 plt.grid() # Gitternetzlinien einblenden
 plt.show() # Diagramm anzeigen
 ```
+
+## Tortendiagramme
+Hier wird die Möglichkeit von Pandas genutzt, die Daten direkt aus einem Link @bgmibk2018 zu lesen. Aktuelle Daten zum Thema waren noch nicht verfügbar.
+```{python}
+#| label: fig-PieChart
+#| fig-cap: "Tortendiagramm der BürgermeisterInwahl 2018 @bgmibk2018"
+#| code-fold: false
+#| echo: true
+
+import matplotlib.pyplot as plt # Importieren der Bibliothek matplotlib
+import pandas as pd # Importieren der Bibliothek pandas
+
+# Daten
+df = pd.read_csv('https://www.data.gv.at/katalog/dataset/60a9f978-5c95-4b83-adbf-b9e3e15cdb34/resource/a687191a-0b39-4f51-94e5-6aeffcdafaec/download/stimmenprotokoll-burgermeisterwahl-2018.csv',sep=';')
+#display(df) # Ausgabe
+
+# Erstellen des Diagramms
+
+# Gruppieren der Daten
+df_kandidaten = df[df.columns[5:]].sum() # Kandidaten
+
+# Erstellen des Tortendiagramms
+plt.pie(df_kandidaten,labels=df_kandidaten.index,autopct='%1.1f%%') # Erstellen des Tortendiagramms
+plt.title('Tortendiagramm der BürgermeisterInnenwahl 2018') # Titel des Diagramms
+plt.show() # Diagramm anzeigen
+
+```
