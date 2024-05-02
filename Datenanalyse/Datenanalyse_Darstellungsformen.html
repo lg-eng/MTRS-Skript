@@ -54,7 +54,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -135,7 +154,7 @@ cookieconsent.run({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Datenanalyse/01_Datenanalyse.html">Datenanalyse</a></li><li class="breadcrumb-item"><a href="../Datenanalyse/Datenanalyse_Darstellungsformen.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Datenanalyse/01_Datenanalyse.html">Datenanalyse - Data Analysis</a></li><li class="breadcrumb-item"><a href="../Datenanalyse/Datenanalyse_Darstellungsformen.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -189,7 +208,7 @@ cookieconsent.run({
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../Datenanalyse/01_Datenanalyse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Datenanalyse</span></a>
+ <span class="menu-text">Datenanalyse - Data Analysis</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -226,12 +245,6 @@ cookieconsent.run({
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -244,13 +257,14 @@ cookieconsent.run({
   <ul>
   <li><a href="#zeitreihen" id="toc-zeitreihen" class="nav-link active" data-scroll-target="#zeitreihen"><span class="header-section-number">3.1</span> Zeitreihen</a></li>
   <li><a href="#histogramme---häufigkeitsverteilungen" id="toc-histogramme---häufigkeitsverteilungen" class="nav-link" data-scroll-target="#histogramme---häufigkeitsverteilungen"><span class="header-section-number">3.2</span> Histogramme - Häufigkeitsverteilungen</a></li>
+  <li><a href="#tortendiagramme" id="toc-tortendiagramme" class="nav-link" data-scroll-target="#tortendiagramme"><span class="header-section-number">3.3</span> Tortendiagramme</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Datenanalyse/01_Datenanalyse.html">Datenanalyse</a></li><li class="breadcrumb-item"><a href="../Datenanalyse/Datenanalyse_Darstellungsformen.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Datenanalyse/01_Datenanalyse.html">Datenanalyse - Data Analysis</a></li><li class="breadcrumb-item"><a href="../Datenanalyse/Datenanalyse_Darstellungsformen.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></h1>
 </div>
@@ -365,8 +379,47 @@ Abbildung&nbsp;3.3: Histogramm der Spannungen am Ausgang des Tachogenerators
 </div>
 </div>
 </div>
+</section>
+<section id="tortendiagramme" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="tortendiagramme"><span class="header-section-number">3.3</span> Tortendiagramme</h2>
+<p>Hier wird die Möglichkeit von Pandas genutzt, die Daten direkt aus einem Link <span class="citation" data-cites="bgmibk2018">[<a href="#ref-bgmibk2018" role="doc-biblioref">1</a>]</span> zu lesen. Aktuelle Daten zum Thema waren noch nicht verfügbar.</p>
+<div id="cell-fig-PieChart" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt <span class="co"># Importieren der Bibliothek matplotlib</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co"># Importieren der Bibliothek pandas</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Daten</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://www.data.gv.at/katalog/dataset/60a9f978-5c95-4b83-adbf-b9e3e15cdb34/resource/a687191a-0b39-4f51-94e5-6aeffcdafaec/download/stimmenprotokoll-burgermeisterwahl-2018.csv'</span>,sep<span class="op">=</span><span class="st">';'</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#display(df) # Ausgabe</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Erstellen des Diagramms</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Gruppieren der Daten</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>df_kandidaten <span class="op">=</span> df[df.columns[<span class="dv">5</span>:]].<span class="bu">sum</span>() <span class="co"># Kandidaten</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Erstellen des Tortendiagramms</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.pie(df_kandidaten,labels<span class="op">=</span>df_kandidaten.index,autopct<span class="op">=</span><span class="st">'</span><span class="sc">%1.1f%%</span><span class="st">'</span>) <span class="co"># Erstellen des Tortendiagramms</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Tortendiagramm der BürgermeisterInnenwahl 2018'</span>) <span class="co"># Titel des Diagramms</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>plt.show() <span class="co"># Diagramm anzeigen</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="fig-piechart" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-piechart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Datenanalyse_Darstellungsformen_files/figure-html/fig-piechart-output-1.png" width="530" height="409" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-piechart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;3.4: Tortendiagramm der BürgermeisterInwahl 2018 <span class="citation" data-cites="bgmibk2018">[<a href="#ref-bgmibk2018" role="doc-biblioref">1</a>]</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-bgmibk2018" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Innsbruck S (2018) Innsbrucker BürgermeisterInwahl 2018. <a href="https://www.data.gv.at/katalog/dataset/60a9f978-5c95-4b83-adbf-b9e3e15cdb34/resource/a687191a-0b39-4f51-94e5-6aeffcdafaec/download/stimmenprotokoll-burgermeisterwahl-2018.csv">https://www.data.gv.at/katalog/dataset/60a9f978-5c95-4b83-adbf-b9e3e15cdb34/resource/a687191a-0b39-4f51-94e5-6aeffcdafaec/download/stimmenprotokoll-burgermeisterwahl-2018.csv</a>. Accessed 1 Mai 2024</div>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
