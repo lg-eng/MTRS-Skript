@@ -1,10 +1,10 @@
 # Datenquellen {#sec-data-sources}
 Grob können Datenquellen in folgende Gruppen eingeteilt werden, wobei analoge Datenquellen außer acht gelassen werden. Die Liste hat auch keinen Anspruch auf Vollständigkeit.  
-Um Daten analysieren zu können müssen sie zuerst eingelesen werden. Das bedeutet in den meisten Fällen, dass sie in den Arbeitsspeicher geladen werden. Um Daten effektiv zu analysieren, ist es sinnvoll die verschiedenen Datenquellen in ein einheitliches Format zu bringen. In Python wird dazu oft die Bibliothek *pandas* verwendet.  
+Um Daten analysieren zu können, müssen sie zuerst eingelesen werden. Das bedeutet in den meisten Fällen, dass sie in den Arbeitsspeicher geladen werden. Um Daten effektiv zu analysieren, ist es sinnvoll, die verschiedenen Datenquellen in ein einheitliches Format zu bringen. In Python wird dazu oft die Bibliothek *pandas* verwendet.  
 Ein großteil der Arbeit eines Data Scientists besteht darin, Daten aus den verschiedenen Quellen auszubreiten. 
 
 **Statische Datenquellen**
-Unter *statische Datenquellen* sind Daten gemeint die vorab gespeichert wurden. Zum Beispiel ein Foto welches auf der Festplatte gespeichert ist.
+Unter *statische Datenquellen* sind Daten gemeint, die vorab gespeichert wurden. Zum Beispiel ein Foto, welches auf der Festplatte gespeichert ist.
 
 + Dateien  
     * Textdateien  
@@ -23,10 +23,10 @@ Unter *statische Datenquellen* sind Daten gemeint die vorab gespeichert wurden. 
 
 
 **Dynamische Datenquellen**
-Unter *dynamische Datenquellen* sind Daten gemeint die in Echtzeit generiert werden. Zum Beispiel die Temperatur eines Sensors oder die Position eines GPS-Empfängers. Dabei spielt neben dem Datenformat auch die Datenverbindung eine Rolle. Es können zum Beipiel oben geannten Datenformate über verschiedene Protokolle übertragen werden.
+Unter *dynamische Datenquellen* sind Daten gemeint, die in Echtzeit generiert werden. Zum Beispiel die Temperatur eines Sensors oder die Position eines GPS-Empfängers. Dabei spielt neben dem Datenformat auch die Datenverbindung eine Rolle. Es können zum Beispiel oben genannte Datenformate über verschiedene Protokolle übertragen werden.
 
 **Datenübertragung**
-Egal ob die Daten statisch vorliegen oder dynamisch generiert werden, sie müssen übertragen werden. Neben dem klassischen Datenspeicher wie Festplatte oder SSD gibt es viele Möglichkeiten Daten zu übertragen. Hier eine kleine Auswahl:
+Egal ob die Daten statisch vorliegen oder dynamisch generiert werden, sie müssen übertragen werden. Neben dem klassischen Datenspeicher wie Festplatte oder SSD gibt es viele Möglichkeiten, Daten zu übertragen. Hier eine kleine Auswahl:
 
 * MQTT - Message Queuing Telemetry Transport
 * I2C
@@ -42,7 +42,7 @@ Egal ob die Daten statisch vorliegen oder dynamisch generiert werden, sie müsse
     * SOAP APIs - Simple Object Access Protocol  
     * GraphQL APIs - Query Language for APIs
 
-Eine kleine Auswahl an Datenquellen wird im Folgenden vorgestellt und gezeigt wie sie mittels Python eingelesen werden können.
+Eine kleine Auswahl an Datenquellen wird im Folgenden vorgestellt und gezeigt, wie sie mittels Python eingelesen werden können.
 
 ## CSV-Dateien
 CSV-Dateien sind Textdateien, die Daten in Tabellenform speichern. CSV steht für Comma Separated Values. Die Werte in einer Zeile sind durch ein Trennzeichen getrennt, meistens ein Komma. Das Trennzeichen kann aber auch ein Semikolon oder ein Tabulator sein.
@@ -62,7 +62,7 @@ TIME,CH1,CH2
 -5.024e-02,0.0599999,0.012
 ```
 Wenn die Spaltennamen erlaube Python Variablennamen sind, können die Daten nach dem einlesen direkt mit dem Namen der Spalte angesprochen werden.  
-Of gibt es auch sogenannte *Header Zeile*. Hier wird sogenannte Metainformation gespeichert. Zum Beispiel die Einsteillungen eines messgerätes zum Zeitpunkt der Messung.
+Oft gibt es auch sogenannte *Header Zeilen*. Hier wird sogenannte Metainformation gespeichert. Zum Beispiel die Einsteillungen, eines Messgerätes zum Zeitpunkt der Messung.
 ```
 Model,TBS1072C
 Firmware Version,v2015-08-04-prequal4ch70_v1.3
@@ -89,8 +89,8 @@ TIME,CH1,CH2
 Diese *Header Zeilen* müssen beim einlesen ignoriert werden. Werden Informationen daraus benötigt, müssen sie explizit ausgelesen werden.
 
 ### Einlesen von CSV-Dateien
-Da *CSV* ein sehr weit verbreitetes Format ist, gibt es auch in Python viele Möglichkeiten CSV-Dateien einzulesen. In diesem Dokument wird die Bibliothek *pandas* verwendet. Als Datensatz werden Daten eines Oszilloskops verwendet. Die Datei, TEK00003.CSV, ist auf Github zu finden.  
-Zuerst wird die Datei mit einem Texteditor geöffnet um sich einen Überblick über die Struktur zu verschaffen. und festzustellen ob es *Header Zeilen* gibt. In diesem Fall gibt es 15 Zeilen die ignoriert werden müssen. 
+Da *CSV* ein sehr weit verbreitetes Format ist, gibt es auch in Python viele Möglichkeiten, CSV-Dateien einzulesen. In diesem Dokument wird die Bibliothek *pandas* verwendet. Als Datensatz werden Daten eines Oszilloskops verwendet. Die Datei TEK00003.CSV ist auf GitHub zu finden.  
+Zuerst wird die Datei mit einem Texteditor geöffnet, um sich einen Überblick über die Struktur zu verschaffen und festzustellen, ob es *Header Zeilen* gibt. In diesem Fall gibt es 15 Zeilen, die ignoriert werden müssen. 
 
 ```{python}
 #| code-fold: false
@@ -103,7 +103,7 @@ display(df) # Ausgabe
 
 Nun kann die Datenanalyse beginnen. Dazu aber in späteren Kapiteln.
 
-Als Testdaten kann zum Beispiel die Statistik der Programmiersprachen auf Github verwendet werden.
+Als Testdaten kann zum Beispiel die Statistik der Programmiersprachen auf GitHub verwendet werden.
 [Global-metrics programming-languages](https://github.com/github/innovationgraph/blob/main/data/languages.csv)
 
 
@@ -122,7 +122,7 @@ display(df)
 ```
 
 ## RESTful API
-Eine RESTful API ist eine Schnittstelle, die auf dem HTTP-Protokoll basiert und die CRUD-Operationen (Create, Read, Update, Delete) unterstützt. Viele Webseiten und Dienste bieten eine RESTful API an, um Daten abzurufen oder zu speichern. Beispiele dafür sind soziale Netzwerke wie Twitter oder Facebook, Wetterdienste wie OpenWeatherMap oder Finanzdienste.  
+Eine RESTful API ist eine Schnittstelle, die auf dem HTTP-Protokoll basiert und die CRUD-Operationen (Create, Read, Update, Delete) unterstützt. Viele Webseiten und Dienste bieten eine RESTful API an, um Daten abzurufen oder zu speichern. Beispiele dafür sind soziale Netzwerke wie X oder Facebook, Wetterdienste wie OpenWeatherMap oder Finanzdienste.  
 
 ### Einlesen von Daten einer RESTful API
 In diesem Beispiel wird die RESTful API von *jsonplaceholder* verwendet. Diese API stellt Testdaten zur Verfügung.
@@ -143,7 +143,7 @@ display(df.head())
 
 
 ## Datenbanken
-Datenbanken sind ein mächtiges Werkzeug um Daten zu speichern und zu verwalten. Der Aufbau und die Funktion wird an dieser Stelle nicht weiter erläutert und auf die entsprechende Unterrichtsfächer verwiesen.
+Datenbanken sind ein mächtiges Werkzeug um Daten zu speichern und zu verwalten. Deren Aufbau und die Funktion wird an dieser Stelle nicht weiter erläutert und auf die entsprechende Unterrichtsfächer verwiesen.
 
 ## MQTT
 MQTT ist ein leichtgewichtiges Protokoll, das für die Kommunikation zwischen Geräten in einem Netzwerk entwickelt wurde. Es wird oft in IoT-Anwendungen verwendet. In diesem Beispiel wird die Bibliothek *paho-mqtt* verwendet.

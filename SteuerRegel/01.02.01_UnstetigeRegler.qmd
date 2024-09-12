@@ -1,6 +1,6 @@
 ## Unstetige Regler
-Klassische unstetige Regler sind Bimetallschalter. Diese werden zum Beipiel bei Heizlüftern eingesetzt.  
-Ist der Raum, und damit das Bimetall kalt so ist der Kontakt geschlossen und der Lüfter läuft. Wird die Raumluft und damit das Bimetall warm wird der Kontakt geöffnet und der Lüfter hört auf zu heizen.
+Klassische unstetige Regler sind Bimetallschalter. Diese werden zum Beispiel bei Heizlüftern eingesetzt.  
+Ist der Raum und damit das Bimetall kalt, so ist der Kontakt geschlossen und der Lüfter läuft. Wird die Raumluft und damit das Bimetall warm, wird der Kontakt geöffnet und der Lüfter hört auf zu heizen.
 
 ```{python}
 #| code-fold: true
@@ -43,6 +43,6 @@ plt.grid()
 ```
 
 ### Zweipunktregler
-Der Zweipunktregler kann, wie der Name schon sagt, die Stellgröße zwischen zwei Zuständen schalten. Zum Beipiel die Heizung einschalten wenn die Temperatur zu niedrig ist und wieder Abschalten wenn die Temperatur hoch genug ist.  Siehe dazu die Kennlinie @fig-zweipunktreglerplot.
+Der Zweipunktregler kann, wie der Name schon sagt, die Stellgröße zwischen zwei Zuständen schalten. Zum Beispiel die Heizung einschalten, wenn die Temperatur zu niedrig ist und wieder Abschalten, wenn die Temperatur hoch genug ist. Siehe dazu die Kennlinie @fig-zweipunktreglerplot.
 Die Kennlinie stellt eine Hysterese dar. Die Umsetzung ist auch mittels Operationsverstärker möglich.
 

@@ -1,12 +1,12 @@
 ## Stetige Regler 
-Für das Verständnis von stetigen Reglern ist es hilfreich die Regelungstechnik mathematisch zu betrachten, da sich ein Regler sehr gut mit Formeln beschreiben und erklären lässt. In einem eigenen Kapitel soll behandelt werden wie Regler praxisnahe implementiert werden können.  
-Der oben gezeigte Regelkreis, @fig-Regelkreis, lässt sich mathematisch als Übertragungsfunktion beschreiben. Hier werden ausschließlich SISO (Single Input Single Output) und LTI (Linear Time Invariant) Systeme betrachtet. Das Bedeutet Systeme die einen Eingang und einen Ausgang haben. Jeder Block kann einzeln mit einer Übertragungsfunktion, analog der Vierpoltheorie, beschrieben werden. Wie auch in der Vierpoltheorie kann aber auch eine Verschaltung von Blöcken als Übertragungsfunktion beschrieben werden. Ein Block wird in der Regelungstechnik auch als **Strecke** bezeichnet.
+Für das Verständnis von stetigen Reglern ist es hilfreich, die Regelungstechnik mathematisch zu betrachten, da sich ein Regler sehr gut mit Formeln beschreiben und erklären lässt. In einem eigenen Kapitel soll behandelt werden, wie Regler praxisnahe implementiert werden können.  
+Der oben gezeigte Regelkreis @fig-Regelkreis lässt sich mathematisch als Übertragungsfunktion beschreiben. Hier werden ausschließlich SISO (Single Input Single Output) und LTI (Linear Time Invariant) Systeme betrachtet. Das bedeutet Systeme, die einen Eingang und einen Ausgang haben. Jeder Block kann einzeln mit einer Übertragungsfunktion oder analog der Vierpoltheorie beschrieben werden. Wie auch in der Vierpoltheorie kann aber auch eine Verschaltung von Blöcken als Übertragungsfunktion beschrieben werden. Ein Block wird in der Regelungstechnik auch als **Strecke** bezeichnet.
 
 ### Die Übertragungsfunktion
 #### Motivation
-Die Übertragungsfunktion Beschreibt den Zusammenhang zwischen Ausgang und Eingang.  
+Die Übertragungsfunktion beschreibt den Zusammenhang zwischen Ausgang und Eingang.  
 Ist die Übertragungsfunktion bekannt, so kann die Strecke und deren Verhalten (der Ausgang) auf verschiedene Eingänge berechnet werden. Dies wird auch Simulation genannt. Für Marketingzwecke könnte die Übertragungsfunktion auch als einfache Form eines "digitalen Zwillings" bezeichnet werden.
-Ist die Übertragungsfunktion mathematisch beschrieben, können Regler entworfen und getestet werden, ohne das tatsächliche physikalische Modell benutzen zu müssen. Dies ist speziell sinnvoll wenn, das physikalische System für Testzwecke nicht zur Verfügung steht bzw. nicht für Testzwecke geeignet ist.
+Ist die Übertragungsfunktion mathematisch beschrieben, können Regler entworfen und getestet werden, ohne das tatsächliche physikalische Modell benutzen zu müssen. Dies ist speziell sinnvoll, wenn das physikalische System für Testzwecke nicht zur Verfügung steht bzw. nicht für Testzwecke geeignet ist.
 Eine Strecke (=physikalisches System) steht z.B. nicht zur Verfügung, wenn: 
 
 * Es sich geographisch woanders befindet  
@@ -19,7 +19,7 @@ Eine Strecke (=physikalisches System) ist nicht geeignet für Testzwecke wenn z.
 * Ein fehlerhafter Regler großen Schaden anrichten kann  
 
 #### Streckenidentifikation {#sec-Streckenidentifikation}
-Als Streckenidentifiaktion wird der Vorgang beschrieben, von einem physikalischem System das mathematische Modell, die Übertragungsfunktion, zu erstellen. Zwei Methoden wie dieses Ziel erreicht werden kann, werden hier beschrieben.  
+Als Streckenidentifikation wird der Vorgang beschrieben, von einem physikalischem System das mathematische Modell und die Übertragungsfunktion zu erstellen. Zwei Methoden, wie dieses Ziel erreicht werden kann, werden hier beschrieben.  
 
 * Der mathematische Ansatz, @sec-MathStreckenidentifikation  
 * Der messtechnische Ansatz, @sec-MessStreckenidentifikation  
@@ -40,7 +40,7 @@ QBookHelpers.print_description(Veq.free_symbols)
 
 ```
 
-Gängige Bezeichnungen der Übertragungsfunktion der einzelnen Blöcke ist wie folgt.
+Gängige Bezeichnungen der Übertragungsfunktion der einzelnen Blöcke sind wie folgt.
 
 ```{python}
 #| code-fold: true
@@ -54,15 +54,15 @@ QBookHelpers.print_description({G,R,M})
 
 ### Mathematische Streckenidentifikation {#sec-MathStreckenidentifikation}
 Aus den physikalischen Zusammenhängen kann die Übertragungsfunktion berechnet werden.
-Die komplexe Schreibweise ist nur für periodische sinusförmige Signale geeignet. Sollen Signale betrachtet werden die beliebig, stetig, sind ist die komplexe schreibweise nicht ausreichend. Es müssen die physikalischen Gleichungen in differentieller Form angeschrieben werden.
+Die komplexe Schreibweise ist nur für periodische sinusförmige Signale geeignet. Sollen Signale betrachtet werden, die beliebig oder stetig sind, ist die komplexe schreibweise nicht ausreichend. Es müssen die physikalischen Gleichungen in differentieller Form angeschrieben werden.
 
-Um die Mathematik möglichst einfach zu halten wird in der Regelungstechnik im Laplace Bereich gearbeitet. Dadurch ist  es nicht notwendig die Diffenrentialgleichung bei physikalischen Systemen, die durch eine Differentialgleichung beschrieben werden, zu lösen.
+Um die Mathematik möglichst einfach zu halten, wird in der Regelungstechnik im Laplace Bereich gearbeitet. Dadurch ist es nicht notwendig, die Differenzialgleichung bei physikalischen Systemen, die durch eine Differenzialgleichung beschrieben werden, zu lösen.
 
-Ein Besipiel, wie eine mathematische Streckenidentifikation abläuft ist in Abschnitt @sec-Laplace zu finden.
+Ein Beispiel, wie eine mathematische Streckenidentifikation abläuft, ist in Abschnitt @sec-Laplace zu finden.
 
 ### Messtechnische Streckenidentifikation {#sec-MessStreckenidentifikation}
-Manche Systeme sind zu komplex um Sie mathematisch zu beschreiben. Andere Systeme sind mathematisch nicht beschreibbar, weil das Innenleben nicht bekannt ist. In diesen Fällen kann die messtechnische Ermittlung der Übertragungsfunktion herangezogen werden.  
-Dabei wird am Eingang der Strecke ein Testssignal aufgeschalten und der Ausgang gemessen. Aus diesen Messdaten kann die Übertragungsfunktion, ein mathemtisches Modell, der Strecke erstellt werden.
+Manche Systeme sind zu komplex, um Sie mathematisch zu beschreiben. Andere Systeme sind mathematisch nicht beschreibbar, weil das Innenleben nicht bekannt ist. In diesen Fällen kann die messtechnische Ermittlung der Übertragungsfunktion herangezogen werden.  
+Dabei wird am Eingang der Strecke ein Testsignal aufgeschaltet und der Ausgang gemessen. Aus diesen Messdaten kann die Übertragungsfunktion, ein mathematisches Modell, der Strecke erstellt werden.
 
 {{< include 01.02.01.02_Laplace.qmd >}}
 
