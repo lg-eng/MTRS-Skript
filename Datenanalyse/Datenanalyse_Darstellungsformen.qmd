@@ -87,7 +87,7 @@ df_kandidaten = df[df.columns[5:]].sum() # Kandidaten
 
 # Erstellen des Tortendiagramms
 plt.pie(df_kandidaten,labels=df_kandidaten.index,autopct='%1.1f%%') # Erstellen des Tortendiagramms
-plt.title('Tortendiagramm der BürgermeisterInnenwahl 2018') # Titel des Diagramms
+plt.title('Tortendiagramm der BürgermeisterInwahl 2018') # Titel des Diagramms
 plt.show() # Diagramm anzeigen
 
 ```
