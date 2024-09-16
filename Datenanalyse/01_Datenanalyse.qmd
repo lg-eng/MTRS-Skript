@@ -1,13 +1,13 @@
 # Datenanalyse - Data Analysis
 
-In diesem Kapitel geht es um die verschieden  Arten von Daten die in der Messtechnik erfasst werden und wie Informationen aus diesen Daten gewonnen werden können.  
-Der erste Schritt ist immer festzulegen welche Information gesucht ist, also das Ziel festlegen.  
+In diesem Kapitel geht es um die verschieden Arten von Daten, welche in der Messtechnik erfasst werden und wie Informationen aus diesen Daten gewonnen werden können.  
+Der erste Schritt ist immer festzulegen, welche Information gesucht wird. Effektiv sollte man sich hier fragen, was das Endziel dieser Datenanalyse ist.
 Im zweiten Schritt muss eine Bestandsaufnahme der vorhandenen Daten gemacht werden.  
-Sind die Daten nicht ausreichend muss:  
-a. weitere Daten erfasst werden  
-b. die Ziele  angepasst werden  
+Sind die Daten nicht ausreichend müssen:  
+a. ...weitere Daten erfasst werden  
+b. ...die Ziele angepasst werden  
 
-Eine Person die sich mit der Datenanalyse beschäftigt wird als Data Scientist bezeichnet.
+Eine Person, die sich mit der Datenanalyse beschäftigt, wird als Data Scientist bezeichnet.
 
 
 ## Weiterführende Literatur

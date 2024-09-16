@@ -1,8 +1,8 @@
 # Steuer- und Regelungstechnik
 
 <div style="text-align: justify">
-In diesem Kapitel geht es darum wie wir Maschinen und Schaltungen dazu bringen, ein gewünschtes Verhalten zu zeigen. Zum Beipiel soll ein Roboterarm ein Werkstück von der Position A zur Position B stellen. Oder eine Drohne trotz Windes ihre Postion halten.  
-Wir sprechen von **Steuern**, wenn wir eine Befehlskette vorgeben und keine Möglichkeit haben auf Störungen einfluss zu nehmen.  
-Von **Regeln** sprechen wir, wenn wir Informationen über das zu erreichende Ziel erhalten und damit auf Störungen eingehen können. Es gibt beim Regeln daher eine Feedbackschleife oder auch Rückkopplung genannt.   
+In diesem Kapitel geht es darum, wie wir Maschinen und Schaltungen dazu bringen, ein gewünschtes Verhalten zu zeigen. Zum Beispiel soll ein Roboterarm ein Werkstück von der Position A zur Position B stellen. Oder eine Drohne trotz Windes ihre Postion halten.  
+Wir sprechen von **Steuern**, wenn wir eine Befehlskette vorgeben und keine Möglichkeit haben, auf Störungen Einfluss zu nehmen.  
+Von **Regeln** sprechen wir, wenn wir Informationen über das zu erreichende Ziel erhalten, und damit auf Störungen eingehen können. Es gibt beim Regeln daher eine Feedback-Schleife oder auch Rückkopplung genannt.   
 
 </div>

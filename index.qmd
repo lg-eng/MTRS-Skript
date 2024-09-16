@@ -6,11 +6,10 @@ Das Skriptum wird ständig erweitert und verbessert. Input ist willkommen.
 </div>
 
 ## Verbessern
-Ich freue mich über alle Fehlerkorrekturen und Verbesserungsvorschläge die mich erreichen. Am einfachsten ist dies via Mail.
+Ich freue mich über alle Fehlerkorrekturen und Verbesserungsvorschläge, die mich erreichen. Am einfachsten ist dies via Mail.
   
 ## Mitwirken
-Wer am Skriptum mitarbeiten möchte kann mich gerne kontaktieren. Meine Kontaktdaten sind auf der Homepage der HTL-Anichstrasse zu finden.
+Wer am Skriptum mitarbeiten möchte, kann mich gerne kontaktieren. Meine Kontaktdaten sind auf der Homepage der HTL-Anichstrasse zu finden.
   
- <strong>Viel Vergnügen mit MTRS und dem interaktiven Quarto Book! </strong>
-
+<strong>Viel Vergnügen mit MTRS und dem interaktiven Quarto Book! </strong>
 

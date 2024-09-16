@@ -1,11 +1,11 @@
 ### Zusammenschaltung von Blöcken
-Werden Blöcke kombiniert können die resultierenden Übertragungsfunktionen berechnet werden.  
-Zur vereinfachung kann die Übertragungsfunktion des Sensors mit $M=1$ angenommen werden, $M=1$, wenn dieser im Verhälnis zur Strecke und zum Regler vernachlässigbar ist. Dies ist zum Beispiel der Fall wenn der Sensor viel schneller ist als die Strecke und der Regler. Diese Vorraussetzung ist für viele Systeme gegeben.  
+Werden Blöcke kombiniert, können die resultierenden Übertragungsfunktionen berechnet werden.  
+Zur Vereinfachung kann die Übertragungsfunktion des Sensors mit $M=1$ angenommen werden, $M=1$, wenn dieser im Verhältnis zur Strecke und zum Regler vernachlässigbar ist. Dies ist zum Beispiel der Fall, wenn der Sensor viel schneller ist als die Strecke und der Regler. Diese Voraussetzung ist für viele Systeme gegeben.  
 
-Für den Regelkreis, @fig-Regelkreis, ergebn sich folgende Möglichkeiten.
+Für den Regelkreis, @fig-Regelkreis, ergeben sich folgende Möglichkeiten.
 
 #### Die Führungsübertragungsfunktion
-Die Führungsübertragungsfunktion gibt das Verhältnis zwischen Sollgröße und Istgröße an. Sie Beschreibt damit das Verhalten des Regelkreises mit der Sollgröße als Eingang und der Istgröße als Ausgang. Ist eine Regelstrecke ideal so ist die die Führungsübertragungsfunktion gleich Eins.
+Die Führungsübertragungsfunktion gibt das Verhältnis zwischen Sollgröße und Istgröße an. Sie beschreibt damit das Verhalten des Regelkreises mit der Sollgröße als Eingang und der Istgröße als Ausgang. Ist eine Regelstrecke ideal, so ist die Führungsübertragungsfunktion gleich Eins.
 
 ```{python}
 #| code-fold: true
@@ -34,7 +34,7 @@ QBookHelpers.print_description({Fo})
 ```
 
 #### Die Störübertragungsfunktion
-Die Störübertragungsfunktion beschreibt wie sich die Störgröße auf den Ausgang auswirkt.
+Die Störübertragungsfunktion beschreibt, wie sich die Störgröße auf den Ausgang auswirkt.
 
 ```{python}
 #| code-fold: true
