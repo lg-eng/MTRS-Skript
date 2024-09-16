@@ -17,7 +17,7 @@ Je nach Zielsetzung und Art der Daten können unterschiedliche Darstellungsforme
 Ausgehend von den Datenquellen in @sec-data-sources werden hier einige Darstellungsformen gezeigt. Die Umsetzung erfolgt in Python mit den Bibliotheken `pandas`, `matplotlib` und `plotly`.
 
 ## Zeitreihen
-Die Bezeichnung bezieht sich auf die Größe auf der x-Achse, die Zeit.
+Die Bezeichnung bezieht sich auf die Größe auf der X-Achse, die Zeit.
 
 ```{python}
 #| label: fig-DCMotorStepResponse

@@ -1,6 +1,6 @@
 {{< include ../../../../Common/QuartoBookHelpers/QuartoBookHelpers.qmd >}}
 
-# Mathematische Grundlagen der 3-Pahsen-Drehstromtechnik
+# Mathematische Grundlagen der 3-Phasen-Drehstromtechnik
 
 ```{python}
 #| code-fold: true
