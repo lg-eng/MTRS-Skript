@@ -277,9 +277,9 @@ cookieconsent.run({
 
 
 <p>Grob können Datenquellen in folgende Gruppen eingeteilt werden, wobei analoge Datenquellen außer acht gelassen werden. Die Liste hat auch keinen Anspruch auf Vollständigkeit.<br>
-Um Daten analysieren zu können müssen sie zuerst eingelesen werden. Das bedeutet in den meisten Fällen, dass sie in den Arbeitsspeicher geladen werden. Um Daten effektiv zu analysieren, ist es sinnvoll die verschiedenen Datenquellen in ein einheitliches Format zu bringen. In Python wird dazu oft die Bibliothek <em>pandas</em> verwendet.<br>
+Um Daten analysieren zu können, müssen sie zuerst eingelesen werden. Das bedeutet in den meisten Fällen, dass sie in den Arbeitsspeicher geladen werden. Um Daten effektiv zu analysieren, ist es sinnvoll, die verschiedenen Datenquellen in ein einheitliches Format zu bringen. In Python wird dazu oft die Bibliothek <em>pandas</em> verwendet.<br>
 Ein großteil der Arbeit eines Data Scientists besteht darin, Daten aus den verschiedenen Quellen auszubreiten.</p>
-<p><strong>Statische Datenquellen</strong> Unter <em>statische Datenquellen</em> sind Daten gemeint die vorab gespeichert wurden. Zum Beispiel ein Foto welches auf der Festplatte gespeichert ist.</p>
+<p><strong>Statische Datenquellen</strong> Unter <em>statische Datenquellen</em> sind Daten gemeint, die vorab gespeichert wurden. Zum Beispiel ein Foto, welches auf der Festplatte gespeichert ist.</p>
 <ul>
 <li>Dateien
 <ul>
@@ -311,8 +311,8 @@ Ein großteil der Arbeit eines Data Scientists besteht darin, Daten aus den vers
 </ul></li>
 </ul></li>
 </ul>
-<p><strong>Dynamische Datenquellen</strong> Unter <em>dynamische Datenquellen</em> sind Daten gemeint die in Echtzeit generiert werden. Zum Beispiel die Temperatur eines Sensors oder die Position eines GPS-Empfängers. Dabei spielt neben dem Datenformat auch die Datenverbindung eine Rolle. Es können zum Beipiel oben geannten Datenformate über verschiedene Protokolle übertragen werden.</p>
-<p><strong>Datenübertragung</strong> Egal ob die Daten statisch vorliegen oder dynamisch generiert werden, sie müssen übertragen werden. Neben dem klassischen Datenspeicher wie Festplatte oder SSD gibt es viele Möglichkeiten Daten zu übertragen. Hier eine kleine Auswahl:</p>
+<p><strong>Dynamische Datenquellen</strong> Unter <em>dynamische Datenquellen</em> sind Daten gemeint, die in Echtzeit generiert werden. Zum Beispiel die Temperatur eines Sensors oder die Position eines GPS-Empfängers. Dabei spielt neben dem Datenformat auch die Datenverbindung eine Rolle. Es können zum Beispiel oben genannte Datenformate über verschiedene Protokolle übertragen werden.</p>
+<p><strong>Datenübertragung</strong> Egal ob die Daten statisch vorliegen oder dynamisch generiert werden, sie müssen übertragen werden. Neben dem klassischen Datenspeicher wie Festplatte oder SSD gibt es viele Möglichkeiten, Daten zu übertragen. Hier eine kleine Auswahl:</p>
 <ul>
 <li>MQTT - Message Queuing Telemetry Transport</li>
 <li>I2C</li>
@@ -331,7 +331,7 @@ Ein großteil der Arbeit eines Data Scientists besteht darin, Daten aus den vers
 <li>GraphQL APIs - Query Language for APIs</li>
 </ul></li>
 </ul>
-<p>Eine kleine Auswahl an Datenquellen wird im Folgenden vorgestellt und gezeigt wie sie mittels Python eingelesen werden können.</p>
+<p>Eine kleine Auswahl an Datenquellen wird im Folgenden vorgestellt und gezeigt, wie sie mittels Python eingelesen werden können.</p>
 <section id="csv-dateien" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="csv-dateien"><span class="header-section-number">2.1</span> CSV-Dateien</h2>
 <p>CSV-Dateien sind Textdateien, die Daten in Tabellenform speichern. CSV steht für Comma Separated Values. Die Werte in einer Zeile sind durch ein Trennzeichen getrennt, meistens ein Komma. Das Trennzeichen kann aber auch ein Semikolon oder ein Tabulator sein. Ein Beispiel für eine CSV-Datei könnte so aussehen:</p>
@@ -345,7 +345,7 @@ Ein großteil der Arbeit eines Data Scientists besteht darin, Daten aus den vers
 -5.040e-02,0.0599999,0.012
 -5.024e-02,0.0599999,0.012</code></pre>
 <p>Wenn die Spaltennamen erlaube Python Variablennamen sind, können die Daten nach dem einlesen direkt mit dem Namen der Spalte angesprochen werden.<br>
-Of gibt es auch sogenannte <em>Header Zeile</em>. Hier wird sogenannte Metainformation gespeichert. Zum Beispiel die Einsteillungen eines messgerätes zum Zeitpunkt der Messung.</p>
+Oft gibt es auch sogenannte <em>Header Zeilen</em>. Hier wird sogenannte Metainformation gespeichert. Zum Beispiel die Einsteillungen, eines Messgerätes zum Zeitpunkt der Messung.</p>
 <pre><code>Model,TBS1072C
 Firmware Version,v2015-08-04-prequal4ch70_v1.3
 
@@ -369,9 +369,9 @@ TIME,CH1,CH2
 <p>Diese <em>Header Zeilen</em> müssen beim einlesen ignoriert werden. Werden Informationen daraus benötigt, müssen sie explizit ausgelesen werden.</p>
 <section id="einlesen-von-csv-dateien" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="einlesen-von-csv-dateien"><span class="header-section-number">2.1.1</span> Einlesen von CSV-Dateien</h3>
-<p>Da <em>CSV</em> ein sehr weit verbreitetes Format ist, gibt es auch in Python viele Möglichkeiten CSV-Dateien einzulesen. In diesem Dokument wird die Bibliothek <em>pandas</em> verwendet. Als Datensatz werden Daten eines Oszilloskops verwendet. Die Datei, TEK00003.CSV, ist auf Github zu finden.<br>
-Zuerst wird die Datei mit einem Texteditor geöffnet um sich einen Überblick über die Struktur zu verschaffen. und festzustellen ob es <em>Header Zeilen</em> gibt. In diesem Fall gibt es 15 Zeilen die ignoriert werden müssen.</p>
-<div id="8a4d91a1" class="cell" data-execution_count="1">
+<p>Da <em>CSV</em> ein sehr weit verbreitetes Format ist, gibt es auch in Python viele Möglichkeiten, CSV-Dateien einzulesen. In diesem Dokument wird die Bibliothek <em>pandas</em> verwendet. Als Datensatz werden Daten eines Oszilloskops verwendet. Die Datei TEK00003.CSV ist auf GitHub zu finden.<br>
+Zuerst wird die Datei mit einem Texteditor geöffnet, um sich einen Überblick über die Struktur zu verschaffen und festzustellen, ob es <em>Header Zeilen</em> gibt. In diesem Fall gibt es 15 Zeilen, die ignoriert werden müssen.</p>
+<div id="5b47ea1d" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co"># Importieren der Bibliothek pandas</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'TEK00003.CSV'</span>,skiprows<span class="op">=</span><span class="dv">15</span>) <span class="co"># Einlesen der Datei und überspringen der ersten 15 Zeilen</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>display(df) <span class="co"># Ausgabe</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -465,13 +465,13 @@ Zuerst wird die Datei mit einem Texteditor geöffnet um sich einen Überblick ü
 </div>
 </div>
 <p>Nun kann die Datenanalyse beginnen. Dazu aber in späteren Kapiteln.</p>
-<p>Als Testdaten kann zum Beispiel die Statistik der Programmiersprachen auf Github verwendet werden. <a href="https://github.com/github/innovationgraph/blob/main/data/languages.csv">Global-metrics programming-languages</a></p>
+<p>Als Testdaten kann zum Beispiel die Statistik der Programmiersprachen auf GitHub verwendet werden. <a href="https://github.com/github/innovationgraph/blob/main/data/languages.csv">Global-metrics programming-languages</a></p>
 </section>
 </section>
 <section id="bild" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="bild"><span class="header-section-number">2.2</span> Bild</h2>
 <p>Es soll ein Bild eingelesen und die RGB in einem Pandas DataFrame gespeichert werden.</p>
-<div id="e9b9832b" class="cell" data-execution_count="2">
+<div id="9cd3a418" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.image <span class="im">as</span> mpimg</span>
@@ -571,11 +571,11 @@ Zuerst wird die Datei mit einem Texteditor geöffnet um sich einen Überblick ü
 </section>
 <section id="restful-api" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="restful-api"><span class="header-section-number">2.3</span> RESTful API</h2>
-<p>Eine RESTful API ist eine Schnittstelle, die auf dem HTTP-Protokoll basiert und die CRUD-Operationen (Create, Read, Update, Delete) unterstützt. Viele Webseiten und Dienste bieten eine RESTful API an, um Daten abzurufen oder zu speichern. Beispiele dafür sind soziale Netzwerke wie Twitter oder Facebook, Wetterdienste wie OpenWeatherMap oder Finanzdienste.</p>
+<p>Eine RESTful API ist eine Schnittstelle, die auf dem HTTP-Protokoll basiert und die CRUD-Operationen (Create, Read, Update, Delete) unterstützt. Viele Webseiten und Dienste bieten eine RESTful API an, um Daten abzurufen oder zu speichern. Beispiele dafür sind soziale Netzwerke wie X oder Facebook, Wetterdienste wie OpenWeatherMap oder Finanzdienste.</p>
 <section id="einlesen-von-daten-einer-restful-api" class="level3" data-number="2.3.1">
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="einlesen-von-daten-einer-restful-api"><span class="header-section-number">2.3.1</span> Einlesen von Daten einer RESTful API</h3>
 <p>In diesem Beispiel wird die RESTful API von <em>jsonplaceholder</em> verwendet. Diese API stellt Testdaten zur Verfügung.</p>
-<div id="ada230b9" class="cell" data-execution_count="3">
+<div id="2e15329a" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -646,12 +646,12 @@ Zuerst wird die Datei mit einem Texteditor geöffnet um sich einen Überblick ü
 </section>
 <section id="datenbanken" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="datenbanken"><span class="header-section-number">2.4</span> Datenbanken</h2>
-<p>Datenbanken sind ein mächtiges Werkzeug um Daten zu speichern und zu verwalten. Der Aufbau und die Funktion wird an dieser Stelle nicht weiter erläutert und auf die entsprechende Unterrichtsfächer verwiesen.</p>
+<p>Datenbanken sind ein mächtiges Werkzeug um Daten zu speichern und zu verwalten. Deren Aufbau und die Funktion wird an dieser Stelle nicht weiter erläutert und auf die entsprechende Unterrichtsfächer verwiesen.</p>
 </section>
 <section id="mqtt" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="mqtt"><span class="header-section-number">2.5</span> MQTT</h2>
 <p>MQTT ist ein leichtgewichtiges Protokoll, das für die Kommunikation zwischen Geräten in einem Netzwerk entwickelt wurde. Es wird oft in IoT-Anwendungen verwendet. In diesem Beispiel wird die Bibliothek <em>paho-mqtt</em> verwendet.</p>
-<div id="d4b9ebf9" class="cell" data-execution_count="4">
+<div id="666fe5c2" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> paho.mqtt.client <span class="im">as</span> mqtt <span class="co">#import the mqtt client</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co">#import the pandas library</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time <span class="co">#import the time library</span></span>
@@ -702,12 +702,12 @@ Zuerst wird die Datei mit einem Texteditor geöffnet um sich einen Überblick ü
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2024-05-02 08:19:58.531032</td>
-<td>1</td>
+<td data-quarto-table-cell-role="th">2024-09-17 15:40:21.463131</td>
+<td>test2</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">2024-05-02 08:19:59.535405</td>
-<td>helloworld</td>
+<td data-quarto-table-cell-role="th">2024-09-17 15:41:46.579200</td>
+<td>ovali ser rörelse!</td>
 </tr>
 </tbody>
 </table>

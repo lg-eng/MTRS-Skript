@@ -319,7 +319,7 @@ Abbildung&nbsp;3.1: Excel Charts
 <p>Ausgehend von den Datenquellen in <a href="Datenanalyse_Datenquellen.html" class="quarto-xref"><span>Kapitel 2</span></a> werden hier einige Darstellungsformen gezeigt. Die Umsetzung erfolgt in Python mit den Bibliotheken <code>pandas</code>, <code>matplotlib</code> und <code>plotly</code>.</p>
 <section id="zeitreihen" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="zeitreihen"><span class="header-section-number">3.1</span> Zeitreihen</h2>
-<p>Die Bezeichnung bezieht sich auf die Größe auf der x-Achse, die Zeit.</p>
+<p>Die Bezeichnung bezieht sich auf die Größe auf der X-Achse, die Zeit.</p>
 <div id="cell-fig-DCMotorStepResponse" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co"># Importieren der Bibliothek pandas</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt <span class="co"># Importieren der Bibliothek matplotlib</span></span>
@@ -398,13 +398,13 @@ Abbildung&nbsp;3.3: Histogramm der Spannungen am Ausgang des Tachogenerators
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Erstellen des Tortendiagramms</span></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.pie(df_kandidaten,labels<span class="op">=</span>df_kandidaten.index,autopct<span class="op">=</span><span class="st">'</span><span class="sc">%1.1f%%</span><span class="st">'</span>) <span class="co"># Erstellen des Tortendiagramms</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Tortendiagramm der BürgermeisterInnenwahl 2018'</span>) <span class="co"># Titel des Diagramms</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Tortendiagramm der BürgermeisterInwahl 2018'</span>) <span class="co"># Titel des Diagramms</span></span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>plt.show() <span class="co"># Diagramm anzeigen</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="fig-piechart" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-piechart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Datenanalyse_Darstellungsformen_files/figure-html/fig-piechart-output-1.png" width="530" height="409" class="figure-img">
+<img src="Datenanalyse_Darstellungsformen_files/figure-html/fig-piechart-output-1.png" width="522" height="409" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-piechart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Abbildung&nbsp;3.4: Tortendiagramm der BürgermeisterInwahl 2018 <span class="citation" data-cites="bgmibk2018">[<a href="#ref-bgmibk2018" role="doc-biblioref">1</a>]</span>

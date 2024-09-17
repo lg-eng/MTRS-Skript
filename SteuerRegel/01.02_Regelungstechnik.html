@@ -328,12 +328,12 @@ window.Quarto = {
 </header>
 
 
-<p>In diesem Teil des Skriptums geht es darum wie wir Maschinen und Schaltungen dazu bringen, trotz Störeinflüssen das gewünsche Verhalten zu Zeigen. Zum Beipiel soll ein Tempomant des Autos die Geschwindigkeit halten, trotz starkem Gegenwindes. Es werden die Grundlagen der Regelungstechnik vermittelt. Dabei wird das theoretische Wissen anhand konkreter Anwendungen erarbeitet.</p>
+<p>In diesem Teil des Skriptums geht es darum, wie wir Maschinen und Schaltungen dazu bringen, trotz Störeinflüssen das gewünschte Verhalten zu zeigen. Zum Beispiel soll ein Tempomat des Autos die Geschwindigkeit halten, trotz starkem Gegenwindes. Es werden die Grundlagen der Regelungstechnik vermittelt. Dabei wird das theoretische Wissen anhand konkreter Anwendungen erarbeitet.</p>
 <section id="warum-wir-regeln" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="warum-wir-regeln"><span class="header-section-number">4.1</span> Warum wir regeln</h2>
 <div style="text-align: justify">
-<p>Viele Aufgaben von Maschinen können auch durch Steuern umgesetzt werden. Eine Regelung erlaubt es aber, auf unerwünschte Einflüsse, sogenannte Störgrößen, zu reagieren. Als Beispiel soll der Tempomat, Geschwindigkeitsregelanlage, des Autos dienen. Die Aufgabe des Tempomates ist es, die Geschwindigkeit, Regelgröße, konstant zu halten. Als unerwünschte Einflüsse, Störgrößen, sind alle physikalischen Größen zu betrachten, welche die Geschwindigkeit beeinflussen. Beispiele sind die Steigung der Straße und Wind.<br>
-Die Geschwindigkeit des Autos wird über die Leistung, Stellgröße, bestimmt. Führt die Straße Bergauf wird mehr Leistung für die gleiche Geschwindigkeit benötigt. Es muss also die Leistung laufend angepasst werden, um eine konstante Geschwindigkeit zu erhalten.<br>
+<p>Viele Aufgaben von Maschinen können auch durch Steuerungen umgesetzt werden. Eine Regelung erlaubt es aber, auf unerwünschte Einflüsse, sogenannte Störgrößen, zu reagieren. Als Beispiel soll der Tempomat (Geschwindigkeitsregelanlage) des Autos dienen. Die Aufgabe des Tempomats ist es, die Geschwindigkeit (Regelgröße) konstant zu halten. Als unerwünschte Einflüsse (Störgrößen) sind alle physikalischen Größen zu betrachten, welche die Geschwindigkeit beeinflussen. Beispiele sind die Steigung der Straße und Wind.<br>
+Die Geschwindigkeit des Autos wird über die Leistung (Stellgröße) bestimmt. Führt die Straße Bergauf, wird mehr Leistung für die gleiche Geschwindigkeit benötigt. Es muss also die Leistung laufend angepasst werden, um eine konstante Geschwindigkeit zu erhalten.<br>
 Bei einer Steuerung würde eine Leistung eingestellt werden und sich daraus eine Geschwindigkeit ergeben. Dieses wäre jedoch nur für einen voreingestellten Fall identisch mit der gewünschten Geschwindigkeit.</p>
 </div>
 </section>
@@ -341,7 +341,7 @@ Bei einer Steuerung würde eine Leistung eingestellt werden und sich daraus eine
 <h2 data-number="4.2" class="anchored" data-anchor-id="wie-wir-regeln---der-standardregelkreis"><span class="header-section-number">4.2</span> Wie wir regeln - Der Standardregelkreis</h2>
 <div style="text-align: justify">
 <p>Regeln ist ein Vorgang, bei dem der IST-Wert einer Größe gemessen und, durch Nachstellen der Stellgröße, dem SOLL-Wert angeglichen wird.<br>
-Dazu wird das Ergebnis an den Eingang zurück geführt und vom Sollwert subtrahiert. Es entsteht eine Rückkopplung. Durch das negative Vorzeichen handelt es sich um eine Rückkopplung im Spezialfall einer Gegenkopplung. Die Differenz aus dem Sollwert und dem zurückgeführten Istwert ist die sogenannte Regelabweichung welche über den Regler zur Stellgröße wird. Die Stellgröße ist nun die physikalische Größe die die Regelstrecke zum gewünschten Verhalten führt.</p>
+Dazu wird das Ergebnis an den Eingang zurückgeführt und vom Sollwert subtrahiert. Es entsteht eine Rückkopplung. Durch das negative Vorzeichen handelt es sich um eine Rückkopplung im Spezialfall einer Gegenkopplung. Die Differenz aus dem Sollwert und dem zurückgeführten Istwert ist die sogenannte Regelabweichung, welche über den Regler zur Stellgröße wird. Die Stellgröße ist nun die physikalische Größe, welche die Regelstrecke zum gewünschten Verhalten führt.</p>
 </div>
 <div id="fig-Regelkreis" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -355,26 +355,26 @@ Abbildung&nbsp;4.1: Standardregelkreis
 </div>
 <section id="reglertypen" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="reglertypen"><span class="header-section-number">4.2.1</span> Reglertypen</h3>
-<p>Es kann zwischen zwei Arten von Reglern unterschieden werden. Erstere sind einfache Regler die die Stellgröße nur zwischen verschiedenen Zuständen hin und her Schalten können. Zum Beispiel Ein / Aus. Oder die Gänge eines Automatikgetriebes. Diese Regler werden <strong>unstetige Regler</strong> genannt. Unstetige Regler können gut mittels Hysteresen beschrieben werden.<br>
-Der zweite Typ von Regler kann die Stellgröße kontinurierlich anpassen. Diese Regler werden <strong>stetige Regler</strong> genannt. Stetige Regler können gut mit mathematische Gleichungen im Laplacebereich beschrieben werden.</p>
+<p>Es kann zwischen zwei Arten von Reglern unterschieden werden. Erstere sind einfache Regler, welche die Stellgröße nur zwischen verschiedenen Zuständen hin- und herschalten können. Zum Beispiel Ein / Aus. Oder die Gänge eines Automatikgetriebes. Diese Regler werden <strong>unstetige Regler</strong> genannt. Unstetige Regler können gut mittels Hysteresen beschrieben werden.<br>
+Der zweite Typ von Regler kann die Stellgröße kontinuierlich anpassen. Diese Regler werden <strong>stetige Regler</strong> genannt. Stetige Regler können gut mit mathematische Gleichungen im Laplace Bereich beschrieben werden.</p>
 </section>
 </section>
 <section id="unstetige-regler" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="unstetige-regler"><span class="header-section-number">4.3</span> Unstetige Regler</h2>
-<p>Klassische unstetige Regler sind Bimetallschalter. Diese werden zum Beipiel bei Heizlüftern eingesetzt.<br>
-Ist der Raum, und damit das Bimetall kalt so ist der Kontakt geschlossen und der Lüfter läuft. Wird die Raumluft und damit das Bimetall warm wird der Kontakt geöffnet und der Lüfter hört auf zu heizen.</p>
-<div id="823777b4" class="cell" data-execution_count="2">
+<p>Klassische unstetige Regler sind Bimetallschalter. Diese werden zum Beispiel bei Heizlüftern eingesetzt.<br>
+Ist der Raum und damit das Bimetall kalt, so ist der Kontakt geschlossen und der Lüfter läuft. Wird die Raumluft und damit das Bimetall warm, wird der Kontakt geöffnet und der Lüfter hört auf zu heizen.</p>
+<div id="1671f1b0" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(T_{ein}\)</span> … Einschaltschwelle</p>
+<p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(T_{aus}\)</span> … Ausschaltschwelle</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(T\)</span> … Temperatur</p>
+<p><span class="math inline">\(T_{ein}\)</span> … Einschaltschwelle</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
+<p><span class="math inline">\(T\)</span> … Temperatur</p>
 </div>
 </div>
 <div id="cell-fig-zweipunktreglerplot" class="cell" data-execution_count="3">
@@ -393,19 +393,19 @@ Abbildung&nbsp;4.2: Zweipunktregler eines einfachen Heizlüfters
 </div>
 <section id="zweipunktregler" class="level3" data-number="4.3.1">
 <h3 data-number="4.3.1" class="anchored" data-anchor-id="zweipunktregler"><span class="header-section-number">4.3.1</span> Zweipunktregler</h3>
-<p>Der Zweipunktregler kann, wie der Name schon sagt, die Stellgröße zwischen zwei Zuständen schalten. Zum Beipiel die Heizung einschalten wenn die Temperatur zu niedrig ist und wieder Abschalten wenn die Temperatur hoch genug ist. Siehe dazu die Kennlinie <a href="#fig-zweipunktreglerplot" class="quarto-xref">Abbildung&nbsp;<span>4.2</span></a>. Die Kennlinie stellt eine Hysterese dar. Die Umsetzung ist auch mittels Operationsverstärker möglich.</p>
+<p>Der Zweipunktregler kann, wie der Name schon sagt, die Stellgröße zwischen zwei Zuständen schalten. Zum Beispiel die Heizung einschalten, wenn die Temperatur zu niedrig ist und wieder Abschalten, wenn die Temperatur hoch genug ist. Siehe dazu die Kennlinie <a href="#fig-zweipunktreglerplot" class="quarto-xref">Abbildung&nbsp;<span>4.2</span></a>. Die Kennlinie stellt eine Hysterese dar. Die Umsetzung ist auch mittels Operationsverstärker möglich.</p>
 </section>
 </section>
 <section id="stetige-regler" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="stetige-regler"><span class="header-section-number">4.4</span> Stetige Regler</h2>
-<p>Für das Verständnis von stetigen Reglern ist es hilfreich die Regelungstechnik mathematisch zu betrachten, da sich ein Regler sehr gut mit Formeln beschreiben und erklären lässt. In einem eigenen Kapitel soll behandelt werden wie Regler praxisnahe implementiert werden können.<br>
-Der oben gezeigte Regelkreis, <a href="#fig-Regelkreis" class="quarto-xref">Abbildung&nbsp;<span>4.1</span></a>, lässt sich mathematisch als Übertragungsfunktion beschreiben. Hier werden ausschließlich SISO (Single Input Single Output) und LTI (Linear Time Invariant) Systeme betrachtet. Das Bedeutet Systeme die einen Eingang und einen Ausgang haben. Jeder Block kann einzeln mit einer Übertragungsfunktion, analog der Vierpoltheorie, beschrieben werden. Wie auch in der Vierpoltheorie kann aber auch eine Verschaltung von Blöcken als Übertragungsfunktion beschrieben werden. Ein Block wird in der Regelungstechnik auch als <strong>Strecke</strong> bezeichnet.</p>
+<p>Für das Verständnis von stetigen Reglern ist es hilfreich, die Regelungstechnik mathematisch zu betrachten, da sich ein Regler sehr gut mit Formeln beschreiben und erklären lässt. In einem eigenen Kapitel soll behandelt werden, wie Regler praxisnahe implementiert werden können.<br>
+Der oben gezeigte Regelkreis <a href="#fig-Regelkreis" class="quarto-xref">Abbildung&nbsp;<span>4.1</span></a> lässt sich mathematisch als Übertragungsfunktion beschreiben. Hier werden ausschließlich SISO (Single Input Single Output) und LTI (Linear Time Invariant) Systeme betrachtet. Das bedeutet Systeme, die einen Eingang und einen Ausgang haben. Jeder Block kann einzeln mit einer Übertragungsfunktion oder analog der Vierpoltheorie beschrieben werden. Wie auch in der Vierpoltheorie kann aber auch eine Verschaltung von Blöcken als Übertragungsfunktion beschrieben werden. Ein Block wird in der Regelungstechnik auch als <strong>Strecke</strong> bezeichnet.</p>
 <section id="die-übertragungsfunktion" class="level3" data-number="4.4.1">
 <h3 data-number="4.4.1" class="anchored" data-anchor-id="die-übertragungsfunktion"><span class="header-section-number">4.4.1</span> Die Übertragungsfunktion</h3>
 <section id="motivation" class="level4" data-number="4.4.1.1">
 <h4 data-number="4.4.1.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">4.4.1.1</span> Motivation</h4>
-<p>Die Übertragungsfunktion Beschreibt den Zusammenhang zwischen Ausgang und Eingang.<br>
-Ist die Übertragungsfunktion bekannt, so kann die Strecke und deren Verhalten (der Ausgang) auf verschiedene Eingänge berechnet werden. Dies wird auch Simulation genannt. Für Marketingzwecke könnte die Übertragungsfunktion auch als einfache Form eines “digitalen Zwillings” bezeichnet werden. Ist die Übertragungsfunktion mathematisch beschrieben, können Regler entworfen und getestet werden, ohne das tatsächliche physikalische Modell benutzen zu müssen. Dies ist speziell sinnvoll wenn, das physikalische System für Testzwecke nicht zur Verfügung steht bzw. nicht für Testzwecke geeignet ist. Eine Strecke (=physikalisches System) steht z.B. nicht zur Verfügung, wenn:</p>
+<p>Die Übertragungsfunktion beschreibt den Zusammenhang zwischen Ausgang und Eingang.<br>
+Ist die Übertragungsfunktion bekannt, so kann die Strecke und deren Verhalten (der Ausgang) auf verschiedene Eingänge berechnet werden. Dies wird auch Simulation genannt. Für Marketingzwecke könnte die Übertragungsfunktion auch als einfache Form eines “digitalen Zwillings” bezeichnet werden. Ist die Übertragungsfunktion mathematisch beschrieben, können Regler entworfen und getestet werden, ohne das tatsächliche physikalische Modell benutzen zu müssen. Dies ist speziell sinnvoll, wenn das physikalische System für Testzwecke nicht zur Verfügung steht bzw. nicht für Testzwecke geeignet ist. Eine Strecke (=physikalisches System) steht z.B. nicht zur Verfügung, wenn:</p>
 <ul>
 <li>Es sich geographisch woanders befindet<br>
 </li>
@@ -422,13 +422,13 @@ Ist die Übertragungsfunktion bekannt, so kann die Strecke und deren Verhalten (
 </section>
 <section id="sec-Streckenidentifikation" class="level4" data-number="4.4.1.2">
 <h4 data-number="4.4.1.2" class="anchored" data-anchor-id="sec-Streckenidentifikation"><span class="header-section-number">4.4.1.2</span> Streckenidentifikation</h4>
-<p>Als Streckenidentifiaktion wird der Vorgang beschrieben, von einem physikalischem System das mathematische Modell, die Übertragungsfunktion, zu erstellen. Zwei Methoden wie dieses Ziel erreicht werden kann, werden hier beschrieben.</p>
+<p>Als Streckenidentifikation wird der Vorgang beschrieben, von einem physikalischem System das mathematische Modell und die Übertragungsfunktion zu erstellen. Zwei Methoden, wie dieses Ziel erreicht werden kann, werden hier beschrieben.</p>
 <ul>
 <li>Der mathematische Ansatz, <a href="#sec-MathStreckenidentifikation" class="quarto-xref"><span>Kapitel 4.4.2</span></a><br>
 </li>
 <li>Der messtechnische Ansatz, <a href="#sec-MessStreckenidentifikation" class="quarto-xref"><span>Kapitel 4.4.3</span></a></li>
 </ul>
-<div id="33055eec" class="cell" data-execution_count="4">
+<div id="6fe5ee1b" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-EVA"><span class="math display">\[
 V = \frac{A}{E}
@@ -438,14 +438,14 @@ V = \frac{A}{E}
 <p><span class="math inline">\(V\)</span> … Verarbeitung, die Übertragungsfunktion</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(A\)</span> … Ausgang</p>
-</div>
-<div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(E\)</span> … Eingang</p>
 </div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(A\)</span> … Ausgang</p>
 </div>
-<p>Gängige Bezeichnungen der Übertragungsfunktion der einzelnen Blöcke ist wie folgt.</p>
-<div id="b996dcaa" class="cell" data-execution_count="5">
+</div>
+<p>Gängige Bezeichnungen der Übertragungsfunktion der einzelnen Blöcke sind wie folgt.</p>
+<div id="4efb1c1f" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(G\)</span> … Übertragungsfunktion der zu Regelnden Strecke</p>
 </div>
@@ -460,14 +460,14 @@ V = \frac{A}{E}
 </section>
 <section id="sec-MathStreckenidentifikation" class="level3" data-number="4.4.2">
 <h3 data-number="4.4.2" class="anchored" data-anchor-id="sec-MathStreckenidentifikation"><span class="header-section-number">4.4.2</span> Mathematische Streckenidentifikation</h3>
-<p>Aus den physikalischen Zusammenhängen kann die Übertragungsfunktion berechnet werden. Die komplexe Schreibweise ist nur für periodische sinusförmige Signale geeignet. Sollen Signale betrachtet werden die beliebig, stetig, sind ist die komplexe schreibweise nicht ausreichend. Es müssen die physikalischen Gleichungen in differentieller Form angeschrieben werden.</p>
-<p>Um die Mathematik möglichst einfach zu halten wird in der Regelungstechnik im Laplace Bereich gearbeitet. Dadurch ist es nicht notwendig die Diffenrentialgleichung bei physikalischen Systemen, die durch eine Differentialgleichung beschrieben werden, zu lösen.</p>
-<p>Ein Besipiel, wie eine mathematische Streckenidentifikation abläuft ist in Abschnitt <a href="#sec-Laplace" class="quarto-xref"><span>Kapitel 4.4.4</span></a> zu finden.</p>
+<p>Aus den physikalischen Zusammenhängen kann die Übertragungsfunktion berechnet werden. Die komplexe Schreibweise ist nur für periodische sinusförmige Signale geeignet. Sollen Signale betrachtet werden, die beliebig oder stetig sind, ist die komplexe schreibweise nicht ausreichend. Es müssen die physikalischen Gleichungen in differentieller Form angeschrieben werden.</p>
+<p>Um die Mathematik möglichst einfach zu halten, wird in der Regelungstechnik im Laplace Bereich gearbeitet. Dadurch ist es nicht notwendig, die Differenzialgleichung bei physikalischen Systemen, die durch eine Differenzialgleichung beschrieben werden, zu lösen.</p>
+<p>Ein Beispiel, wie eine mathematische Streckenidentifikation abläuft, ist in Abschnitt <a href="#sec-Laplace" class="quarto-xref"><span>Kapitel 4.4.4</span></a> zu finden.</p>
 </section>
 <section id="sec-MessStreckenidentifikation" class="level3" data-number="4.4.3">
 <h3 data-number="4.4.3" class="anchored" data-anchor-id="sec-MessStreckenidentifikation"><span class="header-section-number">4.4.3</span> Messtechnische Streckenidentifikation</h3>
-<p>Manche Systeme sind zu komplex um Sie mathematisch zu beschreiben. Andere Systeme sind mathematisch nicht beschreibbar, weil das Innenleben nicht bekannt ist. In diesen Fällen kann die messtechnische Ermittlung der Übertragungsfunktion herangezogen werden.<br>
-Dabei wird am Eingang der Strecke ein Testssignal aufgeschalten und der Ausgang gemessen. Aus diesen Messdaten kann die Übertragungsfunktion, ein mathemtisches Modell, der Strecke erstellt werden.</p>
+<p>Manche Systeme sind zu komplex, um Sie mathematisch zu beschreiben. Andere Systeme sind mathematisch nicht beschreibbar, weil das Innenleben nicht bekannt ist. In diesen Fällen kann die messtechnische Ermittlung der Übertragungsfunktion herangezogen werden.<br>
+Dabei wird am Eingang der Strecke ein Testsignal aufgeschaltet und der Ausgang gemessen. Aus diesen Messdaten kann die Übertragungsfunktion, ein mathematisches Modell, der Strecke erstellt werden.</p>
 </section>
 <section id="sec-Laplace" class="level3" data-number="4.4.4">
 <h3 data-number="4.4.4" class="anchored" data-anchor-id="sec-Laplace"><span class="header-section-number">4.4.4</span> Die Laplace Transformation</h3>
@@ -475,7 +475,7 @@ Dabei wird am Eingang der Strecke ein Testssignal aufgeschalten und der Ausgang 
 <section id="warum-laplace" class="level4" data-number="4.4.4.1">
 <h4 data-number="4.4.4.1" class="anchored" data-anchor-id="warum-laplace"><span class="header-section-number">4.4.4.1</span> Warum Laplace</h4>
 <p>Um eine Übertragungsfunktion zu Berechnen muss der Ausgang durch den Eingang dividiert werden. Wird das physikalische System durch eine lineare Gleichung beschrieben ist das sehr Einfach möglich und die Laplace Transformation ist nicht notwendig. Ein Beispiel dafür is das Ohm’sche Gesetz.</p>
-<div id="df0177f3" class="cell" data-execution_count="6">
+<div id="820bb6ab" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Ohm_eq"><span class="math display">\[
 R_{ohm} = \frac{U}{I}
@@ -505,7 +505,7 @@ Abbildung&nbsp;4.3: Tiefpass
 </figcaption>
 </figure>
 </div>
-<div id="f1f9f14e" class="cell" data-execution_count="7">
+<div id="9812c549" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-ict_eq1"><span class="math display">\[
 i_{c}{\left(t \right)} = \frac{\frac{d}{d t} u_{c}{\left(t \right)}}{C}
@@ -518,7 +518,7 @@ i_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)
 </div>
 </div>
 <p>Durch Gleichsetzten von <a href="#eq-ict_eq1" class="quarto-xref">Gleichung&nbsp;<span>4.3</span></a> und <a href="#eq-ict_eq2" class="quarto-xref">Gleichung&nbsp;<span>4.4</span></a> ergibt sich die allgemeine Differenzialgleichung 1. Ordnung für den Tiefpass.</p>
-<div id="56b221c9" class="cell" data-execution_count="8">
+<div id="a88b5796" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-RCTP"><span class="math display">\[
 \frac{d}{d t} u_{c}{\left(t \right)} + \frac{u_{c}{\left(t \right)}}{C R_{ohm}} = \frac{u_{in}{\left(t \right)}}{C R_{ohm}}
@@ -537,10 +537,10 @@ i_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)
 <p><span class="math inline">\(u_{c}{\left(t \right)}\)</span> … Ausgangsspannung</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(i_{c}{\left(t \right)}\)</span> … Strom</p>
+<p><span class="math inline">\(u_{in}{\left(t \right)}\)</span> … Eingangsspannung</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(u_{in}{\left(t \right)}\)</span> … Eingangsspannung</p>
+<p><span class="math inline">\(i_{c}{\left(t \right)}\)</span> … Strom</p>
 </div>
 </div>
 <p>Müsste nun von dieser Differentialgleichung die Übertragungsfunktion, also <span class="math inline">\(G=Ausgang/Eingang\)</span>, angegeben werden, so müsste zunächst die Differentialgleichung gelöst werden.<br>
@@ -607,7 +607,7 @@ Tabelle&nbsp;4.1: Laplacetransformationstabelle
 </figure>
 </div>
 <p>Wird nun Gleichung <a href="#eq-RCTP" class="quarto-xref">Gleichung&nbsp;<span>4.5</span></a> mittels der Tabelle <a href="#tbl-laplace" class="quarto-xref">Tabelle&nbsp;<span>4.1</span></a> transformiert erhalten wir eine Gleichung aus der wir durch einfaches Umformen eine Übertragungsfunktion erhalten. Es wird angenommen, dass $ x(0) = 0 $ ist.</p>
-<div id="e92ce2a1" class="cell" data-execution_count="9">
+<div id="defd5079" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
 U_{C} s + \frac{U_{C}}{C R_{ohm}} = \frac{U_{IN}}{C R_{ohm}}
@@ -872,13 +872,13 @@ G = \frac{1}{C R_{ohm} + s}
 </section>
 <section id="zusammenschaltung-von-blöcken" class="level3" data-number="4.4.6">
 <h3 data-number="4.4.6" class="anchored" data-anchor-id="zusammenschaltung-von-blöcken"><span class="header-section-number">4.4.6</span> Zusammenschaltung von Blöcken</h3>
-<p>Werden Blöcke kombiniert können die resultierenden Übertragungsfunktionen berechnet werden.<br>
-Zur vereinfachung kann die Übertragungsfunktion des Sensors mit <span class="math inline">\(M=1\)</span> angenommen werden, <span class="math inline">\(M=1\)</span>, wenn dieser im Verhälnis zur Strecke und zum Regler vernachlässigbar ist. Dies ist zum Beispiel der Fall wenn der Sensor viel schneller ist als die Strecke und der Regler. Diese Vorraussetzung ist für viele Systeme gegeben.</p>
-<p>Für den Regelkreis, <a href="#fig-Regelkreis" class="quarto-xref">Abbildung&nbsp;<span>4.1</span></a>, ergebn sich folgende Möglichkeiten.</p>
+<p>Werden Blöcke kombiniert, können die resultierenden Übertragungsfunktionen berechnet werden.<br>
+Zur Vereinfachung kann die Übertragungsfunktion des Sensors mit <span class="math inline">\(M=1\)</span> angenommen werden, <span class="math inline">\(M=1\)</span>, wenn dieser im Verhältnis zur Strecke und zum Regler vernachlässigbar ist. Dies ist zum Beispiel der Fall, wenn der Sensor viel schneller ist als die Strecke und der Regler. Diese Voraussetzung ist für viele Systeme gegeben.</p>
+<p>Für den Regelkreis, <a href="#fig-Regelkreis" class="quarto-xref">Abbildung&nbsp;<span>4.1</span></a>, ergeben sich folgende Möglichkeiten.</p>
 <section id="die-führungsübertragungsfunktion" class="level4" data-number="4.4.6.1">
 <h4 data-number="4.4.6.1" class="anchored" data-anchor-id="die-führungsübertragungsfunktion"><span class="header-section-number">4.4.6.1</span> Die Führungsübertragungsfunktion</h4>
-<p>Die Führungsübertragungsfunktion gibt das Verhältnis zwischen Sollgröße und Istgröße an. Sie Beschreibt damit das Verhalten des Regelkreises mit der Sollgröße als Eingang und der Istgröße als Ausgang. Ist eine Regelstrecke ideal so ist die die Führungsübertragungsfunktion gleich Eins.</p>
-<div id="076bc5af" class="cell" data-execution_count="10">
+<p>Die Führungsübertragungsfunktion gibt das Verhältnis zwischen Sollgröße und Istgröße an. Sie beschreibt damit das Verhalten des Regelkreises mit der Sollgröße als Eingang und der Istgröße als Ausgang. Ist eine Regelstrecke ideal, so ist die Führungsübertragungsfunktion gleich Eins.</p>
+<div id="adfa17bc" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Fw_eq"><span class="math display">\[
 F_{w} = \frac{G R}{G M R + 1}
@@ -892,7 +892,7 @@ F_{w} = \frac{G R}{G M R + 1}
 <section id="die-schleifenübertragungsfunktion" class="level4" data-number="4.4.6.2">
 <h4 data-number="4.4.6.2" class="anchored" data-anchor-id="die-schleifenübertragungsfunktion"><span class="header-section-number">4.4.6.2</span> Die Schleifenübertragungsfunktion</h4>
 <p>Die Schleifenübertragungsfunktion ist die Übertragungsfunktion des offenen Regelkreises, also ohne Rückkopplung und ist im Laplace Bereich eine einfache Multiplikation.</p>
-<div id="8132cf8b" class="cell" data-execution_count="11">
+<div id="c720aacb" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
 F_{o} = G R
@@ -905,8 +905,8 @@ F_{o} = G R
 </section>
 <section id="die-störübertragungsfunktion" class="level4" data-number="4.4.6.3">
 <h4 data-number="4.4.6.3" class="anchored" data-anchor-id="die-störübertragungsfunktion"><span class="header-section-number">4.4.6.3</span> Die Störübertragungsfunktion</h4>
-<p>Die Störübertragungsfunktion beschreibt wie sich die Störgröße auf den Ausgang auswirkt.</p>
-<div id="4fb13bd1" class="cell" data-execution_count="12">
+<p>Die Störübertragungsfunktion beschreibt, wie sich die Störgröße auf den Ausgang auswirkt.</p>
+<div id="4f34efe8" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
 F_{s} = \frac{G}{F_{o} + 1}
