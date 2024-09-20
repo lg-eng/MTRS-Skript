@@ -1,5 +1,6 @@
 .quarto/
 .ipynb_checkpoints/
+./Datenanalyse/MQTT-Test.ipynb
 _site/
 _book/
 __pycache__/
