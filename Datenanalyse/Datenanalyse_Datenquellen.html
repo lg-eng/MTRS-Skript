@@ -371,7 +371,7 @@ TIME,CH1,CH2
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="einlesen-von-csv-dateien"><span class="header-section-number">2.1.1</span> Einlesen von CSV-Dateien</h3>
 <p>Da <em>CSV</em> ein sehr weit verbreitetes Format ist, gibt es auch in Python viele Möglichkeiten, CSV-Dateien einzulesen. In diesem Dokument wird die Bibliothek <em>pandas</em> verwendet. Als Datensatz werden Daten eines Oszilloskops verwendet. Die Datei TEK00003.CSV ist auf GitHub zu finden.<br>
 Zuerst wird die Datei mit einem Texteditor geöffnet, um sich einen Überblick über die Struktur zu verschaffen und festzustellen, ob es <em>Header Zeilen</em> gibt. In diesem Fall gibt es 15 Zeilen, die ignoriert werden müssen.</p>
-<div id="5b47ea1d" class="cell" data-execution_count="1">
+<div id="561e0a8f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co"># Importieren der Bibliothek pandas</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'TEK00003.CSV'</span>,skiprows<span class="op">=</span><span class="dv">15</span>) <span class="co"># Einlesen der Datei und überspringen der ersten 15 Zeilen</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>display(df) <span class="co"># Ausgabe</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -471,7 +471,7 @@ Zuerst wird die Datei mit einem Texteditor geöffnet, um sich einen Überblick �
 <section id="bild" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="bild"><span class="header-section-number">2.2</span> Bild</h2>
 <p>Es soll ein Bild eingelesen und die RGB in einem Pandas DataFrame gespeichert werden.</p>
-<div id="9cd3a418" class="cell" data-execution_count="2">
+<div id="ce5470f8" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.image <span class="im">as</span> mpimg</span>
@@ -575,7 +575,7 @@ Zuerst wird die Datei mit einem Texteditor geöffnet, um sich einen Überblick �
 <section id="einlesen-von-daten-einer-restful-api" class="level3" data-number="2.3.1">
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="einlesen-von-daten-einer-restful-api"><span class="header-section-number">2.3.1</span> Einlesen von Daten einer RESTful API</h3>
 <p>In diesem Beispiel wird die RESTful API von <em>jsonplaceholder</em> verwendet. Diese API stellt Testdaten zur Verfügung.</p>
-<div id="2e15329a" class="cell" data-execution_count="3">
+<div id="e625f027" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -651,7 +651,7 @@ Zuerst wird die Datei mit einem Texteditor geöffnet, um sich einen Überblick �
 <section id="mqtt" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="mqtt"><span class="header-section-number">2.5</span> MQTT</h2>
 <p>MQTT ist ein leichtgewichtiges Protokoll, das für die Kommunikation zwischen Geräten in einem Netzwerk entwickelt wurde. Es wird oft in IoT-Anwendungen verwendet. In diesem Beispiel wird die Bibliothek <em>paho-mqtt</em> verwendet.</p>
-<div id="666fe5c2" class="cell" data-execution_count="4">
+<div id="7d9a4be6" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> paho.mqtt.client <span class="im">as</span> mqtt <span class="co">#import the mqtt client</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co">#import the pandas library</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time <span class="co">#import the time library</span></span>
@@ -702,11 +702,11 @@ Zuerst wird die Datei mit einem Texteditor geöffnet, um sich einen Überblick �
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2024-09-17 15:40:21.463131</td>
-<td>test2</td>
+<td data-quarto-table-cell-role="th">2024-09-23 16:50:44.947420</td>
+<td>testMessage</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">2024-09-17 15:41:46.579200</td>
+<td data-quarto-table-cell-role="th">2024-09-23 16:52:26.641422</td>
 <td>ovali ser rörelse!</td>
 </tr>
 </tbody>
