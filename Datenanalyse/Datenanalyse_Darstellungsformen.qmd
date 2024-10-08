@@ -72,6 +72,7 @@ Hier wird die Möglichkeit von Pandas genutzt, die Daten direkt aus einem Link @
 #| fig-cap: "Tortendiagramm der BürgermeisterInwahl 2018 @bgmibk2018"
 #| code-fold: false
 #| echo: true
+#| execution: False
 
 import matplotlib.pyplot as plt # Importieren der Bibliothek matplotlib
 import pandas as pd # Importieren der Bibliothek pandas

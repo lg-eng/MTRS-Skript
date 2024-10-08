@@ -2,7 +2,7 @@
 oder die Anstrengung der Faulen.
 
 #### Warum Laplace
-Um eine Übertragungsfunktion zu Berechnen muss der Ausgang durch den Eingang dividiert werden. Wird das physikalische System durch eine lineare Gleichung beschrieben ist das sehr Einfach möglich und die Laplace Transformation ist nicht notwendig. Ein Beispiel dafür is das Ohm'sche Gesetz.
+Um eine Übertragungsfunktion zu Berechnen muss der Ausgang durch den Eingang dividiert werden. Wird das physikalische System durch eine lineare Gleichung beschrieben ist das sehr Einfach möglich und die Laplace Transformation ist nicht notwendig. Ein Beispiel dafür ist das Ohm'sche Gesetz.
 
 ```{python}
 #| code-fold: true
@@ -38,7 +38,7 @@ ict = Function('i_c',description = 'Strom')(t)
 uint = Function('u_in',description = 'Eingangsspannung')(t)
 uct = Function('u_c',description = 'Ausgangsspannung')(t)
 
-ict_eq1=Eq(ict,1/C_cap*diff(uct,t))
+ict_eq1=Eq(ict,C_cap*diff(uct,t))
 
 #uct_eq = Eq(integrate(ict_eq.rhs,t)*C_cap,integrate(ict_eq.lhs,t)*C_cap + uct0)
 
@@ -54,7 +54,8 @@ Durch Gleichsetzten von  @eq-ict_eq1 und @eq-ict_eq2 ergibt sich die allgemeine 
 #| code-fold: true
 
 
-RCTP_eq = Eq(diff(uct,t)+1/(R_ohm*C_cap)*uct,1/(R_ohm*C_cap)*uint)
+#RCTP_eq = Eq(diff(uct,t)+1/(R_ohm*C_cap)*uct,1/(R_ohm*C_cap)*uint)
+RCTP_eq = Eq(ict_eq1.rhs,ict_eq2.rhs)
 
 QBookHelpers.print_equation(RCTP_eq,label='eq-RCTP')
 QBookHelpers.print_description(RCTP_eq.free_symbols)
@@ -93,13 +94,14 @@ from sympy.physics.control.lti import TransferFunction
 UC = MySymbol('U_{C}',description = 'Ausgangsspannng im Laplacebereich')
 UIN = MySymbol('U_{IN}',description = 'Eingangsspannung im Laplacebereich')
 
-RCTPLap_eq = Eq(s*UC+1/(R_ohm*C_cap)*UC,1/(R_ohm*C_cap)*UIN)
+# RCTPLap_eq = Eq(s*UC+1/(R_ohm*C_cap)*UC,1/(R_ohm*C_cap)*UIN)
+RCTPLap_eq = Eq(C_cap*s*UC,1/R_ohm*(UIN-UC))
 QBookHelpers.print_equation(RCTPLap_eq)
 
 RCTPLap_eq = Eq(G,UC/UIN)
 QBookHelpers.print_equation(RCTPLap_eq)
 
-tf1 = Eq(G,TransferFunction(1, s + R_ohm*C_cap, s))
+tf1 = Eq(G,TransferFunction(1, 1 + s*R_ohm*C_cap, s))
 QBookHelpers.print_equation(tf1)
 
 

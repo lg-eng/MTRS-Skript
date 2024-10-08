@@ -2,6 +2,19 @@
 Für das Verständnis von stetigen Reglern ist es hilfreich, die Regelungstechnik mathematisch zu betrachten, da sich ein Regler sehr gut mit Formeln beschreiben und erklären lässt. In einem eigenen Kapitel soll behandelt werden, wie Regler praxisnahe implementiert werden können.  
 Der oben gezeigte Regelkreis @fig-Regelkreis lässt sich mathematisch als Übertragungsfunktion beschreiben. Hier werden ausschließlich SISO (Single Input Single Output) und LTI (Linear Time Invariant) Systeme betrachtet. Das bedeutet Systeme, die einen Eingang und einen Ausgang haben. Jeder Block kann einzeln mit einer Übertragungsfunktion oder analog der Vierpoltheorie beschrieben werden. Wie auch in der Vierpoltheorie kann aber auch eine Verschaltung von Blöcken als Übertragungsfunktion beschrieben werden. Ein Block wird in der Regelungstechnik auch als **Strecke** bezeichnet.
 
+### Der PID Regler
+Der PID Regler ist ein stetiger Regler, der sich aus drei Teilen zusammensetzt. Er ist der am häufigsten verwendete stetige Regler in der Regelungstechnik. Wobei der D Anteil in der Praxis oft weggelassen wird.
+
+![PID Regler](images/PID_Regler.svg){#fig-PID1}
+
+#### Vorraussetzungen für die Verwendung eines PID Reglers
+Der PID Regler ist ein stetiger Regler und kann nur bei stetigen Systemen verwendet werden. Das bedeutet, dass die Strecke, die Regelgröße und die Stellgröße stetig sein müssen.
+Das System muss linear sein. Das bedeutet, dass die Übertragungsfunktion der Strecke linear sein muss. Zumindest im Nahbereich des Arbeitspunktes. 
+Das System muss zeitinvariant sein. Das bedeutet, dass die Übertragungsfunktion der Strecke sich nicht mit der Zeit ändert.
+Die Anforderung der Linearität und der Zeitinvarianz werden in der Regelungstechnik als **LTI** (Linear Time Invariant) Systeme bezeichnet.
+Es darf nur einen Eingang und einen Ausgang geben. Das bedeutet, dass der PID Regler nur für **SISO** (Single Input Single Output) Systeme verwendet werden kann.
+
+
 ### Die Übertragungsfunktion
 #### Motivation
 Die Übertragungsfunktion beschreibt den Zusammenhang zwischen Ausgang und Eingang.  

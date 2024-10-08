@@ -12,6 +12,19 @@ Bei einer Steuerung würde eine Leistung eingestellt werden und sich daraus eine
 
 </div>
 
+## Gängige Begriffe der Regelungstechnik
+
+| **Bezeichnung**             | **Formelzeichen**                                          | **Erklärung**                                                                                                 |
+|-----------------------------|------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| Regelgröße                  |  y(t), Y(s)                                                | Ausgangsgröße des Regelkreises, die gemessen und kontrolliert wird.                                             |
+| Sollwert, Führungsgröße                  |  w(t), W(s)                                                  | Gewünschter Zielwert der Regelgröße. Der Regler versucht, diesen Wert zu erreichen.                             |
+| Stellgröße                  |  u(t), U(s)                                                  | Vom Regler ausgegebene Größe, die das System beeinflusst.                                                      |
+| Störgröße                   |  z(t), Z(s)                                                  | Eine äußere Größe, die den Prozess stört und die der Regler kompensieren muss.                                  |
+| Regelabweichung             |  e(t), E(s)                                    | Differenz zwischen Sollwert und Istwert der Regelgröße.                                                        |
+| Strecke                | $H(s)$                                                   | Der zu regelnde Prozess oder das System.                                                                      |
+| Regler                      | $R(s)$                                                      | Die Einrichtung oder der Algorithmus, der die Stellgröße bestimmt.                                             |
+| Sensor                      | $M(s)$                                                   | Die Einrichtung oder der Algorithmus, der die Ausgangsgröße bestimmt.                                             |
+
 ## Wie wir regeln - Der Standardregelkreis
 <div style="text-align: justify">
 Regeln ist ein Vorgang, bei dem der IST-Wert einer Größe gemessen und, durch Nachstellen der Stellgröße, dem SOLL-Wert angeglichen wird.  
@@ -28,4 +41,6 @@ Der zweite Typ von Regler kann die Stellgröße kontinuierlich anpassen. Diese R
 {{< include 01.02.01_UnstetigeRegler.qmd >}}
 
 {{< include 01.02.02_StetigeReglerGrundlagen.qmd >}}
+
+
 
