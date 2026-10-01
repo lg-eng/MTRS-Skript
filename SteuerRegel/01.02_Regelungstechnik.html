@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Leopold Götsch and Mistral Vibe AI">
 
-<title>RLC Circuit Analysis: Series CLR with Output across R – MTRS-Skript</title>
+<title>4&nbsp; Regelungstechnik – MTRS-Skript</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../SteuerRegel/InteractivePython.html" rel="next">
+<link href="../Anhang/xx_Appendix.html" rel="next">
 <link href="../SteuerRegel/01_SteuerRegel.html" rel="prev">
 <script src="../site_libs/cookie-consent/cookie-consent.js"></script>
 <link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
@@ -170,7 +169,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../SteuerRegel/01_SteuerRegel.html">Steuer- und Regelungstechnik</a></li><li class="breadcrumb-item"><a href="../SteuerRegel/01.02_Regelungstechnik.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">RLC Circuit Analysis: Series CLR with Output across R</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../SteuerRegel/01_SteuerRegel.html">Steuer- und Regelungstechnik</a></li><li class="breadcrumb-item"><a href="../SteuerRegel/01.02_Regelungstechnik.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -258,19 +257,24 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../Anhang/xx_Appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../SteuerRegel/InteractivePython.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Übertragungsfunktionstester</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../SteuerRegel/01.02.01.02_Laplace.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+  <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
   </div>
 </li>
       </ul>
@@ -299,7 +303,7 @@ window.Quarto = {
   <ul>
   <li><a href="#der-pid-regler" id="toc-der-pid-regler" class="nav-link" data-scroll-target="#der-pid-regler"><span class="header-section-number">4.5.1</span> Der PID Regler</a>
   <ul class="collapse">
-  <li><a href="#voraussetzungen-für-die-verwendung-eines-pid-reglers" id="toc-voraussetzungen-für-die-verwendung-eines-pid-reglers" class="nav-link" data-scroll-target="#voraussetzungen-für-die-verwendung-eines-pid-reglers"><span class="header-section-number">4.5.1.1</span> Voraussetzungen für die Verwendung eines PID Reglers</a></li>
+  <li><a href="#vorraussetzungen-für-die-verwendung-eines-pid-reglers" id="toc-vorraussetzungen-für-die-verwendung-eines-pid-reglers" class="nav-link" data-scroll-target="#vorraussetzungen-für-die-verwendung-eines-pid-reglers"><span class="header-section-number">4.5.1.1</span> Vorraussetzungen für die Verwendung eines PID Reglers</a></li>
   </ul></li>
   <li><a href="#die-übertragungsfunktion" id="toc-die-übertragungsfunktion" class="nav-link" data-scroll-target="#die-übertragungsfunktion"><span class="header-section-number">4.5.2</span> Die Übertragungsfunktion</a>
   <ul class="collapse">
@@ -313,46 +317,19 @@ window.Quarto = {
   <li><a href="#warum-laplace" id="toc-warum-laplace" class="nav-link" data-scroll-target="#warum-laplace"><span class="header-section-number">4.5.5.1</span> Warum Laplace</a></li>
   <li><a href="#laplacetransformation" id="toc-laplacetransformation" class="nav-link" data-scroll-target="#laplacetransformation"><span class="header-section-number">4.5.5.2</span> Laplacetransformation</a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#goal" id="toc-goal" class="nav-link" data-scroll-target="#goal"><span class="header-section-number">5</span> Goal</a></li>
-  <li><a href="#circuit-configuration" id="toc-circuit-configuration" class="nav-link" data-scroll-target="#circuit-configuration"><span class="header-section-number">6</span> Circuit Configuration</a></li>
-  <li><a href="#data-acquisition-methods" id="toc-data-acquisition-methods" class="nav-link" data-scroll-target="#data-acquisition-methods"><span class="header-section-number">7</span> Data Acquisition Methods</a>
-  <ul>
-  <li><a href="#spice-simulation" id="toc-spice-simulation" class="nav-link" data-scroll-target="#spice-simulation"><span class="header-section-number">7.1</span> Spice Simulation</a></li>
-  <li><a href="#physical-measurements" id="toc-physical-measurements" class="nav-link" data-scroll-target="#physical-measurements"><span class="header-section-number">7.2</span> Physical Measurements</a></li>
-  <li><a href="#transfer-function-simulation" id="toc-transfer-function-simulation" class="nav-link" data-scroll-target="#transfer-function-simulation"><span class="header-section-number">7.3</span> Transfer Function Simulation</a></li>
-  </ul></li>
-  <li><a href="#transfer-function-derivation" id="toc-transfer-function-derivation" class="nav-link" data-scroll-target="#transfer-function-derivation"><span class="header-section-number">8</span> Transfer Function Derivation</a>
-  <ul>
-  <li><a href="#step-1-differential-equation-from-kirchhoffs-voltage-law" id="toc-step-1-differential-equation-from-kirchhoffs-voltage-law" class="nav-link" data-scroll-target="#step-1-differential-equation-from-kirchhoffs-voltage-law"><span class="header-section-number">8.1</span> Step 1: Differential Equation from Kirchhoff’s Voltage Law</a></li>
-  <li><a href="#step-2-laplace-transform" id="toc-step-2-laplace-transform" class="nav-link" data-scroll-target="#step-2-laplace-transform"><span class="header-section-number">8.2</span> Step 2: Laplace Transform</a></li>
-  <li><a href="#step-3-obtain-transfer-function" id="toc-step-3-obtain-transfer-function" class="nav-link" data-scroll-target="#step-3-obtain-transfer-function"><span class="header-section-number">8.3</span> Step 3: Obtain Transfer Function</a></li>
-  <li><a href="#step-4-natural-frequency-and-damping-ratio" id="toc-step-4-natural-frequency-and-damping-ratio" class="nav-link" data-scroll-target="#step-4-natural-frequency-and-damping-ratio"><span class="header-section-number">8.4</span> Step 4: Natural Frequency and Damping Ratio</a></li>
-  </ul></li>
-  <li><a href="#data-comparison" id="toc-data-comparison" class="nav-link" data-scroll-target="#data-comparison"><span class="header-section-number">9</span> Data Comparison</a></li>
-  <li><a href="#signal-analysis" id="toc-signal-analysis" class="nav-link" data-scroll-target="#signal-analysis"><span class="header-section-number">10</span> Signal Analysis</a>
-  <ul>
-  <li><a href="#frequency-and-amplification-comparison" id="toc-frequency-and-amplification-comparison" class="nav-link" data-scroll-target="#frequency-and-amplification-comparison"><span class="header-section-number">10.1</span> Frequency and Amplification Comparison</a></li>
-  <li><a href="#signal-normalization-for-better-comparison" id="toc-signal-normalization-for-better-comparison" class="nav-link" data-scroll-target="#signal-normalization-for-better-comparison"><span class="header-section-number">10.2</span> Signal Normalization for Better Comparison</a>
+  <li><a href="#sec-TestStrecke" id="toc-sec-TestStrecke" class="nav-link" data-scroll-target="#sec-TestStrecke"><span class="header-section-number">4.5.6</span> Testsignale und Streckenverhalten</a>
   <ul class="collapse">
-  <li><a href="#conclusion-from-normalized-comparison" id="toc-conclusion-from-normalized-comparison" class="nav-link" data-scroll-target="#conclusion-from-normalized-comparison"><span class="header-section-number">10.2.1</span> Conclusion from Normalized Comparison</a></li>
+  <li><a href="#testsignale" id="toc-testsignale" class="nav-link" data-scroll-target="#testsignale"><span class="header-section-number">4.5.6.1</span> Testsignale</a></li>
+  <li><a href="#streckenverhalten" id="toc-streckenverhalten" class="nav-link" data-scroll-target="#streckenverhalten"><span class="header-section-number">4.5.6.2</span> Streckenverhalten</a></li>
+  <li><a href="#identifikation" id="toc-identifikation" class="nav-link" data-scroll-target="#identifikation"><span class="header-section-number">4.5.6.3</span> Identifikation</a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">11</span> Summary</a>
-  <ul>
-  <li><a href="#sec-TestStrecke" id="toc-sec-TestStrecke" class="nav-link" data-scroll-target="#sec-TestStrecke"><span class="header-section-number">11.0.1</span> Testsignale und Streckenverhalten</a>
+  <li><a href="#zusammenschaltung-von-blöcken" id="toc-zusammenschaltung-von-blöcken" class="nav-link" data-scroll-target="#zusammenschaltung-von-blöcken"><span class="header-section-number">4.5.7</span> Zusammenschaltung von Blöcken</a>
   <ul class="collapse">
-  <li><a href="#testsignale" id="toc-testsignale" class="nav-link" data-scroll-target="#testsignale"><span class="header-section-number">11.0.1.1</span> Testsignale</a></li>
-  <li><a href="#streckenverhalten" id="toc-streckenverhalten" class="nav-link" data-scroll-target="#streckenverhalten"><span class="header-section-number">11.0.1.2</span> Streckenverhalten</a></li>
-  <li><a href="#identifikation" id="toc-identifikation" class="nav-link" data-scroll-target="#identifikation"><span class="header-section-number">11.0.1.3</span> Identifikation</a></li>
+  <li><a href="#die-führungsübertragungsfunktion" id="toc-die-führungsübertragungsfunktion" class="nav-link" data-scroll-target="#die-führungsübertragungsfunktion"><span class="header-section-number">4.5.7.1</span> Die Führungsübertragungsfunktion</a></li>
+  <li><a href="#die-schleifenübertragungsfunktion" id="toc-die-schleifenübertragungsfunktion" class="nav-link" data-scroll-target="#die-schleifenübertragungsfunktion"><span class="header-section-number">4.5.7.2</span> Die Schleifenübertragungsfunktion</a></li>
+  <li><a href="#die-störübertragungsfunktion" id="toc-die-störübertragungsfunktion" class="nav-link" data-scroll-target="#die-störübertragungsfunktion"><span class="header-section-number">4.5.7.3</span> Die Störübertragungsfunktion</a></li>
   </ul></li>
-  <li><a href="#zusammenschaltung-von-blöcken" id="toc-zusammenschaltung-von-blöcken" class="nav-link" data-scroll-target="#zusammenschaltung-von-blöcken"><span class="header-section-number">11.0.2</span> Zusammenschaltung von Blöcken</a>
-  <ul class="collapse">
-  <li><a href="#die-führungsübertragungsfunktion" id="toc-die-führungsübertragungsfunktion" class="nav-link" data-scroll-target="#die-führungsübertragungsfunktion"><span class="header-section-number">11.0.2.1</span> Die Führungsübertragungsfunktion</a></li>
-  <li><a href="#die-schleifenübertragungsfunktion" id="toc-die-schleifenübertragungsfunktion" class="nav-link" data-scroll-target="#die-schleifenübertragungsfunktion"><span class="header-section-number">11.0.2.2</span> Die Schleifenübertragungsfunktion</a></li>
-  <li><a href="#die-störübertragungsfunktion" id="toc-die-störübertragungsfunktion" class="nav-link" data-scroll-target="#die-störübertragungsfunktion"><span class="header-section-number">11.0.2.3</span> Die Störübertragungsfunktion</a></li>
-  </ul></li>
-  <li><a href="#interaktiver-pid-simulator" id="toc-interaktiver-pid-simulator" class="nav-link" data-scroll-target="#interaktiver-pid-simulator"><span class="header-section-number">11.0.3</span> Interaktiver PID Simulator</a></li>
+  <li><a href="#interaktiver-pid-simulator" id="toc-interaktiver-pid-simulator" class="nav-link" data-scroll-target="#interaktiver-pid-simulator"><span class="header-section-number">4.5.8</span> Interaktiver PID Simulator</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -360,21 +337,15 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../SteuerRegel/01_SteuerRegel.html">Steuer- und Regelungstechnik</a></li><li class="breadcrumb-item"><a href="../SteuerRegel/01.02_Regelungstechnik.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">RLC Circuit Analysis: Series CLR with Output across R</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../SteuerRegel/01_SteuerRegel.html">Steuer- und Regelungstechnik</a></li><li class="breadcrumb-item"><a href="../SteuerRegel/01.02_Regelungstechnik.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">RLC Circuit Analysis: Series CLR with Output across R</h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor:in</div>
-    <div class="quarto-title-meta-contents">
-             <p>Leopold Götsch and Mistral Vibe AI </p>
-          </div>
-  </div>
     
   
     
@@ -479,18 +450,18 @@ Der zweite Typ von Regler kann die Stellgröße kontinuierlich anpassen. Diese R
 <h2 data-number="4.4" class="anchored" data-anchor-id="unstetige-regler"><span class="header-section-number">4.4</span> Unstetige Regler</h2>
 <p>Klassische unstetige Regler sind Bimetallschalter. Diese werden zum Beispiel bei Heizlüftern eingesetzt.<br>
 Ist der Raum und damit das Bimetall kalt, so ist der Kontakt geschlossen und der Lüfter läuft. Wird die Raumluft und damit das Bimetall warm, wird der Kontakt geöffnet und der Lüfter hört auf zu heizen.</p>
-<div id="ce95e817" class="cell" data-execution_count="2">
+<div id="faaa35c4" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(T_{ein}\)</span> … Einschaltschwelle</p>
-</div>
-<div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(T_{aus}\)</span> … Ausschaltschwelle</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(T\)</span> … Temperatur</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(T_{aus}\)</span> … Ausschaltschwelle</p>
 </div>
 </div>
 <div id="cell-fig-zweipunktreglerplot" class="cell" data-execution_count="3">
@@ -529,8 +500,8 @@ Abbildung&nbsp;4.3: PID Regler
 </figcaption>
 </figure>
 </div>
-<section id="voraussetzungen-für-die-verwendung-eines-pid-reglers" class="level4" data-number="4.5.1.1">
-<h4 data-number="4.5.1.1" class="anchored" data-anchor-id="voraussetzungen-für-die-verwendung-eines-pid-reglers"><span class="header-section-number">4.5.1.1</span> Voraussetzungen für die Verwendung eines PID Reglers</h4>
+<section id="vorraussetzungen-für-die-verwendung-eines-pid-reglers" class="level4" data-number="4.5.1.1">
+<h4 data-number="4.5.1.1" class="anchored" data-anchor-id="vorraussetzungen-für-die-verwendung-eines-pid-reglers"><span class="header-section-number">4.5.1.1</span> Vorraussetzungen für die Verwendung eines PID Reglers</h4>
 <p>Der PID Regler ist ein stetiger Regler und kann nur bei stetigen Systemen verwendet werden. Das bedeutet, dass die Strecke, die Regelgröße und die Stellgröße stetig sein müssen. Das System muss linear sein. Das bedeutet, dass die Übertragungsfunktion der Strecke linear sein muss. Zumindest im Nahbereich des Arbeitspunktes. Das System muss zeitinvariant sein. Das bedeutet, dass die Übertragungsfunktion der Strecke sich nicht mit der Zeit ändert. Die Anforderung der Linearität und der Zeitinvarianz werden in der Regelungstechnik als <strong>LTI</strong> (Linear Time Invariant) Systeme bezeichnet. Es darf nur einen Eingang und einen Ausgang geben. Das bedeutet, dass der PID Regler nur für <strong>SISO</strong> (Single Input Single Output) Systeme verwendet werden kann.</p>
 </section>
 </section>
@@ -538,7 +509,8 @@ Abbildung&nbsp;4.3: PID Regler
 <h3 data-number="4.5.2" class="anchored" data-anchor-id="die-übertragungsfunktion"><span class="header-section-number">4.5.2</span> Die Übertragungsfunktion</h3>
 <section id="motivation" class="level4" data-number="4.5.2.1">
 <h4 data-number="4.5.2.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">4.5.2.1</span> Motivation</h4>
-<p>Die Übertragungsfunktion beschreibt den Zusammenhang zwischen Ausgang und Eingang. Ist die Übertragungsfunktion bekannt, so kann die Strecke und deren Verhalten (der Ausgang) auf verschiedene Eingänge berechnet werden. Dies wird auch Simulation genannt. Für Marketingzwecke könnte die Übertragungsfunktion auch als einfache Form eines “digitalen Zwillings” bezeichnet werden. Ist die Übertragungsfunktion mathematisch beschrieben, können Regler entworfen und getestet werden, ohne das tatsächliche physikalische Modell benutzen zu müssen. Dies ist speziell sinnvoll, wenn das physikalische System für Testzwecke nicht zur Verfügung steht bzw. nicht für Testzwecke geeignet ist. Eine Strecke (=physikalisches System) steht z.B. nicht zur Verfügung, wenn:</p>
+<p>Die Übertragungsfunktion beschreibt den Zusammenhang zwischen Ausgang und Eingang.<br>
+Ist die Übertragungsfunktion bekannt, so kann die Strecke und deren Verhalten (der Ausgang) auf verschiedene Eingänge berechnet werden. Dies wird auch Simulation genannt. Für Marketingzwecke könnte die Übertragungsfunktion auch als einfache Form eines “digitalen Zwillings” bezeichnet werden. Ist die Übertragungsfunktion mathematisch beschrieben, können Regler entworfen und getestet werden, ohne das tatsächliche physikalische Modell benutzen zu müssen. Dies ist speziell sinnvoll, wenn das physikalische System für Testzwecke nicht zur Verfügung steht bzw. nicht für Testzwecke geeignet ist. Eine Strecke (=physikalisches System) steht z.B. nicht zur Verfügung, wenn:</p>
 <ul>
 <li>Es sich geographisch woanders befindet<br>
 </li>
@@ -561,32 +533,32 @@ Abbildung&nbsp;4.3: PID Regler
 </li>
 <li>Der messtechnische Ansatz, <a href="#sec-MessStreckenidentifikation" class="quarto-xref"><span>Kapitel 4.5.4</span></a></li>
 </ul>
-<div id="3bd46e84" class="cell" data-execution_count="5">
+<div id="5736600a" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-EVA"><span class="math display">\[
 V = \frac{A}{E}
 \tag{4.1}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(A\)</span> … Ausgang</p>
+<p><span class="math inline">\(V\)</span> … Verarbeitung, die Übertragungsfunktion</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(V\)</span> … Verarbeitung, die Übertragungsfunktion</p>
+<p><span class="math inline">\(A\)</span> … Ausgang</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(E\)</span> … Eingang</p>
 </div>
 </div>
 <p>Gängige Bezeichnungen der Übertragungsfunktion der einzelnen Blöcke sind wie folgt.</p>
-<div id="95957fad" class="cell" data-execution_count="6">
+<div id="346c7831" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(M\)</span> … Übertragungsfunktion des Sensors</p>
+</div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(G\)</span> … Übertragungsfunktion der zu Regelnden Strecke</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(R\)</span> … Übertragungsfunktion des Reglers</p>
-</div>
-<div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(M\)</span> … Übertragungsfunktion des Sensors</p>
 </div>
 </div>
 </section>
@@ -595,7 +567,7 @@ V = \frac{A}{E}
 <h3 data-number="4.5.3" class="anchored" data-anchor-id="sec-MathStreckenidentifikation"><span class="header-section-number">4.5.3</span> Mathematische Streckenidentifikation</h3>
 <p>Aus den physikalischen Zusammenhängen kann die Übertragungsfunktion berechnet werden. Die komplexe Schreibweise ist nur für periodische sinusförmige Signale geeignet. Sollen Signale betrachtet werden, die beliebig oder stetig sind, ist die komplexe schreibweise nicht ausreichend. Es müssen die physikalischen Gleichungen in differentieller Form angeschrieben werden.</p>
 <p>Um die Mathematik möglichst einfach zu halten, wird in der Regelungstechnik im Laplace Bereich gearbeitet. Dadurch ist es nicht notwendig, die Differenzialgleichung bei physikalischen Systemen, die durch eine Differenzialgleichung beschrieben werden, zu lösen.</p>
-<p>Ein Beispiel, wie eine mathematische Streckenidentifikation abläuft, ist in Abschnitt <a href="01.02.01.02_Laplace.html" class="quarto-xref"><span>Kapitel 6</span></a> zu finden.</p>
+<p>Ein Beispiel, wie eine mathematische Streckenidentifikation abläuft, ist in Abschnitt <a href="#sec-Laplace" class="quarto-xref"><span>Kapitel 4.5.5</span></a> zu finden.</p>
 </section>
 <section id="sec-MessStreckenidentifikation" class="level3" data-number="4.5.4">
 <h3 data-number="4.5.4" class="anchored" data-anchor-id="sec-MessStreckenidentifikation"><span class="header-section-number">4.5.4</span> Messtechnische Streckenidentifikation</h3>
@@ -608,7 +580,7 @@ Dabei wird am Eingang der Strecke ein Testsignal aufgeschaltet und der Ausgang g
 <section id="warum-laplace" class="level4" data-number="4.5.5.1">
 <h4 data-number="4.5.5.1" class="anchored" data-anchor-id="warum-laplace"><span class="header-section-number">4.5.5.1</span> Warum Laplace</h4>
 <p>Um eine Übertragungsfunktion zu Berechnen muss der Ausgang durch den Eingang dividiert werden. Wird das physikalische System durch eine lineare Gleichung beschrieben ist das sehr Einfach möglich und die Laplace Transformation ist nicht notwendig. Ein Beispiel dafür ist das Ohm’sche Gesetz.</p>
-<div id="280fad52" class="cell" data-execution_count="8">
+<div id="8a0e1a6b" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Ohm_eq"><span class="math display">\[
 R_{ohm} = \frac{U}{I}
@@ -624,10 +596,10 @@ R_{ohm} = \frac{U}{I}
 <p><span class="math inline">\(I\)</span> … Strom am Widerstand als Eingang</p>
 </div>
 </div>
-<p>Wird das physikalische System aber durch eine Differentialgleichung beschrieben, wie zum Beispiel bei einem Tiefpass, so wäre es notwendig zuerst die Differentialgleichung zu lösen um die Übertragungsfunktion zu berechnen. Hier bietet die Laplace Transformation eine erhebliche erleichterung.<br>
+<p>Wird das physikalische System aber durch eine Differentialgleichung beschrieben, wie zum Beispiel bei einem Tiefpass, so wäre es notwendig zuerst die Differentialgleichung zu lösen um die Übertragungsfunktion zu berechnen. Hier bietet die Lapalce Transformation eine erhebliche erleichterung.<br>
 Wird die Übertragungsfunktion im Laplace-Bereich angeschrieben, ergeben sich weitere Vorteile, wenn es später darum geht einen Regler zu entwerfen und die Stabilität einer Strecke zu beurteilen.</p>
-<section id="beispiel-übertragungsfunktion-eines-tiefpasses" class="level5" data-number="4.5.5.1.1">
-<h5 data-number="4.5.5.1.1" class="anchored" data-anchor-id="beispiel-übertragungsfunktion-eines-tiefpasses"><span class="header-section-number">4.5.5.1.1</span> Beispiel Übertragungsfunktion eines Tiefpasses</h5>
+<section id="beispiel-übertragungsfunktion-eines-tiefapsses" class="level5" data-number="4.5.5.1.1">
+<h5 data-number="4.5.5.1.1" class="anchored" data-anchor-id="beispiel-übertragungsfunktion-eines-tiefapsses"><span class="header-section-number">4.5.5.1.1</span> Beispiel Übertragungsfunktion eines Tiefapsses</h5>
 <div id="fig-Tiefpass" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-Tiefpass-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -638,21 +610,24 @@ Abbildung&nbsp;4.4: Tiefpass
 </figcaption>
 </figure>
 </div>
-<div id="6bb938e6" class="cell" data-execution_count="9">
+<div id="7226cc67" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span id="eq-ict_eq1"><span class="math display">\[\ni_{c}{\left(t \right)} = C \frac{d}{d t} u_{c}{\left(t \right)}\n \tag{4.3}\]</span></span></p>
+<p><span id="eq-ict_eq1"><span class="math display">\[
+i_{c}{\left(t \right)} = C \frac{d}{d t} u_{c}{\left(t \right)}
+\tag{4.3}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span id="eq-ict_eq2"><span class="math display">\[\ni_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)}}{R_{ohm}}\n \tag{4.4}\]</span></span></p>
+<p><span id="eq-ict_eq2"><span class="math display">\[
+i_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)}}{R_{ohm}}
+\tag{4.4}\]</span></span></p>
 </div>
 </div>
-<p>Durch Gleichsetzten von <a href="01.02.01.02_Laplace.html#eq-ict_eq1" class="quarto-xref">Gleichung&nbsp;<span>6.2</span></a> und <a href="01.02.01.02_Laplace.html#eq-ict_eq2" class="quarto-xref">Gleichung&nbsp;<span>6.3</span></a> ergibt sich die allgemeine Differenzialgleichung 1. Ordnung für den Tiefpass.</p>
-<div id="3af1433c" class="cell" data-execution_count="10">
+<p>Durch Gleichsetzten von <a href="#eq-ict_eq1" class="quarto-xref">Gleichung&nbsp;<span>4.3</span></a> und <a href="#eq-ict_eq2" class="quarto-xref">Gleichung&nbsp;<span>4.4</span></a> ergibt sich die allgemeine Differenzialgleichung 1. Ordnung für den Tiefpass.</p>
+<div id="fb107a75" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span id="eq-RCTP"><span class="math display">\[\nC \frac{d}{d t} u_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)}}{R_{ohm}}\n \tag{4.5}\]</span></span></p>
-</div>
-<div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(R_{ohm}\)</span> … Ohmscher Widerstand</p>
+<p><span id="eq-RCTP"><span class="math display">\[
+C \frac{d}{d t} u_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)}}{R_{ohm}}
+\tag{4.5}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(C\)</span> … Kapazität</p>
@@ -661,13 +636,16 @@ Abbildung&nbsp;4.4: Tiefpass
 <p><span class="math inline">\(t\)</span> … Zeit</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(i_{c}{\left(t \right)}\)</span> … Strom</p>
+<p><span class="math inline">\(R_{ohm}\)</span> … Ohmscher Widerstand</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(u_{c}{\left(t \right)}\)</span> … Ausgangsspannung</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(u_{in}{\left(t \right)}\)</span> … Eingangsspannung</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(i_{c}{\left(t \right)}\)</span> … Strom</p>
 </div>
 </div>
 <p>Müsste nun von dieser Differentialgleichung die Übertragungsfunktion, also <span class="math inline">\(G=Ausgang/Eingang\)</span>, angegeben werden, so müsste zunächst die Differentialgleichung gelöst werden.<br>
@@ -676,8 +654,8 @@ Die Laplace Transformation bietet hier einen alternativen Weg der mit weiteren V
 </section>
 <section id="laplacetransformation" class="level4" data-number="4.5.5.2">
 <h4 data-number="4.5.5.2" class="anchored" data-anchor-id="laplacetransformation"><span class="header-section-number">4.5.5.2</span> Laplacetransformation</h4>
-<p>Die tiefere Mathematik der Laplacetransofrmation überlassen wir hier den Mathematiker:innen und den ersten Semestern eines Studiums. Wir wollen die Laplacetransformation lediglich als Werkzeug zur vereinfachung unserer Arbeit verwenden. Dazu benötigen wir folgende Grundregeln.<br>
-Vereinfacht ist die Laplacetransformation als eine Übersetzung aus dem Zeitbereich, also mit der variable <span class="math inline">\(t\)</span>, in den Frequenzbereich mit der Variable <span class="math inline">\(s\)</span> zu verstehen. Die Übersetzung erfolgt in vielen Fällen sehr einfach mittels Tabelle. Hier wird die Transformation nur für ausgewählte Signale und mathematische Operationen angeführt.</p>
+<p>Die tiefere Mathematik der Laplacetransofrmation überlassen wir hier den Mathematiker:innen und den ersten Semstern eines Studiums. Wir wollen die Laplacetransformation lediglich als Werkzeug zur vereinfachung unserer Arbeit verwenden. Dazu benötigen wir folgende Grundregeln.<br>
+Vereinfacht ist die Laplacetransformation als eine Übersetzung aus dem Zeitbereich, also mit der varaible <span class="math inline">\(t\)</span>, in den Frequenzbereich mit der Variable <span class="math inline">\(s\)</span> zu verstehen. Die Übersetzung erfolgt in vielen Fällen sehr einfach mittels Tabelle. Hier wird die Transformation nur für ausgewählte Signale und mathematische Operationen angeführt.</p>
 <div id="tbl-laplace" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-laplace-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -733,245 +711,50 @@ Tabelle&nbsp;4.1: Laplacetransformationstabelle
 </div>
 </figure>
 </div>
-<p>Wird nun Gleichung <a href="01.02.01.02_Laplace.html#eq-RCTP" class="quarto-xref">Gleichung&nbsp;<span>6.4</span></a> mittels der Tabelle <a href="01.02.01.02_Laplace.html#tbl-laplace" class="quarto-xref">Tabelle&nbsp;<span>6.1</span></a> transformiert erhalten wir eine Gleichung aus der wir durch einfaches Umformen eine Übertragungsfunktion erhalten. Es wird angenommen, dass $ x(0) = 0 $ ist.</p>
-<div id="89d17c54" class="cell" data-execution_count="11">
+<p>Wird nun Gleichung <a href="#eq-RCTP" class="quarto-xref">Gleichung&nbsp;<span>4.5</span></a> mittels der Tabelle <a href="#tbl-laplace" class="quarto-xref">Tabelle&nbsp;<span>4.1</span></a> transformiert erhalten wir eine Gleichung aus der wir durch einfaches Umformen eine Übertragungsfunktion erhalten. Es wird angenommen, dass $ x(0) = 0 $ ist.</p>
+<div id="71d426a9" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span id="eq-Dummy"><span class="math display">\[\nC U_{C} s = \frac{- U_{C} + U_{IN}}{R_{ohm}}\n \tag{4.6}\]</span></span></p>
+<p><span id="eq-Dummy"><span class="math display">\[
+C U_{C} s = \frac{- U_{C} + U_{IN}}{R_{ohm}}
+\tag{4.6}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span id="eq-Dummy"><span class="math display">\[\nG = \frac{U_{C}}{U_{IN}}\n \tag{4.7}\]</span></span></p>
+<p><span id="eq-Dummy"><span class="math display">\[
+G = \frac{U_{C}}{U_{IN}}
+\tag{4.7}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span id="eq-Dummy"><span class="math display">\[\nG = \frac{1}{C R_{ohm} s + 1}\n \tag{4.8}\]</span></span></p>
+<p><span id="eq-Dummy"><span class="math display">\[
+G = \frac{1}{C R_{ohm} s + 1}
+\tag{4.8}\]</span></span></p>
 </div>
 </div>
 </section>
 </section>
+<section id="sec-TestStrecke" class="level3" data-number="4.5.6">
+<h3 data-number="4.5.6" class="anchored" data-anchor-id="sec-TestStrecke"><span class="header-section-number">4.5.6</span> Testsignale und Streckenverhalten</h3>
+<section id="testsignale" class="level4" data-number="4.5.6.1">
+<h4 data-number="4.5.6.1" class="anchored" data-anchor-id="testsignale"><span class="header-section-number">4.5.6.1</span> Testsignale</h4>
 </section>
-<section id="goal" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Goal</h1>
-<p>The goal of this analysis is to compare the step response of a series CLR circuit with output taken across the resistor R, using three different methods: 1. Spice Simulation (spice) 2. Physical Measurements (Tektronix TBS1072C Oscilloscope) 3. Transfer Function Simulation (Python-based numerical solution)</p>
-</section>
-<section id="circuit-configuration" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Circuit Configuration</h1>
-<p>The circuit consists of three components in series: Capacitor (C), Inductor (L), and Resistor (R). The output voltage is taken across the resistor R.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/RLC.png" class="img-fluid figure-img" width="250"></p>
-<figcaption>RLC Circuit Diagram</figcaption>
-</figure>
-</div>
-<p><strong>Component Values:</strong> - <span class="math inline">\(C = 1\ \mu\text{F}\)</span> - <span class="math inline">\(L = 10\ \text{mH}\)</span><br>
-- <span class="math inline">\(R = 10\ \Omega\)</span></p>
-</section>
-<section id="data-acquisition-methods" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Data Acquisition Methods</h1>
-<section id="spice-simulation" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="spice-simulation"><span class="header-section-number">7.1</span> Spice Simulation</h2>
-<p>The Spice simulation data was obtained using LTspice circuit simulator. The circuit was modeled with ideal components (C = 1 μF, L = 10 mH, R = 10 Ω) and a step input voltage was applied. The simulator computes the voltage across the resistor (V_out) over time, providing high-precision theoretical results based on the circuit’s differential equations.</p>
-</section>
-<section id="physical-measurements" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="physical-measurements"><span class="header-section-number">7.2</span> Physical Measurements</h2>
-<p>Physical measurements were taken using a Tektronix TBS1072C oscilloscope. The actual circuit was constructed with the specified component values, and a step input was applied. The oscilloscope captured the voltage signals at the input and across the resistor, storing the data in CSV format. Note: The measurement input voltage was higher than the simulation, which is why normalization is applied for fair comparison.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/TEK00000.PNG" class="img-fluid figure-img"></p>
-<figcaption>Oscilloscope Measurement</figcaption>
-</figure>
-</div>
-</section>
-<section id="transfer-function-simulation" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="transfer-function-simulation"><span class="header-section-number">7.3</span> Transfer Function Simulation</h2>
-<p>The Transfer Function simulation is a Python-based computational model that solves the circuit’s Laplace domain transfer function numerically. Using scipy’s signal processing library, the step response is computed from the transfer function coefficients derived from the component values.</p>
-</section>
-</section>
-<section id="transfer-function-derivation" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> Transfer Function Derivation</h1>
-<section id="step-1-differential-equation-from-kirchhoffs-voltage-law" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="step-1-differential-equation-from-kirchhoffs-voltage-law"><span class="header-section-number">8.1</span> Step 1: Differential Equation from Kirchhoff’s Voltage Law</h2>
-<p>Applying Kirchhoff’s Voltage Law (KVL) to the series CLR circuit:</p>
-<p><span class="math display">\[V_{in}(t) = V_R(t) + V_L(t) + V_C(t)\]</span></p>
-<p>Where the voltage across each component is related to the current <span class="math inline">\(i(t)\)</span>:</p>
-<ul>
-<li>Resistor: <span class="math inline">\(V_R(t) = R \cdot i(t)\)</span></li>
-<li>Inductor: <span class="math inline">\(V_L(t) = L \cdot \frac{di(t)}{dt}\)</span></li>
-<li>Capacitor: <span class="math inline">\(V_C(t) = \frac{1}{C} \int_{0}^{t} i(\tau) d\tau\)</span></li>
-</ul>
-<p>Differentiating both sides of the KVL equation and substituting the component relationships:</p>
-<p><span class="math display">\[\frac{dV_{in}(t)}{dt} = R \cdot \frac{di(t)}{dt} + L \cdot \frac{d^2i(t)}{dt^2} + \frac{1}{C} \cdot i(t)\]</span></p>
-<p>Rearranging gives the second-order differential equation:</p>
-<p><span class="math display">\[L \cdot \frac{d^2i(t)}{dt^2} + R \cdot \frac{di(t)}{dt} + \frac{1}{C} \cdot i(t) = \frac{dV_{in}(t)}{dt}\]</span></p>
-<p>Since the output voltage is across the resistor: <span class="math inline">\(V_{out}(t) = V_R(t) = R \cdot i(t)\)</span></p>
-</section>
-<section id="step-2-laplace-transform" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="step-2-laplace-transform"><span class="header-section-number">8.2</span> Step 2: Laplace Transform</h2>
-<p>Assuming zero initial conditions, we apply the Laplace transform to both sides:</p>
-<p><span class="math display">\[\mathcal{L}\left\{L \cdot \frac{d^2i(t)}{dt^2} + R \cdot \frac{di(t)}{dt} + \frac{1}{C} \cdot i(t)\right\} = \mathcal{L}\left\{\frac{dV_{in}(t)}{dt}\right\}\]</span></p>
-<p>Using Laplace transform properties:</p>
-<ul>
-<li><span class="math inline">\(\mathcal{L}\{\frac{di}{dt}\} = sI(s) - i(0) \approx sI(s)\)</span> (for zero initial current)</li>
-<li><span class="math inline">\(\mathcal{L}\{\frac{d^2i}{dt^2}\} = s^2I(s) - si(0) - i'(0) \approx s^2I(s)\)</span></li>
-<li><span class="math inline">\(\mathcal{L}\{\frac{dV_{in}}{dt}\} = sV_{in}(s) - V_{in}(0) \approx sV_{in}(s)\)</span></li>
-</ul>
-<p>Substituting these into the transformed equation:</p>
-<p><span class="math display">\[L \cdot s^2 I(s) + R \cdot s I(s) + \frac{1}{C} \cdot I(s) = s V_{in}(s)\]</span></p>
-<p>Factor out <span class="math inline">\(I(s)\)</span>:</p>
-<p><span class="math display">\[I(s) \cdot \left(L s^2 + R s + \frac{1}{C}\right) = s V_{in}(s)\]</span></p>
-<p>Solving for <span class="math inline">\(I(s)\)</span>:</p>
-<p><span class="math display">\[I(s) = \frac{s V_{in}(s)}{L s^2 + R s + \frac{1}{C}} = \frac{s C V_{in}(s)}{L C s^2 + R C s + 1}\]</span></p>
-</section>
-<section id="step-3-obtain-transfer-function" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="step-3-obtain-transfer-function"><span class="header-section-number">8.3</span> Step 3: Obtain Transfer Function</h2>
-<p>Since <span class="math inline">\(V_{out}(t) = R \cdot i(t)\)</span>, in the Laplace domain:</p>
-<p><span class="math display">\[V_{out}(s) = R \cdot I(s) = R \cdot \frac{s C V_{in}(s)}{L C s^2 + R C s + 1}\]</span></p>
-<p>Therefore, the transfer function <span class="math inline">\(H(s) = \frac{V_{out}(s)}{V_{in}(s)}\)</span> is:</p>
-<p><span class="math display">\[H(s) = \frac{R \cdot s C}{L C \cdot s^2 + R C \cdot s + 1} = \frac{s R C}{L C s^2 + R C s + 1}\]</span></p>
-<p>This can be simplified by dividing numerator and denominator by <span class="math inline">\(LC\)</span>:</p>
-<p><span class="math display">\[H(s) = \frac{s \cdot \frac{R}{L}}{s^2 + s \cdot \frac{R}{L} + \frac{1}{L C}}\]</span></p>
-<p>However, the standard form for analysis is:</p>
-<p><span class="math display">\[H(s) = \frac{s R C}{L C s^2 + R C s + 1}\]</span></p>
-<p>With the given component values (<span class="math inline">\(R = 10\ \Omega\)</span>, <span class="math inline">\(L = 10\ \text{mH} = 0.01\ \text{H}\)</span>, <span class="math inline">\(C = 1\ \mu\text{F} = 10^{-6}\ \text{F}\)</span>):</p>
-<ul>
-<li><span class="math inline">\(R C = 10 \cdot 10^{-6} = 10^{-5}\ \text{s}\)</span></li>
-<li><span class="math inline">\(L C = 0.01 \cdot 10^{-6} = 10^{-8}\ \text{s}^2\)</span></li>
-</ul>
-<p>Substituting these values:</p>
-<p><span class="math display">\[H(s) = \frac{10^{-5} s}{10^{-8} s^2 + 10^{-5} s + 1}\]</span></p>
-</section>
-<section id="step-4-natural-frequency-and-damping-ratio" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="step-4-natural-frequency-and-damping-ratio"><span class="header-section-number">8.4</span> Step 4: Natural Frequency and Damping Ratio</h2>
-<p>From the denominator <span class="math inline">\(L C s^2 + R C s + 1\)</span>, we can identify the standard second-order form:</p>
-<p>For a general second-order system <span class="math inline">\(s^2 + 2\zeta\omega_n s + \omega_n^2\)</span>, we have:</p>
-<p><span class="math display">\[\omega_n^2 = \frac{1}{L C} \quad \Rightarrow \quad \omega_n = \frac{1}{\sqrt{L C}} = 10^4\ \text{rad/s}\]</span></p>
-<p><span class="math display">\[2\zeta\omega_n = \frac{R C}{L C} = \frac{R}{L} \quad \Rightarrow \quad \zeta = \frac{R}{2 L \omega_n} = \frac{R}{2} \sqrt{\frac{C}{L}} \approx 0.1581\]</span></p>
-<p>Since <span class="math inline">\(\zeta &lt; 1\)</span>, the circuit is <strong>underdamped</strong> and will exhibit oscillatory behavior.</p>
-</section>
-</section>
-<section id="data-comparison" class="level1" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> Data Comparison</h1>
-<div id="cell-plot-comparison" class="cell" data-fig-height="8" data-fig-width="14" data-execution_count="12">
-<div class="cell-output cell-output-stdout">
-<pre><code>Loaded Spice Simulation from StepResponseSpiceSim.csv
-Loaded Measurements from TEK00000.CSV
-Generated Transfer Function data from calculation
-Shifted Spice Simulation time by -500us
-
-Data loaded:
-Spice Simulation: 5025 points, time range: -0.000500 to 0.004500 s
-Measurements: 2000 points, time range: -0.000710 to 0.005686 s
-Transfer Function: 1000 points, time range: 0.000000 to 0.005000 s</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div id="plot-comparison" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="01.02_Regelungstechnik_files/figure-html/plot-comparison-output-2.png" width="1334" height="950" class="figure-img"></p>
-<figcaption>Time Domain Comparison: Spice Simulation, Measurements, and Transfer Function</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="signal-analysis" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> Signal Analysis</h1>
-<section id="frequency-and-amplification-comparison" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="frequency-and-amplification-comparison"><span class="header-section-number">10.1</span> Frequency and Amplification Comparison</h2>
-<p>The following values are extracted from each dataset:</p>
-<ul>
-<li><strong>Frequency</strong>: The dominant frequency of the output signal (for step response, this is the resonant frequency)</li>
-<li><strong>Amplification</strong>: The peak output voltage divided by the peak input voltage (DC gain for step response)</li>
-</ul>
-<div id="signal-analysis" class="cell" data-execution_count="13">
-<div class="cell-output cell-output-stdout">
-<pre><code>Spice Simulation:
-  Frequency: 1599.68 Hz
-  Amplification: 0.0927
-  Peak Output: 0.0927 V
-  Peak Input: 1.0000 V
-Measurements:
-  Frequency: 1562.60 Hz
-  Amplification: 0.0946
-  Peak Output: 0.4340 V
-  Peak Input: 4.5900 V
-Transfer Function:
-  Frequency: 1598.40 Hz
-  Amplification: 0.0926
-  Peak Output: 0.0926 V
-  Peak Input: 1.0000 V
-
-Theoretical resonant frequency: 1591.55 Hz
-Theoretical peak magnitude at resonance: 0.0499</code></pre>
-</div>
-</div>
-</section>
-<section id="signal-normalization-for-better-comparison" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="signal-normalization-for-better-comparison"><span class="header-section-number">10.2</span> Signal Normalization for Better Comparison</h2>
-<p>Since the measurements were taken with a different input voltage, we normalize all signals to the same input amplitude for fair comparison.</p>
-<div id="cell-normalized-comparison" class="cell" data-execution_count="14">
-<div class="cell-output cell-output-display">
-<div id="normalized-comparison" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="01.02_Regelungstechnik_files/figure-html/normalized-comparison-output-1.png" width="1334" height="950" class="figure-img"></p>
-<figcaption>Normalized Signal Comparison</figcaption>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Normalized data:
-Spice Simulation: 5025 points, input peak: 1.0000 V, output peak: 0.0927 V
-Measurements: 2000 points, input peak: 1.0000 V, output peak: 0.0946 V
-Transfer Function: 1000 points, input peak: 1.0000 V, output peak: 0.0926 V</code></pre>
-</div>
-</div>
-<section id="conclusion-from-normalized-comparison" class="level3" data-number="10.2.1">
-<h3 data-number="10.2.1" class="anchored" data-anchor-id="conclusion-from-normalized-comparison"><span class="header-section-number">10.2.1</span> Conclusion from Normalized Comparison</h3>
-<p>The normalized plots reveal several important insights:</p>
-<ol type="1">
-<li><p><strong>Alignment</strong>: After normalizing to the same input voltage (1V), all three signals (Spice Simulation, Physical Measurements, and Transfer Function) now share a common reference, making direct comparison meaningful.</p></li>
-<li><p><strong>Agreement</strong>: The Transfer Function simulation (green dotted line with triangles) serves as the theoretical baseline. The Spice Simulation (blue solid line with circles) closely matches this theoretical behavior, confirming the circuit model accuracy.</p></li>
-<li><p><strong>Measurement Validation</strong>: The Physical Measurements (orange dashed line with squares) follow the same trend as the simulations, though minor deviations may occur due to:</p>
-<ul>
-<li>Real component tolerances</li>
-<li>Measurement noise</li>
-<li>Parasitic effects in the physical circuit</li>
-</ul></li>
-<li><p><strong>Step Response Characteristics</strong>: The normalized output shows the underdamped nature of the circuit with <span class="math inline">\(\omega_n \approx 10^4\ \text{rad/s}\)</span> and <span class="math inline">\(\zeta \approx 0.1581\)</span>, exhibiting the expected oscillatory behavior.</p></li>
-<li><p><strong>Amplification Consistency</strong>: The peak output values after normalization confirm that all three methods produce similar amplification characteristics, validating both the theoretical model and the measurement setup.</p></li>
-</ol>
-</section>
-</section>
-</section>
-<section id="summary" class="level1" data-number="11">
-<h1 data-number="11"><span class="header-section-number">11</span> Summary</h1>
-<p>The plots above compare Input and Output signals over time for: - <strong>Spice Simulation</strong> (blue solid line with circle markers) - <strong>Physical Measurements</strong> (orange dashed line with square markers) - <strong>Transfer Function Simulation</strong> (green dotted line with triangle markers)</p>
-<p>All three datasets are plotted together on the same time axis to show how well the measurements and Spice simulation match the theoretical transfer function behavior of the series CLR circuit with output across R.</p>
-<hr>
-<p><em>HTL Anichstrasse - Messtechnik und Regelungssysteme</em><br>
-<em>RLC Circuit Analysis</em></p>
-<section id="sec-TestStrecke" class="level3" data-number="11.0.1">
-<h3 data-number="11.0.1" class="anchored" data-anchor-id="sec-TestStrecke"><span class="header-section-number">11.0.1</span> Testsignale und Streckenverhalten</h3>
-<section id="testsignale" class="level4" data-number="11.0.1.1">
-<h4 data-number="11.0.1.1" class="anchored" data-anchor-id="testsignale"><span class="header-section-number">11.0.1.1</span> Testsignale</h4>
-</section>
-<section id="streckenverhalten" class="level4" data-number="11.0.1.2">
-<h4 data-number="11.0.1.2" class="anchored" data-anchor-id="streckenverhalten"><span class="header-section-number">11.0.1.2</span> Streckenverhalten</h4>
-<section id="interaktiver-pt2-simulator" class="level5" data-number="11.0.1.2.1">
-<h5 data-number="11.0.1.2.1" class="anchored" data-anchor-id="interaktiver-pt2-simulator"><span class="header-section-number">11.0.1.2.1</span> Interaktiver PT2 Simulator</h5>
+<section id="streckenverhalten" class="level4" data-number="4.5.6.2">
+<h4 data-number="4.5.6.2" class="anchored" data-anchor-id="streckenverhalten"><span class="header-section-number">4.5.6.2</span> Streckenverhalten</h4>
+<section id="interaktiver-pt2-simulator" class="level5" data-number="4.5.6.2.1">
+<h5 data-number="4.5.6.2.1" class="anchored" data-anchor-id="interaktiver-pt2-simulator"><span class="header-section-number">4.5.6.2.1</span> Interaktiver PT2 Simulator</h5>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="2" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1;"><span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">//  domain: [0, 4]</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(y<span class="op">,</span> {</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"t"</span><span class="op">,</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> <span class="st">"s"</span><span class="op">,</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">'#888'</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(y<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> <span class="st">"t"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"u"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">'#34f'</span> })</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="2" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1;"><span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">//  domain: [0, 4]</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(y<span class="op">,</span> {</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"t"</span><span class="op">,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> <span class="st">"s"</span><span class="op">,</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">'#888'</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(y<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> <span class="st">"t"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"u"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">'#34f'</span> })</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="expression">
@@ -979,156 +762,156 @@ Transfer Function: 1000 points, input peak: 1.0000 V, output peak: 0.0926 V</cod
 </div>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="17" data-source-offset="-210"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 16;"><span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>viewof input <span class="op">=</span> <span class="fu">Select</span>(</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  [<span class="st">'step'</span><span class="op">,</span> <span class="st">'hardstep'</span><span class="op">,</span> <span class="st">'smoothstep'</span><span class="op">,</span> <span class="st">'ramp'</span><span class="op">,</span> <span class="st">'quadratic ramp'</span>]<span class="op">,</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  {</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">value</span><span class="op">:</span> <span class="st">'step'</span><span class="op">,</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">'Input'</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">//viewof Kp = Range([1e-12, 100], {</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">//  label: tex`K_P`,</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">//  value: 1,</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">//  transform: Math.log</span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co">//})</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co">//viewof Ki = Range([1e-12, 10], {</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co">//  label: tex`K_I`,</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="co">//  value: 0,</span></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="co">//  transform: Math.log</span></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="co">//})</span></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="co">//viewof Kd = Range([1e-12, 1], {</span></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="co">//  label: tex`K_d`,</span></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="co">//  value: 0,</span></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="co">//  transform: Math.log</span></span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="co">//})</span></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="co">//viewof dt = Range([1e-4, 0.1], {</span></span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="co">//  value: 0.001,</span></span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="co">//  transform: Math.log,</span></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="co">//  label: tex`\Delta t`</span></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="co">//})</span></span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>viewof Kpt2 <span class="op">=</span> <span class="bu">Range</span>([<span class="fl">1e-12</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">,</span> {</span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span><span class="op">,</span></span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`K_{pt2}`</span></span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>viewof D <span class="op">=</span> <span class="bu">Range</span>([<span class="fl">1e-12</span><span class="op">,</span> <span class="dv">10</span>]<span class="op">,</span> {</span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span></span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span><span class="op">,</span></span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`D`</span></span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>viewof T <span class="op">=</span> <span class="bu">Range</span>([<span class="fl">1e-12</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">,</span> {</span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
-<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span><span class="op">,</span></span>
-<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`T`</span></span>
-<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>viewof tMax <span class="op">=</span> <span class="bu">Range</span>([<span class="dv">1</span><span class="op">,</span> <span class="fl">10e3</span>]<span class="op">,</span> {</span>
-<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span></span>
-<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span><span class="op">,</span></span>
-<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`t_{max}`</span></span>
-<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> {</span>
-<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> output <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> p<span class="op">;</span> </span>
-<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> t0 <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span><span class="op">;</span></span>
-<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>  <span class="co">//let tMax = 20;</span></span>
-<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> t <span class="op">=</span> t0<span class="op">;</span></span>
-<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> d <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> u <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> e <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> eprev <span class="op">=</span> e<span class="op">;</span></span>
-<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> pu <span class="op">=</span> u<span class="op">;</span></span>
-<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> ppu <span class="op">=</span> u<span class="op">;</span></span>
-<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> du <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> ddu <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> pdu <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> py <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> ppy <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> dy <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> ddy <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> pdy <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> de <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> dt <span class="op">=</span> <span class="fl">0.001</span><span class="op">;</span></span>
-<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> s <span class="op">=</span> <span class="fu">setPoint</span>(t0)<span class="op">;</span></span>
-<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>  output<span class="op">.</span><span class="fu">push</span>({ t<span class="op">,</span> u<span class="op">,</span> s })<span class="op">;</span></span>
-<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> (t <span class="op">&lt;</span> tMax) {</span>
-<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> t0 <span class="op">+</span> j <span class="op">*</span> dt<span class="op">;</span></span>
-<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> <span class="fu">setPoint</span>(t)<span class="op">;</span></span>
-<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>    e <span class="op">=</span> s <span class="op">-</span> u<span class="op">;</span></span>
-<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>    de <span class="op">=</span> eprev<span class="op">-</span>e<span class="op">;</span></span>
-<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>    <span class="co">//du = (u-pu)/dt;</span></span>
-<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>    <span class="co">//ddu = (du - pdu)/dt;</span></span>
-<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a>    <span class="co">//dy = (py - y)/dt;</span></span>
-<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a>    <span class="co">//ddy = (dy - pdy)/dt;</span></span>
-<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> e<span class="op">;</span></span>
-<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>    i <span class="op">+=</span> e <span class="op">*</span> dt<span class="op">;</span></span>
-<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> de<span class="op">/</span>dt<span class="op">;</span></span>
-<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> s<span class="op">;</span> <span class="co">//(Kp * p + Ki * i + Kd * d) * dt;</span></span>
-<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a>    u <span class="op">=</span> (<span class="dv">2</span><span class="op">*</span>D<span class="op">*</span>T<span class="op">*</span>dt<span class="op">*</span>pu <span class="op">+</span> Kpt2<span class="op">*</span>dt<span class="op">**</span><span class="dv">2</span><span class="op">*</span>y <span class="op">-</span> T<span class="op">**</span><span class="dv">2</span><span class="op">*</span>ppu <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>T<span class="op">**</span><span class="dv">2</span><span class="op">*</span>pu)<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>D<span class="op">*</span>T<span class="op">*</span>dt <span class="op">+</span> T<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> dt<span class="op">**</span><span class="dv">2</span>)<span class="op">;</span></span>
-<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a>    ppu <span class="op">=</span> pu<span class="op">;</span></span>
-<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a>    pu <span class="op">=</span> u<span class="op">;</span></span>
-<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a>    <span class="co">//pdu = du;</span></span>
-<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a>    <span class="co">//ppy = py;</span></span>
-<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a>    <span class="co">//py = y;</span></span>
-<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a>    <span class="co">//pdy = dy;</span></span>
-<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a>    eprev <span class="op">=</span> e<span class="op">;</span></span>
-<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a>    output<span class="op">.</span><span class="fu">push</span>({ t<span class="op">,</span> u<span class="op">,</span> s })<span class="op">;</span></span>
-<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a>    j<span class="op">++;</span></span>
-<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> output<span class="op">;</span></span>
-<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a>setPoint <span class="op">=</span> {</span>
-<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">hardstep</span>(x) {</span>
-<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="dv">0</span><span class="op">,</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(<span class="dv">1</span><span class="op">,</span> x))<span class="op">;</span></span>
-<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">smoothstep</span>(x) {</span>
-<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> x <span class="op">=</span> <span class="fu">hardstep</span>(x)<span class="op">;</span></span>
-<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">*</span> x <span class="op">*</span> (<span class="dv">3</span> <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> x)<span class="op">;</span></span>
-<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a>  <span class="cf">switch</span> (input) {</span>
-<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'step'</span><span class="op">:</span></span>
-<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> t <span class="kw">=&gt;</span> (t <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">?</span> <span class="dv">1</span> <span class="op">:</span> <span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'ramp'</span><span class="op">:</span></span>
-<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> t <span class="kw">=&gt;</span> (t <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">?</span> t <span class="op">:</span> <span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'quadratic ramp'</span><span class="op">:</span></span>
-<span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> t <span class="kw">=&gt;</span> (t <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">?</span> t <span class="op">*</span> t <span class="op">:</span> <span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'smoothstep'</span><span class="op">:</span></span>
-<span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> smoothstep<span class="op">;</span></span>
-<span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'hardstep'</span><span class="op">:</span></span>
-<span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> hardstep<span class="op">;</span></span>
-<span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a>    <span class="cf">default</span><span class="op">:</span></span>
-<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a>      <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Error</span>(<span class="st">'Invalid input'</span>)<span class="op">;</span></span>
-<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { <span class="bu">Range</span><span class="op">,</span> Select } <span class="im">from</span> <span class="st">'@observablehq/inputs'</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="17" data-source-offset="-210"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 16;"><span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>viewof input <span class="op">=</span> <span class="fu">Select</span>(</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  [<span class="st">'step'</span><span class="op">,</span> <span class="st">'hardstep'</span><span class="op">,</span> <span class="st">'smoothstep'</span><span class="op">,</span> <span class="st">'ramp'</span><span class="op">,</span> <span class="st">'quadratic ramp'</span>]<span class="op">,</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">value</span><span class="op">:</span> <span class="st">'step'</span><span class="op">,</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">'Input'</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">//viewof Kp = Range([1e-12, 100], {</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">//  label: tex`K_P`,</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">//  value: 1,</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">//  transform: Math.log</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">//})</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">//viewof Ki = Range([1e-12, 10], {</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co">//  label: tex`K_I`,</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co">//  value: 0,</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">//  transform: Math.log</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">//})</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co">//viewof Kd = Range([1e-12, 1], {</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co">//  label: tex`K_d`,</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co">//  value: 0,</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co">//  transform: Math.log</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co">//})</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="co">//viewof dt = Range([1e-4, 0.1], {</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co">//  value: 0.001,</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="co">//  transform: Math.log,</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co">//  label: tex`\Delta t`</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co">//})</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>viewof Kpt2 <span class="op">=</span> <span class="bu">Range</span>([<span class="fl">1e-12</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">,</span> {</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span><span class="op">,</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`K_{pt2}`</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>viewof D <span class="op">=</span> <span class="bu">Range</span>([<span class="fl">1e-12</span><span class="op">,</span> <span class="dv">10</span>]<span class="op">,</span> {</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span><span class="op">,</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`D`</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>viewof T <span class="op">=</span> <span class="bu">Range</span>([<span class="fl">1e-12</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">,</span> {</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span><span class="op">,</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`T`</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>viewof tMax <span class="op">=</span> <span class="bu">Range</span>([<span class="dv">1</span><span class="op">,</span> <span class="fl">10e3</span>]<span class="op">,</span> {</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span><span class="op">,</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`t_{max}`</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> {</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> output <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> p<span class="op">;</span> </span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> t0 <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span><span class="op">;</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>  <span class="co">//let tMax = 20;</span></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> t <span class="op">=</span> t0<span class="op">;</span></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> d <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> u <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> e <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> eprev <span class="op">=</span> e<span class="op">;</span></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> pu <span class="op">=</span> u<span class="op">;</span></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> ppu <span class="op">=</span> u<span class="op">;</span></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> du <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> ddu <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> pdu <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> py <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> ppy <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> dy <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> ddy <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> pdy <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> de <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> dt <span class="op">=</span> <span class="fl">0.001</span><span class="op">;</span></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> s <span class="op">=</span> <span class="fu">setPoint</span>(t0)<span class="op">;</span></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>  output<span class="op">.</span><span class="fu">push</span>({ t<span class="op">,</span> u<span class="op">,</span> s })<span class="op">;</span></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> (t <span class="op">&lt;</span> tMax) {</span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> t0 <span class="op">+</span> j <span class="op">*</span> dt<span class="op">;</span></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> <span class="fu">setPoint</span>(t)<span class="op">;</span></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>    e <span class="op">=</span> s <span class="op">-</span> u<span class="op">;</span></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>    de <span class="op">=</span> eprev<span class="op">-</span>e<span class="op">;</span></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>    <span class="co">//du = (u-pu)/dt;</span></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>    <span class="co">//ddu = (du - pdu)/dt;</span></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>    <span class="co">//dy = (py - y)/dt;</span></span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>    <span class="co">//ddy = (dy - pdy)/dt;</span></span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> e<span class="op">;</span></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>    i <span class="op">+=</span> e <span class="op">*</span> dt<span class="op">;</span></span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> de<span class="op">/</span>dt<span class="op">;</span></span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> s<span class="op">;</span> <span class="co">//(Kp * p + Ki * i + Kd * d) * dt;</span></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>    u <span class="op">=</span> (<span class="dv">2</span><span class="op">*</span>D<span class="op">*</span>T<span class="op">*</span>dt<span class="op">*</span>pu <span class="op">+</span> Kpt2<span class="op">*</span>dt<span class="op">**</span><span class="dv">2</span><span class="op">*</span>y <span class="op">-</span> T<span class="op">**</span><span class="dv">2</span><span class="op">*</span>ppu <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>T<span class="op">**</span><span class="dv">2</span><span class="op">*</span>pu)<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>D<span class="op">*</span>T<span class="op">*</span>dt <span class="op">+</span> T<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> dt<span class="op">**</span><span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>    ppu <span class="op">=</span> pu<span class="op">;</span></span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>    pu <span class="op">=</span> u<span class="op">;</span></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>    <span class="co">//pdu = du;</span></span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>    <span class="co">//ppy = py;</span></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>    <span class="co">//py = y;</span></span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>    <span class="co">//pdy = dy;</span></span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>    eprev <span class="op">=</span> e<span class="op">;</span></span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>    output<span class="op">.</span><span class="fu">push</span>({ t<span class="op">,</span> u<span class="op">,</span> s })<span class="op">;</span></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>    j<span class="op">++;</span></span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> output<span class="op">;</span></span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>setPoint <span class="op">=</span> {</span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">hardstep</span>(x) {</span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="dv">0</span><span class="op">,</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(<span class="dv">1</span><span class="op">,</span> x))<span class="op">;</span></span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">smoothstep</span>(x) {</span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> x <span class="op">=</span> <span class="fu">hardstep</span>(x)<span class="op">;</span></span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">*</span> x <span class="op">*</span> (<span class="dv">3</span> <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> x)<span class="op">;</span></span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>  <span class="cf">switch</span> (input) {</span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'step'</span><span class="op">:</span></span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> t <span class="kw">=&gt;</span> (t <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">?</span> <span class="dv">1</span> <span class="op">:</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'ramp'</span><span class="op">:</span></span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> t <span class="kw">=&gt;</span> (t <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">?</span> t <span class="op">:</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'quadratic ramp'</span><span class="op">:</span></span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> t <span class="kw">=&gt;</span> (t <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">?</span> t <span class="op">*</span> t <span class="op">:</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'smoothstep'</span><span class="op">:</span></span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> smoothstep<span class="op">;</span></span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'hardstep'</span><span class="op">:</span></span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> hardstep<span class="op">;</span></span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a>    <span class="cf">default</span><span class="op">:</span></span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>      <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Error</span>(<span class="st">'Invalid input'</span>)<span class="op">;</span></span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { <span class="bu">Range</span><span class="op">,</span> Select } <span class="im">from</span> <span class="st">'@observablehq/inputs'</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-2" data-nodetype="declaration">
@@ -1188,47 +971,51 @@ Transfer Function: 1000 points, input peak: 1.0000 V, output peak: 0.0926 V</cod
 </div>
 </section>
 </section>
-<section id="identifikation" class="level4" data-number="11.0.1.3">
-<h4 data-number="11.0.1.3" class="anchored" data-anchor-id="identifikation"><span class="header-section-number">11.0.1.3</span> Identifikation</h4>
+<section id="identifikation" class="level4" data-number="4.5.6.3">
+<h4 data-number="4.5.6.3" class="anchored" data-anchor-id="identifikation"><span class="header-section-number">4.5.6.3</span> Identifikation</h4>
 </section>
 </section>
-<section id="zusammenschaltung-von-blöcken" class="level3" data-number="11.0.2">
-<h3 data-number="11.0.2" class="anchored" data-anchor-id="zusammenschaltung-von-blöcken"><span class="header-section-number">11.0.2</span> Zusammenschaltung von Blöcken</h3>
+<section id="zusammenschaltung-von-blöcken" class="level3" data-number="4.5.7">
+<h3 data-number="4.5.7" class="anchored" data-anchor-id="zusammenschaltung-von-blöcken"><span class="header-section-number">4.5.7</span> Zusammenschaltung von Blöcken</h3>
 <p>Werden Blöcke kombiniert, können die resultierenden Übertragungsfunktionen berechnet werden.<br>
-Zur Vereinfachung kann die Übertragungsfunktion des Sensors mit <span class="math inline">\(M=1\)</span> angenommen werden, <span class="math inline">\(M=1\)</span>, wenn dieser im Verhältnis zur Strecke und zum Regler vernachlässigbar ist. Dies ist zum Beispiel der Fall, wenn der Sensor viel schneller ist als die Strecke und der Regler. Diese Voraussetzung ist für viele Systeme gegeben.<br>
-Für den Regelkreis, <a href="#fig-Regelkreis" class="quarto-xref">Abbildung&nbsp;<span>4.1</span></a>, ergeben sich folgende Möglichkeiten.</p>
-<section id="die-führungsübertragungsfunktion" class="level4" data-number="11.0.2.1">
-<h4 data-number="11.0.2.1" class="anchored" data-anchor-id="die-führungsübertragungsfunktion"><span class="header-section-number">11.0.2.1</span> Die Führungsübertragungsfunktion</h4>
+Zur Vereinfachung kann die Übertragungsfunktion des Sensors mit <span class="math inline">\(M=1\)</span> angenommen werden, <span class="math inline">\(M=1\)</span>, wenn dieser im Verhältnis zur Strecke und zum Regler vernachlässigbar ist. Dies ist zum Beispiel der Fall, wenn der Sensor viel schneller ist als die Strecke und der Regler. Diese Voraussetzung ist für viele Systeme gegeben.</p>
+<p>Für den Regelkreis, <a href="#fig-Regelkreis" class="quarto-xref">Abbildung&nbsp;<span>4.1</span></a>, ergeben sich folgende Möglichkeiten.</p>
+<section id="die-führungsübertragungsfunktion" class="level4" data-number="4.5.7.1">
+<h4 data-number="4.5.7.1" class="anchored" data-anchor-id="die-führungsübertragungsfunktion"><span class="header-section-number">4.5.7.1</span> Die Führungsübertragungsfunktion</h4>
 <p>Die Führungsübertragungsfunktion gibt das Verhältnis zwischen Sollgröße und Istgröße an. Sie beschreibt damit das Verhalten des Regelkreises mit der Sollgröße als Eingang und der Istgröße als Ausgang. Ist eine Regelstrecke ideal, so ist die Führungsübertragungsfunktion gleich Eins.</p>
-<div id="fdf770c1" class="cell" data-execution_count="15">
+<div id="6a6491cd" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Fw_eq"><span class="math display">\[
-F_{w} = \frac{10 G}{10 G M + 1}
-\tag{11.1}\]</span></span></p>
+F_{w} = \frac{G R}{G M R + 1}
+\tag{4.9}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(F_{w}\)</span> … Führungsübertragungsfunktion</p>
 </div>
 </div>
 </section>
-<section id="die-schleifenübertragungsfunktion" class="level4" data-number="11.0.2.2">
-<h4 data-number="11.0.2.2" class="anchored" data-anchor-id="die-schleifenübertragungsfunktion"><span class="header-section-number">11.0.2.2</span> Die Schleifenübertragungsfunktion</h4>
+<section id="die-schleifenübertragungsfunktion" class="level4" data-number="4.5.7.2">
+<h4 data-number="4.5.7.2" class="anchored" data-anchor-id="die-schleifenübertragungsfunktion"><span class="header-section-number">4.5.7.2</span> Die Schleifenübertragungsfunktion</h4>
 <p>Die Schleifenübertragungsfunktion ist die Übertragungsfunktion des offenen Regelkreises, also ohne Rückkopplung und ist im Laplace Bereich eine einfache Multiplikation.</p>
-<div id="44844f7b" class="cell" data-execution_count="16">
+<div id="ba59a94b" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span id="eq-Dummy"><span class="math display">\[\nF_{o} = 10 G\n \tag{11.2}\]</span></span></p>
+<p><span id="eq-Dummy"><span class="math display">\[
+F_{o} = G R
+\tag{4.10}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(F_{o}\)</span> … Schleifenübertragungsfunktion</p>
 </div>
 </div>
 </section>
-<section id="die-störübertragungsfunktion" class="level4" data-number="11.0.2.3">
-<h4 data-number="11.0.2.3" class="anchored" data-anchor-id="die-störübertragungsfunktion"><span class="header-section-number">11.0.2.3</span> Die Störübertragungsfunktion</h4>
+<section id="die-störübertragungsfunktion" class="level4" data-number="4.5.7.3">
+<h4 data-number="4.5.7.3" class="anchored" data-anchor-id="die-störübertragungsfunktion"><span class="header-section-number">4.5.7.3</span> Die Störübertragungsfunktion</h4>
 <p>Die Störübertragungsfunktion beschreibt, wie sich die Störgröße auf den Ausgang auswirkt.</p>
-<div id="28bcf269" class="cell" data-execution_count="17">
+<div id="8a4906e3" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span id="eq-Dummy"><span class="math display">\[\nF_{s} = \frac{G}{F_{o} + 1}\n \tag{11.3}\]</span></span></p>
+<p><span id="eq-Dummy"><span class="math display">\[
+F_{s} = \frac{G}{F_{o} + 1}
+\tag{4.11}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(F_{s}\)</span> … Störübertragungsfunktion</p>
@@ -1236,32 +1023,32 @@ F_{w} = \frac{10 G}{10 G M + 1}
 </div>
 </section>
 </section>
-<section id="interaktiver-pid-simulator" class="level3" data-number="11.0.3">
-<h3 data-number="11.0.3" class="anchored" data-anchor-id="interaktiver-pid-simulator"><span class="header-section-number">11.0.3</span> Interaktiver PID Simulator</h3>
+<section id="interaktiver-pid-simulator" class="level3" data-number="4.5.8">
+<h3 data-number="4.5.8" class="anchored" data-anchor-id="interaktiver-pid-simulator"><span class="header-section-number">4.5.8</span> Interaktiver PID Simulator</h3>
 <p><span style="color:#888"> Eingangssignal <span class="math inline">\(w\)</span> </span><br>
 <span style="color:#34f"> Ausgangssignal <span class="math inline">\(y\)</span> </span><br>
 <span style="color:#fb2f03"> Regelabweichung <span class="math inline">\(e\)</span> </span><br>
 <span style="color:#d7fb03"> Stellgröße <span class="math inline">\(u\)</span> </span></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb6" data-startfrom="-1" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line -2;"><span id="cb6--1"><a href="#cb6--1" aria-hidden="true" tabindex="-1"></a><span class="co">// The basic code layout was found on source: https://observablehq.com/@mbostock/inputs</span></span>
-<span id="cb6-0"><a href="#cb6-0" aria-hidden="true" tabindex="-1"></a><span class="co">// be aware, the code variables do not yet match the variable names in the document</span></span>
-<span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">//  domain: [0, 4]</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(y_PID<span class="op">,</span> {</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"t_PID"</span><span class="op">,</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> <span class="st">"s_PID"</span><span class="op">,</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">'#888'</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(y_PID<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> <span class="st">"t_PID"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"u_PID"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">'#34f'</span> })<span class="op">,</span> <span class="co">//BLue</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(y_PID<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> <span class="st">"t_PID"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"e_PID"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">'#fb2f03'</span> })<span class="op">,</span> <span class="co">//RED</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(y_PID<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> <span class="st">"t_PID"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y_PID"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">'#d7fb03'</span> })<span class="op">,</span>  <span class="co">//Greenisch</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="-1" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line -2;"><span id="cb3--1"><a href="#cb3--1" aria-hidden="true" tabindex="-1"></a><span class="co">// The basic code layout was found on source: https://observablehq.com/@mbostock/inputs</span></span>
+<span id="cb3-0"><a href="#cb3-0" aria-hidden="true" tabindex="-1"></a><span class="co">// be aware, the code variables do not yet match the variable names in the document</span></span>
+<span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">//  domain: [0, 4]</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(y_PID<span class="op">,</span> {</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"t_PID"</span><span class="op">,</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> <span class="st">"s_PID"</span><span class="op">,</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">'#888'</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(y_PID<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> <span class="st">"t_PID"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"u_PID"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">'#34f'</span> })<span class="op">,</span> <span class="co">//BLue</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(y_PID<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> <span class="st">"t_PID"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"e_PID"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">'#fb2f03'</span> })<span class="op">,</span> <span class="co">//RED</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(y_PID<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> <span class="st">"t_PID"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y_PID"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">'#d7fb03'</span> })<span class="op">,</span>  <span class="co">//Greenisch</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="expression">
 
@@ -1270,23 +1057,23 @@ F_{w} = \frac{10 G}{10 G M + 1}
 </div>
 <p>Reglereinstellungen:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb7" data-startfrom="1" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>viewof Kp_PID <span class="op">=</span> <span class="bu">Range</span>([<span class="fl">1e-12</span><span class="op">,</span> <span class="fl">10e3</span>]<span class="op">,</span> {</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`K_P`</span><span class="op">,</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>viewof Ki_PID <span class="op">=</span> <span class="bu">Range</span>([<span class="fl">1e-12</span><span class="op">,</span> <span class="fl">10e2</span>]<span class="op">,</span> {</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`K_I`</span><span class="op">,</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>viewof Kd_PID <span class="op">=</span> <span class="bu">Range</span>([<span class="fl">1e-12</span><span class="op">,</span> <span class="fl">10e1</span>]<span class="op">,</span> {</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`K_d`</span><span class="op">,</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="1" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>viewof Kp_PID <span class="op">=</span> <span class="bu">Range</span>([<span class="fl">1e-12</span><span class="op">,</span> <span class="fl">10e3</span>]<span class="op">,</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`K_P`</span><span class="op">,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>viewof Ki_PID <span class="op">=</span> <span class="bu">Range</span>([<span class="fl">1e-12</span><span class="op">,</span> <span class="fl">10e2</span>]<span class="op">,</span> {</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`K_I`</span><span class="op">,</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>viewof Kd_PID <span class="op">=</span> <span class="bu">Range</span>([<span class="fl">1e-12</span><span class="op">,</span> <span class="fl">10e1</span>]<span class="op">,</span> {</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`K_d`</span><span class="op">,</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-3-1" data-nodetype="declaration">
@@ -1311,23 +1098,23 @@ F_{w} = \frac{10 G}{10 G M + 1}
 </div>
 <p>Streckeneinstellungen:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb8" data-startfrom="1" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>viewof Kpt2_PID <span class="op">=</span> <span class="bu">Range</span>([<span class="fl">1e-12</span><span class="op">,</span> <span class="fl">10e3</span>]<span class="op">,</span> {</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span><span class="op">,</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`K_{pt2}`</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>viewof D_PID <span class="op">=</span> <span class="bu">Range</span>([<span class="fl">1e-12</span><span class="op">,</span> <span class="dv">10</span>]<span class="op">,</span> {</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span><span class="op">,</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`D`</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>viewof T_PID <span class="op">=</span> <span class="bu">Range</span>([<span class="fl">1e-12</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">,</span> {</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span><span class="op">,</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`T`</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="1" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>viewof Kpt2_PID <span class="op">=</span> <span class="bu">Range</span>([<span class="fl">1e-12</span><span class="op">,</span> <span class="fl">10e3</span>]<span class="op">,</span> {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span><span class="op">,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`K_{pt2}`</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>viewof D_PID <span class="op">=</span> <span class="bu">Range</span>([<span class="fl">1e-12</span><span class="op">,</span> <span class="dv">10</span>]<span class="op">,</span> {</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span><span class="op">,</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`D`</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>viewof T_PID <span class="op">=</span> <span class="bu">Range</span>([<span class="fl">1e-12</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">,</span> {</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span><span class="op">,</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`T`</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-4-1" data-nodetype="declaration">
@@ -1352,13 +1139,13 @@ F_{w} = \frac{10 G}{10 G M + 1}
 </div>
 <p>Auswahl Eingangssignal:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb9" data-startfrom="-1" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line -2;"><span id="cb9--1"><a href="#cb9--1" aria-hidden="true" tabindex="-1"></a>viewof input_PID <span class="op">=</span> <span class="fu">Select</span>(</span>
-<span id="cb9-0"><a href="#cb9-0" aria-hidden="true" tabindex="-1"></a>  [<span class="st">'step'</span><span class="op">,</span> <span class="st">'hardstep'</span><span class="op">,</span> <span class="st">'smoothstep'</span><span class="op">,</span> <span class="st">'ramp'</span><span class="op">,</span> <span class="st">'quadratic ramp'</span>]<span class="op">,</span></span>
-<span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>  {</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">value</span><span class="op">:</span> <span class="st">'step'</span><span class="op">,</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">'Input'</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb6" data-startfrom="-1" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line -2;"><span id="cb6--1"><a href="#cb6--1" aria-hidden="true" tabindex="-1"></a>viewof input_PID <span class="op">=</span> <span class="fu">Select</span>(</span>
+<span id="cb6-0"><a href="#cb6-0" aria-hidden="true" tabindex="-1"></a>  [<span class="st">'step'</span><span class="op">,</span> <span class="st">'hardstep'</span><span class="op">,</span> <span class="st">'smoothstep'</span><span class="op">,</span> <span class="st">'ramp'</span><span class="op">,</span> <span class="st">'quadratic ramp'</span>]<span class="op">,</span></span>
+<span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">value</span><span class="op">:</span> <span class="st">'step'</span><span class="op">,</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">'Input'</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-5" data-nodetype="declaration">
 
@@ -1367,104 +1154,104 @@ F_{w} = \frac{10 G}{10 G M + 1}
 </div>
 <p>Simulationseinstellungen:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb10" data-startfrom="1" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>viewof tMax_PID <span class="op">=</span> <span class="bu">Range</span>([<span class="dv">1</span><span class="op">,</span> <span class="fl">10e3</span>]<span class="op">,</span> {</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span><span class="op">,</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`t_{max}`</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>y_PID <span class="op">=</span> {</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> output_PID <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> p_PID<span class="op">;</span> </span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> t0_PID <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span><span class="op">;</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">//let tMax_PID = 20;</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> t_PID <span class="op">=</span> t0_PID<span class="op">;</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> d_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> u_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> i_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> e_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> eprev_PID <span class="op">=</span> e_PID<span class="op">;</span></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> pu_PID <span class="op">=</span> u_PID<span class="op">;</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> ppu_PID <span class="op">=</span> u_PID<span class="op">;</span></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> du_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> ddu_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> pdu_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> y_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> py_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> ppy_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> dy_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> ddy_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> pdy_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> de_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> dt_PID <span class="op">=</span> <span class="fl">0.001</span><span class="op">;</span></span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> s_PID <span class="op">=</span> <span class="fu">setPoint</span>(t0_PID)<span class="op">;</span></span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>  output_PID<span class="op">.</span><span class="fu">push</span>({ t_PID<span class="op">,</span> u_PID<span class="op">,</span> s_PID })<span class="op">;</span></span>
-<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> j_PID <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> (t_PID <span class="op">&lt;</span> tMax_PID) {</span>
-<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>    t_PID <span class="op">=</span> t0_PID <span class="op">+</span> j_PID <span class="op">*</span> dt_PID<span class="op">;</span></span>
-<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>    s_PID <span class="op">=</span> <span class="fu">setPoint_PID</span>(t_PID)<span class="op">;</span></span>
-<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>    e_PID <span class="op">=</span> s_PID <span class="op">-</span> u_PID<span class="op">;</span></span>
-<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>    de_PID <span class="op">=</span> eprev_PID<span class="op">-</span>e_PID<span class="op">;</span></span>
-<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>    <span class="co">//du = (u-pu)/dt;</span></span>
-<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>    <span class="co">//ddu = (du - pdu)/dt;</span></span>
-<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>    <span class="co">//dy = (py - y)/dt;</span></span>
-<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>    <span class="co">//ddy = (dy - pdy)/dt;</span></span>
-<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>    p_PID <span class="op">=</span> e_PID<span class="op">;</span></span>
-<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>    i_PID <span class="op">+=</span> e_PID <span class="op">*</span> dt_PID<span class="op">;</span></span>
-<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>    d_PID <span class="op">=</span> de_PID<span class="op">/</span>dt_PID<span class="op">;</span></span>
-<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>    y_PID <span class="op">=</span> (Kp_PID <span class="op">*</span> p_PID <span class="op">+</span> Ki_PID <span class="op">*</span> i_PID <span class="op">+</span> Kd_PID <span class="op">*</span> d_PID)<span class="op">;</span></span>
-<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>    u_PID <span class="op">=</span> (<span class="dv">2</span><span class="op">*</span>D_PID<span class="op">*</span>T_PID<span class="op">*</span>dt_PID<span class="op">*</span>pu_PID <span class="op">+</span> Kpt2_PID<span class="op">*</span>dt_PID<span class="op">**</span><span class="dv">2</span><span class="op">*</span>y_PID <span class="op">-</span> T_PID<span class="op">**</span><span class="dv">2</span><span class="op">*</span>ppu_PID <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>T_PID<span class="op">**</span><span class="dv">2</span><span class="op">*</span>pu_PID)<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>D_PID<span class="op">*</span>T_PID<span class="op">*</span>dt_PID <span class="op">+</span> T_PID<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> dt_PID<span class="op">**</span><span class="dv">2</span>)<span class="op">;</span></span>
-<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>    ppu_PID <span class="op">=</span> pu_PID<span class="op">;</span></span>
-<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>    pu_PID <span class="op">=</span> u_PID<span class="op">;</span></span>
-<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>    <span class="co">//pdu = du;</span></span>
-<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>    <span class="co">//ppy = py;</span></span>
-<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>    <span class="co">//py = y;</span></span>
-<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>    <span class="co">//pdy = dy;</span></span>
-<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>    eprev_PID <span class="op">=</span> e_PID<span class="op">;</span></span>
-<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>    output_PID<span class="op">.</span><span class="fu">push</span>({ t_PID<span class="op">,</span> u_PID<span class="op">,</span> s_PID<span class="op">,</span> e_PID<span class="op">,</span> y_PID })<span class="op">;</span></span>
-<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>    j_PID<span class="op">++;</span></span>
-<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> output_PID<span class="op">;</span></span>
-<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a>setPoint_PID <span class="op">=</span> {</span>
-<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">hardstep_PID</span>(x) {</span>
-<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="dv">0</span><span class="op">,</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(<span class="dv">1</span><span class="op">,</span> x))<span class="op">;</span></span>
-<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">smoothstep_PID</span>(x) {</span>
-<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> x <span class="op">=</span> <span class="fu">hardstep_PID</span>(x)<span class="op">;</span></span>
-<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">*</span> x <span class="op">*</span> (<span class="dv">3</span> <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> x)<span class="op">;</span></span>
-<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a>  <span class="cf">switch</span> (input) {</span>
-<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'step'</span><span class="op">:</span></span>
-<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> t_PID <span class="kw">=&gt;</span> (t_PID <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">?</span> <span class="dv">1</span> <span class="op">:</span> <span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'ramp'</span><span class="op">:</span></span>
-<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> t_PID <span class="kw">=&gt;</span> (t_PID <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">?</span> t_PID <span class="op">:</span> <span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'quadratic ramp'</span><span class="op">:</span></span>
-<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> t_PID <span class="kw">=&gt;</span> (t_PID <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">?</span> t_PID <span class="op">*</span> t_PID <span class="op">:</span> <span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'smoothstep'</span><span class="op">:</span></span>
-<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> smoothstep_PID<span class="op">;</span></span>
-<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'hardstep'</span><span class="op">:</span></span>
-<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> hardstep_PID<span class="op">;</span></span>
-<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a>    <span class="cf">default</span><span class="op">:</span></span>
-<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a>      <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Error</span>(<span class="st">'Invalid input'</span>)<span class="op">;</span></span>
-<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb7" data-startfrom="1" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>viewof tMax_PID <span class="op">=</span> <span class="bu">Range</span>([<span class="dv">1</span><span class="op">,</span> <span class="fl">10e3</span>]<span class="op">,</span> {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">log</span><span class="op">,</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="fu">tex</span><span class="vs">`t_{max}`</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>y_PID <span class="op">=</span> {</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> output_PID <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> p_PID<span class="op">;</span> </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> t0_PID <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span><span class="op">;</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">//let tMax_PID = 20;</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> t_PID <span class="op">=</span> t0_PID<span class="op">;</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> d_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> u_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> i_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> e_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> eprev_PID <span class="op">=</span> e_PID<span class="op">;</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> pu_PID <span class="op">=</span> u_PID<span class="op">;</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> ppu_PID <span class="op">=</span> u_PID<span class="op">;</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> du_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> ddu_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> pdu_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> y_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> py_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> ppy_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> dy_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> ddy_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> pdy_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> de_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> dt_PID <span class="op">=</span> <span class="fl">0.001</span><span class="op">;</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> s_PID <span class="op">=</span> <span class="fu">setPoint</span>(t0_PID)<span class="op">;</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>  output_PID<span class="op">.</span><span class="fu">push</span>({ t_PID<span class="op">,</span> u_PID<span class="op">,</span> s_PID })<span class="op">;</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> j_PID <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> (t_PID <span class="op">&lt;</span> tMax_PID) {</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>    t_PID <span class="op">=</span> t0_PID <span class="op">+</span> j_PID <span class="op">*</span> dt_PID<span class="op">;</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>    s_PID <span class="op">=</span> <span class="fu">setPoint_PID</span>(t_PID)<span class="op">;</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>    e_PID <span class="op">=</span> s_PID <span class="op">-</span> u_PID<span class="op">;</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>    de_PID <span class="op">=</span> eprev_PID<span class="op">-</span>e_PID<span class="op">;</span></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>    <span class="co">//du = (u-pu)/dt;</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>    <span class="co">//ddu = (du - pdu)/dt;</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>    <span class="co">//dy = (py - y)/dt;</span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>    <span class="co">//ddy = (dy - pdy)/dt;</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>    p_PID <span class="op">=</span> e_PID<span class="op">;</span></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>    i_PID <span class="op">+=</span> e_PID <span class="op">*</span> dt_PID<span class="op">;</span></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>    d_PID <span class="op">=</span> de_PID<span class="op">/</span>dt_PID<span class="op">;</span></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>    y_PID <span class="op">=</span> (Kp_PID <span class="op">*</span> p_PID <span class="op">+</span> Ki_PID <span class="op">*</span> i_PID <span class="op">+</span> Kd_PID <span class="op">*</span> d_PID)<span class="op">;</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>    u_PID <span class="op">=</span> (<span class="dv">2</span><span class="op">*</span>D_PID<span class="op">*</span>T_PID<span class="op">*</span>dt_PID<span class="op">*</span>pu_PID <span class="op">+</span> Kpt2_PID<span class="op">*</span>dt_PID<span class="op">**</span><span class="dv">2</span><span class="op">*</span>y_PID <span class="op">-</span> T_PID<span class="op">**</span><span class="dv">2</span><span class="op">*</span>ppu_PID <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>T_PID<span class="op">**</span><span class="dv">2</span><span class="op">*</span>pu_PID)<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>D_PID<span class="op">*</span>T_PID<span class="op">*</span>dt_PID <span class="op">+</span> T_PID<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> dt_PID<span class="op">**</span><span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>    ppu_PID <span class="op">=</span> pu_PID<span class="op">;</span></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>    pu_PID <span class="op">=</span> u_PID<span class="op">;</span></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>    <span class="co">//pdu = du;</span></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>    <span class="co">//ppy = py;</span></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>    <span class="co">//py = y;</span></span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>    <span class="co">//pdy = dy;</span></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>    eprev_PID <span class="op">=</span> e_PID<span class="op">;</span></span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>    output_PID<span class="op">.</span><span class="fu">push</span>({ t_PID<span class="op">,</span> u_PID<span class="op">,</span> s_PID<span class="op">,</span> e_PID<span class="op">,</span> y_PID })<span class="op">;</span></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>    j_PID<span class="op">++;</span></span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> output_PID<span class="op">;</span></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>setPoint_PID <span class="op">=</span> {</span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">hardstep_PID</span>(x) {</span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="dv">0</span><span class="op">,</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(<span class="dv">1</span><span class="op">,</span> x))<span class="op">;</span></span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>  <span class="kw">function</span> <span class="fu">smoothstep_PID</span>(x) {</span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> x <span class="op">=</span> <span class="fu">hardstep_PID</span>(x)<span class="op">;</span></span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">*</span> x <span class="op">*</span> (<span class="dv">3</span> <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> x)<span class="op">;</span></span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>  <span class="cf">switch</span> (input) {</span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'step'</span><span class="op">:</span></span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> t_PID <span class="kw">=&gt;</span> (t_PID <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">?</span> <span class="dv">1</span> <span class="op">:</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'ramp'</span><span class="op">:</span></span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> t_PID <span class="kw">=&gt;</span> (t_PID <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">?</span> t_PID <span class="op">:</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'quadratic ramp'</span><span class="op">:</span></span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> t_PID <span class="kw">=&gt;</span> (t_PID <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">?</span> t_PID <span class="op">*</span> t_PID <span class="op">:</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'smoothstep'</span><span class="op">:</span></span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> smoothstep_PID<span class="op">;</span></span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'hardstep'</span><span class="op">:</span></span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> hardstep_PID<span class="op">;</span></span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>    <span class="cf">default</span><span class="op">:</span></span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a>      <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Error</span>(<span class="st">'Invalid input'</span>)<span class="op">;</span></span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-6-1" data-nodetype="declaration">
@@ -1911,8 +1698,8 @@ window._ojs.runtime.interpretFromScriptTags();
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../SteuerRegel/InteractivePython.html" class="pagination-link" aria-label="Übertragungsfunktionstester">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Übertragungsfunktionstester</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Anhang/xx_Appendix.html" class="pagination-link" aria-label="Appendix">
+        <span class="nav-page-text">Appendix</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

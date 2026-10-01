@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Leopold Götsch and Mistral Vibe AI">
 
-<title>5&nbsp; Übertragungsfunktionstester – MTRS-Skript</title>
+<title>Appendix A: RLC Circuit Analysis: Series CLR with Output across R – MTRS-Skript</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../SteuerRegel/01.02.01.02_Laplace.html" rel="next">
-<link href="../SteuerRegel/01.02_Regelungstechnik.html" rel="prev">
+<link href="../Anhang/xx_Appendix.html" rel="prev">
 <script src="../site_libs/cookie-consent/cookie-consent.js"></script>
 <link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-36a1d09b11375ae947a0a2c57dd59b74.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -91,6 +91,35 @@ cookieconsent.run({
 </script> 
   
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -103,7 +132,7 @@ cookieconsent.run({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../SteuerRegel/01_SteuerRegel.html">Steuer- und Regelungstechnik</a></li><li class="breadcrumb-item"><a href="../SteuerRegel/InteractivePython.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Übertragungsfunktionstester</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Anhang/xx_Appendix.html">Appendix</a></li><li class="breadcrumb-item"><a href="../Anhang/xx_Anhang_RLC_Analysis.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -191,19 +220,24 @@ cookieconsent.run({
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../Anhang/xx_Appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../SteuerRegel/InteractivePython.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Übertragungsfunktionstester</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../SteuerRegel/01.02.01.02_Laplace.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+  <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
   </div>
 </li>
       </ul>
@@ -213,21 +247,57 @@ cookieconsent.run({
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="4">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#goal" id="toc-goal" class="nav-link active" data-scroll-target="#goal">Goal</a></li>
+  <li><a href="#circuit-configuration" id="toc-circuit-configuration" class="nav-link" data-scroll-target="#circuit-configuration">Circuit Configuration</a></li>
+  <li><a href="#data-acquisition-methods" id="toc-data-acquisition-methods" class="nav-link" data-scroll-target="#data-acquisition-methods">Data Acquisition Methods</a>
+  <ul>
+  <li><a href="#spice-simulation" id="toc-spice-simulation" class="nav-link" data-scroll-target="#spice-simulation">Spice Simulation</a></li>
+  <li><a href="#physical-measurements" id="toc-physical-measurements" class="nav-link" data-scroll-target="#physical-measurements">Physical Measurements</a></li>
+  <li><a href="#transfer-function-simulation" id="toc-transfer-function-simulation" class="nav-link" data-scroll-target="#transfer-function-simulation">Transfer Function Simulation</a></li>
+  </ul></li>
+  <li><a href="#transfer-function-derivation" id="toc-transfer-function-derivation" class="nav-link" data-scroll-target="#transfer-function-derivation">Transfer Function Derivation</a>
+  <ul>
+  <li><a href="#step-1-differential-equation-from-kirchhoffs-voltage-law" id="toc-step-1-differential-equation-from-kirchhoffs-voltage-law" class="nav-link" data-scroll-target="#step-1-differential-equation-from-kirchhoffs-voltage-law">Step 1: Differential Equation from Kirchhoff’s Voltage Law</a></li>
+  <li><a href="#step-2-laplace-transform" id="toc-step-2-laplace-transform" class="nav-link" data-scroll-target="#step-2-laplace-transform">Step 2: Laplace Transform</a></li>
+  <li><a href="#step-3-obtain-transfer-function" id="toc-step-3-obtain-transfer-function" class="nav-link" data-scroll-target="#step-3-obtain-transfer-function">Step 3: Obtain Transfer Function</a></li>
+  <li><a href="#step-4-natural-frequency-and-damping-ratio" id="toc-step-4-natural-frequency-and-damping-ratio" class="nav-link" data-scroll-target="#step-4-natural-frequency-and-damping-ratio">Step 4: Natural Frequency and Damping Ratio</a></li>
+  </ul></li>
+  <li><a href="#data-comparison" id="toc-data-comparison" class="nav-link" data-scroll-target="#data-comparison">Data Comparison</a></li>
+  <li><a href="#signal-analysis" id="toc-signal-analysis" class="nav-link" data-scroll-target="#signal-analysis">Signal Analysis</a>
+  <ul>
+  <li><a href="#frequency-and-amplification-comparison" id="toc-frequency-and-amplification-comparison" class="nav-link" data-scroll-target="#frequency-and-amplification-comparison">Frequency and Amplification Comparison</a></li>
+  <li><a href="#signal-normalization-for-better-comparison" id="toc-signal-normalization-for-better-comparison" class="nav-link" data-scroll-target="#signal-normalization-for-better-comparison">Signal Normalization for Better Comparison</a>
+  <ul class="collapse">
+  <li><a href="#conclusion-from-normalized-comparison" id="toc-conclusion-from-normalized-comparison" class="nav-link" data-scroll-target="#conclusion-from-normalized-comparison">Conclusion from Normalized Comparison</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../SteuerRegel/01_SteuerRegel.html">Steuer- und Regelungstechnik</a></li><li class="breadcrumb-item"><a href="../SteuerRegel/InteractivePython.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Übertragungsfunktionstester</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Anhang/xx_Appendix.html">Appendix</a></li><li class="breadcrumb-item"><a href="../Anhang/xx_Anhang_RLC_Analysis.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Übertragungsfunktionstester</span></h1>
+<h1 class="title"><span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Autor:in</div>
+    <div class="quarto-title-meta-contents">
+             <p>Leopold Götsch and Mistral Vibe AI </p>
+          </div>
+  </div>
     
   
     
@@ -238,34 +308,214 @@ cookieconsent.run({
 </header>
 
 
-<p>Der Übertragungsfunktionstester ist ein interaktives Werkzeug, mit dem Sie die Übertragungsfunktion eines Systems testen können. Sie können auch die Sprungantwort des Systems visualisieren, indem Sie die Sprungantwort auswählen.</p>
-<pre class="{pyodide}"><code>
-from sympy import *
-from sympy.abc import s
-from sympy.physics.control.lti import TransferFunction
-from sympy.physics.control.control_plots import step_response_plot, step_response_numerical_data
+<section id="goal" class="level1">
+<h1>Goal</h1>
+<p>The goal of this analysis is to compare the step response of a series CLR circuit with output taken across the resistor R, using three different methods:<br>
+1. Spice Simulation (spice)<br>
+2. Physical Measurements (Tektronix TBS1072C Oscilloscope)<br>
+3. Transfer Function Simulation (Python-based numerical solution)</p>
+</section>
+<section id="circuit-configuration" class="level1">
+<h1>Circuit Configuration</h1>
+<p>The circuit consists of three components in series: Capacitor (C), Inductor (L), and Resistor (R). The output voltage is taken across the resistor R.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="RLC.png" class="img-fluid figure-img" width="250"></p>
+<figcaption>RLC Circuit Diagram</figcaption>
+</figure>
+</div>
+<p><strong>Component Values:</strong><br>
+- <span class="math inline">\(C = 1\ \mu\text{F}\)</span><br>
+- <span class="math inline">\(L = 10\ \text{mH}\)</span><br>
+- <span class="math inline">\(R = 10\ \Omega\)</span></p>
+</section>
+<section id="data-acquisition-methods" class="level1">
+<h1>Data Acquisition Methods</h1>
+<section id="spice-simulation" class="level2">
+<h2 class="anchored" data-anchor-id="spice-simulation">Spice Simulation</h2>
+<p>The Spice simulation data was obtained using LTspice circuit simulator. The circuit was modeled with ideal components (C = 1 μF, L = 10 mH, R = 10 Ω) and a step input voltage was applied. The simulator computes the voltage across the resistor (V_out) over time, providing high-precision theoretical results based on the circuit’s differential equations.</p>
+</section>
+<section id="physical-measurements" class="level2">
+<h2 class="anchored" data-anchor-id="physical-measurements">Physical Measurements</h2>
+<p>Physical measurements were taken using a Tektronix TBS1072C oscilloscope. The actual circuit was constructed with the specified component values, and a step input was applied. The oscilloscope captured the voltage signals at the input and across the resistor, storing the data in CSV format. Note: The measurement input voltage was higher than the simulation, which is why normalization is applied for fair comparison.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="TEK00000.PNG" class="img-fluid figure-img"></p>
+<figcaption>Oscilloscope Measurement</figcaption>
+</figure>
+</div>
+</section>
+<section id="transfer-function-simulation" class="level2">
+<h2 class="anchored" data-anchor-id="transfer-function-simulation">Transfer Function Simulation</h2>
+<p>The Transfer Function simulation is a Python-based computational model that solves the circuit’s Laplace domain transfer function numerically. Using scipy’s signal processing library, the step response is computed from the transfer function coefficients derived from the component values.</p>
+</section>
+</section>
+<section id="transfer-function-derivation" class="level1">
+<h1>Transfer Function Derivation</h1>
+<section id="step-1-differential-equation-from-kirchhoffs-voltage-law" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-differential-equation-from-kirchhoffs-voltage-law">Step 1: Differential Equation from Kirchhoff’s Voltage Law</h2>
+<p>Applying Kirchhoff’s Voltage Law (KVL) to the series CLR circuit:</p>
+<p><span class="math display">\[V_{in}(t) = V_R(t) + V_L(t) + V_C(t)\]</span></p>
+<p>Where the voltage across each component is related to the current <span class="math inline">\(i(t)\)</span>:</p>
+<ul>
+<li>Resistor: <span class="math inline">\(V_R(t) = R \cdot i(t)\)</span></li>
+<li>Inductor: <span class="math inline">\(V_L(t) = L \cdot \frac{di(t)}{dt}\)</span></li>
+<li>Capacitor: <span class="math inline">\(V_C(t) = \frac{1}{C} \int_{0}^{t} i(\tau) d\tau\)</span></li>
+</ul>
+<p>Differentiating both sides of the KVL equation and substituting the component relationships:</p>
+<p><span class="math display">\[\frac{dV_{in}(t)}{dt} = R \cdot \frac{di(t)}{dt} + L \cdot \frac{d^2i(t)}{dt^2} + \frac{1}{C} \cdot i(t)\]</span></p>
+<p>Rearranging gives the second-order differential equation:</p>
+<p><span class="math display">\[L \cdot \frac{d^2i(t)}{dt^2} + R \cdot \frac{di(t)}{dt} + \frac{1}{C} \cdot i(t) = \frac{dV_{in}(t)}{dt}\]</span></p>
+<p>Since the output voltage is across the resistor: <span class="math inline">\(V_{out}(t) = V_R(t) = R \cdot i(t)\)</span></p>
+</section>
+<section id="step-2-laplace-transform" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-laplace-transform">Step 2: Laplace Transform</h2>
+<p>Assuming zero initial conditions, we apply the Laplace transform to both sides:</p>
+<p><span class="math display">\[\mathcal{L}\left\{L \cdot \frac{d^2i(t)}{dt^2} + R \cdot \frac{di(t)}{dt} + \frac{1}{C} \cdot i(t)\right\} = \mathcal{L}\left\{\frac{dV_{in}(t)}{dt}\right\}\]</span></p>
+<p>Using Laplace transform properties:</p>
+<ul>
+<li><span class="math inline">\(\mathcal{L}\{\frac{di}{dt}\} = sI(s) - i(0) \approx sI(s)\)</span> (for zero initial current)</li>
+<li><span class="math inline">\(\mathcal{L}\{\frac{d^2i}{dt^2}\} = s^2I(s) - si(0) - i'(0) \approx s^2I(s)\)</span></li>
+<li><span class="math inline">\(\mathcal{L}\{\frac{dV_{in}}{dt}\} = sV_{in}(s) - V_{in}(0) \approx sV_{in}(s)\)</span></li>
+</ul>
+<p>Substituting these into the transformed equation:</p>
+<p><span class="math display">\[L \cdot s^2 I(s) + R \cdot s I(s) + \frac{1}{C} \cdot I(s) = s V_{in}(s)\]</span></p>
+<p>Factor out <span class="math inline">\(I(s)\)</span>:</p>
+<p><span class="math display">\[I(s) \cdot \left(L s^2 + R s + \frac{1}{C}\right) = s V_{in}(s)\]</span></p>
+<p>Solving for <span class="math inline">\(I(s)\)</span>:</p>
+<p><span class="math display">\[I(s) = \frac{s V_{in}(s)}{L s^2 + R s + \frac{1}{C}} = \frac{s C V_{in}(s)}{L C s^2 + R C s + 1}\]</span></p>
+</section>
+<section id="step-3-obtain-transfer-function" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-obtain-transfer-function">Step 3: Obtain Transfer Function</h2>
+<p>Since <span class="math inline">\(V_{out}(t) = R \cdot i(t)\)</span>, in the Laplace domain:</p>
+<p><span class="math display">\[V_{out}(s) = R \cdot I(s) = R \cdot \frac{s C V_{in}(s)}{L C s^2 + R C s + 1}\]</span></p>
+<p>Therefore, the transfer function <span class="math inline">\(H(s) = \frac{V_{out}(s)}{V_{in}(s)}\)</span> is:</p>
+<p><span class="math display">\[H(s) = \frac{R \cdot s C}{L C \cdot s^2 + R C \cdot s + 1} = \frac{s R C}{L C s^2 + R C s + 1}\]</span></p>
+<p>This can be simplified by dividing numerator and denominator by <span class="math inline">\(LC\)</span>:</p>
+<p><span class="math display">\[H(s) = \frac{s \cdot \frac{R}{L}}{s^2 + s \cdot \frac{R}{L} + \frac{1}{L C}}\]</span></p>
+<p>However, the standard form for analysis is:</p>
+<p><span class="math display">\[H(s) = \frac{s R C}{L C s^2 + R C s + 1}\]</span></p>
+<p>With the given component values (<span class="math inline">\(R = 10\ \Omega\)</span>, <span class="math inline">\(L = 10\ \text{mH} = 0.01\ \text{H}\)</span>, <span class="math inline">\(C = 1\ \mu\text{F} = 10^{-6}\ \text{F}\)</span>):</p>
+<ul>
+<li><span class="math inline">\(R C = 10 \cdot 10^{-6} = 10^{-5}\ \text{s}\)</span></li>
+<li><span class="math inline">\(L C = 0.01 \cdot 10^{-6} = 10^{-8}\ \text{s}^2\)</span></li>
+</ul>
+<p>Substituting these values:</p>
+<p><span class="math display">\[H(s) = \frac{10^{-5} s}{10^{-8} s^2 + 10^{-5} s + 1}\]</span></p>
+</section>
+<section id="step-4-natural-frequency-and-damping-ratio" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-natural-frequency-and-damping-ratio">Step 4: Natural Frequency and Damping Ratio</h2>
+<p>From the denominator <span class="math inline">\(L C s^2 + R C s + 1\)</span>, we can identify the standard second-order form:</p>
+<p>For a general second-order system <span class="math inline">\(s^2 + 2\zeta\omega_n s + \omega_n^2\)</span>, we have:</p>
+<p><span class="math display">\[\omega_n^2 = \frac{1}{L C} \quad \Rightarrow \quad \omega_n = \frac{1}{\sqrt{L C}} = 10^4\ \text{rad/s}\]</span></p>
+<p><span class="math display">\[2\zeta\omega_n = \frac{R C}{L C} = \frac{R}{L} \quad \Rightarrow \quad \zeta = \frac{R}{2 L \omega_n} = \frac{R}{2} \sqrt{\frac{C}{L}} \approx 0.1581\]</span></p>
+<p>Since <span class="math inline">\(\zeta &lt; 1\)</span>, the circuit is <strong>underdamped</strong> and will exhibit oscillatory behavior.</p>
+</section>
+</section>
+<section id="data-comparison" class="level1">
+<h1>Data Comparison</h1>
+<div id="cell-plot-comparison" class="cell" data-fig-height="8" data-fig-width="14" data-execution_count="1">
+<div class="cell-output cell-output-stdout">
+<pre><code>Loaded Spice Simulation from StepResponseSpiceSim.csv
+Loaded Measurements from TEK00000.CSV
+Generated Transfer Function data from calculation
+Shifted Spice Simulation time by -500us
 
-Kp,Ki,Kd,Kpt2,T,D,R,G,F = symbols('Kp,Ki,Kd,Kpt2,T,D,R,G,F')
-R,G,F = symbols('R,G,F')
+Data loaded:
+Spice Simulation: 5025 points, time range: -0.000500 to 0.004500 s
+Measurements: 2000 points, time range: -0.000710 to 0.005686 s
+Transfer Function: 1000 points, time range: 0.000000 to 0.005000 s</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div id="plot-comparison" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="xx_Anhang_RLC_Analysis_files/figure-html/plot-comparison-output-2.png" width="1335" height="949" class="figure-img"></p>
+<figcaption>Time Domain Comparison: Spice Simulation, Measurements, and Transfer Function</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="signal-analysis" class="level1">
+<h1>Signal Analysis</h1>
+<section id="frequency-and-amplification-comparison" class="level2">
+<h2 class="anchored" data-anchor-id="frequency-and-amplification-comparison">Frequency and Amplification Comparison</h2>
+<p>The following values are extracted from each dataset:</p>
+<ul>
+<li><strong>Frequency</strong>: The dominant frequency of the output signal (for step response, this is the resonant frequency)</li>
+<li><strong>Amplification</strong>: The peak output voltage divided by the peak input voltage (DC gain for step response)</li>
+</ul>
+<div id="signal-analysis" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-stdout">
+<pre><code>Spice Simulation:
+  Frequency: 1599.68 Hz
+  Amplification: 0.0927
+  Peak Output: 0.0927 V
+  Peak Input: 1.0000 V
+Measurements:
+  Frequency: 1562.60 Hz
+  Amplification: 0.0946
+  Peak Output: 0.4340 V
+  Peak Input: 4.5900 V
+Transfer Function:
+  Frequency: 1598.40 Hz
+  Amplification: 0.0926
+  Peak Output: 0.0926 V
+  Peak Input: 1.0000 V
 
-#Zahlenwerte
-vals = {Kp: 10, Ki: 1, Kd: 0 ,Kpt2: 1,T:1,D:1}
-display(Markdown("Die Werte:"))
-display(vals)
+Theoretical resonant frequency: 1591.55 Hz
+Theoretical peak magnitude at resonance: 0.0499</code></pre>
+</div>
+</div>
+</section>
+<section id="signal-normalization-for-better-comparison" class="level2">
+<h2 class="anchored" data-anchor-id="signal-normalization-for-better-comparison">Signal Normalization for Better Comparison</h2>
+<p>Since the measurements were taken with a different input voltage, we normalize all signals to the same input amplitude for fair comparison.</p>
+<div id="cell-normalized-comparison" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div id="normalized-comparison" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="xx_Anhang_RLC_Analysis_files/figure-html/normalized-comparison-output-1.png" width="1335" height="949" class="figure-img"></p>
+<figcaption>Normalized Signal Comparison</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Normalized data:
+Spice Simulation: 5025 points, input peak: 1.0000 V, output peak: 0.0927 V
+Measurements: 2000 points, input peak: 1.0000 V, output peak: 0.0946 V
+Transfer Function: 1000 points, input peak: 1.0000 V, output peak: 0.0926 V</code></pre>
+</div>
+</div>
+<section id="conclusion-from-normalized-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion-from-normalized-comparison">Conclusion from Normalized Comparison</h3>
+<p>The normalized plots reveal several important insights:</p>
+<ol type="1">
+<li><p><strong>Alignment</strong>: After normalizing to the same input voltage (1V), all three signals (Spice Simulation, Physical Measurements, and Transfer Function) now share a common reference, making direct comparison meaningful.</p></li>
+<li><p><strong>Agreement</strong>: The Transfer Function simulation (green dotted line with triangles) serves as the theoretical baseline. The Spice Simulation (blue solid line with circles) closely matches this theoretical behavior, confirming the circuit model accuracy.</p></li>
+<li><p><strong>Measurement Validation</strong>: The Physical Measurements (orange dashed line with squares) follow the same trend as the simulations, though minor deviations may occur due to:</p>
+<ul>
+<li>Real component tolerances</li>
+<li>Measurement noise</li>
+<li>Parasitic effects in the physical circuit</li>
+</ul></li>
+<li><p><strong>Step Response Characteristics</strong>: The normalized output shows the underdamped nature of the circuit with <span class="math inline">\(\omega_n \approx 10^4\ \text{rad/s}\)</span> and <span class="math inline">\(\zeta \approx 0.1581\)</span>, exhibiting the expected oscillatory behavior.</p></li>
+<li><p><strong>Amplification Consistency</strong>: The peak output values after normalization confirm that all three methods produce similar amplification characteristics, validating both the theoretical model and the measurement setup.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="summary" class="level1">
+<h1>Summary</h1>
+<p>The plots above compare Input and Output signals over time for: - <strong>Spice Simulation</strong> (blue solid line with circle markers) - <strong>Physical Measurements</strong> (orange dashed line with square markers) - <strong>Transfer Function Simulation</strong> (green dotted line with triangle markers)</p>
+<p>All three datasets are plotted together on the same time axis to show how well the measurements and Spice simulation match the theoretical transfer function behavior of the series CLR circuit with output across R.</p>
+<hr>
+<p><em>HTL Anichstrasse - Messtechnik und Regelungssysteme</em><br>
+<em>RLC Circuit Analysis</em></p>
 
-#Übertragungsfunktionen des PID Reglers
-R_eqrhs = TransferFunction(Kp, 1, s)  + TransferFunction(Ki, s, s) + TransferFunction(Kd * s, 1, s)
-display(Markdown('Die Übertragungsfunktion des Reglers:'))
-display(Eq(R,R_eqrhs))
-display(Markdown("Die Übertragungsfunktion des Reglers mit Werten:"))
-R_eqrhs_vals = R_eqrhs.subs(vals).simplify()
-display(Eq(R,R_eqrhs_vals))
-#Sprungantwort des Reglers
-step_response_plot(R_eqrhs_vals) 
 
-</code></pre>
-
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -670,14 +920,11 @@ step_response_plot(R_eqrhs_vals)
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="pagination-link" aria-label="RLC Circuit Analysis: Series CLR with Output across R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">RLC Circuit Analysis: Series CLR with Output across R</span></span>
+      <a href="../Anhang/xx_Appendix.html" class="pagination-link" aria-label="Appendix">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Appendix</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../SteuerRegel/01.02.01.02_Laplace.html" class="pagination-link" aria-label="RLC Circuit Analysis: Series CLR with Output across R">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">RLC Circuit Analysis: Series CLR with Output across R</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

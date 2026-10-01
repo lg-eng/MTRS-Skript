@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Datenanalyse - Data Analysis – MTRS-Skript</title>
+<title>Appendix – MTRS-Skript</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Datenanalyse/Datenanalyse_Datenquellen.html" rel="next">
-<link href="../Messtechnik/Frequenz_und_Periode.html" rel="prev">
+<link href="../Anhang/xx_Anhang_RLC_Analysis.html" rel="next">
+<link href="../SteuerRegel/01.02_Regelungstechnik.html" rel="prev">
 <script src="../site_libs/cookie-consent/cookie-consent.js"></script>
 <link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
@@ -103,7 +103,7 @@ cookieconsent.run({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Datenanalyse/01_Datenanalyse.html">Datenanalyse - Data Analysis</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Anhang/xx_Appendix.html">Appendix</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -158,7 +158,7 @@ cookieconsent.run({
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../Datenanalyse/01_Datenanalyse.html" class="sidebar-item-text sidebar-link active">
+            <a href="../Datenanalyse/01_Datenanalyse.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Datenanalyse - Data Analysis</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -198,7 +198,7 @@ cookieconsent.run({
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../Anhang/xx_Appendix.html" class="sidebar-item-text sidebar-link">
+            <a href="../Anhang/xx_Appendix.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Appendix</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -218,21 +218,15 @@ cookieconsent.run({
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="4">
-    <h2 id="toc-title">Inhaltsverzeichnis</h2>
-   
-  <ul>
-  <li><a href="#weiterführende-literatur" id="toc-weiterführende-literatur" class="nav-link active" data-scroll-target="#weiterführende-literatur">Weiterführende Literatur</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Datenanalyse - Data Analysis</h1>
+<h1 class="title">Appendix</h1>
 </div>
 
 
@@ -249,18 +243,11 @@ cookieconsent.run({
 </header>
 
 
-<p>In diesem Kapitel geht es um die verschieden Arten von Daten, welche in der Messtechnik erfasst werden und wie Informationen aus diesen Daten gewonnen werden können.<br>
-Der erste Schritt ist immer festzulegen, welche Information gesucht wird. Effektiv sollte man sich hier fragen, was das Endziel dieser Datenanalyse ist. Im zweiten Schritt muss eine Bestandsaufnahme der vorhandenen Daten gemacht werden.<br>
-Sind die Daten nicht ausreichend müssen:<br>
-a. …weitere Daten erfasst werden<br>
-b. …die Ziele angepasst werden</p>
-<p>Eine Person, die sich mit der Datenanalyse beschäftigt, wird als Data Scientist bezeichnet.</p>
-<section id="weiterführende-literatur" class="level2">
-<h2 class="anchored" data-anchor-id="weiterführende-literatur">Weiterführende Literatur</h2>
-<p><a href="https://campus.datacamp.com/courses/analyzing-iot-data-in-python/accessing-iot-data?ex=12">Analyzing IoT Data with Python</a> <a href="https://www.kaggle.com/">Kaggle</a></p>
+<div style="text-align: justify">
+<p>Der Anhang.</p>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -665,13 +652,13 @@ b. …die Ziele angepasst werden</p>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../Messtechnik/Frequenz_und_Periode.html" class="pagination-link" aria-label="Messung der Zeit, Frequenz und Periode">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Messung der Zeit, Frequenz und Periode</span></span>
+      <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="pagination-link" aria-label="Regelungstechnik">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Datenanalyse/Datenanalyse_Datenquellen.html" class="pagination-link" aria-label="Datenquellen">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Datenquellen</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="pagination-link" aria-label="Appendix A: RLC Circuit Analysis: Series CLR with Output across R">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -229,19 +229,24 @@ cookieconsent.run({
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../Anhang/xx_Appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../SteuerRegel/InteractivePython.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Übertragungsfunktionstester</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../SteuerRegel/01.02.01.02_Laplace.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+  <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
   </div>
 </li>
       </ul>
@@ -388,7 +393,7 @@ TIME,CH1,CH2
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="einlesen-von-csv-dateien"><span class="header-section-number">2.1.1</span> Einlesen von CSV-Dateien</h3>
 <p>Da <em>CSV</em> ein sehr weit verbreitetes Format ist, gibt es auch in Python viele Möglichkeiten, CSV-Dateien einzulesen. In diesem Dokument wird die Bibliothek <em>pandas</em> verwendet. Als Datensatz werden Daten eines Oszilloskops verwendet. Die Datei TEK00003.CSV ist auf GitHub zu finden.<br>
 Zuerst wird die Datei mit einem Texteditor geöffnet, um sich einen Überblick über die Struktur zu verschaffen und festzustellen, ob es <em>Header Zeilen</em> gibt. In diesem Fall gibt es 15 Zeilen, die ignoriert werden müssen.</p>
-<div id="71ad2c83" class="cell" data-execution_count="1">
+<div id="03026d32" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co"># Importieren der Bibliothek pandas</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'TEK00003.CSV'</span>,skiprows<span class="op">=</span><span class="dv">15</span>) <span class="co"># Einlesen der Datei und überspringen der ersten 15 Zeilen</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>display(df) <span class="co"># Ausgabe</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
@@ -486,7 +491,7 @@ Zuerst wird die Datei mit einem Texteditor geöffnet, um sich einen Überblick �
 <section id="bild" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="bild"><span class="header-section-number">2.2</span> Bild</h2>
 <p>Es soll ein Bild eingelesen und die RGB in einem Pandas DataFrame gespeichert werden.</p>
-<div id="b232e925" class="cell" data-execution_count="2">
+<div id="4cd6fcf6" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.image <span class="im">as</span> mpimg</span>
@@ -588,7 +593,7 @@ Zuerst wird die Datei mit einem Texteditor geöffnet, um sich einen Überblick �
 <section id="einlesen-von-daten-einer-restful-api" class="level3" data-number="2.3.1">
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="einlesen-von-daten-einer-restful-api"><span class="header-section-number">2.3.1</span> Einlesen von Daten einer RESTful API</h3>
 <p>In diesem Beispiel wird die RESTful API von <em>jsonplaceholder</em> verwendet. Diese API stellt Testdaten zur Verfügung.</p>
-<div id="13be8531" class="cell" data-execution_count="3">
+<div id="f04097fc" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -662,7 +667,7 @@ Zuerst wird die Datei mit einem Texteditor geöffnet, um sich einen Überblick �
 <section id="mqtt" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="mqtt"><span class="header-section-number">2.5</span> MQTT</h2>
 <p>MQTT ist ein leichtgewichtiges Protokoll, das für die Kommunikation zwischen Geräten in einem Netzwerk entwickelt wurde. Es wird oft in IoT-Anwendungen verwendet. In diesem Beispiel wird die Bibliothek <em>paho-mqtt</em> verwendet.</p>
-<div id="6942b36a" class="cell" data-execution_count="4">
+<div id="431682db" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> paho.mqtt.client <span class="im">as</span> mqtt <span class="co">#import the mqtt client</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co">#import the pandas library</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time <span class="co">#import the time library</span></span>
@@ -712,11 +717,11 @@ Zuerst wird die Datei mit einem Texteditor geöffnet, um sich einen Überblick �
 </thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">2026-09-30 23:44:57.817114</th>
+<th data-quarto-table-cell-role="th">2026-10-01 08:30:21.085203</th>
 <td>{"command":1,"timestamp":1736014549,"node_id":...</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">2026-09-30 23:44:58.820584</th>
+<th data-quarto-table-cell-role="th">2026-10-01 08:30:22.089272</th>
 <td>{"command":1,"timestamp":1736014549,"node_id":...</td>
 </tr>
 </tbody>
