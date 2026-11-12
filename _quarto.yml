@@ -21,6 +21,10 @@ book:
     - index.qmd
     - part: Messtechnik/Messtechnik.qmd
       chapters:
+        - Messtechnik/01.01_Einfuehrung.qmd
+        - Messtechnik/01.02_Strom_Spannung_Widerstand.qmd
+        - Messtechnik/01.03_Digitales_Multimeter.qmd
+        - Messtechnik/01.04_Kennwerte.qmd
         - Messtechnik/Frequenz_und_Periode.ipynb  
     #- part: Drehstrom/02_Drehstrom.qmd
     #  chapters: 
