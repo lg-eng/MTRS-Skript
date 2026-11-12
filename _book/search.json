@@ -575,5 +575,49 @@
       "Messtechnik und Sensorik",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Strom-, Spannungs- und Widerstandsmessung</span>"
     ]
+  },
+  {
+    "objectID": "Messtechnik/01.03_Digitales_Multimeter.html",
+    "href": "Messtechnik/01.03_Digitales_Multimeter.html",
+    "title": "3  Digitale Multimeter",
+    "section": "",
+    "text": "3.1 Messwerke — die Grundlage der analogen Anzeige\n\\[M = c\\cdot I = k\\cdot\\alpha \\quad\\Rightarrow\\quad \\alpha = \\frac{c}{k}\\cdot I\n\\quad\\text{(linearer Skalenverlauf)}\\]",
+    "crumbs": [
+      "Messtechnik und Sensorik",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Digitale Multimeter</span>"
+    ]
+  },
+  {
+    "objectID": "Messtechnik/01.03_Digitales_Multimeter.html#messwerke-die-grundlage-der-analogen-anzeige",
+    "href": "Messtechnik/01.03_Digitales_Multimeter.html#messwerke-die-grundlage-der-analogen-anzeige",
+    "title": "3  Digitale Multimeter",
+    "section": "",
+    "text": "Klassisches Messgerät der Elektromesstechnik: Drehspulmesswerk. Lorentzkraft auf stromdurchflossene Spule im Permanentfeld erzeugt ein Drehmoment; die Spiralfeder stellt das Gleichgewicht her:\n\n\n\nMittelwertmesswerk: reagiert auf den arithmetischen Mittelwert — daher DC-fähig; mit vorgeschaltetem Gleichrichter als Gleichrichter-Messwerk auch für AC (skaliert den Gleichrichtwert).\nDreheisenmesswerk: eisenbewegtes Messwerk, auch für AC direkt geeignet (quadratische Kennlinie → ungleichmäßige Skala).\n\n\n\n\n\n\n\nAbbildung 3.1: Prinzip des Drehspulmesswerks: drehbare Spule im Feld eines Permanentmagneten (Søren Peo Pedersen / Dr. Schorsch, CC BY-SA 3.0, via Wikimedia Commons)",
+    "crumbs": [
+      "Messtechnik und Sensorik",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Digitale Multimeter</span>"
+    ]
+  },
+  {
+    "objectID": "Messtechnik/01.03_Digitales_Multimeter.html#blockschaltbild-des-digitalen-multimeters",
+    "href": "Messtechnik/01.03_Digitales_Multimeter.html#blockschaltbild-des-digitalen-multimeters",
+    "title": "3  Digitale Multimeter",
+    "section": "3.2 Blockschaltbild des digitalen Multimeters",
+    "text": "3.2 Blockschaltbild des digitalen Multimeters\nSignalfpfad des Multimeters vom Eingangsbereich bis zur Anzeige:\n\n\n\n\n\n\nAbbildung 3.2: Blockschaltbild eines digitalen Multimeters: Eingangsschutz, Bereichsteiler, Verstärker, Analog-Digital-Umsetzer, Zählerlogik und Anzeige (eigene Darstellung, CC BY).\n\n\n\n\nEingangsschutz: Sicherungen, Varistoren, Klemmschaltung gegen Überlastung.\nEingangsteiler: hochohmige Widerstandskette (z. B. 10 M\\(\\Omega\\)-Eingang) legt das Signal auf den Arbeitsbereich des Verstärkers.\nVerstärker: Impedanzwandler/auto-zero-Verstärker entkoppelt Teiler und ADW.\nADW: im DMM überwiegend Zweiflankenverfahren (Dual Slope) — integriert erst über feste Zeit \\(T_1\\) gegen \\(U_x\\), dann gegen \\(U_{ref}\\) bis zum Nulldurchgang:\n\n\\[U_x = U_{ref}\\cdot\\frac{T_2}{T_1}\\]\nDie Integration über eine volle Netzperiode unterdrückt Brummen; die Genauigkeit hängt allein von \\(U_{ref}\\) und dem Takt ab. - Zähler & Anzeige: Taktzähler während \\(T_2\\) → Messwert in counts, Dekodierung auf die 3½-/4½-stellige Anzeige.\n\nPlatzhalter — Zweiflankenverlauf: Diagramm der Integratorspannung beim Zweiflankenverfahren (linearer Anstieg während \\(T_1\\), linearer Abfall bis null während \\(T_2\\)), um die Zeitverhältnis-Gleichung anschaulich zu machen.\n\n\n\n\n\n\n\nAbbildung 3.3: Handelsübliches digitales Multimeter (Michael Hückel, Public Domain, via Wikimedia Commons)",
+    "crumbs": [
+      "Messtechnik und Sensorik",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Digitale Multimeter</span>"
+    ]
+  },
+  {
+    "objectID": "Messtechnik/01.03_Digitales_Multimeter.html#kenngrößen-des-dmm",
+    "href": "Messtechnik/01.03_Digitales_Multimeter.html#kenngrößen-des-dmm",
+    "title": "3  Digitale Multimeter",
+    "section": "3.3 Kenngrößen des DMM",
+    "text": "3.3 Kenngrößen des DMM\n\nStellenzahl und counts: \\(3\\tfrac{1}{2}\\)-stellig → 1999 counts; Auflösung \\(Q = \\text{Endwert}/1999\\).\nGenauigkeitsangabe des Datenblatts:\n\n\\[\\Delta U = \\pm(a\\%\\ \\mathrm{v.\\,M.} + n\\ \\mathrm{digits})\\]\n\nTrue-RMS: echte Effektivwertbildung (Leistungsmessung proportional zu \\(\\overline{u^2}\\)) statt bloßer Skalierung des Gleichrichtwerts — das Ergebnis wird von der Signalform unabhängig.\nAC-Messbereiche sind kapazitiv gekoppelt (Mittelwert-Messwerke skalieren den Gleichrichtwert auf Sinus um). Bedienung: bei unbekannter Größe im größten Messbereich beginnen.",
+    "crumbs": [
+      "Messtechnik und Sensorik",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Digitale Multimeter</span>"
+    ]
   }
 ]
