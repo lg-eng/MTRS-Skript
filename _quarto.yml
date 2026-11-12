@@ -35,6 +35,9 @@ book:
     - part: SteuerRegel/01_SteuerRegel.qmd
       chapters: 
         - SteuerRegel/01.02_Regelungstechnik.qmd
+    - part: Anhang/xx_Appendix.qmd
+      chapters: 
+        - Anhang/xx_Anhang_RLC_Analysis.qmd 
 #        - SteuerRegel/Laplace.qmd
 #    - references.qmd
 

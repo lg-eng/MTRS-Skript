@@ -1,0 +1,20 @@
+[project]
+name = "mtrs-skript"
+version = "0.1.0"
+description = "Python environment for rendering the MTRS Quarto book"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "jupyter",
+    "matplotlib",
+    "numpy",
+    "paho-mqtt",
+    "pandas",
+    "plotly",
+    "quantiphy",
+    "requests",
+    "scipy",
+    "sympy",
+]
+
+[dependency-groups]
+dev = []

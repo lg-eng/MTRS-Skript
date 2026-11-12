@@ -1,2 +1,6 @@
 /.quarto/
 /_site/
+**/*.quarto_ipynb
+**/*.quarto_ipynb_*
+.venv/
+uv.lock
