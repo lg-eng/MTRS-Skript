@@ -16,6 +16,8 @@ Restanteil geht ins Unsicherheitsbudget (@sec-mt-gum).
 ## Spannungsrichtige und stromrichtige Schaltung
 
 ```{python}
+#| echo: true
+#| code-fold: true
 U_q = MySymbol('U_q', description='Leerlaufspannung der Quelle', unit=u.volt, value=10)
 R_q = MySymbol('R_q', description='Innenwiderstand der Quelle', unit=u.ohm, value=10e3)
 R_V = MySymbol('R_V', description='Innenwiderstand des Voltmeters', unit=u.ohm, value=1e6)
@@ -27,6 +29,8 @@ QBookHelpers.print_description([U_q, R_q, R_V, R_A])
 Messabweichung rührt vom Spannungsteiler aus $R_V$ und $R_q$:
 
 ```{python}
+#| echo: true
+#| code-fold: true
 U_mess = Symbol('U_{mess}')
 delta_U = Symbol(r'\delta_U')
 eq_umess = Eq(U_mess, U_q*R_V/(R_q + R_V))
@@ -39,6 +43,8 @@ QBookHelpers.print_equation(eq_du, label='eq-delta-u')
 den Strom:
 
 ```{python}
+#| echo: true
+#| code-fold: true
 I_mess = Symbol('I_{mess}')
 delta_I = Symbol(r'\delta_I')
 eq_imess = Eq(I_mess, U_q/(R_q + R_A))
@@ -52,6 +58,8 @@ QBookHelpers.print_equation(eq_di, label='eq-delta-i')
 - Zusammenspiel beider Abweichungen über dem Widerstandsverhältnis:
 
 ```{python}
+#| echo: true
+#| code-fold: true
 #| label: fig-rueckwirkung
 #| fig-cap: 'Relative Messabweichung durch Rückwirkung: die Spannungsmessung verlangt $R_V \gg R_q$, die Strommessung $R_A \ll R_q$.'
 ratio = np.logspace(-3, 2, 300)
@@ -72,6 +80,8 @@ plt.show()
 $R_V = 1\,\mathrm{M\Omega}$:
 
 ```{python}
+#| echo: true
+#| code-fold: true
 U_num = U_q.value*R_V.value/(R_q.value + R_V.value)
 dU_num = (U_num/U_q.value - 1)*100
 U_v = MySymbol('U_{mess}', description='angezeigte Spannung', unit=u.volt, value=float(U_num))
@@ -86,6 +96,8 @@ Wird stattdessen stromrichtig an einer Quelle mit $R_q = 100\,\Omega$ mit
 $R_A = 1\,\Omega$ gemessen:
 
 ```{python}
+#| echo: true
+#| code-fold: true
 dI_num = (-R_A.value/(100 + R_A.value))*100
 QBookHelpers.print_equation(Eq(delta_I, Float(dI_num, 3)), label='eq-delta-i-num')
 ```
@@ -105,6 +117,8 @@ QBookHelpers.print_equation(Eq(delta_I, Float(dI_num, 3)), label='eq-delta-i-num
   kleine Widerstände ($R \ll R_V$):
 
 ```{python}
+#| echo: true
+#| code-fold: true
 R_x = Symbol('R')
 R_mess = Symbol('R_{mess}')
 QBookHelpers.print_equation(Eq(R_mess, R_x*R_V/(R_x + R_V)), label='eq-r-spannungsrichtig')
@@ -114,6 +128,8 @@ QBookHelpers.print_equation(Eq(R_mess, R_x*R_V/(R_x + R_V)), label='eq-r-spannun
   große Widerstände ($R \gg R_A$):
 
 ```{python}
+#| echo: true
+#| code-fold: true
 QBookHelpers.print_equation(Eq(R_mess, R_x + R_A), label='eq-r-stromrichtig')
 ```
 

@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -310,7 +345,18 @@ window.Quarto = {
 <p>Zeitabhängige Größen <span class="math inline">\(u(t)\)</span>, <span class="math inline">\(i(t)\)</span> beschreibt man über Kennwerte, die eine ganze Periode <span class="math inline">\(T\)</span> zusammenfassen — die Mittelwerte.</p>
 <section id="definitionen" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="definitionen"><span class="header-section-number">4.1</span> Definitionen</h2>
-<div id="d6472022" class="cell" data-execution_count="2">
+<div id="31cbed6d" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>t_s, T_s <span class="op">=</span> symbols(<span class="st">'t T'</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>u_t <span class="op">=</span> Function(<span class="st">'u'</span>)(t_s)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ubar <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="dv">\b</span><span class="vs">ar{u}'</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>urect <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="er">\</span><span class="vs">overline{</span><span class="cf">|</span><span class="vs">u</span><span class="cf">|</span><span class="vs">}'</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>U_eff <span class="op">=</span> Symbol(<span class="st">'U'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(ubar, Integral(u_t, (t_s, <span class="dv">0</span>, T_s))<span class="op">/</span>T_s), label<span class="op">=</span><span class="st">'eq-mittelwert-int'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(urect, Integral(Abs(u_t), (t_s, <span class="dv">0</span>, T_s))<span class="op">/</span>T_s), label<span class="op">=</span><span class="st">'eq-gleichrichtwert'</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(U_eff, sqrt(Integral(u_t<span class="op">**</span><span class="dv">2</span>, (t_s, <span class="dv">0</span>, T_s))<span class="op">/</span>T_s)), label<span class="op">=</span><span class="st">'eq-effektivwert'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-mittelwert-int"><span class="math display">\[
 \bar{u} = \frac{\int\limits_{0}^{T} u{\left(t \right)}\, dt}{T}
@@ -334,6 +380,30 @@ U = \frac{\sqrt{\int\limits_{0}^{T} u^{2}{\left(t \right)}\, dt}}{\sqrt{T}}
 <li><strong>Scheitelwert</strong> <span class="math inline">\(\hat{u}\)</span> (Maximalbetrag) und <strong>Spitze-Spitze-Wert</strong> <span class="math inline">\(u_{ss}\)</span>.</li>
 </ul>
 <div id="cell-fig-kennwerte" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tt <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1000</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>uu <span class="op">=</span> np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>tt)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="fl">8.5</span>, <span class="dv">3</span>))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>ax1.plot(tt, uu, color<span class="op">=</span><span class="st">'#5a8fd6'</span>, lw<span class="op">=</span><span class="fl">1.6</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>ax1.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, lw<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>ax1.axhline(<span class="dv">1</span>, color<span class="op">=</span><span class="st">'#2e7d32'</span>, ls<span class="op">=</span><span class="st">'--'</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>ax1.axhline(<span class="dv">1</span><span class="op">/</span>np.sqrt(<span class="dv">2</span>), color<span class="op">=</span><span class="st">'#d62728'</span>, ls<span class="op">=</span><span class="st">'--'</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>ax1.axhline(<span class="dv">2</span><span class="op">/</span>np.pi, color<span class="op">=</span><span class="st">'#9467bd'</span>, ls<span class="op">=</span><span class="st">'--'</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>ax1.text(<span class="fl">2.03</span>, <span class="fl">1.0</span>, <span class="st">'$</span><span class="ch">\\</span><span class="st">hat</span><span class="sc">{u}</span><span class="st">$'</span>, fontsize<span class="op">=</span><span class="dv">10</span>, va<span class="op">=</span><span class="st">'center'</span>, color<span class="op">=</span><span class="st">'#2e7d32'</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>ax1.text(<span class="fl">2.03</span>, <span class="dv">1</span><span class="op">/</span>np.sqrt(<span class="dv">2</span>), <span class="st">'$U$'</span>, fontsize<span class="op">=</span><span class="dv">10</span>, va<span class="op">=</span><span class="st">'center'</span>, color<span class="op">=</span><span class="st">'#d62728'</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>ax1.text(<span class="fl">2.03</span>, <span class="dv">2</span><span class="op">/</span>np.pi, <span class="st">'$</span><span class="ch">\\</span><span class="st">overline{|u|}$'</span>, fontsize<span class="op">=</span><span class="dv">10</span>, va<span class="op">=</span><span class="st">'center'</span>, color<span class="op">=</span><span class="st">'#9467bd'</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Sinusschwingung'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">'$t$ in Perioden'</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">'$u(t)$'</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>ax2.plot(tt, np.<span class="bu">abs</span>(uu), color<span class="op">=</span><span class="st">'#5a8fd6'</span>, lw<span class="op">=</span><span class="fl">1.6</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>ax2.axhline(<span class="dv">2</span><span class="op">/</span>np.pi, color<span class="op">=</span><span class="st">'#9467bd'</span>, ls<span class="op">=</span><span class="st">'--'</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>ax2.text(<span class="fl">2.03</span>, <span class="dv">2</span><span class="op">/</span>np.pi, <span class="st">'$</span><span class="ch">\\</span><span class="st">overline{|u|}$'</span>, fontsize<span class="op">=</span><span class="dv">10</span>, va<span class="op">=</span><span class="st">'center'</span>, color<span class="op">=</span><span class="st">'#9467bd'</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'gleichgerichtete Schwingung'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">'$t$ in Perioden'</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">'$|u(t)|$'</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div id="fig-kennwerte" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -351,7 +421,17 @@ Abbildung&nbsp;4.1: Kennwerte am Sinus: Scheitelwert, Effektivwert und Gleichric
 <section id="am-beispiel-sinus-mit-sympy-gerechnet" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="am-beispiel-sinus-mit-sympy-gerechnet"><span class="header-section-number">4.2</span> Am Beispiel Sinus — mit SymPy gerechnet</h2>
 <p>Für <span class="math inline">\(u(t) = \sin(2\pi t/T)\)</span> liefert die Auswertung der Integrale:</p>
-<div id="e148d0c4" class="cell" data-execution_count="4">
+<div id="179daaef" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>u_sin <span class="op">=</span> sin(<span class="dv">2</span><span class="op">*</span>pi<span class="op">*</span>t_s<span class="op">/</span>T_s)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ubar_sin <span class="op">=</span> integrate(u_sin, (t_s, <span class="dv">0</span>, T_s))<span class="op">/</span>T_s</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>urect_sin <span class="op">=</span> integrate(Abs(u_sin), (t_s, <span class="dv">0</span>, T_s))<span class="op">/</span>T_s</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>Ueff_sin <span class="op">=</span> sqrt(integrate(u_sin<span class="op">**</span><span class="dv">2</span>, (t_s, <span class="dv">0</span>, T_s))<span class="op">/</span>T_s)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(ubar, simplify(ubar_sin)), label<span class="op">=</span><span class="st">'eq-mittelwert-sinus'</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(urect, simplify(urect_sin)), label<span class="op">=</span><span class="st">'eq-gleichrichtwert-sinus'</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(U_eff, simplify(Ueff_sin)), label<span class="op">=</span><span class="st">'eq-effektivwert-sinus'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-mittelwert-sinus"><span class="math display">\[
 \bar{u} = 0
@@ -369,7 +449,17 @@ U = \frac{\sqrt{2}}{2}
 </div>
 </div>
 <p>Bezogen auf den Scheitelwert <span class="math inline">\(\hat{u}\)</span>:</p>
-<div id="3af9127a" class="cell" data-execution_count="5">
+<div id="1c773765" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>hatu <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="er">\</span><span class="vs">hat{u}'</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>k_f <span class="op">=</span> Symbol(<span class="st">'k_f'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>k_s <span class="op">=</span> Symbol(<span class="st">'k_s'</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(U_eff, hatu<span class="op">/</span>sqrt(<span class="dv">2</span>)), label<span class="op">=</span><span class="st">'eq-scheitel-rms'</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(urect, <span class="dv">2</span><span class="op">*</span>hatu<span class="op">/</span>pi), label<span class="op">=</span><span class="st">'eq-scheitel-gleichricht'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(k_f, simplify((hatu<span class="op">/</span>sqrt(<span class="dv">2</span>))<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>hatu<span class="op">/</span>pi))), label<span class="op">=</span><span class="st">'eq-formfaktor'</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(k_s, simplify(hatu<span class="op">/</span>(hatu<span class="op">/</span>sqrt(<span class="dv">2</span>)))), label<span class="op">=</span><span class="st">'eq-scheitelfaktor'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-scheitel-rms"><span class="math display">\[
 U = \frac{\sqrt{2} \hat{u}}{2}
@@ -431,7 +521,15 @@ k_{s} = \sqrt{2}
 <li>Sinus: <span class="math inline">\(k_f = \pi/(2\sqrt{2}) \approx 1{,}11\)</span> — Gleichrichter-Messwerke skalieren den Gleichrichtwert daher mit dem Faktor 1,11 auf Sinus-RMS hoch.</li>
 </ul>
 <p><strong>Rechenbeispiel</strong> — Netzspannung mit <span class="math inline">\(\hat{u} = 325\,\mathrm{V}\)</span>:</p>
-<div id="8efcbb45" class="cell" data-execution_count="6">
+<div id="4669e6dd" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>U_netz <span class="op">=</span> MySymbol(<span class="st">'U'</span>, description<span class="op">=</span><span class="st">'Effektivwert der Netzspannung'</span>, unit<span class="op">=</span>u.volt,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                  value<span class="op">=</span><span class="bu">float</span>(<span class="dv">325</span><span class="op">/</span>sqrt(<span class="dv">2</span>)))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>Ur_netz <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="er">\</span><span class="vs">overline{</span><span class="cf">|</span><span class="vs">u</span><span class="cf">|</span><span class="vs">}'</span>, description<span class="op">=</span><span class="st">'Gleichrichtwert der Netzspannung'</span>, unit<span class="op">=</span>u.volt,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                   value<span class="op">=</span><span class="bu">float</span>(<span class="dv">2</span><span class="op">/</span>pi<span class="op">*</span><span class="dv">325</span>))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_values([U_netz, Ur_netz])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math display">\[U = \mathtt{\text{230}} \ \mathtt{\text{V}}\]</span></p>
 </div>

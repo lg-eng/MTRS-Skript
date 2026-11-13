@@ -10,6 +10,8 @@
   $n = 10^{-9}$, $p = 10^{-12}$.
 
 ```{python}
+#| echo: true
+#| code-fold: true
 x_zw = Symbol(r'\{x\}')
 x_ein = Symbol('[x]')
 x_g = MySymbol('x', description='physikalische Größe = Zahlenwert mal Einheit')
@@ -18,6 +20,8 @@ QBookHelpers.print_equation(Eq(x_g, x_zw*x_ein), label='eq-groesse')
 ```
 
 ```{python}
+#| echo: true
+#| code-fold: true
 U_base = u.convert_to(u.volt, [u.kilogram, u.meter, u.second, u.ampere])
 QBookHelpers.print_equation(Eq(Symbol('U'), U_base), label='eq-volt-basis')
 ```
@@ -45,6 +49,8 @@ kennzeichnet.
   der Eingangsgrößen mit ihren besten Schätzwerten.
 
 ```{python}
+#| echo: true
+#| code-fold: true
 X_in = symbols('X_1:4')
 f_func = Function('f')
 Y_ms = MySymbol('Y', description='Messgröße (Ausgang des Messmodells)')
@@ -66,6 +72,8 @@ QBookHelpers.print_equation(Eq(Y_ms, f_func(*X_in)), label='eq-messmodell')
 Aus $n$ wiederholten Messungen unter gleichen Bedingungen:
 
 ```{python}
+#| echo: true
+#| code-fold: true
 n_i = Symbol('n', integer=True, positive=True)
 i_i = Symbol('i', integer=True, positive=True)
 x_i = IndexedBase('x')
@@ -83,6 +91,8 @@ QBookHelpers.print_equation(eq_uA, label='eq-typA')
 **Beispiel** — eine Messreihe von 400 Messungen einer 10-V-Referenz:
 
 ```{python}
+#| echo: true
+#| code-fold: true
 rng = np.random.default_rng(42)
 messreihe = rng.normal(10.08, 0.05, 400)
 n_mess = len(messreihe)
@@ -92,6 +102,8 @@ uA_num = s_num/np.sqrt(n_mess)
 ```
 
 ```{python}
+#| echo: true
+#| code-fold: true
 xbar_v = MySymbol(r'\bar{x}', description='Mittelwert der Messreihe', unit=u.volt, value=float(xbar_num))
 s_v = MySymbol('s', description='Standardabweichung der Einzelmessung', unit=u.volt, value=float(s_num))
 uA_v = MySymbol(r'u_A', description='Standardunsicherheit des Mittelwerts (Typ A)', unit=u.volt, value=float(uA_num))
@@ -99,6 +111,8 @@ QBookHelpers.print_values([xbar_v, s_v, uA_v])
 ```
 
 ```{python}
+#| echo: true
+#| code-fold: true
 #| label: fig-messunsicherheit
 #| fig-cap: 'Typ-A-Auswertung: Streuung wiederholter Messungen um den Mittelwert; der Abstand zum Referenzwert ist eine systematische Messabweichung und wird korrigiert, die Streubreite geht als $u_A = s/\sqrt{n}$ ins Budget.'
 fig, ax = plt.subplots(figsize=(5.5, 3.2))
@@ -117,6 +131,8 @@ Aus Vorwissen: Kalibrierzertifikate, Datenblätter, Erfahrungen.
 Liegt eine Angabe als Intervall $\pm a$ vor (gleichförmige Verteilung):
 
 ```{python}
+#| echo: true
+#| code-fold: true
 a_b = MySymbol('a', description='halbe Breite des angegebenen Intervalls')
 u_B = Symbol('u_B')
 QBookHelpers.print_description([a_b])
@@ -127,6 +143,8 @@ QBookHelpers.print_equation(Eq(u_B, a_b/sqrt(3)), label='eq-typB')
 Anzeige 10,00 V im 10-V-Bereich (1 digit = 10 mV):
 
 ```{python}
+#| echo: true
+#| code-fold: true
 a_num = 0.005*10 + 3*0.01
 uB_num = a_num/sqrt(3)
 a_v = MySymbol('a', description='halbe Intervallbreite der Angabe', unit=u.volt, value=float(a_num))
@@ -140,6 +158,8 @@ Unsicherheitsfortpflanzung (Modell linearisiert, Empfindlichkeitskoeffizienten
 $c_i = \partial f/\partial x_i$):
 
 ```{python}
+#| echo: true
+#| code-fold: true
 N_k = Symbol('N', integer=True, positive=True)
 k_i = Symbol('k', integer=True, positive=True)
 c_ib = IndexedBase('c')
@@ -155,6 +175,8 @@ Beides zusammen (hier $c_1 = c_2 = 1$) und Ergebnisangabe mit $k = 2$
 (ca. 95 % Überdeckung):
 
 ```{python}
+#| echo: true
+#| code-fold: true
 uc_num = np.sqrt(float(uA_num)**2 + float(uB_num)**2)
 U_num = 2*uc_num
 uc_v = MySymbol(r'u_c', description='kombinierte Standardunsicherheit', unit=u.volt, value=float(uc_num))
@@ -186,6 +208,8 @@ $$Y = (y \pm U)\quad\text{bei } k = 2$$
   bezogen auf den Messbereichs-Endwert:
 
 ```{python}
+#| echo: true
+#| code-fold: true
 p_kl = MySymbol('p', description='Genauigkeitsklasse in %')
 x_end = MySymbol(r'x_{Endwert}', description='Messbereichs-Endwert')
 dx_max = Symbol(r'\Delta x_{max}')
@@ -196,6 +220,8 @@ QBookHelpers.print_equation(Eq(dx_max, p_kl/100*x_end), label='eq-klasse')
 - **Genauigkeit (digital):** Herstellerangabe
 
 ```{python}
+#| echo: true
+#| code-fold: true
 a_prz = Symbol('a')
 n_dig = Symbol('n')
 x_mess = Symbol(r'x_{mess}')

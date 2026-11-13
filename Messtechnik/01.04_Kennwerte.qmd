@@ -7,6 +7,8 @@ ganze Periode $T$ zusammenfassen — die Mittelwerte.
 ## Definitionen
 
 ```{python}
+#| echo: true
+#| code-fold: true
 t_s, T_s = symbols('t T', positive=True)
 u_t = Function('u')(t_s)
 ubar = Symbol(r'\bar{u}')
@@ -27,6 +29,8 @@ QBookHelpers.print_equation(Eq(U_eff, sqrt(Integral(u_t**2, (t_s, 0, T_s))/T_s))
   $u_{ss}$.
 
 ```{python}
+#| echo: true
+#| code-fold: true
 #| label: fig-kennwerte
 #| fig-cap: "Kennwerte am Sinus: Scheitelwert, Effektivwert und Gleichrichtwert; rechts der gleichgerichtete Verlauf mit eingezeichnetem Mittelwert."
 tt = np.linspace(0, 2, 1000)
@@ -57,6 +61,8 @@ plt.show()
 Für $u(t) = \sin(2\pi t/T)$ liefert die Auswertung der Integrale:
 
 ```{python}
+#| echo: true
+#| code-fold: true
 u_sin = sin(2*pi*t_s/T_s)
 ubar_sin = integrate(u_sin, (t_s, 0, T_s))/T_s
 urect_sin = integrate(Abs(u_sin), (t_s, 0, T_s))/T_s
@@ -69,6 +75,8 @@ QBookHelpers.print_equation(Eq(U_eff, simplify(Ueff_sin)), label='eq-effektivwer
 Bezogen auf den Scheitelwert $\hat{u}$:
 
 ```{python}
+#| echo: true
+#| code-fold: true
 hatu = Symbol(r'\hat{u}', positive=True)
 k_f = Symbol('k_f')
 k_s = Symbol('k_s')
@@ -90,6 +98,8 @@ QBookHelpers.print_equation(Eq(k_s, simplify(hatu/(hatu/sqrt(2)))), label='eq-sc
 **Rechenbeispiel** — Netzspannung mit $\hat{u} = 325\,\mathrm{V}$:
 
 ```{python}
+#| echo: true
+#| code-fold: true
 U_netz = MySymbol('U', description='Effektivwert der Netzspannung', unit=u.volt,
                   value=float(325/sqrt(2)))
 Ur_netz = MySymbol(r'\overline{|u|}', description='Gleichrichtwert der Netzspannung', unit=u.volt,

@@ -9,6 +9,8 @@
   zum Strom:
 
 ```{python}
+#| echo: true
+#| code-fold: true
 M_bm = MySymbol('M', description='Drehmoment der Lorentzkraft, proportional zum Strom')
 k_fed = Symbol('k', positive=True)
 alpha = MySymbol(r'\alpha', description='Auslenkung des Zeigers')
@@ -29,6 +31,8 @@ QBookHelpers.print_equation(Eq(alpha, c_sp*I_str/k_fed), label='eq-drehspul')
 Signalpfad des Multimeters vom Eingangsbereich bis zur Anzeige:
 
 ```{python}
+#| echo: true
+#| code-fold: true
 #| label: fig-dmm-block
 #| fig-cap: "Blockschaltbild eines digitalen Multimeters: Eingangsschutz, Bereichsteiler, Verstärker, Analog-Digital-Umsetzer, Zählerlogik und Anzeige."
 blocks = ['Eingangs-\nschutz', 'Eingangs-\nteiler', 'Verstärker\n(Impedanzwandler)',
@@ -56,6 +60,8 @@ plt.show()
   Referenz $U_{ref}$ bis zum Nulldurchgang in $T_2$:
 
 ```{python}
+#| echo: true
+#| code-fold: true
 U_x = MySymbol('U_x', description='Eingangsspannung am ADW', unit=u.volt, value=0.45)
 U_ref = MySymbol('U_{ref}', description='Referenzspannung', unit=u.volt, value=1.0)
 T_1 = MySymbol('T_1', description='feste Integrationszeit', unit=u.second, value=100e-3)
