@@ -1,45 +1,101 @@
 # Elektrische Kennwerte periodischer Signale {#sec-mt-kennwerte}
+{{< include ../../../../Common/QuartoBookHelpers/QuartoBookHelpers.qmd >}}
 
 Zeitabhängige Größen $u(t)$, $i(t)$ beschreibt man über Kennwerte, die eine
 ganze Periode $T$ zusammenfassen — die Mittelwerte.
 
 ## Definitionen
 
-- **Arithmetischer Mittelwert (Gleichwert):**
+```{python}
+t_s, T_s = symbols('t T', positive=True)
+u_t = Function('u')(t_s)
+ubar = Symbol(r'\bar{u}')
+urect = Symbol(r'\overline{|u|}')
+U_eff = Symbol('U')
+QBookHelpers.print_equation(Eq(ubar, Integral(u_t, (t_s, 0, T_s))/T_s), label='eq-mittelwert-int')
+QBookHelpers.print_equation(Eq(urect, Integral(Abs(u_t), (t_s, 0, T_s))/T_s), label='eq-gleichrichtwert')
+QBookHelpers.print_equation(Eq(U_eff, sqrt(Integral(u_t**2, (t_s, 0, T_s))/T_s)), label='eq-effektivwert')
+```
 
-$$\bar{u} = \frac{1}{T}\int_0^T u(t)\,dt$$
-
-- **Gleichrichtwert:** Mittelwert des Betrags (Grundlage analoger
-  Gleichrichter-Messwerke):
-
-$$\overline{|u|} = \frac{1}{T}\int_0^T |u(t)|\,dt$$
-
+- **Arithmetischer Mittelwert** (Gleichwert): zur Offset-Beschreibung, null
+  bei symmetrischen Signalen ohne Gleichanteil.
+- **Gleichrichtwert:** Mittelwert des Betrags — die Grundlage analoger
+  Gleichrichter-Messwerke.
 - **Effektivwert (RMS):** äquivalenter DC-Wert, der in einem Widerstand
-  dieselbe Leistung umsetzt:
+  dieselbe Leistung umsetzt, $P = U^2/R$.
+- **Scheitelwert** $\hat{u}$ (Maximalbetrag) und **Spitze-Spitze-Wert**
+  $u_{ss}$.
 
-$$U = \sqrt{\frac{1}{T}\int_0^T u^2(t)\,dt}, \qquad
-P = \frac{U^2}{R}$$
+```{python}
+#| label: fig-kennwerte
+#| fig-cap: "Kennwerte am Sinus: Scheitelwert, Effektivwert und Gleichrichtwert; rechts der gleichgerichtete Verlauf mit eingezeichnetem Mittelwert."
+tt = np.linspace(0, 2, 1000)
+uu = np.sin(2*np.pi*tt)
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8.5, 3))
+ax1.plot(tt, uu, color='#5a8fd6', lw=1.6)
+ax1.axhline(0, color='gray', lw=0.8)
+ax1.axhline(1, color='#2e7d32', ls='--', lw=1)
+ax1.axhline(1/np.sqrt(2), color='#d62728', ls='--', lw=1)
+ax1.axhline(2/np.pi, color='#9467bd', ls='--', lw=1)
+ax1.text(2.03, 1.0, '$\\hat{u}$', fontsize=10, va='center', color='#2e7d32')
+ax1.text(2.03, 1/np.sqrt(2), '$U$', fontsize=10, va='center', color='#d62728')
+ax1.text(2.03, 2/np.pi, '$\\overline{|u|}$', fontsize=10, va='center', color='#9467bd')
+ax1.set_title('Sinusschwingung', fontsize=10)
+ax1.set_xlabel('$t$ in Perioden')
+ax1.set_ylabel('$u(t)$')
+ax2.plot(tt, np.abs(uu), color='#5a8fd6', lw=1.6)
+ax2.axhline(2/np.pi, color='#9467bd', ls='--', lw=1)
+ax2.text(2.03, 2/np.pi, '$\\overline{|u|}$', fontsize=10, va='center', color='#9467bd')
+ax2.set_title('gleichgerichtete Schwingung', fontsize=10)
+ax2.set_xlabel('$t$ in Perioden')
+ax2.set_ylabel('$|u(t)|$')
+plt.show()
+```
 
-- **Scheitelwert** $\hat{u}$: Maximalbetrag; **Spitze-Spitze-Wert** $u_{ss}$.
+## Am Beispiel Sinus — mit SymPy gerechnet
 
-![Kennwerte am Sinus: Scheitelwert $\hat{u}$, Effektivwert $U_{eff}$ und Gleichrichtwert $\overline{|u|}$; rechts der gleichgerichtete Verlauf mit eingezeichnetem Mittelwert (eigene Darstellung, CC BY).](images/kennwerte_signale.png){#fig-kennwerte}
+Für $u(t) = \sin(2\pi t/T)$ liefert die Auswertung der Integrale:
 
-## Form- und Scheitelfaktor
+```{python}
+u_sin = sin(2*pi*t_s/T_s)
+ubar_sin = integrate(u_sin, (t_s, 0, T_s))/T_s
+urect_sin = integrate(Abs(u_sin), (t_s, 0, T_s))/T_s
+Ueff_sin = sqrt(integrate(u_sin**2, (t_s, 0, T_s))/T_s)
+QBookHelpers.print_equation(Eq(ubar, simplify(ubar_sin)), label='eq-mittelwert-sinus')
+QBookHelpers.print_equation(Eq(urect, simplify(urect_sin)), label='eq-gleichrichtwert-sinus')
+QBookHelpers.print_equation(Eq(U_eff, simplify(Ueff_sin)), label='eq-effektivwert-sinus')
+```
 
-$$k_f = \frac{U}{\overline{|u|}}, \qquad k_s = \frac{\hat{u}}{U}$$
+Bezogen auf den Scheitelwert $\hat{u}$:
 
-| Signal | $\hat{u}$ | $U_{eff}$ | $\overline{|u|}$ | $k_s$ |
-|---|---|---|---|---|
-| Sinus | $\hat{u}$ | $\hat{u}/\sqrt{2}\approx 0{,}707\hat{u}$ | $\frac{2}{\pi}\hat{u}\approx 0{,}637\hat{u}$ | $1{,}414$ |
-| Dreieck | $\hat{u}$ | $\hat{u}/\sqrt{3}$ | $\hat{u}/2$ | $1{,}732$ |
-| Rechteck | $\hat{u}$ | $\hat{u}$ | $\hat{u}$ | $1$ |
+```{python}
+hatu = Symbol(r'\hat{u}', positive=True)
+k_f = Symbol('k_f')
+k_s = Symbol('k_s')
+QBookHelpers.print_equation(Eq(U_eff, hatu/sqrt(2)), label='eq-scheitel-rms')
+QBookHelpers.print_equation(Eq(urect, 2*hatu/pi), label='eq-scheitel-gleichricht')
+QBookHelpers.print_equation(Eq(k_f, simplify((hatu/sqrt(2))/(2*hatu/pi))), label='eq-formfaktor')
+QBookHelpers.print_equation(Eq(k_s, simplify(hatu/(hatu/sqrt(2)))), label='eq-scheitelfaktor')
+```
 
-- Sinus: $k_f = \frac{\pi}{2\sqrt{2}} \approx 1{,}11$ — Gleichrichter-Messwerke
+| Signal | $U_{eff}$ | $\overline{|u|}$ | $k_s$ |
+|---|---|---|---|
+| Sinus | $\hat{u}/\sqrt{2} \approx 0{,}707\,\hat{u}$ | $\frac{2}{\pi}\hat{u} \approx 0{,}637\,\hat{u}$ | $1{,}414$ |
+| Dreieck | $\hat{u}/\sqrt{3}$ | $\hat{u}/2$ | $1{,}732$ |
+| Rechteck | $\hat{u}$ | $\hat{u}$ | $1$ |
+
+- Sinus: $k_f = \pi/(2\sqrt{2}) \approx 1{,}11$ — Gleichrichter-Messwerke
   skalieren den Gleichrichtwert daher mit dem Faktor 1,11 auf Sinus-RMS hoch.
 
-**Rechenbeispiel.** Netzspannung $\hat{u} = 325\,\mathrm{V}$:
-$U_{eff} = 325/\sqrt{2} = 230\,\mathrm{V}$;
-Gleichrichtwert $\overline{|u|} = \frac{2}{\pi}\cdot 325 \approx 207\,\mathrm{V}$.
+**Rechenbeispiel** — Netzspannung mit $\hat{u} = 325\,\mathrm{V}$:
+
+```{python}
+U_netz = MySymbol('U', description='Effektivwert der Netzspannung', unit=u.volt,
+                  value=float(325/sqrt(2)))
+Ur_netz = MySymbol(r'\overline{|u|}', description='Gleichrichtwert der Netzspannung', unit=u.volt,
+                   value=float(2/pi*325))
+QBookHelpers.print_values([U_netz, Ur_netz])
+```
 
 > **Platzhalter — Oszillogramm:** Foto eines Oszilloskopeingangs mit Sinus- und
 > Rechtecksignal (gleiche Amplitude), um Effektivwert- und Formfaktor-Unterschiede

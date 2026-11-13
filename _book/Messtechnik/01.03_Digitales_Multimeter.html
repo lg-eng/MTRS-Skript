@@ -310,13 +310,18 @@ window.Quarto = {
 <section id="messwerke-die-grundlage-der-analogen-anzeige" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="messwerke-die-grundlage-der-analogen-anzeige"><span class="header-section-number">3.1</span> Messwerke — die Grundlage der analogen Anzeige</h2>
 <ul>
-<li>Klassisches Messgerät der Elektromesstechnik: <strong>Drehspulmesswerk</strong>. Lorentzkraft auf stromdurchflossene Spule im Permanentfeld erzeugt ein Drehmoment; die Spiralfeder stellt das Gleichgewicht her:</li>
+<li>Klassisches Messgerät der Elektromesstechnik: <strong>Drehspulmesswerk</strong>. Lorentzkraft auf die stromdurchflossene Spule im Permanentfeld erzeugt ein Drehmoment; die Spiralfeder stellt das Gleichgewicht her — die Auslenkung ist proportional zum Strom:</li>
 </ul>
-<p><span class="math display">\[M = c\cdot I = k\cdot\alpha \quad\Rightarrow\quad \alpha = \frac{c}{k}\cdot I
-\quad\text{(linearer Skalenverlauf)}\]</span></p>
+<div id="577b21b1" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-drehspul"><span class="math display">\[
+\alpha = \frac{I c}{k}
+\tag{3.1}\]</span></span></p>
+</div>
+</div>
 <ul>
-<li>Mittelwertmesswerk: reagiert auf den arithmetischen Mittelwert — daher DC-fähig; mit vorgeschaltetem Gleichrichter als Gleichrichter-Messwerk auch für AC (skaliert den Gleichrichtwert).</li>
-<li>Dreheisenmesswerk: eisenbewegtes Messwerk, auch für AC direkt geeignet (quadratische Kennlinie → ungleichmäßige Skala).</li>
+<li>Mittelwertmesswerk: reagiert auf den arithmetischen Mittelwert — daher DC-fähig; mit vorgeschaltetem Gleichrichter auch für AC.</li>
+<li>Dreheisenmesswerk: auch für AC direkt geeignet (quadratische Kennlinie → ungleichmäßige Skala).</li>
 </ul>
 <div id="fig-drehspul" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -331,27 +336,52 @@ Abbildung&nbsp;3.1: Prinzip des Drehspulmesswerks: drehbare Spule im Feld eines 
 </section>
 <section id="blockschaltbild-des-digitalen-multimeters" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="blockschaltbild-des-digitalen-multimeters"><span class="header-section-number">3.2</span> Blockschaltbild des digitalen Multimeters</h2>
-<p>Signalfpfad des Multimeters vom Eingangsbereich bis zur Anzeige:</p>
+<p>Signalpfad des Multimeters vom Eingangsbereich bis zur Anzeige:</p>
+<div id="cell-fig-dmm-block" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
 <div id="fig-dmm-block" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dmm-block-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/dmm_blockschaltbild.png" class="img-fluid figure-img">
+<img src="01.03_Digitales_Multimeter_files/figure-html/fig-dmm-block-output-1.png" width="689" height="160" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dmm-block-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;3.2: Blockschaltbild eines digitalen Multimeters: Eingangsschutz, Bereichsteiler, Verstärker, Analog-Digital-Umsetzer, Zählerlogik und Anzeige (eigene Darstellung, CC BY).
+Abbildung&nbsp;3.2: Blockschaltbild eines digitalen Multimeters: Eingangsschutz, Bereichsteiler, Verstärker, Analog-Digital-Umsetzer, Zählerlogik und Anzeige.
 </figcaption>
 </figure>
+</div>
+</div>
 </div>
 <ul>
 <li><strong>Eingangsschutz:</strong> Sicherungen, Varistoren, Klemmschaltung gegen Überlastung.</li>
 <li><strong>Eingangsteiler:</strong> hochohmige Widerstandskette (z. B. 10 M<span class="math inline">\(\Omega\)</span>-Eingang) legt das Signal auf den Arbeitsbereich des Verstärkers.</li>
-<li><strong>Verstärker:</strong> Impedanzwandler/auto-zero-Verstärker entkoppelt Teiler und ADW.</li>
-<li><strong>ADW:</strong> im DMM überwiegend <strong>Zweiflankenverfahren (Dual Slope)</strong> — integriert erst über feste Zeit <span class="math inline">\(T_1\)</span> gegen <span class="math inline">\(U_x\)</span>, dann gegen <span class="math inline">\(U_{ref}\)</span> bis zum Nulldurchgang:</li>
+<li><strong>Verstärker:</strong> Impedanzwandler/Auto-Zero-Verstärker entkoppelt Teiler und ADW.</li>
+<li><strong>ADW:</strong> im DMM überwiegend <strong>Zweiflankenverfahren (Dual Slope)</strong> — Integration über feste Zeit <span class="math inline">\(T_1\)</span> gegen <span class="math inline">\(U_x\)</span>, dann Integration gegen die Referenz <span class="math inline">\(U_{ref}\)</span> bis zum Nulldurchgang in <span class="math inline">\(T_2\)</span>:</li>
 </ul>
-<p><span class="math display">\[U_x = U_{ref}\cdot\frac{T_2}{T_1}\]</span></p>
-<p>Die Integration über eine volle Netzperiode unterdrückt Brummen; die Genauigkeit hängt allein von <span class="math inline">\(U_{ref}\)</span> und dem Takt ab. - <strong>Zähler &amp; Anzeige:</strong> Taktzähler während <span class="math inline">\(T_2\)</span> → Messwert in counts, Dekodierung auf die 3½-/4½-stellige Anzeige.</p>
+<div id="56c5095c" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(U_{x}\)</span> … Eingangsspannung am ADW</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(U_{ref}\)</span> … Referenzspannung</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(T_{1}\)</span> … feste Integrationszeit</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(T_{2}\)</span> … Abintegrationszeit bis zum Nulldurchgang</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-dualslope"><span class="math display">\[
+U_{x} = \frac{T_{2} U_{ref}}{T_{1}}
+\tag{3.2}\]</span></span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math display">\[U_{x} = \mathtt{\text{450}} \ \mathtt{\text{mV}}\]</span></p>
+</div>
+</div>
+<p>Die Integration über eine volle Netzperiode unterdrückt Brummen; die Genauigkeit hängt allein von <span class="math inline">\(U_{ref}\)</span> und dem Takt ab — Wandlerfehler, Drifts und Offset fallen heraus. - <strong>Zähler &amp; Anzeige:</strong> Taktzähler während <span class="math inline">\(T_2\)</span> → Messwert in counts, Dekodierung auf die 3½-/4½-stellige Anzeige.</p>
 <blockquote class="blockquote">
-<p><strong>Platzhalter — Zweiflankenverlauf:</strong> Diagramm der Integratorspannung beim Zweiflankenverfahren (linearer Anstieg während <span class="math inline">\(T_1\)</span>, linearer Abfall bis null während <span class="math inline">\(T_2\)</span>), um die Zeitverhältnis-Gleichung anschaulich zu machen.</p>
+<p><strong>Platzhalter — Zweiflankenverlauf:</strong> Diagramm der Integratorspannung beim Zweiflankenverfahren (linearer Anstieg während <span class="math inline">\(T_1\)</span>, linearer Abfall bis null während <span class="math inline">\(T_2\)</span>), um das Zeitverhältnis anschaulich zu machen.</p>
 </blockquote>
 <div id="fig-dmm" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -368,12 +398,9 @@ Abbildung&nbsp;3.3: Handelsübliches digitales Multimeter (Michael Hückel, Publ
 <h2 data-number="3.3" class="anchored" data-anchor-id="kenngrößen-des-dmm"><span class="header-section-number">3.3</span> Kenngrößen des DMM</h2>
 <ul>
 <li><strong>Stellenzahl und counts:</strong> <span class="math inline">\(3\tfrac{1}{2}\)</span>-stellig → 1999 counts; Auflösung <span class="math inline">\(Q = \text{Endwert}/1999\)</span>.</li>
-<li><strong>Genauigkeitsangabe</strong> des Datenblatts:</li>
-</ul>
-<p><span class="math display">\[\Delta U = \pm(a\%\ \mathrm{v.\,M.} + n\ \mathrm{digits})\]</span></p>
-<ul>
+<li><strong>Genauigkeitsangabe</strong> des Datenblatts (siehe <a href="#eq-dmm-genauigkeit" class="quarto-xref">Gleichung&nbsp;<span class="quarto-unresolved-ref">eq-dmm-genauigkeit</span></a>): <span class="math inline">\(\Delta U = \pm(a\,\%\ \mathrm{v.\,M.} + n\ \mathrm{digits})\)</span>.</li>
 <li><strong>True-RMS:</strong> echte Effektivwertbildung (Leistungsmessung proportional zu <span class="math inline">\(\overline{u^2}\)</span>) statt bloßer Skalierung des Gleichrichtwerts — das Ergebnis wird von der Signalform unabhängig.</li>
-<li>AC-Messbereiche sind kapazitiv gekoppelt (Mittelwert-Messwerke skalieren den Gleichrichtwert auf Sinus um). Bedienung: bei unbekannter Größe im größten Messbereich beginnen.</li>
+<li>AC-Messbereiche sind kapazitiv gekoppelt; Mittelwert-Messwerke skalieren den Gleichrichtwert auf Sinus-RMS hoch. Bedienung: bei unbekannter Größe im größten Messbereich beginnen.</li>
 </ul>
 
 

@@ -280,7 +280,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#definitionen" id="toc-definitionen" class="nav-link active" data-scroll-target="#definitionen"><span class="header-section-number">4.1</span> Definitionen</a></li>
-  <li><a href="#form--und-scheitelfaktor" id="toc-form--und-scheitelfaktor" class="nav-link" data-scroll-target="#form--und-scheitelfaktor"><span class="header-section-number">4.2</span> Form- und Scheitelfaktor</a></li>
+  <li><a href="#am-beispiel-sinus-mit-sympy-gerechnet" id="toc-am-beispiel-sinus-mit-sympy-gerechnet" class="nav-link" data-scroll-target="#am-beispiel-sinus-mit-sympy-gerechnet"><span class="header-section-number">4.2</span> Am Beispiel Sinus — mit SymPy gerechnet</a></li>
   <li><a href="#grafische-bestimmung" id="toc-grafische-bestimmung" class="nav-link" data-scroll-target="#grafische-bestimmung"><span class="header-section-number">4.3</span> Grafische Bestimmung</a></li>
   </ul>
 </nav>
@@ -310,48 +310,97 @@ window.Quarto = {
 <p>Zeitabhängige Größen <span class="math inline">\(u(t)\)</span>, <span class="math inline">\(i(t)\)</span> beschreibt man über Kennwerte, die eine ganze Periode <span class="math inline">\(T\)</span> zusammenfassen — die Mittelwerte.</p>
 <section id="definitionen" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="definitionen"><span class="header-section-number">4.1</span> Definitionen</h2>
+<div id="d6472022" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-mittelwert-int"><span class="math display">\[
+\bar{u} = \frac{\int\limits_{0}^{T} u{\left(t \right)}\, dt}{T}
+\tag{4.1}\]</span></span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-gleichrichtwert"><span class="math display">\[
+\overline{|u|} = \frac{\int\limits_{0}^{T} \left|{u{\left(t \right)}}\right|\, dt}{T}
+\tag{4.2}\]</span></span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-effektivwert"><span class="math display">\[
+U = \frac{\sqrt{\int\limits_{0}^{T} u^{2}{\left(t \right)}\, dt}}{\sqrt{T}}
+\tag{4.3}\]</span></span></p>
+</div>
+</div>
 <ul>
-<li><strong>Arithmetischer Mittelwert (Gleichwert):</strong></li>
+<li><strong>Arithmetischer Mittelwert</strong> (Gleichwert): zur Offset-Beschreibung, null bei symmetrischen Signalen ohne Gleichanteil.</li>
+<li><strong>Gleichrichtwert:</strong> Mittelwert des Betrags — die Grundlage analoger Gleichrichter-Messwerke.</li>
+<li><strong>Effektivwert (RMS):</strong> äquivalenter DC-Wert, der in einem Widerstand dieselbe Leistung umsetzt, <span class="math inline">\(P = U^2/R\)</span>.</li>
+<li><strong>Scheitelwert</strong> <span class="math inline">\(\hat{u}\)</span> (Maximalbetrag) und <strong>Spitze-Spitze-Wert</strong> <span class="math inline">\(u_{ss}\)</span>.</li>
 </ul>
-<p><span class="math display">\[\bar{u} = \frac{1}{T}\int_0^T u(t)\,dt\]</span></p>
-<ul>
-<li><strong>Gleichrichtwert:</strong> Mittelwert des Betrags (Grundlage analoger Gleichrichter-Messwerke):</li>
-</ul>
-<p><span class="math display">\[\overline{|u|} = \frac{1}{T}\int_0^T |u(t)|\,dt\]</span></p>
-<ul>
-<li><strong>Effektivwert (RMS):</strong> äquivalenter DC-Wert, der in einem Widerstand dieselbe Leistung umsetzt:</li>
-</ul>
-<p><span class="math display">\[U = \sqrt{\frac{1}{T}\int_0^T u^2(t)\,dt}, \qquad
-P = \frac{U^2}{R}\]</span></p>
-<ul>
-<li><strong>Scheitelwert</strong> <span class="math inline">\(\hat{u}\)</span>: Maximalbetrag; <strong>Spitze-Spitze-Wert</strong> <span class="math inline">\(u_{ss}\)</span>.</li>
-</ul>
+<div id="cell-fig-kennwerte" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
 <div id="fig-kennwerte" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-kennwerte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/kennwerte_signale.png" class="img-fluid figure-img">
+<img src="01.04_Kennwerte_files/figure-html/fig-kennwerte-output-1.png" width="721" height="301" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kennwerte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;4.1: Kennwerte am Sinus: Scheitelwert <span class="math inline">\(\hat{u}\)</span>, Effektivwert <span class="math inline">\(U_{eff}\)</span> und Gleichrichtwert <span class="math inline">\(\overline{|u|}\)</span>; rechts der gleichgerichtete Verlauf mit eingezeichnetem Mittelwert (eigene Darstellung, CC BY).
+Abbildung&nbsp;4.1: Kennwerte am Sinus: Scheitelwert, Effektivwert und Gleichrichtwert; rechts der gleichgerichtete Verlauf mit eingezeichnetem Mittelwert.
 </figcaption>
 </figure>
 </div>
+</div>
+</div>
 </section>
-<section id="form--und-scheitelfaktor" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="form--und-scheitelfaktor"><span class="header-section-number">4.2</span> Form- und Scheitelfaktor</h2>
-<p><span class="math display">\[k_f = \frac{U}{\overline{|u|}}, \qquad k_s = \frac{\hat{u}}{U}\]</span></p>
+<section id="am-beispiel-sinus-mit-sympy-gerechnet" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="am-beispiel-sinus-mit-sympy-gerechnet"><span class="header-section-number">4.2</span> Am Beispiel Sinus — mit SymPy gerechnet</h2>
+<p>Für <span class="math inline">\(u(t) = \sin(2\pi t/T)\)</span> liefert die Auswertung der Integrale:</p>
+<div id="e148d0c4" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-mittelwert-sinus"><span class="math display">\[
+\bar{u} = 0
+\tag{4.4}\]</span></span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-gleichrichtwert-sinus"><span class="math display">\[
+\overline{|u|} = \frac{2}{\pi}
+\tag{4.5}\]</span></span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-effektivwert-sinus"><span class="math display">\[
+U = \frac{\sqrt{2}}{2}
+\tag{4.6}\]</span></span></p>
+</div>
+</div>
+<p>Bezogen auf den Scheitelwert <span class="math inline">\(\hat{u}\)</span>:</p>
+<div id="3af9127a" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-scheitel-rms"><span class="math display">\[
+U = \frac{\sqrt{2} \hat{u}}{2}
+\tag{4.7}\]</span></span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-scheitel-gleichricht"><span class="math display">\[
+\overline{|u|} = \frac{2 \hat{u}}{\pi}
+\tag{4.8}\]</span></span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-formfaktor"><span class="math display">\[
+k_{f} = \frac{\sqrt{2} \pi}{4}
+\tag{4.9}\]</span></span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-scheitelfaktor"><span class="math display">\[
+k_{s} = \sqrt{2}
+\tag{4.10}\]</span></span></p>
+</div>
+</div>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Signal</th>
-<th><span class="math inline">\(\hat{u}\)</span></th>
 <th><span class="math inline">\(U_{eff}\)</span></th>
 <th><span class="math inline">\(\overline{|u|}\)</span></th>
 <th><span class="math inline">\(k_s\)</span></th>
@@ -360,14 +409,12 @@ Abbildung&nbsp;4.1: Kennwerte am Sinus: Scheitelwert <span class="math inline">\
 <tbody>
 <tr class="odd">
 <td>Sinus</td>
-<td><span class="math inline">\(\hat{u}\)</span></td>
-<td><span class="math inline">\(\hat{u}/\sqrt{2}\approx 0{,}707\hat{u}\)</span></td>
-<td><span class="math inline">\(\frac{2}{\pi}\hat{u}\approx 0{,}637\hat{u}\)</span></td>
+<td><span class="math inline">\(\hat{u}/\sqrt{2} \approx 0{,}707\,\hat{u}\)</span></td>
+<td><span class="math inline">\(\frac{2}{\pi}\hat{u} \approx 0{,}637\,\hat{u}\)</span></td>
 <td><span class="math inline">\(1{,}414\)</span></td>
 </tr>
 <tr class="even">
 <td>Dreieck</td>
-<td><span class="math inline">\(\hat{u}\)</span></td>
 <td><span class="math inline">\(\hat{u}/\sqrt{3}\)</span></td>
 <td><span class="math inline">\(\hat{u}/2\)</span></td>
 <td><span class="math inline">\(1{,}732\)</span></td>
@@ -376,15 +423,22 @@ Abbildung&nbsp;4.1: Kennwerte am Sinus: Scheitelwert <span class="math inline">\
 <td>Rechteck</td>
 <td><span class="math inline">\(\hat{u}\)</span></td>
 <td><span class="math inline">\(\hat{u}\)</span></td>
-<td><span class="math inline">\(\hat{u}\)</span></td>
 <td><span class="math inline">\(1\)</span></td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li>Sinus: <span class="math inline">\(k_f = \frac{\pi}{2\sqrt{2}} \approx 1{,}11\)</span> — Gleichrichter-Messwerke skalieren den Gleichrichtwert daher mit dem Faktor 1,11 auf Sinus-RMS hoch.</li>
+<li>Sinus: <span class="math inline">\(k_f = \pi/(2\sqrt{2}) \approx 1{,}11\)</span> — Gleichrichter-Messwerke skalieren den Gleichrichtwert daher mit dem Faktor 1,11 auf Sinus-RMS hoch.</li>
 </ul>
-<p><strong>Rechenbeispiel.</strong> Netzspannung <span class="math inline">\(\hat{u} = 325\,\mathrm{V}\)</span>: <span class="math inline">\(U_{eff} = 325/\sqrt{2} = 230\,\mathrm{V}\)</span>; Gleichrichtwert <span class="math inline">\(\overline{|u|} = \frac{2}{\pi}\cdot 325 \approx 207\,\mathrm{V}\)</span>.</p>
+<p><strong>Rechenbeispiel</strong> — Netzspannung mit <span class="math inline">\(\hat{u} = 325\,\mathrm{V}\)</span>:</p>
+<div id="8efcbb45" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math display">\[U = \mathtt{\text{230}} \ \mathtt{\text{V}}\]</span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math display">\[\overline{|u|} = \mathtt{\text{207}} \ \mathtt{\text{V}}\]</span></p>
+</div>
+</div>
 <blockquote class="blockquote">
 <p><strong>Platzhalter — Oszillogramm:</strong> Foto eines Oszilloskopeingangs mit Sinus- und Rechtecksignal (gleiche Amplitude), um Effektivwert- und Formfaktor-Unterschiede am realen Gerät sichtbar zu machen.</p>
 </blockquote>

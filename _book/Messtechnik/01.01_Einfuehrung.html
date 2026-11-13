@@ -336,13 +336,27 @@ window.Quarto = {
 <section id="physikalische-größen-und-si-einheiten" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="physikalische-größen-und-si-einheiten"><span class="header-section-number">1.1</span> Physikalische Größen und SI-Einheiten</h2>
 <ul>
-<li>Eine physikalische Größe ist ein Produkt aus Zahlenwert und Einheit:</li>
+<li>Eine physikalische Größe ist ein Produkt aus Zahlenwert und Einheit.</li>
+<li>Sieben SI-Basiseinheiten (m, kg, s, A, K, mol, cd); alle weiteren Einheiten sind daraus abgeleitet.</li>
+<li>Häufige Vorsätze: <span class="math inline">\(k = 10^{3}\)</span>, <span class="math inline">\(m = 10^{-3}\)</span>, <span class="math inline">\(\mu = 10^{-6}\)</span>, <span class="math inline">\(n = 10^{-9}\)</span>, <span class="math inline">\(p = 10^{-12}\)</span>.</li>
 </ul>
-<p><span class="math display">\[x = \{x\}\cdot[x]\]</span></p>
-<ul>
-<li>Sieben SI-Basiseinheiten (m, kg, s, A, K, mol, cd); alle weiteren Einheiten sind daraus abgeleitet (z. B. <span class="math inline">\(1\,\mathrm{V} = 1\,\mathrm{kg\,m^2\,s^{-3}\,A^{-1}}\)</span>).</li>
-<li>Häufige Vorsätze: <span class="math inline">\(k=10^{3}\)</span>, <span class="math inline">\(m=10^{-3}\)</span>, <span class="math inline">\(\mu=10^{-6}\)</span>, <span class="math inline">\(n=10^{-9}\)</span>, <span class="math inline">\(p=10^{-12}\)</span>.</li>
-</ul>
+<div id="dc629e1d" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(x\)</span> … physikalische Größe = Zahlenwert mal Einheit</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-groesse"><span class="math display">\[
+x = [x] \{x\}
+\tag{1.1}\]</span></span></p>
+</div>
+</div>
+<div id="1989681d" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-volt-basis"><span class="math display">\[
+U = \frac{\text{kg} \text{m}^{2}}{\text{A} \text{s}^{3}}
+\tag{1.2}\]</span></span></p>
+</div>
+</div>
 <div id="fig-si-units" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-si-units-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -366,44 +380,118 @@ Abbildung&nbsp;1.1: Die sieben SI-Basiseinheiten und ihre Symbole (DePiep, <a hr
 <h2 data-number="1.3" class="anchored" data-anchor-id="sec-mt-gum"><span class="header-section-number">1.3</span> Messunsicherheit nach GUM</h2>
 <p>Die moderne Behandlung von Messungen folgt dem <em>Guide to the Expression of Uncertainty in Measurement</em> (GUM, JCGM 100:2008 <span class="citation" data-cites="jcgm100_2008">[<a href="#ref-jcgm100_2008" role="doc-biblioref">1</a>]</span>; deutsche Einführung: JCGM 104 <span class="citation" data-cites="jcgm104_2011de">[<a href="#ref-jcgm104_2011de" role="doc-biblioref">2</a>]</span>). Kerngedanke: Es gibt nicht den „wahren Wert plus Fehler”, sondern einen <strong>Schätzwert</strong> und eine <strong>Messunsicherheit</strong>, die die Streuung der plausiblen Werte der Messgröße kennzeichnet.</p>
 <ul>
-<li>Die Messung wird als Modell beschrieben — Messgröße <span class="math inline">\(Y\)</span> als Funktion der Eingangsgrößen <span class="math inline">\(X_i\)</span> mit ihren besten Schätzwerten <span class="math inline">\(x_i\)</span>:</li>
+<li>Die Messung wird als Modell beschrieben — die Messgröße ist eine Funktion der Eingangsgrößen mit ihren besten Schätzwerten.</li>
 </ul>
-<p><span class="math display">\[Y = f(X_1, X_2, \ldots, X_N)\]</span></p>
+<div id="4950eaa9" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(Y\)</span> … Messgröße (Ausgang des Messmodells)</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-messmodell"><span class="math display">\[
+Y = f{\left(X_{1},X_{2},X_{3} \right)}
+\tag{1.3}\]</span></span></p>
+</div>
+</div>
 <ul>
-<li>Jede Eingangsgröße trägt eine <strong>Unsicherheitskomponente</strong> <span class="math inline">\(u(x_i)\)</span> in das Unsicherheitsbudget ein — gleich welcher Art ihr physikalischer Einfluss ist.</li>
-<li><strong>Systematische Einflüsse</strong> (Kalibrierabweichung, Rückwirkung des Messgeräts, Einflussgrößen wie Temperatur) werden nicht „weggemessen”, sondern bestimmt und <strong>korrigiert</strong>; ihr verbleibender Anteil geht ins Budget.</li>
+<li>Jede Eingangsgröße trägt eine <strong>Unsicherheitskomponente</strong> in das Unsicherheitsbudget ein — gleich welcher Art ihr Einfluss ist.</li>
+<li><strong>Systematische Einflüsse</strong> (Kalibrierabweichung, Rückwirkung des Messgeräts, Einflussgrößen wie Temperatur) werden bestimmt und <strong>korrigiert</strong>; ihr verbleibender Anteil geht ins Budget.</li>
 <li><strong>Grobe Fehler</strong> (Fehlbedienung, Überlastung) sind <em>keine</em> Unsicherheit — sie erzeugen ungültige Messwerte: erkennen (Plausibilität), verwerfen, wiederholen.</li>
 </ul>
 <section id="sec-mt-typA" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="sec-mt-typA"><span class="header-section-number">1.3.1</span> Typ-A-Bewertung: statistisch</h3>
 <p>Aus <span class="math inline">\(n\)</span> wiederholten Messungen unter gleichen Bedingungen:</p>
-<p><span class="math display">\[\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i, \qquad
-s = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n} (x_i - \bar{x})^2}\]</span></p>
-<p>Standardunsicherheit des Mittelwerts:</p>
-<p><span class="math display">\[u_A = u(\bar{x}) = \frac{s}{\sqrt{n}}\]</span></p>
+<div id="c63a67f5" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-mittelwert"><span class="math display">\[
+\bar{x} = \frac{\sum_{i=1}^{n} {x}_{i}}{n}
+\tag{1.4}\]</span></span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-stdabw"><span class="math display">\[
+s = \sqrt{\frac{\sum_{i=1}^{n} \left(- \bar{x} + {x}_{i}\right)^{2}}{n - 1}}
+\tag{1.5}\]</span></span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-typA"><span class="math display">\[
+u_{A} = \frac{s}{\sqrt{n}}
+\tag{1.6}\]</span></span></p>
+</div>
+</div>
+<p><strong>Beispiel</strong> — eine Messreihe von 400 Messungen einer 10-V-Referenz:</p>
+<div id="706291a1" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math display">\[\bar{x} = \mathtt{\text{10.1}} \ \mathtt{\text{V}}\]</span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math display">\[s = \mathtt{\text{47.6}} \ \mathtt{\text{mV}}\]</span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math display">\[u_{A} = \mathtt{\text{2.38}} \ \mathtt{\text{mV}}\]</span></p>
+</div>
+</div>
+<div id="cell-fig-messunsicherheit" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
 <div id="fig-messunsicherheit" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-messunsicherheit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/messunsicherheit_typA.png" class="img-fluid figure-img">
+<img src="01.01_Einfuehrung_files/figure-html/fig-messunsicherheit-output-1.png" width="474" height="297" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-messunsicherheit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;1.2: Typ-A-Auswertung: Streuung wiederholter Messungen um den Mittelwert; der Abstand zum Referenzwert (z. B. Kalibrierzertifikat) ist eine systematische Messabweichung und wird korrigiert, die Streubreite geht als <span class="math inline">\(u_A = s/\sqrt{n}\)</span> ins Budget (eigene Darstellung, CC BY).
+Abbildung&nbsp;1.2: Typ-A-Auswertung: Streuung wiederholter Messungen um den Mittelwert; der Abstand zum Referenzwert ist eine systematische Messabweichung und wird korrigiert, die Streubreite geht als <span class="math inline">\(u_A = s/\sqrt{n}\)</span> ins Budget.
 </figcaption>
 </figure>
+</div>
+</div>
 </div>
 </section>
 <section id="typ-b-bewertung-nicht-statistisch" class="level3" data-number="1.3.2">
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="typ-b-bewertung-nicht-statistisch"><span class="header-section-number">1.3.2</span> Typ-B-Bewertung: nicht statistisch</h3>
 <p>Aus Vorwissen: Kalibrierzertifikate, Datenblätter, Erfahrungen. Liegt eine Angabe als Intervall <span class="math inline">\(\pm a\)</span> vor (gleichförmige Verteilung):</p>
-<p><span class="math display">\[u_B = \frac{a}{\sqrt{3}}\]</span></p>
-<p>Beispiel: Genauigkeitsangabe eines DMM <span class="math inline">\(\pm(a\%\ \mathrm{v.\,M.} + n\ \mathrm{digits})\)</span> → Grenzen <span class="math inline">\(a\)</span> bestimmen, als Typ-B-Komponente ins Budget.</p>
+<div id="f6d56204" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(a\)</span> … halbe Breite des angegebenen Intervalls</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-typB"><span class="math display">\[
+u_{B} = \frac{\sqrt{3} a}{3}
+\tag{1.7}\]</span></span></p>
+</div>
+</div>
+<p><strong>Beispiel</strong> — DMM-Angabe <span class="math inline">\(\pm(0{,}5\,\%\,\mathrm{v.\,M.} + 3\ \mathrm{digits})\)</span>, Anzeige 10,00 V im 10-V-Bereich (1 digit = 10 mV):</p>
+<div id="f28d7628" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math display">\[a = \mathtt{\text{80}} \ \mathtt{\text{mV}}\]</span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math display">\[u_{B} = \mathtt{\text{46.2}} \ \mathtt{\text{mV}}\]</span></p>
+</div>
+</div>
 </section>
 <section id="kombinierte-und-erweiterte-unsicherheit" class="level3" data-number="1.3.3">
 <h3 data-number="1.3.3" class="anchored" data-anchor-id="kombinierte-und-erweiterte-unsicherheit"><span class="header-section-number">1.3.3</span> Kombinierte und erweiterte Unsicherheit</h3>
 <p>Unsicherheitsfortpflanzung (Modell linearisiert, Empfindlichkeitskoeffizienten <span class="math inline">\(c_i = \partial f/\partial x_i\)</span>):</p>
-<p><span class="math display">\[u_c(y) = \sqrt{\sum_{i=1}^{N} c_i^2\, u^2(x_i)}\]</span></p>
-<p>Erweiterte Unsicherheit mit Überdeckungsfaktor <span class="math inline">\(k = 2\)</span> (ca. 95 %):</p>
-<p><span class="math display">\[U = k\cdot u_c, \qquad \text{Ergebnis: } Y = (y \pm U)\ \text{bei } k=2\]</span></p>
+<div id="0d0cba19" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-kombiniert"><span class="math display">\[
+u_{c} = \sqrt{\sum_{k=1}^{N} {c}_{k}^{2} {u}_{k}^{2}}
+\tag{1.8}\]</span></span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-erweitert"><span class="math display">\[
+U = k u_{c}
+\tag{1.9}\]</span></span></p>
+</div>
+</div>
+<p>Beides zusammen (hier <span class="math inline">\(c_1 = c_2 = 1\)</span>) und Ergebnisangabe mit <span class="math inline">\(k = 2\)</span> (ca. 95 % Überdeckung):</p>
+<div id="29ceb935" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math display">\[u_{c} = \mathtt{\text{46.2}} \ \mathtt{\text{mV}}\]</span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math display">\[U = \mathtt{\text{92.5}} \ \mathtt{\text{mV}}\]</span></p>
+</div>
+</div>
+<p><span class="math display">\[Y = (y \pm U)\quad\text{bei } k = 2\]</span></p>
 </section>
 </section>
 <section id="anzeige-analog-und-digital" class="level2" data-number="1.4">
@@ -450,22 +538,40 @@ Abbildung&nbsp;1.3: Analoges Multimeter (HARTIG &amp; HELLING VM-10K): Zeigerins
 </figure>
 </div>
 <blockquote class="blockquote">
-<p><strong>Platzhalter — Digitalanzeige:</strong> Nahaufnahme einer 3½-stelligen Digitalanzeige (z. B. „1999 counts” mit führender ½-Stelle), um Auflösung in digits und den Begriff Zähldisplay zu zeigen.</p>
+<p><strong>Platzhalter — Digitalanzeige:</strong> Nahaufnahme einer 3½-stelligen Digitalanzeige (z. B. „1999 counts”), um Auflösung in digits und den Begriff Zähldisplay zu zeigen.</p>
 </blockquote>
 </section>
 <section id="auflösung-und-genauigkeit" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="auflösung-und-genauigkeit"><span class="header-section-number">1.5</span> Auflösung und Genauigkeit</h2>
 <ul>
-<li><strong>Auflösung:</strong> kleinste unterscheidbare Wertänderung. Digital: <span class="math inline">\(Q = \text{Endwert}/\text{counts}\)</span> (3½-stellig: 1999 counts → Auflösung <span class="math inline">\(\tfrac{1}{1999}\)</span> des Messbereichs-Endwerts).</li>
-<li><strong>Genauigkeit (analog):</strong> Genauigkeitsklasse <span class="math inline">\(p\)</span> — zulässiger Anzeigefehler bezogen auf den Messbereichs-Endwert:</li>
+<li><strong>Auflösung:</strong> kleinste unterscheidbare Wertänderung. Digital: <span class="math inline">\(Q = \text{Endwert}/\text{counts}\)</span> (3½-stellig: 1999 counts).</li>
+<li><strong>Genauigkeit (analog):</strong> Genauigkeitsklasse <span class="math inline">\(p\)</span> — zulässige Messabweichung bezogen auf den Messbereichs-Endwert:</li>
 </ul>
-<p><span class="math display">\[\Delta x_{max} = \frac{p}{100}\cdot \text{Endwert}\]</span></p>
+<div id="f26981f4" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(p\)</span> … Genauigkeitsklasse in %</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(x_{Endwert}\)</span> … Messbereichs-Endwert</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-klasse"><span class="math display">\[
+\Delta x_{max} = \frac{p x_{Endwert}}{100}
+\tag{1.10}\]</span></span></p>
+</div>
+</div>
 <ul>
 <li><strong>Genauigkeit (digital):</strong> Herstellerangabe</li>
 </ul>
-<p><span class="math display">\[\Delta x = \pm\left(a\%\ \text{vom Messwert} + n\ \text{digits}\right)\]</span></p>
+<div id="a316a7f6" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-dmm-genauigkeit"><span class="math display">\[
+\Delta x = \mathrm{digit} n + \frac{a x_{mess}}{100}
+\tag{1.11}\]</span></span></p>
+</div>
+</div>
 <ul>
-<li>Genauigkeit ist immer kleiner als Auflösung: eine feine Anzeige kann trotzdem falsch messen.</li>
+<li>Genauigkeit ist immer schlechter als die Auflösung: eine feine Anzeige kann trotzdem daneben messen.</li>
 </ul>
 
 

@@ -1,4 +1,5 @@
 # Strom-, Spannungs- und Widerstandsmessung {#sec-mt-strom-spannung}
+{{< include ../../../../Common/QuartoBookHelpers/QuartoBookHelpers.qmd >}}
 
 ## Ideale und reale Messgeräte
 
@@ -8,28 +9,86 @@
 | Amperemeter | $R_A \to 0$ (spannungslos) | kleiner, aber endlicher $R_A$ |
 
 Konsequenz: jedes reale Messgerät entnimmt der Schaltung Energie und
-verändert damit die zu messende Größe — eine systematische Messabweichung
- durch Rückwirkung; sie wird berechnet, korrigiert und ihr Restanteil ins
- Unsicherheitsbudget aufgenommen (GUM, @sec-mt-gum).
+verändert damit die zu messende Größe — eine **systematische
+Messabweichung durch Rückwirkung**; sie wird berechnet, korrigiert und ihr
+Restanteil geht ins Unsicherheitsbudget (@sec-mt-gum).
 
 ## Spannungsrichtige und stromrichtige Schaltung
 
-- **Spannungsrichtig:** Voltmeter liegt direkt am Verbraucher. Die Messabweichung rührt
-  vom Spannungsteiler aus $R_V$ und Quellenwiderstand $R_q$:
+```{python}
+U_q = MySymbol('U_q', description='Leerlaufspannung der Quelle', unit=u.volt, value=10)
+R_q = MySymbol('R_q', description='Innenwiderstand der Quelle', unit=u.ohm, value=10e3)
+R_V = MySymbol('R_V', description='Innenwiderstand des Voltmeters', unit=u.ohm, value=1e6)
+R_A = MySymbol('R_A', description='Innenwiderstand des Amperemeters', unit=u.ohm, value=1)
+QBookHelpers.print_description([U_q, R_q, R_V, R_A])
+```
 
-$$U_{mess} = U_q \cdot \frac{R_V}{R_V + R_q}, \qquad
-\delta_U = \frac{U_{mess}-U_q}{U_q} = -\frac{R_q}{R_V + R_q} \approx -\frac{R_q}{R_V}$$
+**Spannungsrichtig** — Voltmeter liegt direkt am Verbraucher; die
+Messabweichung rührt vom Spannungsteiler aus $R_V$ und $R_q$:
 
-- **Stromrichtig:** Amperemeter liegt in Reihe mit dem Verbraucher; sein
-  Widerstand verringert den Strom:
+```{python}
+U_mess = Symbol('U_{mess}')
+delta_U = Symbol(r'\delta_U')
+eq_umess = Eq(U_mess, U_q*R_V/(R_q + R_V))
+eq_du = Eq(delta_U, simplify(eq_umess.rhs/U_q - 1))
+QBookHelpers.print_equation(eq_umess, label='eq-umess')
+QBookHelpers.print_equation(eq_du, label='eq-delta-u')
+```
 
-$$I_{mess} = \frac{U_q}{R_q + R_A}, \qquad
-\delta_I = -\frac{R_A}{R_q + R_A} \approx -\frac{R_A}{R_q}$$
+**Stromrichtig** — Amperemeter liegt in Reihe; sein Widerstand verringert
+den Strom:
+
+```{python}
+I_mess = Symbol('I_{mess}')
+delta_I = Symbol(r'\delta_I')
+eq_imess = Eq(I_mess, U_q/(R_q + R_A))
+eq_di = Eq(delta_I, simplify(eq_imess.rhs*R_q/U_q - 1))
+QBookHelpers.print_equation(eq_imess, label='eq-imess')
+QBookHelpers.print_equation(eq_di, label='eq-delta-i')
+```
 
 - Faustregel: $R_V \gg R_q$ bzw. $R_A \ll R_q$ — mindestens zwei Zehnerpotenzen
   Abstand, damit die Rückwirkungsabweichung unter 1 % bleibt.
+- Zusammenspiel beider Abweichungen über dem Widerstandsverhältnis:
 
-![Relative Messabweichung durch Rückwirkung über dem Widerstandsverhältnis: die Spannungsmessung verlangt $R_V \gg R_q$, die Strommessung $R_A \ll R_q$ (eigene Darstellung, CC BY).](images/rueckwirkungsabweichung.png){#fig-rueckwirkung}
+```{python}
+#| label: fig-rueckwirkung
+#| fig-cap: 'Relative Messabweichung durch Rückwirkung: die Spannungsmessung verlangt $R_V \gg R_q$, die Strommessung $R_A \ll R_q$.'
+ratio = np.logspace(-3, 2, 300)
+delta_u_num = -ratio/(1 + ratio)*100
+delta_i_num = -(1/ratio)/(1 + 1/ratio)*100
+fig, ax = plt.subplots(figsize=(5.5, 3.2))
+ax.loglog(ratio, -delta_u_num, label='Spannungsmessung: $R_q/R_V$')
+ax.loglog(ratio, -delta_i_num, ls='--', label='Strommessung: $R_A/R_q$')
+ax.axhline(1.0, color='gray', lw=1, ls=':')
+ax.text(0.0013, 1.05, '1 %', fontsize=9, color='gray')
+ax.set_xlabel('Widerstandsverhältnis')
+ax.set_ylabel('relative Abweichung $|\\delta|$ in %')
+ax.legend(fontsize=9)
+plt.show()
+```
+
+**Rechenbeispiel** — Quelle mit $R_q = 10\,\mathrm{k\Omega}$, gemessen mit
+$R_V = 1\,\mathrm{M\Omega}$:
+
+```{python}
+U_num = U_q.value*R_V.value/(R_q.value + R_V.value)
+dU_num = (U_num/U_q.value - 1)*100
+U_v = MySymbol('U_{mess}', description='angezeigte Spannung', unit=u.volt, value=float(U_num))
+QBookHelpers.print_values([U_v])
+QBookHelpers.print_equation(Eq(delta_U, Float(dU_num, 3)), label='eq-delta-u-num')
+```
+
+Die Abweichung $\delta_U$ ist in Prozent. Mit $R_V = 10\,\mathrm{M\Omega}$
+(typisches DMM) sinkt sie auf $-0{,}1\,\%$.
+
+Wird stattdessen stromrichtig an einer Quelle mit $R_q = 100\,\Omega$ mit
+$R_A = 1\,\Omega$ gemessen:
+
+```{python}
+dI_num = (-R_A.value/(100 + R_A.value))*100
+QBookHelpers.print_equation(Eq(delta_I, Float(dI_num, 3)), label='eq-delta-i-num')
+```
 
 > **Platzhalter — Schaltbild:** übersichtliches Schaltbild mit Quelle $U_q$
 > (mit $R_q$), Verbraucher $R$, Voltmeter parallel zum Verbraucher
@@ -38,34 +97,32 @@ $$I_{mess} = \frac{U_q}{R_q + R_A}, \qquad
 
 ![Messschaltung mit Voltmeter und Amperemeter im Praktikum (Meganbeckett27, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Electric_circuit_with_voltmeter_and_ammeter.JPG))](images/Electric_circuit_with_voltmeter_and_ammeter.JPG){#fig-voltmeter-ammeter}
 
-**Rechenbeispiel.** Quelle mit $R_q = 10\,\mathrm{k\Omega}$, Voltmeter mit
-$R_V = 1\,\mathrm{M\Omega}$:
-
-$$\delta_U \approx -\frac{10\,\mathrm{k\Omega}}{1\,\mathrm{M\Omega}} = -1\,\%$$
-
-Mit $R_V = 10\,\mathrm{M\Omega}$ (typisches DMM) sinkt die Abweichung auf $-0{,}1\,\%$.
-
 ## Widerstandsmessung
 
 **Amperemeter-Voltmeter-Methode.** Aus $R = U/I$ mit zwei Schaltvarianten:
 
-- Spannungsrichtig (Amperemeter misst auch Voltmeterstrom) — geeignet
-  für kleine Widerstände ($R \ll R_V$):
+- Spannungsrichtig (Amperemeter misst auch Voltmeterstrom) — geeignet für
+  kleine Widerstände ($R \ll R_V$):
 
-$$R_{mess} = \frac{U}{I} = \frac{R\cdot R_V}{R + R_V} \approx R \quad \text{für } R \ll R_V$$
+```{python}
+R_x = Symbol('R')
+R_mess = Symbol('R_{mess}')
+QBookHelpers.print_equation(Eq(R_mess, R_x*R_V/(R_x + R_V)), label='eq-r-spannungsrichtig')
+```
 
-- Stromrichtig (Voltmeter misst auch Amperemeterspannung) — geeignet
-  für große Widerstände ($R \gg R_A$):
+- Stromrichtig (Voltmeter misst auch Amperemeterspannung) — geeignet für
+  große Widerstände ($R \gg R_A$):
 
-$$R_{mess} = R + R_A \approx R \quad \text{für } R \gg R_A$$
+```{python}
+QBookHelpers.print_equation(Eq(R_mess, R_x + R_A), label='eq-r-stromrichtig')
+```
 
 **Direkte Widerstandsmessung mit dem Multimeter.**
 
 - Das DMM speist einen konstanten Messstrom und misst den Spannungsabfall:
   $R = U_{ab}/I_{mess}$.
 - **Vierleitertechnik (4-Wire):** Messstrom fließt über eigene Zuleitungen,
-  die Spannung wird über stromlose Sensingleitungen abgegriffen — die
-  Zuleitungs- und Kontaktwiderstände fallen aus dem Ergebnis heraus.
-  Standard bei kleinen Widerständen (Shunts).
-- Hinweis: Widerstandsmessung grundsätzlich nur an spannungsfreien,
-  stromlosen Schaltungen.
+  die Spannung wird über stromlose Sensingleitungen abgegriffen — Zuleitungs-
+  und Kontaktwiderstände fallen aus dem Ergebnis heraus. Standard bei kleinen
+  Widerständen (Shunts).
+- Hinweis: Widerstandsmessung nur an spannungsfreien, stromlosen Schaltungen.

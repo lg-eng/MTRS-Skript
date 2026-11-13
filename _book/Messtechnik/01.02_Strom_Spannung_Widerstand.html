@@ -335,32 +335,87 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p>Konsequenz: jedes reale Messgerät entnimmt der Schaltung Energie und verändert damit die zu messende Größe — eine systematische Messabweichung durch Rückwirkung; sie wird berechnet, korrigiert und ihr Restanteil ins Unsicherheitsbudget aufgenommen (GUM, <a href="01.01_Einfuehrung.html#sec-mt-gum" class="quarto-xref"><span>Kapitel 1.3</span></a>).</p>
+<p>Konsequenz: jedes reale Messgerät entnimmt der Schaltung Energie und verändert damit die zu messende Größe — eine <strong>systematische Messabweichung durch Rückwirkung</strong>; sie wird berechnet, korrigiert und ihr Restanteil geht ins Unsicherheitsbudget (<a href="01.01_Einfuehrung.html#sec-mt-gum" class="quarto-xref"><span>Kapitel 1.3</span></a>).</p>
 </section>
 <section id="spannungsrichtige-und-stromrichtige-schaltung" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="spannungsrichtige-und-stromrichtige-schaltung"><span class="header-section-number">2.2</span> Spannungsrichtige und stromrichtige Schaltung</h2>
-<ul>
-<li><strong>Spannungsrichtig:</strong> Voltmeter liegt direkt am Verbraucher. Die Messabweichung rührt vom Spannungsteiler aus <span class="math inline">\(R_V\)</span> und Quellenwiderstand <span class="math inline">\(R_q\)</span>:</li>
-</ul>
-<p><span class="math display">\[U_{mess} = U_q \cdot \frac{R_V}{R_V + R_q}, \qquad
-\delta_U = \frac{U_{mess}-U_q}{U_q} = -\frac{R_q}{R_V + R_q} \approx -\frac{R_q}{R_V}\]</span></p>
-<ul>
-<li><strong>Stromrichtig:</strong> Amperemeter liegt in Reihe mit dem Verbraucher; sein Widerstand verringert den Strom:</li>
-</ul>
-<p><span class="math display">\[I_{mess} = \frac{U_q}{R_q + R_A}, \qquad
-\delta_I = -\frac{R_A}{R_q + R_A} \approx -\frac{R_A}{R_q}\]</span></p>
+<div id="9903eebe" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(U_{q}\)</span> … Leerlaufspannung der Quelle</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(R_{q}\)</span> … Innenwiderstand der Quelle</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(R_{V}\)</span> … Innenwiderstand des Voltmeters</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(R_{A}\)</span> … Innenwiderstand des Amperemeters</p>
+</div>
+</div>
+<p><strong>Spannungsrichtig</strong> — Voltmeter liegt direkt am Verbraucher; die Messabweichung rührt vom Spannungsteiler aus <span class="math inline">\(R_V\)</span> und <span class="math inline">\(R_q\)</span>:</p>
+<div id="be72708c" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-umess"><span class="math display">\[
+U_{mess} = \frac{R_{V} U_{q}}{R_{V} + R_{q}}
+\tag{2.1}\]</span></span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-delta-u"><span class="math display">\[
+\delta_{U} = - \frac{R_{q}}{R_{V} + R_{q}}
+\tag{2.2}\]</span></span></p>
+</div>
+</div>
+<p><strong>Stromrichtig</strong> — Amperemeter liegt in Reihe; sein Widerstand verringert den Strom:</p>
+<div id="d4f0cb32" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-imess"><span class="math display">\[
+I_{mess} = \frac{U_{q}}{R_{A} + R_{q}}
+\tag{2.3}\]</span></span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-delta-i"><span class="math display">\[
+\delta_{I} = - \frac{R_{A}}{R_{A} + R_{q}}
+\tag{2.4}\]</span></span></p>
+</div>
+</div>
 <ul>
 <li>Faustregel: <span class="math inline">\(R_V \gg R_q\)</span> bzw. <span class="math inline">\(R_A \ll R_q\)</span> — mindestens zwei Zehnerpotenzen Abstand, damit die Rückwirkungsabweichung unter 1 % bleibt.</li>
+<li>Zusammenspiel beider Abweichungen über dem Widerstandsverhältnis:</li>
 </ul>
+<div id="cell-fig-rueckwirkung" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
 <div id="fig-rueckwirkung" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-rueckwirkung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/rueckwirkungsabweichung.png" class="img-fluid figure-img">
+<img src="01.02_Strom_Spannung_Widerstand_files/figure-html/fig-rueckwirkung-output-1.png" width="489" height="300" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rueckwirkung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;2.1: Relative Messabweichung durch Rückwirkung über dem Widerstandsverhältnis: die Spannungsmessung verlangt <span class="math inline">\(R_V \gg R_q\)</span>, die Strommessung <span class="math inline">\(R_A \ll R_q\)</span> (eigene Darstellung, CC BY).
+Abbildung&nbsp;2.1: Relative Messabweichung durch Rückwirkung: die Spannungsmessung verlangt <span class="math inline">\(R_V \gg R_q\)</span>, die Strommessung <span class="math inline">\(R_A \ll R_q\)</span>.
 </figcaption>
 </figure>
+</div>
+</div>
+</div>
+<p><strong>Rechenbeispiel</strong> — Quelle mit <span class="math inline">\(R_q = 10\,\mathrm{k\Omega}\)</span>, gemessen mit <span class="math inline">\(R_V = 1\,\mathrm{M\Omega}\)</span>:</p>
+<div id="bb8ce4be" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math display">\[U_{mess} = \mathtt{\text{9.9}} \ \mathtt{\text{V}}\]</span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-delta-u-num"><span class="math display">\[
+\delta_{U} = -0.99
+\tag{2.5}\]</span></span></p>
+</div>
+</div>
+<p>Die Abweichung <span class="math inline">\(\delta_U\)</span> ist in Prozent. Mit <span class="math inline">\(R_V = 10\,\mathrm{M\Omega}\)</span> (typisches DMM) sinkt sie auf <span class="math inline">\(-0{,}1\,\%\)</span>.</p>
+<p>Wird stattdessen stromrichtig an einer Quelle mit <span class="math inline">\(R_q = 100\,\Omega\)</span> mit <span class="math inline">\(R_A = 1\,\Omega\)</span> gemessen:</p>
+<div id="0eb51024" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-delta-i-num"><span class="math display">\[
+\delta_{I} = -0.99
+\tag{2.6}\]</span></span></p>
+</div>
 </div>
 <blockquote class="blockquote">
 <p><strong>Platzhalter — Schaltbild:</strong> übersichtliches Schaltbild mit Quelle <span class="math inline">\(U_q\)</span> (mit <span class="math inline">\(R_q\)</span>), Verbraucher <span class="math inline">\(R\)</span>, Voltmeter parallel zum Verbraucher (spannungsrichtig) und Amperemeter in Reihe (stromrichtig), jeweils mit eingezeichnetem Innenwiderstand.</p>
@@ -375,9 +430,6 @@ Abbildung&nbsp;2.2: Messschaltung mit Voltmeter und Amperemeter im Praktikum (Me
 </figcaption>
 </figure>
 </div>
-<p><strong>Rechenbeispiel.</strong> Quelle mit <span class="math inline">\(R_q = 10\,\mathrm{k\Omega}\)</span>, Voltmeter mit <span class="math inline">\(R_V = 1\,\mathrm{M\Omega}\)</span>:</p>
-<p><span class="math display">\[\delta_U \approx -\frac{10\,\mathrm{k\Omega}}{1\,\mathrm{M\Omega}} = -1\,\%\]</span></p>
-<p>Mit <span class="math inline">\(R_V = 10\,\mathrm{M\Omega}\)</span> (typisches DMM) sinkt die Abweichung auf <span class="math inline">\(-0{,}1\,\%\)</span>.</p>
 </section>
 <section id="widerstandsmessung" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="widerstandsmessung"><span class="header-section-number">2.3</span> Widerstandsmessung</h2>
@@ -385,16 +437,28 @@ Abbildung&nbsp;2.2: Messschaltung mit Voltmeter und Amperemeter im Praktikum (Me
 <ul>
 <li>Spannungsrichtig (Amperemeter misst auch Voltmeterstrom) — geeignet für kleine Widerstände (<span class="math inline">\(R \ll R_V\)</span>):</li>
 </ul>
-<p><span class="math display">\[R_{mess} = \frac{U}{I} = \frac{R\cdot R_V}{R + R_V} \approx R \quad \text{für } R \ll R_V\]</span></p>
+<div id="dde3adbd" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-r-spannungsrichtig"><span class="math display">\[
+R_{mess} = \frac{R_{V} R}{R_{V} + R}
+\tag{2.7}\]</span></span></p>
+</div>
+</div>
 <ul>
 <li>Stromrichtig (Voltmeter misst auch Amperemeterspannung) — geeignet für große Widerstände (<span class="math inline">\(R \gg R_A\)</span>):</li>
 </ul>
-<p><span class="math display">\[R_{mess} = R + R_A \approx R \quad \text{für } R \gg R_A\]</span></p>
+<div id="7cef25f1" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-r-stromrichtig"><span class="math display">\[
+R_{mess} = R_{A} + R
+\tag{2.8}\]</span></span></p>
+</div>
+</div>
 <p><strong>Direkte Widerstandsmessung mit dem Multimeter.</strong></p>
 <ul>
 <li>Das DMM speist einen konstanten Messstrom und misst den Spannungsabfall: <span class="math inline">\(R = U_{ab}/I_{mess}\)</span>.</li>
-<li><strong>Vierleitertechnik (4-Wire):</strong> Messstrom fließt über eigene Zuleitungen, die Spannung wird über stromlose Sensingleitungen abgegriffen — die Zuleitungs- und Kontaktwiderstände fallen aus dem Ergebnis heraus. Standard bei kleinen Widerständen (Shunts).</li>
-<li>Hinweis: Widerstandsmessung grundsätzlich nur an spannungsfreien, stromlosen Schaltungen.</li>
+<li><strong>Vierleitertechnik (4-Wire):</strong> Messstrom fließt über eigene Zuleitungen, die Spannung wird über stromlose Sensingleitungen abgegriffen — Zuleitungs- und Kontaktwiderstände fallen aus dem Ergebnis heraus. Standard bei kleinen Widerständen (Shunts).</li>
+<li>Hinweis: Widerstandsmessung nur an spannungsfreien, stromlosen Schaltungen.</li>
 </ul>
 
 

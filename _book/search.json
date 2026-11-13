@@ -471,7 +471,7 @@
     "href": "Messtechnik/01.01_Einfuehrung.html",
     "title": "1  Einführung in die Messtechnik",
     "section": "",
-    "text": "1.1 Physikalische Größen und SI-Einheiten\n\\[x = \\{x\\}\\cdot[x]\\]",
+    "text": "1.1 Physikalische Größen und SI-Einheiten\n\\(x\\) … physikalische Größe = Zahlenwert mal Einheit\n\n\n\\[\nx = [x] \\{x\\}\n\\tag{1.1}\\]\n\\[\nU = \\frac{\\text{kg} \\text{m}^{2}}{\\text{A} \\text{s}^{3}}\n\\tag{1.2}\\]",
     "crumbs": [
       "Messtechnik und Sensorik",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung in die Messtechnik</span>"
@@ -482,7 +482,7 @@
     "href": "Messtechnik/01.01_Einfuehrung.html#physikalische-größen-und-si-einheiten",
     "title": "1  Einführung in die Messtechnik",
     "section": "",
-    "text": "Eine physikalische Größe ist ein Produkt aus Zahlenwert und Einheit:\n\n\n\nSieben SI-Basiseinheiten (m, kg, s, A, K, mol, cd); alle weiteren Einheiten sind daraus abgeleitet (z. B. \\(1\\,\\mathrm{V} = 1\\,\\mathrm{kg\\,m^2\\,s^{-3}\\,A^{-1}}\\)).\nHäufige Vorsätze: \\(k=10^{3}\\), \\(m=10^{-3}\\), \\(\\mu=10^{-6}\\), \\(n=10^{-9}\\), \\(p=10^{-12}\\).\n\n\n\n\n\n\n\nAbbildung 1.1: Die sieben SI-Basiseinheiten und ihre Symbole (DePiep, CC BY-SA 3.0, via Wikimedia Commons)",
+    "text": "Eine physikalische Größe ist ein Produkt aus Zahlenwert und Einheit.\nSieben SI-Basiseinheiten (m, kg, s, A, K, mol, cd); alle weiteren Einheiten sind daraus abgeleitet.\nHäufige Vorsätze: \\(k = 10^{3}\\), \\(m = 10^{-3}\\), \\(\\mu = 10^{-6}\\), \\(n = 10^{-9}\\), \\(p = 10^{-12}\\).\n\n\n\n\n\n\n\n\n\nAbbildung 1.1: Die sieben SI-Basiseinheiten und ihre Symbole (DePiep, CC BY-SA 3.0, via Wikimedia Commons)",
     "crumbs": [
       "Messtechnik und Sensorik",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung in die Messtechnik</span>"
@@ -504,7 +504,7 @@
     "href": "Messtechnik/01.01_Einfuehrung.html#sec-mt-gum",
     "title": "1  Einführung in die Messtechnik",
     "section": "1.3 Messunsicherheit nach GUM",
-    "text": "1.3 Messunsicherheit nach GUM\nDie moderne Behandlung von Messungen folgt dem Guide to the Expression of Uncertainty in Measurement (GUM, JCGM 100:2008 [1]; deutsche Einführung: JCGM 104 [2]). Kerngedanke: Es gibt nicht den „wahren Wert plus Fehler”, sondern einen Schätzwert und eine Messunsicherheit, die die Streuung der plausiblen Werte der Messgröße kennzeichnet.\n\nDie Messung wird als Modell beschrieben — Messgröße \\(Y\\) als Funktion der Eingangsgrößen \\(X_i\\) mit ihren besten Schätzwerten \\(x_i\\):\n\n\\[Y = f(X_1, X_2, \\ldots, X_N)\\]\n\nJede Eingangsgröße trägt eine Unsicherheitskomponente \\(u(x_i)\\) in das Unsicherheitsbudget ein — gleich welcher Art ihr physikalischer Einfluss ist.\nSystematische Einflüsse (Kalibrierabweichung, Rückwirkung des Messgeräts, Einflussgrößen wie Temperatur) werden nicht „weggemessen”, sondern bestimmt und korrigiert; ihr verbleibender Anteil geht ins Budget.\nGrobe Fehler (Fehlbedienung, Überlastung) sind keine Unsicherheit — sie erzeugen ungültige Messwerte: erkennen (Plausibilität), verwerfen, wiederholen.\n\n\n1.3.1 Typ-A-Bewertung: statistisch\nAus \\(n\\) wiederholten Messungen unter gleichen Bedingungen:\n\\[\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n} x_i, \\qquad\ns = \\sqrt{\\frac{1}{n-1}\\sum_{i=1}^{n} (x_i - \\bar{x})^2}\\]\nStandardunsicherheit des Mittelwerts:\n\\[u_A = u(\\bar{x}) = \\frac{s}{\\sqrt{n}}\\]\n\n\n\n\n\n\nAbbildung 1.2: Typ-A-Auswertung: Streuung wiederholter Messungen um den Mittelwert; der Abstand zum Referenzwert (z. B. Kalibrierzertifikat) ist eine systematische Messabweichung und wird korrigiert, die Streubreite geht als \\(u_A = s/\\sqrt{n}\\) ins Budget (eigene Darstellung, CC BY).\n\n\n\n\n\n1.3.2 Typ-B-Bewertung: nicht statistisch\nAus Vorwissen: Kalibrierzertifikate, Datenblätter, Erfahrungen. Liegt eine Angabe als Intervall \\(\\pm a\\) vor (gleichförmige Verteilung):\n\\[u_B = \\frac{a}{\\sqrt{3}}\\]\nBeispiel: Genauigkeitsangabe eines DMM \\(\\pm(a\\%\\ \\mathrm{v.\\,M.} + n\\ \\mathrm{digits})\\) → Grenzen \\(a\\) bestimmen, als Typ-B-Komponente ins Budget.\n\n\n1.3.3 Kombinierte und erweiterte Unsicherheit\nUnsicherheitsfortpflanzung (Modell linearisiert, Empfindlichkeitskoeffizienten \\(c_i = \\partial f/\\partial x_i\\)):\n\\[u_c(y) = \\sqrt{\\sum_{i=1}^{N} c_i^2\\, u^2(x_i)}\\]\nErweiterte Unsicherheit mit Überdeckungsfaktor \\(k = 2\\) (ca. 95 %):\n\\[U = k\\cdot u_c, \\qquad \\text{Ergebnis: } Y = (y \\pm U)\\ \\text{bei } k=2\\]",
+    "text": "1.3 Messunsicherheit nach GUM\nDie moderne Behandlung von Messungen folgt dem Guide to the Expression of Uncertainty in Measurement (GUM, JCGM 100:2008 [1]; deutsche Einführung: JCGM 104 [2]). Kerngedanke: Es gibt nicht den „wahren Wert plus Fehler”, sondern einen Schätzwert und eine Messunsicherheit, die die Streuung der plausiblen Werte der Messgröße kennzeichnet.\n\nDie Messung wird als Modell beschrieben — die Messgröße ist eine Funktion der Eingangsgrößen mit ihren besten Schätzwerten.\n\n\n\n\\(Y\\) … Messgröße (Ausgang des Messmodells)\n\n\n\\[\nY = f{\\left(X_{1},X_{2},X_{3} \\right)}\n\\tag{1.3}\\]\n\n\n\nJede Eingangsgröße trägt eine Unsicherheitskomponente in das Unsicherheitsbudget ein — gleich welcher Art ihr Einfluss ist.\nSystematische Einflüsse (Kalibrierabweichung, Rückwirkung des Messgeräts, Einflussgrößen wie Temperatur) werden bestimmt und korrigiert; ihr verbleibender Anteil geht ins Budget.\nGrobe Fehler (Fehlbedienung, Überlastung) sind keine Unsicherheit — sie erzeugen ungültige Messwerte: erkennen (Plausibilität), verwerfen, wiederholen.\n\n\n1.3.1 Typ-A-Bewertung: statistisch\nAus \\(n\\) wiederholten Messungen unter gleichen Bedingungen:\n\n\n\\[\n\\bar{x} = \\frac{\\sum_{i=1}^{n} {x}_{i}}{n}\n\\tag{1.4}\\]\n\n\n\\[\ns = \\sqrt{\\frac{\\sum_{i=1}^{n} \\left(- \\bar{x} + {x}_{i}\\right)^{2}}{n - 1}}\n\\tag{1.5}\\]\n\n\n\\[\nu_{A} = \\frac{s}{\\sqrt{n}}\n\\tag{1.6}\\]\n\n\nBeispiel — eine Messreihe von 400 Messungen einer 10-V-Referenz:\n\n\n\\[\\bar{x} = \\mathtt{\\text{10.1}} \\ \\mathtt{\\text{V}}\\]\n\n\n\\[s = \\mathtt{\\text{47.6}} \\ \\mathtt{\\text{mV}}\\]\n\n\n\\[u_{A} = \\mathtt{\\text{2.38}} \\ \\mathtt{\\text{mV}}\\]\n\n\n\n\n\n\n\n\n\n\nAbbildung 1.2: Typ-A-Auswertung: Streuung wiederholter Messungen um den Mittelwert; der Abstand zum Referenzwert ist eine systematische Messabweichung und wird korrigiert, die Streubreite geht als \\(u_A = s/\\sqrt{n}\\) ins Budget.\n\n\n\n\n\n\n\n1.3.2 Typ-B-Bewertung: nicht statistisch\nAus Vorwissen: Kalibrierzertifikate, Datenblätter, Erfahrungen. Liegt eine Angabe als Intervall \\(\\pm a\\) vor (gleichförmige Verteilung):\n\n\n\\(a\\) … halbe Breite des angegebenen Intervalls\n\n\n\\[\nu_{B} = \\frac{\\sqrt{3} a}{3}\n\\tag{1.7}\\]\n\n\nBeispiel — DMM-Angabe \\(\\pm(0{,}5\\,\\%\\,\\mathrm{v.\\,M.} + 3\\ \\mathrm{digits})\\), Anzeige 10,00 V im 10-V-Bereich (1 digit = 10 mV):\n\n\n\\[a = \\mathtt{\\text{80}} \\ \\mathtt{\\text{mV}}\\]\n\n\n\\[u_{B} = \\mathtt{\\text{46.2}} \\ \\mathtt{\\text{mV}}\\]\n\n\n\n\n1.3.3 Kombinierte und erweiterte Unsicherheit\nUnsicherheitsfortpflanzung (Modell linearisiert, Empfindlichkeitskoeffizienten \\(c_i = \\partial f/\\partial x_i\\)):\n\n\n\\[\nu_{c} = \\sqrt{\\sum_{k=1}^{N} {c}_{k}^{2} {u}_{k}^{2}}\n\\tag{1.8}\\]\n\n\n\\[\nU = k u_{c}\n\\tag{1.9}\\]\n\n\nBeides zusammen (hier \\(c_1 = c_2 = 1\\)) und Ergebnisangabe mit \\(k = 2\\) (ca. 95 % Überdeckung):\n\n\n\\[u_{c} = \\mathtt{\\text{46.2}} \\ \\mathtt{\\text{mV}}\\]\n\n\n\\[U = \\mathtt{\\text{92.5}} \\ \\mathtt{\\text{mV}}\\]\n\n\n\\[Y = (y \\pm U)\\quad\\text{bei } k = 2\\]",
     "crumbs": [
       "Messtechnik und Sensorik",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung in die Messtechnik</span>"
@@ -515,7 +515,7 @@
     "href": "Messtechnik/01.01_Einfuehrung.html#anzeige-analog-und-digital",
     "title": "1  Einführung in die Messtechnik",
     "section": "1.4 Anzeige: analog und digital",
-    "text": "1.4 Anzeige: analog und digital\n\n\n\n\n\n\n\n\n\nAnaloganzeige\nDigitalanzeige\n\n\n\n\nAblesen\nSchätzung der Zwischenwerte\neindeutige Ziffern\n\n\nDynamik\nTrends/Schwingungen gut erkennbar\nTrägheit bei schnellen Änderungen\n\n\nAuflösung\ndurch Skalenabstand begrenzt\ndurch Stellenzahl/digits begrenzt\n\n\n\n\n\n\n\n\n\nAbbildung 1.3: Analoges Multimeter (HARTIG & HELLING VM-10K): Zeigerinstrument mit Spiegelskala (Islander61, CC BY-SA 4.0, via Wikimedia Commons)\n\n\n\n\nPlatzhalter — Digitalanzeige: Nahaufnahme einer 3½-stelligen Digitalanzeige (z. B. „1999 counts” mit führender ½-Stelle), um Auflösung in digits und den Begriff Zähldisplay zu zeigen.",
+    "text": "1.4 Anzeige: analog und digital\n\n\n\n\n\n\n\n\n\nAnaloganzeige\nDigitalanzeige\n\n\n\n\nAblesen\nSchätzung der Zwischenwerte\neindeutige Ziffern\n\n\nDynamik\nTrends/Schwingungen gut erkennbar\nTrägheit bei schnellen Änderungen\n\n\nAuflösung\ndurch Skalenabstand begrenzt\ndurch Stellenzahl/digits begrenzt\n\n\n\n\n\n\n\n\n\nAbbildung 1.3: Analoges Multimeter (HARTIG & HELLING VM-10K): Zeigerinstrument mit Spiegelskala (Islander61, CC BY-SA 4.0, via Wikimedia Commons)\n\n\n\n\nPlatzhalter — Digitalanzeige: Nahaufnahme einer 3½-stelligen Digitalanzeige (z. B. „1999 counts”), um Auflösung in digits und den Begriff Zähldisplay zu zeigen.",
     "crumbs": [
       "Messtechnik und Sensorik",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung in die Messtechnik</span>"
@@ -526,7 +526,7 @@
     "href": "Messtechnik/01.01_Einfuehrung.html#auflösung-und-genauigkeit",
     "title": "1  Einführung in die Messtechnik",
     "section": "1.5 Auflösung und Genauigkeit",
-    "text": "1.5 Auflösung und Genauigkeit\n\nAuflösung: kleinste unterscheidbare Wertänderung. Digital: \\(Q = \\text{Endwert}/\\text{counts}\\) (3½-stellig: 1999 counts → Auflösung \\(\\tfrac{1}{1999}\\) des Messbereichs-Endwerts).\nGenauigkeit (analog): Genauigkeitsklasse \\(p\\) — zulässiger Anzeigefehler bezogen auf den Messbereichs-Endwert:\n\n\\[\\Delta x_{max} = \\frac{p}{100}\\cdot \\text{Endwert}\\]\n\nGenauigkeit (digital): Herstellerangabe\n\n\\[\\Delta x = \\pm\\left(a\\%\\ \\text{vom Messwert} + n\\ \\text{digits}\\right)\\]\n\nGenauigkeit ist immer kleiner als Auflösung: eine feine Anzeige kann trotzdem falsch messen.\n\n\n\n\n\n1. Joint Committee for Guides in Metrology (JCGM) (2008) Evaluation of measurement data — Guide to the expression of uncertainty in measurement (GUM). BIPM\n\n\n2. Joint Committee for Guides in Metrology (JCGM) (2011) Fortentwicklung des Leitfadens zur Angabe der Messunsicherheit (Deutsche Fassung JCGM 104:2009). Physikalisch-Technische Bundesanstalt (PTB)",
+    "text": "1.5 Auflösung und Genauigkeit\n\nAuflösung: kleinste unterscheidbare Wertänderung. Digital: \\(Q = \\text{Endwert}/\\text{counts}\\) (3½-stellig: 1999 counts).\nGenauigkeit (analog): Genauigkeitsklasse \\(p\\) — zulässige Messabweichung bezogen auf den Messbereichs-Endwert:\n\n\n\n\\(p\\) … Genauigkeitsklasse in %\n\n\n\\(x_{Endwert}\\) … Messbereichs-Endwert\n\n\n\\[\n\\Delta x_{max} = \\frac{p x_{Endwert}}{100}\n\\tag{1.10}\\]\n\n\n\nGenauigkeit (digital): Herstellerangabe\n\n\n\n\\[\n\\Delta x = \\mathrm{digit} n + \\frac{a x_{mess}}{100}\n\\tag{1.11}\\]\n\n\n\nGenauigkeit ist immer schlechter als die Auflösung: eine feine Anzeige kann trotzdem daneben messen.\n\n\n\n\n\n1. Joint Committee for Guides in Metrology (JCGM) (2008) Evaluation of measurement data — Guide to the expression of uncertainty in measurement (GUM). BIPM\n\n\n2. Joint Committee for Guides in Metrology (JCGM) (2011) Fortentwicklung des Leitfadens zur Angabe der Messunsicherheit (Deutsche Fassung JCGM 104:2009). Physikalisch-Technische Bundesanstalt (PTB)",
     "crumbs": [
       "Messtechnik und Sensorik",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung in die Messtechnik</span>"
@@ -537,7 +537,7 @@
     "href": "Messtechnik/01.02_Strom_Spannung_Widerstand.html",
     "title": "2  Strom-, Spannungs- und Widerstandsmessung",
     "section": "",
-    "text": "2.1 Ideale und reale Messgeräte\nKonsequenz: jedes reale Messgerät entnimmt der Schaltung Energie und verändert damit die zu messende Größe — eine systematische Messabweichung durch Rückwirkung; sie wird berechnet, korrigiert und ihr Restanteil ins Unsicherheitsbudget aufgenommen (GUM, Kapitel 1.3).",
+    "text": "2.1 Ideale und reale Messgeräte\nKonsequenz: jedes reale Messgerät entnimmt der Schaltung Energie und verändert damit die zu messende Größe — eine systematische Messabweichung durch Rückwirkung; sie wird berechnet, korrigiert und ihr Restanteil geht ins Unsicherheitsbudget (Kapitel 1.3).",
     "crumbs": [
       "Messtechnik und Sensorik",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Strom-, Spannungs- und Widerstandsmessung</span>"
@@ -559,7 +559,7 @@
     "href": "Messtechnik/01.02_Strom_Spannung_Widerstand.html#spannungsrichtige-und-stromrichtige-schaltung",
     "title": "2  Strom-, Spannungs- und Widerstandsmessung",
     "section": "2.2 Spannungsrichtige und stromrichtige Schaltung",
-    "text": "2.2 Spannungsrichtige und stromrichtige Schaltung\n\nSpannungsrichtig: Voltmeter liegt direkt am Verbraucher. Die Messabweichung rührt vom Spannungsteiler aus \\(R_V\\) und Quellenwiderstand \\(R_q\\):\n\n\\[U_{mess} = U_q \\cdot \\frac{R_V}{R_V + R_q}, \\qquad\n\\delta_U = \\frac{U_{mess}-U_q}{U_q} = -\\frac{R_q}{R_V + R_q} \\approx -\\frac{R_q}{R_V}\\]\n\nStromrichtig: Amperemeter liegt in Reihe mit dem Verbraucher; sein Widerstand verringert den Strom:\n\n\\[I_{mess} = \\frac{U_q}{R_q + R_A}, \\qquad\n\\delta_I = -\\frac{R_A}{R_q + R_A} \\approx -\\frac{R_A}{R_q}\\]\n\nFaustregel: \\(R_V \\gg R_q\\) bzw. \\(R_A \\ll R_q\\) — mindestens zwei Zehnerpotenzen Abstand, damit die Rückwirkungsabweichung unter 1 % bleibt.\n\n\n\n\n\n\n\nAbbildung 2.1: Relative Messabweichung durch Rückwirkung über dem Widerstandsverhältnis: die Spannungsmessung verlangt \\(R_V \\gg R_q\\), die Strommessung \\(R_A \\ll R_q\\) (eigene Darstellung, CC BY).\n\n\n\n\nPlatzhalter — Schaltbild: übersichtliches Schaltbild mit Quelle \\(U_q\\) (mit \\(R_q\\)), Verbraucher \\(R\\), Voltmeter parallel zum Verbraucher (spannungsrichtig) und Amperemeter in Reihe (stromrichtig), jeweils mit eingezeichnetem Innenwiderstand.\n\n\n\n\n\n\n\nAbbildung 2.2: Messschaltung mit Voltmeter und Amperemeter im Praktikum (Meganbeckett27, CC BY-SA 3.0, via Wikimedia Commons)\n\n\n\nRechenbeispiel. Quelle mit \\(R_q = 10\\,\\mathrm{k\\Omega}\\), Voltmeter mit \\(R_V = 1\\,\\mathrm{M\\Omega}\\):\n\\[\\delta_U \\approx -\\frac{10\\,\\mathrm{k\\Omega}}{1\\,\\mathrm{M\\Omega}} = -1\\,\\%\\]\nMit \\(R_V = 10\\,\\mathrm{M\\Omega}\\) (typisches DMM) sinkt die Abweichung auf \\(-0{,}1\\,\\%\\).",
+    "text": "2.2 Spannungsrichtige und stromrichtige Schaltung\n\n\n\\(U_{q}\\) … Leerlaufspannung der Quelle\n\n\n\\(R_{q}\\) … Innenwiderstand der Quelle\n\n\n\\(R_{V}\\) … Innenwiderstand des Voltmeters\n\n\n\\(R_{A}\\) … Innenwiderstand des Amperemeters\n\n\nSpannungsrichtig — Voltmeter liegt direkt am Verbraucher; die Messabweichung rührt vom Spannungsteiler aus \\(R_V\\) und \\(R_q\\):\n\n\n\\[\nU_{mess} = \\frac{R_{V} U_{q}}{R_{V} + R_{q}}\n\\tag{2.1}\\]\n\n\n\\[\n\\delta_{U} = - \\frac{R_{q}}{R_{V} + R_{q}}\n\\tag{2.2}\\]\n\n\nStromrichtig — Amperemeter liegt in Reihe; sein Widerstand verringert den Strom:\n\n\n\\[\nI_{mess} = \\frac{U_{q}}{R_{A} + R_{q}}\n\\tag{2.3}\\]\n\n\n\\[\n\\delta_{I} = - \\frac{R_{A}}{R_{A} + R_{q}}\n\\tag{2.4}\\]\n\n\n\nFaustregel: \\(R_V \\gg R_q\\) bzw. \\(R_A \\ll R_q\\) — mindestens zwei Zehnerpotenzen Abstand, damit die Rückwirkungsabweichung unter 1 % bleibt.\nZusammenspiel beider Abweichungen über dem Widerstandsverhältnis:\n\n\n\n\n\n\n\n\n\nAbbildung 2.1: Relative Messabweichung durch Rückwirkung: die Spannungsmessung verlangt \\(R_V \\gg R_q\\), die Strommessung \\(R_A \\ll R_q\\).\n\n\n\n\n\nRechenbeispiel — Quelle mit \\(R_q = 10\\,\\mathrm{k\\Omega}\\), gemessen mit \\(R_V = 1\\,\\mathrm{M\\Omega}\\):\n\n\n\\[U_{mess} = \\mathtt{\\text{9.9}} \\ \\mathtt{\\text{V}}\\]\n\n\n\\[\n\\delta_{U} = -0.99\n\\tag{2.5}\\]\n\n\nDie Abweichung \\(\\delta_U\\) ist in Prozent. Mit \\(R_V = 10\\,\\mathrm{M\\Omega}\\) (typisches DMM) sinkt sie auf \\(-0{,}1\\,\\%\\).\nWird stattdessen stromrichtig an einer Quelle mit \\(R_q = 100\\,\\Omega\\) mit \\(R_A = 1\\,\\Omega\\) gemessen:\n\n\n\\[\n\\delta_{I} = -0.99\n\\tag{2.6}\\]\n\n\n\nPlatzhalter — Schaltbild: übersichtliches Schaltbild mit Quelle \\(U_q\\) (mit \\(R_q\\)), Verbraucher \\(R\\), Voltmeter parallel zum Verbraucher (spannungsrichtig) und Amperemeter in Reihe (stromrichtig), jeweils mit eingezeichnetem Innenwiderstand.\n\n\n\n\n\n\n\nAbbildung 2.2: Messschaltung mit Voltmeter und Amperemeter im Praktikum (Meganbeckett27, CC BY-SA 3.0, via Wikimedia Commons)",
     "crumbs": [
       "Messtechnik und Sensorik",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Strom-, Spannungs- und Widerstandsmessung</span>"
@@ -570,7 +570,7 @@
     "href": "Messtechnik/01.02_Strom_Spannung_Widerstand.html#widerstandsmessung",
     "title": "2  Strom-, Spannungs- und Widerstandsmessung",
     "section": "2.3 Widerstandsmessung",
-    "text": "2.3 Widerstandsmessung\nAmperemeter-Voltmeter-Methode. Aus \\(R = U/I\\) mit zwei Schaltvarianten:\n\nSpannungsrichtig (Amperemeter misst auch Voltmeterstrom) — geeignet für kleine Widerstände (\\(R \\ll R_V\\)):\n\n\\[R_{mess} = \\frac{U}{I} = \\frac{R\\cdot R_V}{R + R_V} \\approx R \\quad \\text{für } R \\ll R_V\\]\n\nStromrichtig (Voltmeter misst auch Amperemeterspannung) — geeignet für große Widerstände (\\(R \\gg R_A\\)):\n\n\\[R_{mess} = R + R_A \\approx R \\quad \\text{für } R \\gg R_A\\]\nDirekte Widerstandsmessung mit dem Multimeter.\n\nDas DMM speist einen konstanten Messstrom und misst den Spannungsabfall: \\(R = U_{ab}/I_{mess}\\).\nVierleitertechnik (4-Wire): Messstrom fließt über eigene Zuleitungen, die Spannung wird über stromlose Sensingleitungen abgegriffen — die Zuleitungs- und Kontaktwiderstände fallen aus dem Ergebnis heraus. Standard bei kleinen Widerständen (Shunts).\nHinweis: Widerstandsmessung grundsätzlich nur an spannungsfreien, stromlosen Schaltungen.",
+    "text": "2.3 Widerstandsmessung\nAmperemeter-Voltmeter-Methode. Aus \\(R = U/I\\) mit zwei Schaltvarianten:\n\nSpannungsrichtig (Amperemeter misst auch Voltmeterstrom) — geeignet für kleine Widerstände (\\(R \\ll R_V\\)):\n\n\n\n\\[\nR_{mess} = \\frac{R_{V} R}{R_{V} + R}\n\\tag{2.7}\\]\n\n\n\nStromrichtig (Voltmeter misst auch Amperemeterspannung) — geeignet für große Widerstände (\\(R \\gg R_A\\)):\n\n\n\n\\[\nR_{mess} = R_{A} + R\n\\tag{2.8}\\]\n\n\nDirekte Widerstandsmessung mit dem Multimeter.\n\nDas DMM speist einen konstanten Messstrom und misst den Spannungsabfall: \\(R = U_{ab}/I_{mess}\\).\nVierleitertechnik (4-Wire): Messstrom fließt über eigene Zuleitungen, die Spannung wird über stromlose Sensingleitungen abgegriffen — Zuleitungs- und Kontaktwiderstände fallen aus dem Ergebnis heraus. Standard bei kleinen Widerständen (Shunts).\nHinweis: Widerstandsmessung nur an spannungsfreien, stromlosen Schaltungen.",
     "crumbs": [
       "Messtechnik und Sensorik",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Strom-, Spannungs- und Widerstandsmessung</span>"
@@ -618,6 +618,50 @@
     "crumbs": [
       "Messtechnik und Sensorik",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Digitale Multimeter</span>"
+    ]
+  },
+  {
+    "objectID": "Messtechnik/01.04_Kennwerte.html",
+    "href": "Messtechnik/01.04_Kennwerte.html",
+    "title": "4  Elektrische Kennwerte periodischer Signale",
+    "section": "",
+    "text": "4.1 Definitionen\nZeitabhängige Größen \\(u(t)\\), \\(i(t)\\) beschreibt man über Kennwerte, die eine ganze Periode \\(T\\) zusammenfassen — die Mittelwerte.\n\\[\n\\bar{u} = \\frac{\\int\\limits_{0}^{T} u{\\left(t \\right)}\\, dt}{T}\n\\tag{4.1}\\]\n\n\n\\[\n\\overline{|u|} = \\frac{\\int\\limits_{0}^{T} \\left|{u{\\left(t \\right)}}\\right|\\, dt}{T}\n\\tag{4.2}\\]\n\n\n\\[\nU = \\frac{\\sqrt{\\int\\limits_{0}^{T} u^{2}{\\left(t \\right)}\\, dt}}{\\sqrt{T}}\n\\tag{4.3}\\]\nAbbildung 4.1: Kennwerte am Sinus: Scheitelwert, Effektivwert und Gleichrichtwert; rechts der gleichgerichtete Verlauf mit eingezeichnetem Mittelwert.",
+    "crumbs": [
+      "Messtechnik und Sensorik",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Elektrische Kennwerte periodischer Signale</span>"
+    ]
+  },
+  {
+    "objectID": "Messtechnik/01.04_Kennwerte.html#definitionen",
+    "href": "Messtechnik/01.04_Kennwerte.html#definitionen",
+    "title": "4  Elektrische Kennwerte periodischer Signale",
+    "section": "",
+    "text": "Arithmetischer Mittelwert (Gleichwert): zur Offset-Beschreibung, null bei symmetrischen Signalen ohne Gleichanteil.\nGleichrichtwert: Mittelwert des Betrags — die Grundlage analoger Gleichrichter-Messwerke.\nEffektivwert (RMS): äquivalenter DC-Wert, der in einem Widerstand dieselbe Leistung umsetzt, \\(P = U^2/R\\).\nScheitelwert \\(\\hat{u}\\) (Maximalbetrag) und Spitze-Spitze-Wert \\(u_{ss}\\).",
+    "crumbs": [
+      "Messtechnik und Sensorik",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Elektrische Kennwerte periodischer Signale</span>"
+    ]
+  },
+  {
+    "objectID": "Messtechnik/01.04_Kennwerte.html#am-beispiel-sinus-mit-sympy-gerechnet",
+    "href": "Messtechnik/01.04_Kennwerte.html#am-beispiel-sinus-mit-sympy-gerechnet",
+    "title": "4  Elektrische Kennwerte periodischer Signale",
+    "section": "4.2 Am Beispiel Sinus — mit SymPy gerechnet",
+    "text": "4.2 Am Beispiel Sinus — mit SymPy gerechnet\nFür \\(u(t) = \\sin(2\\pi t/T)\\) liefert die Auswertung der Integrale:\n\n\n\\[\n\\bar{u} = 0\n\\tag{4.4}\\]\n\n\n\\[\n\\overline{|u|} = \\frac{2}{\\pi}\n\\tag{4.5}\\]\n\n\n\\[\nU = \\frac{\\sqrt{2}}{2}\n\\tag{4.6}\\]\n\n\nBezogen auf den Scheitelwert \\(\\hat{u}\\):\n\n\n\\[\nU = \\frac{\\sqrt{2} \\hat{u}}{2}\n\\tag{4.7}\\]\n\n\n\\[\n\\overline{|u|} = \\frac{2 \\hat{u}}{\\pi}\n\\tag{4.8}\\]\n\n\n\\[\nk_{f} = \\frac{\\sqrt{2} \\pi}{4}\n\\tag{4.9}\\]\n\n\n\\[\nk_{s} = \\sqrt{2}\n\\tag{4.10}\\]\n\n\n\n\n\n\n\n\n\n\n\nSignal\n\\(U_{eff}\\)\n\\(\\overline{|u|}\\)\n\\(k_s\\)\n\n\n\n\nSinus\n\\(\\hat{u}/\\sqrt{2} \\approx 0{,}707\\,\\hat{u}\\)\n\\(\\frac{2}{\\pi}\\hat{u} \\approx 0{,}637\\,\\hat{u}\\)\n\\(1{,}414\\)\n\n\nDreieck\n\\(\\hat{u}/\\sqrt{3}\\)\n\\(\\hat{u}/2\\)\n\\(1{,}732\\)\n\n\nRechteck\n\\(\\hat{u}\\)\n\\(\\hat{u}\\)\n\\(1\\)\n\n\n\n\nSinus: \\(k_f = \\pi/(2\\sqrt{2}) \\approx 1{,}11\\) — Gleichrichter-Messwerke skalieren den Gleichrichtwert daher mit dem Faktor 1,11 auf Sinus-RMS hoch.\n\nRechenbeispiel — Netzspannung mit \\(\\hat{u} = 325\\,\\mathrm{V}\\):\n\n\n\\[U = \\mathtt{\\text{230}} \\ \\mathtt{\\text{V}}\\]\n\n\n\\[\\overline{|u|} = \\mathtt{\\text{207}} \\ \\mathtt{\\text{V}}\\]\n\n\n\nPlatzhalter — Oszillogramm: Foto eines Oszilloskopeingangs mit Sinus- und Rechtecksignal (gleiche Amplitude), um Effektivwert- und Formfaktor-Unterschiede am realen Gerät sichtbar zu machen.",
+    "crumbs": [
+      "Messtechnik und Sensorik",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Elektrische Kennwerte periodischer Signale</span>"
+    ]
+  },
+  {
+    "objectID": "Messtechnik/01.04_Kennwerte.html#grafische-bestimmung",
+    "href": "Messtechnik/01.04_Kennwerte.html#grafische-bestimmung",
+    "title": "4  Elektrische Kennwerte periodischer Signale",
+    "section": "4.3 Grafische Bestimmung",
+    "text": "4.3 Grafische Bestimmung\n\nFlächenbetrachtung: \\(\\bar{u} = 0\\), wenn Flächen ober- und unterhalb der Zeitachse gleich groß sind (z. B. reiner Sinus ohne Offset).\nEffektivwert grafisch: quadrieren, mitteln, Wurzel ziehen — bei einfachen Verläufen (Rechteck) direkt ablesbar.\nGleichgerichtete Darstellung → Mittelwert (= Gleichrichtwert) als waagerechte Linie ablesen.",
+    "crumbs": [
+      "Messtechnik und Sensorik",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Elektrische Kennwerte periodischer Signale</span>"
     ]
   }
 ]

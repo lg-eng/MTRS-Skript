@@ -1,14 +1,26 @@
 # Einführung in die Messtechnik {#sec-mt-einfuehrung}
+{{< include ../../../../Common/QuartoBookHelpers/QuartoBookHelpers.qmd >}}
 
 ## Physikalische Größen und SI-Einheiten
 
-- Eine physikalische Größe ist ein Produkt aus Zahlenwert und Einheit:
-
-$$x = \{x\}\cdot[x]$$
-
+- Eine physikalische Größe ist ein Produkt aus Zahlenwert und Einheit.
 - Sieben SI-Basiseinheiten (m, kg, s, A, K, mol, cd); alle weiteren Einheiten
-  sind daraus abgeleitet (z. B. $1\,\mathrm{V} = 1\,\mathrm{kg\,m^2\,s^{-3}\,A^{-1}}$).
-- Häufige Vorsätze: $k=10^{3}$, $m=10^{-3}$, $\mu=10^{-6}$, $n=10^{-9}$, $p=10^{-12}$.
+  sind daraus abgeleitet.
+- Häufige Vorsätze: $k = 10^{3}$, $m = 10^{-3}$, $\mu = 10^{-6}$,
+  $n = 10^{-9}$, $p = 10^{-12}$.
+
+```{python}
+x_zw = Symbol(r'\{x\}')
+x_ein = Symbol('[x]')
+x_g = MySymbol('x', description='physikalische Größe = Zahlenwert mal Einheit')
+QBookHelpers.print_description([x_g])
+QBookHelpers.print_equation(Eq(x_g, x_zw*x_ein), label='eq-groesse')
+```
+
+```{python}
+U_base = u.convert_to(u.volt, [u.kilogram, u.meter, u.second, u.ampere])
+QBookHelpers.print_equation(Eq(Symbol('U'), U_base), label='eq-volt-basis')
+```
 
 ![Die sieben SI-Basiseinheiten und ihre Symbole (DePiep, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SI_base_units.svg))](images/SI_base_units.svg){#fig-si-units}
 
@@ -29,16 +41,22 @@ Einführung: JCGM 104 [@jcgm104_2011de]). Kerngedanke: Es gibt nicht den
 **Messunsicherheit**, die die Streuung der plausiblen Werte der Messgröße
 kennzeichnet.
 
-- Die Messung wird als Modell beschrieben — Messgröße $Y$ als Funktion der
-  Eingangsgrößen $X_i$ mit ihren besten Schätzwerten $x_i$:
+- Die Messung wird als Modell beschrieben — die Messgröße ist eine Funktion
+  der Eingangsgrößen mit ihren besten Schätzwerten.
 
-$$Y = f(X_1, X_2, \ldots, X_N)$$
+```{python}
+X_in = symbols('X_1:4')
+f_func = Function('f')
+Y_ms = MySymbol('Y', description='Messgröße (Ausgang des Messmodells)')
+QBookHelpers.print_description([Y_ms])
+QBookHelpers.print_equation(Eq(Y_ms, f_func(*X_in)), label='eq-messmodell')
+```
 
-- Jede Eingangsgröße trägt eine **Unsicherheitskomponente** $u(x_i)$ in das
-  Unsicherheitsbudget ein — gleich welcher Art ihr physikalischer Einfluss ist.
+- Jede Eingangsgröße trägt eine **Unsicherheitskomponente** in das
+  Unsicherheitsbudget ein — gleich welcher Art ihr Einfluss ist.
 - **Systematische Einflüsse** (Kalibrierabweichung, Rückwirkung des Messgeräts,
-  Einflussgrößen wie Temperatur) werden nicht „weggemessen", sondern
-  bestimmt und **korrigiert**; ihr verbleibender Anteil geht ins Budget.
+  Einflussgrößen wie Temperatur) werden bestimmt und **korrigiert**; ihr
+  verbleibender Anteil geht ins Budget.
 - **Grobe Fehler** (Fehlbedienung, Überlastung) sind *keine* Unsicherheit —
   sie erzeugen ungültige Messwerte: erkennen (Plausibilität), verwerfen,
   wiederholen.
@@ -47,35 +65,104 @@ $$Y = f(X_1, X_2, \ldots, X_N)$$
 
 Aus $n$ wiederholten Messungen unter gleichen Bedingungen:
 
-$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i, \qquad
-s = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n} (x_i - \bar{x})^2}$$
+```{python}
+n_i = Symbol('n', integer=True, positive=True)
+i_i = Symbol('i', integer=True, positive=True)
+x_i = IndexedBase('x')
+xbar = Symbol(r'\bar{x}')
+s_s = Symbol('s')
+u_A = Symbol('u_A')
+eq_mittel = Eq(xbar, Sum(x_i[i_i], (i_i, 1, n_i))/n_i)
+eq_std = Eq(s_s, sqrt(Sum((x_i[i_i] - xbar)**2, (i_i, 1, n_i))/(n_i - 1)))
+eq_uA = Eq(u_A, s_s/sqrt(n_i))
+QBookHelpers.print_equation(eq_mittel, label='eq-mittelwert')
+QBookHelpers.print_equation(eq_std, label='eq-stdabw')
+QBookHelpers.print_equation(eq_uA, label='eq-typA')
+```
 
-Standardunsicherheit des Mittelwerts:
+**Beispiel** — eine Messreihe von 400 Messungen einer 10-V-Referenz:
 
-$$u_A = u(\bar{x}) = \frac{s}{\sqrt{n}}$$
+```{python}
+rng = np.random.default_rng(42)
+messreihe = rng.normal(10.08, 0.05, 400)
+n_mess = len(messreihe)
+xbar_num = np.mean(messreihe)
+s_num = np.std(messreihe, ddof=1)
+uA_num = s_num/np.sqrt(n_mess)
+```
 
-![Typ-A-Auswertung: Streuung wiederholter Messungen um den Mittelwert; der Abstand zum Referenzwert (z. B. Kalibrierzertifikat) ist eine systematische Messabweichung und wird korrigiert, die Streubreite geht als $u_A = s/\sqrt{n}$ ins Budget (eigene Darstellung, CC BY).](images/messunsicherheit_typA.png){#fig-messunsicherheit}
+```{python}
+xbar_v = MySymbol(r'\bar{x}', description='Mittelwert der Messreihe', unit=u.volt, value=float(xbar_num))
+s_v = MySymbol('s', description='Standardabweichung der Einzelmessung', unit=u.volt, value=float(s_num))
+uA_v = MySymbol(r'u_A', description='Standardunsicherheit des Mittelwerts (Typ A)', unit=u.volt, value=float(uA_num))
+QBookHelpers.print_values([xbar_v, s_v, uA_v])
+```
+
+```{python}
+#| label: fig-messunsicherheit
+#| fig-cap: 'Typ-A-Auswertung: Streuung wiederholter Messungen um den Mittelwert; der Abstand zum Referenzwert ist eine systematische Messabweichung und wird korrigiert, die Streubreite geht als $u_A = s/\sqrt{n}$ ins Budget.'
+fig, ax = plt.subplots(figsize=(5.5, 3.2))
+ax.hist(messreihe, bins=24, color='#5a8fd6', edgecolor='white', label='Messwerte $x_i$')
+ax.axvline(10.0, color='#2e7d32', lw=2, label='Referenzwert $x_{ref}$')
+ax.axvline(xbar_num, color='#d62728', lw=2, ls='--', label='Mittelwert $\\bar{x}$')
+ax.set_xlabel('Messwert $x$ in V')
+ax.set_ylabel('Häufigkeit')
+ax.legend(framealpha=0.9, fontsize=9)
+plt.show()
+```
 
 ### Typ-B-Bewertung: nicht statistisch
 
 Aus Vorwissen: Kalibrierzertifikate, Datenblätter, Erfahrungen.
 Liegt eine Angabe als Intervall $\pm a$ vor (gleichförmige Verteilung):
 
-$$u_B = \frac{a}{\sqrt{3}}$$
+```{python}
+a_b = MySymbol('a', description='halbe Breite des angegebenen Intervalls')
+u_B = Symbol('u_B')
+QBookHelpers.print_description([a_b])
+QBookHelpers.print_equation(Eq(u_B, a_b/sqrt(3)), label='eq-typB')
+```
 
-Beispiel: Genauigkeitsangabe eines DMM $\pm(a\%\ \mathrm{v.\,M.} + n\ \mathrm{digits})$
-→ Grenzen $a$ bestimmen, als Typ-B-Komponente ins Budget.
+**Beispiel** — DMM-Angabe $\pm(0{,}5\,\%\,\mathrm{v.\,M.} + 3\ \mathrm{digits})$,
+Anzeige 10,00 V im 10-V-Bereich (1 digit = 10 mV):
+
+```{python}
+a_num = 0.005*10 + 3*0.01
+uB_num = a_num/sqrt(3)
+a_v = MySymbol('a', description='halbe Intervallbreite der Angabe', unit=u.volt, value=float(a_num))
+uB_v = MySymbol(r'u_B', description='Standardunsicherheit (Typ B)', unit=u.volt, value=float(uB_num))
+QBookHelpers.print_values([a_v, uB_v])
+```
 
 ### Kombinierte und erweiterte Unsicherheit
 
 Unsicherheitsfortpflanzung (Modell linearisiert, Empfindlichkeitskoeffizienten
 $c_i = \partial f/\partial x_i$):
 
-$$u_c(y) = \sqrt{\sum_{i=1}^{N} c_i^2\, u^2(x_i)}$$
+```{python}
+N_k = Symbol('N', integer=True, positive=True)
+k_i = Symbol('k', integer=True, positive=True)
+c_ib = IndexedBase('c')
+u_ib = IndexedBase('u')
+u_c = Symbol('u_c')
+K_k = Symbol('k')
+U_e = Symbol('U')
+QBookHelpers.print_equation(Eq(u_c, sqrt(Sum((c_ib[k_i]*u_ib[k_i])**2, (k_i, 1, N_k)))), label='eq-kombiniert')
+QBookHelpers.print_equation(Eq(U_e, K_k*u_c), label='eq-erweitert')
+```
 
-Erweiterte Unsicherheit mit Überdeckungsfaktor $k = 2$ (ca. 95 %):
+Beides zusammen (hier $c_1 = c_2 = 1$) und Ergebnisangabe mit $k = 2$
+(ca. 95 % Überdeckung):
 
-$$U = k\cdot u_c, \qquad \text{Ergebnis: } Y = (y \pm U)\ \text{bei } k=2$$
+```{python}
+uc_num = np.sqrt(float(uA_num)**2 + float(uB_num)**2)
+U_num = 2*uc_num
+uc_v = MySymbol(r'u_c', description='kombinierte Standardunsicherheit', unit=u.volt, value=float(uc_num))
+U_v = MySymbol('U', description='erweiterte Unsicherheit (k = 2)', unit=u.volt, value=float(U_num))
+QBookHelpers.print_values([uc_v, U_v])
+```
+
+$$Y = (y \pm U)\quad\text{bei } k = 2$$
 
 ## Anzeige: analog und digital
 
@@ -88,21 +175,32 @@ $$U = k\cdot u_c, \qquad \text{Ergebnis: } Y = (y \pm U)\ \text{bei } k=2$$
 ![Analoges Multimeter (HARTIG & HELLING VM-10K): Zeigerinstrument mit Spiegelskala (Islander61, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Analog_multimeter_HARTIG_%26_HELLING_VM-10K.jpg))](images/Analog_multimeter_HARTIG_HELLING_VM-10K.jpg){#fig-analog-multimeter width=420px}
 
 > **Platzhalter — Digitalanzeige:** Nahaufnahme einer 3½-stelligen
-> Digitalanzeige (z. B. „1999 counts" mit führender ½-Stelle), um Auflösung
-> in digits und den Begriff Zähldisplay zu zeigen.
+> Digitalanzeige (z. B. „1999 counts"), um Auflösung in digits und den
+> Begriff Zähldisplay zu zeigen.
 
 ## Auflösung und Genauigkeit
 
-- **Auflösung:** kleinste unterscheidbare Wertänderung. Digital: $Q = \text{Endwert}/\text{counts}$
-  (3½-stellig: 1999 counts → Auflösung $\tfrac{1}{1999}$ des Messbereichs-Endwerts).
-- **Genauigkeit (analog):** Genauigkeitsklasse $p$ — zulässiger Anzeigefehler bezogen
-  auf den Messbereichs-Endwert:
+- **Auflösung:** kleinste unterscheidbare Wertänderung. Digital:
+  $Q = \text{Endwert}/\text{counts}$ (3½-stellig: 1999 counts).
+- **Genauigkeit (analog):** Genauigkeitsklasse $p$ — zulässige Messabweichung
+  bezogen auf den Messbereichs-Endwert:
 
-$$\Delta x_{max} = \frac{p}{100}\cdot \text{Endwert}$$
+```{python}
+p_kl = MySymbol('p', description='Genauigkeitsklasse in %')
+x_end = MySymbol(r'x_{Endwert}', description='Messbereichs-Endwert')
+dx_max = Symbol(r'\Delta x_{max}')
+QBookHelpers.print_description([p_kl, x_end])
+QBookHelpers.print_equation(Eq(dx_max, p_kl/100*x_end), label='eq-klasse')
+```
 
 - **Genauigkeit (digital):** Herstellerangabe
 
-$$\Delta x = \pm\left(a\%\ \text{vom Messwert} + n\ \text{digits}\right)$$
+```{python}
+a_prz = Symbol('a')
+n_dig = Symbol('n')
+x_mess = Symbol(r'x_{mess}')
+QBookHelpers.print_equation(Eq(Symbol(r'\Delta x'), a_prz/100*x_mess + n_dig*Symbol(r'\mathrm{digit}')), label='eq-dmm-genauigkeit')
+```
 
-- Genauigkeit ist immer kleiner als Auflösung: eine feine Anzeige kann trotzdem
-  falsch messen.
+- Genauigkeit ist immer schlechter als die Auflösung: eine feine Anzeige kann
+  trotzdem daneben messen.
