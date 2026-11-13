@@ -42,6 +42,7 @@ book:
     - part: Anhang/xx_Appendix.qmd
       chapters: 
         - Anhang/xx_Anhang_RLC_Analysis.qmd 
+        - Anhang/xx_Jahresplanung.qmd
 #        - SteuerRegel/Laplace.qmd
 #    - references.qmd
 

@@ -1,0 +1,222 @@
+# Jahresplan: Wochenweise Lehrstoffverteilung MTRS {#sec-jahresplan}
+
+Basis: `Lehrstoffverteilung MTRS monatsweise_NEU.csv` (monatsweise Verteilung)
+und dieses Skript (Aufbau siehe `_quarto.yml`).
+
+Ziel: Die monatsweise Lehrstoffverteilung auf die Unterrichtswochen eines
+österreichischen (Tiroler) Schuljahres abbilden — unabhängig vom konkreten
+Kalenderjahr. Es wird mit Schulwochen W1–W37 gerechnet; in einem konkreten
+Schuljahr werden die Positionen der Ferienwochen anhand des Ferienkalenders
+der Bildungsdirektion Tirol zugeordnet und das Raster um die verschobenen
+Wochen gestaucht/gestreckt.
+
+## 1. Grundannahmen
+
+- **Jahrgänge / Wochenstunden:** 2.–4. Jahrgang je 2 UE, 5. Jahrgang 3 UE pro Woche.
+- **Unterrichtswochen:** Ein Tiroler Schuljahr (Anfang September bis Anfang Juli) umfasst
+  ~37 Wochen, davon ~31–33 Unterrichtswochen (Herbst-, Weihnachts-, Semester- und
+  Osterferien sowie verkürzte Feiertagswochen: Allerheiligen, 1. Mai, Christi
+  Himmelfahrt, Fronleichnam, Pfingsten).
+- **Monatsgrenzen als Richtwerte:** Der CSV-Zuordnung „Monat X = Thema Y" folgt das
+  Wochenraster ungefähr; jedes Thema wird so verteilt, dass vor Ferien ein kleiner
+  Abschluss (Wiederholung / Anwendung / Test) passt.
+- **Wiederkehrendes Wochenraster (2 UE):**
+  - UE 1: 5–10 Wiederholungsfragen (ca. 5 Minuten), danach neuer Stoff
+    (Theorie, passender Skript-Teil)
+  - UE 2: Anwendung (Rechenbeispiele, Labor, Simulation)
+- **Wiederkehrendes Wochenraster (3 UE, 5. Jg):**
+  - UE 1: 5–10 Wiederholungsfragen, danach Theorie
+  - UE 2: Übung/Simulation, UE 3: Praktikum/Labor oder Projektarbeit
+- **Leistungsfeststellungen (Rhythmus):**
+  - **Jede Woche:** Wiederholungsfragen (5–10 Stück), mündlich oder kurz schriftlich,
+    über Stoff der Vorwochen — deckt den Stoff kontinuierlich ab.
+  - **Alle 14 Tage:** unangesagte Mitarbeitsüberprüfung (~5 Minuten), also in jeder
+    zweiten Unterrichtswoche, nicht in Ferien-/Feiertagswochen.
+  - **2 Tests pro Semester** (ca. 15 Minuten) = 4 pro Jahr:
+    Semester 1: W4 und W12–W13; Semester 2: W24 und W30. Kurz genug, um in einer
+    Doppel-Einheit mit Vor- und Nachbereitung zu bleiben; jeweils vor Ferien-/Stichtagen.
+  - 5. Jahrgang: Tests Nr. 1–2 im 1. Halbjahr; im 2. Halbjahr tragen Projekt und
+    Matura die Leistungsmessung (ggf. ein zusätzlicher 15-Minuten-Test vor Ostern).
+- Kein neuer Stoff in der letzten Woche vor Weihnachten und Sommer; die letzte UE
+  einer Themen-Einheit endet mit Anwendung/Wiederholung, nie mit einer angekündigten
+  neuen Theorie.
+
+## 2. Schuljahres-Gerüst (Tirol, generisch)
+
+| Woche | ca. Zeitraum | Besonderheit |
+|---|---|---|
+| W1 | Anfang September | Unterrichtsbeginn (Tirol i. d. R. 8.–14. September) |
+| W2 | September | |
+| W3 | Mitte September | |
+| W4 | Ende September | ggf. schulautonome Tage |
+| W5 | Anfang Oktober | |
+| W6 | Mitte Oktober | |
+| W7 | Ende Oktober | **Herbstferien** |
+| W8 | Anfang November | **Allerheiligen** (verkürzte Woche) |
+| W9 | November | |
+| W10 | Mitte November | |
+| W11 | Ende November | |
+| W12 | Anfang Dezember | |
+| W13 | Mitte Dezember | letzter Stoffblock vor Weihnachten |
+| W14 | Ende Dezember | **Weihnachtsferien** (Woche 1) |
+| W15 | Anfang Januar | **Weihnachtsferien** (Woche 2, bis ~6. Jänner) |
+| W16 | Jänner | |
+| W17 | Mitte Jänner | Stichtage (Zwischeninformationen, Kollegium) |
+| W18 | Ende Jänner | |
+| W19 | Anfang Februar | |
+| W20 | ~Mitte Februar | **Semesterferien** (1 Woche) |
+| W21 | Ende Februar | |
+| W22 | Anfang März | |
+| W23 | März | |
+| W24 | Mitte März | letzte volle Woche vor Ostern |
+| W25 | ~Ende März | **Osterferien** (Woche 1) |
+| W26 | ~Anfang April | **Osterferien** (Woche 2) |
+| W27 | April (nach Ostern) | |
+| W28 | Mitte April | |
+| W29 | Anfang Mai | **1. Mai** (verlängertes Wochenende) |
+| W30 | Mai | |
+| W31 | Mitte Mai | **Christi Himmelfahrt / Fronleichnam** (verkürzte Wochen) |
+| W32 | Ende Mai | schriftliche Matura-Fenster (5. Jg) |
+| W33 | Anfang Juni | **Pfingsten** (verlängertes Wochenende) |
+| W34 | Juni | |
+| W35 | Mitte Juni | |
+| W36 | Ende Juni | Notenabschluss, Zeugnis |
+| W37 | ~Anfang Juli | **Sommerferien** (Tirol: ab 2. Julihälfte) |
+
+Die genauen Positionen von Herbst-, Weihnachts-, Semester-, Osterferien und den
+Feiertagsbrücken wandern je Schuljahr um ±1–2 Wochen — die thematischen Blöcke aus
+Abschnitt 3 verschieben sich entsprechend mit.
+
+Über das ganze Jahr laufen drei feste Rituale, unabhängig vom Themenblock:
+
+- **Jede Unterrichtswoche:** 5–10 Wiederholungsfragen (Beginn der ersten UE,
+  ~5 Minuten, Stoff der Vorwochen).
+- **Jede zweite Unterrichtswoche** (= alle 14 Tage): unangesagte
+  Mitarbeitsüberprüfung (~5 Minuten, schriftlich, kleiner Stoffausschnitt der
+  letzten 2–3 Wochen). In verkürzten Feiertagswochen entfällt sie; in
+  Ferienwochen fällt sie aus. Empfohlene Termine: W2, W4*, W6, W8*, W10, W12–13,
+  W16, W18, W19*, W21, W23, W27, W29*, W30, W33, W35 (* = wo ohnehin ein
+  15-Minuten-Test stattfindet, entfällt die Mitarbeitsüberprüfung oder wird mit
+  ihm kombiniert).
+- **Tests (15 Minuten):** W4 und W12–W13 (Semester 1), W24 und W30 (Semester 2).
+
+## 3. Verteilung je Jahrgang
+
+Ferien-/Feiertagswochen aus dem Gerüst sind bereits berücksichtigt (kürzere
+Blöcke); „Wx–Wy" fasst fortlaufende Unterrichtswochen zusammen. W19 und W21
+zusammen ergeben den Februar (W20 = Semesterferien). Die wiederkehrenden
+Elemente aus Abschnitt 2 laufen in allen Jahrgängen parallel; die Tabellen
+nennen nur die themenspezifischen Tests.
+
+### 3.1 2. Jahrgang (2 UE) — Messtechnik-Grundlagen, Oszilloskopie, Sensorik
+
+| Wochen | Thema / Inhalte |
+|---|---|
+| W1–W4 | **Einführung Messtechnik**: SI-Einheiten; Messunsicherheit; Analog- und Digitalanzeige, Auflösung, Genauigkeit (Kapitel @sec-mt-einfuehrung). W4: Wiederholung + Test Nr. 1 |
+| W5–W7 | **Strom-, Spannungs- und Widerstandsmessung**: Innenwiderstand der Messgeräte, strom- und spannungsrichtige Schaltung, Rechenbeispiele; Labor-Messübungen (Kapitel @sec-mt-strom-spannung) |
+| W8–W10 | **Digitale Multimeter**: Blockschaltbild, Messwerke (Grundlagen), Funktionsweise (Kapitel @sec-mt-dmm) |
+| W12–W13 | **Elektrische Kennwerte**: arithmetischer Mittelwert, quadratischer Mittelwert, Effektivwert, Gleichrichtwert — rechnerisch und grafisch (Kapitel @sec-mt-kennwerte). W13: Wiederholung + Test Nr. 2 |
+| W16–W18 | **Analogoszilloskop**: grundlegende Funktionsweise, Baugruppen, y-t- und x-y-Betrieb, Anwendungsbeispiele |
+| W19 + W21 | **Digitales Speicheroszilloskop**: Funktionsweise, Baugruppen, Betriebsarten, Sampling, Anwendungen; Zubehör (Tastkopf); Oszilloskop-Labor |
+| W22–W24 | **Messbrücken**: Funktionsweise, Vor- und Nachteile, Arten, Anwendungen, Rechenbeispiele. W24: Test Nr. 3 (vor Ostern) |
+| W27–W28 | **Sensorik — Grundlagen**: nichtelektrische Größen, Messkette, normierte Größen, passive und aktive Sensoren |
+| W29–W30 | **Sensorik — Anwendungen**: konkrete Sensortypen (je nach Vorwissen in GET und EDT), praktische Anwendungen. W30: Test Nr. 4 |
+| W33–W36 | **Sensorik — Vertiefung**: genauere Betrachtung, Instrumentenverstärker (Schaltung und Eigenschaften). W36: Jahreswiederholung |
+
+### 3.2 3. Jahrgang (2 UE) — Frequenz-/Periodenmessung, ADW/DAW, Drehstrom, Antrieb, Leistungselektronik
+
+| Wochen | Thema / Inhalte |
+|---|---|
+| W1–W4 | **Frequenzmessung**: Messprinzipien, Absolut- und Vergleichsmessung, Messabweichungen, Genauigkeit, Baugruppen. W4: Test Nr. 1 |
+| W5–W7 | **Periodendauermessung**: Messprinzipien, Blockschaltbild, Messabweichungen, Genauigkeit; Zusammenspiel Frequenz/Periode praktisch |
+| W8–W10 | **ADW–DAW — Grundlagen** (optional CLIL): Kenngrößen: Auflösung, Genauigkeit, Quantisierungsfehler, Linearität, … |
+| W12–W13 | **DAW-Schaltungen**: R-2R-Netzwerk, interpolierender DAW, PWM. W13: Wiederholung + Test Nr. 2 |
+| W16–W18 | **ADW-Schaltungen** (CLIL-Vertiefung): Sukzessive Approximation, Sigma-Delta-Verfahren, Rampenverfahren, Parallelwandler |
+| W19 + W21 | **Drehstrom**: Erzeugung (PV), Verbraucher, Verkettungsfaktor, Leistungen, Stern-Dreieckschaltung |
+| W22–W24 | **Antriebstechnik I**: theoretische Grundlagen, Übersicht Bauarten, DC-Motor (bürstenlos und bürstenbehaftet), Schrittmotoren. W24: Test Nr. 3 |
+| W27–W28 | **Antriebstechnik II**: Wechselstrommotoren (einphasig und Drehstrom), Linearantrieb, Roboter |
+| W29–W30 | **Leistungselektronik**: Übersicht, Bauteile, Anwendungen (Stromversorgungen, Umrichter, USV, …). W30: Test Nr. 4 |
+| W33–W36 | **Sensorik (weiterführend)**: komplexere Sensoren, Rechenbeispiele. W36: Jahreswiederholung |
+
+### 3.3 4. Jahrgang (2 UE) — Maschinensicherheit, SPS, Feldbus, Bildverarbeitung, Regelung
+
+| Wochen | Thema / Inhalte |
+|---|---|
+| W1–W4 | **Maschinensicherheit**: Begriff „sicher", Redundanz, Eigensicherheit (Fail-Safe), Anwendungsbeispiele, Sicherheitseinrichtungen, Risikoanalyse. W4: Test Nr. 1 |
+| W5–W7 | **SPS I**: Einführung, steuerungstechnische Grundlagen, Zyklusaufbau, Programmiersprachen |
+| W8–W10 | **SPS II**: Anwendungsbeispiel, Signalbehandlung (Peripherie), Soft-SPS (Industrie-PC), Embedded Systems |
+| W12–W13 | **Feldbussysteme I**: Grundlagen, Auswahlkriterien (Topologie, Verbreitung, Teilnehmerzahl, …), Eigenschaften, Hardware. W13: Wiederholung + Test Nr. 2 |
+| W16–W18 | **Feldbussysteme II**: konkrete Systeme (AS-i, CAN-Bus, Interbus, Profibus, Ethernet-basierende Systeme), Übertragungseigenschaften |
+| W19 + W21 | **Industrielle Bildverarbeitung I**: Einführung, Kamerasysteme (digital/analog), Beleuchtung, optische Grundlagen (Wiederholung), Bildvorverarbeitung |
+| W22–W24 | **Industrielle Bildverarbeitung II**: Anwendungen (Objekterkennung, Maßprüfung, Klartexterkennung, Strichcodes, …). W24: Test Nr. 3 |
+| W27–W28 | **Regelungstechnik — Signal- und Systembeschreibung** |
+| W29–W30 | **Regelungstechnik — analoge Regelkreise**: mathematische Behandlung (grundlegend), stetige und unstetige (Zwei-/Dreipunkt-)Regler. W30: Test Nr. 4 |
+| W33–W36 | **Regelungstechnik — Einführung/Vertiefung**: Darstellung im Blockschaltbild, P-, I-, D-Verhalten, Regelkreis mit und ohne Ausgleich; Ergänzung ausgefallener Themen; Jahreswiederholung |
+
+### 3.4 5. Jahrgang (3 UE) — Digitale Regelung, Automatisierung, Matura
+
+3 UE: UE 1 Theorie, UE 2 Übung/Simulation, UE 3 Labor/Projekt. Leistungen:
+Test Nr. 1–3 plus schriftliche/mündliche Matura.
+
+| Wochen | Thema / Inhalte |
+|---|---|
+| W1–W4 | **Digitale Regelkreise I**: mathematische Behandlung, Wiederholung ADW–DAW, Anwendungsbeispiel, eingesetzte Rechner |
+| W5–W7 | **Digitale Regelkreise II**: Vertiefung mathematische Behandlung, Anwendungen; Labor: digitale/diskrete Regler. W7: Test Nr. 1 |
+| W8–W10 | **Simulation und Modellierung**: Regelsysteme modellieren und simulieren |
+| W12–W13 | **Computerunterstützte Messsysteme / IoT**. W13: Test Nr. 2 |
+| W16–W18 | **Automatisierungstechnik — Anwendungsbeispiel I**: Zusammenspiel der kennengelernten Komponenten (SPS + Feldbus + Sensorik + Regler) |
+| W19 + W21 | **Automatisierungstechnik — Anwendungsbeispiel II**: Vertiefung, Erweiterung des Beispiels |
+| W22–W24 | **Automatisierungstechnik — Projekt**: Labor-/Projektarbeit als zusammenfassende Anwendung. W24: Test Nr. 3 |
+| W27–W28 | **Wiederholung**: Einfügen nicht behandelter oder wichtiger Themenkreise; Festlegung Matura-Schwerpunkte |
+| W29–W32 | **Matura-Phase**: schriftliche Matura (Ende Mai), mündliche Vorbereitung, Präsentation der Projektarbeit |
+| W33–W36 | **Matura / Nachbereitung**: mündliche Prüfungen, Auswertung, Notenabschluss |
+
+### 3.5 Zusätzliche Spalte der CSV (ohne Überschrift — zu klären)
+
+Die CSV enthält neben den vier Jahrgängen eine Spalte ohne Überschrift mit
+Inhalten **Logikanalyse** (Sep/Okt), **Filter** (Nov/Dez), **Spektrumanalyse**
+(Jän) und dem Platzhalter „h" (Feb). Vermutlich eine zweite Klasse/Fachrichtung
+parallel zum 5. Jahrgang. Vorschlag (analog zum 3-UE-Raster):
+
+| Wochen | Thema |
+|---|---|
+| W1–W7 | **Logikanalyse**: Blockschaltbild, wesentliche Unterschiede zu anderen bildgebenden Messgeräten (Oszilloskop), Hardware (Proben, Speicher, Signalaufbereitung, …); Darstellungs- und Anzeigemöglichkeiten, Anwendungsbeispiele, praktische Einsatzgebiete |
+| W8–W13 | **Filter — Grundlagen und Schaltungen**: mathematische Behandlung, beispielhafte Behandlung konkreter Schaltungen; Anwendungsgebiete, Vor- und Nachteile. W13: Test |
+| W16–W18 | **Spektrumanalyse**: Grundlagen, Blockschaltbild, Anwendungsbeispiele, FFT-Analyse |
+| W19–W36 | frei für Labor, Wiederholung, Vertiefung (bis zur Klärung der Zuordnung) |
+
+## 4. Anknüpfung an dieses Skript
+
+| Skript-Kapitel | Wochenbezug |
+|---|---|
+| Einführung in die Messtechnik (@sec-mt-einfuehrung) | 2. Jg W1–W4 |
+| Strom-, Spannungs- und Widerstandsmessung (@sec-mt-strom-spannung) | 2. Jg W5–W7 |
+| Digitale Multimeter (@sec-mt-dmm) | 2. Jg W8–W10 |
+| Elektrische Kennwerte (@sec-mt-kennwerte) | 2. Jg W12–W13 |
+| Frequenz und Periode | 3. Jg W1–W7 |
+| Datenanalyse | 5. Jg W12–W13 (IoT/MQTT) |
+| Regelungstechnik | 4. Jg W27–W36, 5. Jg W1–W13 |
+| RLC-Analyse im Anhang | Querbezug zu Filter (@sec-jahresplan) und Oszilloskopie |
+
+**Noch nicht im Skript** (Empfehlung: in der Reihenfolge des Unterrichtseinsatzes
+anlegen): Oszilloskopie und Messbrücken (2. Jg, W16–W24), Sensorik (2./3. Jg),
+ADW/DAW (3. Jg, W8–W18), Antriebstechnik und Leistungselektronik (3. Jg),
+Maschinensicherheit, SPS, Feldbus, Bildverarbeitung (4. Jg), digitale
+Regelkreise (5. Jg).
+
+## 5. Anmerkungen zur CSV (Bereinigungs- und Klärungsbedarf)
+
+1. **5. Jg Sep + Okt identisch** („Regelungstechnik: Digitale Regelkreise …"): im Vorschlag
+   entzerrt zu Digitale Regelkreise I (W1–W4) und II (W5–W7).
+2. **4. Jg Juni** „Regelungstechnik: Einführung, Blockschaltbild, P-/I-/D-Verhalten …"
+   steht nach April (Signal-/Systembeschreibung) und Mai (analoge Regelkreise) —
+   wirkt wie die alte Einführungs-Reihenfolge. Im Vorschlag: April/Mai Stoff vertieft,
+   Juni als Wiederholung/Einführung im Blockschaltbild-Format geführt. Prüfen, ob die
+   Reihenfolge im CSV bewusst so gemeint ist.
+3. **3. Jg Dez + Jän identisch** (ADW/DAW-Schaltungen): entzerrt — Dezember = DAW-Schaltungen,
+   Jänner = ADW-Schaltungen inkl. CLIL.
+4. **5. Jg Feb „h"**: Platzhalter/Tippfehler; im Vorschlag als Automatisierungstechnik-Vertiefung geführt.
+5. **8. Spalte ohne Überschrift** (Logikanalyse, Filter, Spektrumanalyse): Zuordnung klären
+   (Klasse? Fachrichtung? eigenes Subjekt?) und Überschrift ergänzen.
+6. Kleinere Tippfehler im Original (z. B. „Etehrnetbasierende", „Anendungsbeispiel",
+   „Verbereitung") — bei Gelegenheit in der CSV korrigieren.
