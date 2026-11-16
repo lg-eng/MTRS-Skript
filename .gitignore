@@ -4,3 +4,4 @@
 **/*.quarto_ipynb_*
 .venv/
 uv.lock
+/_book/
