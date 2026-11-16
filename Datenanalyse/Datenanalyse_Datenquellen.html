@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Datenquellen – MTRS-Skript</title>
+<title>7&nbsp; Datenquellen – MTRS-Skript</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -71,15 +77,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-a81e59445572cdd197c6d70b794e35b6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -141,7 +146,7 @@ cookieconsent.run({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Datenanalyse/01_Datenanalyse.html">Datenanalyse - Data Analysis</a></li><li class="breadcrumb-item"><a href="../Datenanalyse/Datenanalyse_Datenquellen.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Datenquellen</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Datenanalyse/01_Datenanalyse.html">Datenanalyse - Data Analysis</a></li><li class="breadcrumb-item"><a href="../Datenanalyse/Datenanalyse_Datenquellen.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Datenquellen</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -154,9 +159,7 @@ cookieconsent.run({
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">MTRS-Skript</a> 
         <div class="sidebar-tools-main">
@@ -188,8 +191,38 @@ cookieconsent.run({
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Messtechnik/Frequenz_und_Periode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Messung der Zeit, Frequenz und Periode</span></span></a>
+  <a href="../Messtechnik/01.01_Einfuehrung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Einführung in die Messtechnik</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.02_Strom_Spannung_Widerstand.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Strom-, Spannungs- und Widerstandsmessung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.03_Digitales_Multimeter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Digitale Multimeter</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.04_Kennwerte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Elektrische Kennwerte periodischer Signale</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.05_Frequenz_und_Periode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Frequenz- und Periodenmessung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.06_ADW_DAW.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ADW–DAW — Grundlagen und Kenngrößen</span></span></a>
   </div>
 </li>
       </ul>
@@ -206,13 +239,13 @@ cookieconsent.run({
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Datenanalyse/Datenanalyse_Datenquellen.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Datenquellen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Datenquellen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Datenanalyse/Datenanalyse_Darstellungsformen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></span></a>
   </div>
 </li>
       </ul>
@@ -229,7 +262,7 @@ cookieconsent.run({
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
   </div>
 </li>
       </ul>
@@ -246,7 +279,13 @@ cookieconsent.run({
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Anhang/xx_Jahresplanung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
   </div>
 </li>
       </ul>
@@ -261,27 +300,26 @@ cookieconsent.run({
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#csv-dateien" id="toc-csv-dateien" class="nav-link active" data-scroll-target="#csv-dateien"><span class="header-section-number">2.1</span> CSV-Dateien</a>
+  <li><a href="#csv-dateien" id="toc-csv-dateien" class="nav-link active" data-scroll-target="#csv-dateien"><span class="header-section-number">7.1</span> CSV-Dateien</a>
   <ul>
-  <li><a href="#einlesen-von-csv-dateien" id="toc-einlesen-von-csv-dateien" class="nav-link" data-scroll-target="#einlesen-von-csv-dateien"><span class="header-section-number">2.1.1</span> Einlesen von CSV-Dateien</a></li>
+  <li><a href="#einlesen-von-csv-dateien" id="toc-einlesen-von-csv-dateien" class="nav-link" data-scroll-target="#einlesen-von-csv-dateien"><span class="header-section-number">7.1.1</span> Einlesen von CSV-Dateien</a></li>
   </ul></li>
-  <li><a href="#bild" id="toc-bild" class="nav-link" data-scroll-target="#bild"><span class="header-section-number">2.2</span> Bild</a></li>
-  <li><a href="#restful-api" id="toc-restful-api" class="nav-link" data-scroll-target="#restful-api"><span class="header-section-number">2.3</span> RESTful API</a>
+  <li><a href="#bild" id="toc-bild" class="nav-link" data-scroll-target="#bild"><span class="header-section-number">7.2</span> Bild</a></li>
+  <li><a href="#restful-api" id="toc-restful-api" class="nav-link" data-scroll-target="#restful-api"><span class="header-section-number">7.3</span> RESTful API</a>
   <ul>
-  <li><a href="#einlesen-von-daten-einer-restful-api" id="toc-einlesen-von-daten-einer-restful-api" class="nav-link" data-scroll-target="#einlesen-von-daten-einer-restful-api"><span class="header-section-number">2.3.1</span> Einlesen von Daten einer RESTful API</a></li>
+  <li><a href="#einlesen-von-daten-einer-restful-api" id="toc-einlesen-von-daten-einer-restful-api" class="nav-link" data-scroll-target="#einlesen-von-daten-einer-restful-api"><span class="header-section-number">7.3.1</span> Einlesen von Daten einer RESTful API</a></li>
   </ul></li>
-  <li><a href="#datenbanken" id="toc-datenbanken" class="nav-link" data-scroll-target="#datenbanken"><span class="header-section-number">2.4</span> Datenbanken</a></li>
-  <li><a href="#mqtt" id="toc-mqtt" class="nav-link" data-scroll-target="#mqtt"><span class="header-section-number">2.5</span> MQTT</a></li>
-  <li><a href="#weiterführende-links" id="toc-weiterführende-links" class="nav-link" data-scroll-target="#weiterführende-links"><span class="header-section-number">2.6</span> Weiterführende Links</a></li>
+  <li><a href="#datenbanken" id="toc-datenbanken" class="nav-link" data-scroll-target="#datenbanken"><span class="header-section-number">7.4</span> Datenbanken</a></li>
+  <li><a href="#weiterführende-links" id="toc-weiterführende-links" class="nav-link" data-scroll-target="#weiterführende-links"><span class="header-section-number">7.5</span> Weiterführende Links</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Datenanalyse/01_Datenanalyse.html">Datenanalyse - Data Analysis</a></li><li class="breadcrumb-item"><a href="../Datenanalyse/Datenanalyse_Datenquellen.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Datenquellen</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Datenanalyse/01_Datenanalyse.html">Datenanalyse - Data Analysis</a></li><li class="breadcrumb-item"><a href="../Datenanalyse/Datenanalyse_Datenquellen.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Datenquellen</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-data-sources" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Datenquellen</span></span></h1>
+<h1 class="title"><span id="sec-data-sources" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Datenquellen</span></span></h1>
 </div>
 
 
@@ -354,8 +392,8 @@ Ein großteil der Arbeit eines Data Scientists besteht darin, Daten aus den vers
 </ul></li>
 </ul>
 <p>Eine kleine Auswahl an Datenquellen wird im Folgenden vorgestellt und gezeigt, wie sie mittels Python eingelesen werden können.</p>
-<section id="csv-dateien" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="csv-dateien"><span class="header-section-number">2.1</span> CSV-Dateien</h2>
+<section id="csv-dateien" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="csv-dateien"><span class="header-section-number">7.1</span> CSV-Dateien</h2>
 <p>CSV-Dateien sind Textdateien, die Daten in Tabellenform speichern. CSV steht für Comma Separated Values. Die Werte in einer Zeile sind durch ein Trennzeichen getrennt, meistens ein Komma. Das Trennzeichen kann aber auch ein Semikolon oder ein Tabulator sein. Ein Beispiel für eine CSV-Datei könnte so aussehen:</p>
 <pre><code>-5.056e-02,0.0599999,0.00399998
 -5.040e-02,0.0599999,0.012
@@ -389,11 +427,11 @@ TIME,CH1,CH2
 -5.024e-02,0.0599999,0.012
 -5.008e-02,0.0599999,0.012</code></pre>
 <p>Diese <em>Header Zeilen</em> müssen beim einlesen ignoriert werden. Werden Informationen daraus benötigt, müssen sie explizit ausgelesen werden.</p>
-<section id="einlesen-von-csv-dateien" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="einlesen-von-csv-dateien"><span class="header-section-number">2.1.1</span> Einlesen von CSV-Dateien</h3>
+<section id="einlesen-von-csv-dateien" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="einlesen-von-csv-dateien"><span class="header-section-number">7.1.1</span> Einlesen von CSV-Dateien</h3>
 <p>Da <em>CSV</em> ein sehr weit verbreitetes Format ist, gibt es auch in Python viele Möglichkeiten, CSV-Dateien einzulesen. In diesem Dokument wird die Bibliothek <em>pandas</em> verwendet. Als Datensatz werden Daten eines Oszilloskops verwendet. Die Datei TEK00003.CSV ist auf GitHub zu finden.<br>
 Zuerst wird die Datei mit einem Texteditor geöffnet, um sich einen Überblick über die Struktur zu verschaffen und festzustellen, ob es <em>Header Zeilen</em> gibt. In diesem Fall gibt es 15 Zeilen, die ignoriert werden müssen.</p>
-<div id="03026d32" class="cell" data-execution_count="1">
+<div id="251105d3" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co"># Importieren der Bibliothek pandas</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'TEK00003.CSV'</span>,skiprows<span class="op">=</span><span class="dv">15</span>) <span class="co"># Einlesen der Datei und überspringen der ersten 15 Zeilen</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>display(df) <span class="co"># Ausgabe</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
@@ -488,10 +526,10 @@ Zuerst wird die Datei mit einem Texteditor geöffnet, um sich einen Überblick �
 <p>Als Testdaten kann zum Beispiel die Statistik der Programmiersprachen auf GitHub verwendet werden. <a href="https://github.com/github/innovationgraph/blob/main/data/languages.csv">Global-metrics programming-languages</a></p>
 </section>
 </section>
-<section id="bild" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="bild"><span class="header-section-number">2.2</span> Bild</h2>
+<section id="bild" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="bild"><span class="header-section-number">7.2</span> Bild</h2>
 <p>Es soll ein Bild eingelesen und die RGB in einem Pandas DataFrame gespeichert werden.</p>
-<div id="4cd6fcf6" class="cell" data-execution_count="2">
+<div id="1af5dcbd" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.image <span class="im">as</span> mpimg</span>
@@ -587,18 +625,18 @@ Zuerst wird die Datei mit einem Texteditor geöffnet, um sich einen Überblick �
 </div>
 </div>
 </section>
-<section id="restful-api" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="restful-api"><span class="header-section-number">2.3</span> RESTful API</h2>
+<section id="restful-api" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="restful-api"><span class="header-section-number">7.3</span> RESTful API</h2>
 <p>Eine RESTful API ist eine Schnittstelle, die auf dem HTTP-Protokoll basiert und die CRUD-Operationen (Create, Read, Update, Delete) unterstützt. Viele Webseiten und Dienste bieten eine RESTful API an, um Daten abzurufen oder zu speichern. Beispiele dafür sind soziale Netzwerke wie X oder Facebook, Wetterdienste wie OpenWeatherMap oder Finanzdienste.</p>
-<section id="einlesen-von-daten-einer-restful-api" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="einlesen-von-daten-einer-restful-api"><span class="header-section-number">2.3.1</span> Einlesen von Daten einer RESTful API</h3>
+<section id="einlesen-von-daten-einer-restful-api" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="einlesen-von-daten-einer-restful-api"><span class="header-section-number">7.3.1</span> Einlesen von Daten einer RESTful API</h3>
 <p>In diesem Beispiel wird die RESTful API von <em>jsonplaceholder</em> verwendet. Diese API stellt Testdaten zur Verfügung.</p>
-<div id="f04097fc" class="cell" data-execution_count="3">
+<div id="b5b58264" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://jsonplaceholder.typicode.com/posts'</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url, timeout<span class="op">=</span><span class="dv">10</span>) <span class="co"># Timeout: Chunk blockiert sonst bei fehlender Netzwerkverbindung</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> response.json()</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>display(df.head())</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
@@ -660,79 +698,61 @@ Zuerst wird die Datei mit einem Texteditor geöffnet, um sich einen Überblick �
 </div>
 </section>
 </section>
-<section id="datenbanken" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="datenbanken"><span class="header-section-number">2.4</span> Datenbanken</h2>
+<section id="datenbanken" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="datenbanken"><span class="header-section-number">7.4</span> Datenbanken</h2>
 <p>Datenbanken sind ein mächtiges Werkzeug um Daten zu speichern und zu verwalten. Deren Aufbau und die Funktion wird an dieser Stelle nicht weiter erläutert und auf die entsprechende Unterrichtsfächer verwiesen.</p>
+<!-- MQTT-Beispiel ausgeklammert: der verlinkte Test-Broker ist nicht mehr
+     erreichbar, damit hängt die Ausführung der Zelle beim connection timeout.
+     Bei aktualisierter Broker-Adresse wieder einkommentieren.
+## MQTT
+MQTT ist ein leichtgewichtiges Protokoll, das für die Kommunikation zwischen Geräten in einem Netzwerk entwickelt wurde. Es wird oft in IoT-Anwendungen verwendet. In diesem Beispiel wird die Bibliothek *paho-mqtt* verwendet.
+
+::: {#82d9c55d .cell execution_count=4}
+``` {.python .cell-code code-fold="false"}
+import paho.mqtt.client as mqtt #import the mqtt client
+import pandas as pd #import the pandas library
+import time #import the time library
+import json #import the json library
+from datetime import datetime, timedelta, date #import the datetime library
+
+def on_connect(client, userdata, flags, rc): #define the on_connect function
+    client.subscribe("test") #subscribe to the test topic, replace with your own topic
+
+def on_message(client, userdata, msg): #define the on_message function
+    global val #make the val variable global
+    val = msg.payload.decode() #decode the message
+
+val = None #initialize the val variable
+df = pd.DataFrame() #initialize the dataframe
+client = mqtt.Client() #create a new mqtt client
+client.on_connect = on_connect #set the on_connect function
+client.on_message = on_message #set the on_message function
+
+mqtt_server_url = "test.mosquitto.org" #define the mqtt server url
+client.connect(mqtt_server_url, 1883, 60) #connect to the mqtt server
+
+client.loop_start() #start the loop
+vals = [] #initialize the vals list
+timestamps = [] #initialize the timestamps list
+for i in range(2): #run the loop for x times resulting in x messages being received
+    while val is None: #wait for the message to be received
+        time.sleep(0.1) #sleep for 0.1 seconds
+    timestamps.append(datetime.now()) #get the current date and time
+    vals.append(val) #load the json message
+    val = None #reset the val variable
+
+df = pd.DataFrame(vals, index=timestamps) #create the dataframe
+   
+client.loop_stop() #stop the loop
+display(df) #display the dataframe
+```
+:::
+
+
+-->
 </section>
-<section id="mqtt" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="mqtt"><span class="header-section-number">2.5</span> MQTT</h2>
-<p>MQTT ist ein leichtgewichtiges Protokoll, das für die Kommunikation zwischen Geräten in einem Netzwerk entwickelt wurde. Es wird oft in IoT-Anwendungen verwendet. In diesem Beispiel wird die Bibliothek <em>paho-mqtt</em> verwendet.</p>
-<div id="431682db" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> paho.mqtt.client <span class="im">as</span> mqtt <span class="co">#import the mqtt client</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co">#import the pandas library</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time <span class="co">#import the time library</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json <span class="co">#import the json library</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime, timedelta, date <span class="co">#import the datetime library</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> on_connect(client, userdata, flags, rc): <span class="co">#define the on_connect function</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    client.subscribe(<span class="st">"test"</span>) <span class="co">#subscribe to the test topic, replace with your own topic</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> on_message(client, userdata, msg): <span class="co">#define the on_message function</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> val <span class="co">#make the val variable global</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    val <span class="op">=</span> msg.payload.decode() <span class="co">#decode the message</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>val <span class="op">=</span> <span class="va">None</span> <span class="co">#initialize the val variable</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame() <span class="co">#initialize the dataframe</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> mqtt.Client() <span class="co">#create a new mqtt client</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>client.on_connect <span class="op">=</span> on_connect <span class="co">#set the on_connect function</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>client.on_message <span class="op">=</span> on_message <span class="co">#set the on_message function</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>mqtt_server_url <span class="op">=</span> <span class="st">"test.mosquitto.org"</span> <span class="co">#define the mqtt server url</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>client.<span class="ex">connect</span>(mqtt_server_url, <span class="dv">1883</span>, <span class="dv">60</span>) <span class="co">#connect to the mqtt server</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>client.loop_start() <span class="co">#start the loop</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>vals <span class="op">=</span> [] <span class="co">#initialize the vals list</span></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>timestamps <span class="op">=</span> [] <span class="co">#initialize the timestamps list</span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>): <span class="co">#run the loop for x times resulting in x messages being received</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> val <span class="kw">is</span> <span class="va">None</span>: <span class="co">#wait for the message to be received</span></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="fl">0.1</span>) <span class="co">#sleep for 0.1 seconds</span></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    timestamps.append(datetime.now()) <span class="co">#get the current date and time</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    vals.append(val) <span class="co">#load the json message</span></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    val <span class="op">=</span> <span class="va">None</span> <span class="co">#reset the val variable</span></span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(vals, index<span class="op">=</span>timestamps) <span class="co">#create the dataframe</span></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>client.loop_stop() <span class="co">#stop the loop</span></span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>display(df) <span class="co">#display the dataframe</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">0</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">2026-10-01 08:30:21.085203</th>
-<td>{"command":1,"timestamp":1736014549,"node_id":...</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">2026-10-01 08:30:22.089272</th>
-<td>{"command":1,"timestamp":1736014549,"node_id":...</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</section>
-<section id="weiterführende-links" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="weiterführende-links"><span class="header-section-number">2.6</span> Weiterführende Links</h2>
+<section id="weiterführende-links" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="weiterführende-links"><span class="header-section-number">7.5</span> Weiterführende Links</h2>
 <p><a href="https://pandas.pydata.org/pandas-docs/stable/reference/io.html">Pandas Input/Output</a></p>
 
 
@@ -1147,7 +1167,7 @@ Zuerst wird die Datei mit einem Texteditor geöffnet, um sich einen Überblick �
   </div>
   <div class="nav-page nav-page-next">
       <a href="../Datenanalyse/Datenanalyse_Darstellungsformen.html" class="pagination-link" aria-label="Darstellungsformen von Daten">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

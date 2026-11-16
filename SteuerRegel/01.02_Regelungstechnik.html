@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Regelungstechnik – MTRS-Skript</title>
+<title>9&nbsp; Regelungstechnik – MTRS-Skript</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -71,15 +77,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-a81e59445572cdd197c6d70b794e35b6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -129,7 +134,7 @@ cookieconsent.run({
 <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -169,7 +174,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../SteuerRegel/01_SteuerRegel.html">Steuer- und Regelungstechnik</a></li><li class="breadcrumb-item"><a href="../SteuerRegel/01.02_Regelungstechnik.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../SteuerRegel/01_SteuerRegel.html">Steuer- und Regelungstechnik</a></li><li class="breadcrumb-item"><a href="../SteuerRegel/01.02_Regelungstechnik.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -182,9 +187,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">MTRS-Skript</a> 
         <div class="sidebar-tools-main">
@@ -216,8 +219,38 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Messtechnik/Frequenz_und_Periode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Messung der Zeit, Frequenz und Periode</span></span></a>
+  <a href="../Messtechnik/01.01_Einfuehrung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Einführung in die Messtechnik</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.02_Strom_Spannung_Widerstand.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Strom-, Spannungs- und Widerstandsmessung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.03_Digitales_Multimeter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Digitale Multimeter</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.04_Kennwerte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Elektrische Kennwerte periodischer Signale</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.05_Frequenz_und_Periode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Frequenz- und Periodenmessung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.06_ADW_DAW.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ADW–DAW — Grundlagen und Kenngrößen</span></span></a>
   </div>
 </li>
       </ul>
@@ -234,13 +267,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Datenanalyse/Datenanalyse_Datenquellen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Datenquellen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Datenquellen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Datenanalyse/Datenanalyse_Darstellungsformen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></span></a>
   </div>
 </li>
       </ul>
@@ -257,7 +290,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
   </div>
 </li>
       </ul>
@@ -274,7 +307,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Anhang/xx_Jahresplanung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
   </div>
 </li>
       </ul>
@@ -289,57 +328,106 @@ window.Quarto = {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#warum-wir-regeln" id="toc-warum-wir-regeln" class="nav-link active" data-scroll-target="#warum-wir-regeln"><span class="header-section-number">4.1</span> Warum wir regeln</a></li>
-  <li><a href="#gängige-begriffe-der-regelungstechnik" id="toc-gängige-begriffe-der-regelungstechnik" class="nav-link" data-scroll-target="#gängige-begriffe-der-regelungstechnik"><span class="header-section-number">4.2</span> Gängige Begriffe der Regelungstechnik</a></li>
-  <li><a href="#wie-wir-regeln---der-standardregelkreis" id="toc-wie-wir-regeln---der-standardregelkreis" class="nav-link" data-scroll-target="#wie-wir-regeln---der-standardregelkreis"><span class="header-section-number">4.3</span> Wie wir regeln - Der Standardregelkreis</a>
+  <li><a href="#warum-wir-regeln" id="toc-warum-wir-regeln" class="nav-link active" data-scroll-target="#warum-wir-regeln"><span class="header-section-number">9.1</span> Warum wir regeln</a></li>
+  <li><a href="#gängige-begriffe-der-regelungstechnik" id="toc-gängige-begriffe-der-regelungstechnik" class="nav-link" data-scroll-target="#gängige-begriffe-der-regelungstechnik"><span class="header-section-number">9.2</span> Gängige Begriffe der Regelungstechnik</a></li>
+  <li><a href="#wie-wir-regeln---der-standardregelkreis" id="toc-wie-wir-regeln---der-standardregelkreis" class="nav-link" data-scroll-target="#wie-wir-regeln---der-standardregelkreis"><span class="header-section-number">9.3</span> Wie wir regeln - Der Standardregelkreis</a>
   <ul>
-  <li><a href="#reglertypen" id="toc-reglertypen" class="nav-link" data-scroll-target="#reglertypen"><span class="header-section-number">4.3.1</span> Reglertypen</a></li>
+  <li><a href="#reglertypen" id="toc-reglertypen" class="nav-link" data-scroll-target="#reglertypen"><span class="header-section-number">9.3.1</span> Reglertypen</a></li>
   </ul></li>
-  <li><a href="#unstetige-regler" id="toc-unstetige-regler" class="nav-link" data-scroll-target="#unstetige-regler"><span class="header-section-number">4.4</span> Unstetige Regler</a>
+  <li><a href="#unstetige-regler" id="toc-unstetige-regler" class="nav-link" data-scroll-target="#unstetige-regler"><span class="header-section-number">9.4</span> Unstetige Regler</a>
   <ul>
-  <li><a href="#zweipunktregler" id="toc-zweipunktregler" class="nav-link" data-scroll-target="#zweipunktregler"><span class="header-section-number">4.4.1</span> Zweipunktregler</a></li>
+  <li><a href="#zweipunktregler" id="toc-zweipunktregler" class="nav-link" data-scroll-target="#zweipunktregler"><span class="header-section-number">9.4.1</span> Zweipunktregler</a></li>
   </ul></li>
-  <li><a href="#stetige-regler" id="toc-stetige-regler" class="nav-link" data-scroll-target="#stetige-regler"><span class="header-section-number">4.5</span> Stetige Regler</a>
+  <li><a href="#stetige-regler" id="toc-stetige-regler" class="nav-link" data-scroll-target="#stetige-regler"><span class="header-section-number">9.5</span> Stetige Regler</a>
   <ul>
-  <li><a href="#der-pid-regler" id="toc-der-pid-regler" class="nav-link" data-scroll-target="#der-pid-regler"><span class="header-section-number">4.5.1</span> Der PID Regler</a>
+  <li><a href="#der-pid-regler" id="toc-der-pid-regler" class="nav-link" data-scroll-target="#der-pid-regler"><span class="header-section-number">9.5.1</span> Der PID Regler</a>
   <ul class="collapse">
-  <li><a href="#vorraussetzungen-für-die-verwendung-eines-pid-reglers" id="toc-vorraussetzungen-für-die-verwendung-eines-pid-reglers" class="nav-link" data-scroll-target="#vorraussetzungen-für-die-verwendung-eines-pid-reglers"><span class="header-section-number">4.5.1.1</span> Vorraussetzungen für die Verwendung eines PID Reglers</a></li>
+  <li><a href="#vorraussetzungen-für-die-verwendung-eines-pid-reglers" id="toc-vorraussetzungen-für-die-verwendung-eines-pid-reglers" class="nav-link" data-scroll-target="#vorraussetzungen-für-die-verwendung-eines-pid-reglers"><span class="header-section-number">9.5.1.1</span> Vorraussetzungen für die Verwendung eines PID Reglers</a></li>
   </ul></li>
-  <li><a href="#die-übertragungsfunktion" id="toc-die-übertragungsfunktion" class="nav-link" data-scroll-target="#die-übertragungsfunktion"><span class="header-section-number">4.5.2</span> Die Übertragungsfunktion</a>
+  <li><a href="#die-übertragungsfunktion" id="toc-die-übertragungsfunktion" class="nav-link" data-scroll-target="#die-übertragungsfunktion"><span class="header-section-number">9.5.2</span> Die Übertragungsfunktion</a>
   <ul class="collapse">
-  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation"><span class="header-section-number">4.5.2.1</span> Motivation</a></li>
-  <li><a href="#sec-Streckenidentifikation" id="toc-sec-Streckenidentifikation" class="nav-link" data-scroll-target="#sec-Streckenidentifikation"><span class="header-section-number">4.5.2.2</span> Streckenidentifikation</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation"><span class="header-section-number">9.5.2.1</span> Motivation</a></li>
+  <li><a href="#sec-Streckenidentifikation" id="toc-sec-Streckenidentifikation" class="nav-link" data-scroll-target="#sec-Streckenidentifikation"><span class="header-section-number">9.5.2.2</span> Streckenidentifikation</a></li>
   </ul></li>
-  <li><a href="#sec-MathStreckenidentifikation" id="toc-sec-MathStreckenidentifikation" class="nav-link" data-scroll-target="#sec-MathStreckenidentifikation"><span class="header-section-number">4.5.3</span> Mathematische Streckenidentifikation</a></li>
-  <li><a href="#sec-MessStreckenidentifikation" id="toc-sec-MessStreckenidentifikation" class="nav-link" data-scroll-target="#sec-MessStreckenidentifikation"><span class="header-section-number">4.5.4</span> Messtechnische Streckenidentifikation</a></li>
-  <li><a href="#sec-Laplace" id="toc-sec-Laplace" class="nav-link" data-scroll-target="#sec-Laplace"><span class="header-section-number">4.5.5</span> Die Laplace Transformation</a>
+  <li><a href="#sec-MathStreckenidentifikation" id="toc-sec-MathStreckenidentifikation" class="nav-link" data-scroll-target="#sec-MathStreckenidentifikation"><span class="header-section-number">9.5.3</span> Mathematische Streckenidentifikation</a></li>
+  <li><a href="#sec-MessStreckenidentifikation" id="toc-sec-MessStreckenidentifikation" class="nav-link" data-scroll-target="#sec-MessStreckenidentifikation"><span class="header-section-number">9.5.4</span> Messtechnische Streckenidentifikation</a></li>
+  <li><a href="#sec-Laplace" id="toc-sec-Laplace" class="nav-link" data-scroll-target="#sec-Laplace"><span class="header-section-number">9.5.5</span> Die Laplace Transformation</a>
   <ul class="collapse">
-  <li><a href="#warum-laplace" id="toc-warum-laplace" class="nav-link" data-scroll-target="#warum-laplace"><span class="header-section-number">4.5.5.1</span> Warum Laplace</a></li>
-  <li><a href="#laplacetransformation" id="toc-laplacetransformation" class="nav-link" data-scroll-target="#laplacetransformation"><span class="header-section-number">4.5.5.2</span> Laplacetransformation</a></li>
+  <li><a href="#warum-laplace" id="toc-warum-laplace" class="nav-link" data-scroll-target="#warum-laplace"><span class="header-section-number">9.5.5.1</span> Warum Laplace</a></li>
+  <li><a href="#laplacetransformation" id="toc-laplacetransformation" class="nav-link" data-scroll-target="#laplacetransformation"><span class="header-section-number">9.5.5.2</span> Laplacetransformation</a></li>
   </ul></li>
-  <li><a href="#sec-TestStrecke" id="toc-sec-TestStrecke" class="nav-link" data-scroll-target="#sec-TestStrecke"><span class="header-section-number">4.5.6</span> Testsignale und Streckenverhalten</a>
+  <li><a href="#sec-TestStrecke" id="toc-sec-TestStrecke" class="nav-link" data-scroll-target="#sec-TestStrecke"><span class="header-section-number">9.5.6</span> Testsignale und Streckenverhalten</a>
   <ul class="collapse">
-  <li><a href="#testsignale" id="toc-testsignale" class="nav-link" data-scroll-target="#testsignale"><span class="header-section-number">4.5.6.1</span> Testsignale</a></li>
-  <li><a href="#streckenverhalten" id="toc-streckenverhalten" class="nav-link" data-scroll-target="#streckenverhalten"><span class="header-section-number">4.5.6.2</span> Streckenverhalten</a></li>
-  <li><a href="#identifikation" id="toc-identifikation" class="nav-link" data-scroll-target="#identifikation"><span class="header-section-number">4.5.6.3</span> Identifikation</a></li>
+  <li><a href="#testsignale" id="toc-testsignale" class="nav-link" data-scroll-target="#testsignale"><span class="header-section-number">9.5.6.1</span> Testsignale</a></li>
+  <li><a href="#streckenverhalten" id="toc-streckenverhalten" class="nav-link" data-scroll-target="#streckenverhalten"><span class="header-section-number">9.5.6.2</span> Streckenverhalten</a></li>
+  <li><a href="#identifikation" id="toc-identifikation" class="nav-link" data-scroll-target="#identifikation"><span class="header-section-number">9.5.6.3</span> Identifikation</a></li>
   </ul></li>
-  <li><a href="#zusammenschaltung-von-blöcken" id="toc-zusammenschaltung-von-blöcken" class="nav-link" data-scroll-target="#zusammenschaltung-von-blöcken"><span class="header-section-number">4.5.7</span> Zusammenschaltung von Blöcken</a>
+  <li><a href="#zusammenschaltung-von-blöcken" id="toc-zusammenschaltung-von-blöcken" class="nav-link" data-scroll-target="#zusammenschaltung-von-blöcken"><span class="header-section-number">9.5.7</span> Zusammenschaltung von Blöcken</a>
   <ul class="collapse">
-  <li><a href="#die-führungsübertragungsfunktion" id="toc-die-führungsübertragungsfunktion" class="nav-link" data-scroll-target="#die-führungsübertragungsfunktion"><span class="header-section-number">4.5.7.1</span> Die Führungsübertragungsfunktion</a></li>
-  <li><a href="#die-schleifenübertragungsfunktion" id="toc-die-schleifenübertragungsfunktion" class="nav-link" data-scroll-target="#die-schleifenübertragungsfunktion"><span class="header-section-number">4.5.7.2</span> Die Schleifenübertragungsfunktion</a></li>
-  <li><a href="#die-störübertragungsfunktion" id="toc-die-störübertragungsfunktion" class="nav-link" data-scroll-target="#die-störübertragungsfunktion"><span class="header-section-number">4.5.7.3</span> Die Störübertragungsfunktion</a></li>
+  <li><a href="#die-führungsübertragungsfunktion" id="toc-die-führungsübertragungsfunktion" class="nav-link" data-scroll-target="#die-führungsübertragungsfunktion"><span class="header-section-number">9.5.7.1</span> Die Führungsübertragungsfunktion</a></li>
+  <li><a href="#die-schleifenübertragungsfunktion" id="toc-die-schleifenübertragungsfunktion" class="nav-link" data-scroll-target="#die-schleifenübertragungsfunktion"><span class="header-section-number">9.5.7.2</span> Die Schleifenübertragungsfunktion</a></li>
+  <li><a href="#die-störübertragungsfunktion" id="toc-die-störübertragungsfunktion" class="nav-link" data-scroll-target="#die-störübertragungsfunktion"><span class="header-section-number">9.5.7.3</span> Die Störübertragungsfunktion</a></li>
   </ul></li>
-  <li><a href="#interaktiver-pid-simulator" id="toc-interaktiver-pid-simulator" class="nav-link" data-scroll-target="#interaktiver-pid-simulator"><span class="header-section-number">4.5.8</span> Interaktiver PID Simulator</a></li>
+  <li><a href="#interaktiver-pid-simulator" id="toc-interaktiver-pid-simulator" class="nav-link" data-scroll-target="#interaktiver-pid-simulator"><span class="header-section-number">9.5.8</span> Interaktiver PID Simulator</a></li>
   </ul></li>
+  <li><a href="#sec-Sprungantworten" id="toc-sec-Sprungantworten" class="nav-link" data-scroll-target="#sec-Sprungantworten"><span class="header-section-number">9.6</span> Von der Sprungantwort zur Übertragungsfunktion</a></li>
+  <li><a href="#die-toolbox-der-standardglieder" id="toc-die-toolbox-der-standardglieder" class="nav-link" data-scroll-target="#die-toolbox-der-standardglieder"><span class="header-section-number">9.7</span> Die Toolbox der Standardglieder</a>
+  <ul>
+  <li><a href="#pt1-glied-verzögerung-1.-ordnung-ein-reeller-pol" id="toc-pt1-glied-verzögerung-1.-ordnung-ein-reeller-pol" class="nav-link" data-scroll-target="#pt1-glied-verzögerung-1.-ordnung-ein-reeller-pol"><span class="header-section-number">9.7.1</span> PT1-Glied — Verzögerung 1. Ordnung (ein reeller Pol)</a></li>
+  <li><a href="#pt2-glied-aperiodisch-zwei-reelle-pole-in-reihe" id="toc-pt2-glied-aperiodisch-zwei-reelle-pole-in-reihe" class="nav-link" data-scroll-target="#pt2-glied-aperiodisch-zwei-reelle-pole-in-reihe"><span class="header-section-number">9.7.2</span> PT2-Glied, aperiodisch — zwei reelle Pole in Reihe</a></li>
+  <li><a href="#pt2-glied-unterdämpft-konjugiert-komplexes-polpaar" id="toc-pt2-glied-unterdämpft-konjugiert-komplexes-polpaar" class="nav-link" data-scroll-target="#pt2-glied-unterdämpft-konjugiert-komplexes-polpaar"><span class="header-section-number">9.7.3</span> PT2-Glied, unterdämpft — konjugiert komplexes Polpaar</a></li>
+  <li><a href="#i-glied-integrierer-pol-im-ursprung" id="toc-i-glied-integrierer-pol-im-ursprung" class="nav-link" data-scroll-target="#i-glied-integrierer-pol-im-ursprung"><span class="header-section-number">9.7.4</span> I-Glied — Integrierer (Pol im Ursprung)</a></li>
+  <li><a href="#i-pt1-integrierer-mit-verzögerung" id="toc-i-pt1-integrierer-mit-verzögerung" class="nav-link" data-scroll-target="#i-pt1-integrierer-mit-verzögerung"><span class="header-section-number">9.7.5</span> I + PT1 — Integrierer mit Verzögerung</a></li>
+  <li><a href="#tt-glied-totzeit-transportverzögerung" id="toc-tt-glied-totzeit-transportverzögerung" class="nav-link" data-scroll-target="#tt-glied-totzeit-transportverzögerung"><span class="header-section-number">9.7.6</span> Tt-Glied — Totzeit (Transportverzögerung)</a></li>
+  <li><a href="#nullstellen-differenzierende-d-wirkung" id="toc-nullstellen-differenzierende-d-wirkung" class="nav-link" data-scroll-target="#nullstellen-differenzierende-d-wirkung"><span class="header-section-number">9.7.7</span> Nullstellen — differenzierende (D-)Wirkung</a></li>
+  <li><a href="#rhp-nullstelle-nichtminimalphasig" id="toc-rhp-nullstelle-nichtminimalphasig" class="nav-link" data-scroll-target="#rhp-nullstelle-nichtminimalphasig"><span class="header-section-number">9.7.8</span> RHP-Nullstelle — nichtminimalphasig</a></li>
+  <li><a href="#totzone-coulomb-reibung-nichtlinear" id="toc-totzone-coulomb-reibung-nichtlinear" class="nav-link" data-scroll-target="#totzone-coulomb-reibung-nichtlinear"><span class="header-section-number">9.7.9</span> Totzone — Coulomb-Reibung (nichtlinear)</a></li>
+  </ul></li>
+  <li><a href="#wo-welches-element-vorkommt" id="toc-wo-welches-element-vorkommt" class="nav-link" data-scroll-target="#wo-welches-element-vorkommt"><span class="header-section-number">9.8</span> Wo welches Element vorkommt</a></li>
+  <li><a href="#teil-i-fünf-grundsysteme" id="toc-teil-i-fünf-grundsysteme" class="nav-link" data-scroll-target="#teil-i-fünf-grundsysteme"><span class="header-section-number">9.9</span> Teil I — Fünf Grundsysteme</a>
+  <ul>
+  <li><a href="#rc-tiefpass-5-v-logiksprung" id="toc-rc-tiefpass-5-v-logiksprung" class="nav-link" data-scroll-target="#rc-tiefpass-5-v-logiksprung"><span class="header-section-number">9.9.1</span> 1. RC-Tiefpass — 5-V-Logiksprung</a></li>
+  <li><a href="#rl-schaltung-24-v-versorgungssprung" id="toc-rl-schaltung-24-v-versorgungssprung" class="nav-link" data-scroll-target="#rl-schaltung-24-v-versorgungssprung"><span class="header-section-number">9.9.2</span> 2. RL-Schaltung — 24-V-Versorgungssprung</a></li>
+  <li><a href="#masse-feder-dämpfer-50-n-kraftsprung" id="toc-masse-feder-dämpfer-50-n-kraftsprung" class="nav-link" data-scroll-target="#masse-feder-dämpfer-50-n-kraftsprung"><span class="header-section-number">9.9.3</span> 3. Masse-Feder-Dämpfer — 50-N-Kraftsprung</a></li>
+  <li><a href="#dc-motor-12-v-batteriesprung" id="toc-dc-motor-12-v-batteriesprung" class="nav-link" data-scroll-target="#dc-motor-12-v-batteriesprung"><span class="header-section-number">9.9.4</span> 4. DC-Motor — 12-V-Batteriesprung</a></li>
+  <li><a href="#thermischer-prozess-500-w-heizleistungssprung" id="toc-thermischer-prozess-500-w-heizleistungssprung" class="nav-link" data-scroll-target="#thermischer-prozess-500-w-heizleistungssprung"><span class="header-section-number">9.9.5</span> 5. Thermischer Prozess — 500-W-Heizleistungssprung</a></li>
+  <li><a href="#zusammenfassung-von-teil-i" id="toc-zusammenfassung-von-teil-i" class="nav-link" data-scroll-target="#zusammenfassung-von-teil-i"><span class="header-section-number">9.9.6</span> Zusammenfassung von Teil I</a></li>
+  </ul></li>
+  <li><a href="#teil-ii-fünf-anwendungen-und-der-rlc-reihenkreis" id="toc-teil-ii-fünf-anwendungen-und-der-rlc-reihenkreis" class="nav-link" data-scroll-target="#teil-ii-fünf-anwendungen-und-der-rlc-reihenkreis"><span class="header-section-number">9.10</span> Teil II — Fünf Anwendungen und der RLC-Reihenkreis</a>
+  <ul>
+  <li><a href="#tempomat-antriebskraft-auf-geschwindigkeit" id="toc-tempomat-antriebskraft-auf-geschwindigkeit" class="nav-link" data-scroll-target="#tempomat-antriebskraft-auf-geschwindigkeit"><span class="header-section-number">9.10.1</span> 6. Tempomat — Antriebskraft auf Geschwindigkeit</a></li>
+  <li><a href="#wasserbeckenfüllstand-pumpenzufluss-auf-füllstand" id="toc-wasserbeckenfüllstand-pumpenzufluss-auf-füllstand" class="nav-link" data-scroll-target="#wasserbeckenfüllstand-pumpenzufluss-auf-füllstand"><span class="header-section-number">9.10.2</span> 7. Wasserbeckenfüllstand — Pumpenzufluss auf Füllstand</a></li>
+  <li><a href="#synchroner-tiefsetzsteller-buck-tastverhältnis-auf-ausgangsspannung" id="toc-synchroner-tiefsetzsteller-buck-tastverhältnis-auf-ausgangsspannung" class="nav-link" data-scroll-target="#synchroner-tiefsetzsteller-buck-tastverhältnis-auf-ausgangsspannung"><span class="header-section-number">9.10.3</span> 8. Synchroner Tiefsetzsteller (Buck) — Tastverhältnis auf Ausgangsspannung</a></li>
+  <li><a href="#schiffs-autopilot-ruder-auf-kurs-nomoto-modell" id="toc-schiffs-autopilot-ruder-auf-kurs-nomoto-modell" class="nav-link" data-scroll-target="#schiffs-autopilot-ruder-auf-kurs-nomoto-modell"><span class="header-section-number">9.10.4</span> 9. Schiffs-Autopilot — Ruder auf Kurs (Nomoto-Modell)</a></li>
+  <li><a href="#raumluftanlage-mit-kanaltotzeit-heizleistung-auf-raumtemperatur" id="toc-raumluftanlage-mit-kanaltotzeit-heizleistung-auf-raumtemperatur" class="nav-link" data-scroll-target="#raumluftanlage-mit-kanaltotzeit-heizleistung-auf-raumtemperatur"><span class="header-section-number">9.10.5</span> 10. Raumluftanlage mit Kanaltotzeit — Heizleistung auf Raumtemperatur</a></li>
+  <li><a href="#rlc-reihenkreis-12-v-sprung" id="toc-rlc-reihenkreis-12-v-sprung" class="nav-link" data-scroll-target="#rlc-reihenkreis-12-v-sprung"><span class="header-section-number">9.10.6</span> 11. RLC-Reihenkreis — 12-V-Sprung</a></li>
+  <li><a href="#zusammenfassung-von-teil-ii" id="toc-zusammenfassung-von-teil-ii" class="nav-link" data-scroll-target="#zusammenfassung-von-teil-ii"><span class="header-section-number">9.10.7</span> Zusammenfassung von Teil II</a></li>
+  </ul></li>
+  <li><a href="#teil-iii-die-1-kω-varianten" id="toc-teil-iii-die-1-kω-varianten" class="nav-link" data-scroll-target="#teil-iii-die-1-kω-varianten"><span class="header-section-number">9.11</span> Teil III — Die 1-kΩ-Varianten</a>
+  <ul>
+  <li><a href="#a-rc-tiefpass-mit-r-1-kω" id="toc-a-rc-tiefpass-mit-r-1-kω" class="nav-link" data-scroll-target="#a-rc-tiefpass-mit-r-1-kω"><span class="header-section-number">9.11.1</span> 01_a — RC-Tiefpass mit R = 1 kΩ</a></li>
+  <li><a href="#a-rl-schaltung-mit-r-1-kω" id="toc-a-rl-schaltung-mit-r-1-kω" class="nav-link" data-scroll-target="#a-rl-schaltung-mit-r-1-kω"><span class="header-section-number">9.11.2</span> 02_a — RL-Schaltung mit R = 1 kΩ</a></li>
+  <li><a href="#b-rlc-reihenkreis-mit-r-1-kω" id="toc-b-rlc-reihenkreis-mit-r-1-kω" class="nav-link" data-scroll-target="#b-rlc-reihenkreis-mit-r-1-kω"><span class="header-section-number">9.11.3</span> 11_b — RLC-Reihenkreis mit R = 1 kΩ</a></li>
+  </ul></li>
+  <li><a href="#teil-iv-fünf-systeme-mit-kombinierten-effekten" id="toc-teil-iv-fünf-systeme-mit-kombinierten-effekten" class="nav-link" data-scroll-target="#teil-iv-fünf-systeme-mit-kombinierten-effekten"><span class="header-section-number">9.12</span> Teil IV — Fünf Systeme mit kombinierten Effekten</a>
+  <ul>
+  <li><a href="#hochsetzsteller-12-v-auf-24-v-tastverhältnis-auf-ausgangsspannung" id="toc-hochsetzsteller-12-v-auf-24-v-tastverhältnis-auf-ausgangsspannung" class="nav-link" data-scroll-target="#hochsetzsteller-12-v-auf-24-v-tastverhältnis-auf-ausgangsspannung"><span class="header-section-number">9.12.1</span> 12. Hochsetzsteller (12 V auf 24 V) — Tastverhältnis auf Ausgangsspannung</a></li>
+  <li><a href="#förderband-dosierung-zuteiler-massenstrom-auf-silomasse" id="toc-förderband-dosierung-zuteiler-massenstrom-auf-silomasse" class="nav-link" data-scroll-target="#förderband-dosierung-zuteiler-massenstrom-auf-silomasse"><span class="header-section-number">9.12.2</span> 13. Förderband-Dosierung — Zuteiler-Massenstrom auf Silomasse</a></li>
+  <li><a href="#gummi-motorlager-eingeleitete-kraft-auf-übertragene-kraft" id="toc-gummi-motorlager-eingeleitete-kraft-auf-übertragene-kraft" class="nav-link" data-scroll-target="#gummi-motorlager-eingeleitete-kraft-auf-übertragene-kraft"><span class="header-section-number">9.12.3</span> 14. Gummi-Motorlager — eingeleitete Kraft auf übertragene Kraft</a></li>
+  <li><a href="#fernwärme-abnehmer-vorlauftemperatur-auf-raumtemperatur" id="toc-fernwärme-abnehmer-vorlauftemperatur-auf-raumtemperatur" class="nav-link" data-scroll-target="#fernwärme-abnehmer-vorlauftemperatur-auf-raumtemperatur"><span class="header-section-number">9.12.4</span> 15. Fernwärme-Abnehmer — Vorlauftemperatur auf Raumtemperatur</a></li>
+  <li><a href="#maschinenschlitten-mit-coulomb-reibung-antriebskraft-auf-position" id="toc-maschinenschlitten-mit-coulomb-reibung-antriebskraft-auf-position" class="nav-link" data-scroll-target="#maschinenschlitten-mit-coulomb-reibung-antriebskraft-auf-position"><span class="header-section-number">9.12.5</span> 16. Maschinenschlitten mit Coulomb-Reibung — Antriebskraft auf Position</a></li>
+  <li><a href="#zusammenfassung-von-teil-iv" id="toc-zusammenfassung-von-teil-iv" class="nav-link" data-scroll-target="#zusammenfassung-von-teil-iv"><span class="header-section-number">9.12.6</span> Zusammenfassung von Teil IV</a></li>
+  </ul></li>
+  <li><a href="#erzeugung-der-daten" id="toc-erzeugung-der-daten" class="nav-link" data-scroll-target="#erzeugung-der-daten"><span class="header-section-number">9.13</span> Erzeugung der Daten</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../SteuerRegel/01_SteuerRegel.html">Steuer- und Regelungstechnik</a></li><li class="breadcrumb-item"><a href="../SteuerRegel/01.02_Regelungstechnik.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../SteuerRegel/01_SteuerRegel.html">Steuer- und Regelungstechnik</a></li><li class="breadcrumb-item"><a href="../SteuerRegel/01.02_Regelungstechnik.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></h1>
 </div>
 
 
@@ -357,16 +445,16 @@ window.Quarto = {
 
 
 <p>In diesem Teil des Skriptums geht es darum, wie wir Maschinen und Schaltungen dazu bringen, trotz Störeinflüssen das gewünschte Verhalten zu zeigen. Zum Beispiel soll ein Tempomat des Autos die Geschwindigkeit halten, trotz starkem Gegenwindes. Es werden die Grundlagen der Regelungstechnik vermittelt. Dabei wird das theoretische Wissen anhand konkreter Anwendungen erarbeitet.</p>
-<section id="warum-wir-regeln" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="warum-wir-regeln"><span class="header-section-number">4.1</span> Warum wir regeln</h2>
+<section id="warum-wir-regeln" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="warum-wir-regeln"><span class="header-section-number">9.1</span> Warum wir regeln</h2>
 <div style="text-align: justify">
 <p>Viele Aufgaben von Maschinen können auch durch Steuerungen umgesetzt werden. Eine Regelung erlaubt es aber, auf unerwünschte Einflüsse, sogenannte Störgrößen, zu reagieren. Als Beispiel soll der Tempomat (Geschwindigkeitsregelanlage) des Autos dienen. Die Aufgabe des Tempomats ist es, die Geschwindigkeit (Regelgröße) konstant zu halten. Als unerwünschte Einflüsse (Störgrößen) sind alle physikalischen Größen zu betrachten, welche die Geschwindigkeit beeinflussen. Beispiele sind die Steigung der Straße und Wind.<br>
 Die Geschwindigkeit des Autos wird über die Leistung (Stellgröße) bestimmt. Führt die Straße Bergauf, wird mehr Leistung für die gleiche Geschwindigkeit benötigt. Es muss also die Leistung laufend angepasst werden, um eine konstante Geschwindigkeit zu erhalten.<br>
 Bei einer Steuerung würde eine Leistung eingestellt werden und sich daraus eine Geschwindigkeit ergeben. Dieses wäre jedoch nur für einen voreingestellten Fall identisch mit der gewünschten Geschwindigkeit.</p>
 </div>
 </section>
-<section id="gängige-begriffe-der-regelungstechnik" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="gängige-begriffe-der-regelungstechnik"><span class="header-section-number">4.2</span> Gängige Begriffe der Regelungstechnik</h2>
+<section id="gängige-begriffe-der-regelungstechnik" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="gängige-begriffe-der-regelungstechnik"><span class="header-section-number">9.2</span> Gängige Begriffe der Regelungstechnik</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 14%">
@@ -424,8 +512,8 @@ Bei einer Steuerung würde eine Leistung eingestellt werden und sich daraus eine
 </tbody>
 </table>
 </section>
-<section id="wie-wir-regeln---der-standardregelkreis" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="wie-wir-regeln---der-standardregelkreis"><span class="header-section-number">4.3</span> Wie wir regeln - Der Standardregelkreis</h2>
+<section id="wie-wir-regeln---der-standardregelkreis" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="wie-wir-regeln---der-standardregelkreis"><span class="header-section-number">9.3</span> Wie wir regeln - Der Standardregelkreis</h2>
 <div style="text-align: justify">
 <p>Regeln ist ein Vorgang, bei dem der IST-Wert einer Größe gemessen und, durch Nachstellen der Stellgröße, dem SOLL-Wert angeglichen wird.<br>
 Dazu wird das Ergebnis an den Eingang zurückgeführt und vom Sollwert subtrahiert. Es entsteht eine Rückkopplung. Durch das negative Vorzeichen handelt es sich um eine Rückkopplung im Spezialfall einer Gegenkopplung. Die Differenz aus dem Sollwert und dem zurückgeführten Istwert ist die sogenannte Regelabweichung, welche über den Regler zur Stellgröße wird. Die Stellgröße ist nun die physikalische Größe, welche die Regelstrecke zum gewünschten Verhalten führt.</p>
@@ -436,26 +524,26 @@ Dazu wird das Ergebnis an den Eingang zurückgeführt und vom Sollwert subtrahie
 <img src="images/Vollsändiger_Regelkreis.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Regelkreis-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;4.1: Standardregelkreis
+Abbildung&nbsp;9.1: Standardregelkreis
 </figcaption>
 </figure>
 </div>
-<section id="reglertypen" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="reglertypen"><span class="header-section-number">4.3.1</span> Reglertypen</h3>
+<section id="reglertypen" class="level3" data-number="9.3.1">
+<h3 data-number="9.3.1" class="anchored" data-anchor-id="reglertypen"><span class="header-section-number">9.3.1</span> Reglertypen</h3>
 <p>Es kann zwischen zwei Arten von Reglern unterschieden werden. Erstere sind einfache Regler, welche die Stellgröße nur zwischen verschiedenen Zuständen hin- und herschalten können. Zum Beispiel Ein / Aus. Oder die Gänge eines Automatikgetriebes. Diese Regler werden <strong>unstetige Regler</strong> genannt. Unstetige Regler können gut mittels Hysteresen beschrieben werden.<br>
 Der zweite Typ von Regler kann die Stellgröße kontinuierlich anpassen. Diese Regler werden <strong>stetige Regler</strong> genannt. Stetige Regler können gut mit mathematische Gleichungen im Laplace Bereich beschrieben werden.</p>
 </section>
 </section>
-<section id="unstetige-regler" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="unstetige-regler"><span class="header-section-number">4.4</span> Unstetige Regler</h2>
+<section id="unstetige-regler" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="unstetige-regler"><span class="header-section-number">9.4</span> Unstetige Regler</h2>
 <p>Klassische unstetige Regler sind Bimetallschalter. Diese werden zum Beispiel bei Heizlüftern eingesetzt.<br>
 Ist der Raum und damit das Bimetall kalt, so ist der Kontakt geschlossen und der Lüfter läuft. Wird die Raumluft und damit das Bimetall warm, wird der Kontakt geöffnet und der Lüfter hört auf zu heizen.</p>
-<div id="faaa35c4" class="cell" data-execution_count="2">
-<div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(T_{ein}\)</span> … Einschaltschwelle</p>
-</div>
+<div id="d3160b24" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(T\)</span> … Temperatur</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(T_{ein}\)</span> … Einschaltschwelle</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
@@ -469,26 +557,26 @@ Ist der Raum und damit das Bimetall kalt, so ist der Kontakt geschlossen und der
 <div id="fig-zweipunktreglerplot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-zweipunktreglerplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="01.02_Regelungstechnik_files/figure-html/fig-zweipunktreglerplot-output-1.png" width="584" height="428" class="figure-img">
+<img src="01.02_Regelungstechnik_files/figure-html/fig-zweipunktreglerplot-output-1.png" width="588" height="431" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-zweipunktreglerplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;4.2: Zweipunktregler eines einfachen Heizlüfters
+Abbildung&nbsp;9.2: Zweipunktregler eines einfachen Heizlüfters
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<section id="zweipunktregler" class="level3" data-number="4.4.1">
-<h3 data-number="4.4.1" class="anchored" data-anchor-id="zweipunktregler"><span class="header-section-number">4.4.1</span> Zweipunktregler</h3>
-<p>Der Zweipunktregler kann, wie der Name schon sagt, die Stellgröße zwischen zwei Zuständen schalten. Zum Beispiel die Heizung einschalten, wenn die Temperatur zu niedrig ist und wieder Abschalten, wenn die Temperatur hoch genug ist. Siehe dazu die Kennlinie <a href="#fig-zweipunktreglerplot" class="quarto-xref">Abbildung&nbsp;<span>4.2</span></a>. Die Kennlinie stellt eine Hysterese dar. Die Umsetzung ist auch mittels Operationsverstärker möglich.</p>
+<section id="zweipunktregler" class="level3" data-number="9.4.1">
+<h3 data-number="9.4.1" class="anchored" data-anchor-id="zweipunktregler"><span class="header-section-number">9.4.1</span> Zweipunktregler</h3>
+<p>Der Zweipunktregler kann, wie der Name schon sagt, die Stellgröße zwischen zwei Zuständen schalten. Zum Beispiel die Heizung einschalten, wenn die Temperatur zu niedrig ist und wieder Abschalten, wenn die Temperatur hoch genug ist. Siehe dazu die Kennlinie <a href="#fig-zweipunktreglerplot" class="quarto-xref">Abbildung&nbsp;<span>9.2</span></a>. Die Kennlinie stellt eine Hysterese dar. Die Umsetzung ist auch mittels Operationsverstärker möglich.</p>
 </section>
 </section>
-<section id="stetige-regler" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="stetige-regler"><span class="header-section-number">4.5</span> Stetige Regler</h2>
+<section id="stetige-regler" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="stetige-regler"><span class="header-section-number">9.5</span> Stetige Regler</h2>
 <p>Für das Verständnis von stetigen Reglern ist es hilfreich, die Regelungstechnik mathematisch zu betrachten, da sich ein Regler sehr gut mit Formeln beschreiben und erklären lässt. In einem eigenen Kapitel soll behandelt werden, wie Regler praxisnahe implementiert werden können.<br>
-Der oben gezeigte Regelkreis <a href="#fig-Regelkreis" class="quarto-xref">Abbildung&nbsp;<span>4.1</span></a> lässt sich mathematisch als Übertragungsfunktion beschreiben. Hier werden ausschließlich SISO (Single Input Single Output) und LTI (Linear Time Invariant) Systeme betrachtet. Das bedeutet Systeme, die einen Eingang und einen Ausgang haben. Jeder Block kann einzeln mit einer Übertragungsfunktion oder analog der Vierpoltheorie beschrieben werden. Wie auch in der Vierpoltheorie kann aber auch eine Verschaltung von Blöcken als Übertragungsfunktion beschrieben werden. Ein Block wird in der Regelungstechnik auch als <strong>Strecke</strong> bezeichnet.</p>
-<section id="der-pid-regler" class="level3" data-number="4.5.1">
-<h3 data-number="4.5.1" class="anchored" data-anchor-id="der-pid-regler"><span class="header-section-number">4.5.1</span> Der PID Regler</h3>
+Der oben gezeigte Regelkreis <a href="#fig-Regelkreis" class="quarto-xref">Abbildung&nbsp;<span>9.1</span></a> lässt sich mathematisch als Übertragungsfunktion beschreiben. Hier werden ausschließlich SISO (Single Input Single Output) und LTI (Linear Time Invariant) Systeme betrachtet. Das bedeutet Systeme, die einen Eingang und einen Ausgang haben. Jeder Block kann einzeln mit einer Übertragungsfunktion oder analog der Vierpoltheorie beschrieben werden. Wie auch in der Vierpoltheorie kann aber auch eine Verschaltung von Blöcken als Übertragungsfunktion beschrieben werden. Ein Block wird in der Regelungstechnik auch als <strong>Strecke</strong> bezeichnet.</p>
+<section id="der-pid-regler" class="level3" data-number="9.5.1">
+<h3 data-number="9.5.1" class="anchored" data-anchor-id="der-pid-regler"><span class="header-section-number">9.5.1</span> Der PID Regler</h3>
 <p>Der PID Regler ist ein stetiger Regler, der sich aus drei Teilen zusammensetzt. Er ist der am häufigsten verwendete stetige Regler in der Regelungstechnik. Wobei der D Anteil in der Praxis oft weggelassen wird.</p>
 <div id="fig-PID1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -496,19 +584,19 @@ Der oben gezeigte Regelkreis <a href="#fig-Regelkreis" class="quarto-xref">Abbil
 <img src="images/PID_Regler.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-PID1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;4.3: PID Regler
+Abbildung&nbsp;9.3: PID Regler
 </figcaption>
 </figure>
 </div>
-<section id="vorraussetzungen-für-die-verwendung-eines-pid-reglers" class="level4" data-number="4.5.1.1">
-<h4 data-number="4.5.1.1" class="anchored" data-anchor-id="vorraussetzungen-für-die-verwendung-eines-pid-reglers"><span class="header-section-number">4.5.1.1</span> Vorraussetzungen für die Verwendung eines PID Reglers</h4>
+<section id="vorraussetzungen-für-die-verwendung-eines-pid-reglers" class="level4" data-number="9.5.1.1">
+<h4 data-number="9.5.1.1" class="anchored" data-anchor-id="vorraussetzungen-für-die-verwendung-eines-pid-reglers"><span class="header-section-number">9.5.1.1</span> Vorraussetzungen für die Verwendung eines PID Reglers</h4>
 <p>Der PID Regler ist ein stetiger Regler und kann nur bei stetigen Systemen verwendet werden. Das bedeutet, dass die Strecke, die Regelgröße und die Stellgröße stetig sein müssen. Das System muss linear sein. Das bedeutet, dass die Übertragungsfunktion der Strecke linear sein muss. Zumindest im Nahbereich des Arbeitspunktes. Das System muss zeitinvariant sein. Das bedeutet, dass die Übertragungsfunktion der Strecke sich nicht mit der Zeit ändert. Die Anforderung der Linearität und der Zeitinvarianz werden in der Regelungstechnik als <strong>LTI</strong> (Linear Time Invariant) Systeme bezeichnet. Es darf nur einen Eingang und einen Ausgang geben. Das bedeutet, dass der PID Regler nur für <strong>SISO</strong> (Single Input Single Output) Systeme verwendet werden kann.</p>
 </section>
 </section>
-<section id="die-übertragungsfunktion" class="level3" data-number="4.5.2">
-<h3 data-number="4.5.2" class="anchored" data-anchor-id="die-übertragungsfunktion"><span class="header-section-number">4.5.2</span> Die Übertragungsfunktion</h3>
-<section id="motivation" class="level4" data-number="4.5.2.1">
-<h4 data-number="4.5.2.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">4.5.2.1</span> Motivation</h4>
+<section id="die-übertragungsfunktion" class="level3" data-number="9.5.2">
+<h3 data-number="9.5.2" class="anchored" data-anchor-id="die-übertragungsfunktion"><span class="header-section-number">9.5.2</span> Die Übertragungsfunktion</h3>
+<section id="motivation" class="level4" data-number="9.5.2.1">
+<h4 data-number="9.5.2.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">9.5.2.1</span> Motivation</h4>
 <p>Die Übertragungsfunktion beschreibt den Zusammenhang zwischen Ausgang und Eingang.<br>
 Ist die Übertragungsfunktion bekannt, so kann die Strecke und deren Verhalten (der Ausgang) auf verschiedene Eingänge berechnet werden. Dies wird auch Simulation genannt. Für Marketingzwecke könnte die Übertragungsfunktion auch als einfache Form eines “digitalen Zwillings” bezeichnet werden. Ist die Übertragungsfunktion mathematisch beschrieben, können Regler entworfen und getestet werden, ohne das tatsächliche physikalische Modell benutzen zu müssen. Dies ist speziell sinnvoll, wenn das physikalische System für Testzwecke nicht zur Verfügung steht bzw. nicht für Testzwecke geeignet ist. Eine Strecke (=physikalisches System) steht z.B. nicht zur Verfügung, wenn:</p>
 <ul>
@@ -525,69 +613,66 @@ Ist die Übertragungsfunktion bekannt, so kann die Strecke und deren Verhalten (
 <li>Ein fehlerhafter Regler großen Schaden anrichten kann</li>
 </ul>
 </section>
-<section id="sec-Streckenidentifikation" class="level4" data-number="4.5.2.2">
-<h4 data-number="4.5.2.2" class="anchored" data-anchor-id="sec-Streckenidentifikation"><span class="header-section-number">4.5.2.2</span> Streckenidentifikation</h4>
+<section id="sec-Streckenidentifikation" class="level4" data-number="9.5.2.2">
+<h4 data-number="9.5.2.2" class="anchored" data-anchor-id="sec-Streckenidentifikation"><span class="header-section-number">9.5.2.2</span> Streckenidentifikation</h4>
 <p>Als Streckenidentifikation wird der Vorgang beschrieben, von einem physikalischem System das mathematische Modell und die Übertragungsfunktion zu erstellen. Zwei Methoden, wie dieses Ziel erreicht werden kann, werden hier beschrieben.</p>
 <ul>
-<li>Der mathematische Ansatz, <a href="#sec-MathStreckenidentifikation" class="quarto-xref"><span>Kapitel 4.5.3</span></a><br>
+<li>Der mathematische Ansatz, <a href="#sec-MathStreckenidentifikation" class="quarto-xref"><span>Kapitel 9.5.3</span></a><br>
 </li>
-<li>Der messtechnische Ansatz, <a href="#sec-MessStreckenidentifikation" class="quarto-xref"><span>Kapitel 4.5.4</span></a></li>
+<li>Der messtechnische Ansatz, <a href="#sec-MessStreckenidentifikation" class="quarto-xref"><span>Kapitel 9.5.4</span></a></li>
 </ul>
-<div id="5736600a" class="cell" data-execution_count="4">
+<div id="fba35d57" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-EVA"><span class="math display">\[
 V = \frac{A}{E}
-\tag{4.1}\]</span></span></p>
+\tag{9.1}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(V\)</span> … Verarbeitung, die Übertragungsfunktion</p>
+<p><span class="math inline">\(E\)</span> … Eingang</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(A\)</span> … Ausgang</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(E\)</span> … Eingang</p>
+<p><span class="math inline">\(V\)</span> … Verarbeitung, die Übertragungsfunktion</p>
 </div>
 </div>
 <p>Gängige Bezeichnungen der Übertragungsfunktion der einzelnen Blöcke sind wie folgt.</p>
-<div id="346c7831" class="cell" data-execution_count="5">
+<div id="8d2ece2b" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(M\)</span> … Übertragungsfunktion des Sensors</p>
+<p><span class="math inline">\(R\)</span> … Übertragungsfunktion des Reglers</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(G\)</span> … Übertragungsfunktion der zu Regelnden Strecke</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(R\)</span> … Übertragungsfunktion des Reglers</p>
+<p><span class="math inline">\(M\)</span> … Übertragungsfunktion des Sensors</p>
 </div>
 </div>
 </section>
 </section>
-<section id="sec-MathStreckenidentifikation" class="level3" data-number="4.5.3">
-<h3 data-number="4.5.3" class="anchored" data-anchor-id="sec-MathStreckenidentifikation"><span class="header-section-number">4.5.3</span> Mathematische Streckenidentifikation</h3>
+<section id="sec-MathStreckenidentifikation" class="level3" data-number="9.5.3">
+<h3 data-number="9.5.3" class="anchored" data-anchor-id="sec-MathStreckenidentifikation"><span class="header-section-number">9.5.3</span> Mathematische Streckenidentifikation</h3>
 <p>Aus den physikalischen Zusammenhängen kann die Übertragungsfunktion berechnet werden. Die komplexe Schreibweise ist nur für periodische sinusförmige Signale geeignet. Sollen Signale betrachtet werden, die beliebig oder stetig sind, ist die komplexe schreibweise nicht ausreichend. Es müssen die physikalischen Gleichungen in differentieller Form angeschrieben werden.</p>
 <p>Um die Mathematik möglichst einfach zu halten, wird in der Regelungstechnik im Laplace Bereich gearbeitet. Dadurch ist es nicht notwendig, die Differenzialgleichung bei physikalischen Systemen, die durch eine Differenzialgleichung beschrieben werden, zu lösen.</p>
-<p>Ein Beispiel, wie eine mathematische Streckenidentifikation abläuft, ist in Abschnitt <a href="#sec-Laplace" class="quarto-xref"><span>Kapitel 4.5.5</span></a> zu finden.</p>
+<p>Ein Beispiel, wie eine mathematische Streckenidentifikation abläuft, ist in Abschnitt <a href="#sec-Laplace" class="quarto-xref"><span>Kapitel 9.5.5</span></a> zu finden.</p>
 </section>
-<section id="sec-MessStreckenidentifikation" class="level3" data-number="4.5.4">
-<h3 data-number="4.5.4" class="anchored" data-anchor-id="sec-MessStreckenidentifikation"><span class="header-section-number">4.5.4</span> Messtechnische Streckenidentifikation</h3>
+<section id="sec-MessStreckenidentifikation" class="level3" data-number="9.5.4">
+<h3 data-number="9.5.4" class="anchored" data-anchor-id="sec-MessStreckenidentifikation"><span class="header-section-number">9.5.4</span> Messtechnische Streckenidentifikation</h3>
 <p>Manche Systeme sind zu komplex, um Sie mathematisch zu beschreiben. Andere Systeme sind mathematisch nicht beschreibbar, weil das Innenleben nicht bekannt ist. In diesen Fällen kann die messtechnische Ermittlung der Übertragungsfunktion herangezogen werden.<br>
 Dabei wird am Eingang der Strecke ein Testsignal aufgeschaltet und der Ausgang gemessen. Aus diesen Messdaten kann die Übertragungsfunktion, ein mathematisches Modell, der Strecke erstellt werden.</p>
 </section>
-<section id="sec-Laplace" class="level3" data-number="4.5.5">
-<h3 data-number="4.5.5" class="anchored" data-anchor-id="sec-Laplace"><span class="header-section-number">4.5.5</span> Die Laplace Transformation</h3>
+<section id="sec-Laplace" class="level3" data-number="9.5.5">
+<h3 data-number="9.5.5" class="anchored" data-anchor-id="sec-Laplace"><span class="header-section-number">9.5.5</span> Die Laplace Transformation</h3>
 <p>oder die Anstrengung der Faulen.</p>
-<section id="warum-laplace" class="level4" data-number="4.5.5.1">
-<h4 data-number="4.5.5.1" class="anchored" data-anchor-id="warum-laplace"><span class="header-section-number">4.5.5.1</span> Warum Laplace</h4>
+<section id="warum-laplace" class="level4" data-number="9.5.5.1">
+<h4 data-number="9.5.5.1" class="anchored" data-anchor-id="warum-laplace"><span class="header-section-number">9.5.5.1</span> Warum Laplace</h4>
 <p>Um eine Übertragungsfunktion zu Berechnen muss der Ausgang durch den Eingang dividiert werden. Wird das physikalische System durch eine lineare Gleichung beschrieben ist das sehr Einfach möglich und die Laplace Transformation ist nicht notwendig. Ein Beispiel dafür ist das Ohm’sche Gesetz.</p>
-<div id="8a0e1a6b" class="cell" data-execution_count="6">
+<div id="b20f0d01" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Ohm_eq"><span class="math display">\[
 R_{ohm} = \frac{U}{I}
-\tag{4.2}\]</span></span></p>
-</div>
-<div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(R_{ohm}\)</span> … Ohm’scher Widerstand als Übertragungsfunktion</p>
+\tag{9.2}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(U\)</span> … Spannung am Widerstand als Ausgang</p>
@@ -595,39 +680,42 @@ R_{ohm} = \frac{U}{I}
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(I\)</span> … Strom am Widerstand als Eingang</p>
 </div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(R_{ohm}\)</span> … Ohm’scher Widerstand als Übertragungsfunktion</p>
+</div>
 </div>
 <p>Wird das physikalische System aber durch eine Differentialgleichung beschrieben, wie zum Beispiel bei einem Tiefpass, so wäre es notwendig zuerst die Differentialgleichung zu lösen um die Übertragungsfunktion zu berechnen. Hier bietet die Lapalce Transformation eine erhebliche erleichterung.<br>
 Wird die Übertragungsfunktion im Laplace-Bereich angeschrieben, ergeben sich weitere Vorteile, wenn es später darum geht einen Regler zu entwerfen und die Stabilität einer Strecke zu beurteilen.</p>
-<section id="beispiel-übertragungsfunktion-eines-tiefapsses" class="level5" data-number="4.5.5.1.1">
-<h5 data-number="4.5.5.1.1" class="anchored" data-anchor-id="beispiel-übertragungsfunktion-eines-tiefapsses"><span class="header-section-number">4.5.5.1.1</span> Beispiel Übertragungsfunktion eines Tiefapsses</h5>
+<section id="beispiel-übertragungsfunktion-eines-tiefapsses" class="level5" data-number="9.5.5.1.1">
+<h5 data-number="9.5.5.1.1" class="anchored" data-anchor-id="beispiel-übertragungsfunktion-eines-tiefapsses"><span class="header-section-number">9.5.5.1.1</span> Beispiel Übertragungsfunktion eines Tiefapsses</h5>
 <div id="fig-Tiefpass" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-Tiefpass-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/Tiefpass.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Tiefpass-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;4.4: Tiefpass
+Abbildung&nbsp;9.4: Tiefpass
 </figcaption>
 </figure>
 </div>
-<div id="7226cc67" class="cell" data-execution_count="7">
+<div id="bf042a9b" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-ict_eq1"><span class="math display">\[
 i_{c}{\left(t \right)} = C \frac{d}{d t} u_{c}{\left(t \right)}
-\tag{4.3}\]</span></span></p>
+\tag{9.3}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-ict_eq2"><span class="math display">\[
 i_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)}}{R_{ohm}}
-\tag{4.4}\]</span></span></p>
+\tag{9.4}\]</span></span></p>
 </div>
 </div>
-<p>Durch Gleichsetzten von <a href="#eq-ict_eq1" class="quarto-xref">Gleichung&nbsp;<span>4.3</span></a> und <a href="#eq-ict_eq2" class="quarto-xref">Gleichung&nbsp;<span>4.4</span></a> ergibt sich die allgemeine Differenzialgleichung 1. Ordnung für den Tiefpass.</p>
-<div id="fb107a75" class="cell" data-execution_count="8">
+<p>Durch Gleichsetzten von <a href="#eq-ict_eq1" class="quarto-xref">Gleichung&nbsp;<span>9.3</span></a> und <a href="#eq-ict_eq2" class="quarto-xref">Gleichung&nbsp;<span>9.4</span></a> ergibt sich die allgemeine Differenzialgleichung 1. Ordnung für den Tiefpass.</p>
+<div id="71efebd7" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-RCTP"><span class="math display">\[
 C \frac{d}{d t} u_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)}}{R_{ohm}}
-\tag{4.5}\]</span></span></p>
+\tag{9.5}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(C\)</span> … Kapazität</p>
@@ -652,14 +740,14 @@ C \frac{d}{d t} u_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}
 Die Laplace Transformation bietet hier einen alternativen Weg der mit weiteren Vorteilen verbunden ist wenn es darum geht Blöcke miteinander zu kombinieren oder Aussagen über das System zu treffen.</p>
 </section>
 </section>
-<section id="laplacetransformation" class="level4" data-number="4.5.5.2">
-<h4 data-number="4.5.5.2" class="anchored" data-anchor-id="laplacetransformation"><span class="header-section-number">4.5.5.2</span> Laplacetransformation</h4>
+<section id="laplacetransformation" class="level4" data-number="9.5.5.2">
+<h4 data-number="9.5.5.2" class="anchored" data-anchor-id="laplacetransformation"><span class="header-section-number">9.5.5.2</span> Laplacetransformation</h4>
 <p>Die tiefere Mathematik der Laplacetransofrmation überlassen wir hier den Mathematiker:innen und den ersten Semstern eines Studiums. Wir wollen die Laplacetransformation lediglich als Werkzeug zur vereinfachung unserer Arbeit verwenden. Dazu benötigen wir folgende Grundregeln.<br>
 Vereinfacht ist die Laplacetransformation als eine Übersetzung aus dem Zeitbereich, also mit der varaible <span class="math inline">\(t\)</span>, in den Frequenzbereich mit der Variable <span class="math inline">\(s\)</span> zu verstehen. Die Übersetzung erfolgt in vielen Fällen sehr einfach mittels Tabelle. Hier wird die Transformation nur für ausgewählte Signale und mathematische Operationen angeführt.</p>
 <div id="tbl-laplace" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-laplace-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabelle&nbsp;4.1: Laplacetransformationstabelle
+Tabelle&nbsp;9.1: Laplacetransformationstabelle
 </figcaption>
 <div aria-describedby="tbl-laplace-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -711,35 +799,35 @@ Tabelle&nbsp;4.1: Laplacetransformationstabelle
 </div>
 </figure>
 </div>
-<p>Wird nun Gleichung <a href="#eq-RCTP" class="quarto-xref">Gleichung&nbsp;<span>4.5</span></a> mittels der Tabelle <a href="#tbl-laplace" class="quarto-xref">Tabelle&nbsp;<span>4.1</span></a> transformiert erhalten wir eine Gleichung aus der wir durch einfaches Umformen eine Übertragungsfunktion erhalten. Es wird angenommen, dass $ x(0) = 0 $ ist.</p>
-<div id="71d426a9" class="cell" data-execution_count="9">
+<p>Wird nun Gleichung <a href="#eq-RCTP" class="quarto-xref">Gleichung&nbsp;<span>9.5</span></a> mittels der Tabelle <a href="#tbl-laplace" class="quarto-xref">Tabelle&nbsp;<span>9.1</span></a> transformiert erhalten wir eine Gleichung aus der wir durch einfaches Umformen eine Übertragungsfunktion erhalten. Es wird angenommen, dass $ x(0) = 0 $ ist.</p>
+<div id="cb7ee412" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
 C U_{C} s = \frac{- U_{C} + U_{IN}}{R_{ohm}}
-\tag{4.6}\]</span></span></p>
+\tag{9.6}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
 G = \frac{U_{C}}{U_{IN}}
-\tag{4.7}\]</span></span></p>
+\tag{9.7}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
 G = \frac{1}{C R_{ohm} s + 1}
-\tag{4.8}\]</span></span></p>
+\tag{9.8}\]</span></span></p>
 </div>
 </div>
 </section>
 </section>
-<section id="sec-TestStrecke" class="level3" data-number="4.5.6">
-<h3 data-number="4.5.6" class="anchored" data-anchor-id="sec-TestStrecke"><span class="header-section-number">4.5.6</span> Testsignale und Streckenverhalten</h3>
-<section id="testsignale" class="level4" data-number="4.5.6.1">
-<h4 data-number="4.5.6.1" class="anchored" data-anchor-id="testsignale"><span class="header-section-number">4.5.6.1</span> Testsignale</h4>
+<section id="sec-TestStrecke" class="level3" data-number="9.5.6">
+<h3 data-number="9.5.6" class="anchored" data-anchor-id="sec-TestStrecke"><span class="header-section-number">9.5.6</span> Testsignale und Streckenverhalten</h3>
+<section id="testsignale" class="level4" data-number="9.5.6.1">
+<h4 data-number="9.5.6.1" class="anchored" data-anchor-id="testsignale"><span class="header-section-number">9.5.6.1</span> Testsignale</h4>
 </section>
-<section id="streckenverhalten" class="level4" data-number="4.5.6.2">
-<h4 data-number="4.5.6.2" class="anchored" data-anchor-id="streckenverhalten"><span class="header-section-number">4.5.6.2</span> Streckenverhalten</h4>
-<section id="interaktiver-pt2-simulator" class="level5" data-number="4.5.6.2.1">
-<h5 data-number="4.5.6.2.1" class="anchored" data-anchor-id="interaktiver-pt2-simulator"><span class="header-section-number">4.5.6.2.1</span> Interaktiver PT2 Simulator</h5>
+<section id="streckenverhalten" class="level4" data-number="9.5.6.2">
+<h4 data-number="9.5.6.2" class="anchored" data-anchor-id="streckenverhalten"><span class="header-section-number">9.5.6.2</span> Streckenverhalten</h4>
+<section id="interaktiver-pt2-simulator" class="level5" data-number="9.5.6.2.1">
+<h5 data-number="9.5.6.2.1" class="anchored" data-anchor-id="interaktiver-pt2-simulator"><span class="header-section-number">9.5.6.2.1</span> Interaktiver PT2 Simulator</h5>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="2" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1;"><span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {</span>
@@ -971,51 +1059,51 @@ G = \frac{1}{C R_{ohm} s + 1}
 </div>
 </section>
 </section>
-<section id="identifikation" class="level4" data-number="4.5.6.3">
-<h4 data-number="4.5.6.3" class="anchored" data-anchor-id="identifikation"><span class="header-section-number">4.5.6.3</span> Identifikation</h4>
+<section id="identifikation" class="level4" data-number="9.5.6.3">
+<h4 data-number="9.5.6.3" class="anchored" data-anchor-id="identifikation"><span class="header-section-number">9.5.6.3</span> Identifikation</h4>
 </section>
 </section>
-<section id="zusammenschaltung-von-blöcken" class="level3" data-number="4.5.7">
-<h3 data-number="4.5.7" class="anchored" data-anchor-id="zusammenschaltung-von-blöcken"><span class="header-section-number">4.5.7</span> Zusammenschaltung von Blöcken</h3>
+<section id="zusammenschaltung-von-blöcken" class="level3" data-number="9.5.7">
+<h3 data-number="9.5.7" class="anchored" data-anchor-id="zusammenschaltung-von-blöcken"><span class="header-section-number">9.5.7</span> Zusammenschaltung von Blöcken</h3>
 <p>Werden Blöcke kombiniert, können die resultierenden Übertragungsfunktionen berechnet werden.<br>
 Zur Vereinfachung kann die Übertragungsfunktion des Sensors mit <span class="math inline">\(M=1\)</span> angenommen werden, <span class="math inline">\(M=1\)</span>, wenn dieser im Verhältnis zur Strecke und zum Regler vernachlässigbar ist. Dies ist zum Beispiel der Fall, wenn der Sensor viel schneller ist als die Strecke und der Regler. Diese Voraussetzung ist für viele Systeme gegeben.</p>
-<p>Für den Regelkreis, <a href="#fig-Regelkreis" class="quarto-xref">Abbildung&nbsp;<span>4.1</span></a>, ergeben sich folgende Möglichkeiten.</p>
-<section id="die-führungsübertragungsfunktion" class="level4" data-number="4.5.7.1">
-<h4 data-number="4.5.7.1" class="anchored" data-anchor-id="die-führungsübertragungsfunktion"><span class="header-section-number">4.5.7.1</span> Die Führungsübertragungsfunktion</h4>
+<p>Für den Regelkreis, <a href="#fig-Regelkreis" class="quarto-xref">Abbildung&nbsp;<span>9.1</span></a>, ergeben sich folgende Möglichkeiten.</p>
+<section id="die-führungsübertragungsfunktion" class="level4" data-number="9.5.7.1">
+<h4 data-number="9.5.7.1" class="anchored" data-anchor-id="die-führungsübertragungsfunktion"><span class="header-section-number">9.5.7.1</span> Die Führungsübertragungsfunktion</h4>
 <p>Die Führungsübertragungsfunktion gibt das Verhältnis zwischen Sollgröße und Istgröße an. Sie beschreibt damit das Verhalten des Regelkreises mit der Sollgröße als Eingang und der Istgröße als Ausgang. Ist eine Regelstrecke ideal, so ist die Führungsübertragungsfunktion gleich Eins.</p>
-<div id="6a6491cd" class="cell" data-execution_count="10">
+<div id="94d19dba" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Fw_eq"><span class="math display">\[
 F_{w} = \frac{G R}{G M R + 1}
-\tag{4.9}\]</span></span></p>
+\tag{9.9}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(F_{w}\)</span> … Führungsübertragungsfunktion</p>
 </div>
 </div>
 </section>
-<section id="die-schleifenübertragungsfunktion" class="level4" data-number="4.5.7.2">
-<h4 data-number="4.5.7.2" class="anchored" data-anchor-id="die-schleifenübertragungsfunktion"><span class="header-section-number">4.5.7.2</span> Die Schleifenübertragungsfunktion</h4>
+<section id="die-schleifenübertragungsfunktion" class="level4" data-number="9.5.7.2">
+<h4 data-number="9.5.7.2" class="anchored" data-anchor-id="die-schleifenübertragungsfunktion"><span class="header-section-number">9.5.7.2</span> Die Schleifenübertragungsfunktion</h4>
 <p>Die Schleifenübertragungsfunktion ist die Übertragungsfunktion des offenen Regelkreises, also ohne Rückkopplung und ist im Laplace Bereich eine einfache Multiplikation.</p>
-<div id="ba59a94b" class="cell" data-execution_count="11">
+<div id="d8938b46" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
 F_{o} = G R
-\tag{4.10}\]</span></span></p>
+\tag{9.10}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(F_{o}\)</span> … Schleifenübertragungsfunktion</p>
 </div>
 </div>
 </section>
-<section id="die-störübertragungsfunktion" class="level4" data-number="4.5.7.3">
-<h4 data-number="4.5.7.3" class="anchored" data-anchor-id="die-störübertragungsfunktion"><span class="header-section-number">4.5.7.3</span> Die Störübertragungsfunktion</h4>
+<section id="die-störübertragungsfunktion" class="level4" data-number="9.5.7.3">
+<h4 data-number="9.5.7.3" class="anchored" data-anchor-id="die-störübertragungsfunktion"><span class="header-section-number">9.5.7.3</span> Die Störübertragungsfunktion</h4>
 <p>Die Störübertragungsfunktion beschreibt, wie sich die Störgröße auf den Ausgang auswirkt.</p>
-<div id="8a4906e3" class="cell" data-execution_count="12">
+<div id="8baa1e7e" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
 F_{s} = \frac{G}{F_{o} + 1}
-\tag{4.11}\]</span></span></p>
+\tag{9.11}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(F_{s}\)</span> … Störübertragungsfunktion</p>
@@ -1023,8 +1111,8 @@ F_{s} = \frac{G}{F_{o} + 1}
 </div>
 </section>
 </section>
-<section id="interaktiver-pid-simulator" class="level3" data-number="4.5.8">
-<h3 data-number="4.5.8" class="anchored" data-anchor-id="interaktiver-pid-simulator"><span class="header-section-number">4.5.8</span> Interaktiver PID Simulator</h3>
+<section id="interaktiver-pid-simulator" class="level3" data-number="9.5.8">
+<h3 data-number="9.5.8" class="anchored" data-anchor-id="interaktiver-pid-simulator"><span class="header-section-number">9.5.8</span> Interaktiver PID Simulator</h3>
 <p><span style="color:#888"> Eingangssignal <span class="math inline">\(w\)</span> </span><br>
 <span style="color:#34f"> Ausgangssignal <span class="math inline">\(y\)</span> </span><br>
 <span style="color:#fb2f03"> Regelabweichung <span class="math inline">\(e\)</span> </span><br>
@@ -1274,9 +1362,693 @@ F_{s} = \frac{G}{F_{o} + 1}
 </div>
 </div>
 </div>
-
-
 </section>
+</section>
+<section id="sec-Sprungantworten" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="sec-Sprungantworten"><span class="header-section-number">9.6</span> Von der Sprungantwort zur Übertragungsfunktion</h2>
+<p>Dieses Kapitel beschreibt sechzehn Systeme: fünf Grundsysteme, deren Übertragungsfunktionen direkt aus physikalischen Bauelementewerten hergeleitet werden, fünf Systeme aus konkreten technischen Anwendungen, den als Nummer 11 angefügten RLC-Reihenkreis sowie fünf Systeme mit kombinierten Effekten (Teil IV), in denen mehrere physikalische Effekte gleichzeitig wirken — eine Nullstelle in der rechten s-Halbebene, ein Integrierer hinter einer Totzeit, eine differenzierende Nullstelle, eine doppelte Verzögerung mit Totzeit und Coulomb-Reibung. Die Skripte <code>generate_step_responses.py</code>, <code>generate_step_responses_applications.py</code> und <code>generate_step_responses_multi_effect.py</code> bauen jede Übertragungsfunktion <span class="math inline">\(G(s)\)</span> mit <strong>sympy</strong>, regen sie mit einem realistischen Eingangssprung an (reale Amplituden wie 5 V, 500 N, 2 L/s — kein normierter 0-auf-1-Sprung), berechnen die Sprungantwort analytisch als</p>
+<p><span class="math display">\[y(t) = \mathcal{L}^{-1}\left\{\frac{G(s)}{s}\right\},\]</span></p>
+<p>und speichern sie als CSV-Datei (<code>time_s</code>, <code>step_response</code>, 2001 Stützpunkte). Die einzige Ausnahme ist System 16 (Coulomb-Reibung): Reibung ist nichtlinear und verletzt die Superposition, deshalb wird dieses System numerisch integriert (RK4 mit Stick-Erkennung). Jedes System wird über seinem eigenen Zeitfenster abgetastet — etwa 4 bis 5 Zeitkonstanten —, sodass CSV und Plot den Übergangsvorgang dort zeigen, wo er passiert, und nicht lange Strecken eingeschwungener Werte. Kurznummerierte Kopien aller sechzehn CSV-Dateien liegen im Ordner <code>csv/</code> (<code>01.csv</code> … <code>16.csv</code>); die 1-kΩ-Varianten <code>01_a</code>, <code>02_a</code> und <code>11_b</code> werden in Teil III beschrieben. Die im gesamten Kapitel verwendeten Standard-Modellklassen — PT1, PT2, Integrierer, Totzeit, differenzierende und nichtminimalphasige Nullstellen, Totzone — sind in der folgenden Toolbox zusammengestellt.</p>
+</section>
+<section id="die-toolbox-der-standardglieder" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="die-toolbox-der-standardglieder"><span class="header-section-number">9.7</span> Die Toolbox der Standardglieder</h2>
+<p>Jede Übertragungsfunktion in diesem Kapitel ist aus einer kleinen Menge von Standardelementen aufgebaut. Dieser Abschnitt sammelt sie: die Formel, das Pol-/Nullstellenmuster, die Form der Sprungantwort und die Systeme, in denen jedes Element vorkommt. Das statische Verhalten wird immer durch die Gleichspannungsverstärkung <span class="math inline">\(K = G(0)\)</span> festgelegt — der Endwert eines stabilen Systems ist <span class="math inline">\(y(\infty) = K\cdot u_0\)</span> (Endwertsatz) — deshalb ist die Amplitude <span class="math inline">\(u_0\)</span> des Eingangssprungs in jedes <span class="math inline">\(G(s)\)</span> dieses Kapitels einbezogen.</p>
+<section id="pt1-glied-verzögerung-1.-ordnung-ein-reeller-pol" class="level3" data-number="9.7.1">
+<h3 data-number="9.7.1" class="anchored" data-anchor-id="pt1-glied-verzögerung-1.-ordnung-ein-reeller-pol"><span class="header-section-number">9.7.1</span> PT1-Glied — Verzögerung 1. Ordnung (ein reeller Pol)</h3>
+<p><span class="math display">\[G(s) = \frac{K}{\tau s + 1}, \qquad
+y(t) = K\left(1 - e^{-t/\tau}\right)\]</span></p>
+<ul>
+<li>Pol bei <span class="math inline">\(-1/\tau\)</span>; die Antwort erreicht 63.2 % des Endwerts bei <span class="math inline">\(t = \tau\)</span>, 95 % bei <span class="math inline">\(3\tau\)</span> und 99.3 % bei <span class="math inline">\(5\tau\)</span> — daher kommen die Abtastfenster von „etwa 4 bis 5 Zeitkonstanten“.</li>
+<li>Erkennbar am Exponentialverlauf <em>ohne</em> Wendepunkt: steilster Anstieg bei <span class="math inline">\(t = 0\)</span>, danach immer langsamer.</li>
+<li>Physikalischer Ursprung: ein Energiespeicher mit einem Verlustpfad (RC-Glied, <span class="math inline">\(L/R\)</span>, Masse gegen Fahrwiderstand, Behälter mit Ventil).</li>
+<li>Systeme 1, 2, 6, 7 und die Varianten <code>01_a</code>, <code>02_a</code>.</li>
+</ul>
+</section>
+<section id="pt2-glied-aperiodisch-zwei-reelle-pole-in-reihe" class="level3" data-number="9.7.2">
+<h3 data-number="9.7.2" class="anchored" data-anchor-id="pt2-glied-aperiodisch-zwei-reelle-pole-in-reihe"><span class="header-section-number">9.7.2</span> PT2-Glied, aperiodisch — zwei reelle Pole in Reihe</h3>
+<p><span class="math display">\[G(s) = \frac{K}{(\tau_1 s + 1)(\tau_2 s + 1)}, \qquad
+y(t) = K\left[1 - \frac{\tau_2\,e^{-t/\tau_2} - \tau_1\,e^{-t/\tau_1}}
+{\tau_2 - \tau_1}\right]\]</span></p>
+<ul>
+<li>Zwei negative reelle Pole; die Antwort ist <strong>s-förmig</strong> mit dem Wendepunkt bei <span class="math inline">\(t_w = \frac{\tau_1\tau_2}{\tau_2 - \tau_1}\ln\frac{\tau_2}{\tau_1}\)</span>.</li>
+<li>Erkennbar am flachen Anfang (der langsame Speicher ist noch nicht geladen), gefolgt vom Punkt des steilsten Anstiegs und dem einschwingenden Ende — die klassische Kurve thermischer und kaskadierter Prozesse.</li>
+<li>Physikalischer Ursprung: zwei nichtschwingende Energiespeicher in Reihe (Heizelement + erwärmte Masse, elektrische + mechanische Motorverzögerung).</li>
+<li>Systeme 4, 5, 15 (hinter seiner Totzeit) und <code>11_b</code> (<span class="math inline">\(\zeta = 50\)</span>: so stark gedämpft, dass die Pole wieder reell sind).</li>
+</ul>
+</section>
+<section id="pt2-glied-unterdämpft-konjugiert-komplexes-polpaar" class="level3" data-number="9.7.3">
+<h3 data-number="9.7.3" class="anchored" data-anchor-id="pt2-glied-unterdämpft-konjugiert-komplexes-polpaar"><span class="header-section-number">9.7.3</span> PT2-Glied, unterdämpft — konjugiert komplexes Polpaar</h3>
+<p><span class="math display">\[G(s) = \frac{K\,\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2},\qquad
+y(t) = K\left[1 - e^{-\zeta\omega_n t}\left(\cos\omega_d t +
+\frac{\zeta}{\sqrt{1-\zeta^2}}\sin\omega_d t\right)\right]\]</span></p>
+<ul>
+<li>Dämpfungsgrad <span class="math inline">\(\zeta &lt; 1\)</span>; Überschwingen <span class="math inline">\(100\,e^{-\pi\zeta/\sqrt{1-\zeta^2}}\)</span> %, Nachschwingen mit <span class="math inline">\(\omega_d = \omega_n\sqrt{1-\zeta^2}\)</span>, Hüllkurve abklingend mit <span class="math inline">\(1/(\zeta\omega_n)\)</span>.</li>
+<li>Die Überschwingformel reproduziert die in den Beispielen genannten Zahlen: <span class="math inline">\(\zeta = 0.16 \to 60\,\%\)</span> (System 3), <span class="math inline">\(0.23 \to 48\,\%\)</span> (System 8), <span class="math inline">\(0.25 \to 44\,\%\)</span> (System 11), <span class="math inline">\(0.1 \to 73\,\%\)</span> (System 14).</li>
+<li>Physikalischer Ursprung: zwei Energiespeicher, die Energie <em>austauschen</em> (Induktivität ↔︎ Kapazität, Masse ↔︎ Feder) — die Energie pendelt schneller hin und her, als die Dämpfung sie aufnehmen kann.</li>
+<li>Systeme 3, 8, 11, 14 und 16 (in seinem linearisierten Teil).</li>
+</ul>
+</section>
+<section id="i-glied-integrierer-pol-im-ursprung" class="level3" data-number="9.7.4">
+<h3 data-number="9.7.4" class="anchored" data-anchor-id="i-glied-integrierer-pol-im-ursprung"><span class="header-section-number">9.7.4</span> I-Glied — Integrierer (Pol im Ursprung)</h3>
+<p><span class="math display">\[G(s) = \frac{K}{s}, \qquad y(t) = K\,t\]</span></p>
+<ul>
+<li>Die Sprungantwort ist eine <strong>Rampe</strong>: es gibt keinen Endwert (das System ist grenzstabil, nicht asymptotisch stabil).</li>
+<li>Physikalischer Ursprung: der Ausgang ist das Integral des Eingangs — der Kurs ist das Integral der Drehrate, der Siloinhalt das Integral des Massenstroms.</li>
+<li>Systeme 9 und 13.</li>
+</ul>
+</section>
+<section id="i-pt1-integrierer-mit-verzögerung" class="level3" data-number="9.7.5">
+<h3 data-number="9.7.5" class="anchored" data-anchor-id="i-pt1-integrierer-mit-verzögerung"><span class="header-section-number">9.7.5</span> I + PT1 — Integrierer mit Verzögerung</h3>
+<p><span class="math display">\[G(s) = \frac{K}{s\,(T s + 1)}, \qquad
+y(t) = K\left[t - T\left(1 - e^{-t/T}\right)\right]\]</span></p>
+<ul>
+<li>Eine Rampe mit flachem Anfang: für <span class="math inline">\(t \gg T\)</span> ist die Steigung die Konstante <span class="math inline">\(K\)</span>, die Verzögerung <span class="math inline">\(T\)</span> verzögert nur den Beginn. Dies ist die Nomoto-Form von System 9: Das Schiff dreht nicht <em>sofort</em> mit <span class="math inline">\(0.5\,\mathrm{deg/s}\)</span>, die Drehrate baut sich erst über die Rumpfdynamik auf.</li>
+</ul>
+</section>
+<section id="tt-glied-totzeit-transportverzögerung" class="level3" data-number="9.7.6">
+<h3 data-number="9.7.6" class="anchored" data-anchor-id="tt-glied-totzeit-transportverzögerung"><span class="header-section-number">9.7.6</span> Tt-Glied — Totzeit (Transportverzögerung)</h3>
+<p><span class="math display">\[G(s) = e^{-L s}\]</span></p>
+<ul>
+<li>Keine Pole und keine exponentielle Form: Die Totzeit verschiebt die <em>gesamte</em> Antwort um <span class="math inline">\(L\)</span>. Erkennbar am exakt bei null beginnenden Verlauf.</li>
+<li>Sie tritt immer multiplikativ zu einem dynamischen Element auf: PT1 + Tt (System 10), I + Tt (System 13), PT2 + Tt (System 15).</li>
+<li>Für die Regleranalyse wird die Totzeit oft Padé-approximiert, <span class="math inline">\(e^{-Ls} \approx \frac{1 - Ls/2}{1 + Ls/2}\)</span> — mit der Nullstelle bei <span class="math inline">\(+2/L\)</span> in der rechten s-Halbebene: für Stabilitätsränder verhält sich Totzeit wie ein nichtminimalphasiges Element.</li>
+</ul>
+</section>
+<section id="nullstellen-differenzierende-d-wirkung" class="level3" data-number="9.7.7">
+<h3 data-number="9.7.7" class="anchored" data-anchor-id="nullstellen-differenzierende-d-wirkung"><span class="header-section-number">9.7.7</span> Nullstellen — differenzierende (D-)Wirkung</h3>
+<p>Eine Nullstelle ist eine Zählerwurzel und formt den Übergangsvorgang, ohne den Endwert zu ändern. Ein reiner Differenzierer <span class="math inline">\(G = K_D s\)</span> würde auf einen Sprung mit einem Impuls antworten (allein unphysikalisch); die praktische Form ist ein Lead-Glied mit einer Nullstelle in der linken s-Halbebene bei <span class="math inline">\(-1/T\)</span>. In einer Sprungantwort wirkt eine solche Nullstelle wie der D-Anteil eines PID-Reglers:</p>
+<ul>
+<li>der anfängliche Anstieg ist steiler (bis zu einem sichtbaren Sprung, wenn die Nullstelle langsam gegenüber den Polen ist), und</li>
+<li>das Überschwingen wird verändert, während der Endwert <span class="math inline">\(K\,u_0\)</span> bleibt.</li>
+</ul>
+<p>In System 14 liefert die Dämpferkraft <span class="math inline">\(d\,\dot x\)</span> die Nullstelle bei <span class="math inline">\(-k/d = -159\,\mathrm{rad/s}\)</span>: die übertragene Kraft beginnt mit der Steigung <span class="math inline">\(dF/m = 5040\,\mathrm{N/s}\)</span>, während die Feder allein (ohne Nullstelle) im ersten Augenblick nichts übertragen würde.</p>
+</section>
+<section id="rhp-nullstelle-nichtminimalphasig" class="level3" data-number="9.7.8">
+<h3 data-number="9.7.8" class="anchored" data-anchor-id="rhp-nullstelle-nichtminimalphasig"><span class="header-section-number">9.7.8</span> RHP-Nullstelle — nichtminimalphasig</h3>
+<p><span class="math display">\[G(s) = K\,\frac{1 - s/\omega_z}{\ldots}, \qquad \omega_z &gt; 0\]</span></p>
+<ul>
+<li>Eine Nullstelle in der <strong>rechten s-Halbebene</strong> erzeugt eine <strong>inverse Antwort</strong>: der Ausgang bewegt sich zuerst in die <em>falsche</em> Richtung, durchquert dann die ganze Differenz und stellt sich auf <span class="math inline">\(K u_0\)</span> ein (System 12 fällt auf <span class="math inline">\(-0.27\)</span> V ab, bevor es auf <span class="math inline">\(+0.96\)</span> V steigt).</li>
+<li>Kein Regler kann den anfänglichen Einbruch aufheben, und die erreichbare Bandbreite ist grundsätzlich auf etwa <span class="math inline">\(\omega_z/3\)</span> begrenzt — deshalb sind Boost-Wandler schwerer zu regeln als Buck-Wandler.</li>
+<li>Dieselbe Signatur verbirgt sich in jeder Padé-Approximation einer Totzeit (siehe oben).</li>
+</ul>
+</section>
+<section id="totzone-coulomb-reibung-nichtlinear" class="level3" data-number="9.7.9">
+<h3 data-number="9.7.9" class="anchored" data-anchor-id="totzone-coulomb-reibung-nichtlinear"><span class="header-section-number">9.7.9</span> Totzone — Coulomb-Reibung (nichtlinear)</h3>
+<p>Die Totzone ist keine Übertragungsfunktion, weil das Element keine Superposition besitzt: es ist eine <em>statische Nichtlinearität</em>. Ihre zwei Gesichter:</p>
+<ul>
+<li><strong>Statische Totzone am Eingang:</strong> überhaupt kein Ausgang, solange <span class="math inline">\(|u| \le b\)</span> — das Element ignoriert kleine Befehle vollständig.</li>
+<li><strong>Reib-Totzone beim Positionieren</strong> (System 16): Mit Coulomb-Reibung <span class="math inline">\(F_c\)</span> und Seriensteifigkeit <span class="math inline">\(k\)</span> bewegt sich der Schlitten nicht, solange <span class="math inline">\(|F| &lt; F_c\)</span>, kommt zu einer <em>endlichen</em> Zeit zur Ruhe (Reibung entfernt pro Halbschwingung einen festen Energiebetrag) und kann überall innerhalb des Fehlerbandes <span class="math inline">\([(F-F_c)/k,\ (F+F_c)/k]\)</span> ruhen — ein Positionsfehler, den kein Proportionalregler schließen kann, und der Ursprung von Stick-Slip und Grenzzyklen.</li>
+</ul>
+</section>
+</section>
+<section id="wo-welches-element-vorkommt" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="wo-welches-element-vorkommt"><span class="header-section-number">9.8</span> Wo welches Element vorkommt</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Element</th>
+<th>Formel</th>
+<th>Signatur der Sprungantwort</th>
+<th>Systeme</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PT1</td>
+<td><span class="math inline">\(\frac{K}{\tau s + 1}\)</span></td>
+<td>exponentiell, 63.2 % bei <span class="math inline">\(\tau\)</span></td>
+<td>1, 2, 6, 7, <code>01_a</code>, <code>02_a</code></td>
+</tr>
+<tr class="even">
+<td>PT2 aperiodisch</td>
+<td><span class="math inline">\(\frac{K}{(\tau_1 s + 1)(\tau_2 s + 1)}\)</span></td>
+<td>s-förmig mit Wendepunkt</td>
+<td>4, 5, 15, <code>11_b</code></td>
+</tr>
+<tr class="odd">
+<td>PT2 unterdämpft</td>
+<td><span class="math inline">\(\frac{K\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}\)</span></td>
+<td>Überschwingen + Nachschwingen</td>
+<td>3, 8, 11, 14, 16</td>
+</tr>
+<tr class="even">
+<td>I (Integrierer)</td>
+<td><span class="math inline">\(\frac{K}{s}\)</span></td>
+<td>Rampe, kein Endwert</td>
+<td>9, 13</td>
+</tr>
+<tr class="odd">
+<td>I + PT1</td>
+<td><span class="math inline">\(\frac{K}{s(Ts+1)}\)</span></td>
+<td>Rampe mit flachem Anfang</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>Tt (Totzeit)</td>
+<td><span class="math inline">\(e^{-Ls}\)</span></td>
+<td>null bis <span class="math inline">\(t = L\)</span></td>
+<td>10, 13, 15</td>
+</tr>
+<tr class="odd">
+<td>D-/Lead-Nullstelle</td>
+<td><span class="math inline">\(1 + sT\)</span> (Nullstelle bei <span class="math inline">\(-1/T\)</span>)</td>
+<td>sofortiger steiler Anstieg</td>
+<td>14</td>
+</tr>
+<tr class="even">
+<td>RHP-Nullstelle</td>
+<td><span class="math inline">\(1 - s/\omega_z\)</span> (Nullstelle bei <span class="math inline">\(+\omega_z\)</span>)</td>
+<td>inverse Antwort (zuerst Einbruch)</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>Totzone</td>
+<td><span class="math inline">\(\|u\| \le b \Rightarrow y = 0\)</span> (nichtlinear)</td>
+<td>keine Bewegung unterhalb der Schwelle, endliches Einschwingen, Fehlerband</td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+<p>Mit diesen neun Blöcken lässt sich jedes System der Teile I–IV direkt lesen: Elementformeln multiplizieren, die Sprungamplitude in <span class="math inline">\(K\)</span> einbeziehen, und die Sprungantwort ist <span class="math inline">\(y(t) = \mathcal{L}^{-1}\{G(s)/s\}\)</span>.</p>
+</section>
+<section id="teil-i-fünf-grundsysteme" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="teil-i-fünf-grundsysteme"><span class="header-section-number">9.9</span> Teil I — Fünf Grundsysteme</h2>
+<section id="rc-tiefpass-5-v-logiksprung" class="level3" data-number="9.9.1">
+<h3 data-number="9.9.1" class="anchored" data-anchor-id="rc-tiefpass-5-v-logiksprung"><span class="header-section-number">9.9.1</span> 1. RC-Tiefpass — 5-V-Logiksprung</h3>
+<p><strong>Physikalischer Hintergrund.</strong> Ein Widerstand <span class="math inline">\(R = 1\,\mathrm{k\Omega}\)</span> und ein Kondensator <span class="math inline">\(C = 100\,\mathrm{\mu F}\)</span> bilden einen Tiefpass erster Ordnung, z. B. ein RC-Glied, das einen 5-V-Ausgangspin eines Mikrocontrollers glättet.</p>
+<p><span class="math display">\[G(s) = \frac{U}{RC\,s + 1} = \frac{5}{0.1\,s + 1}, \qquad
+y(t) = 5\left(1 - e^{-10t}\right)\,\mathrm{V}\]</span></p>
+<p>Zeitkonstante <span class="math inline">\(\tau = RC = 0.1\,\mathrm{s}\)</span>; der Kondensator lädt sich von 0 V auf 5 V auf.</p>
+<p><strong>CSV:</strong> <code>csv/01.csv</code> (0 … 0.5 s)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sprungantworten/01_step_response_rc_lowpass.png" class="img-fluid figure-img"></p>
+<figcaption>Sprungantwort des RC-Tiefpasses (System 1).</figcaption>
+</figure>
+</div>
+</section>
+<section id="rl-schaltung-24-v-versorgungssprung" class="level3" data-number="9.9.2">
+<h3 data-number="9.9.2" class="anchored" data-anchor-id="rl-schaltung-24-v-versorgungssprung"><span class="header-section-number">9.9.2</span> 2. RL-Schaltung — 24-V-Versorgungssprung</h3>
+<p><strong>Physikalischer Hintergrund.</strong> Eine Induktivität <span class="math inline">\(L = 0.1\,\mathrm{H}\)</span> in Reihe mit einem Widerstand <span class="math inline">\(R = 10\,\mathrm{\Omega}\)</span> an einem 24-V-Industrie-Netzteil (z. B. eine Relais- oder Schützspule, die eingeschaltet wird). Der Strom durch eine Induktivität kann nicht springen.</p>
+<p><span class="math display">\[G(s) = \frac{U/R}{\frac{L}{R}s + 1} = \frac{2.4}{0.01\,s + 1}, \qquad
+y(t) = 2.4\left(1 - e^{-100t}\right)\,\mathrm{A}\]</span></p>
+<p>Zeitkonstante <span class="math inline">\(\tau = L/R = 0.01\,\mathrm{s}\)</span> — zehnmal schneller als der RC-Tiefpass. Der Strom stellt sich auf <span class="math inline">\(I_\infty = U/R =
+2.4\,\mathrm{A}\)</span> ein.</p>
+<p><strong>CSV:</strong> <code>csv/02.csv</code> (0 … 0.05 s)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sprungantworten/02_step_response_rl_circuit.png" class="img-fluid figure-img"></p>
+<figcaption>Sprungantwort der RL-Schaltung (System 2).</figcaption>
+</figure>
+</div>
+</section>
+<section id="masse-feder-dämpfer-50-n-kraftsprung" class="level3" data-number="9.9.3">
+<h3 data-number="9.9.3" class="anchored" data-anchor-id="masse-feder-dämpfer-50-n-kraftsprung"><span class="header-section-number">9.9.3</span> 3. Masse-Feder-Dämpfer — 50-N-Kraftsprung</h3>
+<p><strong>Physikalischer Hintergrund.</strong> Eine Masse <span class="math inline">\(m = 2\,\mathrm{kg}\)</span> auf einer Feder <span class="math inline">\(k = 2000\,\mathrm{N/m}\)</span> mit einem Dämpfer <span class="math inline">\(d = 20\,\mathrm{N\,s/m}\)</span>, z. B. ein kleines Maschinenteil auf einer weichen Lagerung. Ein Kraftsprung von <span class="math inline">\(F = 50\,\mathrm{N}\)</span> (eine plötzliche Last) lenkt die Feder auf die statische Auslenkung <span class="math inline">\(x_\infty = F/k = 2.5\,\mathrm{cm}\)</span> aus.</p>
+<p><span class="math display">\[G(s) = \frac{F}{m s^2 + d s + k} = \frac{50}{2s^2 + 20s + 2000}\]</span></p>
+<p>Mit <span class="math inline">\(\omega_n = \sqrt{k/m} \approx 31.6\,\mathrm{rad/s}\)</span> und <span class="math inline">\(\zeta = d/(2\sqrt{km}) \approx 0.16 &lt; 1\)</span> ist das System <strong>unterdämpft</strong>: die Position überschwingt die 2.5-cm-Marke deutlich und schwingt mit <span class="math inline">\(\omega_d \approx 31.2\,\mathrm{rad/s}\)</span> (<span class="math inline">\(\approx 5\,\mathrm{Hz}\)</span>) nach, bevor sie sich einschwingt.</p>
+<p><strong>CSV:</strong> <code>csv/03.csv</code> (0 … 0.5 s)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sprungantworten/03_step_response_mass_spring_damper.png" class="img-fluid figure-img"></p>
+<figcaption>Sprungantwort des Masse-Feder-Dämpfer-Systems (System 3).</figcaption>
+</figure>
+</div>
+</section>
+<section id="dc-motor-12-v-batteriesprung" class="level3" data-number="9.9.4">
+<h3 data-number="9.9.4" class="anchored" data-anchor-id="dc-motor-12-v-batteriesprung"><span class="header-section-number">9.9.4</span> 4. DC-Motor — 12-V-Batteriesprung</h3>
+<p><strong>Physikalischer Hintergrund.</strong> Ein DC-Motor mit Trägheit <span class="math inline">\(J = 0.02\,\mathrm{kg\,m^2}\)</span>, viskoser Reibung <span class="math inline">\(b = 0.2\,\mathrm{N\,m\,s/rad}\)</span>, Ankerwiderstand <span class="math inline">\(R = 1\,\mathrm{\Omega}\)</span> und Ankerinduktivität <span class="math inline">\(L = 0.05\,\mathrm{H}\)</span>, Drehmomentkonstante <span class="math inline">\(K_m = 0.05\,\mathrm{N\,m/A}\)</span> und Gegen-EMK-Konstante <span class="math inline">\(K_e = 0.05\,\mathrm{V\,s/rad}\)</span>, an einer 12-V-Batterie. Das Motormoment beschleunigt die Trägheit; die Gegen-EMK koppelt die Drehzahl zurück in den elektrischen Kreis — daraus ergibt sich eine Übertragungsfunktion zweiter Ordnung:</p>
+<p><span class="math display">\[G(s) = \frac{U K_m}{(Js + b)(Ls + R) + K_m K_e}
+      = \frac{0.6}{(0.02 s + 0.2)(0.05 s + 1) + 0.0025}\]</span></p>
+<p>Beide Pole sind reell und negativ (<span class="math inline">\(\approx -5.1\)</span> und <span class="math inline">\(-39.9\)</span>), der Motor läuft also ohne Überschwingen auf <span class="math inline">\(\omega_\infty \approx 2.96\,\mathrm{rad/s} \approx
+28\,\mathrm{rpm}\)</span> hoch.</p>
+<p><strong>CSV:</strong> <code>csv/04.csv</code> (0 … 1.5 s)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sprungantworten/04_step_response_dc_motor_speed.png" class="img-fluid figure-img"></p>
+<figcaption>Sprungantwort der DC-Motordrehzahl (System 4).</figcaption>
+</figure>
+</div>
+</section>
+<section id="thermischer-prozess-500-w-heizleistungssprung" class="level3" data-number="9.9.5">
+<h3 data-number="9.9.5" class="anchored" data-anchor-id="thermischer-prozess-500-w-heizleistungssprung"><span class="header-section-number">9.9.5</span> 5. Thermischer Prozess — 500-W-Heizleistungssprung</h3>
+<p><strong>Physikalischer Hintergrund.</strong> Ein elektrisches Heizelement (<span class="math inline">\(P = 500\,\mathrm{W}\)</span>), das einen Körper erwärmt, lässt sich als zwei in Reihe geschaltete Energiespeicher modellieren: die Heizung selbst (schnell, <span class="math inline">\(\tau_1 = 5\,\mathrm{s}\)</span>) und die erwärmte Masse mit ihrer Wärmekapazität und ihrem Wärmeverlust an die Umgebung (langsam, <span class="math inline">\(\tau_2 = 60\,\mathrm{s}\)</span>). Die Gesamtverstärkung ist <span class="math inline">\(K = 4\,\mathrm{K/kW}\)</span>.</p>
+<p><span class="math display">\[G(s) = \frac{K P}{(\tau_1 s + 1)(\tau_2 s + 1)}
+      = \frac{2}{(5s + 1)(60s + 1)}\]</span></p>
+<p>Zwei reelle Pole in Reihe (PT2). Die Antwort ist s-förmig — flach am Anfang (Wendepunkt), typisch für thermische Prozesse — und der Körper erwärmt sich um <span class="math inline">\(+2\,\mathrm{K}\)</span>.</p>
+<p><strong>CSV:</strong> <code>csv/05.csv</code> (0 … 250 s)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sprungantworten/05_step_response_thermal_heating.png" class="img-fluid figure-img"></p>
+<figcaption>Sprungantwort des thermischen Prozesses (System 5).</figcaption>
+</figure>
+</div>
+</section>
+<section id="zusammenfassung-von-teil-i" class="level3" data-number="9.9.6">
+<h3 data-number="9.9.6" class="anchored" data-anchor-id="zusammenfassung-von-teil-i"><span class="header-section-number">9.9.6</span> Zusammenfassung von Teil I</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>System</th>
+<th>Eingangssprung</th>
+<th>Ausgang</th>
+<th>Ordnung</th>
+<th>Pole</th>
+<th>Endwert</th>
+<th>Charakter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RC-Tiefpass</td>
+<td>5 V</td>
+<td>0 → 5 V</td>
+<td>1</td>
+<td><span class="math inline">\(-10\)</span></td>
+<td>5 V</td>
+<td>PT1</td>
+</tr>
+<tr class="even">
+<td>RL-Schaltung</td>
+<td>24 V</td>
+<td>0 → 2.4 A</td>
+<td>1</td>
+<td><span class="math inline">\(-100\)</span></td>
+<td>2.4 A</td>
+<td>PT1 (schnell)</td>
+</tr>
+<tr class="odd">
+<td>Masse-Feder-Dämpfer</td>
+<td>50 N</td>
+<td>0 → 2.5 cm</td>
+<td>2</td>
+<td><span class="math inline">\(-5 \pm j\,31.2\)</span></td>
+<td>2.5 cm</td>
+<td>unterdämpft</td>
+</tr>
+<tr class="even">
+<td>DC-Motordrehzahl</td>
+<td>12 V</td>
+<td>0 → 2.96 rad/s</td>
+<td>2</td>
+<td><span class="math inline">\(\approx -5.1,\ -39.9\)</span></td>
+<td>2.96 rad/s</td>
+<td>überdämpftes PT2</td>
+</tr>
+<tr class="odd">
+<td>Thermische Heizung</td>
+<td>500 W</td>
+<td>0 → +2 K</td>
+<td>2</td>
+<td><span class="math inline">\(-0.2,\ -0.0167\)</span></td>
+<td>2 K</td>
+<td>PT2, s-förmig</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="teil-ii-fünf-anwendungen-und-der-rlc-reihenkreis" class="level2" data-number="9.10">
+<h2 data-number="9.10" class="anchored" data-anchor-id="teil-ii-fünf-anwendungen-und-der-rlc-reihenkreis"><span class="header-section-number">9.10</span> Teil II — Fünf Anwendungen und der RLC-Reihenkreis</h2>
+<section id="tempomat-antriebskraft-auf-geschwindigkeit" class="level3" data-number="9.10.1">
+<h3 data-number="9.10.1" class="anchored" data-anchor-id="tempomat-antriebskraft-auf-geschwindigkeit"><span class="header-section-number">9.10.1</span> 6. Tempomat — Antriebskraft auf Geschwindigkeit</h3>
+<p><strong>Physikalischer Hintergrund.</strong> Ein 1,4-t-PKW (<span class="math inline">\(m = 1400\,\mathrm{kg}\)</span>) wird durch eine konstante Antriebskraft von <span class="math inline">\(F = 500\,\mathrm{N}\)</span> beschleunigt, während ein linearisierter Fahrwiderstand (Luft + Rollreibung) von <span class="math inline">\(c = 25\,\mathrm{N\,s/m}\)</span> der Bewegung entgegenwirkt. Das Newton-Gesetz liefert <span class="math inline">\(m\dot v + c v = F\)</span>.</p>
+<p><span class="math display">\[G(s) = \frac{F}{m s + c} = \frac{500}{1400 s + 25}, \qquad
+y(t) = 20\left(1 - e^{-t/56}\right)\,\mathrm{m/s}\]</span></p>
+<p>Zeitkonstante <span class="math inline">\(\tau = m/c = 56\,\mathrm{s}\)</span>. Der PKW erreicht asymptotisch <span class="math inline">\(v_\infty = F/c = 20\,\mathrm{m/s}\)</span> (<span class="math inline">\(\approx 72\,\mathrm{km/h}\)</span>) — genau die Strecke, gegen die ein Tempomat auf ebener Straße arbeiten muss.</p>
+<p><strong>CSV:</strong> <code>csv/06.csv</code> (0 … 200 s)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sprungantworten/06_step_response_car_cruise_control.png" class="img-fluid figure-img"></p>
+<figcaption>Sprungantwort des Tempomats (System 6).</figcaption>
+</figure>
+</div>
+</section>
+<section id="wasserbeckenfüllstand-pumpenzufluss-auf-füllstand" class="level3" data-number="9.10.2">
+<h3 data-number="9.10.2" class="anchored" data-anchor-id="wasserbeckenfüllstand-pumpenzufluss-auf-füllstand"><span class="header-section-number">9.10.2</span> 7. Wasserbeckenfüllstand — Pumpenzufluss auf Füllstand</h3>
+<p><strong>Physikalischer Hintergrund.</strong> Ein Prozessbehälter mit Querschnitt <span class="math inline">\(A = 0.5\,\mathrm{m^2}\)</span> wird von einer Pumpe mit einem Zuflusssprung von <span class="math inline">\(q = 2\,\mathrm{L/s}\)</span> gespeist. Das um den Arbeitspunkt linearisierte Ablaufventil hat den Leitwertswiderstand <span class="math inline">\(R = 40\,\mathrm{s/m^2}\)</span>, der Abfluss ist also <span class="math inline">\(q_{out} = h/R\)</span>. Massenbilanz: <span class="math inline">\(A\,\dot h = q_{in} - h/R\)</span>.</p>
+<p><span class="math display">\[G(s) = \frac{q R}{A R s + 1} = \frac{0.08}{20 s + 1}, \qquad
+y(t) = 0.08\left(1 - e^{-t/20}\right)\,\mathrm{m}\]</span></p>
+<p>Zeitkonstante <span class="math inline">\(\tau = A R = 20\,\mathrm{s}\)</span>. Der Füllstand stellt sich auf <span class="math inline">\(h_\infty = q R = 8\,\mathrm{cm}\)</span> ein — ein klassisches PT1 der Verfahrenstechnik.</p>
+<p><strong>CSV:</strong> <code>csv/07.csv</code> (0 … 100 s)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sprungantworten/07_step_response_water_tank_level.png" class="img-fluid figure-img"></p>
+<figcaption>Sprungantwort des Wasserbeckenfüllstands (System 7).</figcaption>
+</figure>
+</div>
+</section>
+<section id="synchroner-tiefsetzsteller-buck-tastverhältnis-auf-ausgangsspannung" class="level3" data-number="9.10.3">
+<h3 data-number="9.10.3" class="anchored" data-anchor-id="synchroner-tiefsetzsteller-buck-tastverhältnis-auf-ausgangsspannung"><span class="header-section-number">9.10.3</span> 8. Synchroner Tiefsetzsteller (Buck) — Tastverhältnis auf Ausgangsspannung</h3>
+<p><strong>Physikalischer Hintergrund.</strong> Ein 12-V-auf-Niederspannung-Buck-Wandler mit LC-Ausgangsfilter (<span class="math inline">\(L = 47\,\mathrm{\mu H}\)</span>, <span class="math inline">\(C = 220\,\mathrm{\mu F}\)</span>) an einer <span class="math inline">\(1\,\mathrm{\Omega}\)</span>-Last. Ein Tastverhältnissprung von <span class="math inline">\(\Delta d = 0.1\)</span> verschiebt die mittlere Ausgangsspannung um <span class="math inline">\(\Delta V = V_{in}\,\Delta d = 1.2\,\mathrm{V}\)</span>.</p>
+<p><span class="math display">\[G(s) = \frac{V_{in}\,\Delta d}{LC\,s^2 + \frac{L}{R} s + 1}
+      = \frac{1.2}{1.034\cdot10^{-8}\,s^2 + 4.7\cdot10^{-5}\,s + 1}\]</span></p>
+<p>Eigenfrequenz <span class="math inline">\(\omega_n = 1/\sqrt{LC} \approx 9.57\cdot
+10^3\,\mathrm{rad/s}\)</span> (<span class="math inline">\(\approx 1.5\,\mathrm{kHz}\)</span>) mit Dämpfungsgrad <span class="math inline">\(\zeta = \tfrac{1}{2R}\sqrt{L/C} \approx 0.23\)</span>: die Ausgangsspannung schwingt nach und überschwingt, bevor sie sich innerhalb weniger Millisekunden auf 1.2 V einstellt. Solch schnelle Übergangsvorgänge sind der Grund, warum Schaltnetzteile eine sorgfältige Regelkreis-Auslegung brauchen.</p>
+<p><strong>CSV:</strong> <code>csv/08.csv</code> (0 … 5 ms)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sprungantworten/08_step_response_buck_converter.png" class="img-fluid figure-img"></p>
+<figcaption>Sprungantwort des synchronen Tiefsetzstellers (System 8).</figcaption>
+</figure>
+</div>
+</section>
+<section id="schiffs-autopilot-ruder-auf-kurs-nomoto-modell" class="level3" data-number="9.10.4">
+<h3 data-number="9.10.4" class="anchored" data-anchor-id="schiffs-autopilot-ruder-auf-kurs-nomoto-modell"><span class="header-section-number">9.10.4</span> 9. Schiffs-Autopilot — Ruder auf Kurs (Nomoto-Modell)</h3>
+<p><strong>Physikalischer Hintergrund.</strong> Das Nomoto-Modell erster Ordnung ist die Standard-Niederfrequenznäherung der Gierdynamik von Schiffen. Für ein Frachtschiff mit Ruderwinkelverstärkung <span class="math inline">\(K = 0.05\,(\mathrm{deg/s})/\mathrm{deg}\)</span> und Zeitkonstante <span class="math inline">\(T = 20\,\mathrm{s}\)</span> dreht ein Rudersprung von <span class="math inline">\(\delta = 10\,\mathrm{deg}\)</span> das Schiff.</p>
+<p><span class="math display">\[G(s) = \frac{K\,\delta}{s\,(T s + 1)} = \frac{0.5}{s\,(20 s + 1)},
+\qquad y(t) = 0.5\,t - 10\left(1 - e^{-t/20}\right)\,\mathrm{deg}\]</span></p>
+<p>Der Integrierer (<span class="math inline">\(1/s\)</span>) ist wesentlich: Der Kurs ist das Integral der Drehrate, die Sprungantwort ist also keine einschwingende Kurve, sondern eine Rampe. Nach dem Übergangsvorgang (<span class="math inline">\(t \gg T\)</span>) dreht das Schiff mit konstanten <span class="math inline">\(0.5\,\mathrm{deg/s}\)</span>; bei <span class="math inline">\(t = 200\,\mathrm{s}\)</span> beträgt der Kurs <span class="math inline">\(\approx 90\,\mathrm{deg}\)</span> — das Schiff kreist, und genau dieses (stabile, aber nicht einschwingende) offene Verhalten schließt ein Autopilot zum Regelkreis.</p>
+<p><strong>CSV:</strong> <code>csv/09.csv</code> (0 … 200 s)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sprungantworten/09_step_response_ship_heading_nomoto.png" class="img-fluid figure-img"></p>
+<figcaption>Sprungantwort des Schiffs-Autopilots (System 9).</figcaption>
+</figure>
+</div>
+</section>
+<section id="raumluftanlage-mit-kanaltotzeit-heizleistung-auf-raumtemperatur" class="level3" data-number="9.10.5">
+<h3 data-number="9.10.5" class="anchored" data-anchor-id="raumluftanlage-mit-kanaltotzeit-heizleistung-auf-raumtemperatur"><span class="header-section-number">9.10.5</span> 10. Raumluftanlage mit Kanaltotzeit — Heizleistung auf Raumtemperatur</h3>
+<p><strong>Physikalischer Hintergrund.</strong> Eine Heizung gibt einen Leistungssprung von <span class="math inline">\(P = 1\,\mathrm{kW}\)</span> in einen Lüftungskanal ab. Die warme Luft braucht <span class="math inline">\(L = 8\,\mathrm{s}\)</span> von der Heizung in den Raum, und der Raum selbst ist ein PT1 mit Verstärkung <span class="math inline">\(K = 2.5\,\mathrm{K/kW}\)</span> und Zeitkonstante <span class="math inline">\(\tau = 120\,\mathrm{s}\)</span> (Wärmekapazität von Luft + Wänden, Wärmeverlust an die Umgebung).</p>
+<p><span class="math display">\[G(s) = \frac{K\,P\,e^{-L s}}{\tau s + 1}
+      = \frac{2.5\,e^{-8 s}}{120 s + 1}\]</span></p>
+<p><span class="math display">\[y(t) = 2.5\left(1 - e^{-(t-8)/120}\right)\sigma(t - 8)\,\mathrm{K}\]</span></p>
+<p>Die Antwort ist die ersten 8 s exakt null (vor dem Transportweg kommt nichts an) und steigt danach exponentiell gegen <span class="math inline">\(+2.5\,\mathrm{K}\)</span>. Totzeit ist der Hauptgrund, warum Raumluftkreise nicht aggressiv geregelt werden können: der Regler sieht 8 s lang keine Reaktion auf seine Stellgröße.</p>
+<p><strong>CSV:</strong> <code>csv/10.csv</code> (0 … 400 s)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sprungantworten/10_step_response_hvac_room_temperature.png" class="img-fluid figure-img"></p>
+<figcaption>Sprungantwort der Raumluftanlage (System 10).</figcaption>
+</figure>
+</div>
+</section>
+<section id="rlc-reihenkreis-12-v-sprung" class="level3" data-number="9.10.6">
+<h3 data-number="9.10.6" class="anchored" data-anchor-id="rlc-reihenkreis-12-v-sprung"><span class="header-section-number">9.10.6</span> 11. RLC-Reihenkreis — 12-V-Sprung</h3>
+<p><strong>Physikalischer Hintergrund.</strong> Ein RLC-Reihenkreis mit <span class="math inline">\(R = 5\,\mathrm{\Omega}\)</span>, <span class="math inline">\(L = 1\,\mathrm{mH}\)</span> und <span class="math inline">\(C = 10\,\mathrm{\mu F}\)</span>, z. B. das Ausgangsfilter einer Leistungselektronik-Stufe, angeregt durch einen 12-V-Versorgungssprung. Der Ausgang ist die Kondensatorspannung: die Induktivität speichert magnetische Energie und tauscht sie mit dem Kondensator aus, deshalb schwingt die Spannung ein, bevor sie sich einschwingt.</p>
+<p><span class="math display">\[G(s) = \frac{U}{LC\,s^2 + RC\,s + 1}
+      = \frac{12}{10^{-8}\,s^2 + 5\cdot10^{-5}\,s + 1}\]</span></p>
+<p><span class="math display">\[y(t) = 12\left(1 - e^{-2500t}\left(\cos(9682\,t) +
+0.258\,\sin(9682\,t)\right)\right)\,\mathrm{V}\]</span></p>
+<p>Eigenfrequenz <span class="math inline">\(\omega_n = 1/\sqrt{LC} = 10^4\,\mathrm{rad/s}\)</span> (<span class="math inline">\(\approx 1.6\,\mathrm{kHz}\)</span>) mit Dämpfungsgrad <span class="math inline">\(\zeta = \tfrac{R}{2}\sqrt{C/L} = 0.25\)</span>: klar <strong>unterdämpft</strong>. Die Kondensatorspannung überschwingt die 12-V-Marke um etwa 44 % auf <span class="math inline">\(\approx 17.3\,\mathrm{V}\)</span> und schwingt mit <span class="math inline">\(\omega_d \approx 9682\,\mathrm{rad/s}\)</span> bei einer Abklingzeitkonstante von <span class="math inline">\(2L/R = 0.4\,\mathrm{ms}\)</span> ein; nach etwa 2 ms stellt sie sich auf 12 V — dasselbe Nachschwingen wie beim LC-Filter des Tiefsetzstellers (System 8).</p>
+<p><strong>CSV:</strong> <code>csv/11.csv</code> (0 … 2 ms)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sprungantworten/11_step_response_rlc_circuit.png" class="img-fluid figure-img"></p>
+<figcaption>Sprungantwort des RLC-Reihenkreises (System 11).</figcaption>
+</figure>
+</div>
+</section>
+<section id="zusammenfassung-von-teil-ii" class="level3" data-number="9.10.7">
+<h3 data-number="9.10.7" class="anchored" data-anchor-id="zusammenfassung-von-teil-ii"><span class="header-section-number">9.10.7</span> Zusammenfassung von Teil II</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Anwendung</th>
+<th>Eingangssprung</th>
+<th>Ausgang</th>
+<th>Ordnung</th>
+<th>Pole</th>
+<th>Charakter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tempomat</td>
+<td>500 N Antriebskraft</td>
+<td>Geschwindigkeit (m/s)</td>
+<td>1</td>
+<td><span class="math inline">\(-1/56\)</span></td>
+<td>PT1, <span class="math inline">\(\tau = 56\)</span> s</td>
+</tr>
+<tr class="even">
+<td>Wasserbecken</td>
+<td>2 L/s Zufluss</td>
+<td>Füllstand (m)</td>
+<td>1</td>
+<td><span class="math inline">\(-1/20\)</span></td>
+<td>PT1, <span class="math inline">\(\tau = 20\)</span> s</td>
+</tr>
+<tr class="odd">
+<td>Tiefsetzsteller</td>
+<td><span class="math inline">\(\Delta d = 0.1\)</span></td>
+<td>Spannung (V)</td>
+<td>2</td>
+<td><span class="math inline">\(-2273 \pm j\,9568\)</span></td>
+<td>unterdämpft, <span class="math inline">\(\zeta = 0.23\)</span></td>
+</tr>
+<tr class="even">
+<td>Schiffskurs (Nomoto)</td>
+<td><span class="math inline">\(10^\circ\)</span> Ruder</td>
+<td>Kurs (deg)</td>
+<td>2</td>
+<td><span class="math inline">\(0,\ -1/20\)</span></td>
+<td>integrierend (Rampe)</td>
+</tr>
+<tr class="odd">
+<td>Raumluftanlage</td>
+<td>1 kW Heizleistung</td>
+<td>Temperatur (K)</td>
+<td>1 + Totzeit</td>
+<td><span class="math inline">\(-1/120\)</span>, <span class="math inline">\(e^{-8s}\)</span></td>
+<td>PT1 + 8 s Totzeit</td>
+</tr>
+<tr class="even">
+<td>RLC-Reihenkreis</td>
+<td>12 V</td>
+<td>Spannung (V)</td>
+<td>2</td>
+<td><span class="math inline">\(-2500 \pm j\,9682\)</span></td>
+<td>unterdämpft, <span class="math inline">\(\zeta = 0.25\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Im Vergleich zu Teil I zeigen die Anwendungen Effekte, die in der Praxis zählen: sehr unterschiedliche Zeitskalen (ms bis Minuten), das Nachschwingen eines leistungselektronischen Wandlers, ein Integrierer im Schiffsmodell und reine Transporttotzeit in der Raumluftanlage.</p>
+</section>
+</section>
+<section id="teil-iii-die-1-kω-varianten" class="level2" data-number="9.11">
+<h2 data-number="9.11" class="anchored" data-anchor-id="teil-iii-die-1-kω-varianten"><span class="header-section-number">9.11</span> Teil III — Die 1-kΩ-Varianten</h2>
+<p>Drei Systeme werden zusätzlich mit demselben Widerstandswert <span class="math inline">\(R = 1\,\mathrm{k\Omega}\)</span> erzeugt (<code>01_a</code>, <code>02_a</code>, <code>11_b</code>, Skript <code>generate_step_responses_1k_variants.py</code>). Die Originale bleiben unverändert.</p>
+<section id="a-rc-tiefpass-mit-r-1-kω" class="level3" data-number="9.11.1">
+<h3 data-number="9.11.1" class="anchored" data-anchor-id="a-rc-tiefpass-mit-r-1-kω"><span class="header-section-number">9.11.1</span> 01_a — RC-Tiefpass mit R = 1 kΩ</h3>
+<p>Identisch zu System 1: Der RC-Tiefpass verwendet bereits <span class="math inline">\(R = 1\,\mathrm{k\Omega}\)</span> mit <span class="math inline">\(C = 100\,\mathrm{\mu F}\)</span>, die Sprungantwort ist also dieselbe Kurve — <span class="math inline">\(\tau = RC = 0.1\,\mathrm{s}\)</span>, 0 V auf 5 V.</p>
+<p><strong>CSV:</strong> <code>csv/01_a.csv</code> (0 … 0.5 s)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sprungantworten/01_a_step_response_rc_lowpass.png" class="img-fluid figure-img"></p>
+<figcaption>Sprungantwort des RC-Tiefpasses mit R = 1 kΩ (Variante 01_a).</figcaption>
+</figure>
+</div>
+</section>
+<section id="a-rl-schaltung-mit-r-1-kω" class="level3" data-number="9.11.2">
+<h3 data-number="9.11.2" class="anchored" data-anchor-id="a-rl-schaltung-mit-r-1-kω"><span class="header-section-number">9.11.2</span> 02_a — RL-Schaltung mit R = 1 kΩ</h3>
+<p>Mit <span class="math inline">\(R = 1\,\mathrm{k\Omega}\)</span> statt <span class="math inline">\(10\,\mathrm{\Omega}\)</span> fällt der Endstrom auf <span class="math inline">\(U/R = 24\,\mathrm{mA}\)</span>, und die Zeitkonstante schrumpft hundertfach auf <span class="math inline">\(\tau = L/R = 0.1\,\mathrm{ms}\)</span>: der Strom steigt 100-mal schneller an, aber nur auf ein Zehntel der ursprünglichen 2.4 A.</p>
+<p><span class="math display">\[G(s) = \frac{0.024}{10^{-4}\,s + 1}\]</span></p>
+<p><strong>CSV:</strong> <code>csv/02_a.csv</code> (0 … 0.5 ms)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sprungantworten/02_a_step_response_rl_circuit.png" class="img-fluid figure-img"></p>
+<figcaption>Sprungantwort der RL-Schaltung mit R = 1 kΩ (Variante 02_a).</figcaption>
+</figure>
+</div>
+</section>
+<section id="b-rlc-reihenkreis-mit-r-1-kω" class="level3" data-number="9.11.3">
+<h3 data-number="9.11.3" class="anchored" data-anchor-id="b-rlc-reihenkreis-mit-r-1-kω"><span class="header-section-number">9.11.3</span> 11_b — RLC-Reihenkreis mit R = 1 kΩ</h3>
+<p>Der lehrreichste der drei: Das Anheben von <span class="math inline">\(R\)</span> von <span class="math inline">\(5\,\mathrm{\Omega}\)</span> auf <span class="math inline">\(1\,\mathrm{k\Omega}\)</span> verschiebt die Dämpfung von <span class="math inline">\(\zeta = 0.25\)</span> auf <span class="math inline">\(\zeta = 50\)</span> — das Nachschwingen von System 11 verschwindet vollständig. Der Kreis ist stark überdämpft, mit Polen bei <span class="math inline">\(\approx -100\)</span> und <span class="math inline">\(\approx -10^6\,\mathrm{rad/s}\)</span>; die Antwort wird vom langsamen Pol dominiert: ein träge exponentieller Anstieg auf 12 V mit <span class="math inline">\(\tau \approx 10\,\mathrm{ms}\)</span> — langsamer als der ursprüngliche RLC-Kreis, obwohl <span class="math inline">\(L\)</span> und <span class="math inline">\(C\)</span> gleich bleiben.</p>
+<p><strong>CSV:</strong> <code>csv/11_b.csv</code> (0 … 50 ms)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sprungantworten/11_b_step_response_rlc_circuit.png" class="img-fluid figure-img"></p>
+<figcaption>Sprungantwort des RLC-Reihenkreises mit R = 1 kΩ (Variante 11_b).</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="teil-iv-fünf-systeme-mit-kombinierten-effekten" class="level2" data-number="9.12">
+<h2 data-number="9.12" class="anchored" data-anchor-id="teil-iv-fünf-systeme-mit-kombinierten-effekten"><span class="header-section-number">9.12</span> Teil IV — Fünf Systeme mit kombinierten Effekten</h2>
+<p>Jedes System in Teil I und II zeigt einen dominanten Effekt. Die fünf Systeme dieses Teils sind reale technische Anwendungen, in denen mehrere Effekte <strong>gleichzeitig</strong> wirken: eine rechtsseitige Nullstelle über einem Filter zweiter Ordnung (Hochsetzsteller), ein Integrierer hinter einer Transporttotzeit (Banddosierung), eine differenzierende Nullstelle über einem schwingfähigen PT2 (Motorlager), eine doppelte Verzögerung mit Totzeit (Fernwärme) und Coulomb-Reibung über einem schwingfähigen PT2 (Maschinenschlitten). Sie werden von <code>generate_step_responses_multi_effect.py</code> erzeugt.</p>
+<section id="hochsetzsteller-12-v-auf-24-v-tastverhältnis-auf-ausgangsspannung" class="level3" data-number="9.12.1">
+<h3 data-number="9.12.1" class="anchored" data-anchor-id="hochsetzsteller-12-v-auf-24-v-tastverhältnis-auf-ausgangsspannung"><span class="header-section-number">9.12.1</span> 12. Hochsetzsteller (12 V auf 24 V) — Tastverhältnis auf Ausgangsspannung</h3>
+<p><strong>Physikalischer Hintergrund.</strong> Ein Boost-Wandler, der eine 24-V-Schiene aus einer 12-V-Quelle regelt (z. B. ein batteriebetriebener LED-Treiber), mit Filterinduktivität <span class="math inline">\(L = 100\,\mathrm{\mu H}\)</span>, Ausgangskondensator <span class="math inline">\(C = 100\,\mathrm{\mu F}\)</span> und Last <span class="math inline">\(R = 2\,\mathrm{\Omega}\)</span> (<span class="math inline">\(\approx 12\,\mathrm{A}\)</span>). Im Arbeitspunkt <span class="math inline">\(D = 0.5\)</span> hebt ein Tastverhältnissprung von <span class="math inline">\(\Delta d = 0.02\)</span> die mittlere Ausgangsspannung um <span class="math inline">\(\Delta V = V/(1-D)\cdot\Delta d = 0.96\,\mathrm{V}\)</span>.</p>
+<p><span class="math display">\[G(s) = \frac{(1-D)\,V\,\left(1 - \frac{s\,L}{(1-D)^2 R}\right)}
+{LC\,s^2 + \frac{L}{R}s + (1-D)^2}
+      = \frac{0.24 - 4.8\cdot10^{-5}\,s}
+{10^{-8}\,s^2 + 5\cdot10^{-5}\,s + 0.25}\]</span></p>
+<p>Der Nenner liefert Pole bei <span class="math inline">\(-2500 \pm j\,4330\,\mathrm{rad/s}\)</span> (<span class="math inline">\(\omega_n = 5000\,\mathrm{rad/s}\)</span>, <span class="math inline">\(\zeta = 0.5\)</span>) — aber die Nullstelle des Zählers liegt in der <strong>rechten s-Halbebene</strong>, bei <span class="math inline">\(+5000\,\mathrm{rad/s}\)</span> (<span class="math inline">\(= (1-D)^2 R/L\)</span>).</p>
+<p><span class="math display">\[y(t) = 0.96 - e^{-2500\,t}\left(0.96\,\cos(4330\,t) +
+1.663\,\sin(4330\,t)\right)\,\mathrm{V}\]</span></p>
+<p>Die Sprungantwort ist eine <strong>inverse Antwort</strong>: Der Ausgang bewegt sich zuerst in die <em>falsche</em> Richtung und fällt auf <span class="math inline">\(-0.27\,\mathrm{V}\)</span> ab, bevor er umkehrt, auf <span class="math inline">\(+1.16\,\mathrm{V}\)</span> überschwingt und sich auf <span class="math inline">\(0.96\,\mathrm{V}\)</span> einstellt. Die Physik hinter dem Einbruch: Ein erhöhtes Tastverhältnis verkürzt das Dioden-Leitintervall, der an die Last gelieferte Strom sinkt <em>sofort</em> und der Kondensator entlädt sich; erst danach baut sich der Induktivitätsstrom auf und lädt den Kondensator wieder auf. Die nichtminimalphasige Nullstelle ist der Grund, warum ein Hochsetzsteller grundsätzlich schwerer zu regeln ist als der Tiefsetzsteller von System 8 — kein Regler kann den anfänglichen Einbruch aufheben, und die RHP-Nullstelle begrenzt die erreichbare Bandbreite.</p>
+<p><strong>CSV:</strong> <code>csv/12.csv</code> (0 … 3 ms)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sprungantworten/12_step_response_boost_converter.png" class="img-fluid figure-img"></p>
+<figcaption>Sprungantwort des Hochsetzstellers (System 12).</figcaption>
+</figure>
+</div>
+</section>
+<section id="förderband-dosierung-zuteiler-massenstrom-auf-silomasse" class="level3" data-number="9.12.2">
+<h3 data-number="9.12.2" class="anchored" data-anchor-id="förderband-dosierung-zuteiler-massenstrom-auf-silomasse"><span class="header-section-number">9.12.2</span> 13. Förderband-Dosierung — Zuteiler-Massenstrom auf Silomasse</h3>
+<p><strong>Physikalischer Hintergrund.</strong> In einer Asphalt- oder Betonmischanlage fördert eine Schnecke Sand mit <span class="math inline">\(q = 2\,\mathrm{kg/s}\)</span> auf ein Förderband. Das Material braucht <span class="math inline">\(L = 30\,\mathrm{m}/2\,\mathrm{m/s} = 15\,\mathrm{s}\)</span> über das Band, bevor es in das Wiegesilo fällt, dessen Inhalt das Integral des ankommenden Stroms ist.</p>
+<p><span class="math display">\[G(s) = \frac{q\,e^{-L s}}{s} = \frac{2\,e^{-15s}}{s}, \qquad
+y(t) = 2\,(t - 15)\,\sigma(t - 15)\,\mathrm{kg}\]</span></p>
+<p>Zwei Effekte multiplizieren sich: der <strong>Integrierer</strong> (das Silo summiert alles, was ankommt) und die <strong>Transporttotzeit</strong> (15 s lang kommt nichts an). Die Antwort ist exakt 15 s lang null und danach eine gerade Rampe von <span class="math inline">\(2\,\mathrm{kg/s}\)</span> — bei <span class="math inline">\(t = 60\,\mathrm{s}\)</span> sind 90 kg angekommen. Das kombiniert den Charakter von System 9 (Integrierer → Rampe) mit dem von System 10 (Totzeit → erst Stille). In der Dosierpraxis ist die Totzeit das dominante Problem: Um eine Zielmasse zu erreichen, muss die Zuteitung 15 s früher abgeschaltet werden, und jeder Fehler, der während der Totzeit passiert, kann erst korrigiert werden, wenn das Material ankommt.</p>
+<p><strong>CSV:</strong> <code>csv/13.csv</code> (0 … 60 s)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sprungantworten/13_step_response_conveyor_silo_dosing.png" class="img-fluid figure-img"></p>
+<figcaption>Sprungantwort der Förderband-Dosierung (System 13).</figcaption>
+</figure>
+</div>
+</section>
+<section id="gummi-motorlager-eingeleitete-kraft-auf-übertragene-kraft" class="level3" data-number="9.12.3">
+<h3 data-number="9.12.3" class="anchored" data-anchor-id="gummi-motorlager-eingeleitete-kraft-auf-übertragene-kraft"><span class="header-section-number">9.12.3</span> 14. Gummi-Motorlager — eingeleitete Kraft auf übertragene Kraft</h3>
+<p><strong>Physikalischer Hintergrund.</strong> Ein 300-kg-Verbrennungsmotor ruht auf drei Gummilagern; ein Lager trägt <span class="math inline">\(m = 100\,\mathrm{kg}\)</span> Motormasse mit einer Steifigkeit von <span class="math inline">\(k = 10^5\,\mathrm{N/m}\)</span> (etwa 1 mm statische Einfederung) und einer Dämpfung von <span class="math inline">\(d = 630\,\mathrm{N\,s/m}\)</span> (<span class="math inline">\(\zeta \approx 0.1\)</span>). Beim Motorstart trifft eine Drehmoment-Stützkraft von <span class="math inline">\(F = 800\,\mathrm{N}\)</span> auf das Lager. Interessant ist die Kraft, die das Lager an den Rahmen weiterleitet: <span class="math inline">\(f_T = k\,x + d\,\dot x\)</span>.</p>
+<p><span class="math display">\[G(s) = \frac{k + d\,s}{m\,s^2 + d\,s + k}
+      = \frac{8\cdot10^5 + 504000\,s}{10^5 + 630\,s + 100\,s^2}\]</span></p>
+<p>Pole bei <span class="math inline">\(-3.15 \pm j\,31.5\,\mathrm{rad/s}\)</span> (<span class="math inline">\(\omega_n = 31.6\,\mathrm{rad/s} \approx 5\,\mathrm{Hz}\)</span>) und eine <strong>differenzierende Nullstelle</strong> bei <span class="math inline">\(-k/d = -159\,\mathrm{rad/s}\)</span> — der Dämpferanteil <span class="math inline">\(d\,\dot x\)</span> in der übertragenen Kraft.</p>
+<p><span class="math display">\[y(t) = 800 + e^{-3.15\,t}\left(80.1\,\sin(31.47\,t) -
+800\,\cos(31.47\,t)\right)\,\mathrm{N}\]</span></p>
+<p>Die übertragene Kraft steigt mit der Anfangssteigung <span class="math inline">\(d\,F/m = 5040\,\mathrm{N/s}\)</span> — eine Feder allein würde im ersten Augenblick nichts übertragen; die differenzierende Wirkung des Dämpfers leitet den Stoß sofort weiter. Die Kraft überschwingt den 800-N-Sprung um 75 % auf <span class="math inline">\(1396\,\mathrm{N}\)</span>, schwingt mit 5 Hz nach und stellt sich exakt auf <span class="math inline">\(800\,\mathrm{N}\)</span> ein: Ein Gummi-Lager überträgt statische Kraft vollständig — Schwingungsisolation wirkt nur <em>oberhalb</em> der Resonanz. Dies ist dieselbe <span class="math inline">\(k\)</span>-<span class="math inline">\(d\)</span>-<span class="math inline">\(m\)</span>-Struktur wie in System 3, nur mit der zusätzlichen Nullstelle, die daraus entsteht, dass statt der Position die Kraft gemessen wird.</p>
+<p><strong>CSV:</strong> <code>csv/14.csv</code> (0 … 1.5 s)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sprungantworten/14_step_response_engine_mount_transmitted_force.png" class="img-fluid figure-img"></p>
+<figcaption>Sprungantwort des Gummi-Motorlagers (System 14).</figcaption>
+</figure>
+</div>
+</section>
+<section id="fernwärme-abnehmer-vorlauftemperatur-auf-raumtemperatur" class="level3" data-number="9.12.4">
+<h3 data-number="9.12.4" class="anchored" data-anchor-id="fernwärme-abnehmer-vorlauftemperatur-auf-raumtemperatur"><span class="header-section-number">9.12.4</span> 15. Fernwärme-Abnehmer — Vorlauftemperatur auf Raumtemperatur</h3>
+<p><strong>Physikalischer Hintergrund.</strong> Ein Fernwärmewerk erhöht seine Vorlauftemperatur um einen Sprung von <span class="math inline">\(6\,\mathrm{K}\)</span>. Die Übergabestation des Abnehmers ist über eine 600-m-Netzleitung mit Wasser bei <span class="math inline">\(2\,\mathrm{m/s}\)</span> angeschlossen, der Sprung kommt also nach <span class="math inline">\(L = 300\,\mathrm{s}\)</span> Totzeit an. Hinter der Totzeit folgen zwei Energiespeicher in Reihe: die Rohrwand mit dem Wärmetauscher (<span class="math inline">\(\tau_1 = 40\,\mathrm{s}\)</span>) und das Gebäude mit Heizkörpern und Wärmemasse (<span class="math inline">\(\tau_2 = 300\,\mathrm{s}\)</span>). Verteilverluste ergeben eine Gesamtverstärkung von <span class="math inline">\(K = 0.9\)</span>, der Raum stellt sich also um <span class="math inline">\(+5.4\,\mathrm{K}\)</span> wärmer ein.</p>
+<p><span class="math display">\[G(s) = \frac{K\,\Delta T\,e^{-L s}}{(\tau_1 s + 1)(\tau_2 s + 1)}
+      = \frac{5.4\,e^{-300 s}}{(40 s + 1)(300 s + 1)}\]</span></p>
+<p><span class="math display">\[y(t) = 5.4\left[1 - 1.154\,e^{-t'/300} + 0.154\,e^{-t'/40}\right]
+\sigma(t - 300)\,\mathrm{K}, \qquad t' = t - 300\]</span></p>
+<p>Eine volle Minute fünf lang passiert gar nichts, dann beginnt der s-förmige PT2-Anstieg wie in System 5 — Totzeit plus doppelte Verzögerung in einer Strecke. Diese Kombination (lange Totzeit <em>und</em> zugleich langsame S-Kurve) ist der Grund, warum Fernwärmekreise konservativ geregelt werden: Ein Regler, der während der 5 stillen Minuten aggressiv reagiert, überschwingt stark, sobald die Wirkung endlich eintrifft. Zusammen mit System 10 zeigt dieses System, wie stark allein die Totzeit die Regelung erschwert.</p>
+<p><strong>CSV:</strong> <code>csv/15.csv</code> (0 … 1800 s)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sprungantworten/15_step_response_district_heating_consumer.png" class="img-fluid figure-img"></p>
+<figcaption>Sprungantwort des Fernwärme-Abnehmers (System 15).</figcaption>
+</figure>
+</div>
+</section>
+<section id="maschinenschlitten-mit-coulomb-reibung-antriebskraft-auf-position" class="level3" data-number="9.12.5">
+<h3 data-number="9.12.5" class="anchored" data-anchor-id="maschinenschlitten-mit-coulomb-reibung-antriebskraft-auf-position"><span class="header-section-number">9.12.5</span> 16. Maschinenschlitten mit Coulomb-Reibung — Antriebskraft auf Position</h3>
+<p><strong>Physikalischer Hintergrund.</strong> Ein <span class="math inline">\(m = 40\,\mathrm{kg}\)</span> schwerer Tisch eines Maschinenschlittens wird über einen Kugelgewindetrieb angetrieben, dessen axiale Nachgiebigkeit <span class="math inline">\(k = 10^6\,\mathrm{N/m}\)</span> beträgt; die Führungen fügen viskose Reibung <span class="math inline">\(d = 60\,\mathrm{N\,s/m}\)</span> und — entscheidend — Coulomb-Reibung von <span class="math inline">\(F_c = 60\,\mathrm{N}\)</span> hinzu. Ein Servo-Kraftsprung von <span class="math inline">\(F = 200\,\mathrm{N}\)</span> wird aufgebracht. Coulomb-Reibung wirkt der <em>Bewegungsrichtung</em> entgegen, <span class="math inline">\(\pm F_c\)</span>, das System ist also nichtlinear und hat keine Übertragungsfunktion — Superposition und der inverse-Laplace-Weg der anderen Systeme gelten nicht. Die Bewegungsgleichung (während der Bewegung) ist</p>
+<p><span class="math display">\[m\,\ddot x + d\,\dot x + k\,x +
+F_c\,\operatorname{sign}(\dot x) = F,\]</span></p>
+<p>und der Schlitten <strong>klebt dauerhaft fest</strong>, sobald <span class="math inline">\(\dot x = 0\)</span> und <span class="math inline">\(|F - k x| \le F_c\)</span>. Dieses System wird deshalb numerisch integriert (RK4 mit Stick-Erkennung) in <code>generate_step_responses_multi_effect.py</code> — das einzige nicht-analytische Beispiel dieses Kapitels.</p>
+<p>Die Antwort kombiniert zwei Effekte. Der linearisierte Teil wäre ein schwingfähiges PT2 (<span class="math inline">\(\omega_0 = \sqrt{k/m} =
+158\,\mathrm{rad/s}\)</span>, d.&nbsp;h. 25 Hz, <span class="math inline">\(\zeta = 0.005\)</span> — fast ungedämpft). Die Reibung fügt eine <strong>Totzone</strong> hinzu: Jede stationäre Antriebskraft unter <span class="math inline">\(F_c = 60\,\mathrm{N}\)</span> erzeugt <em>gar keine</em> Bewegung, und der Schlitten kann überall innerhalb des Reibbandes <span class="math inline">\([(F-F_c)/k,\ (F+F_c)/k] = [140, 260]\,\mathrm{\mu m}\)</span> zur Ruhe kommen. In der Simulation überschwingt der Schlitten auf <span class="math inline">\(278\,\mathrm{\mu m}\)</span> (gegenüber dem idealen <span class="math inline">\(F/k = 200\,\mathrm{\mu m}\)</span>), schwingt einmal zurück und <strong>klebt nach etwa 40 ms bei <span class="math inline">\(242\,\mathrm{\mu m}\)</span> fest</strong> — mit den qualitativen Unterschieden zu jedem linearen System: Das Einschwingen geschieht in <em>endlicher</em> Zeit (kein asymptotischer Schweif, weil die Reibung pro Halbschwingung einen festen Energiebetrag entfernt), und die Endposition liegt in einem <span class="math inline">\(\pm F_c/k = \pm 60\,\mathrm{\mu m}\)</span> breiten Fehlerband, das kein Proportionalregler schließen kann. Deshalb verwenden Präzisionsmaschinen vorgespannte, reibungsfreie Führungen, und deshalb verursacht Reibung Stick-Slip und Grenzzyklen in Positionierkreisen.</p>
+<p><strong>CSV:</strong> <code>csv/16.csv</code> (0 … 60 ms)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sprungantworten/16_step_response_machine_slide_coulomb_friction.png" class="img-fluid figure-img"></p>
+<figcaption>Sprungantwort des Maschinenschlittens mit Coulomb-Reibung (System 16).</figcaption>
+</figure>
+</div>
+</section>
+<section id="zusammenfassung-von-teil-iv" class="level3" data-number="9.12.6">
+<h3 data-number="9.12.6" class="anchored" data-anchor-id="zusammenfassung-von-teil-iv"><span class="header-section-number">9.12.6</span> Zusammenfassung von Teil IV</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>System</th>
+<th>Eingangssprung</th>
+<th>Ausgang</th>
+<th>Kombinierte Effekte</th>
+<th>Pole / Nullstellen</th>
+<th>Charakter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hochsetzsteller</td>
+<td><span class="math inline">\(\Delta d = 0.02\)</span></td>
+<td>0 → 0.96 V</td>
+<td>PT2 + RHP-Nullstelle</td>
+<td><span class="math inline">\(-2500 \pm j\,4330\)</span>; Nullstelle <span class="math inline">\(+5000\)</span></td>
+<td>inverse Antwort (zuerst Einbruch)</td>
+</tr>
+<tr class="even">
+<td>Banddosierung</td>
+<td>2 kg/s</td>
+<td>0 → 90 kg (bei 60 s)</td>
+<td>Integrierer + Totzeit</td>
+<td><span class="math inline">\(0\)</span>; <span class="math inline">\(e^{-15s}\)</span></td>
+<td>15 s Stille, dann Rampe</td>
+</tr>
+<tr class="odd">
+<td>Motorlager</td>
+<td>800 N</td>
+<td>0 → 800 N</td>
+<td>PT2 + differenzierende Nullstelle</td>
+<td><span class="math inline">\(-3.15 \pm j\,31.5\)</span>; Nullstelle <span class="math inline">\(-159\)</span></td>
+<td>75 % Überschwingen, volle statische Übertragung</td>
+</tr>
+<tr class="even">
+<td>Fernwärme</td>
+<td><span class="math inline">\(+6\)</span> K Vorlauf</td>
+<td>0 → +5.4 K</td>
+<td>PT2 + Totzeit</td>
+<td><span class="math inline">\(-1/40,\ -1/300\)</span>; <span class="math inline">\(e^{-300s}\)</span></td>
+<td>s-förmig nach 5 min</td>
+</tr>
+<tr class="odd">
+<td>Maschinenschlitten</td>
+<td>200 N</td>
+<td>0 → 242 µm</td>
+<td>PT2 + Coulomb-Reibung</td>
+<td><span class="math inline">\(-0.75 \pm j\,158\)</span> (linearisiert)</td>
+<td>Totzone, endliches Einschwingen</td>
+</tr>
+</tbody>
+</table>
+<p>Während Teil I und II einzelne Effekte isolieren, zeigt Teil IV, was geschieht, wenn Effekte zusammenwirken: eine inverse Antwort, die kein Regler aufheben kann (RHP-Nullstelle), eine Rampe, die erst nach der Transporttotzeit beginnt, ein Kraftpfad, der durch eine differenzierende Nullstelle sofort steil ansteigt, eine S-Kurve, die um Minuten verzögert ist, und eine Totzone, die das glatte asymptotische Einschwingen in ein endliches Festkleben mit bleibendem Positionsfehler verwandelt.</p>
+</section>
+</section>
+<section id="erzeugung-der-daten" class="level2" data-number="9.13">
+<h2 data-number="9.13" class="anchored" data-anchor-id="erzeugung-der-daten"><span class="header-section-number">9.13</span> Erzeugung der Daten</h2>
+<p>Verwendet wird die Conda-Umgebung <code>mtrs_env</code> (Python 3.9, sympy, numpy, pandas, matplotlib):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate mtrs_env</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> generate_step_responses.py</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> generate_step_responses_applications.py</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> generate_step_responses_1k_variants.py</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> generate_step_responses_multi_effect.py</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Die Skripte regenerieren die sechzehn CSV-Dateien (beschreibende Kopien im Projektordner, kurznummerierte Kopien in <code>csv/</code>), eine eigene Grafik pro System im Ordner <code>images/sprungantworten/</code> (die in diesem Kapitel eingebetteten Abbildungen) sowie die drei 1-kΩ-Varianten (<code>01_a</code>, <code>02_a</code>, <code>11_b</code>). System 16 wird numerisch integriert (RK4 mit Stick-Erkennung), weil Coulomb-Reibung keine Übertragungsfunktion zulässt; die Systeme 1–15 werden mit sympy analytisch invertiert. Die Skripte gehören zum MTRS-Datenprojekt „Step Response To Transfer Function“; die kombinierten Übersichtsgrafiken <code>step_responses.png</code>, <code>step_responses_applications.png</code> und <code>step_responses_multi_effect.png</code> werden weiterhin geschrieben, in diesem Kapitel aber nicht verwendet.</p>
+
+
 </section>
 
 </main> <!-- /main -->

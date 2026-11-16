@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Frequenz- und Periodenmessung – MTRS-Skript</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../Messtechnik/01.06_ADW_DAW.html" rel="next">
+<link href="../Messtechnik/01.04_Kennwerte.html" rel="prev">
+<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a81e59445572cdd197c6d70b794e35b6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"express",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  ,
+"language":"de"
+  });
+});
+</script> 
+  
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Messtechnik/Messtechnik.html">Messtechnik und Sensorik</a></li><li class="breadcrumb-item"><a href="../Messtechnik/01.05_Frequenz_und_Periode.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Frequenz- und Periodenmessung</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">MTRS-Skript</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lg-eng/MTRS-Skript" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Willkommen zum Skript</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../Messtechnik/Messtechnik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Messtechnik und Sensorik</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.01_Einfuehrung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Einführung in die Messtechnik</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.02_Strom_Spannung_Widerstand.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Strom-, Spannungs- und Widerstandsmessung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.03_Digitales_Multimeter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Digitale Multimeter</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.04_Kennwerte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Elektrische Kennwerte periodischer Signale</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.05_Frequenz_und_Periode.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Frequenz- und Periodenmessung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.06_ADW_DAW.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ADW–DAW — Grundlagen und Kenngrößen</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../Datenanalyse/01_Datenanalyse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datenanalyse - Data Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Datenanalyse/Datenanalyse_Datenquellen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Datenquellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Datenanalyse/Datenanalyse_Darstellungsformen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../SteuerRegel/01_SteuerRegel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Steuer- und Regelungstechnik</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../Anhang/xx_Appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Anhang/xx_Jahresplanung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="4">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#warum-frequenz-messen" id="toc-warum-frequenz-messen" class="nav-link active" data-scroll-target="#warum-frequenz-messen"><span class="header-section-number">5.1</span> Warum Frequenz messen?</a></li>
+  <li><a href="#periodische-signale" id="toc-periodische-signale" class="nav-link" data-scroll-target="#periodische-signale"><span class="header-section-number">5.2</span> Periodische Signale</a></li>
+  <li><a href="#messaufbau" id="toc-messaufbau" class="nav-link" data-scroll-target="#messaufbau"><span class="header-section-number">5.3</span> Messaufbau</a></li>
+  <li><a href="#frequenzmessung" id="toc-frequenzmessung" class="nav-link" data-scroll-target="#frequenzmessung"><span class="header-section-number">5.4</span> Frequenzmessung</a></li>
+  <li><a href="#periodendauermessung" id="toc-periodendauermessung" class="nav-link" data-scroll-target="#periodendauermessung"><span class="header-section-number">5.5</span> Periodendauermessung</a></li>
+  <li><a href="#zusammenspiel-frequenzperiode" id="toc-zusammenspiel-frequenzperiode" class="nav-link" data-scroll-target="#zusammenspiel-frequenzperiode"><span class="header-section-number">5.6</span> Zusammenspiel Frequenz/Periode</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Messtechnik/Messtechnik.html">Messtechnik und Sensorik</a></li><li class="breadcrumb-item"><a href="../Messtechnik/01.05_Frequenz_und_Periode.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Frequenz- und Periodenmessung</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-mt-frequenz-periode" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Frequenz- und Periodenmessung</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="warum-frequenz-messen" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="warum-frequenz-messen"><span class="header-section-number">5.1</span> Warum Frequenz messen?</h2>
+<ul>
+<li><strong>Frequenz als Zielgröße:</strong> In der Nutzsignaltechnik (z. B. Funk) muss die eingestellte Frequenz messtechnisch verifiziert werden. Beispiel WLAN 2,4 GHz: Kanal 1 sendet zwischen <span class="math inline">\(2399{,}5\,\mathrm{MHz}\)</span> und <span class="math inline">\(2424{,}5\,\mathrm{MHz}\)</span> — nur eine Frequenzmessung stellt sicher, dass der Kanal korrekt belegt ist.</li>
+<li><strong>Frequenz als Messsignal:</strong> Viele Sensoren wandeln eine physikalische Größe direkt in eine Frequenz um. Mit bekannter Wegstrecke oder Volumensmenge je Periode ergeben sich dann Geschwindigkeit und Durchfluss:</li>
+</ul>
+<div id="c81917ca" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>f_s <span class="op">=</span> MySymbol(<span class="st">'f'</span>, description<span class="op">=</span><span class="st">'Frequenz des Sensorsignals'</span>, unit<span class="op">=</span>u.hertz)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>s_p <span class="op">=</span> MySymbol(<span class="st">'s'</span>, description<span class="op">=</span><span class="st">'Weg je Periode (Sensorvertrag)'</span>, unit<span class="op">=</span>u.meter)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>v_g <span class="op">=</span> MySymbol(<span class="st">'v'</span>, description<span class="op">=</span><span class="st">'Geschwindigkeit'</span>, unit<span class="op">=</span>u.meter<span class="op">/</span>u.second)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>n_s <span class="op">=</span> MySymbol(<span class="st">'n_1'</span>, description<span class="op">=</span><span class="st">'Anzahl der Perioden im Messintervall'</span>, )</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>V_p <span class="op">=</span> MySymbol(<span class="st">'V'</span>, description<span class="op">=</span><span class="st">'Volumen je Periode'</span>, unit<span class="op">=</span>u.liter)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>V_g <span class="op">=</span> MySymbol(<span class="st">'V_</span><span class="sc">{ges}</span><span class="st">'</span>, description<span class="op">=</span><span class="st">'Gesamtvolumen im Messintervall'</span>, unit<span class="op">=</span>u.liter)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Q_f <span class="op">=</span> MySymbol(<span class="st">'Q'</span>, description<span class="op">=</span><span class="st">'Durchfluss (Volumenstrom)'</span>, unit<span class="op">=</span>u.liter<span class="op">/</span>u.second)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([s_p, f_s, v_g, n_s, V_p, V_g, Q_f])</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(v_g, s_p<span class="op">*</span>f_s), label<span class="op">=</span><span class="st">'eq-geschwindigkeit-frequenz'</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(V_g, n_s<span class="op">*</span>V_p), label<span class="op">=</span><span class="st">'eq-volumen-frequenz'</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(Q_f, V_p<span class="op">*</span>f_s), label<span class="op">=</span><span class="st">'eq-durchfluss-frequenz'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(s\)</span> … Weg je Periode (Sensorvertrag)</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(f\)</span> … Frequenz des Sensorsignals</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(v\)</span> … Geschwindigkeit</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(n_{1}\)</span> … Anzahl der Perioden im Messintervall</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(V\)</span> … Volumen je Periode</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(V_{ges}\)</span> … Gesamtvolumen im Messintervall</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(Q\)</span> … Durchfluss (Volumenstrom)</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-geschwindigkeit-frequenz"><span class="math display">\[
+v = f s
+\tag{5.1}\]</span></span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-volumen-frequenz"><span class="math display">\[
+V_{ges} = V n_{1}
+\tag{5.2}\]</span></span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-durchfluss-frequenz"><span class="math display">\[
+Q = V f
+\tag{5.3}\]</span></span></p>
+</div>
+</div>
+<ul>
+<li>Wegen der einfachen Digitalisierung (Zählen statt Amplitudenmessung) sind Frequenzsignale gestörtarm über lange Leitungen übertragbar.</li>
+</ul>
+</section>
+<section id="periodische-signale" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="periodische-signale"><span class="header-section-number">5.2</span> Periodische Signale</h2>
+<p>Ein Signal heißt periodisch, wenn es sich nach der Periodendauer <span class="math inline">\(T\)</span> wiederholt. Das muss kein Sinussignal sein — Rechteck- oder Sägezahnsignale sind ebenfalls periodisch.</p>
+<div id="cell-fig-sinus" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">3</span>, <span class="fl">0.01</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span><span class="dv">1</span><span class="op">*</span>t)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>ax.plot(t, y)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Zeit in Sekunden'</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Amplitude'</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Periodenbereiche hinterlegen</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>ax.axvspan(<span class="dv">0</span>, <span class="dv">1</span>, color<span class="op">=</span><span class="st">'green'</span>, alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="fl">0.15</span>, <span class="fl">1.25</span>, <span class="st">'Erste Periode'</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>ax.axvspan(<span class="dv">1</span>, <span class="dv">2</span>, color<span class="op">=</span><span class="st">'blue'</span>, alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="fl">1.15</span>, <span class="fl">1.25</span>, <span class="st">'Zweite Periode'</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="fl">2.15</span>, <span class="fl">1.25</span>, <span class="st">'Dritte Periode'</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># eine volle Periode als Pfeil einzeichnen</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>ax.arrow(<span class="dv">1</span>, <span class="op">-</span><span class="fl">0.6</span>, <span class="dv">1</span>, <span class="dv">0</span>, length_includes_head<span class="op">=</span><span class="va">True</span>, head_width<span class="op">=</span><span class="fl">0.08</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>ax.arrow(<span class="dv">2</span>, <span class="op">-</span><span class="fl">0.6</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, length_includes_head<span class="op">=</span><span class="va">True</span>, head_width<span class="op">=</span><span class="fl">0.08</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="fl">1.5</span>, <span class="op">-</span><span class="fl">0.45</span>, <span class="st">'Periodendauer $T$'</span>, ha<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="op">-</span><span class="fl">1.5</span>, <span class="fl">1.5</span>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-sinus" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sinus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="01.05_Frequenz_und_Periode_files/figure-html/fig-sinus-output-1.png" width="601" height="436" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sinus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;5.1: Sinussignal mit drei Perioden; die Periodendauer T ist über eine volle Periode markiert.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Die Einheit der Frequenz ist das <a href="https://de.wikipedia.org/wiki/Hertz_%28Einheit%29">Hertz (Hz)</a> — in SI-Basiseinheiten der Kehrwert der Zeit, <span class="math inline">\(\mathrm{Hz = 1/s}\)</span>. Der Zusammenhang zwischen Frequenz und Periodendauer folgt direkt daraus:</p>
+<div id="dc98220a" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>T_p <span class="op">=</span> MySymbol(<span class="st">'T'</span>, description<span class="op">=</span><span class="st">'Periodendauer'</span>, unit<span class="op">=</span>u.second)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>f_p <span class="op">=</span> MySymbol(<span class="st">'f'</span>, description<span class="op">=</span><span class="st">'Frequenz'</span>, unit<span class="op">=</span>u.hertz)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(f_p, <span class="dv">1</span><span class="op">/</span>T_p), label<span class="op">=</span><span class="st">'eq-frequenz-periode'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-frequenz-periode"><span class="math display">\[
+f = \frac{1}{T}
+\tag{5.4}\]</span></span></p>
+</div>
+</div>
+</section>
+<section id="messaufbau" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="messaufbau"><span class="header-section-number">5.3</span> Messaufbau</h2>
+<p>Periodendauer und Frequenz lassen sich mit demselben Messaufbau bestimmen: Zähler plus Takt mit bekannter Periodendauer. Die Signalquelle ist symbolisch für das zu messende Signal — es muss periodisch sein, aber nicht sinusförmig.</p>
+<div id="fig-block-freq" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-block-freq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/BlockFrequenzmessung.drawio.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-block-freq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;5.2: Blockschaltbild der Frequenz- und Periodenmessung: Messsignal (a), Komparator (b), Takt (c), UND-Glied (d) und Zähler
+</figcaption>
+</figure>
+</div>
+<ul>
+<li>Der <strong>Komparator</strong> formt das Messsignal (a) in einen impulsförmigen Pegel (b) um — ein Impuls je Periode.</li>
+<li>Der <strong>Takt</strong> (c) liefert Impulse mit bekannter Periodendauer <span class="math inline">\(T_{q}\)</span>.</li>
+<li>Das <strong>UND-Glied</strong> (d) verbindet beide Signale — es entscheidet, ob die Zählimpulse vom Messsignal oder vom Takt zum Zähler durchgelassen werden.</li>
+<li>Der <strong>Zähler</strong> liefert je nach Betriebsart die Anzahl <span class="math inline">\(N\)</span> der Signalperioden bzw. der Taktimpulse.</li>
+</ul>
+<div id="cell-fig-komparator" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fN <span class="op">=</span> <span class="dv">1</span>      <span class="co"># Frequenz in Hz</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>nN <span class="op">=</span> <span class="dv">2</span>      <span class="co"># Anzahl der Perioden</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>phiN <span class="op">=</span> np.pi<span class="op">/</span><span class="dv">4</span>  <span class="co"># Phasenverschiebung in Radiant</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>TN <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>fN   <span class="co"># Periodendauer</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>fN  <span class="co"># Kreisfrequenz</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>tN <span class="op">=</span> np.arange(<span class="dv">0</span>, nN<span class="op">*</span>TN, TN<span class="op">/</span><span class="dv">1000</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>yN <span class="op">=</span> np.sin(omega<span class="op">*</span>tN <span class="op">+</span> phiN)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>plt.plot(tN, yN, <span class="st">'-k'</span>, label<span class="op">=</span><span class="st">'Signal an Punkt a'</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>plt.plot(tN, <span class="fl">0.5</span> <span class="op">+</span> <span class="dv">1</span><span class="op">/</span><span class="dv">2</span><span class="op">*</span>signal.square(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>fN<span class="op">*</span>tN <span class="op">+</span> phiN), <span class="st">'--g'</span>, label<span class="op">=</span><span class="st">'Signal an Punkt b'</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="fl">1.2</span>, <span class="fl">1.6</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Zeit in s'</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Amplitude'</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="dv">9</span>, ncol<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-komparator" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-komparator-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="01.05_Frequenz_und_Periode_files/figure-html/fig-komparator-output-1.png" width="601" height="431" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-komparator-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;5.3: Messsignal am Punkt a (Sinus) und Ausgang des Komparators am Punkt b (Rechteck) — ein Impuls je Periode.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-fig-rechtAND" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fN <span class="op">=</span> <span class="dv">1</span>      <span class="co"># Frequenz in Hz</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>nN <span class="op">=</span> <span class="dv">2</span>      <span class="co"># Anzahl der Perioden</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>phiN <span class="op">=</span> np.pi<span class="op">/</span><span class="dv">4</span>  <span class="co"># Phasenverschiebung in Radiant</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>TN <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>fN   <span class="co"># Periodendauer</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>fN  <span class="co"># Kreisfrequenz</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>tN <span class="op">=</span> np.arange(<span class="dv">0</span>, nN<span class="op">*</span>TN, TN<span class="op">/</span><span class="dv">1000</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>sig_b <span class="op">=</span> <span class="fl">0.5</span> <span class="op">+</span> <span class="dv">1</span><span class="op">/</span><span class="dv">2</span><span class="op">*</span>signal.square(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>fN<span class="op">*</span>tN <span class="op">+</span> phiN)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>sig_c <span class="op">=</span> <span class="fl">0.5</span> <span class="op">+</span> <span class="dv">1</span><span class="op">/</span><span class="dv">2</span><span class="op">*</span>signal.square(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>fN<span class="op">*</span><span class="dv">3</span><span class="op">*</span>tN <span class="op">+</span> phiN)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>plt.plot(tN, sig_b, <span class="st">'--g'</span>, label<span class="op">=</span><span class="st">'Signal an Punkt b'</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>plt.plot(tN, sig_c, <span class="st">'-.b'</span>, label<span class="op">=</span><span class="st">'Signal an Punkt c'</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>plt.plot(tN, sig_b<span class="op">*</span>sig_c, <span class="st">'-k'</span>, label<span class="op">=</span><span class="st">'Signal an Punkt d'</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="fl">0.2</span>, <span class="fl">1.6</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Zeit in s'</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Amplitude'</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="dv">9</span>, ncol<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-rechtand" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rechtand-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="01.05_Frequenz_und_Periode_files/figure-html/fig-rechtand-output-1.png" width="607" height="436" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rechtand-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;5.4: Komparatorausgang (b) und Taktsignal (c) werden am UND-Glied (d) verknüpft — nur wenn beide Pegel hoch sind, läuft ein Impuls zum Zähler.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="frequenzmessung" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="frequenzmessung"><span class="header-section-number">5.4</span> Frequenzmessung</h2>
+<p>Bei der Frequenzmessung zählt der Zähler die Impulse des Messsignals innerhalb der Torzeit <span class="math inline">\(T_{g}\)</span> (Öffnungsdauer des UND-Glieds):</p>
+<div id="fed39447" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>N_f <span class="op">=</span> MySymbol(<span class="st">'N'</span>, description<span class="op">=</span><span class="st">'Anzahl der Impulse je Torzeit'</span>, )</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>T_g <span class="op">=</span> MySymbol(<span class="vs">r'T_{g}'</span>, description<span class="op">=</span><span class="st">'Torzeit'</span>, unit<span class="op">=</span>u.second)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(f_p, N_f<span class="op">/</span>T_g), label<span class="op">=</span><span class="st">'eq-frequenzmesung'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-frequenzmesung"><span class="math display">\[
+f = \frac{N}{T_{g}}
+\tag{5.5}\]</span></span></p>
+</div>
+</div>
+<p>Mit der Torzeit <span class="math inline">\(T_{g} = 1\,\mathrm{s}\)</span> und einem Messsignal der Frequenz <span class="math inline">\(f = 1\,\mathrm{kHz}\)</span> ergibt sich:</p>
+<div id="80eae04a" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>T_g_v <span class="op">=</span> MySymbol(<span class="vs">r'T_{g}'</span>, description<span class="op">=</span><span class="st">'Torzeit'</span>, unit<span class="op">=</span>u.second, value<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_values([T_g_v])</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(N_f, <span class="dv">1000</span>), label<span class="op">=</span><span class="st">'eq-n-frequenzmessung'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math display">\[T_{g} = \mathtt{\text{1}} \ \mathtt{\text{s}}\]</span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-n-frequenzmessung"><span class="math display">\[
+N = 1000
+\tag{5.6}\]</span></span></p>
+</div>
+</div>
+<div id="c9bea34c" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>eq_f <span class="op">=</span> Eq(f_p, N_f<span class="op">/</span>T_g)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>eq_f_num <span class="op">=</span> eq_f.subs({N_f: <span class="dv">1000</span>, T_g: <span class="dv">1</span>})</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(eq_f_num, label<span class="op">=</span><span class="st">'eq-frequenzmesung-num'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-frequenzmesung-num"><span class="math display">\[
+f = 1000
+\tag{5.7}\]</span></span></p>
+</div>
+</div>
+<ul>
+<li>Der Zähler kann nur ganzzahlige Impulse erfassen — immer der Zählstand <span class="math inline">\(\pm 1\)</span> Impuls ist unsicher. Bei <span class="math inline">\(N = 1000\)</span> Impulsen in <span class="math inline">\(1\,\mathrm{s}\)</span> bedeutet das eine relative Messabweichung von <span class="math inline">\(\pm 0{,}1\,\%\)</span> (Quantisierung, Typ-B-Bewertung nach <span class="citation" data-cites="jcgm100_2008">[<a href="#ref-jcgm100_2008" role="doc-biblioref">1</a>]</span>).</li>
+<li>Durch Verlängerung der Torzeit sinkt der relative Zählfehler, dafür dauert die Messung länger.</li>
+</ul>
+</section>
+<section id="periodendauermessung" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="periodendauermessung"><span class="header-section-number">5.5</span> Periodendauermessung</h2>
+<p>Bei der Periodendauermessung tauscht man die Rollen: Das Messsignal öffnet das Tor für eine Periode, und der Zähler zählt die Taktimpulse innerhalb dieser Periode:</p>
+<div id="12f53f78" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>T_q <span class="op">=</span> MySymbol(<span class="vs">r'T_{q}'</span>, description<span class="op">=</span><span class="st">'Periodendauer des Taktsignals'</span>, unit<span class="op">=</span>u.second)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>N_q <span class="op">=</span> MySymbol(<span class="vs">r'N_{q}'</span>, description<span class="op">=</span><span class="st">'Anzahl der Taktimpulse je Signalperiode'</span>, )</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(T_p, N_q<span class="op">*</span>T_q), label<span class="op">=</span><span class="st">'eq-periodenmessung'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-periodenmessung"><span class="math display">\[
+T = N_{q} T_{q}
+\tag{5.8}\]</span></span></p>
+</div>
+</div>
+<p>Mit einer Taktfrequenz von <span class="math inline">\(f_{q} = 1\,\mathrm{MHz}\)</span> und einem Messsignal <span class="math inline">\(f = 1\,\mathrm{kHz}\)</span> ergibt sich:</p>
+<div id="10483dbe" class="cell" data-execution_count="11">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>T_q_v <span class="op">=</span> MySymbol(<span class="vs">r'T_{q}'</span>, description<span class="op">=</span><span class="st">'Periodendauer des Taktsignals'</span>, unit<span class="op">=</span>u.second,</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                 value<span class="op">=</span><span class="fl">1e-6</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_values([T_q_v])</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(N_q, <span class="dv">1000</span>), label<span class="op">=</span><span class="st">'eq-n-periodenmessung'</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>T_p_v <span class="op">=</span> MySymbol(<span class="st">'T'</span>, description<span class="op">=</span><span class="st">'Periodendauer des Messsignals'</span>, unit<span class="op">=</span>u.second,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                 value<span class="op">=</span><span class="fl">1e-3</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_values([T_p_v])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math display">\[T_{q} = \mathtt{\text{1}} \ \mathtt{\text{us}}\]</span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-n-periodenmessung"><span class="math display">\[
+N_{q} = 1000
+\tag{5.9}\]</span></span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math display">\[T = \mathtt{\text{1}} \ \mathtt{\text{ms}}\]</span></p>
+</div>
+</div>
+<ul>
+<li>Auch hier ist der Zählstand <span class="math inline">\(\pm 1\)</span> Taktimpuls unsicher. Je mehr Taktimpulse <span class="math inline">\(N_{q}\)</span> innerhalb einer Periode gezählt werden, desto geringer ist die relative Messabweichung.</li>
+<li>Bei niedrigen Frequenzen wächst die Anzahl <span class="math inline">\(N_{q}\)</span> der Taktimpulse je Periode — die Periodendauermessung ist daher für niedrige Frequenzen genauer.</li>
+</ul>
+</section>
+<section id="zusammenspiel-frequenzperiode" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="zusammenspiel-frequenzperiode"><span class="header-section-number">5.6</span> Zusammenspiel Frequenz/Periode</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Messverfahren</th>
+<th>Zähler zählt</th>
+<th>Vorteil</th>
+<th>Nachteil</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Frequenzmessung</td>
+<td>Perioden des Messsignals in fester Torzeit</td>
+<td>schnell, gut für hohe Frequenzen</td>
+<td>ungünstig bei niedrigen Frequenzen (<span class="math inline">\(N\)</span> klein)</td>
+</tr>
+<tr class="even">
+<td>Periodendauermessung</td>
+<td>Taktimpulse je Signalperiode</td>
+<td>günstig bei niedrigen Frequenzen</td>
+<td>lange Messzeit bei niedrigen Frequenzen (je Messwert)</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p><strong>Platzhalter — Messgerätefoto:</strong> Frequenzzähler/Oszillator-Baugruppe mit sichtbarem Taktquarz und Zähler-IC, um den Messaufbau (<a href="#fig-block-freq" class="quarto-xref">Abbildung&nbsp;<span>5.2</span></a>) mit realer Schaltungstechnik zu verbinden.</p>
+</blockquote>
+
+
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-jcgm100_2008" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Joint Committee for Guides in Metrology (JCGM) (2008) <a href="https://www.bipm.org/en/committees/jc/jcgm/publications">Evaluation of measurement data — Guide to the expression of uncertainty in measurement (GUM)</a>. BIPM</div>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../Messtechnik/01.04_Kennwerte.html" class="pagination-link" aria-label="Elektrische Kennwerte periodischer Signale">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Elektrische Kennwerte periodischer Signale</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../Messtechnik/01.06_ADW_DAW.html" class="pagination-link" aria-label="ADW–DAW — Grundlagen und Kenngrößen">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ADW–DAW — Grundlagen und Kenngrößen</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+
+<div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

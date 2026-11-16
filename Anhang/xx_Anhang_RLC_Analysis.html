@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,10 +10,16 @@
 
 <title>Appendix A: RLC Circuit Analysis: Series CLR with Output across R – MTRS-Skript</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -31,20 +37,20 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../Anhang/xx_Jahresplanung.html" rel="next">
 <link href="../Anhang/xx_Appendix.html" rel="prev">
 <script src="../site_libs/cookie-consent/cookie-consent.js"></script>
 <link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-36a1d09b11375ae947a0a2c57dd59b74.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7284a02aabf66726fe0d1c9afe5ffa65.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -92,7 +98,7 @@ cookieconsent.run({
   
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -132,7 +138,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Anhang/xx_Appendix.html">Appendix</a></li><li class="breadcrumb-item"><a href="../Anhang/xx_Anhang_RLC_Analysis.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Anhang/xx_Appendix.html">Appendix</a></li><li class="breadcrumb-item"><a href="../Anhang/xx_Anhang_RLC_Analysis.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -145,9 +151,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">MTRS-Skript</a> 
         <div class="sidebar-tools-main">
@@ -179,8 +183,38 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Messtechnik/Frequenz_und_Periode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Messung der Zeit, Frequenz und Periode</span></span></a>
+  <a href="../Messtechnik/01.01_Einfuehrung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Einführung in die Messtechnik</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.02_Strom_Spannung_Widerstand.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Strom-, Spannungs- und Widerstandsmessung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.03_Digitales_Multimeter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Digitale Multimeter</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.04_Kennwerte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Elektrische Kennwerte periodischer Signale</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.05_Frequenz_und_Periode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Frequenz- und Periodenmessung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.06_ADW_DAW.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ADW–DAW — Grundlagen und Kenngrößen</span></span></a>
   </div>
 </li>
       </ul>
@@ -197,13 +231,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Datenanalyse/Datenanalyse_Datenquellen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Datenquellen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Datenquellen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Datenanalyse/Datenanalyse_Darstellungsformen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></span></a>
   </div>
 </li>
       </ul>
@@ -220,7 +254,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
   </div>
 </li>
       </ul>
@@ -237,7 +271,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Anhang/xx_Jahresplanung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
   </div>
 </li>
       </ul>
@@ -283,7 +323,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Anhang/xx_Appendix.html">Appendix</a></li><li class="breadcrumb-item"><a href="../Anhang/xx_Anhang_RLC_Analysis.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Anhang/xx_Appendix.html">Appendix</a></li><li class="breadcrumb-item"><a href="../Anhang/xx_Anhang_RLC_Analysis.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></h1>
 </div>
@@ -429,7 +469,7 @@ Transfer Function: 1000 points, time range: 0.000000 to 0.005000 s</code></pre>
 <div class="cell-output cell-output-display">
 <div id="plot-comparison" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="xx_Anhang_RLC_Analysis_files/figure-html/plot-comparison-output-2.png" width="1335" height="949" class="figure-img"></p>
+<p><img src="xx_Anhang_RLC_Analysis_files/figure-html/plot-comparison-output-2.png" width="1337" height="950" class="figure-img"></p>
 <figcaption>Time Domain Comparison: Spice Simulation, Measurements, and Transfer Function</figcaption>
 </figure>
 </div>
@@ -475,7 +515,7 @@ Theoretical peak magnitude at resonance: 0.0499</code></pre>
 <div class="cell-output cell-output-display">
 <div id="normalized-comparison" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="xx_Anhang_RLC_Analysis_files/figure-html/normalized-comparison-output-1.png" width="1335" height="949" class="figure-img"></p>
+<p><img src="xx_Anhang_RLC_Analysis_files/figure-html/normalized-comparison-output-1.png" width="1339" height="950" class="figure-img"></p>
 <figcaption>Normalized Signal Comparison</figcaption>
 </figure>
 </div>
@@ -925,6 +965,9 @@ Transfer Function: 1000 points, input peak: 1.0000 V, output peak: 0.0926 V</cod
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../Anhang/xx_Jahresplanung.html" class="pagination-link" aria-label="Jahresplan: Wochenweise Lehrstoffverteilung MTRS">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
