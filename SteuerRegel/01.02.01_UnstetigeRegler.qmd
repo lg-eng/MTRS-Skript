@@ -26,7 +26,6 @@ QBookHelpers.print_description({T,Tref,deltaTein,deltaTaus})
 #| fig-cap: "Zweipunktregler eines einfachen Heizlüfters"
 #| echo: false
 
-plt.rcParams['text.usetex'] = true
 fig, ax = plt.subplots()
 ax.plot(T.value,-np.sign(T.value-Tref.value-deltaTaus.value),'b',alpha=0.8)
 ax.plot(T.value,-np.sign(T.value-Tref.value-deltaTein.value),'r',alpha=0.8)

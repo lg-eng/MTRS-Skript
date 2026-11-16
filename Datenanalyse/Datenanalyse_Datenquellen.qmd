@@ -133,7 +133,7 @@ import requests
 import pandas as pd
 
 url = 'https://jsonplaceholder.typicode.com/posts'
-response = requests.get(url)
+response = requests.get(url, timeout=10) # Timeout: Chunk blockiert sonst bei fehlender Netzwerkverbindung
 data = response.json()
 df = pd.DataFrame(data)
 display(df.head())
@@ -150,7 +150,8 @@ Datenbanken sind ein mächtiges Werkzeug um Daten zu speichern und zu verwalten.
      Bei aktualisierter Broker-Adresse wieder einkommentieren.
 ## MQTT
 MQTT ist ein leichtgewichtiges Protokoll, das für die Kommunikation zwischen Geräten in einem Netzwerk entwickelt wurde. Es wird oft in IoT-Anwendungen verwendet. In diesem Beispiel wird die Bibliothek *paho-mqtt* verwendet.
-```{python eval: false}
+```{python}
+#| eval: false
 #| code-fold: false
 #| echo: true
 import paho.mqtt.client as mqtt #import the mqtt client
