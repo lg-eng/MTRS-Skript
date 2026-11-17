@@ -538,15 +538,15 @@ Der zweite Typ von Regler kann die Stellgröße kontinuierlich anpassen. Diese R
 <h2 data-number="9.4" class="anchored" data-anchor-id="unstetige-regler"><span class="header-section-number">9.4</span> Unstetige Regler</h2>
 <p>Klassische unstetige Regler sind Bimetallschalter. Diese werden zum Beispiel bei Heizlüftern eingesetzt.<br>
 Ist der Raum und damit das Bimetall kalt, so ist der Kontakt geschlossen und der Lüfter läuft. Wird die Raumluft und damit das Bimetall warm, wird der Kontakt geöffnet und der Lüfter hört auf zu heizen.</p>
-<div id="d3160b24" class="cell" data-execution_count="2">
+<div id="53219178" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(T\)</span> … Temperatur</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(T_{ein}\)</span> … Einschaltschwelle</p>
+<p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
+<p><span class="math inline">\(T_{ein}\)</span> … Einschaltschwelle</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(T_{aus}\)</span> … Ausschaltschwelle</p>
@@ -621,7 +621,7 @@ Ist die Übertragungsfunktion bekannt, so kann die Strecke und deren Verhalten (
 </li>
 <li>Der messtechnische Ansatz, <a href="#sec-MessStreckenidentifikation" class="quarto-xref"><span>Kapitel 9.5.4</span></a></li>
 </ul>
-<div id="fba35d57" class="cell" data-execution_count="4">
+<div id="e798533e" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-EVA"><span class="math display">\[
 V = \frac{A}{E}
@@ -638,15 +638,15 @@ V = \frac{A}{E}
 </div>
 </div>
 <p>Gängige Bezeichnungen der Übertragungsfunktion der einzelnen Blöcke sind wie folgt.</p>
-<div id="8d2ece2b" class="cell" data-execution_count="5">
+<div id="32116bf0" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(R\)</span> … Übertragungsfunktion des Reglers</p>
+<p><span class="math inline">\(M\)</span> … Übertragungsfunktion des Sensors</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(G\)</span> … Übertragungsfunktion der zu Regelnden Strecke</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(M\)</span> … Übertragungsfunktion des Sensors</p>
+<p><span class="math inline">\(R\)</span> … Übertragungsfunktion des Reglers</p>
 </div>
 </div>
 </section>
@@ -668,7 +668,7 @@ Dabei wird am Eingang der Strecke ein Testsignal aufgeschaltet und der Ausgang g
 <section id="warum-laplace" class="level4" data-number="9.5.5.1">
 <h4 data-number="9.5.5.1" class="anchored" data-anchor-id="warum-laplace"><span class="header-section-number">9.5.5.1</span> Warum Laplace</h4>
 <p>Um eine Übertragungsfunktion zu Berechnen muss der Ausgang durch den Eingang dividiert werden. Wird das physikalische System durch eine lineare Gleichung beschrieben ist das sehr Einfach möglich und die Laplace Transformation ist nicht notwendig. Ein Beispiel dafür ist das Ohm’sche Gesetz.</p>
-<div id="b20f0d01" class="cell" data-execution_count="6">
+<div id="0c586abc" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Ohm_eq"><span class="math display">\[
 R_{ohm} = \frac{U}{I}
@@ -698,7 +698,7 @@ Abbildung&nbsp;9.4: Tiefpass
 </figcaption>
 </figure>
 </div>
-<div id="bf042a9b" class="cell" data-execution_count="7">
+<div id="143213df" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-ict_eq1"><span class="math display">\[
 i_{c}{\left(t \right)} = C \frac{d}{d t} u_{c}{\left(t \right)}
@@ -711,7 +711,7 @@ i_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)
 </div>
 </div>
 <p>Durch Gleichsetzten von <a href="#eq-ict_eq1" class="quarto-xref">Gleichung&nbsp;<span>9.3</span></a> und <a href="#eq-ict_eq2" class="quarto-xref">Gleichung&nbsp;<span>9.4</span></a> ergibt sich die allgemeine Differenzialgleichung 1. Ordnung für den Tiefpass.</p>
-<div id="71efebd7" class="cell" data-execution_count="8">
+<div id="e6eb1fd5" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-RCTP"><span class="math display">\[
 C \frac{d}{d t} u_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)}}{R_{ohm}}
@@ -721,19 +721,19 @@ C \frac{d}{d t} u_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}
 <p><span class="math inline">\(C\)</span> … Kapazität</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(t\)</span> … Zeit</p>
+<p><span class="math inline">\(R_{ohm}\)</span> … Ohmscher Widerstand</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(R_{ohm}\)</span> … Ohmscher Widerstand</p>
+<p><span class="math inline">\(t\)</span> … Zeit</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(u_{c}{\left(t \right)}\)</span> … Ausgangsspannung</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(u_{in}{\left(t \right)}\)</span> … Eingangsspannung</p>
+<p><span class="math inline">\(i_{c}{\left(t \right)}\)</span> … Strom</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(i_{c}{\left(t \right)}\)</span> … Strom</p>
+<p><span class="math inline">\(u_{in}{\left(t \right)}\)</span> … Eingangsspannung</p>
 </div>
 </div>
 <p>Müsste nun von dieser Differentialgleichung die Übertragungsfunktion, also <span class="math inline">\(G=Ausgang/Eingang\)</span>, angegeben werden, so müsste zunächst die Differentialgleichung gelöst werden.<br>
@@ -800,7 +800,7 @@ Tabelle&nbsp;9.1: Laplacetransformationstabelle
 </figure>
 </div>
 <p>Wird nun Gleichung <a href="#eq-RCTP" class="quarto-xref">Gleichung&nbsp;<span>9.5</span></a> mittels der Tabelle <a href="#tbl-laplace" class="quarto-xref">Tabelle&nbsp;<span>9.1</span></a> transformiert erhalten wir eine Gleichung aus der wir durch einfaches Umformen eine Übertragungsfunktion erhalten. Es wird angenommen, dass $ x(0) = 0 $ ist.</p>
-<div id="cb7ee412" class="cell" data-execution_count="9">
+<div id="f2e3b641" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
 C U_{C} s = \frac{- U_{C} + U_{IN}}{R_{ohm}}
@@ -1071,7 +1071,7 @@ Zur Vereinfachung kann die Übertragungsfunktion des Sensors mit <span class="ma
 <section id="die-führungsübertragungsfunktion" class="level4" data-number="9.5.7.1">
 <h4 data-number="9.5.7.1" class="anchored" data-anchor-id="die-führungsübertragungsfunktion"><span class="header-section-number">9.5.7.1</span> Die Führungsübertragungsfunktion</h4>
 <p>Die Führungsübertragungsfunktion gibt das Verhältnis zwischen Sollgröße und Istgröße an. Sie beschreibt damit das Verhalten des Regelkreises mit der Sollgröße als Eingang und der Istgröße als Ausgang. Ist eine Regelstrecke ideal, so ist die Führungsübertragungsfunktion gleich Eins.</p>
-<div id="94d19dba" class="cell" data-execution_count="10">
+<div id="95217c41" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Fw_eq"><span class="math display">\[
 F_{w} = \frac{G R}{G M R + 1}
@@ -1085,7 +1085,7 @@ F_{w} = \frac{G R}{G M R + 1}
 <section id="die-schleifenübertragungsfunktion" class="level4" data-number="9.5.7.2">
 <h4 data-number="9.5.7.2" class="anchored" data-anchor-id="die-schleifenübertragungsfunktion"><span class="header-section-number">9.5.7.2</span> Die Schleifenübertragungsfunktion</h4>
 <p>Die Schleifenübertragungsfunktion ist die Übertragungsfunktion des offenen Regelkreises, also ohne Rückkopplung und ist im Laplace Bereich eine einfache Multiplikation.</p>
-<div id="d8938b46" class="cell" data-execution_count="11">
+<div id="8e2a1671" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
 F_{o} = G R
@@ -1099,7 +1099,7 @@ F_{o} = G R
 <section id="die-störübertragungsfunktion" class="level4" data-number="9.5.7.3">
 <h4 data-number="9.5.7.3" class="anchored" data-anchor-id="die-störübertragungsfunktion"><span class="header-section-number">9.5.7.3</span> Die Störübertragungsfunktion</h4>
 <p>Die Störübertragungsfunktion beschreibt, wie sich die Störgröße auf den Ausgang auswirkt.</p>
-<div id="8baa1e7e" class="cell" data-execution_count="12">
+<div id="2c2bc253" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
 F_{s} = \frac{G}{F_{o} + 1}

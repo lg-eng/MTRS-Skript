@@ -348,8 +348,8 @@ window.Quarto = {
   <li><a href="#warum-frequenz-messen" id="toc-warum-frequenz-messen" class="nav-link active" data-scroll-target="#warum-frequenz-messen"><span class="header-section-number">5.1</span> Warum Frequenz messen?</a></li>
   <li><a href="#periodische-signale" id="toc-periodische-signale" class="nav-link" data-scroll-target="#periodische-signale"><span class="header-section-number">5.2</span> Periodische Signale</a></li>
   <li><a href="#messaufbau" id="toc-messaufbau" class="nav-link" data-scroll-target="#messaufbau"><span class="header-section-number">5.3</span> Messaufbau</a></li>
-  <li><a href="#frequenzmessung" id="toc-frequenzmessung" class="nav-link" data-scroll-target="#frequenzmessung"><span class="header-section-number">5.4</span> Frequenzmessung</a></li>
-  <li><a href="#periodendauermessung" id="toc-periodendauermessung" class="nav-link" data-scroll-target="#periodendauermessung"><span class="header-section-number">5.5</span> Periodendauermessung</a></li>
+  <li><a href="#sec-mt-frequenzmessung" id="toc-sec-mt-frequenzmessung" class="nav-link" data-scroll-target="#sec-mt-frequenzmessung"><span class="header-section-number">5.4</span> Frequenzmessung</a></li>
+  <li><a href="#sec-mt-periodenmessung" id="toc-sec-mt-periodenmessung" class="nav-link" data-scroll-target="#sec-mt-periodenmessung"><span class="header-section-number">5.5</span> Periodendauermessung</a></li>
   <li><a href="#zusammenspiel-frequenzperiode" id="toc-zusammenspiel-frequenzperiode" class="nav-link" data-scroll-target="#zusammenspiel-frequenzperiode"><span class="header-section-number">5.6</span> Zusammenspiel Frequenz/Periode</a></li>
   </ul>
 </nav>
@@ -376,13 +376,22 @@ window.Quarto = {
 </header>
 
 
+<p><strong>Verwendete Symbole:</strong></p>
+<div id="3dce7daa" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(f\)</span> … Frequenz</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(T\)</span> … Periodendauer</p>
+</div>
+</div>
 <section id="warum-frequenz-messen" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="warum-frequenz-messen"><span class="header-section-number">5.1</span> Warum Frequenz messen?</h2>
 <ul>
 <li><strong>Frequenz als Zielgröße:</strong> In der Nutzsignaltechnik (z. B. Funk) muss die eingestellte Frequenz messtechnisch verifiziert werden. Beispiel WLAN 2,4 GHz: Kanal 1 sendet zwischen <span class="math inline">\(2399{,}5\,\mathrm{MHz}\)</span> und <span class="math inline">\(2424{,}5\,\mathrm{MHz}\)</span> — nur eine Frequenzmessung stellt sicher, dass der Kanal korrekt belegt ist.</li>
-<li><strong>Frequenz als Messsignal:</strong> Viele Sensoren wandeln eine physikalische Größe direkt in eine Frequenz um. Mit bekannter Wegstrecke oder Volumensmenge je Periode ergeben sich dann Geschwindigkeit und Durchfluss:</li>
+<li><strong>Frequenz als Messsignal:</strong> Viele Sensoren wandeln eine physikalische Größe direkt in eine Frequenz um. Mit bekanntem Weg oder bekanntem Volumen je Periode ergeben sich dann Geschwindigkeit und Durchfluss:</li>
 </ul>
-<div id="c81917ca" class="cell" data-execution_count="2">
+<div id="0f4363d9" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>f_s <span class="op">=</span> MySymbol(<span class="st">'f'</span>, description<span class="op">=</span><span class="st">'Frequenz des Sensorsignals'</span>, unit<span class="op">=</span>u.hertz)</span>
@@ -392,16 +401,13 @@ window.Quarto = {
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>V_p <span class="op">=</span> MySymbol(<span class="st">'V'</span>, description<span class="op">=</span><span class="st">'Volumen je Periode'</span>, unit<span class="op">=</span>u.liter)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>V_g <span class="op">=</span> MySymbol(<span class="st">'V_</span><span class="sc">{ges}</span><span class="st">'</span>, description<span class="op">=</span><span class="st">'Gesamtvolumen im Messintervall'</span>, unit<span class="op">=</span>u.liter)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Q_f <span class="op">=</span> MySymbol(<span class="st">'Q'</span>, description<span class="op">=</span><span class="st">'Durchfluss (Volumenstrom)'</span>, unit<span class="op">=</span>u.liter<span class="op">/</span>u.second)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([s_p, f_s, v_g, n_s, V_p, V_g, Q_f])</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([s_p, v_g, n_s, V_p, V_g, Q_f])</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(v_g, s_p<span class="op">*</span>f_s), label<span class="op">=</span><span class="st">'eq-geschwindigkeit-frequenz'</span>)</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(V_g, n_s<span class="op">*</span>V_p), label<span class="op">=</span><span class="st">'eq-volumen-frequenz'</span>)</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(Q_f, V_p<span class="op">*</span>f_s), label<span class="op">=</span><span class="st">'eq-durchfluss-frequenz'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(s\)</span> … Weg je Periode (Sensorvertrag)</p>
-</div>
-<div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(f\)</span> … Frequenz des Sensorsignals</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(v\)</span> … Geschwindigkeit</p>
@@ -435,13 +441,13 @@ Q = V f
 </div>
 </div>
 <ul>
-<li>Wegen der einfachen Digitalisierung (Zählen statt Amplitudenmessung) sind Frequenzsignale gestörtarm über lange Leitungen übertragbar.</li>
+<li>Wegen der einfachen Digitalisierung (Zählen statt Amplitudenmessung) sind Frequenzsignale störungsarm über lange Leitungen übertragbar.</li>
 </ul>
 </section>
 <section id="periodische-signale" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="periodische-signale"><span class="header-section-number">5.2</span> Periodische Signale</h2>
 <p>Ein Signal heißt periodisch, wenn es sich nach der Periodendauer <span class="math inline">\(T\)</span> wiederholt. Das muss kein Sinussignal sein — Rechteck- oder Sägezahnsignale sind ebenfalls periodisch.</p>
-<div id="cell-fig-sinus" class="cell" data-execution_count="3">
+<div id="cell-fig-sinus" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
@@ -483,7 +489,7 @@ Abbildung&nbsp;5.1: Sinussignal mit drei Perioden; die Periodendauer T ist über
 </div>
 </div>
 <p>Die Einheit der Frequenz ist das <a href="https://de.wikipedia.org/wiki/Hertz_%28Einheit%29">Hertz (Hz)</a> — in SI-Basiseinheiten der Kehrwert der Zeit, <span class="math inline">\(\mathrm{Hz = 1/s}\)</span>. Der Zusammenhang zwischen Frequenz und Periodendauer folgt direkt daraus:</p>
-<div id="dc98220a" class="cell" data-execution_count="4">
+<div id="6518a675" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>T_p <span class="op">=</span> MySymbol(<span class="st">'T'</span>, description<span class="op">=</span><span class="st">'Periodendauer'</span>, unit<span class="op">=</span>u.second)</span>
@@ -499,7 +505,7 @@ f = \frac{1}{T}
 </section>
 <section id="messaufbau" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="messaufbau"><span class="header-section-number">5.3</span> Messaufbau</h2>
-<p>Periodendauer und Frequenz lassen sich mit demselben Messaufbau bestimmen: Zähler plus Takt mit bekannter Periodendauer. Die Signalquelle ist symbolisch für das zu messende Signal — es muss periodisch sein, aber nicht sinusförmig.</p>
+<p>Periodendauer und Frequenz lassen sich mit demselben Messaufbau bestimmen: Zähler plus Takt mit bekannter Periodendauer (<span class="citation" data-cites="schrufer2022">[<a href="#ref-schrufer2022" role="doc-biblioref">1</a>]</span>, Kapitel „Digitale Grundschaltungen; Zeit- und Frequenzmesstechnik”). Die Signalquelle steht symbolisch für das zu messende Signal — es muss periodisch sein, aber nicht sinusförmig.</p>
 <div id="fig-block-freq" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-block-freq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -513,10 +519,14 @@ Abbildung&nbsp;5.2: Blockschaltbild der Frequenz- und Periodenmessung: Messsigna
 <ul>
 <li>Der <strong>Komparator</strong> formt das Messsignal (a) in einen impulsförmigen Pegel (b) um — ein Impuls je Periode.</li>
 <li>Der <strong>Takt</strong> (c) liefert Impulse mit bekannter Periodendauer <span class="math inline">\(T_{q}\)</span>.</li>
-<li>Das <strong>UND-Glied</strong> (d) verbindet beide Signale — es entscheidet, ob die Zählimpulse vom Messsignal oder vom Takt zum Zähler durchgelassen werden.</li>
+<li>Das <strong>UND-Glied</strong> (d) verbindet beide Signale: Welches Signal das Tor öffnet und welches durchkommt, unterscheidet die zwei Messverfahren:
+<ul>
+<li>Öffnet der <strong>Takt</strong> das Tor für eine feste Torzeit, kommen die Impulse des Messsignals durch → <strong>Frequenzmessung</strong>.</li>
+<li>Öffnet das <strong>Messsignal</strong> (b) das Tor für eine Periode, kommen die Taktimpulse (c) durch → <strong>Periodendauermessung</strong>.</li>
+</ul></li>
 <li>Der <strong>Zähler</strong> liefert je nach Betriebsart die Anzahl <span class="math inline">\(N\)</span> der Signalperioden bzw. der Taktimpulse.</li>
 </ul>
-<div id="cell-fig-komparator" class="cell" data-execution_count="5">
+<div id="cell-fig-komparator" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fN <span class="op">=</span> <span class="dv">1</span>      <span class="co"># Frequenz in Hz</span></span>
@@ -528,13 +538,13 @@ Abbildung&nbsp;5.2: Blockschaltbild der Frequenz- und Periodenmessung: Messsigna
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>tN <span class="op">=</span> np.arange(<span class="dv">0</span>, nN<span class="op">*</span>TN, TN<span class="op">/</span><span class="dv">1000</span>)</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>yN <span class="op">=</span> np.sin(omega<span class="op">*</span>tN <span class="op">+</span> phiN)</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>plt.plot(tN, yN, <span class="st">'-k'</span>, label<span class="op">=</span><span class="st">'Signal an Punkt a'</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>plt.plot(tN, <span class="fl">0.5</span> <span class="op">+</span> <span class="dv">1</span><span class="op">/</span><span class="dv">2</span><span class="op">*</span>signal.square(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>fN<span class="op">*</span>tN <span class="op">+</span> phiN), <span class="st">'--g'</span>, label<span class="op">=</span><span class="st">'Signal an Punkt b'</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>plt.plot(tN, yN, <span class="st">'-k'</span>, label<span class="op">=</span><span class="st">'a (Messsignal)'</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>plt.plot(tN, <span class="fl">0.5</span> <span class="op">+</span> <span class="dv">1</span><span class="op">/</span><span class="dv">2</span><span class="op">*</span>signal.square(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>fN<span class="op">*</span>tN <span class="op">+</span> phiN), <span class="st">'--g'</span>, label<span class="op">=</span><span class="st">'b (Komparatorausgang)'</span>)</span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="fl">1.2</span>, <span class="fl">1.6</span>)</span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Zeit in s'</span>)</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Amplitude'</span>)</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="dv">9</span>, ncol<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper center'</span>, ncol<span class="op">=</span><span class="dv">2</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
@@ -550,53 +560,138 @@ Abbildung&nbsp;5.3: Messsignal am Punkt a (Sinus) und Ausgang des Komparators am
 </div>
 </div>
 </div>
-<div id="cell-fig-rechtAND" class="cell" data-execution_count="6">
+<p>Am UND-Glied zeigt sich der Rollentausch beider Betriebsarten im direkten Zeitablauf — dieselbe Hardware, aber die Signale tauschen ihre Aufgaben: einmal steuert der Takt das Tor (Frequenzmessung), einmal das Messsignal (Periodendauermessung — im Beispiel unten kommen <span class="math inline">\(N_{q} = 8\)</span> Taktimpulse je Periode durch):</p>
+<div id="cell-fig-rollentausch" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fN <span class="op">=</span> <span class="dv">1</span>      <span class="co"># Frequenz in Hz</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>nN <span class="op">=</span> <span class="dv">2</span>      <span class="co"># Anzahl der Perioden</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>phiN <span class="op">=</span> np.pi<span class="op">/</span><span class="dv">4</span>  <span class="co"># Phasenverschiebung in Radiant</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>TN <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>fN   <span class="co"># Periodendauer</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>fN  <span class="co"># Kreisfrequenz</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>tN <span class="op">=</span> np.arange(<span class="dv">0</span>, nN<span class="op">*</span>TN, TN<span class="op">/</span><span class="dv">1000</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>sig_b <span class="op">=</span> <span class="fl">0.5</span> <span class="op">+</span> <span class="dv">1</span><span class="op">/</span><span class="dv">2</span><span class="op">*</span>signal.square(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>fN<span class="op">*</span>tN <span class="op">+</span> phiN)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>sig_c <span class="op">=</span> <span class="fl">0.5</span> <span class="op">+</span> <span class="dv">1</span><span class="op">/</span><span class="dv">2</span><span class="op">*</span>signal.square(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>fN<span class="op">*</span><span class="dv">3</span><span class="op">*</span>tN <span class="op">+</span> phiN)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>plt.plot(tN, sig_b, <span class="st">'--g'</span>, label<span class="op">=</span><span class="st">'Signal an Punkt b'</span>)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>plt.plot(tN, sig_c, <span class="st">'-.b'</span>, label<span class="op">=</span><span class="st">'Signal an Punkt c'</span>)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>plt.plot(tN, sig_b<span class="op">*</span>sig_c, <span class="st">'-k'</span>, label<span class="op">=</span><span class="st">'Signal an Punkt d'</span>)</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="fl">0.2</span>, <span class="fl">1.6</span>)</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Zeit in s'</span>)</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Amplitude'</span>)</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="dv">9</span>, ncol<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fSig_r <span class="op">=</span> <span class="dv">4</span>       <span class="co"># Frequenz des Messsignals in Hz</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>fTakt_r <span class="op">=</span> <span class="dv">32</span>     <span class="co"># Taktfrequenz in Hz</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>Tg_r <span class="op">=</span> <span class="fl">0.75</span>      <span class="co"># Torzeit in s (Frequenzmessung)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>t_r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="fl">1.05</span>, <span class="dv">1</span><span class="op">/</span>(<span class="dv">100</span><span class="op">*</span>fTakt_r))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>sig_b_r <span class="op">=</span> <span class="fl">0.5</span> <span class="op">+</span> <span class="fl">0.5</span><span class="op">*</span>signal.square(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>fSig_r<span class="op">*</span>t_r)    <span class="co"># Komparatorausgang</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>sig_c_r <span class="op">=</span> <span class="fl">0.5</span> <span class="op">+</span> <span class="fl">0.5</span><span class="op">*</span>signal.square(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>fTakt_r<span class="op">*</span>t_r)   <span class="co"># Takt</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>tor_f_r <span class="op">=</span> np.where(t_r <span class="op">&lt;</span> Tg_r, <span class="fl">1.0</span>, <span class="fl">0.0</span>)    <span class="co"># Tor: vom Takt abgeleitet, Laenge Tg</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>imp_f_r <span class="op">=</span> tor_f_r<span class="op">*</span>sig_b_r                   <span class="co"># Impulse der Frequenzmessung</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>tor_p_r <span class="op">=</span> np.where((t_r <span class="op">&gt;=</span> <span class="fl">0.25</span>) <span class="op">&amp;</span> (t_r <span class="op">&lt;</span> <span class="fl">0.25</span> <span class="op">+</span> <span class="dv">1</span><span class="op">/</span>fSig_r), <span class="fl">1.0</span>, <span class="fl">0.0</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>imp_p_r <span class="op">=</span> tor_p_r<span class="op">*</span>sig_c_r                   <span class="co"># Impulse der Periodendauermessung</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> count_impulses(imp):</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">int</span>(imp[<span class="dv">0</span>] <span class="op">&gt;</span> <span class="fl">0.5</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    n <span class="op">+=</span> <span class="bu">int</span>(np.<span class="bu">sum</span>((imp[:<span class="op">-</span><span class="dv">1</span>] <span class="op">&lt;</span> <span class="fl">0.5</span>) <span class="op">&amp;</span> (imp[<span class="dv">1</span>:] <span class="op">&gt;</span> <span class="fl">0.5</span>)))</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> n</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>n_f_r <span class="op">=</span> count_impulses(imp_f_r)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>n_q_r <span class="op">=</span> count_impulses(imp_p_r)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">6</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">7</span>), sharex<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>                         gridspec_kw<span class="op">=</span>{<span class="st">'hspace'</span>: <span class="fl">0.55</span>})</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>reihen <span class="op">=</span> [(tor_f_r, <span class="st">'Tor'</span>, <span class="st">'tab:green'</span>, <span class="st">'--'</span>),</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>          (sig_b_r, <span class="st">'Signal (b)'</span>, <span class="st">'tab:blue'</span>, <span class="st">'-'</span>),</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>          (imp_f_r, <span class="st">'Impulse (d)'</span>, <span class="st">'k'</span>, <span class="st">'-'</span>),</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>          (tor_p_r, <span class="st">'Tor'</span>, <span class="st">'tab:green'</span>, <span class="st">'--'</span>),</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>          (sig_c_r, <span class="st">'Takt (c)'</span>, <span class="st">'tab:blue'</span>, <span class="st">'-'</span>),</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>          (imp_p_r, <span class="st">'Impulse (d)'</span>, <span class="st">'k'</span>, <span class="st">'-'</span>)]</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, (s, lab, col, ls) <span class="kw">in</span> <span class="bu">zip</span>(axes, reihen):</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    ax.plot(t_r, s, color<span class="op">=</span>col, ls<span class="op">=</span>ls, lw<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="op">-</span><span class="fl">0.25</span>, <span class="fl">1.85</span>)</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    ax.set_yticks([])</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(lab, rotation<span class="op">=</span><span class="dv">0</span>, ha<span class="op">=</span><span class="st">'right'</span>, va<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    ax.grid(<span class="va">True</span>, axis<span class="op">=</span><span class="st">'x'</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">'Frequenzmessung: Takt öffnet das Tor, Zähler zählt Signalimpulse'</span>,</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>                  fontsize<span class="op">=</span><span class="dv">10</span>, pad<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">3</span>].set_title(<span class="st">'Periodendauermessung: Messsignal öffnet das Tor, Zähler zählt Taktimpulse'</span>,</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>                  fontsize<span class="op">=</span><span class="dv">10</span>, pad<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].annotate(<span class="st">''</span>, xy<span class="op">=</span>(Tg_r, <span class="fl">1.5</span>), xytext<span class="op">=</span>(<span class="dv">0</span>, <span class="fl">1.5</span>),</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>                 arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'&lt;-&gt;'</span>, color<span class="op">=</span><span class="st">'gray'</span>))</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].text(Tg_r<span class="op">/</span><span class="dv">2</span>, <span class="fl">1.62</span>, <span class="st">'Torzeit $T_</span><span class="sc">{g}</span><span class="st">$'</span>, ha<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">3</span>].annotate(<span class="st">''</span>, xy<span class="op">=</span>(<span class="fl">0.25</span> <span class="op">+</span> <span class="dv">1</span><span class="op">/</span>fSig_r, <span class="fl">1.5</span>), xytext<span class="op">=</span>(<span class="fl">0.25</span>, <span class="fl">1.5</span>),</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>                 arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'&lt;-&gt;'</span>, color<span class="op">=</span><span class="st">'gray'</span>))</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">3</span>].text(<span class="fl">0.25</span> <span class="op">+</span> <span class="dv">1</span><span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>fSig_r), <span class="fl">1.62</span>, <span class="st">'eine Periode $T$'</span>, ha<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>].text(<span class="fl">0.87</span>, <span class="fl">0.45</span>, <span class="ss">f'$N = </span><span class="sc">{</span>n_f_r<span class="sc">}</span><span class="ss">$ Impulse'</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">5</span>].text(<span class="fl">0.87</span>, <span class="fl">0.45</span>, <span class="ss">f'$N_</span><span class="ch">{{</span><span class="ss">q</span><span class="ch">}}</span><span class="ss"> = </span><span class="sc">{</span>n_q_r<span class="sc">}</span><span class="ss">$ Taktimpulse'</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">5</span>].set_xlabel(<span class="st">'Zeit in s'</span>)</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
-<div id="fig-rechtand" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-rollentausch" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-rechtand-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="01.05_Frequenz_und_Periode_files/figure-html/fig-rechtand-output-1.png" width="607" height="436" class="figure-img">
+<div aria-describedby="fig-rollentausch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="01.05_Frequenz_und_Periode_files/figure-html/fig-rollentausch-output-1.png" width="688" height="600" class="figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rechtand-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;5.4: Komparatorausgang (b) und Taktsignal (c) werden am UND-Glied (d) verknüpft — nur wenn beide Pegel hoch sind, läuft ein Impuls zum Zähler.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rollentausch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;5.4: Der Rollentausch im Zeitablauf: oben öffnet der Takt das Tor für die Torzeit Tg und der Zähler zählt Signalimpulse (N = 3); unten öffnet das Messsignal das Tor für genau eine Periode und der Zähler zählt Taktimpulse (Nq = 8).
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
+<p>Oben wird gezählt, <strong>wie oft</strong> das Signal während einer bekannten Zeit schwingt; unten, <strong>wie lange</strong> eine unbekannte Periode im Vergleich zum bekannten Takt dauert. Die Gegenüberstellung:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Frequenzmessung</th>
+<th>Periodendauermessung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Tor öffnet</strong></td>
+<td>Takt → feste Torzeit <span class="math inline">\(T_{g}\)</span></td>
+<td>Messsignal → genau eine Periode <span class="math inline">\(T\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Zähler zählt</strong></td>
+<td><span class="math inline">\(N\)</span> Signalimpulse</td>
+<td><span class="math inline">\(N_{q}\)</span> Taktimpulse</td>
+</tr>
+<tr class="odd">
+<td><strong>Bekannte Größe</strong></td>
+<td>Torzeit <span class="math inline">\(T_{g}\)</span></td>
+<td>Taktperiode <span class="math inline">\(T_{q}\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Berechnung</strong></td>
+<td><span class="math inline">\(f = N/T_{g}\)</span></td>
+<td><span class="math inline">\(T = N_{q} \cdot T_{q}\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Unsicherheit</strong></td>
+<td><span class="math inline">\(\pm 1\)</span> Signalimpuls</td>
+<td><span class="math inline">\(\pm 1\)</span> Taktimpuls</td>
+</tr>
+</tbody>
+</table>
+<p>Der Zählstand ist in beiden Fällen <span class="math inline">\(\pm 1\)</span> unsicher, weil sich Toröffnung und gezählte Impulse nicht synchronisieren lassen: Die Randimpulse fallen je nach zufälliger Phase hinein oder nicht (<a href="#sec-mt-frequenzmessung" class="quarto-xref"><span>Kapitel 5.4</span></a>, <a href="#sec-mt-periodenmessung" class="quarto-xref"><span>Kapitel 5.5</span></a>).</p>
 </section>
-<section id="frequenzmessung" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="frequenzmessung"><span class="header-section-number">5.4</span> Frequenzmessung</h2>
+<section id="sec-mt-frequenzmessung" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="sec-mt-frequenzmessung"><span class="header-section-number">5.4</span> Frequenzmessung</h2>
 <p>Bei der Frequenzmessung zählt der Zähler die Impulse des Messsignals innerhalb der Torzeit <span class="math inline">\(T_{g}\)</span> (Öffnungsdauer des UND-Glieds):</p>
-<div id="fed39447" class="cell" data-execution_count="7">
+<div id="87f5c77f" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>N_f <span class="op">=</span> MySymbol(<span class="st">'N'</span>, description<span class="op">=</span><span class="st">'Anzahl der Impulse je Torzeit'</span>, )</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>T_g <span class="op">=</span> MySymbol(<span class="vs">r'T_{g}'</span>, description<span class="op">=</span><span class="st">'Torzeit'</span>, unit<span class="op">=</span>u.second)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(f_p, N_f<span class="op">/</span>T_g), label<span class="op">=</span><span class="st">'eq-frequenzmesung'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([N_f, T_g])</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(f_p, N_f<span class="op">/</span>T_g), label<span class="op">=</span><span class="st">'eq-frequenzmesung'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(N\)</span> … Anzahl der Impulse je Torzeit</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(T_{g}\)</span> … Torzeit</p>
+</div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-frequenzmesung"><span class="math display">\[
 f = \frac{N}{T_{g}}
@@ -604,7 +699,7 @@ f = \frac{N}{T_{g}}
 </div>
 </div>
 <p>Mit der Torzeit <span class="math inline">\(T_{g} = 1\,\mathrm{s}\)</span> und einem Messsignal der Frequenz <span class="math inline">\(f = 1\,\mathrm{kHz}\)</span> ergibt sich:</p>
-<div id="80eae04a" class="cell" data-execution_count="8">
+<div id="0e3249d2" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>T_g_v <span class="op">=</span> MySymbol(<span class="vs">r'T_{g}'</span>, description<span class="op">=</span><span class="st">'Torzeit'</span>, unit<span class="op">=</span>u.second, value<span class="op">=</span><span class="dv">1</span>)</span>
@@ -620,7 +715,7 @@ N = 1000
 \tag{5.6}\]</span></span></p>
 </div>
 </div>
-<div id="c9bea34c" class="cell" data-execution_count="9">
+<div id="ae469642" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>eq_f <span class="op">=</span> Eq(f_p, N_f<span class="op">/</span>T_g)</span>
@@ -634,20 +729,31 @@ f = 1000
 </div>
 </div>
 <ul>
-<li>Der Zähler kann nur ganzzahlige Impulse erfassen — immer der Zählstand <span class="math inline">\(\pm 1\)</span> Impuls ist unsicher. Bei <span class="math inline">\(N = 1000\)</span> Impulsen in <span class="math inline">\(1\,\mathrm{s}\)</span> bedeutet das eine relative Messabweichung von <span class="math inline">\(\pm 0{,}1\,\%\)</span> (Quantisierung, Typ-B-Bewertung nach <span class="citation" data-cites="jcgm100_2008">[<a href="#ref-jcgm100_2008" role="doc-biblioref">1</a>]</span>).</li>
-<li>Durch Verlängerung der Torzeit sinkt der relative Zählfehler, dafür dauert die Messung länger.</li>
+<li>Der Zähler kann nur ganzzahlige Impulse erfassen, und das Tor öffnet und schließt unabhängig von der Phase des Messsignals: Der Randimpuls zählt gerade noch mit oder gerade nicht mehr — der Zählstand <span class="math inline">\(\pm 1\)</span> Impuls ist unsicher, dahinter steckt <span class="math inline">\(N = f \cdot T_{g} \pm 1\)</span>. Bei <span class="math inline">\(N = 1000\)</span> Impulsen in <span class="math inline">\(1\,\mathrm{s}\)</span> bedeutet das eine relative Messabweichung von <span class="math inline">\(\pm 0{,}1\,\%\)</span> (Quantisierung, Typ-B-Bewertung nach <span class="citation" data-cites="jcgm100_2008">[<a href="#ref-jcgm100_2008" role="doc-biblioref">2</a>]</span>).</li>
+<li>Durch Verlängerung der Torzeit sinkt die relative Messabweichung, dafür dauert die Messung länger.</li>
 </ul>
 </section>
-<section id="periodendauermessung" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="periodendauermessung"><span class="header-section-number">5.5</span> Periodendauermessung</h2>
+<section id="sec-mt-periodenmessung" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="sec-mt-periodenmessung"><span class="header-section-number">5.5</span> Periodendauermessung</h2>
 <p>Bei der Periodendauermessung tauscht man die Rollen: Das Messsignal öffnet das Tor für eine Periode, und der Zähler zählt die Taktimpulse innerhalb dieser Periode:</p>
-<div id="12f53f78" class="cell" data-execution_count="10">
+<div id="d770ebc7" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>T_q <span class="op">=</span> MySymbol(<span class="vs">r'T_{q}'</span>, description<span class="op">=</span><span class="st">'Periodendauer des Taktsignals'</span>, unit<span class="op">=</span>u.second)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>N_q <span class="op">=</span> MySymbol(<span class="vs">r'N_{q}'</span>, description<span class="op">=</span><span class="st">'Anzahl der Taktimpulse je Signalperiode'</span>, )</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(T_p, N_q<span class="op">*</span>T_q), label<span class="op">=</span><span class="st">'eq-periodenmessung'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>f_q <span class="op">=</span> MySymbol(<span class="vs">r'f_{q}'</span>, description<span class="op">=</span><span class="st">'Frequenz des Taktsignals'</span>, unit<span class="op">=</span>u.hertz)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>N_q <span class="op">=</span> MySymbol(<span class="vs">r'N_{q}'</span>, description<span class="op">=</span><span class="st">'Anzahl der Taktimpulse je Signalperiode'</span>, )</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([T_q, f_q, N_q])</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(T_p, N_q<span class="op">*</span>T_q), label<span class="op">=</span><span class="st">'eq-periodenmessung'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(T_{q}\)</span> … Periodendauer des Taktsignals</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(f_{q}\)</span> … Frequenz des Taktsignals</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(N_{q}\)</span> … Anzahl der Taktimpulse je Signalperiode</p>
+</div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-periodenmessung"><span class="math display">\[
 T = N_{q} T_{q}
@@ -655,7 +761,7 @@ T = N_{q} T_{q}
 </div>
 </div>
 <p>Mit einer Taktfrequenz von <span class="math inline">\(f_{q} = 1\,\mathrm{MHz}\)</span> und einem Messsignal <span class="math inline">\(f = 1\,\mathrm{kHz}\)</span> ergibt sich:</p>
-<div id="10483dbe" class="cell" data-execution_count="11">
+<div id="c0c16f57" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>T_q_v <span class="op">=</span> MySymbol(<span class="vs">r'T_{q}'</span>, description<span class="op">=</span><span class="st">'Periodendauer des Taktsignals'</span>, unit<span class="op">=</span>u.second,</span>
@@ -679,8 +785,8 @@ N_{q} = 1000
 </div>
 </div>
 <ul>
-<li>Auch hier ist der Zählstand <span class="math inline">\(\pm 1\)</span> Taktimpuls unsicher. Je mehr Taktimpulse <span class="math inline">\(N_{q}\)</span> innerhalb einer Periode gezählt werden, desto geringer ist die relative Messabweichung.</li>
-<li>Bei niedrigen Frequenzen wächst die Anzahl <span class="math inline">\(N_{q}\)</span> der Taktimpulse je Periode — die Periodendauermessung ist daher für niedrige Frequenzen genauer.</li>
+<li>Der <span class="math inline">\(\pm 1\)</span>-Fehler sitzt wieder am Torrand: Das Tor öffnet synchron mit einer Signalflanke und schließt mit der nächsten, aber das Zählen der Taktimpulse ist nicht taktsynchron — hinter dem Ergebnis steckt <span class="math inline">\(T = (N_{q} \pm 1) \cdot T_{q}\)</span>.</li>
+<li>Je mehr Taktimpulse <span class="math inline">\(N_{q}\)</span> je Periode gezählt werden, desto geringer die relative Messabweichung. Da <span class="math inline">\(N_{q} = f_{q}/f\)</span>, wächst <span class="math inline">\(N_{q}\)</span> bei niedrigen Frequenzen — die Periodendauermessung ist daher für niedrige Frequenzen genauer.</li>
 </ul>
 </section>
 <section id="zusammenspiel-frequenzperiode" class="level2" data-number="5.6">
@@ -704,25 +810,79 @@ N_{q} = 1000
 <tr class="odd">
 <td>Frequenzmessung</td>
 <td>Perioden des Messsignals in fester Torzeit</td>
-<td>schnell, gut für hohe Frequenzen</td>
-<td>ungünstig bei niedrigen Frequenzen (<span class="math inline">\(N\)</span> klein)</td>
+<td>schnell, genau bei hohen Frequenzen</td>
+<td>ungenau bei niedrigen Frequenzen (<span class="math inline">\(N\)</span> klein)</td>
 </tr>
 <tr class="even">
 <td>Periodendauermessung</td>
 <td>Taktimpulse je Signalperiode</td>
-<td>günstig bei niedrigen Frequenzen</td>
+<td>genau bei niedrigen Frequenzen</td>
 <td>lange Messzeit bei niedrigen Frequenzen (je Messwert)</td>
 </tr>
 </tbody>
 </table>
+<p>Die Zählstände beider Verfahren hängen in entgegengesetzter Richtung von der Messfrequenz ab: <span class="math inline">\(N = f \cdot T_{g}\)</span> wächst mit <span class="math inline">\(f\)</span>, während <span class="math inline">\(N_{q} = f_{q}/f\)</span> schrumpft. Da die relative Zählabweichung näherungsweise <span class="math inline">\(1/N\)</span> bzw. <span class="math inline">\(1/N_{q}\)</span> beträgt, ergibt sich eine klare Trennung der Einsatzbereiche:</p>
+<div id="cell-fig-fehler-vergleich" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Tg_e <span class="op">=</span> <span class="dv">1</span>       <span class="co"># Torzeit der Frequenzmessung in s</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>fq_e <span class="op">=</span> <span class="fl">1e6</span>     <span class="co"># Taktfrequenz der Periodendauermessung in Hz</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>f_e <span class="op">=</span> np.logspace(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">600</span>)       <span class="co"># Messfrequenz 1 Hz bis 1 MHz</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>err_freq_e <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>(f_e<span class="op">*</span>Tg_e)          <span class="co"># Frequenzmessung: 1/N mit N = f·Tg</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>err_per_e <span class="op">=</span> f_e<span class="op">/</span>fq_e               <span class="co"># Periodenmessung: 1/Nq mit Nq = fq/f</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>f_star <span class="op">=</span> np.sqrt(fq_e<span class="op">/</span>Tg_e)        <span class="co"># Kreuzung: 1/(f·Tg) = f/fq</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>ax.loglog(f_e, err_freq_e<span class="op">*</span><span class="dv">100</span>,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>          label<span class="op">=</span><span class="ss">f'Frequenzmessung, Torzeit $T_</span><span class="ch">{{</span><span class="ss">g</span><span class="ch">}}</span><span class="ss"> = </span><span class="sc">{</span>Tg_e<span class="sc">:g}</span><span class="ch">\\</span><span class="ss">,</span><span class="ch">\\</span><span class="ss">mathrm</span><span class="ch">{{</span><span class="ss">s</span><span class="ch">}}</span><span class="ss">$'</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>ax.loglog(f_e, err_per_e<span class="op">*</span><span class="dv">100</span>,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>          label<span class="op">=</span><span class="ss">f'Periodendauermessung, Takt $f_</span><span class="ch">{{</span><span class="ss">q</span><span class="ch">}}</span><span class="ss"> = </span><span class="sc">{</span>fq_e<span class="op">/</span><span class="fl">1e6</span><span class="sc">:g}</span><span class="ch">\\</span><span class="ss">,</span><span class="ch">\\</span><span class="ss">mathrm</span><span class="ch">{{</span><span class="ss">MHz</span><span class="ch">}}</span><span class="ss">$'</span>)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>ax.axvline(f_star, color<span class="op">=</span><span class="st">'gray'</span>, ls<span class="op">=</span><span class="st">':'</span>)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="ss">f'Kreuzung: $f^</span><span class="ch">{{</span><span class="ss">*</span><span class="ch">}}</span><span class="ss"> = </span><span class="sc">{</span>f_star<span class="op">/</span><span class="fl">1e3</span><span class="sc">:g}</span><span class="ch">\\</span><span class="ss">,</span><span class="ch">\\</span><span class="ss">mathrm</span><span class="ch">{{</span><span class="ss">kHz</span><span class="ch">}}</span><span class="ss">$, '</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">'beide Verfahren $N = 1000$ (0,1 %)'</span>,</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>            xy<span class="op">=</span>(f_star, <span class="fl">0.1</span>), xytext<span class="op">=</span>(<span class="fl">4e2</span>, <span class="fl">0.002</span>),</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>            arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'-&gt;'</span>, color<span class="op">=</span><span class="st">'gray'</span>), fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="dv">12</span>, <span class="fl">0.5</span>, <span class="st">'Periodendauermessung</span><span class="ch">\n</span><span class="st">genauer'</span>, fontsize<span class="op">=</span><span class="dv">9</span>, color<span class="op">=</span><span class="st">'dimgray'</span>,</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>        ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="fl">6e4</span>, <span class="fl">0.02</span>, <span class="st">'Frequenzmessung</span><span class="ch">\n</span><span class="st">genauer'</span>, fontsize<span class="op">=</span><span class="dv">9</span>, color<span class="op">=</span><span class="st">'dimgray'</span>,</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>        ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Messfrequenz in Hz'</span>)</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="vs">r'Relative Zählabweichung in % </span><span class="kw">(</span><span class="vs">maximal </span><span class="dv">$</span><span class="er">\</span><span class="vs">pm 1</span><span class="dv">$</span><span class="vs"> Impuls</span><span class="kw">)</span><span class="vs">'</span>)</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="fl">1e-4</span>, <span class="fl">1e2</span>)</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, which<span class="op">=</span><span class="st">'both'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">'upper center'</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-fehler-vergleich" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fehler-vergleich-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="01.05_Frequenz_und_Periode_files/figure-html/fig-fehler-vergleich-output-1.png" width="637" height="439" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fehler-vergleich-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;5.5: Relative Zählabweichung (maximal ±1 Impuls) über der Messfrequenz (log-log): Bei niedrigen Frequenzen ist die Periodendauermessung genauer, bei hohen die Frequenzmessung. An der Kreuzung liefern beide Verfahren N = 1000 und damit 0,1 %.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Links der Kreuzung (<span class="math inline">\(f &lt; f^{*}\)</span>) zählt die Frequenzmessung nur wenige Impulse (<span class="math inline">\(N\)</span> klein, Fehler groß), während die Periodendauermessung viele Taktimpulse sammelt — dort ist sie genauer. Rechts der Kreuzung ist es umgekehrt. Die Kurven schneiden sich bei <span class="math inline">\(N = N_{q}\)</span>, also bei <span class="math inline">\(f^{*} = \sqrt{f_{q}/T_{g}}\)</span>; mit <span class="math inline">\(T_{g} = 1\,\mathrm{s}\)</span> und <span class="math inline">\(f_{q} = 1\,\mathrm{MHz}\)</span> genau bei <span class="math inline">\(1\,\mathrm{kHz}\)</span> — dort liefern beide Verfahren <span class="math inline">\(N = N_{q} = 1000\)</span> und damit <span class="math inline">\(0{,}1\,\%\)</span>, genau die Rechenbeispiele aus <a href="#sec-mt-frequenzmessung" class="quarto-xref"><span>Kapitel 5.4</span></a> und <a href="#sec-mt-periodenmessung" class="quarto-xref"><span>Kapitel 5.5</span></a>.</p>
+<ul>
+<li>Eine längere Torzeit <span class="math inline">\(T_{g}\)</span> verschiebt <span class="math inline">\(f^{*}\)</span> nach unten — die Frequenzmessung wird auch bei niedrigeren Frequenzen brauchbar, kostet aber Messzeit.</li>
+<li>Moderne Frequenzzähler kombinieren beide Betriebsarten („reziprokes Zählen”): Bei niedrigen Frequenzen messen sie <span class="math inline">\(T\)</span> und rechnen auf <span class="math inline">\(f\)</span> zurück — die Betriebsart wählt der Zähler selbst (<span class="citation" data-cites="schrufer2022">[<a href="#ref-schrufer2022" role="doc-biblioref">1</a>]</span>; übersichtlich auch im Wikipedia-Artikel <a href="https://de.wikipedia.org/wiki/Frequenzz%C3%A4hler">Frequenzzähler</a>).</li>
+</ul>
 <blockquote class="blockquote">
 <p><strong>Platzhalter — Messgerätefoto:</strong> Frequenzzähler/Oszillator-Baugruppe mit sichtbarem Taktquarz und Zähler-IC, um den Messaufbau (<a href="#fig-block-freq" class="quarto-xref">Abbildung&nbsp;<span>5.2</span></a>) mit realer Schaltungstechnik zu verbinden.</p>
 </blockquote>
 
 
 <div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-schrufer2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Schrüfer E, Reindl LM, Zagar B (2022) Elektrische Messtechnik, 13. Aufl. Carl Hanser Verlag, München</div>
+</div>
 <div id="ref-jcgm100_2008" class="csl-entry" role="listitem">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline">Joint Committee for Guides in Metrology (JCGM) (2008) <a href="https://www.bipm.org/en/committees/jc/jcgm/publications">Evaluation of measurement data — Guide to the expression of uncertainty in measurement (GUM)</a>. BIPM</div>
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Joint Committee for Guides in Metrology (JCGM) (2008) <a href="https://www.bipm.org/en/committees/jc/jcgm/publications">Evaluation of measurement data — Guide to the expression of uncertainty in measurement (GUM)</a>. BIPM</div>
 </div>
 </div>
 </section>

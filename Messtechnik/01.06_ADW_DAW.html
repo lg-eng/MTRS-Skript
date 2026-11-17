@@ -377,6 +377,30 @@ window.Quarto = {
 </header>
 
 
+<p><strong>Verwendete Symbole:</strong></p>
+<div id="205363dc" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(f_{a}\)</span> … Abtastfrequenz</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(T_{a}\)</span> … Abtastperiode</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(f_{g}\)</span> … hoechste im Signal enthaltene Frequenz</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(n\)</span> … Aufloesung des Wandlers in Bit</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(U_{ms}\)</span> … Messbereichsspannbreite</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(\Delta U\)</span> … Quantisierungsstufe (1 LSB)</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(\Delta Q\)</span> … maximaler Quantisierungsfehler</p>
+</div>
+</div>
 <p>Rechner verarbeiten Signale nur in digitaler Form. In der Messkette wandelt der <strong>ADW (Analog-Digital-Wandler)</strong> das analoge Sensorsignal in Zahlenwerte; der <strong>DAW (Digital-Analog-Wandler)</strong> macht den Weg zurück, z. B. zum Stellantrieb:</p>
 <blockquote class="blockquote">
 <p>Sensor → (Verstärker) → <strong>ADW</strong> ← Rechner → <strong>DAW</strong> → (Leistungsstufe) → Aktor</p>
@@ -391,7 +415,7 @@ window.Quarto = {
 <section id="abtastung" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="abtastung"><span class="header-section-number">6.1</span> Abtastung</h2>
 <p>Ein kontinuierliches Signal <span class="math inline">\(u(t)\)</span> wird alle <span class="math inline">\(T_{a}\)</span> Sekunden abgetastet (Abtastperiode). Für die Amplitude zählt nur der Momentanwert zum Abtastzeitpunkt:</p>
-<div id="44cc3ad4" class="cell" data-execution_count="2">
+<div id="ba12781d" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>f_a <span class="op">=</span> MySymbol(<span class="vs">r'f_{a}'</span>, description<span class="op">=</span><span class="st">'Abtastfrequenz'</span>, unit<span class="op">=</span>u.hertz)</span>
@@ -418,7 +442,7 @@ f_{a} \geq 2 f_{g}
 <section id="die-vier-schritte-in-einer-grafik" class="level3" data-number="6.1.1">
 <h3 data-number="6.1.1" class="anchored" data-anchor-id="die-vier-schritte-in-einer-grafik"><span class="header-section-number">6.1.1</span> Die vier Schritte in einer Grafik</h3>
 <p>Die 4-Quadranten-Darstellung zeigt den Weg vom analogen Signal zum digitalen Code im Uhrzeigersinn — Abtastung (rechts oben), Quantisierung über die Kennlinie (links oben), gehaltenes Treppensignal (links unten), Code (rechts unten):</p>
-<div id="cell-fig-quadranten" class="cell" data-execution_count="3">
+<div id="cell-fig-quadranten" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>f_sig <span class="op">=</span> <span class="dv">1</span>      <span class="co"># Signal-Frequenz in Hz</span></span>
@@ -515,7 +539,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 <section id="quantisierung" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="quantisierung"><span class="header-section-number">6.2</span> Quantisierung</h2>
 <p>Für <span class="math inline">\(n\)</span> Bit stehen <span class="math inline">\(2^{n}\)</span> Stufen über der Messbereichsspannbreite <span class="math inline">\(U_{ms}\)</span> zur Verfügung:</p>
-<div id="b9a9c395" class="cell" data-execution_count="4">
+<div id="37f2d858" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>n_bit <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Aufloesung des Wandlers in Bit'</span>)</span>
@@ -530,7 +554,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 </div>
 </div>
 <p>Die Rundung auf die nächste Stufe verursacht den <strong>Quantisierungsfehler</strong> — maximal eine halbe Stufe:</p>
-<div id="0d878d75" class="cell" data-execution_count="5">
+<div id="1f1cde10" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dQ <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="dv">\D</span><span class="vs">elta Q'</span>, description<span class="op">=</span><span class="st">'maximaler Quantisierungsfehler'</span>, unit<span class="op">=</span>u.volt)</span>
@@ -543,7 +567,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 </div>
 </div>
 <p>Beispiel 8-Bit-Wandler mit Messbereich <span class="math inline">\(0\,\mathrm{V} \ldots 10\,\mathrm{V}\)</span>:</p>
-<div id="7cccd15a" class="cell" data-execution_count="6">
+<div id="afa9d35f" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>U_ms_ex <span class="op">=</span> MySymbol(<span class="vs">r'U_{ms}'</span>, description<span class="op">=</span><span class="st">'Messbereichsspannbreite'</span>, unit<span class="op">=</span>u.volt,</span>

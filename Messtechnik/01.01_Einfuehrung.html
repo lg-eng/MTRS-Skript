@@ -380,6 +380,57 @@ window.Quarto = {
 </header>
 
 
+<p><strong>Verwendete Symbole:</strong></p>
+<div id="7710ec14" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(x\)</span> … physikalische Groesse = Zahlenwert mal Einheit</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(Y\)</span> … Messgroesse (Ausgang des Messmodells)</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(\bar{x}\)</span> … arithmetischer Mittelwert der Messreihe</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(s\)</span> … Standardabweichung der Einzelmessung</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(n\)</span> … Anzahl der Messwerte</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(i\)</span> … Laufindex der Messreihe</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(u_{A}\)</span> … Standardunsicherheit des Mittelwerts (Typ A)</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(a\)</span> … halbe Breite des angegebenen Intervalls</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(u_{B}\)</span> … Standardunsicherheit (Typ B)</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(u_{c}\)</span> … kombinierte Standardunsicherheit</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(k\)</span> … Ueberdeckungsfaktor (Erweiterungsfaktor)</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(U\)</span> … erweiterte Unsicherheit</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(p\)</span> … Genauigkeitsklasse in Prozent</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(x_{Endwert}\)</span> … Messbereichs-Endwert</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(x_{mess}\)</span> … angezeigter Messwert</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(\Delta x\)</span> … zulaessige Messabweichung</p>
+</div>
+</div>
 <section id="physikalische-größen-und-si-einheiten" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="physikalische-größen-und-si-einheiten"><span class="header-section-number">1.1</span> Physikalische Größen und SI-Einheiten</h2>
 <ul>
@@ -387,7 +438,7 @@ window.Quarto = {
 <li>Sieben SI-Basiseinheiten (m, kg, s, A, K, mol, cd); alle weiteren Einheiten sind daraus abgeleitet.</li>
 <li>Häufige Vorsätze: <span class="math inline">\(k = 10^{3}\)</span>, <span class="math inline">\(m = 10^{-3}\)</span>, <span class="math inline">\(\mu = 10^{-6}\)</span>, <span class="math inline">\(n = 10^{-9}\)</span>, <span class="math inline">\(p = 10^{-12}\)</span>.</li>
 </ul>
-<div id="509127ec" class="cell" data-execution_count="2">
+<div id="ce5c8d34" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x_zw <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="ch">\{</span><span class="vs">x</span><span class="ch">\}</span><span class="vs">'</span>)</span>
@@ -405,7 +456,7 @@ x = [x] \{x\}
 \tag{1.1}\]</span></span></p>
 </div>
 </div>
-<div id="a81b7411" class="cell" data-execution_count="3">
+<div id="5221ac5d" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>U_base <span class="op">=</span> u.convert_to(u.volt, [u.kilogram, u.meter, u.second, u.ampere])</span>
@@ -442,7 +493,7 @@ Abbildung&nbsp;1.1: Die sieben SI-Basiseinheiten und ihre Symbole (DePiep, <a hr
 <ul>
 <li>Die Messung wird als Modell beschrieben — die Messgröße ist eine Funktion der Eingangsgrößen mit ihren besten Schätzwerten.</li>
 </ul>
-<div id="73a4ecac" class="cell" data-execution_count="4">
+<div id="a3131036" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>X_in <span class="op">=</span> symbols(<span class="st">'X_1:4'</span>)</span>
@@ -468,7 +519,7 @@ Y = f{\left(X_{1},X_{2},X_{3} \right)}
 <section id="sec-mt-typA" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="sec-mt-typA"><span class="header-section-number">1.3.1</span> Typ-A-Bewertung: statistisch</h3>
 <p>Aus <span class="math inline">\(n\)</span> wiederholten Messungen unter gleichen Bedingungen:</p>
-<div id="4506a787" class="cell" data-execution_count="5">
+<div id="90b1f986" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>n_i <span class="op">=</span> Symbol(<span class="st">'n'</span>, integer<span class="op">=</span><span class="va">True</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
@@ -501,7 +552,7 @@ u_{A} = \frac{s}{\sqrt{n}}
 </div>
 </div>
 <p><strong>Beispiel</strong> — eine Messreihe von 400 Messungen einer 10-V-Referenz:</p>
-<div id="fd140824" class="cell" data-execution_count="6">
+<div id="a484d7b1" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">42</span>)</span>
@@ -512,7 +563,7 @@ u_{A} = \frac{s}{\sqrt{n}}
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>uA_num <span class="op">=</span> s_num<span class="op">/</span>np.sqrt(n_mess)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="ec308caa" class="cell" data-execution_count="7">
+<div id="c0039565" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>xbar_v <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="dv">\b</span><span class="vs">ar{x}'</span>, description<span class="op">=</span><span class="st">'Mittelwert der Messreihe'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(xbar_num))</span>
@@ -530,7 +581,7 @@ u_{A} = \frac{s}{\sqrt{n}}
 <p><span class="math display">\[u_{A} = \mathtt{\text{2.38}} \ \mathtt{\text{mV}}\]</span></p>
 </div>
 </div>
-<div id="cell-fig-messunsicherheit" class="cell" data-execution_count="8">
+<div id="cell-fig-messunsicherheit" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="fl">5.5</span>, <span class="fl">3.2</span>))</span>
@@ -559,7 +610,7 @@ Abbildung&nbsp;1.2: Typ-A-Auswertung: Streuung wiederholter Messungen um den Mit
 <section id="typ-b-bewertung-nicht-statistisch" class="level3" data-number="1.3.2">
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="typ-b-bewertung-nicht-statistisch"><span class="header-section-number">1.3.2</span> Typ-B-Bewertung: nicht statistisch</h3>
 <p>Aus Vorwissen: Kalibrierzertifikate, Datenblätter, Erfahrungen. Liegt eine Angabe als Intervall <span class="math inline">\(\pm a\)</span> vor (gleichförmige Verteilung):</p>
-<div id="3a974ae0" class="cell" data-execution_count="9">
+<div id="07643500" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a_b <span class="op">=</span> MySymbol(<span class="st">'a'</span>, description<span class="op">=</span><span class="st">'halbe Breite des angegebenen Intervalls'</span>)</span>
@@ -577,7 +628,7 @@ u_{B} = \frac{\sqrt{3} a}{3}
 </div>
 </div>
 <p><strong>Beispiel</strong> — DMM-Angabe <span class="math inline">\(\pm(0{,}5\,\%\,\mathrm{v.\,M.} + 3\ \mathrm{digits})\)</span>, Anzeige 10,00 V im 10-V-Bereich (1 digit = 10 mV):</p>
-<div id="0948d99a" class="cell" data-execution_count="10">
+<div id="d4ad47f1" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a_num <span class="op">=</span> <span class="fl">0.005</span><span class="op">*</span><span class="dv">10</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span><span class="fl">0.01</span></span>
@@ -597,7 +648,7 @@ u_{B} = \frac{\sqrt{3} a}{3}
 <section id="kombinierte-und-erweiterte-unsicherheit" class="level3" data-number="1.3.3">
 <h3 data-number="1.3.3" class="anchored" data-anchor-id="kombinierte-und-erweiterte-unsicherheit"><span class="header-section-number">1.3.3</span> Kombinierte und erweiterte Unsicherheit</h3>
 <p>Unsicherheitsfortpflanzung (Modell linearisiert, Empfindlichkeitskoeffizienten <span class="math inline">\(c_i = \partial f/\partial x_i\)</span>):</p>
-<div id="e2fbb261" class="cell" data-execution_count="11">
+<div id="ffb1fe06" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>N_k <span class="op">=</span> Symbol(<span class="st">'N'</span>, integer<span class="op">=</span><span class="va">True</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
@@ -622,7 +673,7 @@ U = k u_{c}
 </div>
 </div>
 <p>Beides zusammen (hier <span class="math inline">\(c_1 = c_2 = 1\)</span>) und Ergebnisangabe mit <span class="math inline">\(k = 2\)</span> (ca. 95 % Überdeckung):</p>
-<div id="72358a65" class="cell" data-execution_count="12">
+<div id="fa13cdd3" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>uc_num <span class="op">=</span> np.sqrt(<span class="bu">float</span>(uA_num)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="bu">float</span>(uB_num)<span class="op">**</span><span class="dv">2</span>)</span>
@@ -694,7 +745,7 @@ Abbildung&nbsp;1.3: Analoges Multimeter (HARTIG &amp; HELLING VM-10K): Zeigerins
 <li><strong>Auflösung:</strong> kleinste unterscheidbare Wertänderung. Digital: <span class="math inline">\(Q = \text{Endwert}/\text{counts}\)</span> (3½-stellig: 1999 counts).</li>
 <li><strong>Genauigkeit (analog):</strong> Genauigkeitsklasse <span class="math inline">\(p\)</span> — zulässige Messabweichung bezogen auf den Messbereichs-Endwert:</li>
 </ul>
-<div id="3e1b8d4c" class="cell" data-execution_count="13">
+<div id="949f0720" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>p_kl <span class="op">=</span> MySymbol(<span class="st">'p'</span>, description<span class="op">=</span><span class="st">'Genauigkeitsklasse in %'</span>)</span>
@@ -718,7 +769,7 @@ Abbildung&nbsp;1.3: Analoges Multimeter (HARTIG &amp; HELLING VM-10K): Zeigerins
 <ul>
 <li><strong>Genauigkeit (digital):</strong> Herstellerangabe</li>
 </ul>
-<div id="6c9c630b" class="cell" data-execution_count="14">
+<div id="7dba2b09" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>a_prz <span class="op">=</span> Symbol(<span class="st">'a'</span>)</span>

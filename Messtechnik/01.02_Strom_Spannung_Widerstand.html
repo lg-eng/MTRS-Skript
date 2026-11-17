@@ -354,6 +354,39 @@ window.Quarto = {
 </header>
 
 
+<p><strong>Verwendete Symbole:</strong></p>
+<div id="5f0f9b70" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(U_{q}\)</span> … Leerlaufspannung der Quelle</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(R_{q}\)</span> … Innenwiderstand der Quelle</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(R_{V}\)</span> … Innenwiderstand des Voltmeters</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(R_{A}\)</span> … Innenwiderstand des Amperemeters</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(U_{mess}\)</span> … angezeigte Spannung</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(\delta_{U}\)</span> … relative Messabweichung der Spannungsmessung</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(I_{mess}\)</span> … angezeigter Strom</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(\delta_{I}\)</span> … relative Messabweichung der Strommessung</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(R\)</span> … gemessener Widerstand</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(R_{mess}\)</span> … angezeigter Widerstand</p>
+</div>
+</div>
 <section id="ideale-und-reale-messgeräte" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="ideale-und-reale-messgeräte"><span class="header-section-number">2.1</span> Ideale und reale Messgeräte</h2>
 <table class="caption-top table">
@@ -386,7 +419,7 @@ window.Quarto = {
 </section>
 <section id="spannungsrichtige-und-stromrichtige-schaltung" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="spannungsrichtige-und-stromrichtige-schaltung"><span class="header-section-number">2.2</span> Spannungsrichtige und stromrichtige Schaltung</h2>
-<div id="21420c7c" class="cell" data-execution_count="2">
+<div id="e3dff9a4" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>U_q <span class="op">=</span> MySymbol(<span class="st">'U_q'</span>, description<span class="op">=</span><span class="st">'Leerlaufspannung der Quelle'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="dv">10</span>)</span>
@@ -409,7 +442,7 @@ window.Quarto = {
 </div>
 </div>
 <p><strong>Spannungsrichtig</strong> — Voltmeter liegt direkt am Verbraucher; die Messabweichung rührt vom Spannungsteiler aus <span class="math inline">\(R_V\)</span> und <span class="math inline">\(R_q\)</span>:</p>
-<div id="0876ab43" class="cell" data-execution_count="3">
+<div id="fe63fae0" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>U_mess <span class="op">=</span> Symbol(<span class="st">'U_</span><span class="sc">{mess}</span><span class="st">'</span>)</span>
@@ -431,7 +464,7 @@ U_{mess} = \frac{R_{V} U_{q}}{R_{V} + R_{q}}
 </div>
 </div>
 <p><strong>Stromrichtig</strong> — Amperemeter liegt in Reihe; sein Widerstand verringert den Strom:</p>
-<div id="1b1869ef" class="cell" data-execution_count="4">
+<div id="e067d860" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>I_mess <span class="op">=</span> Symbol(<span class="st">'I_</span><span class="sc">{mess}</span><span class="st">'</span>)</span>
@@ -456,7 +489,7 @@ I_{mess} = \frac{U_{q}}{R_{A} + R_{q}}
 <li>Faustregel: <span class="math inline">\(R_V \gg R_q\)</span> bzw. <span class="math inline">\(R_A \ll R_q\)</span> — mindestens zwei Zehnerpotenzen Abstand, damit die Rückwirkungsabweichung unter 1 % bleibt.</li>
 <li>Zusammenspiel beider Abweichungen über dem Widerstandsverhältnis:</li>
 </ul>
-<div id="cell-fig-rueckwirkung" class="cell" data-execution_count="5">
+<div id="cell-fig-rueckwirkung" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ratio <span class="op">=</span> np.logspace(<span class="op">-</span><span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">300</span>)</span>
@@ -486,7 +519,7 @@ Abbildung&nbsp;2.1: Relative Messabweichung durch Rückwirkung: die Spannungsmes
 </div>
 </div>
 <p><strong>Rechenbeispiel</strong> — Quelle mit <span class="math inline">\(R_q = 10\,\mathrm{k\Omega}\)</span>, gemessen mit <span class="math inline">\(R_V = 1\,\mathrm{M\Omega}\)</span>:</p>
-<div id="2caff68b" class="cell" data-execution_count="6">
+<div id="7df1f002" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>U_num <span class="op">=</span> U_q.value<span class="op">*</span>R_V.value<span class="op">/</span>(R_q.value <span class="op">+</span> R_V.value)</span>
@@ -506,7 +539,7 @@ Abbildung&nbsp;2.1: Relative Messabweichung durch Rückwirkung: die Spannungsmes
 </div>
 <p>Die Abweichung <span class="math inline">\(\delta_U\)</span> ist in Prozent. Mit <span class="math inline">\(R_V = 10\,\mathrm{M\Omega}\)</span> (typisches DMM) sinkt sie auf <span class="math inline">\(-0{,}1\,\%\)</span>.</p>
 <p>Wird stattdessen stromrichtig an einer Quelle mit <span class="math inline">\(R_q = 100\,\Omega\)</span> mit <span class="math inline">\(R_A = 1\,\Omega\)</span> gemessen:</p>
-<div id="c208269d" class="cell" data-execution_count="7">
+<div id="6526bca9" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dI_num <span class="op">=</span> (<span class="op">-</span>R_A.value<span class="op">/</span>(<span class="dv">100</span> <span class="op">+</span> R_A.value))<span class="op">*</span><span class="dv">100</span></span>
@@ -538,7 +571,7 @@ Abbildung&nbsp;2.2: Messschaltung mit Voltmeter und Amperemeter im Praktikum (Me
 <ul>
 <li>Spannungsrichtig (Amperemeter misst auch Voltmeterstrom) — geeignet für kleine Widerstände (<span class="math inline">\(R \ll R_V\)</span>):</li>
 </ul>
-<div id="59e51f9e" class="cell" data-execution_count="8">
+<div id="d53e830d" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>R_x <span class="op">=</span> Symbol(<span class="st">'R'</span>)</span>
@@ -554,7 +587,7 @@ R_{mess} = \frac{R_{V} R}{R_{V} + R}
 <ul>
 <li>Stromrichtig (Voltmeter misst auch Amperemeterspannung) — geeignet für große Widerstände (<span class="math inline">\(R \gg R_A\)</span>):</li>
 </ul>
-<div id="c6df0e3a" class="cell" data-execution_count="9">
+<div id="587fdfe3" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(R_mess, R_x <span class="op">+</span> R_A), label<span class="op">=</span><span class="st">'eq-r-stromrichtig'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>

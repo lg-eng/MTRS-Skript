@@ -354,12 +354,42 @@ window.Quarto = {
 </header>
 
 
+<p><strong>Verwendete Symbole:</strong></p>
+<div id="4481051b" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(M\)</span> … Drehmoment der Lorentzkraft</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(c\)</span> … Proportionalitaetsfaktor Strom zu Drehmoment</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(k\)</span> … Spiralfeder-Federkonstante</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(\alpha\)</span> … Auslenkung des Zeigers</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(I\)</span> … Messstrom durch die Drehspule</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(U_{x}\)</span> … Eingangsspannung am ADW</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(U_{ref}\)</span> … Referenzspannung</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(T_{1}\)</span> … feste Integrationszeit</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(T_{2}\)</span> … Abintegrationszeit bis zum Nulldurchgang</p>
+</div>
+</div>
 <section id="messwerke-die-grundlage-der-analogen-anzeige" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="messwerke-die-grundlage-der-analogen-anzeige"><span class="header-section-number">3.1</span> Messwerke — die Grundlage der analogen Anzeige</h2>
 <ul>
 <li>Klassisches Messgerät der Elektromesstechnik: <strong>Drehspulmesswerk</strong>. Lorentzkraft auf die stromdurchflossene Spule im Permanentfeld erzeugt ein Drehmoment; die Spiralfeder stellt das Gleichgewicht her — die Auslenkung ist proportional zum Strom:</li>
 </ul>
-<div id="4f258bf7" class="cell" data-execution_count="2">
+<div id="61fd8346" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>M_bm <span class="op">=</span> MySymbol(<span class="st">'M'</span>, description<span class="op">=</span><span class="st">'Drehmoment der Lorentzkraft, proportional zum Strom'</span>)</span>
@@ -393,7 +423,7 @@ Abbildung&nbsp;3.1: Prinzip des Drehspulmesswerks: drehbare Spule im Feld eines 
 <section id="blockschaltbild-des-digitalen-multimeters" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="blockschaltbild-des-digitalen-multimeters"><span class="header-section-number">3.2</span> Blockschaltbild des digitalen Multimeters</h2>
 <p>Signalpfad des Multimeters vom Eingangsbereich bis zur Anzeige:</p>
-<div id="cell-fig-dmm-block" class="cell" data-execution_count="3">
+<div id="cell-fig-dmm-block" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>blocks <span class="op">=</span> [<span class="st">'Eingangs-</span><span class="ch">\n</span><span class="st">schutz'</span>, <span class="st">'Eingangs-</span><span class="ch">\n</span><span class="st">teiler'</span>, <span class="st">'Verstärker</span><span class="ch">\n</span><span class="st">(Impedanzwandler)'</span>,</span>
@@ -430,7 +460,7 @@ Abbildung&nbsp;3.2: Blockschaltbild eines digitalen Multimeters: Eingangsschutz,
 <li><strong>Verstärker:</strong> Impedanzwandler/Auto-Zero-Verstärker entkoppelt Teiler und ADW.</li>
 <li><strong>ADW:</strong> im DMM überwiegend <strong>Zweiflankenverfahren (Dual Slope)</strong> — Integration über feste Zeit <span class="math inline">\(T_1\)</span> gegen <span class="math inline">\(U_x\)</span>, dann Integration gegen die Referenz <span class="math inline">\(U_{ref}\)</span> bis zum Nulldurchgang in <span class="math inline">\(T_2\)</span>:</li>
 </ul>
-<div id="677ce9bb" class="cell" data-execution_count="4">
+<div id="b52a0134" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>U_x <span class="op">=</span> MySymbol(<span class="st">'U_x'</span>, description<span class="op">=</span><span class="st">'Eingangsspannung am ADW'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="fl">0.45</span>)</span>
