@@ -49,7 +49,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-a81e59445572cdd197c6d70b794e35b6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-112a5ddbc64ca47b563c5057add93be6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -95,8 +95,43 @@ cookieconsent.run({
 });
 </script> 
   
+<script>
+(function () {
+  var KEY = 'mtrs-panels-hidden';
+
+  function toggle() {
+    var html = document.documentElement;
+    var hidden = html.classList.toggle('panels-hidden');
+    try { localStorage.setItem(KEY, hidden ? '1' : '0'); } catch (e) {}
+  }
+
+  function init() {
+    try {
+      if (localStorage.getItem(KEY) === '1') {
+        document.documentElement.classList.add('panels-hidden');
+      }
+    } catch (e) {}
+
+    var btn = document.createElement('button');
+    btn.id = 'panels-toggle';
+    btn.type = 'button';
+    btn.title = 'Seitenleisten ein-/ausblenden';
+    btn.setAttribute('aria-label', 'Seitenleisten ein-/ausblenden');
+    btn.innerHTML = '<i class="bi bi-layout-sidebar" aria-hidden="true"></i>';
+    btn.addEventListener('click', toggle);
+    document.body.appendChild(btn);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 
 
+<link rel="stylesheet" href="../panels.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">

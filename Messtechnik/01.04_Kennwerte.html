@@ -84,7 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-a81e59445572cdd197c6d70b794e35b6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-112a5ddbc64ca47b563c5057add93be6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -130,6 +130,40 @@ cookieconsent.run({
 });
 </script> 
   
+<script>
+(function () {
+  var KEY = 'mtrs-panels-hidden';
+
+  function toggle() {
+    var html = document.documentElement;
+    var hidden = html.classList.toggle('panels-hidden');
+    try { localStorage.setItem(KEY, hidden ? '1' : '0'); } catch (e) {}
+  }
+
+  function init() {
+    try {
+      if (localStorage.getItem(KEY) === '1') {
+        document.documentElement.classList.add('panels-hidden');
+      }
+    } catch (e) {}
+
+    var btn = document.createElement('button');
+    btn.id = 'panels-toggle';
+    btn.type = 'button';
+    btn.title = 'Seitenleisten ein-/ausblenden';
+    btn.setAttribute('aria-label', 'Seitenleisten ein-/ausblenden');
+    btn.innerHTML = '<i class="bi bi-layout-sidebar" aria-hidden="true"></i>';
+    btn.addEventListener('click', toggle);
+    document.body.appendChild(btn);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -161,6 +195,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../panels.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -355,7 +390,7 @@ window.Quarto = {
 
 
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="2913804e" class="cell" data-execution_count="2">
+<div id="78748b15" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(u\)</span> … momentane Signalgroesse</p>
 </div>
@@ -384,7 +419,7 @@ window.Quarto = {
 <p>Zeitabhängige Größen <span class="math inline">\(u(t)\)</span>, <span class="math inline">\(i(t)\)</span> beschreibt man über Kennwerte, die eine ganze Periode <span class="math inline">\(T\)</span> zusammenfassen — die Mittelwerte.</p>
 <section id="definitionen" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="definitionen"><span class="header-section-number">4.1</span> Definitionen</h2>
-<div id="069f37f1" class="cell" data-execution_count="3">
+<div id="c01ef242" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>t_s, T_s <span class="op">=</span> symbols(<span class="st">'t T'</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
@@ -460,7 +495,7 @@ Abbildung&nbsp;4.1: Kennwerte am Sinus: Scheitelwert, Effektivwert und Gleichric
 <section id="am-beispiel-sinus-mit-sympy-gerechnet" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="am-beispiel-sinus-mit-sympy-gerechnet"><span class="header-section-number">4.2</span> Am Beispiel Sinus — mit SymPy gerechnet</h2>
 <p>Für <span class="math inline">\(u(t) = \sin(2\pi t/T)\)</span> liefert die Auswertung der Integrale:</p>
-<div id="8cbf3e4f" class="cell" data-execution_count="5">
+<div id="ecbcf1cf" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>u_sin <span class="op">=</span> sin(<span class="dv">2</span><span class="op">*</span>pi<span class="op">*</span>t_s<span class="op">/</span>T_s)</span>
@@ -488,7 +523,7 @@ U = \frac{\sqrt{2}}{2}
 </div>
 </div>
 <p>Bezogen auf den Scheitelwert <span class="math inline">\(\hat{u}\)</span>:</p>
-<div id="388bad9f" class="cell" data-execution_count="6">
+<div id="e363db3b" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>hatu <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="er">\</span><span class="vs">hat{u}'</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
@@ -560,7 +595,7 @@ k_{s} = \sqrt{2}
 <li>Sinus: <span class="math inline">\(k_f = \pi/(2\sqrt{2}) \approx 1{,}11\)</span> — Gleichrichter-Messwerke skalieren den Gleichrichtwert daher mit dem Faktor 1,11 auf Sinus-RMS hoch.</li>
 </ul>
 <p><strong>Rechenbeispiel</strong> — Netzspannung mit <span class="math inline">\(\hat{u} = 325\,\mathrm{V}\)</span>:</p>
-<div id="38481811" class="cell" data-execution_count="7">
+<div id="35e3e499" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>U_netz <span class="op">=</span> MySymbol(<span class="st">'U'</span>, description<span class="op">=</span><span class="st">'Effektivwert der Netzspannung'</span>, unit<span class="op">=</span>u.volt,</span>

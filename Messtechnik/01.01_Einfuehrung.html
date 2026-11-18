@@ -103,7 +103,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-a81e59445572cdd197c6d70b794e35b6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-112a5ddbc64ca47b563c5057add93be6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -149,6 +149,40 @@ cookieconsent.run({
 });
 </script> 
   
+<script>
+(function () {
+  var KEY = 'mtrs-panels-hidden';
+
+  function toggle() {
+    var html = document.documentElement;
+    var hidden = html.classList.toggle('panels-hidden');
+    try { localStorage.setItem(KEY, hidden ? '1' : '0'); } catch (e) {}
+  }
+
+  function init() {
+    try {
+      if (localStorage.getItem(KEY) === '1') {
+        document.documentElement.classList.add('panels-hidden');
+      }
+    } catch (e) {}
+
+    var btn = document.createElement('button');
+    btn.id = 'panels-toggle';
+    btn.type = 'button';
+    btn.title = 'Seitenleisten ein-/ausblenden';
+    btn.setAttribute('aria-label', 'Seitenleisten ein-/ausblenden');
+    btn.innerHTML = '<i class="bi bi-layout-sidebar" aria-hidden="true"></i>';
+    btn.addEventListener('click', toggle);
+    document.body.appendChild(btn);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -180,6 +214,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../panels.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -345,7 +380,13 @@ window.Quarto = {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#physikalische-größen-und-si-einheiten" id="toc-physikalische-größen-und-si-einheiten" class="nav-link active" data-scroll-target="#physikalische-größen-und-si-einheiten"><span class="header-section-number">1.1</span> Physikalische Größen und SI-Einheiten</a></li>
+  <li><a href="#physikalische-größen-und-si-einheiten" id="toc-physikalische-größen-und-si-einheiten" class="nav-link active" data-scroll-target="#physikalische-größen-und-si-einheiten"><span class="header-section-number">1.1</span> Physikalische Größen und SI-Einheiten</a>
+  <ul>
+  <li><a href="#sec-mt-klammern" id="toc-sec-mt-klammern" class="nav-link" data-scroll-target="#sec-mt-klammern"><span class="header-section-number">1.1.1</span> Warum »U [V]« falsch ist und wie es richtig geht</a></li>
+  <li><a href="#si-basiseinheiten" id="toc-si-basiseinheiten" class="nav-link" data-scroll-target="#si-basiseinheiten"><span class="header-section-number">1.1.2</span> SI-Basiseinheiten</a></li>
+  <li><a href="#abgeleitete-einheiten" id="toc-abgeleitete-einheiten" class="nav-link" data-scroll-target="#abgeleitete-einheiten"><span class="header-section-number">1.1.3</span> Abgeleitete Einheiten</a></li>
+  <li><a href="#einheitenvorsätze" id="toc-einheitenvorsätze" class="nav-link" data-scroll-target="#einheitenvorsätze"><span class="header-section-number">1.1.4</span> Einheitenvorsätze</a></li>
+  </ul></li>
   <li><a href="#was-ist-messen" id="toc-was-ist-messen" class="nav-link" data-scroll-target="#was-ist-messen"><span class="header-section-number">1.2</span> Was ist Messen?</a></li>
   <li><a href="#sec-mt-gum" id="toc-sec-mt-gum" class="nav-link" data-scroll-target="#sec-mt-gum"><span class="header-section-number">1.3</span> Messunsicherheit nach GUM</a>
   <ul>
@@ -381,7 +422,7 @@ window.Quarto = {
 
 
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="7710ec14" class="cell" data-execution_count="2">
+<div id="c6276fa1" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(x\)</span> … physikalische Groesse = Zahlenwert mal Einheit</p>
 </div>
@@ -435,10 +476,10 @@ window.Quarto = {
 <h2 data-number="1.1" class="anchored" data-anchor-id="physikalische-größen-und-si-einheiten"><span class="header-section-number">1.1</span> Physikalische Größen und SI-Einheiten</h2>
 <ul>
 <li>Eine physikalische Größe ist ein Produkt aus Zahlenwert und Einheit.</li>
-<li>Sieben SI-Basiseinheiten (m, kg, s, A, K, mol, cd); alle weiteren Einheiten sind daraus abgeleitet.</li>
-<li>Häufige Vorsätze: <span class="math inline">\(k = 10^{3}\)</span>, <span class="math inline">\(m = 10^{-3}\)</span>, <span class="math inline">\(\mu = 10^{-6}\)</span>, <span class="math inline">\(n = 10^{-9}\)</span>, <span class="math inline">\(p = 10^{-12}\)</span>.</li>
+<li>Schreibweise nach ISO 80000-1:2022 <span class="citation" data-cites="iso80000_1_2022">[<a href="#ref-iso80000_1_2022" role="doc-biblioref">1</a>]</span> (Österreich: ÖNORM EN ISO 80000-1:2023 <span class="citation" data-cites="oenorm80000_1_2023">[<a href="#ref-oenorm80000_1_2023" role="doc-biblioref">2</a>]</span>): <span class="math inline">\(\{x\}\)</span> bezeichnet den Zahlenwert der Größe <span class="math inline">\(x\)</span>, <span class="math inline">\([x]\)</span> ihre Einheit — z. B. <span class="math inline">\(\{U\} = 10\)</span>, <span class="math inline">\([U] = \mathrm{V}\)</span> für <span class="math inline">\(U = 10\ \mathrm{V}\)</span>.</li>
 </ul>
-<div id="ce5c8d34" class="cell" data-execution_count="3">
+<p>Die folgende Gleichung ist keine Rechenformel, sondern eine Schreibkonvention: <span class="math inline">\(\{x\}\)</span> ist der Platzhalter für den Zahlenwert, <span class="math inline">\([x]\)</span> der für die Einheit — für eine konkrete Größe setzt man beides ein, z. B. <span class="math inline">\(\{U\} = 10\)</span>, <span class="math inline">\([U] = \mathrm{V}\)</span>. Der eigentliche Punkt dahinter: <span class="math inline">\(\{x\}\)</span> und <span class="math inline">\([x]\)</span> gehören immer als Paar zusammen — wählt man eine andere Einheit (etwa mit einem Vorsatz), ändert sich der Zahlenwert mit, die Größe <span class="math inline">\(x\)</span> selbst bleibt dieselbe.</p>
+<div id="368457d9" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x_zw <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="ch">\{</span><span class="vs">x</span><span class="ch">\}</span><span class="vs">'</span>)</span>
@@ -456,18 +497,100 @@ x = [x] \{x\}
 \tag{1.1}\]</span></span></p>
 </div>
 </div>
-<div id="5221ac5d" class="cell" data-execution_count="4">
+<p>Dieselbe Spannung, zwei Zahlenwert-Einheit-Paare — <span class="math inline">\(U\)</span> ändert sich nicht, nur <span class="math inline">\(\{U\}\)</span> und <span class="math inline">\([U]\)</span>. Die korrekte Form ist <span class="math inline">\(10\ \mathrm{V}\)</span>: dort steht eine Zahl mit höchstens drei Ziffern vor dem Komma und ohne 0 davor. Die Form mit <span class="math inline">\(0{,}01\ \mathrm{kV}\)</span> dient nur der Demonstration der Schreibweise: Richtig ausgewählt wäre der Vorsatz so, dass der Zahlenwert im Bereich 1 bis 999 liegt (siehe den Abschnitt Einheitenvorsätze).</p>
+<div id="23b93bcb" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>U_base <span class="op">=</span> u.convert_to(u.volt, [u.kilogram, u.meter, u.second, u.ampere])</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(Symbol(<span class="st">'U'</span>), U_base), label<span class="op">=</span><span class="st">'eq-volt-basis'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>V_s <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="dv">\m</span><span class="vs">athrm{V}'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>kV_s <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="dv">\m</span><span class="vs">athrm{kV}'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>U_sym <span class="op">=</span> Symbol(<span class="st">'U'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(U_sym, <span class="dv">10</span><span class="op">*</span>V_s), label<span class="op">=</span><span class="st">'eq-u-volt'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(U_sym, <span class="fl">0.01</span><span class="op">*</span>kV_s), label<span class="op">=</span><span class="st">'eq-u-kilovolt'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span id="eq-volt-basis"><span class="math display">\[
-U = \frac{\text{kg} \text{m}^{2}}{\text{A} \text{s}^{3}}
+<p><span id="eq-u-volt"><span class="math display">\[
+U = 10 \mathrm{V}
 \tag{1.2}\]</span></span></p>
 </div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-u-kilovolt"><span class="math display">\[
+U = 0.01 \mathrm{kV}
+\tag{1.3}\]</span></span></p>
 </div>
+</div>
+<section id="sec-mt-klammern" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="sec-mt-klammern"><span class="header-section-number">1.1.1</span> Warum »U [V]« falsch ist und wie es richtig geht</h3>
+<p>In Laborpraxis und Tabellen sieht man oft „U [V]” oder „l [m]“. ISO 80000-1:2022 <span class="citation" data-cites="iso80000_1_2022">[<a href="#ref-iso80000_1_2022" role="doc-biblioref">1</a>]</span> (Österreich: ÖNORM EN ISO 80000-1:2023 <span class="citation" data-cites="oenorm80000_1_2023">[<a href="#ref-oenorm80000_1_2023" role="doc-biblioref">2</a>]</span>) weist diese Schreibweise sinngemäß aus — die Norm definiert die eckige Klammer als Einheitsoperator und bevorzugt für Zahlenwertangaben ausdrücklich die Quotientenform (Beispiel: <span class="math inline">\(\lambda/\mathrm{nm} \approx 589{,}6\)</span>):</p>
+<ul>
+<li><strong>Normativ</strong> ist die eckige Klammer ein Operator auf Größen: <span class="math inline">\([x]\)</span> liest sich als „Einheit von <span class="math inline">\(x\)</span>“. Sie gehört immer zum Größensymbol — <span class="math inline">\([U] = \mathrm{V}\)</span> ist eine vollständige Aussage, aber <span class="math inline">\([\mathrm{V}]\)</span> ist nicht definiert, denn <span class="math inline">\(\mathrm{V}\)</span> ist eine Einheit, keine Größe. Tabellen- und Achsenbeschriftungen tragen deshalb den Quotienten <span class="math inline">\(U/\mathrm{V}\)</span> (das ist der Zahlenwert <span class="math inline">\(\{U\}\)</span>) oder die Umschreibung „U in V”.</li>
+<li><strong>Mathematisch</strong> gilt <span class="math inline">\(x = \{x\}\cdot[x]\)</span> als echtes Produkt. Eine Zahl wie <span class="math inline">\(10\)</span> hat keine Einheit — <span class="math inline">\([10]\)</span> ist bedeutungslos; „<span class="math inline">\(U\ [\mathrm{V}]\)</span>” liest sich als Produkt aus Größe und Einheit, wäre also eine Größe der doppelten Dimension (<span class="math inline">\(\mathrm{V}^2\)</span>). Genau das schließt die Zerlegung <span class="math inline">\(U = \{U\}\cdot[U]\)</span> aus.</li>
+</ul>
+<p>Korrekt ist im Fließtext <span class="math inline">\(U = 10\ \mathrm{V}\)</span>. Für Tabellen und Grafiken empfiehlt ISO 80000-1:2022 die Quotientenform <span class="math inline">\(U/\mathrm{V}\)</span> (liefert direkt den Zahlenwert <span class="math inline">\(\{U\}\)</span>); daneben ist im deutschsprachigen Raum die Umschreibung „U in V” üblich — in diesem Buch wird durchgängig <strong>„U in V”</strong> verwendet:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kontext</th>
+<th>falsch</th>
+<th>richtig</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fließtext</td>
+<td>„<span class="math inline">\(U\ [\mathrm{V}] = 10\)</span>”</td>
+<td><span class="math inline">\(U = 10\ \mathrm{V}\)</span></td>
+</tr>
+<tr class="even">
+<td>Tabellenkopf</td>
+<td>U [V]</td>
+<td>U in V</td>
+</tr>
+<tr class="odd">
+<td>Achsenbeschriftung</td>
+<td>U [V]</td>
+<td>U in V</td>
+</tr>
+<tr class="even">
+<td>Messreihe mit Zahlenwerten</td>
+<td>U [V]</td>
+<td>U in V (Spalte enthält 10; z. B. 10,2; 9,8)</td>
+</tr>
+</tbody>
+</table>
+<p>Beispiel Messreihe als Tabelle:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">t in ms</th>
+<th style="text-align: right;">U in V</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10,02</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">9,98</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">10,05</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="si-basiseinheiten" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="si-basiseinheiten"><span class="header-section-number">1.1.2</span> SI-Basiseinheiten</h3>
+<ul>
+<li>Sieben SI-Basiseinheiten (m, kg, s, A, K, mol, cd); alle weiteren Einheiten sind daraus abgeleitet <span class="citation" data-cites="bipm2019si">[<a href="#ref-bipm2019si" role="doc-biblioref">3</a>]</span>.</li>
+</ul>
 <div id="fig-si-units" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-si-units-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -479,6 +602,41 @@ Abbildung&nbsp;1.1: Die sieben SI-Basiseinheiten und ihre Symbole (DePiep, <a hr
 </figure>
 </div>
 </section>
+<section id="abgeleitete-einheiten" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="abgeleitete-einheiten"><span class="header-section-number">1.1.3</span> Abgeleitete Einheiten</h3>
+<ul>
+<li>Abgeleitete Einheiten entstehen durch Multiplikation, Division und Potenzierung der Basiseinheiten — z. B. Geschwindigkeit in m/s, Dichte in kg/m³, Kraft in kg·m/s².</li>
+<li>Viele davon haben eigene Namen und Zeichen, die im Alltag geläufiger sind als die Basiseinheiten-Kombination: Volt, Watt, Newton, Pascal. Auch diese sind nichts anderes als Basiseinheiten-Kombinationen — als reine <strong>Einheitengleichung</strong> (beide Seiten sind Einheiten, keine Größen):</li>
+</ul>
+<div id="2df62bc0" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>V_u <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="dv">\m</span><span class="vs">athrm{V}'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>kg_u <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="dv">\m</span><span class="vs">athrm{kg}'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>m_u <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="dv">\m</span><span class="vs">athrm{m}'</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>s_u <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="dv">\m</span><span class="vs">athrm{s}'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>A_u <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="dv">\m</span><span class="vs">athrm{A}'</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(V_u, kg_u<span class="op">*</span>m_u<span class="op">**</span><span class="dv">2</span><span class="op">*</span>s_u<span class="op">**-</span><span class="dv">3</span><span class="op">*</span>A_u<span class="op">**-</span><span class="dv">1</span>), label<span class="op">=</span><span class="st">'eq-volt-basis'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-volt-basis"><span class="math display">\[
+\mathrm{V} = \frac{\mathrm{kg} \mathrm{m}^{2}}{\mathrm{A} \mathrm{s}^{3}}
+\tag{1.4}\]</span></span></p>
+</div>
+</div>
+<ul>
+<li>Herleitung über die vertrauteren Einheiten — jedes Gleichheitszeichen ist eine Einheitengleichung: <span class="math inline">\(\mathrm{V} = \mathrm{W/A} = \mathrm{J/(s\,A)} = \mathrm{N\,m/(s\,A)} = \mathrm{kg\,m^2/(s^3\,A)}\)</span>.</li>
+<li>Merkregel: In einer Einheitengleichung steht niemals ein Größensymbol wie <span class="math inline">\(U\)</span>. Denselben Inhalt hat die Aussage <span class="math inline">\([U] = \mathrm{kg\,m^2\,s^{-3}\,A^{-1}}\)</span> — gelesen: „Die Einheit von <span class="math inline">\(U\)</span> ist <span class="math inline">\(\mathrm{kg\,m^2\,s^{-3}\,A^{-1}}\)</span>“.</li>
+</ul>
+</section>
+<section id="einheitenvorsätze" class="level3" data-number="1.1.4">
+<h3 data-number="1.1.4" class="anchored" data-anchor-id="einheitenvorsätze"><span class="header-section-number">1.1.4</span> Einheitenvorsätze</h3>
+<ul>
+<li>Häufige Vorsätze <span class="citation" data-cites="bipm2019si">[<a href="#ref-bipm2019si" role="doc-biblioref">3</a>]</span>: Mega (<span class="math inline">\(M = 10^{6}\)</span>), Kilo (<span class="math inline">\(k = 10^{3}\)</span>), Milli (<span class="math inline">\(m = 10^{-3}\)</span>), Mikro (<span class="math inline">\(\mu = 10^{-6}\)</span>), Nano (<span class="math inline">\(n = 10^{-9}\)</span>), Piko (<span class="math inline">\(p = 10^{-12}\)</span>).</li>
+<li>Vorsätze so wählen, dass der Zahlenwert zwischen 1 und 999 liegt: Es stehen dann nie mehr als drei Ziffern vor dem Komma und niemals eine 0 davor — <span class="math inline">\(12{,}5\ \mathrm{km}\)</span> statt <span class="math inline">\(12\,500\ \mathrm{m}\)</span>, <span class="math inline">\(750\ \mathrm{mA}\)</span> statt <span class="math inline">\(0{,}75\ \mathrm{A}\)</span>.</li>
+</ul>
+</section>
+</section>
 <section id="was-ist-messen" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="was-ist-messen"><span class="header-section-number">1.2</span> Was ist Messen?</h2>
 <ul>
@@ -489,18 +647,18 @@ Abbildung&nbsp;1.1: Die sieben SI-Basiseinheiten und ihre Symbole (DePiep, <a hr
 </section>
 <section id="sec-mt-gum" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="sec-mt-gum"><span class="header-section-number">1.3</span> Messunsicherheit nach GUM</h2>
-<p>Die moderne Behandlung von Messungen folgt dem <em>Guide to the Expression of Uncertainty in Measurement</em> (GUM, JCGM 100:2008 <span class="citation" data-cites="jcgm100_2008">[<a href="#ref-jcgm100_2008" role="doc-biblioref">1</a>]</span>; deutsche Einführung: JCGM 104 <span class="citation" data-cites="jcgm104_2011de">[<a href="#ref-jcgm104_2011de" role="doc-biblioref">2</a>]</span>). Kerngedanke: Es gibt nicht den „wahren Wert plus Fehler”, sondern einen <strong>Schätzwert</strong> und eine <strong>Messunsicherheit</strong>, die die Streuung der plausiblen Werte der Messgröße kennzeichnet.</p>
+<p>Die moderne Behandlung von Messungen folgt dem <em>Guide to the Expression of Uncertainty in Measurement</em> (GUM, JCGM 100:2008 <span class="citation" data-cites="jcgm100_2008">[<a href="#ref-jcgm100_2008" role="doc-biblioref">4</a>]</span>; deutsche Einführung: JCGM 104 <span class="citation" data-cites="jcgm104_2011de">[<a href="#ref-jcgm104_2011de" role="doc-biblioref">5</a>]</span>). Kerngedanke: Es gibt nicht den „wahren Wert plus Fehler”, sondern einen <strong>Schätzwert</strong> und eine <strong>Messunsicherheit</strong>, die die Streuung der plausiblen Werte der Messgröße kennzeichnet.</p>
 <ul>
 <li>Die Messung wird als Modell beschrieben — die Messgröße ist eine Funktion der Eingangsgrößen mit ihren besten Schätzwerten.</li>
 </ul>
-<div id="a3131036" class="cell" data-execution_count="5">
+<div id="40cb02d6" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>X_in <span class="op">=</span> symbols(<span class="st">'X_1:4'</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>f_func <span class="op">=</span> Function(<span class="st">'f'</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Y_ms <span class="op">=</span> MySymbol(<span class="st">'Y'</span>, description<span class="op">=</span><span class="st">'Messgröße (Ausgang des Messmodells)'</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([Y_ms])</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(Y_ms, f_func(<span class="op">*</span>X_in)), label<span class="op">=</span><span class="st">'eq-messmodell'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>X_in <span class="op">=</span> symbols(<span class="st">'X_1:4'</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>f_func <span class="op">=</span> Function(<span class="st">'f'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>Y_ms <span class="op">=</span> MySymbol(<span class="st">'Y'</span>, description<span class="op">=</span><span class="st">'Messgröße (Ausgang des Messmodells)'</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([Y_ms])</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(Y_ms, f_func(<span class="op">*</span>X_in)), label<span class="op">=</span><span class="st">'eq-messmodell'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(Y\)</span> … Messgröße (Ausgang des Messmodells)</p>
@@ -508,7 +666,7 @@ Abbildung&nbsp;1.1: Die sieben SI-Basiseinheiten und ihre Symbole (DePiep, <a hr
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-messmodell"><span class="math display">\[
 Y = f{\left(X_{1},X_{2},X_{3} \right)}
-\tag{1.3}\]</span></span></p>
+\tag{1.5}\]</span></span></p>
 </div>
 </div>
 <ul>
@@ -519,57 +677,57 @@ Y = f{\left(X_{1},X_{2},X_{3} \right)}
 <section id="sec-mt-typA" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="sec-mt-typA"><span class="header-section-number">1.3.1</span> Typ-A-Bewertung: statistisch</h3>
 <p>Aus <span class="math inline">\(n\)</span> wiederholten Messungen unter gleichen Bedingungen:</p>
-<div id="90b1f986" class="cell" data-execution_count="6">
+<div id="84edc91c" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>n_i <span class="op">=</span> Symbol(<span class="st">'n'</span>, integer<span class="op">=</span><span class="va">True</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>i_i <span class="op">=</span> Symbol(<span class="st">'i'</span>, integer<span class="op">=</span><span class="va">True</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>x_i <span class="op">=</span> IndexedBase(<span class="st">'x'</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>xbar <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="dv">\b</span><span class="vs">ar{x}'</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>s_s <span class="op">=</span> Symbol(<span class="st">'s'</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>u_A <span class="op">=</span> Symbol(<span class="st">'u_A'</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>eq_mittel <span class="op">=</span> Eq(xbar, Sum(x_i[i_i], (i_i, <span class="dv">1</span>, n_i))<span class="op">/</span>n_i)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>eq_std <span class="op">=</span> Eq(s_s, sqrt(Sum((x_i[i_i] <span class="op">-</span> xbar)<span class="op">**</span><span class="dv">2</span>, (i_i, <span class="dv">1</span>, n_i))<span class="op">/</span>(n_i <span class="op">-</span> <span class="dv">1</span>)))</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>eq_uA <span class="op">=</span> Eq(u_A, s_s<span class="op">/</span>sqrt(n_i))</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(eq_mittel, label<span class="op">=</span><span class="st">'eq-mittelwert'</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(eq_std, label<span class="op">=</span><span class="st">'eq-stdabw'</span>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(eq_uA, label<span class="op">=</span><span class="st">'eq-typA'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>n_i <span class="op">=</span> Symbol(<span class="st">'n'</span>, integer<span class="op">=</span><span class="va">True</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>i_i <span class="op">=</span> Symbol(<span class="st">'i'</span>, integer<span class="op">=</span><span class="va">True</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>x_i <span class="op">=</span> IndexedBase(<span class="st">'x'</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>xbar <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="dv">\b</span><span class="vs">ar{x}'</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>s_s <span class="op">=</span> Symbol(<span class="st">'s'</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>u_A <span class="op">=</span> Symbol(<span class="st">'u_A'</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>eq_mittel <span class="op">=</span> Eq(xbar, Sum(x_i[i_i], (i_i, <span class="dv">1</span>, n_i))<span class="op">/</span>n_i)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>eq_std <span class="op">=</span> Eq(s_s, sqrt(Sum((x_i[i_i] <span class="op">-</span> xbar)<span class="op">**</span><span class="dv">2</span>, (i_i, <span class="dv">1</span>, n_i))<span class="op">/</span>(n_i <span class="op">-</span> <span class="dv">1</span>)))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>eq_uA <span class="op">=</span> Eq(u_A, s_s<span class="op">/</span>sqrt(n_i))</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(eq_mittel, label<span class="op">=</span><span class="st">'eq-mittelwert'</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(eq_std, label<span class="op">=</span><span class="st">'eq-stdabw'</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(eq_uA, label<span class="op">=</span><span class="st">'eq-typA'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-mittelwert"><span class="math display">\[
 \bar{x} = \frac{\sum_{i=1}^{n} {x}_{i}}{n}
-\tag{1.4}\]</span></span></p>
+\tag{1.6}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-stdabw"><span class="math display">\[
 s = \sqrt{\frac{\sum_{i=1}^{n} \left(- \bar{x} + {x}_{i}\right)^{2}}{n - 1}}
-\tag{1.5}\]</span></span></p>
+\tag{1.7}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-typA"><span class="math display">\[
 u_{A} = \frac{s}{\sqrt{n}}
-\tag{1.6}\]</span></span></p>
+\tag{1.8}\]</span></span></p>
 </div>
 </div>
 <p><strong>Beispiel</strong> — eine Messreihe von 400 Messungen einer 10-V-Referenz:</p>
-<div id="a484d7b1" class="cell" data-execution_count="7">
+<div id="b2cf2e25" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">42</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>messreihe <span class="op">=</span> rng.normal(<span class="fl">10.08</span>, <span class="fl">0.05</span>, <span class="dv">400</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>n_mess <span class="op">=</span> <span class="bu">len</span>(messreihe)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>xbar_num <span class="op">=</span> np.mean(messreihe)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>s_num <span class="op">=</span> np.std(messreihe, ddof<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>uA_num <span class="op">=</span> s_num<span class="op">/</span>np.sqrt(n_mess)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">42</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>messreihe <span class="op">=</span> rng.normal(<span class="fl">10.08</span>, <span class="fl">0.05</span>, <span class="dv">400</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>n_mess <span class="op">=</span> <span class="bu">len</span>(messreihe)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>xbar_num <span class="op">=</span> np.mean(messreihe)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>s_num <span class="op">=</span> np.std(messreihe, ddof<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>uA_num <span class="op">=</span> s_num<span class="op">/</span>np.sqrt(n_mess)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="c0039565" class="cell" data-execution_count="8">
+<div id="66fbb997" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>xbar_v <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="dv">\b</span><span class="vs">ar{x}'</span>, description<span class="op">=</span><span class="st">'Mittelwert der Messreihe'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(xbar_num))</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>s_v <span class="op">=</span> MySymbol(<span class="st">'s'</span>, description<span class="op">=</span><span class="st">'Standardabweichung der Einzelmessung'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(s_num))</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>uA_v <span class="op">=</span> MySymbol(<span class="vs">r'u_A'</span>, description<span class="op">=</span><span class="st">'Standardunsicherheit des Mittelwerts (Typ A)'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(uA_num))</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_values([xbar_v, s_v, uA_v])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>xbar_v <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="dv">\b</span><span class="vs">ar{x}'</span>, description<span class="op">=</span><span class="st">'Mittelwert der Messreihe'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(xbar_num))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>s_v <span class="op">=</span> MySymbol(<span class="st">'s'</span>, description<span class="op">=</span><span class="st">'Standardabweichung der Einzelmessung'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(s_num))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>uA_v <span class="op">=</span> MySymbol(<span class="vs">r'u_A'</span>, description<span class="op">=</span><span class="st">'Standardunsicherheit des Mittelwerts (Typ A)'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(uA_num))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_values([xbar_v, s_v, uA_v])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math display">\[\bar{x} = \mathtt{\text{10.1}} \ \mathtt{\text{V}}\]</span></p>
@@ -581,17 +739,17 @@ u_{A} = \frac{s}{\sqrt{n}}
 <p><span class="math display">\[u_{A} = \mathtt{\text{2.38}} \ \mathtt{\text{mV}}\]</span></p>
 </div>
 </div>
-<div id="cell-fig-messunsicherheit" class="cell" data-execution_count="9">
+<div id="cell-fig-messunsicherheit" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="fl">5.5</span>, <span class="fl">3.2</span>))</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ax.hist(messreihe, bins<span class="op">=</span><span class="dv">24</span>, color<span class="op">=</span><span class="st">'#5a8fd6'</span>, edgecolor<span class="op">=</span><span class="st">'white'</span>, label<span class="op">=</span><span class="st">'Messwerte $x_i$'</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>ax.axvline(<span class="fl">10.0</span>, color<span class="op">=</span><span class="st">'#2e7d32'</span>, lw<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'Referenzwert $x_</span><span class="sc">{ref}</span><span class="st">$'</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>ax.axvline(xbar_num, color<span class="op">=</span><span class="st">'#d62728'</span>, lw<span class="op">=</span><span class="dv">2</span>, ls<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">'Mittelwert $</span><span class="ch">\\</span><span class="st">bar</span><span class="sc">{x}</span><span class="st">$'</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Messwert $x$ in V'</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Häufigkeit'</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>ax.legend(framealpha<span class="op">=</span><span class="fl">0.9</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="fl">5.5</span>, <span class="fl">3.2</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ax.hist(messreihe, bins<span class="op">=</span><span class="dv">24</span>, color<span class="op">=</span><span class="st">'#5a8fd6'</span>, edgecolor<span class="op">=</span><span class="st">'white'</span>, label<span class="op">=</span><span class="st">'Messwerte $x_i$'</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ax.axvline(<span class="fl">10.0</span>, color<span class="op">=</span><span class="st">'#2e7d32'</span>, lw<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'Referenzwert $x_</span><span class="sc">{ref}</span><span class="st">$'</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>ax.axvline(xbar_num, color<span class="op">=</span><span class="st">'#d62728'</span>, lw<span class="op">=</span><span class="dv">2</span>, ls<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">'Mittelwert $</span><span class="ch">\\</span><span class="st">bar</span><span class="sc">{x}</span><span class="st">$'</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Messwert $x$ in V'</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Häufigkeit'</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>ax.legend(framealpha<span class="op">=</span><span class="fl">0.9</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-messunsicherheit" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -610,13 +768,13 @@ Abbildung&nbsp;1.2: Typ-A-Auswertung: Streuung wiederholter Messungen um den Mit
 <section id="typ-b-bewertung-nicht-statistisch" class="level3" data-number="1.3.2">
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="typ-b-bewertung-nicht-statistisch"><span class="header-section-number">1.3.2</span> Typ-B-Bewertung: nicht statistisch</h3>
 <p>Aus Vorwissen: Kalibrierzertifikate, Datenblätter, Erfahrungen. Liegt eine Angabe als Intervall <span class="math inline">\(\pm a\)</span> vor (gleichförmige Verteilung):</p>
-<div id="07643500" class="cell" data-execution_count="10">
+<div id="4871c130" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a_b <span class="op">=</span> MySymbol(<span class="st">'a'</span>, description<span class="op">=</span><span class="st">'halbe Breite des angegebenen Intervalls'</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>u_B <span class="op">=</span> Symbol(<span class="st">'u_B'</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([a_b])</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(u_B, a_b<span class="op">/</span>sqrt(<span class="dv">3</span>)), label<span class="op">=</span><span class="st">'eq-typB'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a_b <span class="op">=</span> MySymbol(<span class="st">'a'</span>, description<span class="op">=</span><span class="st">'halbe Breite des angegebenen Intervalls'</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>u_B <span class="op">=</span> Symbol(<span class="st">'u_B'</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([a_b])</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(u_B, a_b<span class="op">/</span>sqrt(<span class="dv">3</span>)), label<span class="op">=</span><span class="st">'eq-typB'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(a\)</span> … halbe Breite des angegebenen Intervalls</p>
@@ -624,69 +782,69 @@ Abbildung&nbsp;1.2: Typ-A-Auswertung: Streuung wiederholter Messungen um den Mit
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-typB"><span class="math display">\[
 u_{B} = \frac{\sqrt{3} a}{3}
-\tag{1.7}\]</span></span></p>
+\tag{1.9}\]</span></span></p>
 </div>
 </div>
-<p><strong>Beispiel</strong> — DMM-Angabe <span class="math inline">\(\pm(0{,}5\,\%\,\mathrm{v.\,M.} + 3\ \mathrm{digits})\)</span>, Anzeige 10,00 V im 10-V-Bereich (1 digit = 10 mV):</p>
-<div id="d4ad47f1" class="cell" data-execution_count="11">
+<p><strong>Beispiel</strong> — DMM UT133A (siehe <a href="#fig-digital-anzeige" class="quarto-xref">Abbildung&nbsp;<span>1.4</span></a>), Gleichspannung im 60-V-Bereich: Angabe <span class="math inline">\(\pm(0{,}7\,\%\,\mathrm{v.\,M.} + 3\ \mathrm{digits})\)</span> <span class="citation" data-cites="unit_ut133a_manual">[<a href="#ref-unit_ut133a_manual" role="doc-biblioref">6</a>]</span>, Anzeige 10,00 V (1 digit = 10 mV):</p>
+<div id="598e2d87" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a_num <span class="op">=</span> <span class="fl">0.005</span><span class="op">*</span><span class="dv">10</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span><span class="fl">0.01</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>uB_num <span class="op">=</span> a_num<span class="op">/</span>sqrt(<span class="dv">3</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>a_v <span class="op">=</span> MySymbol(<span class="st">'a'</span>, description<span class="op">=</span><span class="st">'halbe Intervallbreite der Angabe'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(a_num))</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>uB_v <span class="op">=</span> MySymbol(<span class="vs">r'u_B'</span>, description<span class="op">=</span><span class="st">'Standardunsicherheit (Typ B)'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(uB_num))</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_values([a_v, uB_v])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>a_num <span class="op">=</span> <span class="fl">0.007</span><span class="op">*</span><span class="dv">10</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span><span class="fl">0.01</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>uB_num <span class="op">=</span> a_num<span class="op">/</span>sqrt(<span class="dv">3</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>a_v <span class="op">=</span> MySymbol(<span class="st">'a'</span>, description<span class="op">=</span><span class="st">'halbe Intervallbreite der Angabe'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(a_num))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>uB_v <span class="op">=</span> MySymbol(<span class="vs">r'u_B'</span>, description<span class="op">=</span><span class="st">'Standardunsicherheit (Typ B)'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(uB_num))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_values([a_v, uB_v])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math display">\[a = \mathtt{\text{80}} \ \mathtt{\text{mV}}\]</span></p>
+<p><span class="math display">\[a = \mathtt{\text{100}} \ \mathtt{\text{mV}}\]</span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math display">\[u_{B} = \mathtt{\text{46.2}} \ \mathtt{\text{mV}}\]</span></p>
+<p><span class="math display">\[u_{B} = \mathtt{\text{57.7}} \ \mathtt{\text{mV}}\]</span></p>
 </div>
 </div>
 </section>
 <section id="kombinierte-und-erweiterte-unsicherheit" class="level3" data-number="1.3.3">
 <h3 data-number="1.3.3" class="anchored" data-anchor-id="kombinierte-und-erweiterte-unsicherheit"><span class="header-section-number">1.3.3</span> Kombinierte und erweiterte Unsicherheit</h3>
 <p>Unsicherheitsfortpflanzung (Modell linearisiert, Empfindlichkeitskoeffizienten <span class="math inline">\(c_i = \partial f/\partial x_i\)</span>):</p>
-<div id="ffb1fe06" class="cell" data-execution_count="12">
+<div id="ca01c138" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>N_k <span class="op">=</span> Symbol(<span class="st">'N'</span>, integer<span class="op">=</span><span class="va">True</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>k_i <span class="op">=</span> Symbol(<span class="st">'k'</span>, integer<span class="op">=</span><span class="va">True</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>c_ib <span class="op">=</span> IndexedBase(<span class="st">'c'</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>u_ib <span class="op">=</span> IndexedBase(<span class="st">'u'</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>u_c <span class="op">=</span> Symbol(<span class="st">'u_c'</span>)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>K_k <span class="op">=</span> Symbol(<span class="st">'k'</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>U_e <span class="op">=</span> Symbol(<span class="st">'U'</span>)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(u_c, sqrt(Sum((c_ib[k_i]<span class="op">*</span>u_ib[k_i])<span class="op">**</span><span class="dv">2</span>, (k_i, <span class="dv">1</span>, N_k)))), label<span class="op">=</span><span class="st">'eq-kombiniert'</span>)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(U_e, K_k<span class="op">*</span>u_c), label<span class="op">=</span><span class="st">'eq-erweitert'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>N_k <span class="op">=</span> Symbol(<span class="st">'N'</span>, integer<span class="op">=</span><span class="va">True</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>k_i <span class="op">=</span> Symbol(<span class="st">'k'</span>, integer<span class="op">=</span><span class="va">True</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>c_ib <span class="op">=</span> IndexedBase(<span class="st">'c'</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>u_ib <span class="op">=</span> IndexedBase(<span class="st">'u'</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>u_c <span class="op">=</span> Symbol(<span class="st">'u_c'</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>K_k <span class="op">=</span> Symbol(<span class="st">'k'</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>U_e <span class="op">=</span> Symbol(<span class="st">'U'</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(u_c, sqrt(Sum((c_ib[k_i]<span class="op">*</span>u_ib[k_i])<span class="op">**</span><span class="dv">2</span>, (k_i, <span class="dv">1</span>, N_k)))), label<span class="op">=</span><span class="st">'eq-kombiniert'</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(U_e, K_k<span class="op">*</span>u_c), label<span class="op">=</span><span class="st">'eq-erweitert'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-kombiniert"><span class="math display">\[
 u_{c} = \sqrt{\sum_{k=1}^{N} {c}_{k}^{2} {u}_{k}^{2}}
-\tag{1.8}\]</span></span></p>
+\tag{1.10}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-erweitert"><span class="math display">\[
 U = k u_{c}
-\tag{1.9}\]</span></span></p>
+\tag{1.11}\]</span></span></p>
 </div>
 </div>
 <p>Beides zusammen (hier <span class="math inline">\(c_1 = c_2 = 1\)</span>) und Ergebnisangabe mit <span class="math inline">\(k = 2\)</span> (ca. 95 % Überdeckung):</p>
-<div id="fa13cdd3" class="cell" data-execution_count="13">
+<div id="c81e33ff" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>uc_num <span class="op">=</span> np.sqrt(<span class="bu">float</span>(uA_num)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="bu">float</span>(uB_num)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>U_num <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>uc_num</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>uc_v <span class="op">=</span> MySymbol(<span class="vs">r'u_c'</span>, description<span class="op">=</span><span class="st">'kombinierte Standardunsicherheit'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(uc_num))</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>U_v <span class="op">=</span> MySymbol(<span class="st">'U'</span>, description<span class="op">=</span><span class="st">'erweiterte Unsicherheit (k = 2)'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(U_num))</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_values([uc_v, U_v])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>uc_num <span class="op">=</span> np.sqrt(<span class="bu">float</span>(uA_num)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="bu">float</span>(uB_num)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>U_num <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>uc_num</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>uc_v <span class="op">=</span> MySymbol(<span class="vs">r'u_c'</span>, description<span class="op">=</span><span class="st">'kombinierte Standardunsicherheit'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(uc_num))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>U_v <span class="op">=</span> MySymbol(<span class="st">'U'</span>, description<span class="op">=</span><span class="st">'erweiterte Unsicherheit (k = 2)'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(U_num))</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_values([uc_v, U_v])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math display">\[u_{c} = \mathtt{\text{46.2}} \ \mathtt{\text{mV}}\]</span></p>
+<p><span class="math display">\[u_{c} = \mathtt{\text{57.8}} \ \mathtt{\text{mV}}\]</span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math display">\[U = \mathtt{\text{92.5}} \ \mathtt{\text{mV}}\]</span></p>
+<p><span class="math display">\[U = \mathtt{\text{116}} \ \mathtt{\text{mV}}\]</span></p>
 </div>
 </div>
 <p><span class="math display">\[Y = (y \pm U)\quad\text{bei } k = 2\]</span></p>
@@ -735,24 +893,31 @@ Abbildung&nbsp;1.3: Analoges Multimeter (HARTIG &amp; HELLING VM-10K): Zeigerins
 </figcaption>
 </figure>
 </div>
-<blockquote class="blockquote">
-<p><strong>Platzhalter — Digitalanzeige:</strong> Nahaufnahme einer 3½-stelligen Digitalanzeige (z. B. „1999 counts”), um Auflösung in digits und den Begriff Zähldisplay zu zeigen.</p>
-</blockquote>
+<div id="fig-digital-anzeige" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-digital-anzeige-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Digitalanzeige_counts.jpg" class="img-fluid figure-img" width="420">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-digital-anzeige-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;1.4: Zähldisplay eines Digitalmultimeters (UNI-T UT133A): 6000 counts, maximale Anzeige 5999 — die führende Stelle ist keine volle Ziffer (sie kann nur bis „5“ anzeigen), daher spricht man von einer 3¾-stelligen Anzeige; Auflösung 1 digit; Spezifikation nach <span class="citation" data-cites="unit_ut133a_manual">[<a href="#ref-unit_ut133a_manual" role="doc-biblioref">6</a>]</span> (eigenes Foto)
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="auflösung-und-genauigkeit" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="auflösung-und-genauigkeit"><span class="header-section-number">1.5</span> Auflösung und Genauigkeit</h2>
 <ul>
-<li><strong>Auflösung:</strong> kleinste unterscheidbare Wertänderung. Digital: <span class="math inline">\(Q = \text{Endwert}/\text{counts}\)</span> (3½-stellig: 1999 counts).</li>
+<li><strong>Auflösung:</strong> kleinste unterscheidbare Wertänderung. Digital: <span class="math inline">\(Q = \text{Endwert}/\text{counts}\)</span> (3½-stellig: 1999 counts; UT133A wie in <a href="#fig-digital-anzeige" class="quarto-xref">Abbildung&nbsp;<span>1.4</span></a>: 5999 counts <span class="citation" data-cites="unit_ut133a_manual">[<a href="#ref-unit_ut133a_manual" role="doc-biblioref">6</a>]</span>).</li>
 <li><strong>Genauigkeit (analog):</strong> Genauigkeitsklasse <span class="math inline">\(p\)</span> — zulässige Messabweichung bezogen auf den Messbereichs-Endwert:</li>
 </ul>
-<div id="949f0720" class="cell" data-execution_count="14">
+<div id="bf29ca16" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>p_kl <span class="op">=</span> MySymbol(<span class="st">'p'</span>, description<span class="op">=</span><span class="st">'Genauigkeitsklasse in %'</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>x_end <span class="op">=</span> MySymbol(<span class="vs">r'x_{Endwert}'</span>, description<span class="op">=</span><span class="st">'Messbereichs-Endwert'</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>dx_max <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="dv">\D</span><span class="vs">elta x_{max}'</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([p_kl, x_end])</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(dx_max, p_kl<span class="op">/</span><span class="dv">100</span><span class="op">*</span>x_end), label<span class="op">=</span><span class="st">'eq-klasse'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>p_kl <span class="op">=</span> MySymbol(<span class="st">'p'</span>, description<span class="op">=</span><span class="st">'Genauigkeitsklasse in %'</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>x_end <span class="op">=</span> MySymbol(<span class="vs">r'x_{Endwert}'</span>, description<span class="op">=</span><span class="st">'Messbereichs-Endwert'</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>dx_max <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="dv">\D</span><span class="vs">elta x_{max}'</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([p_kl, x_end])</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(dx_max, p_kl<span class="op">/</span><span class="dv">100</span><span class="op">*</span>x_end), label<span class="op">=</span><span class="st">'eq-klasse'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(p\)</span> … Genauigkeitsklasse in %</p>
@@ -763,24 +928,25 @@ Abbildung&nbsp;1.3: Analoges Multimeter (HARTIG &amp; HELLING VM-10K): Zeigerins
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-klasse"><span class="math display">\[
 \Delta x_{max} = \frac{p x_{Endwert}}{100}
-\tag{1.10}\]</span></span></p>
+\tag{1.12}\]</span></span></p>
 </div>
 </div>
+<p>Genau genommen bezieht die Genauigkeitsklasse nach IEC 60051-1 <span class="citation" data-cites="iec60051_1">[<a href="#ref-iec60051_1" role="doc-biblioref">7</a>]</span> sich auf die <strong>Bezugsgröße</strong> (<em>fiducial value</em>) des Instruments: Bei den meisten Strom- und Spannungsmessern ist das der Messbereichs-Endwert (obige Gleichung), bei Instrumenten mit unterdrücktem Nullpunkt oder anderen Skalenformen kann sie davon abweichen.</p>
 <ul>
 <li><strong>Genauigkeit (digital):</strong> Herstellerangabe</li>
 </ul>
-<div id="7dba2b09" class="cell" data-execution_count="15">
+<div id="228571df" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>a_prz <span class="op">=</span> Symbol(<span class="st">'a'</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>n_dig <span class="op">=</span> Symbol(<span class="st">'n'</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>x_mess <span class="op">=</span> Symbol(<span class="vs">r'x_{mess}'</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(Symbol(<span class="vs">r'</span><span class="dv">\D</span><span class="vs">elta x'</span>), a_prz<span class="op">/</span><span class="dv">100</span><span class="op">*</span>x_mess <span class="op">+</span> n_dig<span class="op">*</span>Symbol(<span class="vs">r'</span><span class="dv">\m</span><span class="vs">athrm{digit}'</span>)), label<span class="op">=</span><span class="st">'eq-dmm-genauigkeit'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>a_prz <span class="op">=</span> Symbol(<span class="st">'a'</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>n_dig <span class="op">=</span> Symbol(<span class="st">'n'</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>x_mess <span class="op">=</span> Symbol(<span class="vs">r'x_{mess}'</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(Symbol(<span class="vs">r'</span><span class="dv">\D</span><span class="vs">elta x'</span>), a_prz<span class="op">/</span><span class="dv">100</span><span class="op">*</span>x_mess <span class="op">+</span> n_dig<span class="op">*</span>Symbol(<span class="vs">r'</span><span class="dv">\m</span><span class="vs">athrm{digit}'</span>)), label<span class="op">=</span><span class="st">'eq-dmm-genauigkeit'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-dmm-genauigkeit"><span class="math display">\[
 \Delta x = \mathrm{digit} n + \frac{a x_{mess}}{100}
-\tag{1.11}\]</span></span></p>
+\tag{1.13}\]</span></span></p>
 </div>
 </div>
 <ul>
@@ -789,11 +955,26 @@ Abbildung&nbsp;1.3: Analoges Multimeter (HARTIG &amp; HELLING VM-10K): Zeigerins
 
 
 <div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-iso80000_1_2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">International Organization for Standardization (ISO) (2022) <a href="https://www.iso.org/standard/76921.html">Quantities and units — Part 1: General</a>. ISO</div>
+</div>
+<div id="ref-oenorm80000_1_2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Austrian Standards International (ASI) (2023) <a href="https://www.austrian-standards.at"><span>ÖNORM EN ISO 80000-1</span> Quantities and units — Part 1: General</a>. Austrian Standards International</div>
+</div>
+<div id="ref-bipm2019si" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Bureau International des Poids et Mesures (BIPM) (2019) <a href="https://www.bipm.org/en/publications/si-brochure">The International System of Units (SI)</a>. BIPM</div>
+</div>
 <div id="ref-jcgm100_2008" class="csl-entry" role="listitem">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline">Joint Committee for Guides in Metrology (JCGM) (2008) <a href="https://www.bipm.org/en/committees/jc/jcgm/publications">Evaluation of measurement data — Guide to the expression of uncertainty in measurement (GUM)</a>. BIPM</div>
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Joint Committee for Guides in Metrology (JCGM) (2008) <a href="https://www.bipm.org/en/committees/jc/jcgm/publications">Evaluation of measurement data — Guide to the expression of uncertainty in measurement (GUM)</a>. BIPM</div>
 </div>
 <div id="ref-jcgm104_2011de" class="csl-entry" role="listitem">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline">Joint Committee for Guides in Metrology (JCGM) (2011) <a href="https://www.ptb.de/cms/fileadmin/internet/fachabteilungen/abteilung_8/8.4_mathematische_modellierung/8.40/JCGM_104_2009_DE_2011-03-30.pdf">Fortentwicklung des Leitfadens zur Angabe der Messunsicherheit (Deutsche Fassung JCGM 104:2009)</a>. Physikalisch-Technische Bundesanstalt (PTB)</div>
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Joint Committee for Guides in Metrology (JCGM) (2011) <a href="https://www.ptb.de/cms/fileadmin/internet/fachabteilungen/abteilung_8/8.4_mathematische_modellierung/8.40/JCGM_104_2009_DE_2011-03-30.pdf">Fortentwicklung des Leitfadens zur Angabe der Messunsicherheit (Deutsche Fassung JCGM 104:2009)</a>. Physikalisch-Technische Bundesanstalt (PTB)</div>
+</div>
+<div id="ref-unit_ut133a_manual" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Uni-Trend Technology (China) Co., Ltd. (2018) UT133A/UT133B Digital Multimeter User Manual. <a href="https://meters.uni-trend.com/download/ut133a-b-user-manual/">https://meters.uni-trend.com/download/ut133a-b-user-manual/</a>. Accessed 18 Nov 2026</div>
+</div>
+<div id="ref-iec60051_1" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">International Electrotechnical Commission (IEC) (2016) <a href="https://webstore.iec.ch/en/publication/24122">Direct acting indicating analogue electrical measuring instruments and their accessories — Part 1: Definitions and general requirements common to all parts</a>. IEC</div>
 </div>
 </div>
 </section>
