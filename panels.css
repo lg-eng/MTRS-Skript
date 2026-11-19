@@ -1,0 +1,68 @@
+/* Ein-/Ausblenden der Seitenleisten (Inhalt + Inhaltsverzeichnis).
+   Der Toggle-Button steuert die Klasse .panels-hidden auf <html>. */
+
+#panels-toggle {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 1050;
+  width: 2.2rem;
+  height: 2.2rem;
+  padding: 0;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 50%;
+  background: var(--bs-body-bg);
+  color: var(--bs-secondary-color);
+  opacity: 0.55;
+  transition: opacity 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+#panels-toggle:hover,
+#panels-toggle:focus {
+  opacity: 1;
+}
+
+@media (min-width: 992px) {
+  /* Beide Seitenleisten ausblenden und den Inhaltsbereich auf die
+     volle Breite bringen: Seitenlinien page-start/body-content-start
+     bzw. body-content-end/page-end zusammenlegen. */
+  html.panels-hidden .page-columns {
+    grid-template-columns:
+      [screen-start] 1.5em
+      [screen-start-inset page-start page-start-inset body-start-outset body-start] 1em
+      [body-content-start] minmax(0px, 1fr)
+      [body-content-end body-end body-end-outset page-end-inset page-end] 1em
+      [screen-end-inset] 1.5em
+      [screen-end];
+    transition: grid-template-columns 0.25s ease;
+  }
+
+  html.panels-hidden #quarto-sidebar,
+  html.panels-hidden #quarto-margin-sidebar {
+    display: none !important;
+  }
+
+  /* Inhaltsbereich statt Leerraum: die 1200px-Obergrenze des Texts
+     aufheben (Text fuellt den Platz zwischen den Seitenleisten) und
+     die toten Fr-Spuren an den Raendern auf schmale Reststuecke
+     reduzieren. Spur-Masse sonst identisch mit dem von Quarto
+     erzeugten Layout (margin-width: 250px). */
+  body.floating .page-columns {
+    grid-template-columns:
+      [screen-start] 1.5em
+      [screen-start-inset] 1.5em
+      [page-start] minmax(25px, 50px)
+      [page-start-inset] minmax(50px, 150px)
+      [body-start-outset] minmax(25px, 50px)
+      [body-start] 1.5em
+      [body-content-start] minmax(500px, 1fr)
+      [body-content-end] 1.5em
+      [body-end] minmax(25px, 50px)
+      [body-end-outset] minmax(50px, 150px)
+      [page-end-inset] minmax(25px, 50px)
+      [page-end] 1.5em
+      [screen-end-inset] 1.5em
+      [screen-end];
+  }
+}

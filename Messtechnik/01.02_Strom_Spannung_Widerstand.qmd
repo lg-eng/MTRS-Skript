@@ -1,6 +1,25 @@
 # Strom-, Spannungs- und Widerstandsmessung {#sec-mt-strom-spannung}
 {{< include ../../../../Common/QuartoBookHelpers/QuartoBookHelpers.qmd >}}
 
+
+**Verwendete Symbole:**
+
+```{python}
+#| echo: false
+Uq_s = MySymbol('U_q', description='Leerlaufspannung der Quelle')
+Rq_s = MySymbol('R_q', description='Innenwiderstand der Quelle')
+RV_s = MySymbol('R_V', description='Innenwiderstand des Voltmeters')
+RA_s = MySymbol('R_A', description='Innenwiderstand des Amperemeters')
+Um_s = MySymbol(r'U_{mess}', description='angezeigte Spannung')
+dU_s = MySymbol(r'\delta_U', description='relative Messabweichung der Spannungsmessung')
+Im_s = MySymbol(r'I_{mess}', description='angezeigter Strom')
+dI_s = MySymbol(r'\delta_I', description='relative Messabweichung der Strommessung')
+R_s = MySymbol('R', description='gemessener Widerstand')
+Rm_s = MySymbol(r'R_{mess}', description='angezeigter Widerstand')
+QBookHelpers.print_description([Uq_s, Rq_s, RV_s, RA_s, Um_s, dU_s, Im_s, dI_s, R_s, Rm_s])
+```
+
+
 ## Ideale und reale Messgeräte
 
 | Messgerät | ideal | real |

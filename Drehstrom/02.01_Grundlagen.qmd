@@ -2,6 +2,22 @@
 
 # Mathematische Grundlagen der 3-Phasen-Drehstromtechnik
 
+
+**Verwendete Symbole:**
+
+```{python}
+#| echo: false
+U12_s = MySymbol(r'\underline{U}_{12}', description='Spannung zwischen Phase L1 und L2')
+U23_s = MySymbol(r'\underline{U}_{23}', description='Spannung zwischen Phase L2 und L3')
+U31_s = MySymbol(r'\underline{U}_{31}', description='Spannung zwischen Phase L3 und L1')
+U1N_s = MySymbol(r'\underline{U}_{1N}', description='Spannung zwischen Phase L1 und N')
+U2N_s = MySymbol(r'\underline{U}_{2N}', description='Spannung zwischen Phase L2 und N')
+U3N_s = MySymbol(r'\underline{U}_{3N}', description='Spannung zwischen Phase L3 und N')
+Uss_s = MySymbol('U_ss', description='Amplitude der Spannung')
+QBookHelpers.print_description([U1N_s, U2N_s, U3N_s, U12_s, U23_s, U31_s, Uss_s])
+```
+
+
 ```{python}
 #| code-fold: true
 U_12 = MySymbol('\\underline{U}_{12}',description = 'Spannung zwischen Phase L1 und L2')

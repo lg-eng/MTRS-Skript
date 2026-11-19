@@ -415,9 +415,9 @@ Since the measurements were taken with a different input voltage, we normalize a
 #| label: normalized-comparison
 #| fig-cap: "Normalized Signal Comparison"
 
-# Normalize all datasets to the same input level (e.g., 1V)
+# Normalize all datasets to the same input level (e.g., 1 V)
 normalized_data = {}
-reference_input = 1.0  # Normalize to 1V input
+reference_input = 1.0  # Normalize to 1 V input
 
 fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(14, 10))
 
@@ -456,13 +456,13 @@ for name, df in loaded_data.items():
                      markevery=200,
                      alpha=0.9)
 
-ax1.set_title('Normalized Input Signal (Scaled to 1V)', fontsize=14)
+ax1.set_title('Normalized Input Signal (Scaled to 1 V)', fontsize=14)
 ax1.set_xlabel('Time / s', fontsize=12)
 ax1.set_ylabel('Input Voltage / V', fontsize=12)
 ax1.grid(True, which='both', linestyle='--', alpha=0.6)
 ax1.legend(fontsize=10, framealpha=0.9)
 
-ax2.set_title('Normalized Output Signal (Scaled to 1V Input)', fontsize=14)
+ax2.set_title('Normalized Output Signal (Scaled to 1 V Input)', fontsize=14)
 ax2.set_xlabel('Time / s', fontsize=12)
 ax2.set_ylabel('Output Voltage / V', fontsize=12)
 ax2.grid(True, which='both', linestyle='--', alpha=0.6)
@@ -480,7 +480,7 @@ for name, df in normalized_data.items():
 
 The normalized plots reveal several important insights:
 
-1. **Alignment**: After normalizing to the same input voltage (1V), all three signals (Spice Simulation, Physical Measurements, and Transfer Function) now share a common reference, making direct comparison meaningful.
+1. **Alignment**: After normalizing to the same input voltage (1 V), all three signals (Spice Simulation, Physical Measurements, and Transfer Function) now share a common reference, making direct comparison meaningful.
 
 2. **Agreement**: The Transfer Function simulation (green dotted line with triangles) serves as the theoretical baseline. The Spice Simulation (blue solid line with circles) closely matches this theoretical behavior, confirming the circuit model accuracy.
 

@@ -64,25 +64,25 @@ QBookHelpers.print_description({ict,uct,uint})
 ```
 
 Müsste nun von dieser Differentialgleichung die Übertragungsfunktion, also $G=Ausgang/Eingang$, angegeben werden, so müsste zunächst die Differentialgleichung gelöst werden.  
-Die Laplace Transformation bietet hier einen alternativen Weg der mit weiteren Vorteilen verbunden ist wenn es darum geht Blöcke miteinander zu kombinieren oder Aussagen über das System zu treffen.
+Die Laplacetransformation bietet hier einen alternativen Weg. Sie erleichtert insbesondere die Kombination von Blöcken und Aussagen über das Systemverhalten.
 
 #### Laplacetransformation
-Die tiefere Mathematik der Laplacetransofrmation überlassen wir hier den Mathematiker:innen und den ersten Semstern eines Studiums. Wir wollen die Laplacetransformation lediglich als Werkzeug zur vereinfachung unserer Arbeit verwenden. Dazu benötigen wir folgende Grundregeln.  
-Vereinfacht ist die Laplacetransformation als eine Übersetzung aus dem Zeitbereich, also mit der varaible $t$, in den Frequenzbereich mit der Variable $s$ zu verstehen. Die Übersetzung erfolgt in vielen Fällen sehr einfach mittels Tabelle. Hier wird die Transformation nur für ausgewählte Signale und mathematische Operationen angeführt.  
+Die tiefere Mathematik der Laplacetransformation überlassen wir den Mathematiker:innen und den ersten Semestern eines Studiums. Hier dient sie als Werkzeug zur Vereinfachung von Berechnungen. Dazu werden nur die wichtigsten Grundregeln benötigt.  
+Vereinfacht überführt die Laplacetransformation eine Funktion aus dem Zeitbereich mit der Variablen $t$ in den Laplacebereich beziehungsweise $s$-Bereich. Die komplexe Variable $s$ wird erst für Frequenzgangbetrachtungen als $s=j\omega$ eingesetzt. Die Transformation erfolgt in vielen Fällen mithilfe einer Tabelle. Hier werden nur ausgewählte Signale und mathematische Operationen angeführt.  
 
 
-| Zeitbereich x(t) | Frequenzbereich X(s) | Bemerkung |
+| Zeitbereich $x(t)$ | Laplacebereich $X(s)$ | Bemerkung |
 | :---             | :------ |:----------|
 | $\frac{d \ x(t)}{d \ t}$ |$s \cdot X(s) - x(0)$ |Transformation der Ableitung nach der Zeit, $x(0)$ ist dabei der Wert zum Zeitpunkt Null. Bei einem Kondensator wäre dies zum Beispiel der Ladezustand zu Beginn.|
 | ${ \int x(t) \, d \ t}$  |$\frac{1}{s} \cdot X(s)$  |Transformation der Integration über der Zeit|
 | $\delta (t)$ | $1$ | Transformation des Impulses|
 | $\sigma (t)$ | $\frac{1}{s}$| Transformation des Sprunges|
 | $e^{at}$| $\frac{1}{s -a}$| |
-| $\frac{1}{a} e^{\frac{-t}{a}}$| $\frac{1}{1 + as}$| |
+| $\frac{1}{a} e^{-t/a}$| $\frac{1}{1 + as}$| für $a>0$ |
 
 :Laplacetransformationstabelle {#tbl-laplace}
 
-Wird nun Gleichung @eq-RCTP mittels der Tabelle @tbl-laplace transformiert erhalten wir eine Gleichung aus der wir durch einfaches Umformen eine Übertragungsfunktion erhalten. Es wird angenommen, dass $ x(0) = 0 $ ist.
+Wird nun Gleichung @eq-RCTP mittels der Tabelle @tbl-laplace transformiert, ergibt sich durch Umformen die Übertragungsfunktion. Der Kondensator wird als anfangs entladen angenommen; also ist $u_C(0)=0$.
 
 ```{python}
 #| code-fold: true
@@ -91,7 +91,7 @@ from sympy.abc import s, p, a
 
 from sympy.physics.control.lti import TransferFunction
 
-UC = MySymbol('U_{C}',description = 'Ausgangsspannng im Laplacebereich')
+UC = MySymbol('U_{C}',description = 'Ausgangsspannung im Laplacebereich')
 UIN = MySymbol('U_{IN}',description = 'Eingangsspannung im Laplacebereich')
 
 # RCTPLap_eq = Eq(s*UC+1/(R_ohm*C_cap)*UC,1/(R_ohm*C_cap)*UIN)

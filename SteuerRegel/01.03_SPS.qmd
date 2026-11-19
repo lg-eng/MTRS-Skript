@@ -1,0 +1,164 @@
+# Speicherprogrammierbare Steuerung (SPS) {#sec-sps}
+{{< include ../../../../Common/QuartoBookHelpers/QuartoBookHelpers.qmd >}}
+
+Die speicherprogrammierbare Steuerung (SPS) ist ein in der
+Automatisierungstechnik weit verbreitetes Steuerungssystem. Ihre Zentraleinheit
+(CPU) erfasst die Signale der Sensoren, verarbeitet sie nach einem Anwenderprogramm
+und gibt Steuersignale über Ausgabemodule an Aktoren aus. Gegenüber einer fest
+verdrahteten Relaissteuerung lässt sich die Logik durch eine Programmänderung
+anpassen; die Verdrahtung bleibt bestehen.
+
+::: {#tip-sps}
+## Merke
+
+Eine SPS ist ein für die industrielle Umgebung ausgelegter Spezialrechner. In
+ihrem typischen zyklischen Betrieb gilt:
+**Eingaben lesen → Programm abarbeiten → Ausgaben schreiben**.
+:::
+
+## Steuerungstechnische Grundlagen {#sec-sps-grundlagen}
+
+Eine Steuerung bildet Eingangssignale nach einer festgelegten Vorschrift auf
+Ausgangssignale ab. Im Unterschied zur Regelung wird der tatsächliche
+Anlagenausgang nicht zur laufenden Korrektur der Ausgangssignale zurückgeführt.
+Der Wirkungsablauf ist somit offen.
+
+Grundbegriffe:
+
+- **Verknüpfungssteuerung:** Die Ausgänge hängen nur von den aktuellen
+  Eingangszuständen ab. Diese Zuordnung wird als kombinatorische Logik
+  bezeichnet.
+- **Ablaufsteuerung:** Die Ausgänge hängen zusätzlich vom aktuellen **Schritt**
+  eines Ablaufs ab. Übergänge werden häufig durch Endschalter oder andere
+  Bedingungssignale ausgelöst. Beispiele sind Ampelphasen und Werkzeugwechsel.
+- **Binäre Signale:** Sie können genau zwei Zustände annehmen, beispielsweise
+  „0“ und „1“ beziehungsweise „aus“ und „ein“. Die Grundfunktionen der
+  Booleschen Algebra sind **UND**, **ODER** und **NICHT**. Daraus lassen sich
+  unter anderem **NAND**, **NOR**, **Exklusiv-ODER (XOR)** und
+  Speicherfunktionen wie das RS-Flipflop bilden.
+- **Normung:** Die Programmiersprachen von SPS sind in **IEC 61131-3**
+  (ÖNORM EN 61131-3) festgelegt; ihre wichtigsten Eigenschaften sind in
+  @sec-sps-ie beschrieben.
+
+## Zyklusaufbau {#sec-sps-zyklus}
+
+Im zyklischen Betrieb wiederholt die SPS die folgenden Schritte:
+
+```{python}
+#| echo: true
+#| code-fold: true
+#| label: fig-sps-zyklus
+#| fig-cap: 'Zyklusablauf einer SPS: Die drei Schritte werden in fester Reihenfolge wiederholt.'
+import matplotlib.pyplot as plt
+from matplotlib.patches import FancyBboxPatch
+
+fig, ax = plt.subplots(figsize=(8.5, 2.6))
+texte = ['Eingänge\neinlesen\n(Prozessabbild)',
+         'Anwenderprogramm\nabarbeiten',
+         'Ausgaben\nschreiben']
+w, h = 2.3, 1.05
+xs = [0.3, 3.45, 6.6]
+y = 0.75
+for x, t in zip(xs, texte):
+    ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle='round,pad=0.02',
+                                facecolor='#dce8f5', edgecolor='#365a80', lw=1.4))
+    ax.text(x + w/2, y + h/2, t, ha='center', va='center', fontsize=10)
+for x in xs[:-1]:
+    ax.annotate('', xy=(x + w + 0.72, y + h/2), xytext=(x + w + 0.08, y + h/2),
+                arrowprops=dict(arrowstyle='->', lw=1.5, color='#365a80'))
+# Rücksprung vom letzten zum ersten Schritt
+c3, c1 = xs[2] + w/2, xs[0] + w/2
+y_unten = 0.28
+ax.plot([c3, c3], [y - 0.03, y_unten], color='#888888', lw=1.3, ls='--')
+ax.plot([c3, c1], [y_unten, y_unten], color='#888888', lw=1.3, ls='--')
+ax.annotate('', xy=(c1, y - 0.03), xytext=(c1, y_unten),
+            arrowprops=dict(arrowstyle='->', lw=1.3, linestyle='--',
+                            color='#888888'))
+ax.text((c1 + c3) / 2, y_unten - 0.16,
+        'Beginn des nächsten Zyklus',
+        ha='center', fontsize=9, color='#555555')
+ax.set_xlim(0, 9.35)
+ax.set_ylim(0.0, 2.1)
+ax.axis('off')
+plt.show()
+```
+
+- **Eingänge einlesen:** Zu Zyklusbeginn übernimmt die SPS die Zustände der
+  Eingänge in das **Prozessabbild der Eingänge**.
+- **Programm abarbeiten:** Das Anwenderprogramm arbeitet mit diesem Prozessabbild.
+  Die berechneten Ausgangszustände werden im **Prozessabbild der Ausgänge**
+  abgelegt.
+- **Ausgaben schreiben:** Am Zyklusende überträgt die SPS das Prozessabbild der
+  Ausgänge an die Ausgabemodule. Deren Signale steuern die Aktoren.
+
+Konsequenzen:
+
+- Änderungen der Eingänge werden im regulären zyklischen Programm erst im
+  nächsten Zyklus berücksichtigt. Eine zu kurze Eingangsänderung kann daher
+  unbemerkt bleiben.
+- Die Zykluszeit hängt von Programmumfang und Hardware ab. Sie bewegt sich je
+  nach Anwendung von Bruchteilen einer Millisekunde bis deutlich darüber und
+  muss zur Dynamik der Anlage passen.
+- **Watchdog:** Überschreitet die Programmbearbeitung eine festgelegte Zeit,
+  beispielsweise wegen einer Endlosschleife, erkennt der Watchdog einen
+  Fehler. Die SPS löst dann die dafür konfigurierte Fehlerreaktion aus.
+
+## Programmiersprachen (IEC 61131-3) {#sec-sps-ie}
+
+Die folgenden SPS-Programmiersprachen sind in **IEC 61131-3** genormt:
+
+| Sprache | Typ | Kennzeichen |
+|---|---|---|
+| **KOP** (Kontaktplan, engl. LD) | grafisch | Darstellung ähnlich einem Stromlaufplan; geeignet für Verknüpfungslogik |
+| **FUP** (Funktionsbausteinsprache, engl. FBD) | grafisch | Verknüpfung von Funktionsblöcken durch Signallinien |
+| **AS** (Ablaufsprache, engl. SFC) | grafisch | Darstellung von Schritten, Übergängen und Aktionen |
+| **AWL** (Anweisungsliste, engl. IL) | textuell | Folge maschinennaher Befehle; in neueren Anwendungen zunehmend durch ST ersetzt |
+| **ST** (strukturierter Text, engl. ST) | textuell | Hochsprachenähnliche Syntax mit `IF`, `WHILE` und `FOR`; geeignet für Berechnungen |
+
+- Übliche Praxis: **KOP/FUP** für Verknüpfungslogik, **AS** für Ablaufsteuerung,
+  **ST** für algorithmische Anteile.
+
+### Beispiel: Selbsthaltung
+
+Eine typische Programmieraufgabe ist die Selbsthaltung: Der Ausgang `Q` soll
+nach kurzem Betätigen der Einschalttaste `S1` eingeschaltet bleiben, bis die
+Ausschalttaste `S2` betätigt wird. Zur Speicherung des Zustands wird der
+gespeicherte Ausgang in die Bedingung einbezogen:
+
+```text
+Q = (S1 OR Q) AND NOT S2
+```
+
+- **Einschalten:** Wird `S1` betätigt, wird `Q` wahr. Nach dem Loslassen bleibt
+  `Q` durch die eigene Rückführung eingeschaltet.
+- **Ausschalten:** Bei betätigter Taste `S2` wird `NOT S2` falsch. Damit wird
+  `Q` auch dann ausgeschaltet, wenn `S1` gleichzeitig betätigt ist.
+
+Das `Q` auf der rechten Seite steht dabei für den im vorherigen
+Bearbeitungsschritt gespeicherten Wert.
+
+## Peripherie — Ein- und Ausgänge {#sec-sps-peripherie}
+
+![Siemens S7-1500: Modul mit Klemmenleiste und Status-LEDs (Oleg Yunakov, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SIMATIC_S7-150.jpg))](images/S7-1500.jpg){#fig-s7-1500 width=420px}
+
+- **Digitale Eingänge (DI):** Sie erfassen beispielsweise Taster, Schalter und
+  Näherungsschalter. Häufig werden Signale mit 24 V Gleichspannung verwendet.
+  Die Eingangsschaltung passt sie an die interne Elektronik an und trennt sie
+  elektrisch, meist durch Optokoppler.
+- **Digitale Ausgänge (DO):** **Relaisausgänge** stellen einen potenzialfreien
+  Schaltkontakt bereit. **Transistorausgänge** schalten schneller und eignen
+  sich für hohe Schalthäufigkeiten. Damit werden beispielsweise Magnetventile,
+  Motorstarter oder Meldeleuchten angesteuert.
+- **Analoge Eingänge (AI) und Ausgänge (AO):** Sie verarbeiten kontinuierliche
+  elektrische Signale, beispielsweise 0 bis 10 V oder 4 bis 20 mA. Die SPS
+  verwendet dazu Analog-Digital- und Digital-Analog-Wandler.
+
+## Zusammenfassung
+
+- Eine SPS verarbeitet Eingangssignale nach einem Anwenderprogramm und erzeugt
+  daraus Ausgangssignale.
+- Im zyklischen Betrieb liest sie die Eingänge, bearbeitet das Programm und
+  schreibt die Ausgänge.
+- Wichtige Programmiersprachen nach IEC 61131-3 sind KOP, FUP, AS, AWL und ST.
+- Bei der Ansteuerung realer Anlagen sind Signaltypen, Zykluszeit und
+  Fehlerreaktionen des Watchdogs zu berücksichtigen.

@@ -1,0 +1,225 @@
+# ADW–DAW — Grundlagen und Kenngrößen {#sec-mt-adwdaw}
+{{< include ../../../../Common/QuartoBookHelpers/QuartoBookHelpers.qmd >}}
+
+
+**Verwendete Symbole:**
+
+```{python}
+#| echo: false
+fa_s = MySymbol(r'f_{a}', description='Abtastfrequenz')
+Ta_s = MySymbol(r'T_{a}', description='Abtastperiode')
+fg_s = MySymbol(r'f_{g}', description='hoechste im Signal enthaltene Frequenz')
+n_s = MySymbol('n', description='Aufloesung des Wandlers in Bit')
+Um_s = MySymbol(r'U_{ms}', description='Messbereichsspannbreite')
+dU_s = MySymbol(r'\Delta U', description='Quantisierungsstufe (1 LSB)')
+dQ_s = MySymbol(r'\Delta Q', description='maximaler Quantisierungsfehler')
+QBookHelpers.print_description([fa_s, Ta_s, fg_s, n_s, Um_s, dU_s, dQ_s])
+```
+
+
+Rechner verarbeiten Signale nur in digitaler Form. In der Messkette wandelt
+der **ADW (Analog-Digital-Wandler)** das analoge Sensorsignal in
+Zahlenwerte; der **DAW (Digital-Analog-Wandler)** macht den Weg zurück, z. B.
+zum Stellantrieb:
+
+> Sensor → (Verstärker) → **ADW** ← Rechner → **DAW** → (Leistungsstufe) → Aktor
+
+Beide Umwandlungen bestehen aus denselben Teilschritten:
+
+- **Abtastung:** Das zeitkontinuierliche Signal wird zu festen Zeitpunkten
+  abgetastet — nur zu diesen Zeitpunkten liegt ein Wert vor.
+- **Quantisierung:** Der Abtastwert wird auf endlich viele Stufen gerundet.
+- **Codierung:** Jede Stufe erhält einen digitalen Code (z. B. Binärzahl).
+
+In umgekehrter Richtung (DAW) läuft es umgekehrt: Code → Stufe → über
+Abtast-Halte geglättetes Ausgangssignal.
+
+## Abtastung
+
+Ein kontinuierliches Signal $u(t)$ wird alle $T_{a}$ Sekunden abgetastet
+(Abtastperiode). Für die Amplitude zählt nur der Momentanwert zum Abtastzeitpunkt:
+
+```{python}
+#| echo: true
+#| code-fold: true
+f_a = MySymbol(r'f_{a}', description='Abtastfrequenz', unit=u.hertz)
+T_a = MySymbol(r'T_{a}', description='Abtastperiode', unit=u.second)
+f_g = MySymbol(r'f_{g}', description='höchste im Signal enthaltene Frequenz', unit=u.hertz)
+QBookHelpers.print_equation(Eq(f_a, 1/T_a), label='eq-abtastfrequenz')
+QBookHelpers.print_equation(Ge(f_a, 2*f_g), label='eq-abtasttheorem')
+```
+
+- **Abtasttheorem (Shannon/Nyquist):** Ein ideal bandbegrenztes Signal kann
+  bei idealer Rekonstruktion aus Abtastwerten rekonstruiert werden, wenn die
+  Abtastfrequenz größer als die doppelte höchste Signalfrequenz ist. Die Grenze
+  $f_a=2f_g$ ist ein theoretischer Grenzfall; praktische Anwendungen benötigen
+  einen Frequenzabstand und geeignete Filter.
+- Verletzt man das Theorem, entsteht **Aliasing**: tiefere „Spiegelfrequenzen"
+  täuschen Signalanteile vor, die im Original nicht vorhanden sind. Diese
+  Verzerrung lässt sich bei bereits überlagerten Signalanteilen nicht
+  zuverlässig nachträglich beseitigen. Deshalb werden eine ausreichend hohe
+  Abtastfrequenz und ein vorgeschaltetes Anti-Aliasing-Filter verwendet.
+
+### Die vier Schritte in einer Grafik
+
+Die 4-Quadranten-Darstellung zeigt den Weg vom analogen Signal zum digitalen
+Code im Uhrzeigersinn — Abtastung (rechts oben), Quantisierung über die
+Kennlinie (links oben), gehaltenes Treppensignal (links unten), Code (rechts unten):
+
+```{python}
+#| echo: true
+#| code-fold: true
+#| label: fig-quadranten
+#| fig-cap: 'Wandlung eines analogen Signals: Abtastzeitpunkte am Original (rechts oben), Quantisierungskennlinie (links oben), gequanteltes gehaltenes Signal (links unten), Ausgangscode je Abtastwert (rechts unten).'
+f_sig = 1      # Signal-Frequenz in Hz
+f_abtast = 12  # Abtastfrequenz in Hz
+n_bits = 3     # Aufloesung des Quantisierers
+u_min, u_max = -1.0, 1.0
+U_ms = u_max - u_min   # Messbereichsspannbreite
+lsb = U_ms / 2**n_bits # Quantisierungsstufe
+
+t = np.linspace(0, 1, 1000)
+u_sin = np.sin(2*np.pi*f_sig*t)
+t_s = np.arange(0, 1, 1/f_abtast)          # Abtastzeitpunkte
+u_s = np.sin(2*np.pi*f_sig*t_s)            # Momentanwerte
+stufen = np.clip(np.floor((u_s - u_min)/lsb), 0, 2**n_bits - 1).astype(int)
+u_q = u_min + stufen*lsb + lsb/2           # Quantisierte Werte
+
+fig, axs = plt.subplots(2, 2, figsize=(9, 7))
+fig.suptitle('Von analog nach digital — vier Schritte', fontsize=12)
+
+# rechts oben: analoges Signal mit Abtastzeitpunkten
+ax = axs[0, 1]
+ax.plot(t, u_sin, lw=1.2)
+ax.plot(t_s, u_s, 'o', color='crimson', ms=4)
+for ts_ in t_s:
+    ax.axvline(ts_, color='gray', lw=0.5, alpha=0.5)
+ax.set_title('① Abtastung', fontsize=10)
+ax.set_xlabel('Zeit in s')
+ax.set_ylabel('analoges Signal $u(t)$')
+ax.set_ylim(-1.3, 1.3)
+ax.grid(True, alpha=0.4)
+
+# links oben: Quantisierungskennlinie
+ax = axs[0, 0]
+stufenlinie = np.linspace(u_min, u_max, 2**n_bits + 1)
+for i in range(2**n_bits):
+    y = u_min + i*lsb + lsb/2
+    ax.plot([stufenlinie[i], stufenlinie[i+1]], [y, y], color='darkgreen', lw=1.6)
+    if i < 2**n_bits - 1:
+        ax.plot([stufenlinie[i+1], stufenlinie[i+1]], [y, y + lsb],
+                color='darkgreen', lw=1.2, ls=':')
+ax.plot(u_s, u_q, 'o', color='crimson', ms=4)
+ax.set_title('② Quantisierungskennlinie', fontsize=10)
+ax.set_xlabel('Abtastwert $u_{s}$')
+ax.set_ylabel('Quantisierter Wert')
+ax.grid(True, alpha=0.4)
+
+# links unten: gequanteltes, gehaltenes Signal
+ax = axs[1, 0]
+ax.plot(t, u_sin, color='lightgray', lw=1)
+ax.plot(t_s, u_s, 'o', color='crimson', ms=3)
+ax.step(t_s, u_q, where='post', color='darkgreen', lw=1.6)
+k_err = int(np.argmax(np.abs(u_q - u_s)))   # Abtastwert mit groesstem Fehler
+ax.annotate('Quantisierungsfehler $\\Delta Q$',
+            xy=(t_s[k_err], u_q[k_err]), xytext=(t_s[k_err] - 0.35, 1.05),
+            fontsize=9,
+            arrowprops={'arrowstyle': '->', 'color': 'black', 'lw': 0.8})
+ax.set_title('③ Gequanteltes, gehaltenes Signal', fontsize=10)
+ax.set_xlabel('Zeit in s')
+ax.set_ylabel('Stufenwert')
+ax.set_ylim(-1.3, 1.4)
+ax.grid(True, alpha=0.4)
+
+# rechts unten: Ausgangscode
+ax = axs[1, 1]
+ax.plot(t_s, stufen, drawstyle='steps-post', color='navy', lw=1.4, marker='o', ms=3)
+for i in range(0, len(t_s), 2):
+    code = format(stufen[i], f'0{n_bits}b')
+    ax.text(t_s[i], stufen[i] + 0.25, code, fontsize=8, ha='center', color='navy')
+ax.set_title('④ Ausgangscode (3 Bit)', fontsize=10)
+ax.set_xlabel('Zeit in s')
+ax.set_ylabel('Code-Wert')
+ax.set_ylim(-0.5, 7.8)
+ax.grid(True, alpha=0.4)
+
+plt.tight_layout()
+plt.show()
+```
+
+Der Zahlenwert des Codes entsteht, indem jeder Abtastwert auf die nächste
+Kennlinien-Stufe gerundet wird — die Schritte der Kennlinie sind die
+**Quantisierungsstufen**. Dass der gehaltene Wandlerausgang (③) nie exakt auf
+dem Originalverlauf (graue Kurve) liegt, ist die Grundlage des
+Quantisierungsfehlers im nächsten Abschnitt.
+
+## Quantisierung
+
+Für $n$ Bit stehen $2^{n}$ Stufen über der Messbereichsspannbreite $U_{ms}$
+zur Verfügung:
+
+```{python}
+#| echo: true
+#| code-fold: true
+n_bit = MySymbol('n', description='Aufloesung des Wandlers in Bit')
+U_ms = MySymbol(r'U_{ms}', description='Messbereichsspannbreite', unit=u.volt)
+dU = MySymbol(r'\Delta U', description='Quantisierungsstufe (1 LSB)', unit=u.volt)
+QBookHelpers.print_equation(Eq(dU, U_ms/2**n_bit), label='eq-lsb')
+```
+
+Die Rundung auf die nächste Stufe verursacht den **Quantisierungsfehler** —
+maximal eine halbe Stufe:
+
+```{python}
+#| echo: true
+#| code-fold: true
+dQ = MySymbol(r'\Delta Q', description='maximaler Quantisierungsfehler', unit=u.volt)
+QBookHelpers.print_equation(Eq(Abs(dQ), dU/2), label='eq-quantisierungsfehler')
+```
+
+Beispiel 8-Bit-Wandler mit Messbereich $0\,\mathrm{V} \ldots 10\,\mathrm{V}$:
+
+```{python}
+#| echo: true
+#| code-fold: true
+U_ms_ex = MySymbol(r'U_{ms}', description='Messbereichsspannbreite', unit=u.volt,
+                   value=10)
+QBookHelpers.print_values([U_ms_ex])
+eq_ex = Eq(dU, U_ms/2**n_bit).subs({U_ms: 10, n_bit: 8})
+QBookHelpers.print_equation(eq_ex, label='eq-lsb-beispiel')
+dU_v = MySymbol(r'\Delta U', description='Quantisierungsstufe (1 LSB)', unit=u.volt,
+                value=float(eq_ex.rhs))
+dQ_v = MySymbol(r'\Delta Q', description='maximaler Quantisierungsfehler', unit=u.volt,
+                value=float(eq_ex.rhs/2))
+QBookHelpers.print_values([dU_v, dQ_v])
+```
+
+- Der Quantisierungsfehler ist ein systematischer Effekt; nach GUM wird er als
+  Typ-B-Standardunsicherheit mit rund verteiltem Fehler im Intervall
+  $\pm \Delta U/2$ bewertet ([@jcgm100_2008]).
+
+## Kenngrößen von ADW und DAW
+
+| Kenngröße | Bedeutung |
+|---|---|
+| Auflösung | Anzahl Stufen $2^{n}$ bzw. kleinste darstellbare Stufe $\Delta U$ |
+| Quantisierungsfehler | Rundungsfehler durch endliche Stufenzahl, max. $\pm \Delta U/2$ |
+| Linearität | Abweichung der realen Kennlinie von der idealtypischen Geraden durch die Stufenmitten |
+| Genauigkeit | Abweichung zwischen Soll- und Ist-Übertragungswert (inkl. Offset- und Verstärkungsfehler) |
+| Umwandlungsdauer | Zeitspanne bis zur fertigen Digitalisierung — begrenzt die mögliche Abtastfrequenz |
+| Konversionsrate | Anzahl Wandlungen je Sekunde |
+
+- Auflösung und Genauigkeit sind nicht dasselbe: Ein 12-Bit-Wandler mit
+  großem Offset verbessert durch die Auflösung allein nichts.
+- Bei Ungereimtheiten in der Kennlinie spricht man von **Differenzlinearität**
+  (Stufen ungleich groß) bzw. **Integrallinearität** (Kennlinie krumm).
+
+## Ausblick
+
+Im Buch folgen die praktischen Schaltungen: DAW-Schaltungen (R-2R-Netzwerk,
+interpolierender DAW, PWM) und ADW-Schaltungen (Sukzessive Approximation,
+Sigma-Delta, Rampenverfahren, Parallelwandler).
+
+> **Platzhalter — Wandler-Baustein:** Foto eines Standard-ADW
+> (z. B. ADC0804) neben dem Blockschaltbild-Symbol, um Kenngrößen
+> (Auflösung, Konversionsrate) mit realen Datenblattangaben zu verknüpfen.

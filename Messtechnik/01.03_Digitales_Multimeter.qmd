@@ -1,6 +1,24 @@
 # Digitale Multimeter {#sec-mt-dmm}
 {{< include ../../../../Common/QuartoBookHelpers/QuartoBookHelpers.qmd >}}
 
+
+**Verwendete Symbole:**
+
+```{python}
+#| echo: false
+M_s = MySymbol('M', description='Drehmoment der Lorentzkraft')
+c_s = MySymbol('c', description='Proportionalitaetsfaktor Strom zu Drehmoment')
+k_s = MySymbol('k', description='Spiralfeder-Federkonstante')
+al_s = MySymbol(r'\alpha', description='Auslenkung des Zeigers')
+I_s = MySymbol('I', description='Messstrom durch die Drehspule')
+Ux_s = MySymbol('U_x', description='Eingangsspannung am ADW')
+Ur_s = MySymbol(r'U_{ref}', description='Referenzspannung')
+T1_s = MySymbol(r'T_1', description='feste Integrationszeit')
+T2_s = MySymbol(r'T_2', description='Abintegrationszeit bis zum Nulldurchgang')
+QBookHelpers.print_description([M_s, c_s, k_s, al_s, I_s, Ux_s, Ur_s, T1_s, T2_s])
+```
+
+
 ## Messwerke — die Grundlage der analogen Anzeige
 
 - Klassisches Messgerät der Elektromesstechnik: **Drehspulmesswerk**. Lorentzkraft
@@ -72,9 +90,11 @@ QBookHelpers.calculate_num_value(Eq(U_x, U_ref*T_2/T_1))
 QBookHelpers.print_values([U_x])
 ```
 
-  Die Integration über eine volle Netzperiode unterdrückt Brummen; die
-  Genauigkeit hängt allein von $U_{ref}$ und dem Takt ab — Wandlerfehler,
-  Drifts und Offset fallen heraus.
+  Die Integration über eine volle Netzperiode unterdrückt periodische
+  Störungen wie Netzbrummen. Da Verhältnis und Zeit gemessen werden, fallen
+  einige Einflüsse der Integrationskomponenten heraus. Entscheidend bleiben
+  insbesondere $U_{ref}$ und der Takt; zusätzlich wirken etwa Schaltfehler,
+  Offset, Drift, Rauschen und die Linearität der Wandlerstufen.
 - **Zähler & Anzeige:** Taktzähler während $T_2$ → Messwert in counts,
   Dekodierung auf die 3½-/4½-stellige Anzeige.
 

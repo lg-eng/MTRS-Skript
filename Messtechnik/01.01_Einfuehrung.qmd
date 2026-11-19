@@ -1,13 +1,49 @@
 # Einführung in die Messtechnik {#sec-mt-einfuehrung}
 {{< include ../../../../Common/QuartoBookHelpers/QuartoBookHelpers.qmd >}}
 
+
+**Verwendete Symbole:**
+
+```{python}
+#| echo: false
+x_s = MySymbol('x', description='physikalische Groesse = Zahlenwert mal Einheit')
+Y_s = MySymbol('Y', description='Messgroesse (Ausgang des Messmodells)')
+xbar_s = MySymbol(r'\bar{x}', description='arithmetischer Mittelwert der Messreihe')
+s_s = MySymbol('s', description='Standardabweichung der Einzelmessung')
+n_s = MySymbol('n', description='Anzahl der Messwerte')
+uA_s = MySymbol(r'u_A', description='Standardunsicherheit des Mittelwerts (Typ A)')
+a_s = MySymbol('a', description='halbe Breite des angegebenen Intervalls')
+uB_s = MySymbol(r'u_B', description='Standardunsicherheit (Typ B)')
+uc_s = MySymbol(r'u_c', description='kombinierte Standardunsicherheit')
+k_s = MySymbol('k', description='Ueberdeckungsfaktor (Erweiterungsfaktor)')
+U_s = MySymbol('U', description='erweiterte Unsicherheit')
+p_s = MySymbol('p', description='Genauigkeitsklasse in Prozent')
+xe_s = MySymbol(r'x_{Endwert}', description='Messbereichs-Endwert')
+xm_s = MySymbol(r'x_{mess}', description='angezeigter Messwert')
+dx_s = MySymbol(r'\Delta x', description='zulaessige Messabweichung')
+i_s = MySymbol('i', description='Laufindex der Messreihe')
+nu_s = MySymbol(r'\nu', description='Freiheitsgrade der Messreihe (n - 1)')
+nueff_s = MySymbol(r'\nu_{eff}', description='effektive Freiheitsgrade (Welch-Satterthwaite)')
+QBookHelpers.print_description([x_s, Y_s, xbar_s, s_s, n_s, i_s, nu_s, nueff_s, uA_s, a_s, uB_s, uc_s, k_s, U_s, p_s, xe_s, xm_s, dx_s])
+```
+
+
 ## Physikalische Größen und SI-Einheiten
 
 - Eine physikalische Größe ist ein Produkt aus Zahlenwert und Einheit.
-- Sieben SI-Basiseinheiten (m, kg, s, A, K, mol, cd); alle weiteren Einheiten
-  sind daraus abgeleitet.
-- Häufige Vorsätze: $k = 10^{3}$, $m = 10^{-3}$, $\mu = 10^{-6}$,
-  $n = 10^{-9}$, $p = 10^{-12}$.
+- Schreibweise nach ISO 80000-1:2022 [@iso80000_1_2022]
+  (Österreich: ÖNORM EN ISO 80000-1:2023
+  [@oenorm80000_1_2023]): $\{x\}$ bezeichnet den Zahlenwert der Größe $x$,
+  $[x]$ ihre Einheit — z. B. $\{U\} = 10$, $[U] = \mathrm{V}$ für
+  $U = 10\ \mathrm{V}$.
+
+Die folgende Gleichung ist keine Rechenformel, sondern eine Schreibkonvention:
+$\{x\}$ ist der Platzhalter für den Zahlenwert, $[x]$ der für die Einheit —
+für eine konkrete Größe setzt man beides ein, z. B. $\{U\} = 10$,
+$[U] = \mathrm{V}$. Der eigentliche Punkt dahinter: $\{x\}$ und $[x]$
+gehören immer als Paar zusammen — wählt man eine andere Einheit (etwa mit
+einem Vorsatz), ändert sich der Zahlenwert mit, die Größe $x$ selbst bleibt
+dieselbe.
 
 ```{python}
 #| echo: true
@@ -19,14 +55,157 @@ QBookHelpers.print_description([x_g])
 QBookHelpers.print_equation(Eq(x_g, x_zw*x_ein), label='eq-groesse')
 ```
 
+Dieselbe Spannung, zwei Zahlenwert-Einheit-Paare — $U$ ändert sich nicht,
+nur $\{U\}$ und $[U]$. Die korrekte Form ist $10\ \mathrm{V}$: dort steht
+eine Zahl mit höchstens drei Ziffern vor dem Komma und ohne 0 davor. Die
+Form mit $0{,}01\ \mathrm{kV}$ dient nur der Demonstration der Schreibweise:
+Richtig ausgewählt wäre der Vorsatz so, dass der Zahlenwert im Bereich 1 bis
+999 liegt (siehe den Abschnitt Einheitenvorsätze).
+
 ```{python}
 #| echo: true
 #| code-fold: true
-U_base = u.convert_to(u.volt, [u.kilogram, u.meter, u.second, u.ampere])
-QBookHelpers.print_equation(Eq(Symbol('U'), U_base), label='eq-volt-basis')
+V_s = Symbol(r'\mathrm{V}')
+kV_s = Symbol(r'\mathrm{kV}')
+U_sym = Symbol('U')
+QBookHelpers.print_equation(Eq(U_sym, 10*V_s), label='eq-u-volt')
+QBookHelpers.print_equation(Eq(U_sym, 0.01*kV_s), label='eq-u-kilovolt')
 ```
 
+### Warum »U [V]« falsch ist und wie es richtig geht {#sec-mt-klammern}
+
+In Laborpraxis und Tabellen sieht man oft „U [V]“ oder „l [m]“. In diesem
+Buch wird diese Schreibweise nach ISO 80000-1:2022
+[@iso80000_1_2022] (Österreich: ÖNORM EN ISO 80000-1:2023
+[@oenorm80000_1_2023]) durch die Quotientenform beziehungsweise die
+Formulierung „Größe in Einheit“ ersetzt. Die Norm definiert die eckige
+Klammer als Einheitsoperator und bevorzugt für Zahlenwertangaben die
+Quotientenform
+(Beispiel: $\lambda/\mathrm{nm} \approx 589{,}6$):
+
+- **Normativ** ist die eckige Klammer ein Operator auf Größen: $[x]$ liest
+  sich als „Einheit von $x$". Sie gehört immer zum Größensymbol —
+  $[U] = \mathrm{V}$ ist eine vollständige Aussage, aber $[\mathrm{V}]$ ist
+  nicht definiert, denn $\mathrm{V}$ ist eine Einheit, keine Größe.
+  Tabellen- und Achsenbeschriftungen tragen deshalb den Quotienten
+  $U/\mathrm{V}$ (das ist der Zahlenwert $\{U\}$) oder die Umschreibung
+  „$U$ in V".
+- **Mathematisch** gilt $x = \{x\}\cdot[x]$ als echtes Produkt. Eine Zahl
+  wie $10$ hat keine Einheit — $[10]$ ist bedeutungslos. Eine Tabellenspalte
+  mit der Überschrift „$U$ [V]“ folgt dagegen nicht automatisch der
+  algebraischen Schreibweise; die Klammer wird dort nur uneinheitlich zur
+  Kennzeichnung der Einheit verwendet. Die eindeutige formale Schreibweise
+  für Zahlenwerte ist $U/\mathrm{V}$ beziehungsweise $\{U\}$.
+
+Korrekt ist im Fließtext $U = 10\ \mathrm{V}$. Für Tabellen und Grafiken
+empfiehlt ISO 80000-1:2022 die Quotientenform
+$U/\mathrm{V}$ (liefert
+direkt den Zahlenwert $\{U\}$); daneben ist im deutschsprachigen Raum die
+Umschreibung „$U$ in V" üblich — in diesem
+Buch wird durchgängig **„$U$ in V"** verwendet:
+
+| Kontext | falsch | richtig |
+|---|---|---|
+| Fließtext | „$U\ [\mathrm{V}] = 10$" | $U = 10\ \mathrm{V}$ |
+| Tabellenkopf | U [V] | $U$ in V |
+| Achsenbeschriftung | U [V] | $U$ in V |
+| Messreihe mit Zahlenwerten | U [V] | $U$ in V (Spalte enthält 10; z. B. 10,2; 9,8) |
+
+Beispiel Messreihe als Tabelle:
+
+| $t$ in ms | $U$ in V |
+|--------:|-------:|
+| 0       | 10,02  |
+| 10      | 9,98   |
+| 20      | 10,05  |
+
+### SI-Basiseinheiten
+
+- Sieben SI-Basiseinheiten (m, kg, s, A, K, mol, cd); alle weiteren Einheiten
+  sind daraus abgeleitet [@bipm2019si].
+- Seit der Neudefinition des SI (Beschluss der 26. CGPM 2018, in Kraft seit
+  20. Mai 2019) ist jede Basiseinheit über eine Naturkonstante mit exakt
+  festgelegtem Wert definiert — nicht mehr über ein Artefakt (Urkilogramm)
+  oder eine experimentelle Bedingung [@bipm2019si].
+
+| Einheit | Symbol | über die festgelegte Konstante | gilt seit |
+|---|---|---|---|
+| Sekunde | s | Caesiumfrequenz $\Delta\nu_{\mathrm{Cs}} = 9\,192\,631\,770\ \mathrm{Hz}$ | 1967 (in der heutigen Form 2019) |
+| Meter | m | Lichtgeschwindigkeit $c = 299\,792\,458\ \mathrm{m/s}$ | 1983 |
+| Kilogramm | kg | Planck-Konstante $h = 6{,}626\,070\,15\times10^{-34}\ \mathrm{J\,s}$ | 2019 |
+| Ampere | A | Elementarladung $e = 1{,}602\,176\,634\times10^{-19}\ \mathrm{C}$ | 2019 |
+| Kelvin | K | Boltzmann-Konstante $k = 1{,}380\,649\times10^{-23}\ \mathrm{J/K}$ | 2019 |
+| Mol | mol | Avogadro-Konstante $N_{\mathrm{A}} = 6{,}022\,140\,76\times10^{23}\ \mathrm{mol^{-1}}$ | 2019 |
+| Candela | cd | Photometrisches Strahlungsäquivalent $K_{\mathrm{cd}} = 683\ \mathrm{lm/W}$ | 1979 (in der heutigen Form 2019) |
+
+: Die sieben SI-Basiseinheiten: jede ist über eine Naturkonstante mit exakt festgelegtem Wert definiert [@bipm2019si]. {#tbl-si-def}
+
+Beispiele, wie die festgelegte Konstante die jeweilige Einheit festlegt:
+
+- **Sekunde:** Der Übergang zwischen den beiden Hyperfeinstruktur-Niveaus
+  des Grundzustands von $^{133}\mathrm{Cs}$ entspricht einer Strahlung mit
+  $\Delta\nu_{\mathrm{Cs}} = 9\,192\,631\,770\ \mathrm{Hz}$ — die Sekunde
+  ist die Dauer von genau so vielen Schwingungsperioden.
+- **Meter:** Licht im Vakuum legt in einer Sekunde genau
+  $299\,792\,458\ \mathrm{m}$ zurück; der Meter ist damit über die Sekunde
+  und $c$ definiert.
+- **Kilogramm:** Fixiert man $h$, so legen die bereits definierten
+  Einheiten Meter und Sekunde das Kilogramm fest.
+- **Ampere:** Über $e$ sind die elektrischen Einheiten an die mechanischen gekoppelt.
+- **Kelvin:** $k$ verknüpft Temperatur und Energie; das Kelvin ist die
+  Temperaturänderung, die einer Energieänderung von genau
+  $1{,}380\,649\times10^{-23}\ \mathrm{J}$ entspricht.
+- **Mol:** Das Mol ist die Stoffmenge, die aus genau $N_{\mathrm{A}}$ (also
+  $6{,}022\,140\,76\times10^{23}$) Einheiten (Atome, Moleküle, …) besteht.
+- **Candela:** Das photometrische Strahlungsäquivalent
+  $K_{\mathrm{cd}} = 683\ \mathrm{lm/W}$ koppelt Lichtstärke und
+  Strahlungsleistung: Bei monochromatischer Strahlung der Frequenz
+  $540\times10^{12}\ \mathrm{Hz}$ entspricht in einer gegebenen Richtung eine
+  Strahlstärke von $1\ \mathrm{W/sr}$ einer Lichtstärke von $683\ \mathrm{cd}$.
+  Zusammen mit den
+  Definitionen von Meter und Sekunde sind damit alle sieben Basiseinheiten
+  über Naturkonstanten festgelegt.
+
 ![Die sieben SI-Basiseinheiten und ihre Symbole (DePiep, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SI_base_units.svg))](images/SI_base_units.svg){#fig-si-units}
+
+### Abgeleitete Einheiten
+
+- Abgeleitete Einheiten entstehen durch Multiplikation, Division und
+  Potenzierung der Basiseinheiten — z. B. Geschwindigkeit in m/s, Dichte
+  in kg/m³, Kraft in kg·m/s².
+- Viele davon haben eigene Namen und Zeichen, die im Alltag geläufiger sind
+  als die Basiseinheiten-Kombination: Volt, Watt, Newton, Pascal. Auch diese
+  sind nichts anderes als Basiseinheiten-Kombinationen — als reine
+  **Einheitengleichung** (beide Seiten sind Einheiten, keine Größen):
+
+```{python}
+#| echo: true
+#| code-fold: true
+V_u = Symbol(r'\mathrm{V}')
+kg_u = Symbol(r'\mathrm{kg}')
+m_u = Symbol(r'\mathrm{m}')
+s_u = Symbol(r'\mathrm{s}')
+A_u = Symbol(r'\mathrm{A}')
+QBookHelpers.print_equation(Eq(V_u, kg_u*m_u**2*s_u**-3*A_u**-1), label='eq-volt-basis')
+```
+
+- Herleitung über die vertrauteren Einheiten — jedes Gleichheitszeichen ist
+  eine Einheitengleichung:
+  $\mathrm{V} = \mathrm{W/A} = \mathrm{J/(s\,A)} = \mathrm{N\,m/(s\,A)} = \mathrm{kg\,m^2/(s^3\,A)}$.
+- Merkregel: In einer Einheitengleichung steht niemals ein Größensymbol wie
+  $U$. Denselben Inhalt hat die Aussage $[U] = \mathrm{kg\,m^2\,s^{-3}\,A^{-1}}$
+  — gelesen: „Die Einheit von $U$ ist $\mathrm{kg\,m^2\,s^{-3}\,A^{-1}}$".
+
+### Einheitenvorsätze
+
+- Häufige Vorsätze [@bipm2019si]: Mega ($M = 10^{6}$), Kilo ($k = 10^{3}$),
+  Milli ($m = 10^{-3}$), Mikro ($\mu = 10^{-6}$), Nano ($n = 10^{-9}$),
+  Piko ($p = 10^{-12}$).
+- Als praktische Schreibregel Vorsätze so wählen, dass der Zahlenwert
+  zwischen 1 und 999 liegt: Es stehen dann nie mehr als drei Ziffern vor dem
+  Komma und niemals eine 0 davor —
+  $12{,}5\ \mathrm{km}$ statt $12\,500\ \mathrm{m}$,
+  $750\ \mathrm{mA}$ statt $0{,}75\ \mathrm{A}$.
 
 ## Was ist Messen?
 
@@ -66,6 +245,43 @@ QBookHelpers.print_equation(Eq(Y_ms, f_func(*X_in)), label='eq-messmodell')
 - **Grobe Fehler** (Fehlbedienung, Überlastung) sind *keine* Unsicherheit —
   sie erzeugen ungültige Messwerte: erkennen (Plausibilität), verwerfen,
   wiederholen.
+
+::: {.callout-note}
+## Begriffe abgrenzen: Messabweichung und Messunsicherheit
+
+In älterer Fachliteratur und Datenblättern begegnet man statt dessen auch
+heute noch „Messfehler", „zufälliger Fehler", „grober Fehler" oder der
+„Fehlergrenze". Diese Ausdrücke sind in der gültigen Terminologie durch
+schärfere Begriffe ersetzt — wer heute normgerecht über Messungen spricht,
+trennt drei Dinge, die früher in einem Wort zusammenfielen:
+
+- **Messabweichung** (engl. *measurement error*): Differenz zwischen dem
+  Messwert und einem Referenzwert [@jcgm200_2012]. Sie gehört zu einer
+  konkreten Messung und ist im Allgemeinen selbst unbekannt, weil schon
+  der Referenzwert nur mit eigener Unsicherheit vorliegt. Formen: die
+  *systematische Messabweichung* (bleibt unter Wiederholbedingungen
+  erhalten, ihr Schätzwert wird über eine Korrektur berücksichtigt) und
+  die *zufällige Messabweichung* (ändert sich bei Wiederholungen
+  unvorhersehbar). „Fehlergrenzen“ oder Toleranzgrenzen können weiterhin in
+  Spezifikationen zur Beurteilung einer Abweichung verwendet werden. Sie
+  sind jedoch keine Messunsicherheit und ersetzen bei der Angabe eines
+  Messergebnisses nicht die erweiterte Messunsicherheit $U$.
+- **Messunsicherheit**: Kennzahl für die Streuung der plausiblen Werte der
+  Messgröße — sie charakterisiert die Qualität des Messergebnisses und ist
+  vom Begriff der Messabweichung streng zu trennen. Beide beantworten
+  unterschiedliche Fragen: Die Messabweichung vergleicht *einen* Messwert
+  mit dem Referenzwert, die Messunsicherheit beschreibt die Streubreite,
+  mit der dieser Messwert behaftet ist. Messabweichung und Messunsicherheit
+  dürfen daher nicht synonym verwendet (2.16, Anm.) — auch ein Messwert
+  mit kleiner Messunsicherheit kann eine große Messabweichung haben, und
+  umgekehrt.
+
+Die Konsequenz für dieses Buch: Es gibt nicht den „wahren Wert plus
+Fehler", sondern einen **Schätzwert** und eine **Messunsicherheit** —
+genau wie im Abschnitt @sec-mt-gum dargestellt. Die klassische
+Fehlerrechnung bleibt als Denkhilfe nützlich, ihre Fachbegriffe sind
+jedoch überholt und werden hier bewusst nicht mehr verwendet.
+:::
 
 ### Typ-A-Bewertung: statistisch {#sec-mt-typA}
 
@@ -125,7 +341,7 @@ ax.legend(framealpha=0.9, fontsize=9)
 plt.show()
 ```
 
-### Typ-B-Bewertung: nicht statistisch
+### Typ-B-Bewertung: nicht statistisch {#sec-mt-typb}
 
 Aus Vorwissen: Kalibrierzertifikate, Datenblätter, Erfahrungen.
 Liegt eine Angabe als Intervall $\pm a$ vor (gleichförmige Verteilung):
@@ -139,13 +355,14 @@ QBookHelpers.print_description([a_b])
 QBookHelpers.print_equation(Eq(u_B, a_b/sqrt(3)), label='eq-typB')
 ```
 
-**Beispiel** — DMM-Angabe $\pm(0{,}5\,\%\,\mathrm{v.\,M.} + 3\ \mathrm{digits})$,
-Anzeige 10,00 V im 10-V-Bereich (1 digit = 10 mV):
+**Beispiel** — DMM UT133A (siehe @fig-digital-anzeige), Gleichspannung
+im 60-V-Bereich: Angabe $\pm(0{,}7\,\%\,\mathrm{v.\,M.} + 3\ \mathrm{digits})$
+[@unit_ut133a_manual], Anzeige 10,00 V (1 digit = 10 mV):
 
 ```{python}
 #| echo: true
 #| code-fold: true
-a_num = 0.005*10 + 3*0.01
+a_num = 0.007*10 + 3*0.01
 uB_num = a_num/sqrt(3)
 a_v = MySymbol('a', description='halbe Intervallbreite der Angabe', unit=u.volt, value=float(a_num))
 uB_v = MySymbol(r'u_B', description='Standardunsicherheit (Typ B)', unit=u.volt, value=float(uB_num))
@@ -171,20 +388,138 @@ QBookHelpers.print_equation(Eq(u_c, sqrt(Sum((c_ib[k_i]*u_ib[k_i])**2, (k_i, 1, 
 QBookHelpers.print_equation(Eq(U_e, K_k*u_c), label='eq-erweitert')
 ```
 
-Beides zusammen (hier $c_1 = c_2 = 1$) und Ergebnisangabe mit $k = 2$
-(ca. 95 % Überdeckung):
+Die folgenden zwei Beispiele durchspielen die komplette Auswertung bis
+zur Ergebnisangabe in der Form $Y = (y \pm U)$ mit $k = 2$ (ca. 95 %
+Überdeckung, begründete Wahl von $k$: siehe
+@sec-weiterfuehrend). Beide benutzen dasselbe Instrument (DMM UT133A,
+@fig-digital-anzeige) und unterscheiden sich nur darin, ob einmal oder
+wiederholt gemessen wird; in beiden Fällen wird die Spannung direkt
+gemessen, alle Beiträge wirken also ungeschmälert auf $Y$
+($c_i = 1$).
+
+### Richtig wählen: der Erweiterungsfaktor k
+
+- Der Erweiterungsfaktor $k$ macht aus der Standardunsicherheit $u_c$
+  die **erweiterte Unsicherheit** $U = k\,u_c$ — das Intervall
+  $y \pm U$ soll einen vereinbarten Anteil (meist 95 %) der plausiblen
+  Werte der Messgröße überdecken.
+- **Standard ist $k = 2$** — eine Konvention ([@jcgm100_2008],
+  Anhang G), kein Rechenergebnis. Sie setzt voraus, dass die
+  Ausgangsgröße näherungsweise normalverteilt ist und $u_c$ mit
+  genügend Messwerten bzw. Beiträgen bestimmt wurde. Dann gilt:
 
 ```{python}
 #| echo: true
 #| code-fold: true
-uc_num = np.sqrt(float(uA_num)**2 + float(uB_num)**2)
-U_num = 2*uc_num
-uc_v = MySymbol(r'u_c', description='kombinierte Standardunsicherheit', unit=u.volt, value=float(uc_num))
-U_v = MySymbol('U', description='erweiterte Unsicherheit (k = 2)', unit=u.volt, value=float(U_num))
-QBookHelpers.print_values([uc_v, U_v])
+table_zeilen = []
+for kk in [1, 2, 3]:
+    p_prozent = 100*float(erf(kk/sqrt(2)))
+    table_zeilen.append(f'| {kk} | {str(round(p_prozent, 1)).replace(".", ",")} % |')
+display(Markdown('| ' + latex(k_s) + ' | Überdeckungswahrscheinlichkeit (normalverteilt) |\n|--:|--:|\n' + '\n'.join(table_zeilen)))
 ```
 
-$$Y = (y \pm U)\quad\text{bei } k = 2$$
+- In den beiden Beispielen unten ist $k = 2$ die richtige Wahl.
+  Sonderfälle (nur wenige Messwerte, dominierender Typ-B-Beitrag,
+  Zertifikats-$k$) sind selten und werden im Kapitel
+  **Weiterführende Themen** behandelt (siehe @sec-weiterfuehrend).
+  Der gewählte Wert von $k$ gehört **immer** mit in die
+  Ergebnisangabe — ohne $k$ ist $U$ nicht interpretierbar
+  ([@jcgm100_2008], Abschnitt 7.1.2).
+
+### Beispiel 1: Einzelmessung einer Spannung {#sec-mt-bsp-einzeln}
+
+**Situation:** Die Spannung einer stabilen Quelle wird mit dem UT133A im
+60-V-Gleichspannungsbereich **einmalig** gemessen; die Anzeige zeigt
+10,00 V.
+
+**Auswertung Schritt für Schritt:**
+
+1. **Messmodell:** Direkte Messung — der Schätzwert der Messgröße ist die
+   Anzeige $y = 10{,}00\ \mathrm{V}$. Alle übrigen Einflüsse (Kalibrier-
+   abweichung, Auflösung, Einflussgrößen) stecken in den
+   Unsicherheitsbeiträgen des Budgets.
+2. **Typ A entfällt:** Mit nur einem Messwert lässt sich keine Streuung
+   schätzen — die zufällige Messabweichung bleibt unentdeckt. Die
+   gesamte Unsicherheit kommt aus Vorwissen (Typ B). Deshalb ist die
+   Aussage einer Einzelmessung von vornherein schwächer: Sie beschreibt
+   in erster Linie das Instrument, nicht die konkrete Messsituation.
+3. **Typ B:** Herstellerangabe wie im Abschnitt Typ-B-Bewertung:
+   $\pm(0{,}7\,\%\,\mathrm{v.\,M.} + 3\ \mathrm{digits})$
+   [@unit_ut133a_manual], Anzeige 10,00 V → $a = 0{,}10\ \mathrm{V}$,
+   $u_B = a/\sqrt{3}$. Die Auflösung (10 mV) ist in dieser Angabe
+   bereits enthalten — sie darf **nicht** zusätzlich ins Budget
+   aufgenommen werden (Doppelzählung).
+4. **Kombiniert und erweitert:** Mit nur einem Beitrag gilt
+   $u_c = u_B$; die erweiterte Unsicherheit ist $U = 2\,u_c$.
+
+```{python}
+#| echo: true
+#| code-fold: true
+uc_einzel = float(uB_num)
+U_einzel = 2*uc_einzel
+uc_einzel_v = MySymbol(r'u_c', description='kombinierte Standardunsicherheit (nur Typ-B-Beitrag)', unit=u.volt, value=uc_einzel)
+U_einzel_v = MySymbol('U', description='erweiterte Unsicherheit (k = 2)', unit=u.volt, value=U_einzel)
+QBookHelpers.print_values([uc_einzel_v, U_einzel_v])
+```
+
+5. **Runden und angeben:** $U$ wird auf zwei signifikante Stellen
+   gerundet (0,115 V → 0,12 V), der Schätzwert auf dieselbe
+   Dezimalstelle (GUM [@jcgm100_2008], Abschnitt 7.2.6):
+
+   $$Y = (10{,}00 \pm 0{,}12)\ \mathrm{V} \quad\text{bei } k = 2$$
+
+   Gelesen: Das Intervall $[9{,}88;\ 10{,}12]\ \mathrm{V}$ ist die mit dem
+   Erweiterungsfaktor $k=2$ angegebene erweiterte Unsicherheit. Da hier ein
+   Typ-B-Beitrag mit angenommener Rechteckverteilung dominiert, darf daraus
+   nicht ohne Weiteres eine Überdeckungswahrscheinlichkeit von 95 % abgeleitet
+   werden.
+
+### Beispiel 2: Wiederholte Messung einer Spannung (DAQ) {#sec-mt-bsp-wdh}
+
+**Situation:** Dieselbe Quelle wird nicht einmalig abgelesen, sondern
+mit **DAQ-Hardware** (*Data Acquisition*) wiederholt erfasst — so läuft
+das in der Praxis fast immer: Wiederholte Messungen liest man nicht
+Messwert für Messwert per Hand ab, sondern nimmt sie automatisch auf.
+
+- Multifunktions-Erfassungskarten, kompakte USB-DAQ-Module oder
+  Datenlogger tasten das Messsignal in festen Abständen ab und speichern
+  die ganze Messreihe mit Zeitstempeln — hunderte bis hunderttausende
+  Messwerte entstehen ohne Zusatzaufwand.
+- Das große $n$ macht die Typ-A-Bewertung billig:
+  $u_A = s/\sqrt{n}$ fällt mit $1/\sqrt{n}$.
+- Die Typ-B-Beiträge (Kalibrierabweichung, Auflösung) ändern sich durch
+  die Wiederholung **nicht** — sie beschreiben das Instrument, nicht die
+  Anzahl der Messungen.
+
+**Auswertung:** Messreihe wie im Abschnitt Typ-A-Bewertung (400
+Messwerte, simuliert als DAQ-Aufnahme einer 10-V-Referenz): daraus
+$u_A = 0{,}0025\ \mathrm{V}$; aus der Herstellerangabe wie in Beispiel 1
+$u_B = 0{,}058\ \mathrm{V}$. Mit $c_1 = c_2 = 1$:
+
+```{python}
+#| echo: true
+#| code-fold: true
+uc_wdh = np.sqrt(float(uA_num)**2 + float(uB_num)**2)
+U_wdh = 2*uc_wdh
+uc_wdh_v = MySymbol(r'u_c', description='kombinierte Standardunsicherheit (Typ A + Typ B)', unit=u.volt, value=float(uc_wdh))
+U_wdh_v = MySymbol('U', description='erweiterte Unsicherheit (k = 2)', unit=u.volt, value=float(U_wdh))
+QBookHelpers.print_values([uc_wdh_v, U_wdh_v])
+```
+
+$$Y = (10{,}08 \pm 0{,}12)\ \mathrm{V} \quad\text{bei } k = 2$$
+
+**Beobachtungen:**
+
+- $u_c$ ändert sich gegenüber Beispiel 1 praktisch nicht
+  (0,0577 V → 0,0578 V): Der Typ-B-Beitrag dominiert. **Wiederholungen
+  reduzieren nur zufällige Beiträge** — wer eine kleinere Unsicherheit
+  braucht, braucht zuerst ein besseres Instrument bzw. eine
+  Kalibrierung, nicht mehr Messungen.
+- Das Intervall überdeckt den Referenzwert 10,00 V nicht: Der Mittelwert
+  liegt um 0,08 V darüber — eine systematische Messabweichung. Läge die
+  Referenz vor (Kalibrierzertifikat), würde man sie als Korrektur
+  anbringen und nur den verbleibenden Rest ins Budget nehmen
+  (siehe @fig-messunsicherheit).
 
 ## Anzeige: analog und digital
 
@@ -196,14 +531,14 @@ $$Y = (y \pm U)\quad\text{bei } k = 2$$
 
 ![Analoges Multimeter (HARTIG & HELLING VM-10K): Zeigerinstrument mit Spiegelskala (Islander61, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Analog_multimeter_HARTIG_%26_HELLING_VM-10K.jpg))](images/Analog_multimeter_HARTIG_HELLING_VM-10K.jpg){#fig-analog-multimeter width=420px}
 
-> **Platzhalter — Digitalanzeige:** Nahaufnahme einer 3½-stelligen
-> Digitalanzeige (z. B. „1999 counts"), um Auflösung in digits und den
-> Begriff Zähldisplay zu zeigen.
+![Zähldisplay eines Digitalmultimeters (UNI-T UT133A): 6000 counts, maximale Anzeige 5999 — die führende Stelle ist keine volle Ziffer (sie kann nur bis „5“ anzeigen), daher spricht man von einer 3¾-stelligen Anzeige; Auflösung 1 digit; Spezifikation nach [@unit_ut133a_manual] (eigenes Foto)](images/Digitalanzeige_counts.jpg){#fig-digital-anzeige width=420px}
 
 ## Auflösung und Genauigkeit
 
 - **Auflösung:** kleinste unterscheidbare Wertänderung. Digital:
-  $Q = \text{Endwert}/\text{counts}$ (3½-stellig: 1999 counts).
+  $Q = \text{Endwert}/\text{counts}$ (3½-stellig: 1999 counts;
+  UT133A wie in @fig-digital-anzeige: 5999 counts
+  [@unit_ut133a_manual]).
 - **Genauigkeit (analog):** Genauigkeitsklasse $p$ — zulässige Messabweichung
   bezogen auf den Messbereichs-Endwert:
 
@@ -216,6 +551,12 @@ dx_max = Symbol(r'\Delta x_{max}')
 QBookHelpers.print_description([p_kl, x_end])
 QBookHelpers.print_equation(Eq(dx_max, p_kl/100*x_end), label='eq-klasse')
 ```
+
+Genau genommen bezieht die Genauigkeitsklasse nach IEC
+60051-1 [@iec60051_1] sich auf die **Bezugsgröße** (*fiducial value*) des
+Instruments: Bei den meisten Strom- und Spannungsmessern ist das der
+Messbereichs-Endwert (obige Gleichung), bei Instrumenten mit unterdrücktem
+Nullpunkt oder anderen Skalenformen kann sie davon abweichen.
 
 - **Genauigkeit (digital):** Herstellerangabe
 

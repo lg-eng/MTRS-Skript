@@ -5,7 +5,8 @@
 **Verwendete Symbole:**
 
 ```{python}
-#| echo: false
+#| echo: true
+#| code-fold: true
 # kapitelweite Symbole (in allen Unterkapiteln gleich)
 f_s = MySymbol('f', description='Frequenz', unit=u.hertz)
 T_s = MySymbol('T', description='Periodendauer', unit=u.second)
@@ -15,10 +16,11 @@ QBookHelpers.print_description([f_s, T_s])
 
 ## Warum Frequenz messen?
 
-- **Frequenz als Zielgröße:** In der Nutzsignaltechnik (z. B. Funk) muss die
-  eingestellte Frequenz messtechnisch verifiziert werden. Beispiel WLAN 2,4 GHz:
-  Kanal 1 sendet zwischen $2399{,}5\,\mathrm{MHz}$ und $2424{,}5\,\mathrm{MHz}$ —
-  nur eine Frequenzmessung stellt sicher, dass der Kanal korrekt belegt ist.
+- **Frequenz als Zielgröße:** In der Nachrichtentechnik muss etwa die
+  eingestellte Mittenfrequenz eines Sendekanals messtechnisch verifiziert
+  werden. Beim 2,4-GHz-WLAN beträgt die Mittenfrequenz von Kanal 1
+  $2412\,\mathrm{MHz}$. Eine Frequenzmessung prüft diese Mittenfrequenz; für
+  Bandbreite und Spektrumsmaske ist dagegen eine Spektrumanalyse erforderlich.
 - **Frequenz als Messsignal:** Viele Sensoren wandeln eine physikalische Größe
   direkt in eine Frequenz um. Mit bekanntem Weg oder bekanntem Volumen je
   Periode ergeben sich dann Geschwindigkeit und Durchfluss:
@@ -102,8 +104,9 @@ nicht sinusförmig.
 
 ![Blockschaltbild der Frequenz- und Periodenmessung: Messsignal (a), Komparator (b), Takt (c), UND-Glied (d) und Zähler](images/BlockFrequenzmessung.drawio.svg){#fig-block-freq}
 
-- Der **Komparator** formt das Messsignal (a) in einen impulsförmigen Pegel (b)
-  um — ein Impuls je Periode.
+- Der **Komparator** formt das Messsignal (a) in ein Rechtecksignal (b) um.
+  Bei jeder Periode entsteht genau eine steigende Flanke, die als Zählimpuls
+  ausgewertet werden kann.
 - Der **Takt** (c) liefert Impulse mit bekannter Periodendauer $T_{q}$.
 - Das **UND-Glied** (d) verbindet beide Signale: Welches Signal das Tor
   öffnet und welches durchkommt, unterscheidet die zwei Messverfahren:
@@ -232,7 +235,7 @@ der Torzeit $T_{g}$ (Öffnungsdauer des UND-Glieds):
 N_f = MySymbol('N', description='Anzahl der Impulse je Torzeit', )
 T_g = MySymbol(r'T_{g}', description='Torzeit', unit=u.second)
 QBookHelpers.print_description([N_f, T_g])
-QBookHelpers.print_equation(Eq(f_p, N_f/T_g), label='eq-frequenzmesung')
+QBookHelpers.print_equation(Eq(f_p, N_f/T_g), label='eq-frequenzmessung')
 ```
 
 Mit der Torzeit $T_{g} = 1\,\mathrm{s}$ und einem Messsignal der Frequenz
@@ -251,13 +254,13 @@ QBookHelpers.print_equation(Eq(N_f, 1000), label='eq-n-frequenzmessung')
 #| code-fold: true
 eq_f = Eq(f_p, N_f/T_g)
 eq_f_num = eq_f.subs({N_f: 1000, T_g: 1})
-QBookHelpers.print_equation(eq_f_num, label='eq-frequenzmesung-num')
+QBookHelpers.print_equation(eq_f_num, label='eq-frequenzmessung-num')
 ```
 
 - Der Zähler kann nur ganzzahlige Impulse erfassen, und das Tor öffnet und
   schließt unabhängig von der Phase des Messsignals: Der Randimpuls zählt
   gerade noch mit oder gerade nicht mehr — der Zählstand $\pm 1$ Impuls ist
-  unsicher, dahinter steckt $N = f \cdot T_{g} \pm 1$. Bei $N = 1000$ Impulsen
+  daher um höchstens einen Impuls unsicher. Bei $N = 1000$ Impulsen
   in $1\,\mathrm{s}$ bedeutet das eine relative Messabweichung von
   $\pm 0{,}1\,\%$ (Quantisierung, Typ-B-Bewertung nach [@jcgm100_2008]).
 - Durch Verlängerung der Torzeit sinkt die relative Messabweichung, dafür

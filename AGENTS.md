@@ -30,6 +30,21 @@ https://lg-eng.github.io/MTRS-Skript/
   kombinierte/erweiterte Unsicherheit. Keine veraltete „wahrer Wert + Messfehler"-
   Sprechweise; systematische Effekte heißen Messabweichung. Die Bib-Einträge
   `jcgm100_2008` und `jcgm104_2011de` existieren in `references.bib`.
+- Größen-Schreibweise nach ISO 80000-1:2022 (`@iso80000_1_2022`); Österreich:
+  ÖNORM EN ISO 80000-1:2023 (`@oenorm80000_1_2023`). Deutsche Normen (DIN)
+  vermeiden — nur zitieren, wenn eine klarere Aussage darin sinngemäß auch in
+  einer österreichischen, europäischen oder internationalen Norm steht. SI-Einheiten und -Vorsätze nach der SI-Broschüre
+  des BIPM (`@bipm2019si`) — alle Einträge existieren in `references.bib`.
+  $\{x\}$ bezeichnet den Zahlenwert der Größe, $[x]$ ihre Einheit;
+  Schreibweisen wie „U [V]" sind unzulässig. In Tabellen, Grafiken und
+  Achsenbeschriftungen verwendet das Buch durchgängig die Form „U in V"
+  (nicht U/V, nicht U [V]) — siehe `Messtechnik/01.01_Einfuehrung.qmd`,
+  Abschnitt „Warum »U [V]« falsch ist und wie es richtig geht".
+- Einheitenvorsätze: im Text mit Namen nennen (Mega, Kilo, Milli, Mikro, Nano,
+  Piko). Vorsatz so wählen, dass der Zahlenwert zwischen 1 und 999 liegt —
+  nie mehr als drei Ziffern vor dem Komma und niemals eine 0 davor
+  ($12{,}5\ \mathrm{km}$ statt $12\,500\ \mathrm{m}$,
+  $750\ \mathrm{mA}$ statt $0{,}75\ \mathrm{A}$).
 
 ## Python-Chunks (wichtigste Regel)
 

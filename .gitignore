@@ -5,3 +5,14 @@
 .venv/
 uv.lock
 /_book/
+__pycache__/
+.ipynb_checkpoints/
+/site_libs/
+*_files/
+index.aux
+index.log
+index.out
+index.tex
+index.toc
+index.pdf
+*(1)*

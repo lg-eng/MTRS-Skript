@@ -1,6 +1,23 @@
 # Elektrische Kennwerte periodischer Signale {#sec-mt-kennwerte}
 {{< include ../../../../Common/QuartoBookHelpers/QuartoBookHelpers.qmd >}}
 
+
+**Verwendete Symbole:**
+
+```{python}
+#| echo: false
+u_s = MySymbol('u', description='momentane Signalgroesse')
+T_s = MySymbol('T', description='Periode')
+ub_s = MySymbol(r'\bar{u}', description='arithmetischer Mittelwert (Gleichwert)')
+ur_s = MySymbol(r'\overline{|u|}', description='Gleichrichtwert')
+U_s = MySymbol('U', description='Effektivwert (RMS)')
+hu_s = MySymbol(r'\hat{u}', description='Scheitelwert')
+kf_s = MySymbol('k_f', description='Formfaktor')
+ks_s = MySymbol('k_s', description='Scheitelfaktor')
+QBookHelpers.print_description([u_s, T_s, ub_s, ur_s, U_s, hu_s, kf_s, ks_s])
+```
+
+
 Zeitabhängige Größen $u(t)$, $i(t)$ beschreibt man über Kennwerte, die eine
 ganze Periode $T$ zusammenfassen — die Mittelwerte.
 

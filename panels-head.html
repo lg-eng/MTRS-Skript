@@ -1,0 +1,15 @@
+<!-- Header-Include für panels.css: Toggle-Button, der .panels-hidden
+     auf <html> setzt (Ein-/Ausblenden der Seitenleisten). -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var btn = document.createElement('button');
+  btn.id = 'panels-toggle';
+  btn.title = 'Seitenleisten ein-/ausblenden';
+  btn.setAttribute('aria-label', 'Seitenleisten ein-/ausblenden');
+  btn.textContent = '\u2630';
+  btn.addEventListener('click', function () {
+    document.documentElement.classList.toggle('panels-hidden');
+  });
+  document.body.appendChild(btn);
+});
+</script>

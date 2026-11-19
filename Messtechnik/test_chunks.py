@@ -5,6 +5,7 @@ ohne einen Quarto-Render zu brauchen. Ausfuehren mit:
 uv run --frozen python Messtechnik/test_chunks.py
 """
 
+import os
 import re
 import sys
 import traceback
@@ -15,13 +16,17 @@ import matplotlib
 matplotlib.use("Agg")
 
 BASE = __file__.rsplit("\\", 1)[0] if "\\" in __file__ else __file__.rsplit("/", 1)[0]
-HELPER = r"C:\Users\leo\OneDrive - HTL Anichstrasse\02_Scripts\Common\QuartoBookHelpers\QuartoBookHelpers.qmd"
+HELPER = os.path.join(BASE, "..", "..", "..", "..",
+                      "Common", "QuartoBookHelpers", "QuartoBookHelpers.qmd")
 
 FILES = [
     "01.01_Einfuehrung.qmd",
     "01.02_Strom_Spannung_Widerstand.qmd",
     "01.03_Digitales_Multimeter.qmd",
     "01.04_Kennwerte.qmd",
+    "01.05_Frequenz_und_Periode.qmd",
+    "01.06_ADW_DAW.qmd",
+    "../Anhang/xx_Weiterfuehrende_Themen.qmd",
 ]
 
 CHUNK_RE = re.compile(r"```{python(?P<opts>[^\n]*)\n(?P<body>.*?)```", re.DOTALL)
