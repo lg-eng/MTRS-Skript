@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zähler-Simulator Frequenz und Periode</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: Schaltbild oben, darunter Quellen-Einstellungen, Messergebnisse und die Zeitdiagramme wie im Laborprotokoll. */
+:root{
+  --bg:#eef0f3; --panel:#fbfbfc; --ink:#151b23; --muted:#5b6573; --line:#cdd3db;
+  --sig:#1f6fb2; --gate:#2a9a3a; --mark:#c62828; --on:#ffffff;
+  --display:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#11161c; --panel:#192029; --ink:#e7ecf2; --muted:#94a1b0; --line:#2f3a46;
+    --sig:#5aa9ea; --gate:#5fcf6d; --mark:#ff6b5f; --on:#0f141a; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11161c; --panel:#192029; --ink:#e7ecf2; --muted:#94a1b0; --line:#2f3a46;
+  --sig:#5aa9ea; --gate:#5fcf6d; --mark:#ff6b5f; --on:#0f141a; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--display);font-size:15px;line-height:1.45}
+.wrap{max-width:1140px;margin:0 auto;padding:20px 16px 32px;display:flex;flex-direction:column;gap:14px}
+header{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px}
+h1{font-size:22px;font-weight:600;margin:0;text-wrap:balance}
+header p{margin:0;color:var(--muted);font-size:13px;font-family:var(--mono)}
+h2{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px}
+svg{display:block;width:100%;height:auto}
+.box{fill:var(--panel);stroke:var(--ink);stroke-width:1.5}
+.w{stroke:var(--ink);stroke-width:1.5;fill:none}
+.t{font-family:var(--display);font-size:13px;fill:var(--ink)}
+.tag{font-family:var(--mono);font-size:15px;font-weight:600;fill:var(--mark)}
+.small{font-family:var(--mono);font-size:11px;fill:var(--muted)}
+.live{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--sig)}
+.schem{overflow-x:auto}
+.schem svg{min-width:620px}
+
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.card{display:flex;flex-direction:column;gap:12px}
+.card-head{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.badge{font-family:var(--mono);font-weight:600;color:var(--on);background:var(--mark);border-radius:4px;padding:0 7px;font-size:13px}
+.ctl{display:flex;flex-direction:column;gap:4px}
+.ctl .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ctl label{font-size:14px}
+.num{display:flex;align-items:center;gap:4px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.num input{width:92px;font:inherit;font-weight:600;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:3px 6px;text-align:right;font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;margin:0;height:22px;accent-color:var(--sig)}
+.derived{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin:0}
+.derived b{color:var(--ink);font-weight:600}
+.btns{display:flex;flex-direction:column;gap:8px}
+button{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:6px;padding:9px 12px;cursor:pointer;font-weight:500;text-align:left}
+button:hover{border-color:var(--muted)}
+button.primary{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--sig);outline-offset:2px}
+.hint{font-size:13px;color:var(--muted);margin:0}
+.warn{font-size:13px;color:var(--mark);margin:0;font-weight:500}
+.warn:empty{display:none}
+
+.results{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.res{display:flex;flex-direction:column;gap:10px}
+.big{font-family:var(--mono);font-size:30px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+.big small{font-size:14px;color:var(--muted);font-weight:400;margin-left:4px}
+dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:13.5px}
+dt{color:var(--muted)}
+dd{margin:0;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.pill{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:600;padding:2px 9px;border-radius:99px;border:1.5px solid currentColor}
+.pill.good{color:var(--gate)} .pill.bad{color:var(--mark)}
+.verdict{grid-column:1/-1;font-size:14px;margin:0}
+.diagram canvas{display:block;width:100%}
+@media (max-width:900px){.grid3{grid-template-columns:1fr 1fr}.grid3 .card:last-child{grid-column:1/-1}}
+@media (max-width:640px){.grid3,.results{grid-template-columns:1fr}.big{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Zähler-Simulator: Frequenz- und Periodendauermessung</h1>
+    <p>Komparator · UND-Tor · Zähler · Berechnung</p>
+  </header>
+
+  <section class="panel schem" aria-label="Schaltung">
+    <svg viewBox="0 0 760 200" role="img" aria-label="Sinusquelle über Komparator (b) und Rechteckquelle (c) auf ein UND-Gatter, Ausgang d auf Zähler, Berechnung und Anzeige">
+      <!-- Sinusquelle -->
+      <circle class="box" cx="44" cy="44" r="28"/>
+      <path class="w" d="M26 44c6-16 12-16 18 0s12 16 18 0"/>
+      <path class="w" d="M72 44H122"/><text class="tag" x="94" y="36">a</text>
+      <!-- Komparator -->
+      <rect class="box" x="122" y="12" width="64" height="64"/>
+      <path class="w" d="M122 76L186 12"/>
+      <path class="w" d="M130 34c4-10 8-10 12 0s8 10 12 0"/>
+      <path class="w" d="M152 64h6v-10h8v10h6v-10"/>
+      <text class="small" x="154" y="92" text-anchor="middle">Komparator</text>
+      <path class="w" d="M186 44H222V118H262"/><text class="tag" x="198" y="36">b</text>
+      <!-- Rechteckquelle -->
+      <circle class="box" cx="44" cy="164" r="28"/>
+      <path class="w" d="M30 174h7v-20h14v20h7"/>
+      <path class="w" d="M72 164H262"/><text class="tag" x="170" y="156">c</text>
+      <!-- UND -->
+      <rect class="box" x="262" y="98" width="70" height="86"/>
+      <text class="t" x="297" y="146" text-anchor="middle">AND</text>
+      <path class="w" d="M332 141H372"/><text class="tag" x="345" y="133">d</text>
+      <!-- Kette -->
+      <rect class="box" x="372" y="118" width="96" height="46"/><text class="t" x="420" y="146" text-anchor="middle">Zähler</text>
+      <path class="w" d="M468 141H496"/>
+      <rect class="box" x="496" y="118" width="110" height="46"/><text class="t" x="551" y="146" text-anchor="middle">Berechnung</text>
+      <path class="w" d="M606 141H634"/>
+      <rect class="box" x="634" y="104" width="120" height="74"/>
+      <text class="t" x="694" y="124" text-anchor="middle">Anzeige</text>
+      <text class="live" id="dispF" x="694" y="148" text-anchor="middle">f = 4,000 Hz</text>
+      <text class="live" id="dispT" x="694" y="166" text-anchor="middle">T = 250,0 ms</text>
+      <!-- Live-Werte an den Quellen -->
+      <text class="small" id="lblA" x="16" y="96">4 Hz · 1 V</text>
+      <text class="small" id="lblC" x="16" y="210" style="display:none"></text>
+      <text class="small" id="lblC2" x="80" y="186">32 Hz · 50 %</text>
+    </svg>
+  </section>
+
+  <section class="grid3" aria-label="Einstellungen">
+    <div class="panel card">
+      <div class="card-head"><h2>Sinusquelle</h2><span class="badge">a</span></div>
+      <div id="ctl-sine" class="card" style="gap:10px"></div>
+    </div>
+    <div class="panel card">
+      <div class="card-head"><h2>Komparator und Rechteckquelle</h2><span class="badge">b · c</span></div>
+      <div id="ctl-sq" class="card" style="gap:10px"></div>
+      <p class="derived" id="derTg"></p>
+    </div>
+    <div class="panel card">
+      <h2>Messung</h2>
+      <div class="btns">
+        <button type="button" class="primary" id="again">Messung wiederholen (zufällige Phase)</button>
+        <button type="button" id="auto" aria-pressed="false">Dauermessung starten</button>
+        <button type="button" id="reset">Werte wie im Beispielbild</button>
+      </div>
+      <p class="hint">Beim Wiederholen startet die Messung an einer anderen Stelle des Sinus. Die Zählerstände springen dann um ±1, das ist der Quantisierungsfehler.</p>
+      <p class="warn" id="warn"></p>
+    </div>
+  </section>
+
+  <section class="results" aria-label="Messergebnisse">
+    <div class="panel res">
+      <div class="card-head"><h2>Frequenzmessung</h2><span class="pill" id="pillF"></span></div>
+      <div class="big"><span id="fMeas">4,000</span><small id="fUnit">Hz</small></div>
+      <dl>
+        <dt>Tor</dt><dd>Takt c, Torzeit T<sub>g</sub> = M / f<sub>c</sub> = <span id="rTg"></span></dd>
+        <dt>Gezählt</dt><dd>N = <span id="rN"></span> Impulse von b</dd>
+        <dt>Rechnung</dt><dd>f = N / T<sub>g</sub> = <span id="rF"></span></dd>
+        <dt>Wahrer Wert</dt><dd><span id="rFtrue"></span> · Abweichung <span id="rFerr"></span></dd>
+        <dt>Auflösung</dt><dd>±1 Impuls = ±<span id="rFres"></span></dd>
+      </dl>
+    </div>
+    <div class="panel res">
+      <div class="card-head"><h2>Periodendauermessung</h2><span class="pill" id="pillT"></span></div>
+      <div class="big"><span id="tMeas">250,0</span><small id="tUnit">ms</small></div>
+      <dl>
+        <dt>Tor</dt><dd>eine Periode von b (Teiler ÷2)</dd>
+        <dt>Gezählt</dt><dd>N<sub>q</sub> = <span id="rNq"></span> Taktimpulse von c</dd>
+        <dt>Rechnung</dt><dd>T = N<sub>q</sub> / f<sub>c</sub> = <span id="rT"></span> → f = <span id="rFT"></span></dd>
+        <dt>Wahrer Wert</dt><dd><span id="rTtrue"></span> · Abweichung <span id="rTerr"></span></dd>
+        <dt>Auflösung</dt><dd>±1 Impuls = ±<span id="rTres"></span></dd>
+      </dl>
+    </div>
+    <p class="panel verdict" id="verdict"></p>
+  </section>
+
+  <section class="panel diagram" aria-label="Zeitdiagramme">
+    <canvas id="cv" aria-label="Zeitdiagramme von Tor, Signal und Impulsen für Frequenz- und Periodendauermessung"></canvas>
+  </section>
+</div>
+
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const DEF = {f:4, A:1, off:0, phi:0, us:0, fc:32, dc:50, M:24};
+const st = {...DEF};
+
+// ---------- Zahlen ----------
+const nf = (x, d=4) => Number.isFinite(x) ? x.toLocaleString("de-DE",{maximumSignificantDigits:d}) : "–";
+function fFreq(x){ if(!Number.isFinite(x)) return "–"; const a=Math.abs(x);
+  return a>=1e6? nf(x/1e6)+" MHz" : a>=1e3? nf(x/1e3)+" kHz" : nf(x)+" Hz"; }
+function fTime(x){ if(!Number.isFinite(x)) return "–"; const a=Math.abs(x);
+  return a>=1? nf(x)+" s" : a>=1e-3? nf(x*1e3)+" ms" : nf(x*1e6)+" µs"; }
+const pct = x => Number.isFinite(x) ? (x>=0?"+":"−")+nf(Math.abs(x)*100,3)+" %" : "–";
+function splitUnit(s){ const i=s.lastIndexOf(" "); return [s.slice(0,i), s.slice(i+1)]; }
+
+// ---------- Bedienelemente ----------
+const CTL = {
+  sine:[
+    {k:"f",   label:"Frequenz f",  unit:"Hz", min:0.1, max:20000, log:true},
+    {k:"A",   label:"Amplitude",   unit:"V",  min:0.1, max:10, step:0.1},
+    {k:"off", label:"Offset",      unit:"V",  min:-5,  max:5,  step:0.1},
+    {k:"phi", label:"Phase",       unit:"°",  min:0,   max:360, step:1}
+  ],
+  sq:[
+    {k:"us",  label:"Schwelle Komparator", unit:"V", min:-5, max:5, step:0.05},
+    {k:"fc",  label:"Taktfrequenz f<sub>c</sub>", unit:"Hz", min:1, max:1e6, log:true},
+    {k:"dc",  label:"Tastgrad Takt",  unit:"%", min:10, max:90, step:1},
+    {k:"M",   label:"Torzeit-Teiler M", unit:"", min:1, max:100000, log:true, int:true}
+  ]
+};
+const inputs = {};
+function build(list, host){
+  for (const c of list){
+    const el = document.createElement("div"); el.className = "ctl";
+    el.innerHTML = `<div class="row"><label for="r-${c.k}">${c.label}</label>
+      <span class="num"><input id="n-${c.k}" type="number" inputmode="decimal" aria-label="${c.label.replace(/<[^>]+>/g,"")} Zahlenwert">${c.unit}</span></div>
+      <input id="r-${c.k}" type="range" min="0" max="1000" step="1">`;
+    host.appendChild(el);
+    const r = el.querySelector("input[type=range]"), n = el.querySelector("input[type=number]");
+    const toR = v => c.log ? Math.log(v/c.min)/Math.log(c.max/c.min)*1000 : (v-c.min)/(c.max-c.min)*1000;
+    const fromR = p => { let v = c.log ? c.min*Math.pow(c.max/c.min, p/1000) : c.min+(c.max-c.min)*p/1000;
+      if (c.int) return Math.round(v);
+      if (c.log){ const m = Math.pow(10, Math.floor(Math.log10(v))-2); return Math.round(v/m)*m; }
+      return Math.round(v/c.step)*c.step; };
+    const show = v => { r.value = toR(v); n.value = c.int ? v : +v.toPrecision(5); };
+    r.addEventListener("input", () => { st[c.k] = fromR(+r.value); n.value = c.int ? st[c.k] : +st[c.k].toPrecision(5); update(); });
+    n.addEventListener("change", () => { let v = parseFloat(String(n.value).replace(",", "."));
+      if (!Number.isFinite(v)) v = st[c.k];
+      v = Math.min(c.max, Math.max(c.min, c.int ? Math.round(v) : v));
+      st[c.k] = v; show(v); update(); });
+    inputs[c.k] = show; show(st[c.k]);
+  }
+}
+build(CTL.sine, $("ctl-sine")); build(CTL.sq, $("ctl-sq"));
+function setAll(){ for (const k in inputs) inputs[k](st[k]); }
+
+// ---------- Signalmodell ----------
+// Ein Impulszug: Periode T, erste steigende Flanke t0, Dauer high H. Oder konstant (cst: true/false).
+function trainB(){
+  const s = (st.us - st.off)/st.A;
+  if (s >= 1) return {cst:false};
+  if (s <= -1) return {cst:true};
+  const w = 2*Math.PI*st.f, xr = Math.asin(s), ph = st.phi*Math.PI/180;
+  return {T:1/st.f, t0:(xr-ph)/w, H:(Math.PI-2*xr)/w};
+}
+const trainC = () => ({T:1/st.fc, t0:0, H:st.dc/100/st.fc});
+const EPS = 1e-9;
+// Impulse, die das offene Intervall (g0, g1) berühren: Zählerstand hinter dem UND-Tor
+function kRange(tr, g0, g1){
+  const kmin = Math.floor((g0 - tr.t0 - tr.H)/tr.T + EPS) + 1;
+  const kmax = Math.ceil((g1 - tr.t0)/tr.T - EPS) - 1;
+  return [kmin, kmax];
+}
+function count(tr, g0, g1){
+  if (g1 <= g0) return 0;
+  if ("cst" in tr) return tr.cst ? 1 : 0;
+  const [a,b] = kRange(tr, g0, g1); return Math.max(0, b-a+1);
+}
+function intervals(tr, g0, g1, max){
+  if (g1 <= g0) return [];
+  if ("cst" in tr) return tr.cst ? [[g0,g1]] : [];
+  const [a,b] = kRange(tr, g0, g1);
+  if (b-a+1 > max) return {dense:b-a+1};
+  const out = [];
+  for (let k=a; k<=b; k++){
+    const s = tr.t0+k*tr.T; out.push([Math.max(g0,s), Math.min(g1,s+tr.H)]);
+  }
+  return out;
+}
+
+let M = {};
+function compute(){
+  const b = trainB(), c = trainC();
+  const Tg = st.M/st.fc;
+  const N = count(b, 0, Tg);
+  const fMeas = N/Tg;
+  let pg = null, Nq = NaN, Tmeas = NaN;
+  if (!("cst" in b)){
+    const k1 = Math.floor(-b.t0/b.T + EPS) + 1;
+    const t1 = b.t0 + k1*b.T;
+    pg = [t1, t1 + b.T];
+    Nq = count(c, pg[0], pg[1]);
+    Tmeas = Nq/st.fc;
+  }
+  M = {b, c, Tg, N, fMeas, pg, Nq, Tmeas};
+}
+
+// ---------- Anzeige der Ergebnisse ----------
+function showResults(){
+  const fT = st.f, TT = 1/st.f;
+  const [fv, fu] = splitUnit(fFreq(M.fMeas));
+  $("fMeas").textContent = fv; $("fUnit").textContent = fu;
+  $("rTg").textContent = `${st.M} / ${fFreq(st.fc)} = ${fTime(M.Tg)}`;
+  $("rN").textContent = M.N.toLocaleString("de-DE");
+  $("rF").textContent = `${M.N.toLocaleString("de-DE")} / ${fTime(M.Tg)} = ${fFreq(M.fMeas)}`;
+  $("rFtrue").textContent = fFreq(fT);
+  const eF = M.fMeas/fT - 1; $("rFerr").textContent = pct(eF);
+  const relF = 1/(fT*M.Tg);
+  $("rFres").textContent = `${fFreq(1/M.Tg)} (${nf(relF*100,3)} %)`;
+
+  if (M.pg){
+    const [tv, tu] = splitUnit(fTime(M.Tmeas));
+    $("tMeas").textContent = tv; $("tUnit").textContent = tu;
+    $("rNq").textContent = M.Nq.toLocaleString("de-DE");
+    $("rT").textContent = `${M.Nq.toLocaleString("de-DE")} / ${fFreq(st.fc)} = ${fTime(M.Tmeas)}`;
+    $("rFT").textContent = fFreq(1/M.Tmeas);
+    $("rTerr").textContent = pct(M.Tmeas/TT - 1);
+  } else {
+    $("tMeas").textContent = "–"; $("tUnit").textContent = "";
+    ["rNq","rT","rFT","rTerr"].forEach(id => $(id).textContent = "–");
+  }
+  $("rTtrue").textContent = fTime(TT);
+  const relT = fT/st.fc;
+  $("rTres").textContent = `${fTime(1/st.fc)} (${nf(relT*100,3)} %)`;
+
+  const fx = st.fc/Math.sqrt(st.M);
+  const freqBetter = relF < relT;
+  $("pillF").textContent = freqBetter ? "genauer" : "ungenauer";
+  $("pillF").className = "pill " + (freqBetter ? "good" : "bad");
+  $("pillT").textContent = freqBetter ? "ungenauer" : "genauer";
+  $("pillT").className = "pill " + (freqBetter ? "bad" : "good");
+  $("verdict").innerHTML = `Bei f = ${fFreq(fT)} ist die <b>${freqBetter ? "Frequenzmessung" : "Periodendauermessung"}</b> genauer
+    (±1 Impuls entspricht ${nf(relF*100,3)} % gegenüber ${nf(relT*100,3)} %).
+    Beide sind gleich gut bei der Übergangsfrequenz f<sub>ü</sub> = f<sub>c</sub> / √M = ${fFreq(fx)}.
+    Darunter gewinnt die Periodendauermessung, darüber die Frequenzmessung.`;
+
+  $("derTg").innerHTML = `Torzeit T<sub>g</sub> = M / f<sub>c</sub> = <b>${fTime(M.Tg)}</b>`;
+  $("dispF").textContent = "f = " + fFreq(M.fMeas);
+  $("dispT").textContent = "T = " + (M.pg ? fTime(M.Tmeas) : "–");
+  $("lblA").textContent = `${fFreq(st.f)} · ${nf(st.A,3)} V`;
+  $("lblC2").textContent = `${fFreq(st.fc)} · ${st.dc} %`;
+
+  const w = [];
+  if ("cst" in M.b) w.push(M.b.cst ? "Der Sinus liegt ganz über der Schwelle, b bleibt dauerhaft high. Der Komparator schaltet nicht."
+                                   : "Der Sinus erreicht die Schwelle nicht, b bleibt dauerhaft low. Schwelle oder Offset verringern.");
+  if (M.Tg > 3600) w.push("Die Torzeit ist länger als eine Stunde.");
+  $("warn").textContent = w.join(" ");
+}
+
+// ---------- Zeitdiagramm ----------
+const cv = $("cv"), ctx = cv.getContext("2d");
+let col = {};
+function readColors(){
+  const cs = getComputedStyle(document.documentElement);
+  for (const k of ["ink","muted","line","sig","gate","mark","panel"]) col[k] = cs.getPropertyValue("--"+k).trim();
+}
+function niceStep(x){ const p = Math.pow(10, Math.floor(Math.log10(x))); const m = x/p;
+  return (m<1.5?1:m<3.5?2:m<7.5?5:10)*p; }
+function axisUnit(W){ return W>=2 ? [1,"s"] : W>=2e-3 ? [1e3,"ms"] : [1e6,"µs"]; }
+
+function draw(){
+  const width = cv.getBoundingClientRect().width;
+  const narrow = width < 560;
+  const LW = narrow ? 92 : 128, RP = 10, PH = narrow ? 54 : 60, PG = 16, TT = 30, AX = 50;
+
+  const Wf = Math.max(M.Tg, 1e-12)*1.4;
+  const Wp = M.pg ? M.pg[1]*1.4 : 2.5/st.f;
+  const shared = Math.max(Wf,Wp)/Math.min(Wf,Wp) <= 5;
+  const W1 = shared ? Math.max(Wf,Wp) : Wf, W2 = shared ? Math.max(Wf,Wp) : Wp;
+
+  const sections = [
+    {title:"Eingang: Sinus a am Komparator ergibt Rechteck b", W:W2, panels:["sine","b0"]},
+    {title:"Frequenzmessung: Takt öffnet das Tor, Zähler zählt Signalimpulse", W:W1, panels:["gateF","bF","dF"]},
+    {title:"Periodendauermessung: Messsignal öffnet das Tor, Zähler zählt Taktimpulse", W:W2, panels:["gateP","cP","dP"]}
+  ];
+  sections.forEach((s,i) => s.axis = !shared || i === sections.length-1);
+  let H = 8;
+  for (const s of sections) H += TT + s.panels.length*(PH+PG) - PG + (s.axis ? AX : 10) + 10;
+
+  const dpr = window.devicePixelRatio || 1;
+  cv.style.height = H + "px";
+  if (cv.width !== Math.round(width*dpr) || cv.height !== Math.round(H*dpr)){ cv.width = Math.round(width*dpr); cv.height = Math.round(H*dpr); }
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.clearRect(0,0,width,H);
+  const x0 = LW, x1 = width - RP, pw = x1 - x0;
+  const FONT = narrow ? 11 : 13;
+
+  let y = 8;
+  for (const s of sections){
+    ctx.fillStyle = col.ink; ctx.font = `500 ${FONT+1}px 'IBM Plex Sans', system-ui, sans-serif`;
+    ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText(s.title, x0 + pw/2, y + TT/2, pw);
+    y += TT;
+    const X = t => x0 + t/s.W*pw;
+    const [uf] = axisUnit(s.W), step = niceStep(s.W/(narrow?4:7));
+    for (const p of s.panels){
+      // Rahmen und Gitter
+      ctx.strokeStyle = col.line; ctx.lineWidth = 1;
+      for (let t = 0; t <= s.W + 1e-15; t += step){ ctx.beginPath(); ctx.moveTo(X(t), y); ctx.lineTo(X(t), y+PH); ctx.stroke(); }
+      ctx.strokeStyle = col.ink; ctx.strokeRect(x0+.5, y+.5, pw-1, PH-1);
+      ctx.save(); ctx.beginPath(); ctx.rect(x0, y, pw, PH); ctx.clip();
+      panel(p, s.W, X, y, PH, pw, FONT);
+      ctx.restore();
+      ctx.fillStyle = col.ink; ctx.font = `${FONT}px 'IBM Plex Sans', system-ui, sans-serif`;
+      ctx.textAlign = "right"; ctx.textBaseline = "middle";
+      ctx.fillText(LABEL[p], x0 - 10, y + PH/2);
+      // Achsenmarken
+      ctx.strokeStyle = col.ink;
+      for (let t = 0; t <= s.W + 1e-15; t += step){ ctx.beginPath(); ctx.moveTo(X(t), y+PH); ctx.lineTo(X(t), y+PH+4); ctx.stroke(); }
+      y += PH + PG;
+    }
+    y -= PG;
+    if (s.axis){
+      const [f, u] = axisUnit(s.W);
+      ctx.fillStyle = col.ink; ctx.font = `${FONT-1}px 'IBM Plex Mono', monospace`;
+      ctx.textAlign = "center"; ctx.textBaseline = "top";
+      for (let t = 0; t <= s.W + 1e-15; t += step) ctx.fillText(nf(+(t*f).toPrecision(6), 6), X(t), y+6);
+      ctx.font = `${FONT}px 'IBM Plex Sans', system-ui, sans-serif`;
+      ctx.fillText("Zeit in " + u, x0 + pw/2, y+24);
+      y += AX;
+    } else y += 10;
+    y += 10;
+  }
+}
+const LABEL = {sine:"Sinus (a)", b0:"Signal (b)", gateF:"Tor", bF:"Signal (b)", dF:"Impulse (d)", gateP:"Tor", cP:"Takt (c)", dP:"Impulse (d)"};
+
+function steps(list, X, hi, lo, W){
+  ctx.beginPath();
+  let started = false;
+  if (list.length && list[0][0] <= 0){ ctx.moveTo(X(0), hi); started = true; }
+  else ctx.moveTo(X(0), lo);
+  for (const [a,b] of list){
+    if (!(started && a <= 0)){ ctx.lineTo(X(a), lo); ctx.lineTo(X(a), hi); }
+    started = false;
+    ctx.lineTo(X(b), hi); ctx.lineTo(X(b), lo);
+  }
+  ctx.lineTo(X(W), lo);
+  ctx.stroke();
+}
+function train(tr, g0, g1, X, y, PH, pw, W, color, dash, label, FONT){
+  const hi = y + PH*0.28, lo = y + PH*0.78;
+  const lim = Math.max(4, pw/4);
+  const iv = intervals(tr, Math.max(0,g0), Math.min(W,g1), lim);
+  ctx.strokeStyle = color; ctx.lineWidth = 2.5; ctx.lineJoin = "miter";
+  ctx.setLineDash(dash ? [7,4] : []);
+  if (Array.isArray(iv)){ steps(iv, X, hi, lo, W); }
+  else {
+    // zu viele Impulse für die Bildbreite: als Band zeichnen
+    const a = Math.max(0,g0), b = Math.min(W,g1);
+    ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(X(0), lo); ctx.lineTo(X(a), lo); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(X(b), lo); ctx.lineTo(X(W), lo); ctx.stroke();
+    ctx.globalAlpha = .28; ctx.fillStyle = color; ctx.fillRect(X(a), hi, X(b)-X(a), lo-hi); ctx.globalAlpha = 1;
+    ctx.lineWidth = 1.5; ctx.strokeRect(X(a), hi, X(b)-X(a), lo-hi);
+    ctx.fillStyle = col.ink; ctx.font = `${FONT-1}px 'IBM Plex Sans', system-ui, sans-serif`;
+    ctx.textAlign = "left"; ctx.textBaseline = "middle";
+    ctx.fillText(`${iv.dense.toLocaleString("de-DE")} Impulse, zu dicht zum Zeichnen`, X(a)+6, (hi+lo)/2);
+  }
+  ctx.setLineDash([]);
+  if (label){
+    ctx.fillStyle = col.ink; ctx.font = `${FONT}px 'IBM Plex Sans', system-ui, sans-serif`;
+    ctx.textAlign = "right"; ctx.textBaseline = "middle";
+    const tw = ctx.measureText(label).width;
+    ctx.fillStyle = col.panel; ctx.fillRect(X(W)-tw-14, y+PH*0.5-9, tw+8, 18);
+    ctx.fillStyle = col.ink; ctx.fillText(label, X(W)-10, y+PH*0.5);
+  }
+}
+function gateLine(a, b, X, y, PH, W){
+  ctx.strokeStyle = col.gate; ctx.lineWidth = 2.5; ctx.setLineDash([7,4]);
+  steps([[a, Math.min(b, W)]], X, y + PH*0.42, y + PH*0.82, W);
+  ctx.setLineDash([]);
+}
+function arrow(a, b, X, y, text, FONT){
+  const ya = y + 9, xa = X(a)+2, xb = X(b)-2;
+  ctx.strokeStyle = col.muted; ctx.fillStyle = col.muted; ctx.lineWidth = 1.3;
+  ctx.beginPath(); ctx.moveTo(xa, ya); ctx.lineTo(xb, ya); ctx.stroke();
+  const head = (x, d) => { ctx.beginPath(); ctx.moveTo(x, ya); ctx.lineTo(x+d*7, ya-3.5); ctx.lineTo(x+d*7, ya+3.5); ctx.closePath(); ctx.fill(); };
+  if (xb - xa > 16){ head(xa, 1); head(xb, -1); }
+  ctx.font = `${FONT-1}px 'IBM Plex Sans', system-ui, sans-serif`;
+  const tw = ctx.measureText(text).width;
+  let cx = (xa+xb)/2; cx = Math.max(X(0)+tw/2+6, Math.min(cx, X(0)+ (cv.getBoundingClientRect().width) ));
+  ctx.fillStyle = col.panel; ctx.fillRect(cx - tw/2 - 4, ya - 8, tw + 8, 16);
+  ctx.fillStyle = col.ink; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+  ctx.fillText(text, cx, ya);
+}
+function panel(p, W, X, y, PH, pw, FONT){
+  const gate = (a,b) => ({cst:true, _a:a, _b:b});
+  if (p === "sine"){
+    const R = Math.max(Math.abs(st.off)+st.A, Math.abs(st.us), 0.1)*1.15;
+    const Y = v => y + PH/2 - v/R*(PH/2 - 4);
+    ctx.strokeStyle = col.line; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(W), Y(0)); ctx.stroke();
+    ctx.strokeStyle = col.sig; ctx.lineWidth = 2.2;
+    const ph = st.phi*Math.PI/180, w = 2*Math.PI*st.f;
+    if (st.f*W > pw/4){
+      ctx.globalAlpha = .28; ctx.fillStyle = col.sig; ctx.fillRect(X(0), Y(st.off+st.A), X(W)-X(0), Y(st.off-st.A)-Y(st.off+st.A)); ctx.globalAlpha = 1;
+    } else {
+      ctx.beginPath();
+      const n = Math.ceil(pw*2);
+      for (let i=0;i<=n;i++){ const t = W*i/n, v = st.off + st.A*Math.sin(w*t+ph); i ? ctx.lineTo(X(t), Y(v)) : ctx.moveTo(X(t), Y(v)); }
+      ctx.stroke();
+    }
+    ctx.strokeStyle = col.mark; ctx.lineWidth = 1.5; ctx.setLineDash([6,4]);
+    ctx.beginPath(); ctx.moveTo(X(0), Y(st.us)); ctx.lineTo(X(W), Y(st.us)); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = col.mark; ctx.font = `${FONT-1}px 'IBM Plex Sans', system-ui, sans-serif`;
+    ctx.textAlign = "right"; ctx.textBaseline = st.us >= st.off ? "bottom" : "top";
+    const sl = `Schwelle ${nf(st.us,3)} V`, sw = ctx.measureText(sl).width, sy = Y(st.us) + (st.us >= st.off ? -3 : 3);
+    ctx.fillStyle = col.panel; ctx.fillRect(X(W)-sw-12, st.us >= st.off ? sy-15 : sy, sw+8, 15);
+    ctx.fillStyle = col.mark; ctx.fillText(sl, X(W)-8, sy);
+    return;
+  }
+  if (p === "b0") return train(M.b, 0, W, X, y, PH, pw, W, col.sig, false, "", FONT);
+  if (p === "gateF"){
+    gateLine(0, M.Tg, X, y, PH, W);
+    return arrow(0, Math.min(M.Tg, W), X, y, `Torzeit T_g = ${fTime(M.Tg)}`, FONT);
+  }
+  if (p === "bF") return train(M.b, 0, W, X, y, PH, pw, W, col.sig, false, "", FONT);
+  if (p === "dF") return train(M.b, 0, M.Tg, X, y, PH, pw, W, col.ink, false, `N = ${M.N.toLocaleString("de-DE")} Impulse`, FONT);
+  if (p === "gateP"){
+    if (!M.pg) return train({cst:false}, 0, W, X, y, PH, pw, W, col.gate, true, "kein Tor, b schaltet nicht", FONT);
+    gateLine(M.pg[0], M.pg[1], X, y, PH, W);
+    return arrow(M.pg[0], M.pg[1], X, y, "eine Periode T", FONT);
+  }
+  if (p === "cP") return train(M.c, 0, W, X, y, PH, pw, W, col.sig, false, "", FONT);
+  if (p === "dP"){
+    if (!M.pg) return train({cst:false}, 0, W, X, y, PH, pw, W, col.ink, false, "N_q = 0", FONT);
+    return train(M.c, M.pg[0], M.pg[1], X, y, PH, pw, W, col.ink, false, `N_q = ${M.Nq.toLocaleString("de-DE")} Taktimpulse`, FONT);
+  }
+}
+
+// ---------- Ablauf ----------
+let raf = 0;
+function update(){ compute(); showResults(); if (!raf) raf = requestAnimationFrame(() => { raf = 0; draw(); }); }
+function newPhase(){ st.phi = Math.round(Math.random()*360); inputs.phi(st.phi); update(); }
+$("again").addEventListener("click", newPhase);
+$("reset").addEventListener("click", () => { Object.assign(st, DEF); setAll(); update(); });
+let timer = null;
+$("auto").addEventListener("click", ev => {
+  const b = ev.currentTarget;
+  if (timer){ clearInterval(timer); timer = null; b.textContent = "Dauermessung starten"; b.setAttribute("aria-pressed","false"); }
+  else { timer = setInterval(newPhase, 1200); newPhase(); b.textContent = "Dauermessung anhalten"; b.setAttribute("aria-pressed","true"); }
+});
+new ResizeObserver(() => update()).observe(cv);
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { readColors(); update(); });
+new MutationObserver(() => { readColors(); update(); }).observe(document.documentElement, {attributes:true, attributeFilter:["data-theme"]});
+readColors(); update();
+if (document.fonts) document.fonts.ready.then(update);
+</script>
+</body>
+</html>

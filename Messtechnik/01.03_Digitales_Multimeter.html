@@ -130,39 +130,20 @@ cookieconsent.run({
 });
 </script> 
   
+<!-- Header-Include für panels.css: Toggle-Button, der .panels-hidden
+     auf <html> setzt (Ein-/Ausblenden der Seitenleisten). -->
 <script>
-(function () {
-  var KEY = 'mtrs-panels-hidden';
-
-  function toggle() {
-    var html = document.documentElement;
-    var hidden = html.classList.toggle('panels-hidden');
-    try { localStorage.setItem(KEY, hidden ? '1' : '0'); } catch (e) {}
-  }
-
-  function init() {
-    try {
-      if (localStorage.getItem(KEY) === '1') {
-        document.documentElement.classList.add('panels-hidden');
-      }
-    } catch (e) {}
-
-    var btn = document.createElement('button');
-    btn.id = 'panels-toggle';
-    btn.type = 'button';
-    btn.title = 'Seitenleisten ein-/ausblenden';
-    btn.setAttribute('aria-label', 'Seitenleisten ein-/ausblenden');
-    btn.innerHTML = '<i class="bi bi-layout-sidebar" aria-hidden="true"></i>';
-    btn.addEventListener('click', toggle);
-    document.body.appendChild(btn);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
+document.addEventListener('DOMContentLoaded', function () {
+  var btn = document.createElement('button');
+  btn.id = 'panels-toggle';
+  btn.title = 'Seitenleisten ein-/ausblenden';
+  btn.setAttribute('aria-label', 'Seitenleisten ein-/ausblenden');
+  btn.textContent = '\u2630';
+  btn.addEventListener('click', function () {
+    document.documentElement.classList.toggle('panels-hidden');
+  });
+  document.body.appendChild(btn);
+});
 </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -326,6 +307,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../SteuerRegel/01.03_SPS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -340,13 +327,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Anhang/xx_Weiterfuehrende_Themen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Weiterführende Themen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Jahresplanung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
   </div>
 </li>
       </ul>
@@ -390,7 +383,7 @@ window.Quarto = {
 
 
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="f0aa1623" class="cell" data-execution_count="2">
+<div id="fb29cfeb" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(M\)</span> … Drehmoment der Lorentzkraft</p>
 </div>
@@ -424,7 +417,7 @@ window.Quarto = {
 <ul>
 <li>Klassisches Messgerät der Elektromesstechnik: <strong>Drehspulmesswerk</strong>. Lorentzkraft auf die stromdurchflossene Spule im Permanentfeld erzeugt ein Drehmoment; die Spiralfeder stellt das Gleichgewicht her — die Auslenkung ist proportional zum Strom:</li>
 </ul>
-<div id="eca11378" class="cell" data-execution_count="3">
+<div id="5090e652" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>M_bm <span class="op">=</span> MySymbol(<span class="st">'M'</span>, description<span class="op">=</span><span class="st">'Drehmoment der Lorentzkraft, proportional zum Strom'</span>)</span>
@@ -495,7 +488,7 @@ Abbildung&nbsp;3.2: Blockschaltbild eines digitalen Multimeters: Eingangsschutz,
 <li><strong>Verstärker:</strong> Impedanzwandler/Auto-Zero-Verstärker entkoppelt Teiler und ADW.</li>
 <li><strong>ADW:</strong> im DMM überwiegend <strong>Zweiflankenverfahren (Dual Slope)</strong> — Integration über feste Zeit <span class="math inline">\(T_1\)</span> gegen <span class="math inline">\(U_x\)</span>, dann Integration gegen die Referenz <span class="math inline">\(U_{ref}\)</span> bis zum Nulldurchgang in <span class="math inline">\(T_2\)</span>:</li>
 </ul>
-<div id="c5a99e91" class="cell" data-execution_count="5">
+<div id="75167540" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>U_x <span class="op">=</span> MySymbol(<span class="st">'U_x'</span>, description<span class="op">=</span><span class="st">'Eingangsspannung am ADW'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="fl">0.45</span>)</span>
@@ -528,7 +521,7 @@ U_{x} = \frac{T_{2} U_{ref}}{T_{1}}
 <p><span class="math display">\[U_{x} = \mathtt{\text{450}} \ \mathtt{\text{mV}}\]</span></p>
 </div>
 </div>
-<p>Die Integration über eine volle Netzperiode unterdrückt Brummen; die Genauigkeit hängt allein von <span class="math inline">\(U_{ref}\)</span> und dem Takt ab — Wandlerfehler, Drifts und Offset fallen heraus. - <strong>Zähler &amp; Anzeige:</strong> Taktzähler während <span class="math inline">\(T_2\)</span> → Messwert in counts, Dekodierung auf die 3½-/4½-stellige Anzeige.</p>
+<p>Die Integration über eine volle Netzperiode unterdrückt periodische Störungen wie Netzbrummen. Da Verhältnis und Zeit gemessen werden, fallen einige Einflüsse der Integrationskomponenten heraus. Entscheidend bleiben insbesondere <span class="math inline">\(U_{ref}\)</span> und der Takt; zusätzlich wirken etwa Schaltfehler, Offset, Drift, Rauschen und die Linearität der Wandlerstufen. - <strong>Zähler &amp; Anzeige:</strong> Taktzähler während <span class="math inline">\(T_2\)</span> → Messwert in counts, Dekodierung auf die 3½-/4½-stellige Anzeige.</p>
 <blockquote class="blockquote">
 <p><strong>Platzhalter — Zweiflankenverlauf:</strong> Diagramm der Integratorspannung beim Zweiflankenverfahren (linearer Anstieg während <span class="math inline">\(T_1\)</span>, linearer Abfall bis null während <span class="math inline">\(T_2\)</span>), um das Zeitverhältnis anschaulich zu machen.</p>
 </blockquote>

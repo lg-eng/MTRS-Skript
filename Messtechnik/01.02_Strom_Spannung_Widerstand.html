@@ -130,39 +130,20 @@ cookieconsent.run({
 });
 </script> 
   
+<!-- Header-Include für panels.css: Toggle-Button, der .panels-hidden
+     auf <html> setzt (Ein-/Ausblenden der Seitenleisten). -->
 <script>
-(function () {
-  var KEY = 'mtrs-panels-hidden';
-
-  function toggle() {
-    var html = document.documentElement;
-    var hidden = html.classList.toggle('panels-hidden');
-    try { localStorage.setItem(KEY, hidden ? '1' : '0'); } catch (e) {}
-  }
-
-  function init() {
-    try {
-      if (localStorage.getItem(KEY) === '1') {
-        document.documentElement.classList.add('panels-hidden');
-      }
-    } catch (e) {}
-
-    var btn = document.createElement('button');
-    btn.id = 'panels-toggle';
-    btn.type = 'button';
-    btn.title = 'Seitenleisten ein-/ausblenden';
-    btn.setAttribute('aria-label', 'Seitenleisten ein-/ausblenden');
-    btn.innerHTML = '<i class="bi bi-layout-sidebar" aria-hidden="true"></i>';
-    btn.addEventListener('click', toggle);
-    document.body.appendChild(btn);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
+document.addEventListener('DOMContentLoaded', function () {
+  var btn = document.createElement('button');
+  btn.id = 'panels-toggle';
+  btn.title = 'Seitenleisten ein-/ausblenden';
+  btn.setAttribute('aria-label', 'Seitenleisten ein-/ausblenden');
+  btn.textContent = '\u2630';
+  btn.addEventListener('click', function () {
+    document.documentElement.classList.toggle('panels-hidden');
+  });
+  document.body.appendChild(btn);
+});
 </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -326,6 +307,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../SteuerRegel/01.03_SPS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -340,13 +327,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Anhang/xx_Weiterfuehrende_Themen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Weiterführende Themen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Jahresplanung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
   </div>
 </li>
       </ul>
@@ -390,7 +383,7 @@ window.Quarto = {
 
 
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="d0cae498" class="cell" data-execution_count="2">
+<div id="e02dc68f" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(U_{q}\)</span> … Leerlaufspannung der Quelle</p>
 </div>
@@ -454,7 +447,7 @@ window.Quarto = {
 </section>
 <section id="spannungsrichtige-und-stromrichtige-schaltung" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="spannungsrichtige-und-stromrichtige-schaltung"><span class="header-section-number">2.2</span> Spannungsrichtige und stromrichtige Schaltung</h2>
-<div id="1681f5f4" class="cell" data-execution_count="3">
+<div id="ed8e1095" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>U_q <span class="op">=</span> MySymbol(<span class="st">'U_q'</span>, description<span class="op">=</span><span class="st">'Leerlaufspannung der Quelle'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="dv">10</span>)</span>
@@ -477,7 +470,7 @@ window.Quarto = {
 </div>
 </div>
 <p><strong>Spannungsrichtig</strong> — Voltmeter liegt direkt am Verbraucher; die Messabweichung rührt vom Spannungsteiler aus <span class="math inline">\(R_V\)</span> und <span class="math inline">\(R_q\)</span>:</p>
-<div id="c0be2180" class="cell" data-execution_count="4">
+<div id="b91b7894" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>U_mess <span class="op">=</span> Symbol(<span class="st">'U_</span><span class="sc">{mess}</span><span class="st">'</span>)</span>
@@ -499,7 +492,7 @@ U_{mess} = \frac{R_{V} U_{q}}{R_{V} + R_{q}}
 </div>
 </div>
 <p><strong>Stromrichtig</strong> — Amperemeter liegt in Reihe; sein Widerstand verringert den Strom:</p>
-<div id="1001e2aa" class="cell" data-execution_count="5">
+<div id="8dd67fc1" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>I_mess <span class="op">=</span> Symbol(<span class="st">'I_</span><span class="sc">{mess}</span><span class="st">'</span>)</span>
@@ -554,7 +547,7 @@ Abbildung&nbsp;2.1: Relative Messabweichung durch Rückwirkung: die Spannungsmes
 </div>
 </div>
 <p><strong>Rechenbeispiel</strong> — Quelle mit <span class="math inline">\(R_q = 10\,\mathrm{k\Omega}\)</span>, gemessen mit <span class="math inline">\(R_V = 1\,\mathrm{M\Omega}\)</span>:</p>
-<div id="ba505c6d" class="cell" data-execution_count="7">
+<div id="8d46b323" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>U_num <span class="op">=</span> U_q.value<span class="op">*</span>R_V.value<span class="op">/</span>(R_q.value <span class="op">+</span> R_V.value)</span>
@@ -564,7 +557,7 @@ Abbildung&nbsp;2.1: Relative Messabweichung durch Rückwirkung: die Spannungsmes
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(delta_U, Float(dU_num, <span class="dv">3</span>)), label<span class="op">=</span><span class="st">'eq-delta-u-num'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math display">\[U_{mess} = \mathtt{\text{9.9}} \ \mathtt{\text{V}}\]</span></p>
+<p><span class="math display">\[U_{mess} = \mathtt{\text{9,9}} \ \mathtt{\text{V}}\]</span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-delta-u-num"><span class="math display">\[
@@ -574,7 +567,7 @@ Abbildung&nbsp;2.1: Relative Messabweichung durch Rückwirkung: die Spannungsmes
 </div>
 <p>Die Abweichung <span class="math inline">\(\delta_U\)</span> ist in Prozent. Mit <span class="math inline">\(R_V = 10\,\mathrm{M\Omega}\)</span> (typisches DMM) sinkt sie auf <span class="math inline">\(-0{,}1\,\%\)</span>.</p>
 <p>Wird stattdessen stromrichtig an einer Quelle mit <span class="math inline">\(R_q = 100\,\Omega\)</span> mit <span class="math inline">\(R_A = 1\,\Omega\)</span> gemessen:</p>
-<div id="4bcbff92" class="cell" data-execution_count="8">
+<div id="746d74a4" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dI_num <span class="op">=</span> (<span class="op">-</span>R_A.value<span class="op">/</span>(<span class="dv">100</span> <span class="op">+</span> R_A.value))<span class="op">*</span><span class="dv">100</span></span>
@@ -606,7 +599,7 @@ Abbildung&nbsp;2.2: Messschaltung mit Voltmeter und Amperemeter im Praktikum (Me
 <ul>
 <li>Spannungsrichtig (Amperemeter misst auch Voltmeterstrom) — geeignet für kleine Widerstände (<span class="math inline">\(R \ll R_V\)</span>):</li>
 </ul>
-<div id="61d8c77d" class="cell" data-execution_count="9">
+<div id="8bc7d8d3" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>R_x <span class="op">=</span> Symbol(<span class="st">'R'</span>)</span>
@@ -622,7 +615,7 @@ R_{mess} = \frac{R_{V} R}{R_{V} + R}
 <ul>
 <li>Stromrichtig (Voltmeter misst auch Amperemeterspannung) — geeignet für große Widerstände (<span class="math inline">\(R \gg R_A\)</span>):</li>
 </ul>
-<div id="dc9863e8" class="cell" data-execution_count="10">
+<div id="86672879" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(R_mess, R_x <span class="op">+</span> R_A), label<span class="op">=</span><span class="st">'eq-r-stromrichtig'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>

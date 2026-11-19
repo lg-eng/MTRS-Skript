@@ -71,7 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Anhang/xx_Appendix.html" rel="next">
+<link href="../SteuerRegel/01.03_SPS.html" rel="next">
 <link href="../SteuerRegel/01_SteuerRegel.html" rel="prev">
 <script src="../site_libs/cookie-consent/cookie-consent.js"></script>
 <link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
@@ -130,39 +130,20 @@ cookieconsent.run({
 });
 </script> 
   
+<!-- Header-Include für panels.css: Toggle-Button, der .panels-hidden
+     auf <html> setzt (Ein-/Ausblenden der Seitenleisten). -->
 <script>
-(function () {
-  var KEY = 'mtrs-panels-hidden';
-
-  function toggle() {
-    var html = document.documentElement;
-    var hidden = html.classList.toggle('panels-hidden');
-    try { localStorage.setItem(KEY, hidden ? '1' : '0'); } catch (e) {}
-  }
-
-  function init() {
-    try {
-      if (localStorage.getItem(KEY) === '1') {
-        document.documentElement.classList.add('panels-hidden');
-      }
-    } catch (e) {}
-
-    var btn = document.createElement('button');
-    btn.id = 'panels-toggle';
-    btn.type = 'button';
-    btn.title = 'Seitenleisten ein-/ausblenden';
-    btn.setAttribute('aria-label', 'Seitenleisten ein-/ausblenden');
-    btn.innerHTML = '<i class="bi bi-layout-sidebar" aria-hidden="true"></i>';
-    btn.addEventListener('click', toggle);
-    document.body.appendChild(btn);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
+document.addEventListener('DOMContentLoaded', function () {
+  var btn = document.createElement('button');
+  btn.id = 'panels-toggle';
+  btn.title = 'Seitenleisten ein-/ausblenden';
+  btn.setAttribute('aria-label', 'Seitenleisten ein-/ausblenden');
+  btn.textContent = '\u2630';
+  btn.addEventListener('click', function () {
+    document.documentElement.classList.toggle('panels-hidden');
+  });
+  document.body.appendChild(btn);
+});
 </script>
 <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
@@ -328,6 +309,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../SteuerRegel/01.03_SPS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -342,13 +329,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Anhang/xx_Weiterfuehrende_Themen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Weiterführende Themen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Jahresplanung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
   </div>
 </li>
       </ul>
@@ -377,7 +370,7 @@ window.Quarto = {
   <ul>
   <li><a href="#der-pid-regler" id="toc-der-pid-regler" class="nav-link" data-scroll-target="#der-pid-regler"><span class="header-section-number">9.5.1</span> Der PID Regler</a>
   <ul class="collapse">
-  <li><a href="#vorraussetzungen-für-die-verwendung-eines-pid-reglers" id="toc-vorraussetzungen-für-die-verwendung-eines-pid-reglers" class="nav-link" data-scroll-target="#vorraussetzungen-für-die-verwendung-eines-pid-reglers"><span class="header-section-number">9.5.1.1</span> Vorraussetzungen für die Verwendung eines PID Reglers</a></li>
+  <li><a href="#voraussetzungen-für-die-klassische-pid-auslegung" id="toc-voraussetzungen-für-die-klassische-pid-auslegung" class="nav-link" data-scroll-target="#voraussetzungen-für-die-klassische-pid-auslegung"><span class="header-section-number">9.5.1.1</span> Voraussetzungen für die klassische PID-Auslegung</a></li>
   </ul></li>
   <li><a href="#die-übertragungsfunktion" id="toc-die-übertragungsfunktion" class="nav-link" data-scroll-target="#die-übertragungsfunktion"><span class="header-section-number">9.5.2</span> Die Übertragungsfunktion</a>
   <ul class="collapse">
@@ -573,18 +566,18 @@ Der zweite Typ von Regler kann die Stellgröße kontinuierlich anpassen. Diese R
 <h2 data-number="9.4" class="anchored" data-anchor-id="unstetige-regler"><span class="header-section-number">9.4</span> Unstetige Regler</h2>
 <p>Klassische unstetige Regler sind Bimetallschalter. Diese werden zum Beispiel bei Heizlüftern eingesetzt.<br>
 Ist der Raum und damit das Bimetall kalt, so ist der Kontakt geschlossen und der Lüfter läuft. Wird die Raumluft und damit das Bimetall warm, wird der Kontakt geöffnet und der Lüfter hört auf zu heizen.</p>
-<div id="b2864d88" class="cell" data-execution_count="2">
-<div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(T\)</span> … Temperatur</p>
-</div>
-<div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
-</div>
+<div id="6d3b4c72" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(T_{ein}\)</span> … Einschaltschwelle</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(T\)</span> … Temperatur</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(T_{aus}\)</span> … Ausschaltschwelle</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
 </div>
 </div>
 <div id="cell-fig-zweipunktreglerplot" class="cell" data-execution_count="3">
@@ -608,8 +601,8 @@ Abbildung&nbsp;9.2: Zweipunktregler eines einfachen Heizlüfters
 </section>
 <section id="stetige-regler" class="level2" data-number="9.5">
 <h2 data-number="9.5" class="anchored" data-anchor-id="stetige-regler"><span class="header-section-number">9.5</span> Stetige Regler</h2>
-<p>Für das Verständnis von stetigen Reglern ist es hilfreich, die Regelungstechnik mathematisch zu betrachten, da sich ein Regler sehr gut mit Formeln beschreiben und erklären lässt. In einem eigenen Kapitel soll behandelt werden, wie Regler praxisnahe implementiert werden können.<br>
-Der oben gezeigte Regelkreis <a href="#fig-Regelkreis" class="quarto-xref">Abbildung&nbsp;<span>9.1</span></a> lässt sich mathematisch als Übertragungsfunktion beschreiben. Hier werden ausschließlich SISO (Single Input Single Output) und LTI (Linear Time Invariant) Systeme betrachtet. Das bedeutet Systeme, die einen Eingang und einen Ausgang haben. Jeder Block kann einzeln mit einer Übertragungsfunktion oder analog der Vierpoltheorie beschrieben werden. Wie auch in der Vierpoltheorie kann aber auch eine Verschaltung von Blöcken als Übertragungsfunktion beschrieben werden. Ein Block wird in der Regelungstechnik auch als <strong>Strecke</strong> bezeichnet.</p>
+<p>Für das Verständnis von stetigen Reglern ist es hilfreich, die Regelungstechnik mathematisch zu betrachten, da sich ein Regler gut mit Formeln beschreiben und erklären lässt. In einem eigenen Kapitel wird behandelt, wie Regler praxisnah implementiert werden können.<br>
+Der oben gezeigte Regelkreis <a href="#fig-Regelkreis" class="quarto-xref">Abbildung&nbsp;<span>9.1</span></a> lässt sich mathematisch als Übertragungsfunktion beschreiben. Hier werden ausschließlich LTI-Systeme mit einem Eingang und einem Ausgang betrachtet: SISO (<em>Single Input, Single Output</em>). LTI steht für linear und zeitinvariant (<em>Linear Time-Invariant</em>). Jeder Block kann mit einer Übertragungsfunktion beschrieben werden; bei einer geeigneten linearen Struktur lässt sich auch die Zusammenschaltung mehrerer Blöcke als Übertragungsfunktion darstellen. Der physikalische Prozess wird dabei als <strong>Regelstrecke</strong> bezeichnet; Blöcke können aber ebenso Regler, Sensoren oder andere Systeme darstellen.</p>
 <section id="der-pid-regler" class="level3" data-number="9.5.1">
 <h3 data-number="9.5.1" class="anchored" data-anchor-id="der-pid-regler"><span class="header-section-number">9.5.1</span> Der PID Regler</h3>
 <p>Der PID Regler ist ein stetiger Regler, der sich aus drei Teilen zusammensetzt. Er ist der am häufigsten verwendete stetige Regler in der Regelungstechnik. Wobei der D Anteil in der Praxis oft weggelassen wird.</p>
@@ -623,9 +616,10 @@ Abbildung&nbsp;9.3: PID Regler
 </figcaption>
 </figure>
 </div>
-<section id="vorraussetzungen-für-die-verwendung-eines-pid-reglers" class="level4" data-number="9.5.1.1">
-<h4 data-number="9.5.1.1" class="anchored" data-anchor-id="vorraussetzungen-für-die-verwendung-eines-pid-reglers"><span class="header-section-number">9.5.1.1</span> Vorraussetzungen für die Verwendung eines PID Reglers</h4>
-<p>Der PID Regler ist ein stetiger Regler und kann nur bei stetigen Systemen verwendet werden. Das bedeutet, dass die Strecke, die Regelgröße und die Stellgröße stetig sein müssen. Das System muss linear sein. Das bedeutet, dass die Übertragungsfunktion der Strecke linear sein muss. Zumindest im Nahbereich des Arbeitspunktes. Das System muss zeitinvariant sein. Das bedeutet, dass die Übertragungsfunktion der Strecke sich nicht mit der Zeit ändert. Die Anforderung der Linearität und der Zeitinvarianz werden in der Regelungstechnik als <strong>LTI</strong> (Linear Time Invariant) Systeme bezeichnet. Es darf nur einen Eingang und einen Ausgang geben. Das bedeutet, dass der PID Regler nur für <strong>SISO</strong> (Single Input Single Output) Systeme verwendet werden kann.</p>
+<section id="voraussetzungen-für-die-klassische-pid-auslegung" class="level4" data-number="9.5.1.1">
+<h4 data-number="9.5.1.1" class="anchored" data-anchor-id="voraussetzungen-für-die-klassische-pid-auslegung"><span class="header-section-number">9.5.1.1</span> Voraussetzungen für die klassische PID-Auslegung</h4>
+<p>Für die klassische Auslegung mit einer Übertragungsfunktion wird eine hinreichend lineare, zeitinvariante SISO-Strecke angenommen. Nichtlineare Systeme können oft in der Nähe eines Arbeitspunktes linearisiert werden. Die drei Anforderungen gelten für dieses Berechnungsmodell.</p>
+<p>Ein PID-Regler selbst kann auch digital und damit in abgetasteten Systemen implementiert werden. Für instabile, stark nichtlineare oder zeitvariante Strecken sind jedoch zusätzlich geeignete Maßnahmen erforderlich.</p>
 </section>
 </section>
 <section id="die-übertragungsfunktion" class="level3" data-number="9.5.2">
@@ -656,11 +650,14 @@ Ist die Übertragungsfunktion bekannt, so kann die Strecke und deren Verhalten (
 </li>
 <li>Der messtechnische Ansatz, <a href="#sec-MessStreckenidentifikation" class="quarto-xref"><span>Kapitel 9.5.4</span></a></li>
 </ul>
-<div id="030187b7" class="cell" data-execution_count="4">
+<div id="b0dbfaf0" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-EVA"><span class="math display">\[
 V = \frac{A}{E}
 \tag{9.1}\]</span></span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(V\)</span> … Verarbeitung, die Übertragungsfunktion</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(E\)</span> … Eingang</p>
@@ -668,33 +665,30 @@ V = \frac{A}{E}
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(A\)</span> … Ausgang</p>
 </div>
-<div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(V\)</span> … Verarbeitung, die Übertragungsfunktion</p>
-</div>
 </div>
 <p>Gängige Bezeichnungen der Übertragungsfunktion der einzelnen Blöcke sind wie folgt.</p>
-<div id="02d11ce2" class="cell" data-execution_count="5">
+<div id="3df547ee" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(R\)</span> … Übertragungsfunktion des Reglers</p>
+</div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(G\)</span> … Übertragungsfunktion der zu Regelnden Strecke</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(M\)</span> … Übertragungsfunktion des Sensors</p>
 </div>
-<div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(R\)</span> … Übertragungsfunktion des Reglers</p>
-</div>
 </div>
 </section>
 </section>
 <section id="sec-MathStreckenidentifikation" class="level3" data-number="9.5.3">
 <h3 data-number="9.5.3" class="anchored" data-anchor-id="sec-MathStreckenidentifikation"><span class="header-section-number">9.5.3</span> Mathematische Streckenidentifikation</h3>
-<p>Aus den physikalischen Zusammenhängen kann die Übertragungsfunktion berechnet werden. Die komplexe Schreibweise ist nur für periodische sinusförmige Signale geeignet. Sollen Signale betrachtet werden, die beliebig oder stetig sind, ist die komplexe schreibweise nicht ausreichend. Es müssen die physikalischen Gleichungen in differentieller Form angeschrieben werden.</p>
+<p>Aus den physikalischen Zusammenhängen kann die Übertragungsfunktion berechnet werden. Die komplexe Zeigerdarstellung mit einer festen Frequenz ist für sinusförmige Dauersignale geeignet. Für zeitveränderliche Signale werden die physikalischen Gleichungen in Differentialform oder als Zustandsmodell beschrieben.</p>
 <p>Um die Mathematik möglichst einfach zu halten, wird in der Regelungstechnik im Laplace Bereich gearbeitet. Dadurch ist es nicht notwendig, die Differenzialgleichung bei physikalischen Systemen, die durch eine Differenzialgleichung beschrieben werden, zu lösen.</p>
 <p>Ein Beispiel, wie eine mathematische Streckenidentifikation abläuft, ist in Abschnitt <a href="#sec-Laplace" class="quarto-xref"><span>Kapitel 9.5.5</span></a> zu finden.</p>
 </section>
 <section id="sec-MessStreckenidentifikation" class="level3" data-number="9.5.4">
 <h3 data-number="9.5.4" class="anchored" data-anchor-id="sec-MessStreckenidentifikation"><span class="header-section-number">9.5.4</span> Messtechnische Streckenidentifikation</h3>
-<p>Manche Systeme sind zu komplex, um Sie mathematisch zu beschreiben. Andere Systeme sind mathematisch nicht beschreibbar, weil das Innenleben nicht bekannt ist. In diesen Fällen kann die messtechnische Ermittlung der Übertragungsfunktion herangezogen werden.<br>
+<p>Manche Systeme sind zu komplex, um sie mathematisch zu beschreiben. Bei anderen ist das Innenverhalten nicht bekannt. In diesen Fällen kann die messtechnische Ermittlung eines Modells beziehungsweise einer Übertragungsfunktion herangezogen werden.<br>
 Dabei wird am Eingang der Strecke ein Testsignal aufgeschaltet und der Ausgang gemessen. Aus diesen Messdaten kann die Übertragungsfunktion, ein mathematisches Modell, der Strecke erstellt werden.</p>
 </section>
 <section id="sec-Laplace" class="level3" data-number="9.5.5">
@@ -703,20 +697,20 @@ Dabei wird am Eingang der Strecke ein Testsignal aufgeschaltet und der Ausgang g
 <section id="warum-laplace" class="level4" data-number="9.5.5.1">
 <h4 data-number="9.5.5.1" class="anchored" data-anchor-id="warum-laplace"><span class="header-section-number">9.5.5.1</span> Warum Laplace</h4>
 <p>Um eine Übertragungsfunktion zu Berechnen muss der Ausgang durch den Eingang dividiert werden. Wird das physikalische System durch eine lineare Gleichung beschrieben ist das sehr Einfach möglich und die Laplace Transformation ist nicht notwendig. Ein Beispiel dafür ist das Ohm’sche Gesetz.</p>
-<div id="e0074c1e" class="cell" data-execution_count="6">
+<div id="1c1d1dc2" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Ohm_eq"><span class="math display">\[
 R_{ohm} = \frac{U}{I}
 \tag{9.2}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(R_{ohm}\)</span> … Ohm’scher Widerstand als Übertragungsfunktion</p>
-</div>
-<div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(I\)</span> … Strom am Widerstand als Eingang</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(U\)</span> … Spannung am Widerstand als Ausgang</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(R_{ohm}\)</span> … Ohm’scher Widerstand als Übertragungsfunktion</p>
 </div>
 </div>
 <p>Wird das physikalische System aber durch eine Differentialgleichung beschrieben, wie zum Beispiel bei einem Tiefpass, so wäre es notwendig zuerst die Differentialgleichung zu lösen um die Übertragungsfunktion zu berechnen. Hier bietet die Lapalce Transformation eine erhebliche erleichterung.<br>
@@ -733,7 +727,7 @@ Abbildung&nbsp;9.4: Tiefpass
 </figcaption>
 </figure>
 </div>
-<div id="ccf57953" class="cell" data-execution_count="7">
+<div id="c191f13e" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-ict_eq1"><span class="math display">\[
 i_{c}{\left(t \right)} = C \frac{d}{d t} u_{c}{\left(t \right)}
@@ -746,14 +740,11 @@ i_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)
 </div>
 </div>
 <p>Durch Gleichsetzten von <a href="#eq-ict_eq1" class="quarto-xref">Gleichung&nbsp;<span>9.3</span></a> und <a href="#eq-ict_eq2" class="quarto-xref">Gleichung&nbsp;<span>9.4</span></a> ergibt sich die allgemeine Differenzialgleichung 1. Ordnung für den Tiefpass.</p>
-<div id="ee5d2c4f" class="cell" data-execution_count="8">
+<div id="cb751ee0" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-RCTP"><span class="math display">\[
 C \frac{d}{d t} u_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)}}{R_{ohm}}
 \tag{9.5}\]</span></span></p>
-</div>
-<div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(R_{ohm}\)</span> … Ohmscher Widerstand</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(t\)</span> … Zeit</p>
@@ -762,23 +753,26 @@ C \frac{d}{d t} u_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}
 <p><span class="math inline">\(C\)</span> … Kapazität</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(i_{c}{\left(t \right)}\)</span> … Strom</p>
+<p><span class="math inline">\(R_{ohm}\)</span> … Ohmscher Widerstand</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(u_{in}{\left(t \right)}\)</span> … Eingangsspannung</p>
+<p><span class="math inline">\(i_{c}{\left(t \right)}\)</span> … Strom</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(u_{c}{\left(t \right)}\)</span> … Ausgangsspannung</p>
 </div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(u_{in}{\left(t \right)}\)</span> … Eingangsspannung</p>
+</div>
 </div>
 <p>Müsste nun von dieser Differentialgleichung die Übertragungsfunktion, also <span class="math inline">\(G=Ausgang/Eingang\)</span>, angegeben werden, so müsste zunächst die Differentialgleichung gelöst werden.<br>
-Die Laplace Transformation bietet hier einen alternativen Weg der mit weiteren Vorteilen verbunden ist wenn es darum geht Blöcke miteinander zu kombinieren oder Aussagen über das System zu treffen.</p>
+Die Laplacetransformation bietet hier einen alternativen Weg. Sie erleichtert insbesondere die Kombination von Blöcken und Aussagen über das Systemverhalten.</p>
 </section>
 </section>
 <section id="laplacetransformation" class="level4" data-number="9.5.5.2">
 <h4 data-number="9.5.5.2" class="anchored" data-anchor-id="laplacetransformation"><span class="header-section-number">9.5.5.2</span> Laplacetransformation</h4>
-<p>Die tiefere Mathematik der Laplacetransofrmation überlassen wir hier den Mathematiker:innen und den ersten Semstern eines Studiums. Wir wollen die Laplacetransformation lediglich als Werkzeug zur vereinfachung unserer Arbeit verwenden. Dazu benötigen wir folgende Grundregeln.<br>
-Vereinfacht ist die Laplacetransformation als eine Übersetzung aus dem Zeitbereich, also mit der varaible <span class="math inline">\(t\)</span>, in den Frequenzbereich mit der Variable <span class="math inline">\(s\)</span> zu verstehen. Die Übersetzung erfolgt in vielen Fällen sehr einfach mittels Tabelle. Hier wird die Transformation nur für ausgewählte Signale und mathematische Operationen angeführt.</p>
+<p>Die tiefere Mathematik der Laplacetransformation überlassen wir den Mathematiker:innen und den ersten Semestern eines Studiums. Hier dient sie als Werkzeug zur Vereinfachung von Berechnungen. Dazu werden nur die wichtigsten Grundregeln benötigt.<br>
+Vereinfacht überführt die Laplacetransformation eine Funktion aus dem Zeitbereich mit der Variablen <span class="math inline">\(t\)</span> in den Laplacebereich beziehungsweise <span class="math inline">\(s\)</span>-Bereich. Die komplexe Variable <span class="math inline">\(s\)</span> wird erst für Frequenzgangbetrachtungen als <span class="math inline">\(s=j\omega\)</span> eingesetzt. Die Transformation erfolgt in vielen Fällen mithilfe einer Tabelle. Hier werden nur ausgewählte Signale und mathematische Operationen angeführt.</p>
 <div id="tbl-laplace" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-laplace-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -793,8 +787,8 @@ Tabelle&nbsp;9.1: Laplacetransformationstabelle
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Zeitbereich x(t)</th>
-<th style="text-align: left;">Frequenzbereich X(s)</th>
+<th style="text-align: left;">Zeitbereich <span class="math inline">\(x(t)\)</span></th>
+<th style="text-align: left;">Laplacebereich <span class="math inline">\(X(s)\)</span></th>
 <th style="text-align: left;">Bemerkung</th>
 </tr>
 </thead>
@@ -825,17 +819,17 @@ Tabelle&nbsp;9.1: Laplacetransformationstabelle
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math inline">\(\frac{1}{a} e^{\frac{-t}{a}}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\frac{1}{a} e^{-t/a}\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(\frac{1}{1 + as}\)</span></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">für <span class="math inline">\(a&gt;0\)</span></td>
 </tr>
 </tbody>
 </table>
 </div>
 </figure>
 </div>
-<p>Wird nun Gleichung <a href="#eq-RCTP" class="quarto-xref">Gleichung&nbsp;<span>9.5</span></a> mittels der Tabelle <a href="#tbl-laplace" class="quarto-xref">Tabelle&nbsp;<span>9.1</span></a> transformiert erhalten wir eine Gleichung aus der wir durch einfaches Umformen eine Übertragungsfunktion erhalten. Es wird angenommen, dass $ x(0) = 0 $ ist.</p>
-<div id="1dda4c6e" class="cell" data-execution_count="9">
+<p>Wird nun Gleichung <a href="#eq-RCTP" class="quarto-xref">Gleichung&nbsp;<span>9.5</span></a> mittels der Tabelle <a href="#tbl-laplace" class="quarto-xref">Tabelle&nbsp;<span>9.1</span></a> transformiert, ergibt sich durch Umformen die Übertragungsfunktion. Der Kondensator wird als anfangs entladen angenommen; also ist <span class="math inline">\(u_C(0)=0\)</span>.</p>
+<div id="7ad139d4" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
 C U_{C} s = \frac{- U_{C} + U_{IN}}{R_{ohm}}
@@ -1106,7 +1100,7 @@ Zur Vereinfachung kann die Übertragungsfunktion des Sensors mit <span class="ma
 <section id="die-führungsübertragungsfunktion" class="level4" data-number="9.5.7.1">
 <h4 data-number="9.5.7.1" class="anchored" data-anchor-id="die-führungsübertragungsfunktion"><span class="header-section-number">9.5.7.1</span> Die Führungsübertragungsfunktion</h4>
 <p>Die Führungsübertragungsfunktion gibt das Verhältnis zwischen Sollgröße und Istgröße an. Sie beschreibt damit das Verhalten des Regelkreises mit der Sollgröße als Eingang und der Istgröße als Ausgang. Ist eine Regelstrecke ideal, so ist die Führungsübertragungsfunktion gleich Eins.</p>
-<div id="1ea52d5c" class="cell" data-execution_count="10">
+<div id="9795e536" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Fw_eq"><span class="math display">\[
 F_{w} = \frac{G R}{G M R + 1}
@@ -1120,7 +1114,7 @@ F_{w} = \frac{G R}{G M R + 1}
 <section id="die-schleifenübertragungsfunktion" class="level4" data-number="9.5.7.2">
 <h4 data-number="9.5.7.2" class="anchored" data-anchor-id="die-schleifenübertragungsfunktion"><span class="header-section-number">9.5.7.2</span> Die Schleifenübertragungsfunktion</h4>
 <p>Die Schleifenübertragungsfunktion ist die Übertragungsfunktion des offenen Regelkreises, also ohne Rückkopplung und ist im Laplace Bereich eine einfache Multiplikation.</p>
-<div id="027acd45" class="cell" data-execution_count="11">
+<div id="4e9700cf" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
 F_{o} = G R
@@ -1134,7 +1128,7 @@ F_{o} = G R
 <section id="die-störübertragungsfunktion" class="level4" data-number="9.5.7.3">
 <h4 data-number="9.5.7.3" class="anchored" data-anchor-id="die-störübertragungsfunktion"><span class="header-section-number">9.5.7.3</span> Die Störübertragungsfunktion</h4>
 <p>Die Störübertragungsfunktion beschreibt, wie sich die Störgröße auf den Ausgang auswirkt.</p>
-<div id="c0bb1426" class="cell" data-execution_count="12">
+<div id="1c9cafa6" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
 F_{s} = \frac{G}{F_{o} + 1}
@@ -2505,8 +2499,8 @@ window._ojs.runtime.interpretFromScriptTags();
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Anhang/xx_Appendix.html" class="pagination-link" aria-label="Appendix">
-        <span class="nav-page-text">Appendix</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../SteuerRegel/01.03_SPS.html" class="pagination-link" aria-label="Speicherprogrammierbare Steuerung (SPS)">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

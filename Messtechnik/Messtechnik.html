@@ -95,39 +95,20 @@ cookieconsent.run({
 });
 </script> 
   
+<!-- Header-Include für panels.css: Toggle-Button, der .panels-hidden
+     auf <html> setzt (Ein-/Ausblenden der Seitenleisten). -->
 <script>
-(function () {
-  var KEY = 'mtrs-panels-hidden';
-
-  function toggle() {
-    var html = document.documentElement;
-    var hidden = html.classList.toggle('panels-hidden');
-    try { localStorage.setItem(KEY, hidden ? '1' : '0'); } catch (e) {}
-  }
-
-  function init() {
-    try {
-      if (localStorage.getItem(KEY) === '1') {
-        document.documentElement.classList.add('panels-hidden');
-      }
-    } catch (e) {}
-
-    var btn = document.createElement('button');
-    btn.id = 'panels-toggle';
-    btn.type = 'button';
-    btn.title = 'Seitenleisten ein-/ausblenden';
-    btn.setAttribute('aria-label', 'Seitenleisten ein-/ausblenden');
-    btn.innerHTML = '<i class="bi bi-layout-sidebar" aria-hidden="true"></i>';
-    btn.addEventListener('click', toggle);
-    document.body.appendChild(btn);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
+document.addEventListener('DOMContentLoaded', function () {
+  var btn = document.createElement('button');
+  btn.id = 'panels-toggle';
+  btn.title = 'Seitenleisten ein-/ausblenden';
+  btn.setAttribute('aria-label', 'Seitenleisten ein-/ausblenden');
+  btn.textContent = '\u2630';
+  btn.addEventListener('click', function () {
+    document.documentElement.classList.toggle('panels-hidden');
+  });
+  document.body.appendChild(btn);
+});
 </script>
 
 
@@ -262,6 +243,12 @@ cookieconsent.run({
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../SteuerRegel/01.03_SPS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -276,13 +263,19 @@ cookieconsent.run({
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Anhang/xx_Weiterfuehrende_Themen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Weiterführende Themen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Jahresplanung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
   </div>
 </li>
       </ul>

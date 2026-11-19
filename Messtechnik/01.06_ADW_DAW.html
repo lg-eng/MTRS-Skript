@@ -149,39 +149,20 @@ cookieconsent.run({
 });
 </script> 
   
+<!-- Header-Include für panels.css: Toggle-Button, der .panels-hidden
+     auf <html> setzt (Ein-/Ausblenden der Seitenleisten). -->
 <script>
-(function () {
-  var KEY = 'mtrs-panels-hidden';
-
-  function toggle() {
-    var html = document.documentElement;
-    var hidden = html.classList.toggle('panels-hidden');
-    try { localStorage.setItem(KEY, hidden ? '1' : '0'); } catch (e) {}
-  }
-
-  function init() {
-    try {
-      if (localStorage.getItem(KEY) === '1') {
-        document.documentElement.classList.add('panels-hidden');
-      }
-    } catch (e) {}
-
-    var btn = document.createElement('button');
-    btn.id = 'panels-toggle';
-    btn.type = 'button';
-    btn.title = 'Seitenleisten ein-/ausblenden';
-    btn.setAttribute('aria-label', 'Seitenleisten ein-/ausblenden');
-    btn.innerHTML = '<i class="bi bi-layout-sidebar" aria-hidden="true"></i>';
-    btn.addEventListener('click', toggle);
-    document.body.appendChild(btn);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
+document.addEventListener('DOMContentLoaded', function () {
+  var btn = document.createElement('button');
+  btn.id = 'panels-toggle';
+  btn.title = 'Seitenleisten ein-/ausblenden';
+  btn.setAttribute('aria-label', 'Seitenleisten ein-/ausblenden');
+  btn.textContent = '\u2630';
+  btn.addEventListener('click', function () {
+    document.documentElement.classList.toggle('panels-hidden');
+  });
+  document.body.appendChild(btn);
+});
 </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -345,6 +326,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../SteuerRegel/01.03_SPS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -359,13 +346,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Anhang/xx_Weiterfuehrende_Themen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Weiterführende Themen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Jahresplanung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
   </div>
 </li>
       </ul>
@@ -413,7 +406,7 @@ window.Quarto = {
 
 
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="3d97527b" class="cell" data-execution_count="2">
+<div id="74d79de6" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(f_{a}\)</span> … Abtastfrequenz</p>
 </div>
@@ -450,7 +443,7 @@ window.Quarto = {
 <section id="abtastung" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="abtastung"><span class="header-section-number">6.1</span> Abtastung</h2>
 <p>Ein kontinuierliches Signal <span class="math inline">\(u(t)\)</span> wird alle <span class="math inline">\(T_{a}\)</span> Sekunden abgetastet (Abtastperiode). Für die Amplitude zählt nur der Momentanwert zum Abtastzeitpunkt:</p>
-<div id="a17c8661" class="cell" data-execution_count="3">
+<div id="e91bb159" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>f_a <span class="op">=</span> MySymbol(<span class="vs">r'f_{a}'</span>, description<span class="op">=</span><span class="st">'Abtastfrequenz'</span>, unit<span class="op">=</span>u.hertz)</span>
@@ -471,8 +464,8 @@ f_{a} \geq 2 f_{g}
 </div>
 </div>
 <ul>
-<li><strong>Abtasttheorem (Shannon/Nyquist):</strong> Eine fehlerfreie Rekonstruktion ist nur möglich, wenn die Abtastfrequenz mindestens doppelt so hoch ist wie die höchste im Signal enthaltene Frequenz.</li>
-<li>Verletzt man das Theorem, entsteht <strong>Aliasing</strong>: tiefere „Spiegelfrequenzen” täuschen Signalanteile vor, die im Original nicht vorhanden sind. Diese Verzerrung lässt sich nicht nachträglich herausfiltern — Abtastfrequenz groß genug oder vorgeschaltetes Anti-Aliasing-Filter.</li>
+<li><strong>Abtasttheorem (Shannon/Nyquist):</strong> Ein ideal bandbegrenztes Signal kann bei idealer Rekonstruktion aus Abtastwerten rekonstruiert werden, wenn die Abtastfrequenz größer als die doppelte höchste Signalfrequenz ist. Die Grenze <span class="math inline">\(f_a=2f_g\)</span> ist ein theoretischer Grenzfall; praktische Anwendungen benötigen einen Frequenzabstand und geeignete Filter.</li>
+<li>Verletzt man das Theorem, entsteht <strong>Aliasing</strong>: tiefere „Spiegelfrequenzen” täuschen Signalanteile vor, die im Original nicht vorhanden sind. Diese Verzerrung lässt sich bei bereits überlagerten Signalanteilen nicht zuverlässig nachträglich beseitigen. Deshalb werden eine ausreichend hohe Abtastfrequenz und ein vorgeschaltetes Anti-Aliasing-Filter verwendet.</li>
 </ul>
 <section id="die-vier-schritte-in-einer-grafik" class="level3" data-number="6.1.1">
 <h3 data-number="6.1.1" class="anchored" data-anchor-id="die-vier-schritte-in-einer-grafik"><span class="header-section-number">6.1.1</span> Die vier Schritte in einer Grafik</h3>
@@ -574,7 +567,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 <section id="quantisierung" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="quantisierung"><span class="header-section-number">6.2</span> Quantisierung</h2>
 <p>Für <span class="math inline">\(n\)</span> Bit stehen <span class="math inline">\(2^{n}\)</span> Stufen über der Messbereichsspannbreite <span class="math inline">\(U_{ms}\)</span> zur Verfügung:</p>
-<div id="52c24da0" class="cell" data-execution_count="5">
+<div id="3c41b0da" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>n_bit <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Aufloesung des Wandlers in Bit'</span>)</span>
@@ -589,7 +582,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 </div>
 </div>
 <p>Die Rundung auf die nächste Stufe verursacht den <strong>Quantisierungsfehler</strong> — maximal eine halbe Stufe:</p>
-<div id="62ff1d8a" class="cell" data-execution_count="6">
+<div id="37093301" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dQ <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="dv">\D</span><span class="vs">elta Q'</span>, description<span class="op">=</span><span class="st">'maximaler Quantisierungsfehler'</span>, unit<span class="op">=</span>u.volt)</span>
@@ -602,7 +595,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 </div>
 </div>
 <p>Beispiel 8-Bit-Wandler mit Messbereich <span class="math inline">\(0\,\mathrm{V} \ldots 10\,\mathrm{V}\)</span>:</p>
-<div id="1e27e3c7" class="cell" data-execution_count="7">
+<div id="cb55b0a7" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>U_ms_ex <span class="op">=</span> MySymbol(<span class="vs">r'U_{ms}'</span>, description<span class="op">=</span><span class="st">'Messbereichsspannbreite'</span>, unit<span class="op">=</span>u.volt,</span>
@@ -625,10 +618,10 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 \tag{6.5}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math display">\[\Delta U = \mathtt{\text{39.1}} \ \mathtt{\text{mV}}\]</span></p>
+<p><span class="math display">\[\Delta U = \mathtt{\text{39,1}} \ \mathtt{\text{mV}}\]</span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math display">\[\Delta Q = \mathtt{\text{19.5}} \ \mathtt{\text{mV}}\]</span></p>
+<p><span class="math display">\[\Delta Q = \mathtt{\text{19,5}} \ \mathtt{\text{mV}}\]</span></p>
 </div>
 </div>
 <ul>

@@ -149,39 +149,20 @@ cookieconsent.run({
 });
 </script> 
   
+<!-- Header-Include für panels.css: Toggle-Button, der .panels-hidden
+     auf <html> setzt (Ein-/Ausblenden der Seitenleisten). -->
 <script>
-(function () {
-  var KEY = 'mtrs-panels-hidden';
-
-  function toggle() {
-    var html = document.documentElement;
-    var hidden = html.classList.toggle('panels-hidden');
-    try { localStorage.setItem(KEY, hidden ? '1' : '0'); } catch (e) {}
-  }
-
-  function init() {
-    try {
-      if (localStorage.getItem(KEY) === '1') {
-        document.documentElement.classList.add('panels-hidden');
-      }
-    } catch (e) {}
-
-    var btn = document.createElement('button');
-    btn.id = 'panels-toggle';
-    btn.type = 'button';
-    btn.title = 'Seitenleisten ein-/ausblenden';
-    btn.setAttribute('aria-label', 'Seitenleisten ein-/ausblenden');
-    btn.innerHTML = '<i class="bi bi-layout-sidebar" aria-hidden="true"></i>';
-    btn.addEventListener('click', toggle);
-    document.body.appendChild(btn);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
+document.addEventListener('DOMContentLoaded', function () {
+  var btn = document.createElement('button');
+  btn.id = 'panels-toggle';
+  btn.title = 'Seitenleisten ein-/ausblenden';
+  btn.setAttribute('aria-label', 'Seitenleisten ein-/ausblenden');
+  btn.textContent = '\u2630';
+  btn.addEventListener('click', function () {
+    document.documentElement.classList.toggle('panels-hidden');
+  });
+  document.body.appendChild(btn);
+});
 </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -345,6 +326,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../SteuerRegel/01.03_SPS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -359,13 +346,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Anhang/xx_Weiterfuehrende_Themen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Weiterführende Themen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Jahresplanung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
   </div>
 </li>
       </ul>
@@ -391,8 +384,11 @@ window.Quarto = {
   <li><a href="#sec-mt-gum" id="toc-sec-mt-gum" class="nav-link" data-scroll-target="#sec-mt-gum"><span class="header-section-number">1.3</span> Messunsicherheit nach GUM</a>
   <ul>
   <li><a href="#sec-mt-typA" id="toc-sec-mt-typA" class="nav-link" data-scroll-target="#sec-mt-typA"><span class="header-section-number">1.3.1</span> Typ-A-Bewertung: statistisch</a></li>
-  <li><a href="#typ-b-bewertung-nicht-statistisch" id="toc-typ-b-bewertung-nicht-statistisch" class="nav-link" data-scroll-target="#typ-b-bewertung-nicht-statistisch"><span class="header-section-number">1.3.2</span> Typ-B-Bewertung: nicht statistisch</a></li>
+  <li><a href="#sec-mt-typb" id="toc-sec-mt-typb" class="nav-link" data-scroll-target="#sec-mt-typb"><span class="header-section-number">1.3.2</span> Typ-B-Bewertung: nicht statistisch</a></li>
   <li><a href="#kombinierte-und-erweiterte-unsicherheit" id="toc-kombinierte-und-erweiterte-unsicherheit" class="nav-link" data-scroll-target="#kombinierte-und-erweiterte-unsicherheit"><span class="header-section-number">1.3.3</span> Kombinierte und erweiterte Unsicherheit</a></li>
+  <li><a href="#richtig-wählen-der-erweiterungsfaktor-k" id="toc-richtig-wählen-der-erweiterungsfaktor-k" class="nav-link" data-scroll-target="#richtig-wählen-der-erweiterungsfaktor-k"><span class="header-section-number">1.3.4</span> Richtig wählen: der Erweiterungsfaktor k</a></li>
+  <li><a href="#sec-mt-bsp-einzeln" id="toc-sec-mt-bsp-einzeln" class="nav-link" data-scroll-target="#sec-mt-bsp-einzeln"><span class="header-section-number">1.3.5</span> Beispiel 1: Einzelmessung einer Spannung</a></li>
+  <li><a href="#sec-mt-bsp-wdh" id="toc-sec-mt-bsp-wdh" class="nav-link" data-scroll-target="#sec-mt-bsp-wdh"><span class="header-section-number">1.3.6</span> Beispiel 2: Wiederholte Messung einer Spannung (DAQ)</a></li>
   </ul></li>
   <li><a href="#anzeige-analog-und-digital" id="toc-anzeige-analog-und-digital" class="nav-link" data-scroll-target="#anzeige-analog-und-digital"><span class="header-section-number">1.4</span> Anzeige: analog und digital</a></li>
   <li><a href="#auflösung-und-genauigkeit" id="toc-auflösung-und-genauigkeit" class="nav-link" data-scroll-target="#auflösung-und-genauigkeit"><span class="header-section-number">1.5</span> Auflösung und Genauigkeit</a></li>
@@ -422,7 +418,7 @@ window.Quarto = {
 
 
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="c6276fa1" class="cell" data-execution_count="2">
+<div id="c69ba320" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(x\)</span> … physikalische Groesse = Zahlenwert mal Einheit</p>
 </div>
@@ -440,6 +436,12 @@ window.Quarto = {
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(i\)</span> … Laufindex der Messreihe</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(\nu\)</span> … Freiheitsgrade der Messreihe (n - 1)</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(\nu_{eff}\)</span> … effektive Freiheitsgrade (Welch-Satterthwaite)</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(u_{A}\)</span> … Standardunsicherheit des Mittelwerts (Typ A)</p>
@@ -479,7 +481,7 @@ window.Quarto = {
 <li>Schreibweise nach ISO 80000-1:2022 <span class="citation" data-cites="iso80000_1_2022">[<a href="#ref-iso80000_1_2022" role="doc-biblioref">1</a>]</span> (Österreich: ÖNORM EN ISO 80000-1:2023 <span class="citation" data-cites="oenorm80000_1_2023">[<a href="#ref-oenorm80000_1_2023" role="doc-biblioref">2</a>]</span>): <span class="math inline">\(\{x\}\)</span> bezeichnet den Zahlenwert der Größe <span class="math inline">\(x\)</span>, <span class="math inline">\([x]\)</span> ihre Einheit — z. B. <span class="math inline">\(\{U\} = 10\)</span>, <span class="math inline">\([U] = \mathrm{V}\)</span> für <span class="math inline">\(U = 10\ \mathrm{V}\)</span>.</li>
 </ul>
 <p>Die folgende Gleichung ist keine Rechenformel, sondern eine Schreibkonvention: <span class="math inline">\(\{x\}\)</span> ist der Platzhalter für den Zahlenwert, <span class="math inline">\([x]\)</span> der für die Einheit — für eine konkrete Größe setzt man beides ein, z. B. <span class="math inline">\(\{U\} = 10\)</span>, <span class="math inline">\([U] = \mathrm{V}\)</span>. Der eigentliche Punkt dahinter: <span class="math inline">\(\{x\}\)</span> und <span class="math inline">\([x]\)</span> gehören immer als Paar zusammen — wählt man eine andere Einheit (etwa mit einem Vorsatz), ändert sich der Zahlenwert mit, die Größe <span class="math inline">\(x\)</span> selbst bleibt dieselbe.</p>
-<div id="368457d9" class="cell" data-execution_count="3">
+<div id="647e2284" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x_zw <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="ch">\{</span><span class="vs">x</span><span class="ch">\}</span><span class="vs">'</span>)</span>
@@ -498,7 +500,7 @@ x = [x] \{x\}
 </div>
 </div>
 <p>Dieselbe Spannung, zwei Zahlenwert-Einheit-Paare — <span class="math inline">\(U\)</span> ändert sich nicht, nur <span class="math inline">\(\{U\}\)</span> und <span class="math inline">\([U]\)</span>. Die korrekte Form ist <span class="math inline">\(10\ \mathrm{V}\)</span>: dort steht eine Zahl mit höchstens drei Ziffern vor dem Komma und ohne 0 davor. Die Form mit <span class="math inline">\(0{,}01\ \mathrm{kV}\)</span> dient nur der Demonstration der Schreibweise: Richtig ausgewählt wäre der Vorsatz so, dass der Zahlenwert im Bereich 1 bis 999 liegt (siehe den Abschnitt Einheitenvorsätze).</p>
-<div id="23b93bcb" class="cell" data-execution_count="4">
+<div id="a0862b62" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>V_s <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="dv">\m</span><span class="vs">athrm{V}'</span>)</span>
@@ -520,12 +522,12 @@ U = 0.01 \mathrm{kV}
 </div>
 <section id="sec-mt-klammern" class="level3" data-number="1.1.1">
 <h3 data-number="1.1.1" class="anchored" data-anchor-id="sec-mt-klammern"><span class="header-section-number">1.1.1</span> Warum »U [V]« falsch ist und wie es richtig geht</h3>
-<p>In Laborpraxis und Tabellen sieht man oft „U [V]” oder „l [m]“. ISO 80000-1:2022 <span class="citation" data-cites="iso80000_1_2022">[<a href="#ref-iso80000_1_2022" role="doc-biblioref">1</a>]</span> (Österreich: ÖNORM EN ISO 80000-1:2023 <span class="citation" data-cites="oenorm80000_1_2023">[<a href="#ref-oenorm80000_1_2023" role="doc-biblioref">2</a>]</span>) weist diese Schreibweise sinngemäß aus — die Norm definiert die eckige Klammer als Einheitsoperator und bevorzugt für Zahlenwertangaben ausdrücklich die Quotientenform (Beispiel: <span class="math inline">\(\lambda/\mathrm{nm} \approx 589{,}6\)</span>):</p>
+<p>In Laborpraxis und Tabellen sieht man oft „U [V]“ oder „l [m]“. In diesem Buch wird diese Schreibweise nach ISO 80000-1:2022 <span class="citation" data-cites="iso80000_1_2022">[<a href="#ref-iso80000_1_2022" role="doc-biblioref">1</a>]</span> (Österreich: ÖNORM EN ISO 80000-1:2023 <span class="citation" data-cites="oenorm80000_1_2023">[<a href="#ref-oenorm80000_1_2023" role="doc-biblioref">2</a>]</span>) durch die Quotientenform beziehungsweise die Formulierung „Größe in Einheit“ ersetzt. Die Norm definiert die eckige Klammer als Einheitsoperator und bevorzugt für Zahlenwertangaben die Quotientenform (Beispiel: <span class="math inline">\(\lambda/\mathrm{nm} \approx 589{,}6\)</span>):</p>
 <ul>
-<li><strong>Normativ</strong> ist die eckige Klammer ein Operator auf Größen: <span class="math inline">\([x]\)</span> liest sich als „Einheit von <span class="math inline">\(x\)</span>“. Sie gehört immer zum Größensymbol — <span class="math inline">\([U] = \mathrm{V}\)</span> ist eine vollständige Aussage, aber <span class="math inline">\([\mathrm{V}]\)</span> ist nicht definiert, denn <span class="math inline">\(\mathrm{V}\)</span> ist eine Einheit, keine Größe. Tabellen- und Achsenbeschriftungen tragen deshalb den Quotienten <span class="math inline">\(U/\mathrm{V}\)</span> (das ist der Zahlenwert <span class="math inline">\(\{U\}\)</span>) oder die Umschreibung „U in V”.</li>
-<li><strong>Mathematisch</strong> gilt <span class="math inline">\(x = \{x\}\cdot[x]\)</span> als echtes Produkt. Eine Zahl wie <span class="math inline">\(10\)</span> hat keine Einheit — <span class="math inline">\([10]\)</span> ist bedeutungslos; „<span class="math inline">\(U\ [\mathrm{V}]\)</span>” liest sich als Produkt aus Größe und Einheit, wäre also eine Größe der doppelten Dimension (<span class="math inline">\(\mathrm{V}^2\)</span>). Genau das schließt die Zerlegung <span class="math inline">\(U = \{U\}\cdot[U]\)</span> aus.</li>
+<li><strong>Normativ</strong> ist die eckige Klammer ein Operator auf Größen: <span class="math inline">\([x]\)</span> liest sich als „Einheit von <span class="math inline">\(x\)</span>“. Sie gehört immer zum Größensymbol — <span class="math inline">\([U] = \mathrm{V}\)</span> ist eine vollständige Aussage, aber <span class="math inline">\([\mathrm{V}]\)</span> ist nicht definiert, denn <span class="math inline">\(\mathrm{V}\)</span> ist eine Einheit, keine Größe. Tabellen- und Achsenbeschriftungen tragen deshalb den Quotienten <span class="math inline">\(U/\mathrm{V}\)</span> (das ist der Zahlenwert <span class="math inline">\(\{U\}\)</span>) oder die Umschreibung „<span class="math inline">\(U\)</span> in V”.</li>
+<li><strong>Mathematisch</strong> gilt <span class="math inline">\(x = \{x\}\cdot[x]\)</span> als echtes Produkt. Eine Zahl wie <span class="math inline">\(10\)</span> hat keine Einheit — <span class="math inline">\([10]\)</span> ist bedeutungslos. Eine Tabellenspalte mit der Überschrift „<span class="math inline">\(U\)</span> [V]“ folgt dagegen nicht automatisch der algebraischen Schreibweise; die Klammer wird dort nur uneinheitlich zur Kennzeichnung der Einheit verwendet. Die eindeutige formale Schreibweise für Zahlenwerte ist <span class="math inline">\(U/\mathrm{V}\)</span> beziehungsweise <span class="math inline">\(\{U\}\)</span>.</li>
 </ul>
-<p>Korrekt ist im Fließtext <span class="math inline">\(U = 10\ \mathrm{V}\)</span>. Für Tabellen und Grafiken empfiehlt ISO 80000-1:2022 die Quotientenform <span class="math inline">\(U/\mathrm{V}\)</span> (liefert direkt den Zahlenwert <span class="math inline">\(\{U\}\)</span>); daneben ist im deutschsprachigen Raum die Umschreibung „U in V” üblich — in diesem Buch wird durchgängig <strong>„U in V”</strong> verwendet:</p>
+<p>Korrekt ist im Fließtext <span class="math inline">\(U = 10\ \mathrm{V}\)</span>. Für Tabellen und Grafiken empfiehlt ISO 80000-1:2022 die Quotientenform <span class="math inline">\(U/\mathrm{V}\)</span> (liefert direkt den Zahlenwert <span class="math inline">\(\{U\}\)</span>); daneben ist im deutschsprachigen Raum die Umschreibung „<span class="math inline">\(U\)</span> in V” üblich — in diesem Buch wird durchgängig <strong>„<span class="math inline">\(U\)</span> in V”</strong> verwendet:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -548,17 +550,17 @@ U = 0.01 \mathrm{kV}
 <tr class="even">
 <td>Tabellenkopf</td>
 <td>U [V]</td>
-<td>U in V</td>
+<td><span class="math inline">\(U\)</span> in V</td>
 </tr>
 <tr class="odd">
 <td>Achsenbeschriftung</td>
 <td>U [V]</td>
-<td>U in V</td>
+<td><span class="math inline">\(U\)</span> in V</td>
 </tr>
 <tr class="even">
 <td>Messreihe mit Zahlenwerten</td>
 <td>U [V]</td>
-<td>U in V (Spalte enthält 10; z. B. 10,2; 9,8)</td>
+<td><span class="math inline">\(U\)</span> in V (Spalte enthält 10; z. B. 10,2; 9,8)</td>
 </tr>
 </tbody>
 </table>
@@ -566,8 +568,8 @@ U = 0.01 \mathrm{kV}
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th style="text-align: right;">t in ms</th>
-<th style="text-align: right;">U in V</th>
+<th style="text-align: right;"><span class="math inline">\(t\)</span> in ms</th>
+<th style="text-align: right;"><span class="math inline">\(U\)</span> in V</th>
 </tr>
 </thead>
 <tbody>
@@ -590,6 +592,89 @@ U = 0.01 \mathrm{kV}
 <h3 data-number="1.1.2" class="anchored" data-anchor-id="si-basiseinheiten"><span class="header-section-number">1.1.2</span> SI-Basiseinheiten</h3>
 <ul>
 <li>Sieben SI-Basiseinheiten (m, kg, s, A, K, mol, cd); alle weiteren Einheiten sind daraus abgeleitet <span class="citation" data-cites="bipm2019si">[<a href="#ref-bipm2019si" role="doc-biblioref">3</a>]</span>.</li>
+<li>Seit der Neudefinition des SI (Beschluss der 26. CGPM 2018, in Kraft seit
+<ol start="20" type="1">
+<li>Mai 2019) ist jede Basiseinheit über eine Naturkonstante mit exakt festgelegtem Wert definiert — nicht mehr über ein Artefakt (Urkilogramm) oder eine experimentelle Bedingung <span class="citation" data-cites="bipm2019si">[<a href="#ref-bipm2019si" role="doc-biblioref">3</a>]</span>.</li>
+</ol></li>
+</ul>
+<div id="tbl-si-def" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-si-def-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;1.1: Die sieben SI-Basiseinheiten: jede ist über eine Naturkonstante mit exakt festgelegtem Wert definiert <span class="citation" data-cites="bipm2019si">[<a href="#ref-bipm2019si" role="doc-biblioref">3</a>]</span>.
+</figcaption>
+<div aria-describedby="tbl-si-def-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Einheit</th>
+<th>Symbol</th>
+<th>über die festgelegte Konstante</th>
+<th>gilt seit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sekunde</td>
+<td>s</td>
+<td>Caesiumfrequenz <span class="math inline">\(\Delta\nu_{\mathrm{Cs}} = 9\,192\,631\,770\ \mathrm{Hz}\)</span></td>
+<td>1967 (in der heutigen Form 2019)</td>
+</tr>
+<tr class="even">
+<td>Meter</td>
+<td>m</td>
+<td>Lichtgeschwindigkeit <span class="math inline">\(c = 299\,792\,458\ \mathrm{m/s}\)</span></td>
+<td>1983</td>
+</tr>
+<tr class="odd">
+<td>Kilogramm</td>
+<td>kg</td>
+<td>Planck-Konstante <span class="math inline">\(h = 6{,}626\,070\,15\times10^{-34}\ \mathrm{J\,s}\)</span></td>
+<td>2019</td>
+</tr>
+<tr class="even">
+<td>Ampere</td>
+<td>A</td>
+<td>Elementarladung <span class="math inline">\(e = 1{,}602\,176\,634\times10^{-19}\ \mathrm{C}\)</span></td>
+<td>2019</td>
+</tr>
+<tr class="odd">
+<td>Kelvin</td>
+<td>K</td>
+<td>Boltzmann-Konstante <span class="math inline">\(k = 1{,}380\,649\times10^{-23}\ \mathrm{J/K}\)</span></td>
+<td>2019</td>
+</tr>
+<tr class="even">
+<td>Mol</td>
+<td>mol</td>
+<td>Avogadro-Konstante <span class="math inline">\(N_{\mathrm{A}} = 6{,}022\,140\,76\times10^{23}\ \mathrm{mol^{-1}}\)</span></td>
+<td>2019</td>
+</tr>
+<tr class="odd">
+<td>Candela</td>
+<td>cd</td>
+<td>Photometrisches Strahlungsäquivalent <span class="math inline">\(K_{\mathrm{cd}} = 683\ \mathrm{lm/W}\)</span></td>
+<td>1979 (in der heutigen Form 2019)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Beispiele, wie die festgelegte Konstante die jeweilige Einheit festlegt:</p>
+<ul>
+<li><strong>Sekunde:</strong> Der Übergang zwischen den beiden Hyperfeinstruktur-Niveaus des Grundzustands von <span class="math inline">\(^{133}\mathrm{Cs}\)</span> entspricht einer Strahlung mit <span class="math inline">\(\Delta\nu_{\mathrm{Cs}} = 9\,192\,631\,770\ \mathrm{Hz}\)</span> — die Sekunde ist die Dauer von genau so vielen Schwingungsperioden.</li>
+<li><strong>Meter:</strong> Licht im Vakuum legt in einer Sekunde genau <span class="math inline">\(299\,792\,458\ \mathrm{m}\)</span> zurück; der Meter ist damit über die Sekunde und <span class="math inline">\(c\)</span> definiert.</li>
+<li><strong>Kilogramm:</strong> Fixiert man <span class="math inline">\(h\)</span>, so legen die bereits definierten Einheiten Meter und Sekunde das Kilogramm fest.</li>
+<li><strong>Ampere:</strong> Über <span class="math inline">\(e\)</span> sind die elektrischen Einheiten an die mechanischen gekoppelt.</li>
+<li><strong>Kelvin:</strong> <span class="math inline">\(k\)</span> verknüpft Temperatur und Energie; das Kelvin ist die Temperaturänderung, die einer Energieänderung von genau <span class="math inline">\(1{,}380\,649\times10^{-23}\ \mathrm{J}\)</span> entspricht.</li>
+<li><strong>Mol:</strong> Das Mol ist die Stoffmenge, die aus genau <span class="math inline">\(N_{\mathrm{A}}\)</span> (also <span class="math inline">\(6{,}022\,140\,76\times10^{23}\)</span>) Einheiten (Atome, Moleküle, …) besteht.</li>
+<li><strong>Candela:</strong> Das photometrische Strahlungsäquivalent <span class="math inline">\(K_{\mathrm{cd}} = 683\ \mathrm{lm/W}\)</span> koppelt Lichtstärke und Strahlungsleistung: Bei monochromatischer Strahlung der Frequenz <span class="math inline">\(540\times10^{12}\ \mathrm{Hz}\)</span> entspricht in einer gegebenen Richtung eine Strahlstärke von <span class="math inline">\(1\ \mathrm{W/sr}\)</span> einer Lichtstärke von <span class="math inline">\(683\ \mathrm{cd}\)</span>. Zusammen mit den Definitionen von Meter und Sekunde sind damit alle sieben Basiseinheiten über Naturkonstanten festgelegt.</li>
 </ul>
 <div id="fig-si-units" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -608,7 +693,7 @@ Abbildung&nbsp;1.1: Die sieben SI-Basiseinheiten und ihre Symbole (DePiep, <a hr
 <li>Abgeleitete Einheiten entstehen durch Multiplikation, Division und Potenzierung der Basiseinheiten — z. B. Geschwindigkeit in m/s, Dichte in kg/m³, Kraft in kg·m/s².</li>
 <li>Viele davon haben eigene Namen und Zeichen, die im Alltag geläufiger sind als die Basiseinheiten-Kombination: Volt, Watt, Newton, Pascal. Auch diese sind nichts anderes als Basiseinheiten-Kombinationen — als reine <strong>Einheitengleichung</strong> (beide Seiten sind Einheiten, keine Größen):</li>
 </ul>
-<div id="2df62bc0" class="cell" data-execution_count="5">
+<div id="cdb33781" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>V_u <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="dv">\m</span><span class="vs">athrm{V}'</span>)</span>
@@ -633,7 +718,7 @@ Abbildung&nbsp;1.1: Die sieben SI-Basiseinheiten und ihre Symbole (DePiep, <a hr
 <h3 data-number="1.1.4" class="anchored" data-anchor-id="einheitenvorsätze"><span class="header-section-number">1.1.4</span> Einheitenvorsätze</h3>
 <ul>
 <li>Häufige Vorsätze <span class="citation" data-cites="bipm2019si">[<a href="#ref-bipm2019si" role="doc-biblioref">3</a>]</span>: Mega (<span class="math inline">\(M = 10^{6}\)</span>), Kilo (<span class="math inline">\(k = 10^{3}\)</span>), Milli (<span class="math inline">\(m = 10^{-3}\)</span>), Mikro (<span class="math inline">\(\mu = 10^{-6}\)</span>), Nano (<span class="math inline">\(n = 10^{-9}\)</span>), Piko (<span class="math inline">\(p = 10^{-12}\)</span>).</li>
-<li>Vorsätze so wählen, dass der Zahlenwert zwischen 1 und 999 liegt: Es stehen dann nie mehr als drei Ziffern vor dem Komma und niemals eine 0 davor — <span class="math inline">\(12{,}5\ \mathrm{km}\)</span> statt <span class="math inline">\(12\,500\ \mathrm{m}\)</span>, <span class="math inline">\(750\ \mathrm{mA}\)</span> statt <span class="math inline">\(0{,}75\ \mathrm{A}\)</span>.</li>
+<li>Als praktische Schreibregel Vorsätze so wählen, dass der Zahlenwert zwischen 1 und 999 liegt: Es stehen dann nie mehr als drei Ziffern vor dem Komma und niemals eine 0 davor — <span class="math inline">\(12{,}5\ \mathrm{km}\)</span> statt <span class="math inline">\(12\,500\ \mathrm{m}\)</span>, <span class="math inline">\(750\ \mathrm{mA}\)</span> statt <span class="math inline">\(0{,}75\ \mathrm{A}\)</span>.</li>
 </ul>
 </section>
 </section>
@@ -651,7 +736,7 @@ Abbildung&nbsp;1.1: Die sieben SI-Basiseinheiten und ihre Symbole (DePiep, <a hr
 <ul>
 <li>Die Messung wird als Modell beschrieben — die Messgröße ist eine Funktion der Eingangsgrößen mit ihren besten Schätzwerten.</li>
 </ul>
-<div id="40cb02d6" class="cell" data-execution_count="6">
+<div id="1028cc37" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>X_in <span class="op">=</span> symbols(<span class="st">'X_1:4'</span>)</span>
@@ -674,10 +759,28 @@ Y = f{\left(X_{1},X_{2},X_{3} \right)}
 <li><strong>Systematische Einflüsse</strong> (Kalibrierabweichung, Rückwirkung des Messgeräts, Einflussgrößen wie Temperatur) werden bestimmt und <strong>korrigiert</strong>; ihr verbleibender Anteil geht ins Budget.</li>
 <li><strong>Grobe Fehler</strong> (Fehlbedienung, Überlastung) sind <em>keine</em> Unsicherheit — sie erzeugen ungültige Messwerte: erkennen (Plausibilität), verwerfen, wiederholen.</li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Begriffe abgrenzen: Messabweichung und Messunsicherheit
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In älterer Fachliteratur und Datenblättern begegnet man statt dessen auch heute noch „Messfehler”, „zufälliger Fehler”, „grober Fehler” oder der „Fehlergrenze”. Diese Ausdrücke sind in der gültigen Terminologie durch schärfere Begriffe ersetzt — wer heute normgerecht über Messungen spricht, trennt drei Dinge, die früher in einem Wort zusammenfielen:</p>
+<ul>
+<li><strong>Messabweichung</strong> (engl. <em>measurement error</em>): Differenz zwischen dem Messwert und einem Referenzwert <span class="citation" data-cites="jcgm200_2012">[<a href="#ref-jcgm200_2012" role="doc-biblioref">6</a>]</span>. Sie gehört zu einer konkreten Messung und ist im Allgemeinen selbst unbekannt, weil schon der Referenzwert nur mit eigener Unsicherheit vorliegt. Formen: die <em>systematische Messabweichung</em> (bleibt unter Wiederholbedingungen erhalten, ihr Schätzwert wird über eine Korrektur berücksichtigt) und die <em>zufällige Messabweichung</em> (ändert sich bei Wiederholungen unvorhersehbar). „Fehlergrenzen“ oder Toleranzgrenzen können weiterhin in Spezifikationen zur Beurteilung einer Abweichung verwendet werden. Sie sind jedoch keine Messunsicherheit und ersetzen bei der Angabe eines Messergebnisses nicht die erweiterte Messunsicherheit <span class="math inline">\(U\)</span>.</li>
+<li><strong>Messunsicherheit</strong>: Kennzahl für die Streuung der plausiblen Werte der Messgröße — sie charakterisiert die Qualität des Messergebnisses und ist vom Begriff der Messabweichung streng zu trennen. Beide beantworten unterschiedliche Fragen: Die Messabweichung vergleicht <em>einen</em> Messwert mit dem Referenzwert, die Messunsicherheit beschreibt die Streubreite, mit der dieser Messwert behaftet ist. Messabweichung und Messunsicherheit dürfen daher nicht synonym verwendet (2.16, Anm.) — auch ein Messwert mit kleiner Messunsicherheit kann eine große Messabweichung haben, und umgekehrt.</li>
+</ul>
+<p>Die Konsequenz für dieses Buch: Es gibt nicht den „wahren Wert plus Fehler”, sondern einen <strong>Schätzwert</strong> und eine <strong>Messunsicherheit</strong> — genau wie im Abschnitt <a href="#sec-mt-gum" class="quarto-xref"><span>Kapitel 1.3</span></a> dargestellt. Die klassische Fehlerrechnung bleibt als Denkhilfe nützlich, ihre Fachbegriffe sind jedoch überholt und werden hier bewusst nicht mehr verwendet.</p>
+</div>
+</div>
 <section id="sec-mt-typA" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="sec-mt-typA"><span class="header-section-number">1.3.1</span> Typ-A-Bewertung: statistisch</h3>
 <p>Aus <span class="math inline">\(n\)</span> wiederholten Messungen unter gleichen Bedingungen:</p>
-<div id="84edc91c" class="cell" data-execution_count="7">
+<div id="06ed2564" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>n_i <span class="op">=</span> Symbol(<span class="st">'n'</span>, integer<span class="op">=</span><span class="va">True</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
@@ -710,7 +813,7 @@ u_{A} = \frac{s}{\sqrt{n}}
 </div>
 </div>
 <p><strong>Beispiel</strong> — eine Messreihe von 400 Messungen einer 10-V-Referenz:</p>
-<div id="b2cf2e25" class="cell" data-execution_count="8">
+<div id="55522901" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">42</span>)</span>
@@ -721,7 +824,7 @@ u_{A} = \frac{s}{\sqrt{n}}
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>uA_num <span class="op">=</span> s_num<span class="op">/</span>np.sqrt(n_mess)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="66fbb997" class="cell" data-execution_count="9">
+<div id="010c17a0" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>xbar_v <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="dv">\b</span><span class="vs">ar{x}'</span>, description<span class="op">=</span><span class="st">'Mittelwert der Messreihe'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(xbar_num))</span>
@@ -730,13 +833,13 @@ u_{A} = \frac{s}{\sqrt{n}}
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_values([xbar_v, s_v, uA_v])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math display">\[\bar{x} = \mathtt{\text{10.1}} \ \mathtt{\text{V}}\]</span></p>
+<p><span class="math display">\[\bar{x} = \mathtt{\text{10,1}} \ \mathtt{\text{V}}\]</span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math display">\[s = \mathtt{\text{47.6}} \ \mathtt{\text{mV}}\]</span></p>
+<p><span class="math display">\[s = \mathtt{\text{47,6}} \ \mathtt{\text{mV}}\]</span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math display">\[u_{A} = \mathtt{\text{2.38}} \ \mathtt{\text{mV}}\]</span></p>
+<p><span class="math display">\[u_{A} = \mathtt{\text{2,38}} \ \mathtt{\text{mV}}\]</span></p>
 </div>
 </div>
 <div id="cell-fig-messunsicherheit" class="cell" data-execution_count="10">
@@ -765,10 +868,10 @@ Abbildung&nbsp;1.2: Typ-A-Auswertung: Streuung wiederholter Messungen um den Mit
 </div>
 </div>
 </section>
-<section id="typ-b-bewertung-nicht-statistisch" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="typ-b-bewertung-nicht-statistisch"><span class="header-section-number">1.3.2</span> Typ-B-Bewertung: nicht statistisch</h3>
+<section id="sec-mt-typb" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="sec-mt-typb"><span class="header-section-number">1.3.2</span> Typ-B-Bewertung: nicht statistisch</h3>
 <p>Aus Vorwissen: Kalibrierzertifikate, Datenblätter, Erfahrungen. Liegt eine Angabe als Intervall <span class="math inline">\(\pm a\)</span> vor (gleichförmige Verteilung):</p>
-<div id="4871c130" class="cell" data-execution_count="11">
+<div id="07f3f3ad" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a_b <span class="op">=</span> MySymbol(<span class="st">'a'</span>, description<span class="op">=</span><span class="st">'halbe Breite des angegebenen Intervalls'</span>)</span>
@@ -785,8 +888,8 @@ u_{B} = \frac{\sqrt{3} a}{3}
 \tag{1.9}\]</span></span></p>
 </div>
 </div>
-<p><strong>Beispiel</strong> — DMM UT133A (siehe <a href="#fig-digital-anzeige" class="quarto-xref">Abbildung&nbsp;<span>1.4</span></a>), Gleichspannung im 60-V-Bereich: Angabe <span class="math inline">\(\pm(0{,}7\,\%\,\mathrm{v.\,M.} + 3\ \mathrm{digits})\)</span> <span class="citation" data-cites="unit_ut133a_manual">[<a href="#ref-unit_ut133a_manual" role="doc-biblioref">6</a>]</span>, Anzeige 10,00 V (1 digit = 10 mV):</p>
-<div id="598e2d87" class="cell" data-execution_count="12">
+<p><strong>Beispiel</strong> — DMM UT133A (siehe <a href="#fig-digital-anzeige" class="quarto-xref">Abbildung&nbsp;<span>1.4</span></a>), Gleichspannung im 60-V-Bereich: Angabe <span class="math inline">\(\pm(0{,}7\,\%\,\mathrm{v.\,M.} + 3\ \mathrm{digits})\)</span> <span class="citation" data-cites="unit_ut133a_manual">[<a href="#ref-unit_ut133a_manual" role="doc-biblioref">7</a>]</span>, Anzeige 10,00 V (1 digit = 10 mV):</p>
+<div id="2f1afbea" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>a_num <span class="op">=</span> <span class="fl">0.007</span><span class="op">*</span><span class="dv">10</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span><span class="fl">0.01</span></span>
@@ -799,14 +902,14 @@ u_{B} = \frac{\sqrt{3} a}{3}
 <p><span class="math display">\[a = \mathtt{\text{100}} \ \mathtt{\text{mV}}\]</span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math display">\[u_{B} = \mathtt{\text{57.7}} \ \mathtt{\text{mV}}\]</span></p>
+<p><span class="math display">\[u_{B} = \mathtt{\text{57,7}} \ \mathtt{\text{mV}}\]</span></p>
 </div>
 </div>
 </section>
 <section id="kombinierte-und-erweiterte-unsicherheit" class="level3" data-number="1.3.3">
 <h3 data-number="1.3.3" class="anchored" data-anchor-id="kombinierte-und-erweiterte-unsicherheit"><span class="header-section-number">1.3.3</span> Kombinierte und erweiterte Unsicherheit</h3>
 <p>Unsicherheitsfortpflanzung (Modell linearisiert, Empfindlichkeitskoeffizienten <span class="math inline">\(c_i = \partial f/\partial x_i\)</span>):</p>
-<div id="ca01c138" class="cell" data-execution_count="13">
+<div id="c6ea11b4" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>N_k <span class="op">=</span> Symbol(<span class="st">'N'</span>, integer<span class="op">=</span><span class="va">True</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
@@ -830,24 +933,115 @@ U = k u_{c}
 \tag{1.11}\]</span></span></p>
 </div>
 </div>
-<p>Beides zusammen (hier <span class="math inline">\(c_1 = c_2 = 1\)</span>) und Ergebnisangabe mit <span class="math inline">\(k = 2\)</span> (ca. 95 % Überdeckung):</p>
-<div id="c81e33ff" class="cell" data-execution_count="14">
+<p>Die folgenden zwei Beispiele durchspielen die komplette Auswertung bis zur Ergebnisangabe in der Form <span class="math inline">\(Y = (y \pm U)\)</span> mit <span class="math inline">\(k = 2\)</span> (ca. 95 % Überdeckung, begründete Wahl von <span class="math inline">\(k\)</span>: siehe <a href="../Anhang/xx_Weiterfuehrende_Themen.html" class="quarto-xref"><span>Kapitel 12</span></a>). Beide benutzen dasselbe Instrument (DMM UT133A, <a href="#fig-digital-anzeige" class="quarto-xref">Abbildung&nbsp;<span>1.4</span></a>) und unterscheiden sich nur darin, ob einmal oder wiederholt gemessen wird; in beiden Fällen wird die Spannung direkt gemessen, alle Beiträge wirken also ungeschmälert auf <span class="math inline">\(Y\)</span> (<span class="math inline">\(c_i = 1\)</span>).</p>
+</section>
+<section id="richtig-wählen-der-erweiterungsfaktor-k" class="level3" data-number="1.3.4">
+<h3 data-number="1.3.4" class="anchored" data-anchor-id="richtig-wählen-der-erweiterungsfaktor-k"><span class="header-section-number">1.3.4</span> Richtig wählen: der Erweiterungsfaktor k</h3>
+<ul>
+<li>Der Erweiterungsfaktor <span class="math inline">\(k\)</span> macht aus der Standardunsicherheit <span class="math inline">\(u_c\)</span> die <strong>erweiterte Unsicherheit</strong> <span class="math inline">\(U = k\,u_c\)</span> — das Intervall <span class="math inline">\(y \pm U\)</span> soll einen vereinbarten Anteil (meist 95 %) der plausiblen Werte der Messgröße überdecken.</li>
+<li><strong>Standard ist <span class="math inline">\(k = 2\)</span></strong> — eine Konvention (<span class="citation" data-cites="jcgm100_2008">[<a href="#ref-jcgm100_2008" role="doc-biblioref">4</a>]</span>, Anhang G), kein Rechenergebnis. Sie setzt voraus, dass die Ausgangsgröße näherungsweise normalverteilt ist und <span class="math inline">\(u_c\)</span> mit genügend Messwerten bzw. Beiträgen bestimmt wurde. Dann gilt:</li>
+</ul>
+<div id="eaa7d1c2" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>uc_num <span class="op">=</span> np.sqrt(<span class="bu">float</span>(uA_num)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="bu">float</span>(uB_num)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>U_num <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>uc_num</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>uc_v <span class="op">=</span> MySymbol(<span class="vs">r'u_c'</span>, description<span class="op">=</span><span class="st">'kombinierte Standardunsicherheit'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(uc_num))</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>U_v <span class="op">=</span> MySymbol(<span class="st">'U'</span>, description<span class="op">=</span><span class="st">'erweiterte Unsicherheit (k = 2)'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(U_num))</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_values([uc_v, U_v])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>table_zeilen <span class="op">=</span> []</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> kk <span class="kw">in</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]:</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    p_prozent <span class="op">=</span> <span class="dv">100</span><span class="op">*</span><span class="bu">float</span>(erf(kk<span class="op">/</span>sqrt(<span class="dv">2</span>)))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    table_zeilen.append(<span class="ss">f'| </span><span class="sc">{</span>kk<span class="sc">}</span><span class="ss"> | </span><span class="sc">{</span><span class="bu">str</span>(<span class="bu">round</span>(p_prozent, <span class="dv">1</span>))<span class="sc">.</span>replace(<span class="st">"."</span>, <span class="st">","</span>)<span class="sc">}</span><span class="ss"> % |'</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>display(Markdown(<span class="st">'| '</span> <span class="op">+</span> latex(k_s) <span class="op">+</span> <span class="st">' | Überdeckungswahrscheinlichkeit (normalverteilt) |</span><span class="ch">\n</span><span class="st">|--:|--:|</span><span class="ch">\n</span><span class="st">'</span> <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>.join(table_zeilen)))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math display">\[u_{c} = \mathtt{\text{57.8}} \ \mathtt{\text{mV}}\]</span></p>
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">k</th>
+<th style="text-align: right;">Überdeckungswahrscheinlichkeit (normalverteilt)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">68,3 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">95,4 %</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">99,7 %</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li>In den beiden Beispielen unten ist <span class="math inline">\(k = 2\)</span> die richtige Wahl. Sonderfälle (nur wenige Messwerte, dominierender Typ-B-Beitrag, Zertifikats-<span class="math inline">\(k\)</span>) sind selten und werden im Kapitel <strong>Weiterführende Themen</strong> behandelt (siehe <a href="../Anhang/xx_Weiterfuehrende_Themen.html" class="quarto-xref"><span>Kapitel 12</span></a>). Der gewählte Wert von <span class="math inline">\(k\)</span> gehört <strong>immer</strong> mit in die Ergebnisangabe — ohne <span class="math inline">\(k\)</span> ist <span class="math inline">\(U\)</span> nicht interpretierbar (<span class="citation" data-cites="jcgm100_2008">[<a href="#ref-jcgm100_2008" role="doc-biblioref">4</a>]</span>, Abschnitt 7.1.2).</li>
+</ul>
+</section>
+<section id="sec-mt-bsp-einzeln" class="level3" data-number="1.3.5">
+<h3 data-number="1.3.5" class="anchored" data-anchor-id="sec-mt-bsp-einzeln"><span class="header-section-number">1.3.5</span> Beispiel 1: Einzelmessung einer Spannung</h3>
+<p><strong>Situation:</strong> Die Spannung einer stabilen Quelle wird mit dem UT133A im 60-V-Gleichspannungsbereich <strong>einmalig</strong> gemessen; die Anzeige zeigt 10,00 V.</p>
+<p><strong>Auswertung Schritt für Schritt:</strong></p>
+<ol type="1">
+<li><strong>Messmodell:</strong> Direkte Messung — der Schätzwert der Messgröße ist die Anzeige <span class="math inline">\(y = 10{,}00\ \mathrm{V}\)</span>. Alle übrigen Einflüsse (Kalibrier- abweichung, Auflösung, Einflussgrößen) stecken in den Unsicherheitsbeiträgen des Budgets.</li>
+<li><strong>Typ A entfällt:</strong> Mit nur einem Messwert lässt sich keine Streuung schätzen — die zufällige Messabweichung bleibt unentdeckt. Die gesamte Unsicherheit kommt aus Vorwissen (Typ B). Deshalb ist die Aussage einer Einzelmessung von vornherein schwächer: Sie beschreibt in erster Linie das Instrument, nicht die konkrete Messsituation.</li>
+<li><strong>Typ B:</strong> Herstellerangabe wie im Abschnitt Typ-B-Bewertung: <span class="math inline">\(\pm(0{,}7\,\%\,\mathrm{v.\,M.} + 3\ \mathrm{digits})\)</span> <span class="citation" data-cites="unit_ut133a_manual">[<a href="#ref-unit_ut133a_manual" role="doc-biblioref">7</a>]</span>, Anzeige 10,00 V → <span class="math inline">\(a = 0{,}10\ \mathrm{V}\)</span>, <span class="math inline">\(u_B = a/\sqrt{3}\)</span>. Die Auflösung (10 mV) ist in dieser Angabe bereits enthalten — sie darf <strong>nicht</strong> zusätzlich ins Budget aufgenommen werden (Doppelzählung).</li>
+<li><strong>Kombiniert und erweitert:</strong> Mit nur einem Beitrag gilt <span class="math inline">\(u_c = u_B\)</span>; die erweiterte Unsicherheit ist <span class="math inline">\(U = 2\,u_c\)</span>.</li>
+</ol>
+<div id="7c338035" class="cell" data-execution_count="15">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>uc_einzel <span class="op">=</span> <span class="bu">float</span>(uB_num)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>U_einzel <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>uc_einzel</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>uc_einzel_v <span class="op">=</span> MySymbol(<span class="vs">r'u_c'</span>, description<span class="op">=</span><span class="st">'kombinierte Standardunsicherheit (nur Typ-B-Beitrag)'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span>uc_einzel)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>U_einzel_v <span class="op">=</span> MySymbol(<span class="st">'U'</span>, description<span class="op">=</span><span class="st">'erweiterte Unsicherheit (k = 2)'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span>U_einzel)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_values([uc_einzel_v, U_einzel_v])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math display">\[u_{c} = \mathtt{\text{57,7}} \ \mathtt{\text{mV}}\]</span></p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math display">\[U = \mathtt{\text{115}} \ \mathtt{\text{mV}}\]</span></p>
+</div>
+</div>
+<ol start="5" type="1">
+<li><p><strong>Runden und angeben:</strong> <span class="math inline">\(U\)</span> wird auf zwei signifikante Stellen gerundet (0,115 V → 0,12 V), der Schätzwert auf dieselbe Dezimalstelle (GUM <span class="citation" data-cites="jcgm100_2008">[<a href="#ref-jcgm100_2008" role="doc-biblioref">4</a>]</span>, Abschnitt 7.2.6):</p>
+<p><span class="math display">\[Y = (10{,}00 \pm 0{,}12)\ \mathrm{V} \quad\text{bei } k = 2\]</span></p>
+<p>Gelesen: Das Intervall <span class="math inline">\([9{,}88;\ 10{,}12]\ \mathrm{V}\)</span> ist die mit dem Erweiterungsfaktor <span class="math inline">\(k=2\)</span> angegebene erweiterte Unsicherheit. Da hier ein Typ-B-Beitrag mit angenommener Rechteckverteilung dominiert, darf daraus nicht ohne Weiteres eine Überdeckungswahrscheinlichkeit von 95 % abgeleitet werden.</p></li>
+</ol>
+</section>
+<section id="sec-mt-bsp-wdh" class="level3" data-number="1.3.6">
+<h3 data-number="1.3.6" class="anchored" data-anchor-id="sec-mt-bsp-wdh"><span class="header-section-number">1.3.6</span> Beispiel 2: Wiederholte Messung einer Spannung (DAQ)</h3>
+<p><strong>Situation:</strong> Dieselbe Quelle wird nicht einmalig abgelesen, sondern mit <strong>DAQ-Hardware</strong> (<em>Data Acquisition</em>) wiederholt erfasst — so läuft das in der Praxis fast immer: Wiederholte Messungen liest man nicht Messwert für Messwert per Hand ab, sondern nimmt sie automatisch auf.</p>
+<ul>
+<li>Multifunktions-Erfassungskarten, kompakte USB-DAQ-Module oder Datenlogger tasten das Messsignal in festen Abständen ab und speichern die ganze Messreihe mit Zeitstempeln — hunderte bis hunderttausende Messwerte entstehen ohne Zusatzaufwand.</li>
+<li>Das große <span class="math inline">\(n\)</span> macht die Typ-A-Bewertung billig: <span class="math inline">\(u_A = s/\sqrt{n}\)</span> fällt mit <span class="math inline">\(1/\sqrt{n}\)</span>.</li>
+<li>Die Typ-B-Beiträge (Kalibrierabweichung, Auflösung) ändern sich durch die Wiederholung <strong>nicht</strong> — sie beschreiben das Instrument, nicht die Anzahl der Messungen.</li>
+</ul>
+<p><strong>Auswertung:</strong> Messreihe wie im Abschnitt Typ-A-Bewertung (400 Messwerte, simuliert als DAQ-Aufnahme einer 10-V-Referenz): daraus <span class="math inline">\(u_A = 0{,}0025\ \mathrm{V}\)</span>; aus der Herstellerangabe wie in Beispiel 1 <span class="math inline">\(u_B = 0{,}058\ \mathrm{V}\)</span>. Mit <span class="math inline">\(c_1 = c_2 = 1\)</span>:</p>
+<div id="39bd1470" class="cell" data-execution_count="16">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>uc_wdh <span class="op">=</span> np.sqrt(<span class="bu">float</span>(uA_num)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="bu">float</span>(uB_num)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>U_wdh <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>uc_wdh</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>uc_wdh_v <span class="op">=</span> MySymbol(<span class="vs">r'u_c'</span>, description<span class="op">=</span><span class="st">'kombinierte Standardunsicherheit (Typ A + Typ B)'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(uc_wdh))</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>U_wdh_v <span class="op">=</span> MySymbol(<span class="st">'U'</span>, description<span class="op">=</span><span class="st">'erweiterte Unsicherheit (k = 2)'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="bu">float</span>(U_wdh))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_values([uc_wdh_v, U_wdh_v])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math display">\[u_{c} = \mathtt{\text{57,8}} \ \mathtt{\text{mV}}\]</span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math display">\[U = \mathtt{\text{116}} \ \mathtt{\text{mV}}\]</span></p>
 </div>
 </div>
-<p><span class="math display">\[Y = (y \pm U)\quad\text{bei } k = 2\]</span></p>
+<p><span class="math display">\[Y = (10{,}08 \pm 0{,}12)\ \mathrm{V} \quad\text{bei } k = 2\]</span></p>
+<p><strong>Beobachtungen:</strong></p>
+<ul>
+<li><span class="math inline">\(u_c\)</span> ändert sich gegenüber Beispiel 1 praktisch nicht (0,0577 V → 0,0578 V): Der Typ-B-Beitrag dominiert. <strong>Wiederholungen reduzieren nur zufällige Beiträge</strong> — wer eine kleinere Unsicherheit braucht, braucht zuerst ein besseres Instrument bzw. eine Kalibrierung, nicht mehr Messungen.</li>
+<li>Das Intervall überdeckt den Referenzwert 10,00 V nicht: Der Mittelwert liegt um 0,08 V darüber — eine systematische Messabweichung. Läge die Referenz vor (Kalibrierzertifikat), würde man sie als Korrektur anbringen und nur den verbleibenden Rest ins Budget nehmen (siehe <a href="#fig-messunsicherheit" class="quarto-xref">Abbildung&nbsp;<span>1.2</span></a>).</li>
+</ul>
 </section>
 </section>
 <section id="anzeige-analog-und-digital" class="level2" data-number="1.4">
@@ -899,7 +1093,7 @@ Abbildung&nbsp;1.3: Analoges Multimeter (HARTIG &amp; HELLING VM-10K): Zeigerins
 <img src="images/Digitalanzeige_counts.jpg" class="img-fluid figure-img" width="420">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-digital-anzeige-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;1.4: Zähldisplay eines Digitalmultimeters (UNI-T UT133A): 6000 counts, maximale Anzeige 5999 — die führende Stelle ist keine volle Ziffer (sie kann nur bis „5“ anzeigen), daher spricht man von einer 3¾-stelligen Anzeige; Auflösung 1 digit; Spezifikation nach <span class="citation" data-cites="unit_ut133a_manual">[<a href="#ref-unit_ut133a_manual" role="doc-biblioref">6</a>]</span> (eigenes Foto)
+Abbildung&nbsp;1.4: Zähldisplay eines Digitalmultimeters (UNI-T UT133A): 6000 counts, maximale Anzeige 5999 — die führende Stelle ist keine volle Ziffer (sie kann nur bis „5“ anzeigen), daher spricht man von einer 3¾-stelligen Anzeige; Auflösung 1 digit; Spezifikation nach <span class="citation" data-cites="unit_ut133a_manual">[<a href="#ref-unit_ut133a_manual" role="doc-biblioref">7</a>]</span> (eigenes Foto)
 </figcaption>
 </figure>
 </div>
@@ -907,17 +1101,17 @@ Abbildung&nbsp;1.4: Zähldisplay eines Digitalmultimeters (UNI-T UT133A): 6000 c
 <section id="auflösung-und-genauigkeit" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="auflösung-und-genauigkeit"><span class="header-section-number">1.5</span> Auflösung und Genauigkeit</h2>
 <ul>
-<li><strong>Auflösung:</strong> kleinste unterscheidbare Wertänderung. Digital: <span class="math inline">\(Q = \text{Endwert}/\text{counts}\)</span> (3½-stellig: 1999 counts; UT133A wie in <a href="#fig-digital-anzeige" class="quarto-xref">Abbildung&nbsp;<span>1.4</span></a>: 5999 counts <span class="citation" data-cites="unit_ut133a_manual">[<a href="#ref-unit_ut133a_manual" role="doc-biblioref">6</a>]</span>).</li>
+<li><strong>Auflösung:</strong> kleinste unterscheidbare Wertänderung. Digital: <span class="math inline">\(Q = \text{Endwert}/\text{counts}\)</span> (3½-stellig: 1999 counts; UT133A wie in <a href="#fig-digital-anzeige" class="quarto-xref">Abbildung&nbsp;<span>1.4</span></a>: 5999 counts <span class="citation" data-cites="unit_ut133a_manual">[<a href="#ref-unit_ut133a_manual" role="doc-biblioref">7</a>]</span>).</li>
 <li><strong>Genauigkeit (analog):</strong> Genauigkeitsklasse <span class="math inline">\(p\)</span> — zulässige Messabweichung bezogen auf den Messbereichs-Endwert:</li>
 </ul>
-<div id="bf29ca16" class="cell" data-execution_count="15">
+<div id="79c11118" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>p_kl <span class="op">=</span> MySymbol(<span class="st">'p'</span>, description<span class="op">=</span><span class="st">'Genauigkeitsklasse in %'</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>x_end <span class="op">=</span> MySymbol(<span class="vs">r'x_{Endwert}'</span>, description<span class="op">=</span><span class="st">'Messbereichs-Endwert'</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>dx_max <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="dv">\D</span><span class="vs">elta x_{max}'</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([p_kl, x_end])</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(dx_max, p_kl<span class="op">/</span><span class="dv">100</span><span class="op">*</span>x_end), label<span class="op">=</span><span class="st">'eq-klasse'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>p_kl <span class="op">=</span> MySymbol(<span class="st">'p'</span>, description<span class="op">=</span><span class="st">'Genauigkeitsklasse in %'</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>x_end <span class="op">=</span> MySymbol(<span class="vs">r'x_{Endwert}'</span>, description<span class="op">=</span><span class="st">'Messbereichs-Endwert'</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>dx_max <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="dv">\D</span><span class="vs">elta x_{max}'</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([p_kl, x_end])</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(dx_max, p_kl<span class="op">/</span><span class="dv">100</span><span class="op">*</span>x_end), label<span class="op">=</span><span class="st">'eq-klasse'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(p\)</span> … Genauigkeitsklasse in %</p>
@@ -931,17 +1125,17 @@ Abbildung&nbsp;1.4: Zähldisplay eines Digitalmultimeters (UNI-T UT133A): 6000 c
 \tag{1.12}\]</span></span></p>
 </div>
 </div>
-<p>Genau genommen bezieht die Genauigkeitsklasse nach IEC 60051-1 <span class="citation" data-cites="iec60051_1">[<a href="#ref-iec60051_1" role="doc-biblioref">7</a>]</span> sich auf die <strong>Bezugsgröße</strong> (<em>fiducial value</em>) des Instruments: Bei den meisten Strom- und Spannungsmessern ist das der Messbereichs-Endwert (obige Gleichung), bei Instrumenten mit unterdrücktem Nullpunkt oder anderen Skalenformen kann sie davon abweichen.</p>
+<p>Genau genommen bezieht die Genauigkeitsklasse nach IEC 60051-1 <span class="citation" data-cites="iec60051_1">[<a href="#ref-iec60051_1" role="doc-biblioref">8</a>]</span> sich auf die <strong>Bezugsgröße</strong> (<em>fiducial value</em>) des Instruments: Bei den meisten Strom- und Spannungsmessern ist das der Messbereichs-Endwert (obige Gleichung), bei Instrumenten mit unterdrücktem Nullpunkt oder anderen Skalenformen kann sie davon abweichen.</p>
 <ul>
 <li><strong>Genauigkeit (digital):</strong> Herstellerangabe</li>
 </ul>
-<div id="228571df" class="cell" data-execution_count="16">
+<div id="2b45abf2" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>a_prz <span class="op">=</span> Symbol(<span class="st">'a'</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>n_dig <span class="op">=</span> Symbol(<span class="st">'n'</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>x_mess <span class="op">=</span> Symbol(<span class="vs">r'x_{mess}'</span>)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(Symbol(<span class="vs">r'</span><span class="dv">\D</span><span class="vs">elta x'</span>), a_prz<span class="op">/</span><span class="dv">100</span><span class="op">*</span>x_mess <span class="op">+</span> n_dig<span class="op">*</span>Symbol(<span class="vs">r'</span><span class="dv">\m</span><span class="vs">athrm{digit}'</span>)), label<span class="op">=</span><span class="st">'eq-dmm-genauigkeit'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>a_prz <span class="op">=</span> Symbol(<span class="st">'a'</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>n_dig <span class="op">=</span> Symbol(<span class="st">'n'</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>x_mess <span class="op">=</span> Symbol(<span class="vs">r'x_{mess}'</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(Symbol(<span class="vs">r'</span><span class="dv">\D</span><span class="vs">elta x'</span>), a_prz<span class="op">/</span><span class="dv">100</span><span class="op">*</span>x_mess <span class="op">+</span> n_dig<span class="op">*</span>Symbol(<span class="vs">r'</span><span class="dv">\m</span><span class="vs">athrm{digit}'</span>)), label<span class="op">=</span><span class="st">'eq-dmm-genauigkeit'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-dmm-genauigkeit"><span class="math display">\[
@@ -970,11 +1164,14 @@ Abbildung&nbsp;1.4: Zähldisplay eines Digitalmultimeters (UNI-T UT133A): 6000 c
 <div id="ref-jcgm104_2011de" class="csl-entry" role="listitem">
 <div class="csl-left-margin">5. </div><div class="csl-right-inline">Joint Committee for Guides in Metrology (JCGM) (2011) <a href="https://www.ptb.de/cms/fileadmin/internet/fachabteilungen/abteilung_8/8.4_mathematische_modellierung/8.40/JCGM_104_2009_DE_2011-03-30.pdf">Fortentwicklung des Leitfadens zur Angabe der Messunsicherheit (Deutsche Fassung JCGM 104:2009)</a>. Physikalisch-Technische Bundesanstalt (PTB)</div>
 </div>
+<div id="ref-jcgm200_2012" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Joint Committee for Guides in Metrology (JCGM) (2012) <a href="https://www.bipm.org/en/committees/jc/jcgm/publications">International vocabulary of metrology — Basic and general concepts and associated terms (VIM)</a>. BIPM</div>
+</div>
 <div id="ref-unit_ut133a_manual" class="csl-entry" role="listitem">
-<div class="csl-left-margin">6. </div><div class="csl-right-inline">Uni-Trend Technology (China) Co., Ltd. (2018) UT133A/UT133B Digital Multimeter User Manual. <a href="https://meters.uni-trend.com/download/ut133a-b-user-manual/">https://meters.uni-trend.com/download/ut133a-b-user-manual/</a>. Accessed 18 Nov 2026</div>
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">Uni-Trend Technology (China) Co., Ltd. (2018) UT133A/UT133B Digital Multimeter User Manual. <a href="https://meters.uni-trend.com/download/ut133a-b-user-manual/">https://meters.uni-trend.com/download/ut133a-b-user-manual/</a>. Accessed 18 Nov 2026</div>
 </div>
 <div id="ref-iec60051_1" class="csl-entry" role="listitem">
-<div class="csl-left-margin">7. </div><div class="csl-right-inline">International Electrotechnical Commission (IEC) (2016) <a href="https://webstore.iec.ch/en/publication/24122">Direct acting indicating analogue electrical measuring instruments and their accessories — Part 1: Definitions and general requirements common to all parts</a>. IEC</div>
+<div class="csl-left-margin">8. </div><div class="csl-right-inline">International Electrotechnical Commission (IEC) (2016) <a href="https://webstore.iec.ch/en/publication/24122">Direct acting indicating analogue electrical measuring instruments and their accessories — Part 1: Definitions and general requirements common to all parts</a>. IEC</div>
 </div>
 </div>
 </section>
