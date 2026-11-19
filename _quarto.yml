@@ -25,7 +25,8 @@ book:
         - Messtechnik/01.02_Strom_Spannung_Widerstand.qmd
         - Messtechnik/01.03_Digitales_Multimeter.qmd
         - Messtechnik/01.04_Kennwerte.qmd
-        - Messtechnik/Frequenz_und_Periode.ipynb  
+        - Messtechnik/01.05_Frequenz_und_Periode.qmd
+        - Messtechnik/01.06_ADW_DAW.qmd
     #- part: Drehstrom/02_Drehstrom.qmd
     #  chapters: 
     #    - Drehstrom/02.01_Grundlagen.qmd
@@ -39,9 +40,11 @@ book:
     - part: SteuerRegel/01_SteuerRegel.qmd
       chapters: 
         - SteuerRegel/01.02_Regelungstechnik.qmd
+        - SteuerRegel/01.03_SPS.qmd
     - part: Anhang/xx_Appendix.qmd
       chapters: 
         - Anhang/xx_Anhang_RLC_Analysis.qmd 
+        - Anhang/xx_Weiterfuehrende_Themen.qmd
         - Anhang/xx_Jahresplanung.qmd
 #        - SteuerRegel/Laplace.qmd
 #    - references.qmd
@@ -55,6 +58,16 @@ format:
     toc-depth: 4
     toc-expand: 4
     theme: cosmo
+    # Seitenleisten (Inhaltsverzeichnis links/rechts) per Button ein-/ausblenden
+    css: panels.css
+    include-in-header: panels-head.html
+    # breiterer Inhaltsbereich: schmaelere Raender links/rechts
+    grid:
+      body-width: 1200px
+      margin-width: 250px
+    # Interaktive HTML-Apps (iframe-Embeds) mit ins Buch-Output kopieren
+    resources:
+      - Interactive/
 #    default-image-extension: svg
 
 #  pdf:
