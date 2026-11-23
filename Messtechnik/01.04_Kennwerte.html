@@ -383,7 +383,7 @@ window.Quarto = {
 
 
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="63fd8f39" class="cell" data-execution_count="2">
+<div id="0b1226bb" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(u\)</span> … momentane Signalgroesse</p>
 </div>
@@ -412,7 +412,7 @@ window.Quarto = {
 <p>Zeitabhängige Größen <span class="math inline">\(u(t)\)</span>, <span class="math inline">\(i(t)\)</span> beschreibt man über Kennwerte, die eine ganze Periode <span class="math inline">\(T\)</span> zusammenfassen — die Mittelwerte.</p>
 <section id="definitionen" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="definitionen"><span class="header-section-number">4.1</span> Definitionen</h2>
-<div id="e049daca" class="cell" data-execution_count="3">
+<div id="3a1c0471" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>t_s, T_s <span class="op">=</span> symbols(<span class="st">'t T'</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
@@ -488,7 +488,7 @@ Abbildung&nbsp;4.1: Kennwerte am Sinus: Scheitelwert, Effektivwert und Gleichric
 <section id="am-beispiel-sinus-mit-sympy-gerechnet" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="am-beispiel-sinus-mit-sympy-gerechnet"><span class="header-section-number">4.2</span> Am Beispiel Sinus — mit SymPy gerechnet</h2>
 <p>Für <span class="math inline">\(u(t) = \sin(2\pi t/T)\)</span> liefert die Auswertung der Integrale:</p>
-<div id="25966b06" class="cell" data-execution_count="5">
+<div id="db8315c1" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>u_sin <span class="op">=</span> sin(<span class="dv">2</span><span class="op">*</span>pi<span class="op">*</span>t_s<span class="op">/</span>T_s)</span>
@@ -516,7 +516,7 @@ U = \frac{\sqrt{2}}{2}
 </div>
 </div>
 <p>Bezogen auf den Scheitelwert <span class="math inline">\(\hat{u}\)</span>:</p>
-<div id="926f2fe4" class="cell" data-execution_count="6">
+<div id="74295f61" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>hatu <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="er">\</span><span class="vs">hat{u}'</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
@@ -588,7 +588,7 @@ k_{s} = \sqrt{2}
 <li>Sinus: <span class="math inline">\(k_f = \pi/(2\sqrt{2}) \approx 1{,}11\)</span> — Gleichrichter-Messwerke skalieren den Gleichrichtwert daher mit dem Faktor 1,11 auf Sinus-RMS hoch.</li>
 </ul>
 <p><strong>Rechenbeispiel</strong> — Netzspannung mit <span class="math inline">\(\hat{u} = 325\,\mathrm{V}\)</span>:</p>
-<div id="c43ce02a" class="cell" data-execution_count="7">
+<div id="5ac7327f" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>U_netz <span class="op">=</span> MySymbol(<span class="st">'U'</span>, description<span class="op">=</span><span class="st">'Effektivwert der Netzspannung'</span>, unit<span class="op">=</span>u.volt,</span>
