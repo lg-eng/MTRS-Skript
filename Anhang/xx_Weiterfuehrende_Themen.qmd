@@ -10,7 +10,7 @@ wenige Messwerte.
 
 ```{python}
 #| echo: false
-k_s = MySymbol('k', description='Erweiterungsfaktor (Ueberdeckungsfaktor)')
+k_s = MySymbol('k', description='Erweiterungsfaktor (Überdeckungsfaktor)')
 U_s = MySymbol('U', description='erweiterte Unsicherheit')
 nu_s = MySymbol(r'\nu', description='Freiheitsgrade der Messreihe (n - 1)')
 nueff_s = MySymbol(r'\nu_{eff}', description='effektive Freiheitsgrade (Welch-Satterthwaite)')

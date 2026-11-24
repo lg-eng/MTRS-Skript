@@ -35,7 +35,7 @@ Eine Strecke (=physikalisches System) ist nicht geeignet für Testzwecke wenn z.
 * Ein fehlerhafter Regler großen Schaden anrichten kann  
 
 #### Streckenidentifikation {#sec-Streckenidentifikation}
-Als Streckenidentifikation wird der Vorgang beschrieben, von einem physikalischem System das mathematische Modell und die Übertragungsfunktion zu erstellen. Zwei Methoden, wie dieses Ziel erreicht werden kann, werden hier beschrieben.  
+Als Streckenidentifikation wird der Vorgang beschrieben, von einem physikalischen System das mathematische Modell und die Übertragungsfunktion zu erstellen. Zwei Methoden, wie dieses Ziel erreicht werden kann, werden hier beschrieben.
 
 * Der mathematische Ansatz, @sec-MathStreckenidentifikation  
 * Der messtechnische Ansatz, @sec-MessStreckenidentifikation  
@@ -60,7 +60,7 @@ Gängige Bezeichnungen der Übertragungsfunktion der einzelnen Blöcke sind wie 
 
 ```{python}
 #| code-fold: true
-G = MySymbol('G',description = 'Übertragungsfunktion der zu Regelnden Strecke')
+G = MySymbol('G',description = 'Übertragungsfunktion der zu regelnden Strecke')
 R = MySymbol('R',description = 'Übertragungsfunktion des Reglers')
 M = MySymbol('M',description = 'Übertragungsfunktion des Sensors')
 
@@ -74,9 +74,9 @@ Die komplexe Zeigerdarstellung mit einer festen Frequenz ist für sinusförmige
 Dauersignale geeignet. Für zeitveränderliche Signale werden die physikalischen
 Gleichungen in Differentialform oder als Zustandsmodell beschrieben.
 
-Um die Mathematik möglichst einfach zu halten, wird in der Regelungstechnik im Laplace Bereich gearbeitet. Dadurch ist es nicht notwendig, die Differenzialgleichung bei physikalischen Systemen, die durch eine Differenzialgleichung beschrieben werden, zu lösen.
+Um die Mathematik möglichst einfach zu halten, wird in der Regelungstechnik im Laplace-Bereich gearbeitet. Dadurch ist es nicht notwendig, die Differenzialgleichung bei physikalischen Systemen, die durch eine Differenzialgleichung beschrieben werden, zu lösen.
 
-Ein Beispiel, wie eine mathematische Streckenidentifikation abläuft, ist in Abschnitt @sec-Laplace zu finden.
+Ein Beispiel, wie eine mathematische Streckenidentifikation abläuft, ist in Kapitel @sec-Laplace zu finden.
 
 ### Messtechnische Streckenidentifikation {#sec-MessStreckenidentifikation}
 Manche Systeme sind zu komplex, um sie mathematisch zu beschreiben. Bei anderen ist das Innenverhalten nicht bekannt. In diesen Fällen kann die messtechnische Ermittlung eines Modells beziehungsweise einer Übertragungsfunktion herangezogen werden.  

@@ -6,7 +6,7 @@
 
 ```{python}
 #| echo: false
-u_s = MySymbol('u', description='momentane Signalgroesse')
+u_s = MySymbol('u', description='momentane Signalgröße')
 T_s = MySymbol('T', description='Periode')
 ub_s = MySymbol(r'\bar{u}', description='arithmetischer Mittelwert (Gleichwert)')
 ur_s = MySymbol(r'\overline{|u|}', description='Gleichrichtwert')

@@ -21,7 +21,7 @@ und speichern sie als CSV-Datei (`time_s`, `step_response`, 2001
 Stützpunkte). Die einzige Ausnahme ist System 16 (Coulomb-Reibung):
 Reibung ist nichtlinear und verletzt die Superposition, deshalb wird
 dieses System numerisch integriert (RK4 mit Stick-Erkennung). Jedes
-System wird über seinem eigenen Zeitfenster abgetastet — etwa 4 bis 5
+System wird in seinem eigenen Zeitfenster abgetastet — etwa 4 bis 5
 Zeitkonstanten —, sodass CSV und Plot den Übergangsvorgang dort zeigen,
 wo er passiert, und nicht lange Strecken eingeschwungener Werte.
 Kurznummerierte Kopien aller sechzehn CSV-Dateien liegen im Ordner
@@ -275,9 +275,9 @@ Drehzahl zurück in den elektrischen Kreis — daraus ergibt sich eine
 Übertragungsfunktion zweiter Ordnung:
 
 $$G(s) = \frac{U K_m}{(Js + b)(Ls + R) + K_m K_e}
-      = \frac{0.6}{(0.02 s + 0.2)(0.05 s + 1) + 0.0025}$$
+      = \frac{0.6}{0.001 s^2 + 0.03 s + 0.2025}$$
 
-Beide Pole sind reell und negativ ($\approx -5.1$ und $-39.9$), der
+Beide Pole sind reell und negativ ($\approx -10.3$ und $-19.7$), der
 Motor läuft also ohne Überschwingen auf
 $\omega_\infty \approx 2.96\,\mathrm{rad/s} \approx
 28\,\mathrm{rpm}$ hoch.
@@ -314,7 +314,7 @@ erwärmt sich um $+2\,\mathrm{K}$.
 | RC-Tiefpass | 5 V | 0 → 5 V | 1 | $-10$ | 5 V | PT1 |
 | RL-Schaltung | 24 V | 0 → 2.4 A | 1 | $-100$ | 2.4 A | PT1 (schnell) |
 | Masse-Feder-Dämpfer | 50 N | 0 → 2.5 cm | 2 | $-5 \pm j\,31.2$ | 2.5 cm | unterdämpft |
-| DC-Motordrehzahl | 12 V | 0 → 2.96 rad/s | 2 | $\approx -5.1,\ -39.9$ | 2.96 rad/s | überdämpftes PT2 |
+| DC-Motordrehzahl | 12 V | 0 → 2.96 rad/s | 2 | $\approx -10.3,\ -19.7$ | 2.96 rad/s | überdämpftes PT2 |
 | Thermische Heizung | 500 W | 0 → +2 K | 2 | $-0.2,\ -0.0167$ | 2 K | PT2, s-förmig |
 
 ## Teil II — Fünf Anwendungen und der RLC-Reihenkreis
@@ -371,8 +371,9 @@ Ausgangsspannung um $\Delta V = V_{in}\,\Delta d = 1.2\,\mathrm{V}$.
 $$G(s) = \frac{V_{in}\,\Delta d}{LC\,s^2 + \frac{L}{R} s + 1}
       = \frac{1.2}{1.034\cdot10^{-8}\,s^2 + 4.7\cdot10^{-5}\,s + 1}$$
 
-Eigenfrequenz $\omega_n = 1/\sqrt{LC} \approx 9.57\cdot
-10^3\,\mathrm{rad/s}$ ($\approx 1.5\,\mathrm{kHz}$) mit Dämpfungsgrad
+Eigenfrequenz $\omega_n = 1/\sqrt{LC} \approx 9.83\cdot
+10^3\,\mathrm{rad/s}$ ($\approx 1.56\,\mathrm{kHz}$); die gedämpfte Eigenfrequenz
+ist $\omega_d \approx 9.57\cdot10^3\,\mathrm{rad/s}$. Dämpfungsgrad
 $\zeta = \tfrac{1}{2R}\sqrt{L/C} \approx 0.23$: die Ausgangsspannung
 schwingt nach und überschwingt, bevor sie sich innerhalb weniger
 Millisekunden auf 1.2 V einstellt. Solch schnelle Übergangsvorgänge
@@ -501,7 +502,7 @@ Sprungantwort ist also dieselbe Kurve — $\tau = RC = 0.1\,\mathrm{s}$,
 Mit $R = 1\,\mathrm{k\Omega}$ statt $10\,\mathrm{\Omega}$ fällt der
 Endstrom auf $U/R = 24\,\mathrm{mA}$, und die Zeitkonstante schrumpft
 hundertfach auf $\tau = L/R = 0.1\,\mathrm{ms}$: der Strom steigt
-100-mal schneller an, aber nur auf ein Zehntel der ursprünglichen
+100-mal schneller an, aber nur auf ein Hundertstel der ursprünglichen
 2.4 A.
 
 $$G(s) = \frac{0.024}{10^{-4}\,s + 1}$$
@@ -599,7 +600,7 @@ gerade Rampe von $2\,\mathrm{kg/s}$ — bei $t = 60\,\mathrm{s}$ sind
 90 kg angekommen. Das kombiniert den Charakter von System 9
 (Integrierer → Rampe) mit dem von System 10 (Totzeit → erst Stille).
 In der Dosierpraxis ist die Totzeit das dominante Problem: Um eine
-Zielmasse zu erreichen, muss die Zuteitung 15 s früher abgeschaltet
+Zielmasse zu erreichen, muss die Zuteilung 15 s früher abgeschaltet
 werden, und jeder Fehler, der während der Totzeit passiert, kann erst
 korrigiert werden, wenn das Material ankommt.
 
@@ -611,15 +612,16 @@ korrigiert werden, wenn das Material ankommt.
 
 **Physikalischer Hintergrund.** Ein 300-kg-Verbrennungsmotor ruht auf
 drei Gummilagern; ein Lager trägt $m = 100\,\mathrm{kg}$ Motormasse
-mit einer Steifigkeit von $k = 10^5\,\mathrm{N/m}$ (etwa 1 mm
-statische Einfederung) und einer Dämpfung von
+mit einer Steifigkeit von $k = 10^5\,\mathrm{N/m}$ (etwa $9{,}8\,\mathrm{mm}$
+statische Einfederung durch die Eigenmasse) und einer Dämpfung von
 $d = 630\,\mathrm{N\,s/m}$ ($\zeta \approx 0.1$). Beim Motorstart
 trifft eine Drehmoment-Stützkraft von $F = 800\,\mathrm{N}$ auf das
 Lager. Interessant ist die Kraft, die das Lager an den Rahmen
 weiterleitet: $f_T = k\,x + d\,\dot x$.
 
 $$G(s) = \frac{k + d\,s}{m\,s^2 + d\,s + k}
-      = \frac{8\cdot10^5 + 504000\,s}{10^5 + 630\,s + 100\,s^2}$$
+      = \frac{800(k + d\,s)}{m\,s^2 + d\,s + k}
+      = \frac{8\cdot10^7 + 504000\,s}{100\,s^2 + 630\,s + 10^5}$$
 
 Pole bei $-3.15 \pm j\,31.5\,\mathrm{rad/s}$
 ($\omega_n = 31.6\,\mathrm{rad/s} \approx 5\,\mathrm{Hz}$) und eine
@@ -663,7 +665,7 @@ $$G(s) = \frac{K\,\Delta T\,e^{-L s}}{(\tau_1 s + 1)(\tau_2 s + 1)}
 $$y(t) = 5.4\left[1 - 1.154\,e^{-t'/300} + 0.154\,e^{-t'/40}\right]
  \sigma(t - 300)\,\mathrm{K}, \qquad t' = t - 300$$
 
-Eine volle Minute fünf lang passiert gar nichts, dann beginnt der
+Fünf volle Minuten passiert gar nichts, dann beginnt der
 s-förmige PT2-Anstieg wie in System 5 — Totzeit plus doppelte
 Verzögerung in einer Strecke. Diese Kombination (lange Totzeit *und*
 zugleich langsame S-Kurve) ist der Grund, warum Fernwärmekreise

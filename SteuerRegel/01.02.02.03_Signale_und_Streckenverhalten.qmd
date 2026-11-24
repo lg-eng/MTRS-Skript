@@ -2,7 +2,19 @@
 
 #### Testsignale
 
+Testsignale werden gezielt am Streckeneingang aufgeschaltet, um das
+Dynamikverhalten zu untersuchen. Häufig werden Sprung-, Impuls-,
+Rampen- oder Sinussignale verwendet.
+
 #### Streckenverhalten
+
+Aus Eingang und Ausgang wird bestimmt, ob die Strecke beispielsweise
+statisch, verzögert, integrierend, schwingungsfähig oder totzeitbehaftet ist.
+Zeitkonstanten, Verstärkung und Pole charakterisieren das Verhalten.
 {{< include 01.02.01.04_InteractivePT2.qmd >}}
 
 #### Identifikation
+
+Bei der messtechnischen Identifikation wird das Ausgangssignal auf ein
+definiertes Eingangssignal gemessen. Aus den Daten wird ein mathematisches
+Modell der Strecke und daraus die Übertragungsfunktion bestimmt.

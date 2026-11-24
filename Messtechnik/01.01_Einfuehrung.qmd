@@ -6,8 +6,8 @@
 
 ```{python}
 #| echo: false
-x_s = MySymbol('x', description='physikalische Groesse = Zahlenwert mal Einheit')
-Y_s = MySymbol('Y', description='Messgroesse (Ausgang des Messmodells)')
+x_s = MySymbol('x', description='physikalische Größe = Zahlenwert mal Einheit')
+Y_s = MySymbol('Y', description='Messgröße (Ausgang des Messmodells)')
 xbar_s = MySymbol(r'\bar{x}', description='arithmetischer Mittelwert der Messreihe')
 s_s = MySymbol('s', description='Standardabweichung der Einzelmessung')
 n_s = MySymbol('n', description='Anzahl der Messwerte')
@@ -15,12 +15,12 @@ uA_s = MySymbol(r'u_A', description='Standardunsicherheit des Mittelwerts (Typ A
 a_s = MySymbol('a', description='halbe Breite des angegebenen Intervalls')
 uB_s = MySymbol(r'u_B', description='Standardunsicherheit (Typ B)')
 uc_s = MySymbol(r'u_c', description='kombinierte Standardunsicherheit')
-k_s = MySymbol('k', description='Ueberdeckungsfaktor (Erweiterungsfaktor)')
+k_s = MySymbol('k', description='Überdeckungsfaktor (Erweiterungsfaktor)')
 U_s = MySymbol('U', description='erweiterte Unsicherheit')
 p_s = MySymbol('p', description='Genauigkeitsklasse in Prozent')
 xe_s = MySymbol(r'x_{Endwert}', description='Messbereichs-Endwert')
 xm_s = MySymbol(r'x_{mess}', description='angezeigter Messwert')
-dx_s = MySymbol(r'\Delta x', description='zulaessige Messabweichung')
+dx_s = MySymbol(r'\Delta x', description='zulässige Messabweichung')
 i_s = MySymbol('i', description='Laufindex der Messreihe')
 nu_s = MySymbol(r'\nu', description='Freiheitsgrade der Messreihe (n - 1)')
 nueff_s = MySymbol(r'\nu_{eff}', description='effektive Freiheitsgrade (Welch-Satterthwaite)')
@@ -249,7 +249,7 @@ QBookHelpers.print_equation(Eq(Y_ms, f_func(*X_in)), label='eq-messmodell')
 ::: {.callout-note}
 ## Begriffe abgrenzen: Messabweichung und Messunsicherheit
 
-In älterer Fachliteratur und Datenblättern begegnet man statt dessen auch
+In älterer Fachliteratur und Datenblättern begegnet man stattdessen auch
 heute noch „Messfehler", „zufälliger Fehler", „grober Fehler" oder der
 „Fehlergrenze". Diese Ausdrücke sind in der gültigen Terminologie durch
 schärfere Begriffe ersetzt — wer heute normgerecht über Messungen spricht,
@@ -272,7 +272,7 @@ trennt drei Dinge, die früher in einem Wort zusammenfielen:
   unterschiedliche Fragen: Die Messabweichung vergleicht *einen* Messwert
   mit dem Referenzwert, die Messunsicherheit beschreibt die Streubreite,
   mit der dieser Messwert behaftet ist. Messabweichung und Messunsicherheit
-  dürfen daher nicht synonym verwendet (2.16, Anm.) — auch ein Messwert
+  dürfen daher nicht synonym verwendet werden (2.16, Anm.) — auch ein Messwert
   mit kleiner Messunsicherheit kann eine große Messabweichung haben, und
   umgekehrt.
 
@@ -372,7 +372,9 @@ QBookHelpers.print_values([a_v, uB_v])
 ### Kombinierte und erweiterte Unsicherheit
 
 Unsicherheitsfortpflanzung (Modell linearisiert, Empfindlichkeitskoeffizienten
-$c_i = \partial f/\partial x_i$):
+$c_i = \partial f/\partial x_i$). Die Formel setzt unkorrelierte
+Eingangsgrößen voraus. Bei Korrelation sind Kovarianzterme zusätzlich
+einzubeziehen.
 
 ```{python}
 #| echo: true
@@ -418,7 +420,8 @@ for kk in [1, 2, 3]:
 display(Markdown('| ' + latex(k_s) + ' | Überdeckungswahrscheinlichkeit (normalverteilt) |\n|--:|--:|\n' + '\n'.join(table_zeilen)))
 ```
 
-- In den beiden Beispielen unten ist $k = 2$ die richtige Wahl.
+- In den beiden Beispielen unten ist $k = 2$ als vereinbarte Näherung die
+  gewählte Konvention.
   Sonderfälle (nur wenige Messwerte, dominierender Typ-B-Beitrag,
   Zertifikats-$k$) sind selten und werden im Kapitel
   **Weiterführende Themen** behandelt (siehe @sec-weiterfuehrend).
@@ -435,8 +438,8 @@ display(Markdown('| ' + latex(k_s) + ' | Überdeckungswahrscheinlichkeit (normal
 **Auswertung Schritt für Schritt:**
 
 1. **Messmodell:** Direkte Messung — der Schätzwert der Messgröße ist die
-   Anzeige $y = 10{,}00\ \mathrm{V}$. Alle übrigen Einflüsse (Kalibrier-
-   abweichung, Auflösung, Einflussgrößen) stecken in den
+   Anzeige $y = 10{,}00\ \mathrm{V}$. Alle übrigen Einflüsse (Kalibrierabweichung,
+   Auflösung, Einflussgrößen) stecken in den
    Unsicherheitsbeiträgen des Budgets.
 2. **Typ A entfällt:** Mit nur einem Messwert lässt sich keine Streuung
    schätzen — die zufällige Messabweichung bleibt unentdeckt. Die
@@ -515,7 +518,9 @@ $$Y = (10{,}08 \pm 0{,}12)\ \mathrm{V} \quad\text{bei } k = 2$$
   reduzieren nur zufällige Beiträge** — wer eine kleinere Unsicherheit
   braucht, braucht zuerst ein besseres Instrument bzw. eine
   Kalibrierung, nicht mehr Messungen.
-- Das Intervall überdeckt den Referenzwert 10,00 V nicht: Der Mittelwert
+- Das Intervall $10{,}08\,\mathrm{V}\pm0{,}12\,\mathrm{V}$ reicht von
+  $9{,}96\,\mathrm{V}$ bis $10{,}20\,\mathrm{V}$ und überdeckt den Referenzwert
+  $10{,}00\,\mathrm{V}$. Der Mittelwert
   liegt um 0,08 V darüber — eine systematische Messabweichung. Läge die
   Referenz vor (Kalibrierzertifikat), würde man sie als Korrektur
   anbringen und nur den verbleibenden Rest ins Budget nehmen
@@ -531,13 +536,14 @@ $$Y = (10{,}08 \pm 0{,}12)\ \mathrm{V} \quad\text{bei } k = 2$$
 
 ![Analoges Multimeter (HARTIG & HELLING VM-10K): Zeigerinstrument mit Spiegelskala (Islander61, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Analog_multimeter_HARTIG_%26_HELLING_VM-10K.jpg))](images/Analog_multimeter_HARTIG_HELLING_VM-10K.jpg){#fig-analog-multimeter width=420px}
 
-![Zähldisplay eines Digitalmultimeters (UNI-T UT133A): 6000 counts, maximale Anzeige 5999 — die führende Stelle ist keine volle Ziffer (sie kann nur bis „5“ anzeigen), daher spricht man von einer 3¾-stelligen Anzeige; Auflösung 1 digit; Spezifikation nach [@unit_ut133a_manual] (eigenes Foto)](images/Digitalanzeige_counts.jpg){#fig-digital-anzeige width=420px}
+![Zähldisplay eines Digitalmultimeters (UNI-T UT133A): 6000 mögliche count-Zustände, maximale Anzeige 5999 — die führende Stelle ist keine volle Ziffer (sie kann nur bis „5“ anzeigen), daher spricht man von einer 3¾-stelligen Anzeige; Auflösung 1 digit; Spezifikation nach [@unit_ut133a_manual] (eigenes Foto)](images/Digitalanzeige_counts.jpg){#fig-digital-anzeige width=420px}
 
 ## Auflösung und Genauigkeit
 
 - **Auflösung:** kleinste unterscheidbare Wertänderung. Digital:
-  $Q = \text{Endwert}/\text{counts}$ (3½-stellig: 1999 counts;
-  UT133A wie in @fig-digital-anzeige: 5999 counts
+  $Q = \text{Endwert}/\text{count-Zuständen}$ (3½-stellig: 2000 mögliche
+  Zustände, maximale Anzeige 1999 counts;
+  UT133A wie in @fig-digital-anzeige: 6000 mögliche Zustände, maximal 5999 counts
   [@unit_ut133a_manual]).
 - **Genauigkeit (analog):** Genauigkeitsklasse $p$ — zulässige Messabweichung
   bezogen auf den Messbereichs-Endwert:

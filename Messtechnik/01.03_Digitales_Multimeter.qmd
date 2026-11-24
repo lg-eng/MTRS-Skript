@@ -7,7 +7,7 @@
 ```{python}
 #| echo: false
 M_s = MySymbol('M', description='Drehmoment der Lorentzkraft')
-c_s = MySymbol('c', description='Proportionalitaetsfaktor Strom zu Drehmoment')
+c_s = MySymbol('c', description='Proportionalitätsfaktor Strom zu Drehmoment')
 k_s = MySymbol('k', description='Spiralfeder-Federkonstante')
 al_s = MySymbol(r'\alpha', description='Auslenkung des Zeigers')
 I_s = MySymbol('I', description='Messstrom durch die Drehspule')
@@ -95,7 +95,8 @@ QBookHelpers.print_values([U_x])
   einige Einflüsse der Integrationskomponenten heraus. Entscheidend bleiben
   insbesondere $U_{ref}$ und der Takt; zusätzlich wirken etwa Schaltfehler,
   Offset, Drift, Rauschen und die Linearität der Wandlerstufen.
-- **Zähler & Anzeige:** Taktzähler während $T_2$ → Messwert in counts,
+- **Zähler:** Taktzähler während $T_2$.
+- **Anzeige:** Messwert in counts,
   Dekodierung auf die 3½-/4½-stellige Anzeige.
 
 > **Platzhalter — Zweiflankenverlauf:** Diagramm der Integratorspannung beim
@@ -106,7 +107,8 @@ QBookHelpers.print_values([U_x])
 
 ## Kenngrößen des DMM
 
-- **Stellenzahl und counts:** $3\tfrac{1}{2}$-stellig → 1999 counts;
+- **Stellenzahl und counts:** $3\tfrac{1}{2}$-stellig → 2000 mögliche count-Zustände,
+  maximal 1999 counts;
   Auflösung $Q = \text{Endwert}/1999$.
 - **Genauigkeitsangabe** des Datenblatts (siehe @eq-dmm-genauigkeit):
   $\Delta U = \pm(a\,\%\ \mathrm{v.\,M.} + n\ \mathrm{digits})$.

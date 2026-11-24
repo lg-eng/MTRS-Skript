@@ -1,10 +1,10 @@
 # Datenquellen {#sec-data-sources}
-Grob können Datenquellen in folgende Gruppen eingeteilt werden, wobei analoge Datenquellen außer acht gelassen werden. Die Liste hat auch keinen Anspruch auf Vollständigkeit.  
+Grob können Datenquellen in folgende Gruppen eingeteilt werden, wobei analoge Datenquellen außer Acht gelassen werden. Die Liste hat auch keinen Anspruch auf Vollständigkeit.
 Um Daten analysieren zu können, müssen sie zuerst eingelesen werden. Das bedeutet in den meisten Fällen, dass sie in den Arbeitsspeicher geladen werden. Um Daten effektiv zu analysieren, ist es sinnvoll, die verschiedenen Datenquellen in ein einheitliches Format zu bringen. In Python wird dazu oft die Bibliothek *pandas* verwendet.  
-Ein großteil der Arbeit eines Data Scientists besteht darin, Daten aus den verschiedenen Quellen auszubreiten. 
+Ein Großteil der Arbeit eines Data Scientists besteht darin, Daten aus den verschiedenen Quellen aufzubereiten.
 
 **Statische Datenquellen**
-Unter *statische Datenquellen* sind Daten gemeint, die vorab gespeichert wurden. Zum Beispiel ein Foto, welches auf der Festplatte gespeichert ist.
+Unter *statischen Datenquellen* sind Daten gemeint, die vorab gespeichert wurden. Zum Beispiel ein Foto, welches auf der Festplatte gespeichert ist.
 
 + Dateien  
     * Textdateien  
@@ -23,7 +23,7 @@ Unter *statische Datenquellen* sind Daten gemeint, die vorab gespeichert wurden.
 
 
 **Dynamische Datenquellen**
-Unter *dynamische Datenquellen* sind Daten gemeint, die in Echtzeit generiert werden. Zum Beispiel die Temperatur eines Sensors oder die Position eines GPS-Empfängers. Dabei spielt neben dem Datenformat auch die Datenverbindung eine Rolle. Es können zum Beispiel oben genannte Datenformate über verschiedene Protokolle übertragen werden.
+Unter *dynamischen Datenquellen* sind Daten gemeint, die in Echtzeit generiert werden. Zum Beispiel die Temperatur eines Sensors oder die Position eines GPS-Empfängers. Dabei spielt neben dem Datenformat auch die Datenverbindung eine Rolle. Es können zum Beispiel oben genannte Datenformate über verschiedene Protokolle übertragen werden.
 
 **Datenübertragung**
 Egal ob die Daten statisch vorliegen oder dynamisch generiert werden, sie müssen übertragen werden. Neben dem klassischen Datenspeicher wie Festplatte oder SSD gibt es viele Möglichkeiten, Daten zu übertragen. Hier eine kleine Auswahl:
@@ -54,15 +54,15 @@ Ein Beispiel für eine CSV-Datei könnte so aussehen:
 -5.008e-02,0.0599999,0.012
 ```
 
-Praktisch ist es wenn die erste Zeile die Spaltennamen enthält. Zum Beispiel so:
+Praktisch ist es, wenn die erste Zeile die Spaltennamen enthält. Zum Beispiel so:
 ```
 TIME,CH1,CH2
 -5.056e-02,0.0599999,0.00399998
 -5.040e-02,0.0599999,0.012
 -5.024e-02,0.0599999,0.012
 ```
-Wenn die Spaltennamen erlaube Python Variablennamen sind, können die Daten nach dem einlesen direkt mit dem Namen der Spalte angesprochen werden.  
-Oft gibt es auch sogenannte *Header Zeilen*. Hier wird sogenannte Metainformation gespeichert. Zum Beispiel die Einsteillungen, eines Messgerätes zum Zeitpunkt der Messung.
+Wenn die Spaltennamen erlaubte Python-Variablennamen sind, können die Daten nach dem Einlesen direkt mit dem Namen der Spalte angesprochen werden.
+Oft gibt es auch sogenannte *Header-Zeilen*. Hier werden Metainformationen gespeichert, zum Beispiel die Einstellungen eines Messgerätes zum Zeitpunkt der Messung.
 ```
 Model,TBS1072C
 Firmware Version,v2015-08-04-prequal4ch70_v1.3
@@ -86,11 +86,11 @@ TIME,CH1,CH2
 -5.008e-02,0.0599999,0.012
 ```
 
-Diese *Header Zeilen* müssen beim einlesen ignoriert werden. Werden Informationen daraus benötigt, müssen sie explizit ausgelesen werden.
+Diese *Header-Zeilen* müssen beim Einlesen ignoriert werden. Werden Informationen daraus benötigt, müssen sie explizit ausgelesen werden.
 
 ### Einlesen von CSV-Dateien
 Da *CSV* ein sehr weit verbreitetes Format ist, gibt es auch in Python viele Möglichkeiten, CSV-Dateien einzulesen. In diesem Dokument wird die Bibliothek *pandas* verwendet. Als Datensatz werden Daten eines Oszilloskops verwendet. Die Datei TEK00003.CSV ist auf GitHub zu finden.  
-Zuerst wird die Datei mit einem Texteditor geöffnet, um sich einen Überblick über die Struktur zu verschaffen und festzustellen, ob es *Header Zeilen* gibt. In diesem Fall gibt es 15 Zeilen, die ignoriert werden müssen. 
+Zuerst wird die Datei mit einem Texteditor geöffnet, um sich einen Überblick über die Struktur zu verschaffen und festzustellen, ob es *Header-Zeilen* gibt. In diesem Fall gibt es 15 Zeilen, die ignoriert werden müssen.
 
 ```{python}
 #| code-fold: false
@@ -108,7 +108,7 @@ Als Testdaten kann zum Beispiel die Statistik der Programmiersprachen auf GitHub
 
 
 ## Bild
-Es soll ein Bild eingelesen und die RGB in einem Pandas DataFrame gespeichert werden. 
+Es soll ein Bild eingelesen und die RGB-Werte sollen in einem Pandas DataFrame gespeichert werden.
 ```{python}
 #| code-fold: false
 #| echo: true
@@ -143,7 +143,7 @@ display(df.head())
 
 
 ## Datenbanken
-Datenbanken sind ein mächtiges Werkzeug um Daten zu speichern und zu verwalten. Deren Aufbau und die Funktion wird an dieser Stelle nicht weiter erläutert und auf die entsprechende Unterrichtsfächer verwiesen.
+Datenbanken sind ein mächtiges Werkzeug, um Daten zu speichern und zu verwalten. Deren Aufbau und Funktion werden an dieser Stelle nicht weiter erläutert; verwiesen wird auf die entsprechenden Unterrichtsfächer.
 
 <!-- MQTT-Beispiel ausgeklammert: der verlinkte Test-Broker ist nicht mehr
      erreichbar, damit hängt die Ausführung der Zelle beim connection timeout.

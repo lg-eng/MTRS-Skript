@@ -1,6 +1,6 @@
 ### Zusammenschaltung von Blöcken
 Werden Blöcke kombiniert, können die resultierenden Übertragungsfunktionen berechnet werden.  
-Zur Vereinfachung kann die Übertragungsfunktion des Sensors mit $M=1$ angenommen werden, $M=1$, wenn dieser im Verhältnis zur Strecke und zum Regler vernachlässigbar ist. Dies ist zum Beispiel der Fall, wenn der Sensor viel schneller ist als die Strecke und der Regler. Diese Voraussetzung ist für viele Systeme gegeben.  
+Zur Vereinfachung kann die Übertragungsfunktion des Sensors mit $M=1$ angenommen werden, wenn dieser im Verhältnis zur Strecke und zum Regler vernachlässigbar ist. Dies ist zum Beispiel der Fall, wenn der Sensor viel schneller ist als die Strecke und der Regler. Diese Voraussetzung ist für viele Systeme gegeben.
 
 Für den Regelkreis, @fig-Regelkreis, ergeben sich folgende Möglichkeiten.
 
@@ -20,13 +20,13 @@ QBookHelpers.print_description({Fw})
 ```
 
 #### Die Schleifenübertragungsfunktion
-Die Schleifenübertragungsfunktion ist die Übertragungsfunktion des offenen Regelkreises, also ohne Rückkopplung und ist im Laplace Bereich eine einfache Multiplikation.
+Die Schleifenübertragungsfunktion ist die Übertragungsfunktion des offenen Regelkreises, also ohne Rückkopplung, und ist im Laplace-Bereich eine einfache Multiplikation.
 
 ```{python}
 #| code-fold: true
 Fo = MySymbol('F_o',description = 'Schleifenübertragungsfunktion')
 
-Fo_eq=Eq(Fo,R*G)
+Fo_eq=Eq(Fo,R*G*M)
 
 QBookHelpers.print_equation(Fo_eq)
 QBookHelpers.print_description({Fo})

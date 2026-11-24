@@ -131,7 +131,7 @@ y_PID = {
   let pdy_PID = 0;
   let de_PID = 0;
   let dt_PID = 0.001;
-  let s_PID = setPoint(t0_PID);
+  let s_PID = setPoint_PID(t0_PID);
   output_PID.push({ t_PID, u_PID, s_PID });
 
   let j_PID = 1;
@@ -141,7 +141,7 @@ y_PID = {
     s_PID = setPoint_PID(t_PID);
    
     e_PID = s_PID - u_PID;
-    de_PID = eprev_PID-e_PID;
+    de_PID = e_PID-eprev_PID;
 
     //du = (u-pu)/dt;
     //ddu = (du - pdu)/dt;
@@ -182,7 +182,7 @@ setPoint_PID = {
     var x = hardstep_PID(x);
     return x * x * (3 - 2 * x);
   }
-  switch (input) {
+  switch (input_PID) {
     case 'step':
       return t_PID => (t_PID >= 0 ? 1 : 0);
     case 'ramp':

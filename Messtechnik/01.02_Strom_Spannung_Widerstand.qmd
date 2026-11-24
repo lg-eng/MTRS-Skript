@@ -83,7 +83,7 @@ QBookHelpers.print_equation(eq_di, label='eq-delta-i')
 #| fig-cap: 'Relative Messabweichung durch Rückwirkung: die Spannungsmessung verlangt $R_V \gg R_q$, die Strommessung $R_A \ll R_q$.'
 ratio = np.logspace(-3, 2, 300)
 delta_u_num = -ratio/(1 + ratio)*100
-delta_i_num = -(1/ratio)/(1 + 1/ratio)*100
+delta_i_num = -ratio/(1 + ratio)*100
 fig, ax = plt.subplots(figsize=(5.5, 3.2))
 ax.loglog(ratio, -delta_u_num, label='Spannungsmessung: $R_q/R_V$')
 ax.loglog(ratio, -delta_i_num, ls='--', label='Strommessung: $R_A/R_q$')

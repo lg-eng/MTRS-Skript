@@ -29,20 +29,23 @@ QBookHelpers.print_description([f_s, T_s])
 #| echo: true
 #| code-fold: true
 f_s = MySymbol('f', description='Frequenz des Sensorsignals', unit=u.hertz)
-s_p = MySymbol('s', description='Weg je Periode (Sensorvertrag)', unit=u.meter)
+s_p = MySymbol('s', description='Weg je Periode (Sensorkonstante)', unit=u.meter)
 v_g = MySymbol('v', description='Geschwindigkeit', unit=u.meter/u.second)
-n_s = MySymbol('n_1', description='Anzahl der Perioden im Messintervall', )
+# Zaehlgroesse nach ISO 80000-1 mit N (N_p = Perioden, N_q = Taktimpulse),
+# Volumenstrom nach ISO 80000-3 mit q_V (Q ist die Ladung)
+n_p = MySymbol('N_{p}', description='Anzahl der Perioden im Messintervall')
 V_p = MySymbol('V', description='Volumen je Periode', unit=u.liter)
 V_g = MySymbol('V_{ges}', description='Gesamtvolumen im Messintervall', unit=u.liter)
-Q_f = MySymbol('Q', description='Durchfluss (Volumenstrom)', unit=u.liter/u.second)
-QBookHelpers.print_description([s_p, v_g, n_s, V_p, V_g, Q_f])
+q_v = MySymbol('q_{V}', description='Durchfluss (Volumenstrom)', unit=u.liter/u.second)
+QBookHelpers.print_description([s_p, v_g, n_p, V_p, V_g, q_v])
 QBookHelpers.print_equation(Eq(v_g, s_p*f_s), label='eq-geschwindigkeit-frequenz')
-QBookHelpers.print_equation(Eq(V_g, n_s*V_p), label='eq-volumen-frequenz')
-QBookHelpers.print_equation(Eq(Q_f, V_p*f_s), label='eq-durchfluss-frequenz')
+QBookHelpers.print_equation(Eq(V_g, n_p*V_p), label='eq-volumen-frequenz')
+QBookHelpers.print_equation(Eq(q_v, V_p*f_s), label='eq-durchfluss-frequenz')
 ```
 
 - Wegen der einfachen Digitalisierung (Zählen statt Amplitudenmessung) sind
-  Frequenzsignale störungsarm über lange Leitungen übertragbar.
+  Frequenzsignale störungsarm über lange Leitungen übertragbar. Die Information
+  steckt dabei in den Flanken, also in der Zeit, und nicht in der Amplitude.
 
 ## Periodische Signale
 
@@ -62,14 +65,16 @@ y = np.sin(2*np.pi*1*t)
 
 ax.plot(t, y)
 ax.grid(True)
-ax.set_xlabel('Zeit in Sekunden')
-ax.set_ylabel('Amplitude')
+ax.set_xlabel('Zeit in s')
+ax.set_ylabel('Amplitude (normiert)')
 
 # Periodenbereiche hinterlegen
 ax.axvspan(0, 1, color='green', alpha=0.1)
 ax.text(0.15, 1.25, 'Erste Periode', fontsize=9)
 ax.axvspan(1, 2, color='blue', alpha=0.1)
 ax.text(1.15, 1.25, 'Zweite Periode', fontsize=9)
+ax.axvspan(2, 3, color='red', alpha=0.1)
+ax.text(2.15, 1.25, 'Dritte Periode', fontsize=9)
 ax.text(2.15, 1.25, 'Dritte Periode', fontsize=9)
 
 # eine volle Periode als Pfeil einzeichnen
@@ -136,7 +141,7 @@ plt.plot(tN, 0.5 + 1/2*signal.square(2*np.pi*fN*tN + phiN), '--g', label='b (Kom
 plt.grid()
 plt.ylim(-1.2, 1.6)
 plt.xlabel('Zeit in s')
-plt.ylabel('Amplitude')
+plt.ylabel('Amplitude (normiert)')
 plt.legend(loc='upper center', ncol=2, fontsize=9)
 plt.show()
 ```
@@ -253,14 +258,16 @@ QBookHelpers.print_equation(Eq(N_f, 1000), label='eq-n-frequenzmessung')
 #| echo: true
 #| code-fold: true
 eq_f = Eq(f_p, N_f/T_g)
-eq_f_num = eq_f.subs({N_f: 1000, T_g: 1})
-QBookHelpers.print_equation(eq_f_num, label='eq-frequenzmessung-num')
+# Zahlenwerte in Basiseinheiten einsetzen (N in 1, Tg in s) und den Wert
+# über print_values mit Einheit ausgeben — print_equation zeigt keine Einheiten
+f_p.value = eq_f.rhs.subs({N_f: 1000, T_g: 1})
+QBookHelpers.print_values([f_p], label='eq-frequenzmessung-num')
 ```
 
 - Der Zähler kann nur ganzzahlige Impulse erfassen, und das Tor öffnet und
   schließt unabhängig von der Phase des Messsignals: Der Randimpuls zählt
   gerade noch mit oder gerade nicht mehr — der Zählstand $\pm 1$ Impuls ist
-  daher um höchstens einen Impuls unsicher. Bei $N = 1000$ Impulsen
+  daher um höchstens $\pm 1$ Impuls unsicher. Bei $N = 1000$ Impulsen
   in $1\,\mathrm{s}$ bedeutet das eine relative Messabweichung von
   $\pm 0{,}1\,\%$ (Quantisierung, Typ-B-Bewertung nach [@jcgm100_2008]).
 - Durch Verlängerung der Torzeit sinkt die relative Messabweichung, dafür
@@ -288,14 +295,19 @@ $f = 1\,\mathrm{kHz}$ ergibt sich:
 ```{python}
 #| echo: true
 #| code-fold: true
-T_q_v = MySymbol(r'T_{q}', description='Periodendauer des Taktsignals', unit=u.second,
-                 value=1e-6)
-QBookHelpers.print_values([T_q_v])
+# Taktfrequenz anzeigen (print_values stellt den Vorsatz korrekt dar; die
+# Taktperiode 1 Mikrosekunde nennt der Text darunter in \mathrm{\mu s})
+f_q_v = MySymbol(r'f_{q}', description='Frequenz des Taktsignals', unit=u.hertz,
+                 value=1e6)
+QBookHelpers.print_values([f_q_v])
 QBookHelpers.print_equation(Eq(N_q, 1000), label='eq-n-periodenmessung')
 T_p_v = MySymbol('T', description='Periodendauer des Messsignals', unit=u.second,
                  value=1e-3)
 QBookHelpers.print_values([T_p_v])
 ```
+
+Die Taktperiode ist der Kehrwert der Taktfrequenz:
+$T_{q} = 1\,\mathrm{\mu s}$.
 
 - Der $\pm 1$-Fehler sitzt wieder am Torrand: Das Tor öffnet synchron mit
   einer Signalflanke und schließt mit der nächsten, aber das Zählen der
@@ -310,8 +322,8 @@ QBookHelpers.print_values([T_p_v])
 
 | Messverfahren | Zähler zählt | Vorteil | Nachteil |
 |---|---|---|---|
-| Frequenzmessung | Perioden des Messsignals in fester Torzeit | schnell, genau bei hohen Frequenzen | ungenau bei niedrigen Frequenzen ($N$ klein) |
-| Periodendauermessung | Taktimpulse je Signalperiode | genau bei niedrigen Frequenzen | lange Messzeit bei niedrigen Frequenzen (je Messwert) |
+| Frequenzmessung | Perioden des Messsignals in fester Torzeit | genaue Auflösung bei hoher Frequenz | feste Messzeit $T_g$ und ungenau bei niedrigen Frequenzen ($N$ klein) |
+| Periodendauermessung | Taktimpulse je Signalperiode | schnell bei hohen Frequenzen und genaue Auflösung bei niedrigen Frequenzen | Messzeit eine Signalperiode; bei sehr niedrigen Frequenzen langsam |
 
 Die Zählstände beider Verfahren hängen in entgegengesetzter Richtung von der
 Messfrequenz ab: $N = f \cdot T_{g}$ wächst mit $f$, während
@@ -367,8 +379,10 @@ aus @sec-mt-frequenzmessung und @sec-mt-periodenmessung.
   Frequenzmessung wird auch bei niedrigeren Frequenzen brauchbar, kostet
   aber Messzeit.
 - Moderne Frequenzzähler kombinieren beide Betriebsarten („reziprokes
-  Zählen"): Bei niedrigen Frequenzen messen sie $T$ und rechnen auf $f$
-  zurück — die Betriebsart wählt der Zähler selbst ([@schrufer2022];
+  Zählen"): Das Tor wird mit den Signalflanken synchronisiert; gleichzeitig
+  werden $N$ Signalperioden und $N_q$ Taktimpulse gezählt. Daraus folgt
+  $f=N/(N_qT_q)$, wodurch die Auflösung weniger von der Messfrequenz abhängt
+  ([@schrufer2022];
   übersichtlich auch im Wikipedia-Artikel
   [Frequenzzähler](https://de.wikipedia.org/wiki/Frequenzz%C3%A4hler)).
 
@@ -380,8 +394,8 @@ aus @sec-mt-frequenzmessung und @sec-mt-periodenmessung.
 
 Der folgende Simulator bildet den Messaufbau aus @fig-block-freq vollständig
 nach: Sinusquelle über den Komparator, Takt, UND-Glied, Zähler und
-Berechnung. Er zeigt beide Betriebsarten gleichzeitig und zeigt dazu die
-Zeitdiagramme von Tor, Signal und Impulsen.
+Berechnung. Er zeigt beide Betriebsarten gleichzeitig in den Zeitdiagrammen
+von Tor, Signal und Impulsen.
 
 - Über die Regler verändert man Signalfrequenz, Amplitude und Offset, die
   Komparatorschwelle, die Taktfrequenz und die Torzeit über den

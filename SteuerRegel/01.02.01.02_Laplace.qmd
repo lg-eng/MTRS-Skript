@@ -2,7 +2,7 @@
 oder die Anstrengung der Faulen.
 
 #### Warum Laplace
-Um eine Übertragungsfunktion zu Berechnen muss der Ausgang durch den Eingang dividiert werden. Wird das physikalische System durch eine lineare Gleichung beschrieben ist das sehr Einfach möglich und die Laplace Transformation ist nicht notwendig. Ein Beispiel dafür ist das Ohm'sche Gesetz.
+Um eine Übertragungsfunktion zu berechnen, muss der Ausgang durch den Eingang dividiert werden. Wird das physikalische System durch eine lineare Gleichung beschrieben, ist das sehr einfach möglich und die Laplace-Transformation ist nicht notwendig. Ein Beispiel dafür ist das Ohm'sche Gesetz.
 
 ```{python}
 #| code-fold: true
@@ -18,10 +18,10 @@ QBookHelpers.print_description(R_ohm_eq.free_symbols)
 
 ```
 
-Wird das physikalische System aber durch eine Differentialgleichung beschrieben, wie zum Beispiel bei einem Tiefpass, so wäre es notwendig zuerst die Differentialgleichung zu lösen um die Übertragungsfunktion zu berechnen. Hier bietet die Lapalce Transformation eine erhebliche erleichterung.  
+Wird das physikalische System aber durch eine Differentialgleichung beschrieben, wie zum Beispiel bei einem Tiefpass, so wäre es notwendig zuerst die Differentialgleichung zu lösen um die Übertragungsfunktion zu berechnen. Hier bietet die Laplace-Transformation eine erhebliche Erleichterung.
 Wird die Übertragungsfunktion im Laplace-Bereich angeschrieben, ergeben sich weitere Vorteile, wenn es später darum geht einen Regler zu entwerfen und die Stabilität einer Strecke zu beurteilen.  
 
-##### Beispiel Übertragungsfunktion eines Tiefapsses
+##### Beispiel Übertragungsfunktion eines Tiefpasses
 
 ![Tiefpass](images/Tiefpass){#fig-Tiefpass}
 
@@ -47,7 +47,7 @@ QBookHelpers.print_equation(ict_eq1,label='eq-ict_eq1')
 QBookHelpers.print_equation(ict_eq2,label='eq-ict_eq2')
 
 ```
-Durch Gleichsetzten von  @eq-ict_eq1 und @eq-ict_eq2 ergibt sich die allgemeine Differenzialgleichung 1. Ordnung für den Tiefpass.
+Durch Gleichsetzen von @eq-ict_eq1 und @eq-ict_eq2 ergibt sich die allgemeine Differenzialgleichung erster Ordnung für den Tiefpass.
 
 
 ```{python}

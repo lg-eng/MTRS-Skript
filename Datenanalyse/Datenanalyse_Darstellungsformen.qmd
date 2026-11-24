@@ -2,7 +2,7 @@
 Je nach Zielsetzung und Art der Daten können unterschiedliche Darstellungsformen sinnvoll sein. Hier sind einige Beispiele:  
 
 - **Tabellen**  
-- **Grafen** Eine gute Übersicht gibt hier Excel @fig-ExcelCharts. Hier sind einige Beispiele für Diagrammtypen:  
+- **Grafen** Eine gute Übersicht gibt hier Excel @fig-ExcelCharts. Hier sind einige Beispiele für Diagrammtypen:
     + Zeitreihen  
     + Frequenzverteilungen  
     + Verteilungsfunktionen  

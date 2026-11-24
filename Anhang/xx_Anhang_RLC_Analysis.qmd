@@ -147,7 +147,7 @@ For a general second-order system $s^2 + 2\zeta\omega_n s + \omega_n^2$, we have
 
 $$\omega_n^2 = \frac{1}{L C} \quad \Rightarrow \quad \omega_n = \frac{1}{\sqrt{L C}} = 10^4\ \text{rad/s}$$
 
-$$2\zeta\omega_n = \frac{R C}{L C} = \frac{R}{L} \quad \Rightarrow \quad \zeta = \frac{R}{2 L \omega_n} = \frac{R}{2} \sqrt{\frac{C}{L}} \approx 0.1581$$ 
+$$2\zeta\omega_n = \frac{R C}{L C} = \frac{R}{L} \quad \Rightarrow \quad \zeta = \frac{R}{2 L \omega_n} = \frac{R}{2} \sqrt{\frac{C}{L}} \approx 0.05$$
 
 Since $\zeta < 1$, the circuit is **underdamped** and will exhibit oscillatory behavior.
 
@@ -403,7 +403,8 @@ print(f"\nTheoretical resonant frequency: {f0:.2f} Hz")
 
 # For H(s) = sRC / (LC s^2 + RC s + 1)
 omega_0 = 1 / np.sqrt(LC_val)
-peak_mag = (omega_0 * RC) / np.sqrt(4 + (omega_0 * RC)**2)
+# Bei omega_0 = 1/sqrt(LC) vereinfacht sich die Übertragungsfunktion zu H(j omega_0) = 1.
+peak_mag = 1.0
 print(f"Theoretical peak magnitude at resonance: {peak_mag:.4f}")
 ```
 
@@ -489,7 +490,7 @@ The normalized plots reveal several important insights:
    - Measurement noise
    - Parasitic effects in the physical circuit
 
-4. **Step Response Characteristics**: The normalized output shows the underdamped nature of the circuit with $\omega_n \approx 10^4\ \text{rad/s}$ and $\zeta \approx 0.1581$, exhibiting the expected oscillatory behavior.
+4. **Step Response Characteristics**: The normalized output shows the underdamped nature of the circuit with $\omega_n \approx 10^4\ \text{rad/s}$ and $\zeta \approx 0.05$, exhibiting the expected oscillatory behavior.
 
 5. **Amplification Consistency**: The peak output values after normalization confirm that all three methods produce similar amplification characteristics, validating both the theoretical model and the measurement setup.
 

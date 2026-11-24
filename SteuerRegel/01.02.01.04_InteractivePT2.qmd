@@ -110,7 +110,7 @@ y = {
     s = setPoint(t);
    
     e = s - u;
-    de = eprev-e;
+    de = e-eprev;
 
     //du = (u-pu)/dt;
     //ddu = (du - pdu)/dt;

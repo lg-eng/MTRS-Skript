@@ -11,7 +11,10 @@ book:
 #    date-format: short
 #    downloads: [pdf, docx]
     repo-url: "https://github.com/lg-eng/MTRS-Skript"
-    #issue-url: "https://github.com/lg-eng/MTRS-Skript/issues"
+    # "Problem melden" auf jeder Seite (Link auf <repo-url>/issues/new)
+    repo-actions: [issue]
+    repo-branch: main
+    repo-link-target: _blank
     cookie-consent:
       type: express
 #    page-footer:
