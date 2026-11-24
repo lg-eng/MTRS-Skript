@@ -270,11 +270,12 @@ function intervals(tr, g0, g1, max){
 let M = {};
 function compute(){
   const b = trainB(), c = trainC();
+  const comparatorActive = !("cst" in b);
   const Tg = st.M/st.fc;
-  const N = count(b, 0, Tg);
-  const fMeas = N/Tg;
+  const N = comparatorActive ? count(b, 0, Tg) : 0;
+  const fMeas = comparatorActive ? N/Tg : NaN;
   let pg = null, Nq = NaN, Tmeas = NaN;
-  if (!("cst" in b)){
+  if (comparatorActive){
     const k1 = Math.floor(-b.t0/b.T + EPS) + 1;
     const t1 = b.t0 + k1*b.T;
     pg = [t1, t1 + b.T];
@@ -287,6 +288,15 @@ function compute(){
 // ---------- Anzeige der Ergebnisse ----------
 function showResults(){
   const fT = st.f, TT = 1/st.f;
+  if (!Number.isFinite(M.fMeas)){
+    ["fMeas","rN","rF","rFtrue","rFerr","rFres","tMeas","rNq","rT","rFT","rTerr","rTtrue","rTres","pillF","pillT"].forEach(id => $(id).textContent = "–");
+    $("fUnit").textContent = "";
+    $("tUnit").textContent = "";
+    $("dispF").textContent = "f = –";
+    $("dispT").textContent = "T = –";
+    $("verdict").innerHTML = "<b>Keine Messung möglich:</b> Der Komparator schaltet nicht, weil die Schwelle außerhalb des Sinussignals liegt.";
+    return;
+  }
   const [fv, fu] = splitUnit(fFreq(M.fMeas));
   $("fMeas").textContent = fv; $("fUnit").textContent = fu;
   $("rTg").textContent = `${st.M} / ${fFreq(st.fc)} = ${fTime(M.Tg)}`;

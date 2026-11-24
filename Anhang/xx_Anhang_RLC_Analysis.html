@@ -476,7 +476,7 @@ window.Quarto = {
 <p>From the denominator <span class="math inline">\(L C s^2 + R C s + 1\)</span>, we can identify the standard second-order form:</p>
 <p>For a general second-order system <span class="math inline">\(s^2 + 2\zeta\omega_n s + \omega_n^2\)</span>, we have:</p>
 <p><span class="math display">\[\omega_n^2 = \frac{1}{L C} \quad \Rightarrow \quad \omega_n = \frac{1}{\sqrt{L C}} = 10^4\ \text{rad/s}\]</span></p>
-<p><span class="math display">\[2\zeta\omega_n = \frac{R C}{L C} = \frac{R}{L} \quad \Rightarrow \quad \zeta = \frac{R}{2 L \omega_n} = \frac{R}{2} \sqrt{\frac{C}{L}} \approx 0.1581\]</span></p>
+<p><span class="math display">\[2\zeta\omega_n = \frac{R C}{L C} = \frac{R}{L} \quad \Rightarrow \quad \zeta = \frac{R}{2 L \omega_n} = \frac{R}{2} \sqrt{\frac{C}{L}} \approx 0.05\]</span></p>
 <p>Since <span class="math inline">\(\zeta &lt; 1\)</span>, the circuit is <strong>underdamped</strong> and will exhibit oscillatory behavior.</p>
 </section>
 </section>
@@ -532,7 +532,7 @@ Transfer Function:
   Peak Input: 1.0000 V
 
 Theoretical resonant frequency: 1591.55 Hz
-Theoretical peak magnitude at resonance: 0.0499</code></pre>
+Theoretical peak magnitude at resonance: 1.0000</code></pre>
 </div>
 </div>
 </section>
@@ -568,7 +568,7 @@ Transfer Function: 1000 points, input peak: 1.0000 V, output peak: 0.0926 V</cod
 <li>Measurement noise</li>
 <li>Parasitic effects in the physical circuit</li>
 </ul></li>
-<li><p><strong>Step Response Characteristics</strong>: The normalized output shows the underdamped nature of the circuit with <span class="math inline">\(\omega_n \approx 10^4\ \text{rad/s}\)</span> and <span class="math inline">\(\zeta \approx 0.1581\)</span>, exhibiting the expected oscillatory behavior.</p></li>
+<li><p><strong>Step Response Characteristics</strong>: The normalized output shows the underdamped nature of the circuit with <span class="math inline">\(\omega_n \approx 10^4\ \text{rad/s}\)</span> and <span class="math inline">\(\zeta \approx 0.05\)</span>, exhibiting the expected oscillatory behavior.</p></li>
 <li><p><strong>Amplification Consistency</strong>: The peak output values after normalization confirm that all three methods produce similar amplification characteristics, validating both the theoretical model and the measurement setup.</p></li>
 </ol>
 </section>

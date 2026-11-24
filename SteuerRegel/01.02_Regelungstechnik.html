@@ -477,8 +477,7 @@ window.Quarto = {
 <h2 data-number="9.1" class="anchored" data-anchor-id="warum-wir-regeln"><span class="header-section-number">9.1</span> Warum wir regeln</h2>
 <div style="text-align: justify">
 <p>Viele Aufgaben von Maschinen können auch durch Steuerungen umgesetzt werden. Eine Regelung erlaubt es aber, auf unerwünschte Einflüsse, sogenannte Störgrößen, zu reagieren. Als Beispiel soll der Tempomat (Geschwindigkeitsregelanlage) des Autos dienen. Die Aufgabe des Tempomats ist es, die Geschwindigkeit (Regelgröße) konstant zu halten. Als unerwünschte Einflüsse (Störgrößen) sind alle physikalischen Größen zu betrachten, welche die Geschwindigkeit beeinflussen. Beispiele sind die Steigung der Straße und Wind.<br>
-Die Geschwindigkeit des Autos wird über die Leistung (Stellgröße) bestimmt. Führt die Straße Bergauf, wird mehr Leistung für die gleiche Geschwindigkeit benötigt. Es muss also die Leistung laufend angepasst werden, um eine konstante Geschwindigkeit zu erhalten.<br>
-Bei einer Steuerung würde eine Leistung eingestellt werden und sich daraus eine Geschwindigkeit ergeben. Dieses wäre jedoch nur für einen voreingestellten Fall identisch mit der gewünschten Geschwindigkeit.</p>
+Die Geschwindigkeit des Autos wird über die Leistung (Stellgröße) bestimmt. Führt die Straße bergauf, wird mehr Leistung für die gleiche Geschwindigkeit benötigt. Es muss also die Leistung laufend angepasst werden, um eine konstante Geschwindigkeit zu erhalten. Bei einer Steuerung würde eine Leistung eingestellt werden und sich daraus eine Geschwindigkeit ergeben. Dies wäre jedoch nur für einen voreingestellten Fall identisch mit der gewünschten Geschwindigkeit.</p>
 </div>
 </section>
 <section id="gängige-begriffe-der-regelungstechnik" class="level2" data-number="9.2">
@@ -524,7 +523,7 @@ Bei einer Steuerung würde eine Leistung eingestellt werden und sich daraus eine
 </tr>
 <tr class="even">
 <td>Strecke</td>
-<td><span class="math inline">\(H(s)\)</span></td>
+<td><span class="math inline">\(G(s)\)</span></td>
 <td>Der zu regelnde Prozess oder das System.</td>
 </tr>
 <tr class="odd">
@@ -559,17 +558,14 @@ Abbildung&nbsp;9.1: Standardregelkreis
 <section id="reglertypen" class="level3" data-number="9.3.1">
 <h3 data-number="9.3.1" class="anchored" data-anchor-id="reglertypen"><span class="header-section-number">9.3.1</span> Reglertypen</h3>
 <p>Es kann zwischen zwei Arten von Reglern unterschieden werden. Erstere sind einfache Regler, welche die Stellgröße nur zwischen verschiedenen Zuständen hin- und herschalten können. Zum Beispiel Ein / Aus. Oder die Gänge eines Automatikgetriebes. Diese Regler werden <strong>unstetige Regler</strong> genannt. Unstetige Regler können gut mittels Hysteresen beschrieben werden.<br>
-Der zweite Typ von Regler kann die Stellgröße kontinuierlich anpassen. Diese Regler werden <strong>stetige Regler</strong> genannt. Stetige Regler können gut mit mathematische Gleichungen im Laplace Bereich beschrieben werden.</p>
+Der zweite Typ von Regler kann die Stellgröße kontinuierlich anpassen. Diese Regler werden <strong>stetige Regler</strong> genannt. Stetige Regler können gut mit mathematischen Gleichungen im Laplace-Bereich beschrieben werden.</p>
 </section>
 </section>
 <section id="unstetige-regler" class="level2" data-number="9.4">
 <h2 data-number="9.4" class="anchored" data-anchor-id="unstetige-regler"><span class="header-section-number">9.4</span> Unstetige Regler</h2>
 <p>Klassische unstetige Regler sind Bimetallschalter. Diese werden zum Beispiel bei Heizlüftern eingesetzt.<br>
 Ist der Raum und damit das Bimetall kalt, so ist der Kontakt geschlossen und der Lüfter läuft. Wird die Raumluft und damit das Bimetall warm, wird der Kontakt geöffnet und der Lüfter hört auf zu heizen.</p>
-<div id="61c35f90" class="cell" data-execution_count="2">
-<div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
-</div>
+<div id="33f05b83" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(T_{ein}\)</span> … Einschaltschwelle</p>
 </div>
@@ -578,6 +574,9 @@ Ist der Raum und damit das Bimetall kalt, so ist der Kontakt geschlossen und der
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(T\)</span> … Temperatur</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(T_{ref}\)</span> … Referenz Temperatur</p>
 </div>
 </div>
 <div id="cell-fig-zweipunktreglerplot" class="cell" data-execution_count="3">
@@ -644,20 +643,17 @@ Ist die Übertragungsfunktion bekannt, so kann die Strecke und deren Verhalten (
 </section>
 <section id="sec-Streckenidentifikation" class="level4" data-number="9.5.2.2">
 <h4 data-number="9.5.2.2" class="anchored" data-anchor-id="sec-Streckenidentifikation"><span class="header-section-number">9.5.2.2</span> Streckenidentifikation</h4>
-<p>Als Streckenidentifikation wird der Vorgang beschrieben, von einem physikalischem System das mathematische Modell und die Übertragungsfunktion zu erstellen. Zwei Methoden, wie dieses Ziel erreicht werden kann, werden hier beschrieben.</p>
+<p>Als Streckenidentifikation wird der Vorgang beschrieben, von einem physikalischen System das mathematische Modell und die Übertragungsfunktion zu erstellen. Zwei Methoden, wie dieses Ziel erreicht werden kann, werden hier beschrieben.</p>
 <ul>
 <li>Der mathematische Ansatz, <a href="#sec-MathStreckenidentifikation" class="quarto-xref"><span>Kapitel 9.5.3</span></a><br>
 </li>
 <li>Der messtechnische Ansatz, <a href="#sec-MessStreckenidentifikation" class="quarto-xref"><span>Kapitel 9.5.4</span></a></li>
 </ul>
-<div id="26c8aa1e" class="cell" data-execution_count="4">
+<div id="034f048d" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-EVA"><span class="math display">\[
 V = \frac{A}{E}
 \tag{9.1}\]</span></span></p>
-</div>
-<div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(V\)</span> … Verarbeitung, die Übertragungsfunktion</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(E\)</span> … Eingang</p>
@@ -665,14 +661,17 @@ V = \frac{A}{E}
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(A\)</span> … Ausgang</p>
 </div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(V\)</span> … Verarbeitung, die Übertragungsfunktion</p>
+</div>
 </div>
 <p>Gängige Bezeichnungen der Übertragungsfunktion der einzelnen Blöcke sind wie folgt.</p>
-<div id="dbfe7e33" class="cell" data-execution_count="5">
-<div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(G\)</span> … Übertragungsfunktion der zu Regelnden Strecke</p>
-</div>
+<div id="dc577d38" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(M\)</span> … Übertragungsfunktion des Sensors</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(G\)</span> … Übertragungsfunktion der zu regelnden Strecke</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(R\)</span> … Übertragungsfunktion des Reglers</p>
@@ -683,8 +682,8 @@ V = \frac{A}{E}
 <section id="sec-MathStreckenidentifikation" class="level3" data-number="9.5.3">
 <h3 data-number="9.5.3" class="anchored" data-anchor-id="sec-MathStreckenidentifikation"><span class="header-section-number">9.5.3</span> Mathematische Streckenidentifikation</h3>
 <p>Aus den physikalischen Zusammenhängen kann die Übertragungsfunktion berechnet werden. Die komplexe Zeigerdarstellung mit einer festen Frequenz ist für sinusförmige Dauersignale geeignet. Für zeitveränderliche Signale werden die physikalischen Gleichungen in Differentialform oder als Zustandsmodell beschrieben.</p>
-<p>Um die Mathematik möglichst einfach zu halten, wird in der Regelungstechnik im Laplace Bereich gearbeitet. Dadurch ist es nicht notwendig, die Differenzialgleichung bei physikalischen Systemen, die durch eine Differenzialgleichung beschrieben werden, zu lösen.</p>
-<p>Ein Beispiel, wie eine mathematische Streckenidentifikation abläuft, ist in Abschnitt <a href="#sec-Laplace" class="quarto-xref"><span>Kapitel 9.5.5</span></a> zu finden.</p>
+<p>Um die Mathematik möglichst einfach zu halten, wird in der Regelungstechnik im Laplace-Bereich gearbeitet. Dadurch ist es nicht notwendig, die Differenzialgleichung bei physikalischen Systemen, die durch eine Differenzialgleichung beschrieben werden, zu lösen.</p>
+<p>Ein Beispiel, wie eine mathematische Streckenidentifikation abläuft, ist in Kapitel <a href="#sec-Laplace" class="quarto-xref"><span>Kapitel 9.5.5</span></a> zu finden.</p>
 </section>
 <section id="sec-MessStreckenidentifikation" class="level3" data-number="9.5.4">
 <h3 data-number="9.5.4" class="anchored" data-anchor-id="sec-MessStreckenidentifikation"><span class="header-section-number">9.5.4</span> Messtechnische Streckenidentifikation</h3>
@@ -696,27 +695,26 @@ Dabei wird am Eingang der Strecke ein Testsignal aufgeschaltet und der Ausgang g
 <p>oder die Anstrengung der Faulen.</p>
 <section id="warum-laplace" class="level4" data-number="9.5.5.1">
 <h4 data-number="9.5.5.1" class="anchored" data-anchor-id="warum-laplace"><span class="header-section-number">9.5.5.1</span> Warum Laplace</h4>
-<p>Um eine Übertragungsfunktion zu Berechnen muss der Ausgang durch den Eingang dividiert werden. Wird das physikalische System durch eine lineare Gleichung beschrieben ist das sehr Einfach möglich und die Laplace Transformation ist nicht notwendig. Ein Beispiel dafür ist das Ohm’sche Gesetz.</p>
-<div id="35370d2a" class="cell" data-execution_count="6">
+<p>Um eine Übertragungsfunktion zu berechnen, muss der Ausgang durch den Eingang dividiert werden. Wird das physikalische System durch eine lineare Gleichung beschrieben, ist das sehr einfach möglich und die Laplace-Transformation ist nicht notwendig. Ein Beispiel dafür ist das Ohm’sche Gesetz.</p>
+<div id="71d8730e" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Ohm_eq"><span class="math display">\[
 R_{ohm} = \frac{U}{I}
 \tag{9.2}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(R_{ohm}\)</span> … Ohm’scher Widerstand als Übertragungsfunktion</p>
+<p><span class="math inline">\(U\)</span> … Spannung am Widerstand als Ausgang</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(I\)</span> … Strom am Widerstand als Eingang</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(U\)</span> … Spannung am Widerstand als Ausgang</p>
+<p><span class="math inline">\(R_{ohm}\)</span> … Ohm’scher Widerstand als Übertragungsfunktion</p>
 </div>
 </div>
-<p>Wird das physikalische System aber durch eine Differentialgleichung beschrieben, wie zum Beispiel bei einem Tiefpass, so wäre es notwendig zuerst die Differentialgleichung zu lösen um die Übertragungsfunktion zu berechnen. Hier bietet die Lapalce Transformation eine erhebliche erleichterung.<br>
-Wird die Übertragungsfunktion im Laplace-Bereich angeschrieben, ergeben sich weitere Vorteile, wenn es später darum geht einen Regler zu entwerfen und die Stabilität einer Strecke zu beurteilen.</p>
-<section id="beispiel-übertragungsfunktion-eines-tiefapsses" class="level5" data-number="9.5.5.1.1">
-<h5 data-number="9.5.5.1.1" class="anchored" data-anchor-id="beispiel-übertragungsfunktion-eines-tiefapsses"><span class="header-section-number">9.5.5.1.1</span> Beispiel Übertragungsfunktion eines Tiefapsses</h5>
+<p>Wird das physikalische System aber durch eine Differentialgleichung beschrieben, wie zum Beispiel bei einem Tiefpass, so wäre es notwendig zuerst die Differentialgleichung zu lösen um die Übertragungsfunktion zu berechnen. Hier bietet die Laplace-Transformation eine erhebliche Erleichterung. Wird die Übertragungsfunktion im Laplace-Bereich angeschrieben, ergeben sich weitere Vorteile, wenn es später darum geht einen Regler zu entwerfen und die Stabilität einer Strecke zu beurteilen.</p>
+<section id="beispiel-übertragungsfunktion-eines-tiefpasses" class="level5" data-number="9.5.5.1.1">
+<h5 data-number="9.5.5.1.1" class="anchored" data-anchor-id="beispiel-übertragungsfunktion-eines-tiefpasses"><span class="header-section-number">9.5.5.1.1</span> Beispiel Übertragungsfunktion eines Tiefpasses</h5>
 <div id="fig-Tiefpass" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-Tiefpass-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -727,7 +725,7 @@ Abbildung&nbsp;9.4: Tiefpass
 </figcaption>
 </figure>
 </div>
-<div id="f7811818" class="cell" data-execution_count="7">
+<div id="2e33c388" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-ict_eq1"><span class="math display">\[
 i_{c}{\left(t \right)} = C \frac{d}{d t} u_{c}{\left(t \right)}
@@ -739,30 +737,30 @@ i_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)
 \tag{9.4}\]</span></span></p>
 </div>
 </div>
-<p>Durch Gleichsetzten von <a href="#eq-ict_eq1" class="quarto-xref">Gleichung&nbsp;<span>9.3</span></a> und <a href="#eq-ict_eq2" class="quarto-xref">Gleichung&nbsp;<span>9.4</span></a> ergibt sich die allgemeine Differenzialgleichung 1. Ordnung für den Tiefpass.</p>
-<div id="168b8742" class="cell" data-execution_count="8">
+<p>Durch Gleichsetzen von <a href="#eq-ict_eq1" class="quarto-xref">Gleichung&nbsp;<span>9.3</span></a> und <a href="#eq-ict_eq2" class="quarto-xref">Gleichung&nbsp;<span>9.4</span></a> ergibt sich die allgemeine Differenzialgleichung erster Ordnung für den Tiefpass.</p>
+<div id="0de95816" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-RCTP"><span class="math display">\[
 C \frac{d}{d t} u_{c}{\left(t \right)} = \frac{- u_{c}{\left(t \right)} + u_{in}{\left(t \right)}}{R_{ohm}}
 \tag{9.5}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(C\)</span> … Kapazität</p>
+<p><span class="math inline">\(R_{ohm}\)</span> … Ohmscher Widerstand</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(t\)</span> … Zeit</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(R_{ohm}\)</span> … Ohmscher Widerstand</p>
+<p><span class="math inline">\(C\)</span> … Kapazität</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(u_{in}{\left(t \right)}\)</span> … Eingangsspannung</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(u_{c}{\left(t \right)}\)</span> … Ausgangsspannung</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(i_{c}{\left(t \right)}\)</span> … Strom</p>
-</div>
-<div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(u_{in}{\left(t \right)}\)</span> … Eingangsspannung</p>
 </div>
 </div>
 <p>Müsste nun von dieser Differentialgleichung die Übertragungsfunktion, also <span class="math inline">\(G=Ausgang/Eingang\)</span>, angegeben werden, so müsste zunächst die Differentialgleichung gelöst werden.<br>
@@ -829,7 +827,7 @@ Tabelle&nbsp;9.1: Laplacetransformationstabelle
 </figure>
 </div>
 <p>Wird nun Gleichung <a href="#eq-RCTP" class="quarto-xref">Gleichung&nbsp;<span>9.5</span></a> mittels der Tabelle <a href="#tbl-laplace" class="quarto-xref">Tabelle&nbsp;<span>9.1</span></a> transformiert, ergibt sich durch Umformen die Übertragungsfunktion. Der Kondensator wird als anfangs entladen angenommen; also ist <span class="math inline">\(u_C(0)=0\)</span>.</p>
-<div id="3ad451dd" class="cell" data-execution_count="9">
+<div id="cdf9b851" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
 C U_{C} s = \frac{- U_{C} + U_{IN}}{R_{ohm}}
@@ -852,11 +850,11 @@ G = \frac{1}{C R_{ohm} s + 1}
 <h3 data-number="9.5.6" class="anchored" data-anchor-id="sec-TestStrecke"><span class="header-section-number">9.5.6</span> Testsignale und Streckenverhalten</h3>
 <section id="testsignale" class="level4" data-number="9.5.6.1">
 <h4 data-number="9.5.6.1" class="anchored" data-anchor-id="testsignale"><span class="header-section-number">9.5.6.1</span> Testsignale</h4>
+<p>Testsignale werden gezielt am Streckeneingang aufgeschaltet, um das Dynamikverhalten zu untersuchen. Häufig werden Sprung-, Impuls-, Rampen- oder Sinussignale verwendet.</p>
 </section>
 <section id="streckenverhalten" class="level4" data-number="9.5.6.2">
 <h4 data-number="9.5.6.2" class="anchored" data-anchor-id="streckenverhalten"><span class="header-section-number">9.5.6.2</span> Streckenverhalten</h4>
-<section id="interaktiver-pt2-simulator" class="level5" data-number="9.5.6.2.1">
-<h5 data-number="9.5.6.2.1" class="anchored" data-anchor-id="interaktiver-pt2-simulator"><span class="header-section-number">9.5.6.2.1</span> Interaktiver PT2 Simulator</h5>
+<p>Aus Eingang und Ausgang wird bestimmt, ob die Strecke beispielsweise statisch, verzögert, integrierend, schwingungsfähig oder totzeitbehaftet ist. Zeitkonstanten, Verstärkung und Pole charakterisieren das Verhalten. ##### Interaktiver PT2 Simulator</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="2" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1;"><span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {</span>
@@ -971,7 +969,7 @@ G = \frac{1}{C R_{ohm} s + 1}
 <span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> <span class="fu">setPoint</span>(t)<span class="op">;</span></span>
 <span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>   </span>
 <span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>    e <span class="op">=</span> s <span class="op">-</span> u<span class="op">;</span></span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>    de <span class="op">=</span> eprev<span class="op">-</span>e<span class="op">;</span></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>    de <span class="op">=</span> e<span class="op">-</span>eprev<span class="op">;</span></span>
 <span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>    <span class="co">//du = (u-pu)/dt;</span></span>
 <span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>    <span class="co">//ddu = (du - pdu)/dt;</span></span>
@@ -1087,20 +1085,20 @@ G = \frac{1}{C R_{ohm} s + 1}
 </div>
 </div>
 </section>
-</section>
 <section id="identifikation" class="level4" data-number="9.5.6.3">
 <h4 data-number="9.5.6.3" class="anchored" data-anchor-id="identifikation"><span class="header-section-number">9.5.6.3</span> Identifikation</h4>
+<p>Bei der messtechnischen Identifikation wird das Ausgangssignal auf ein definiertes Eingangssignal gemessen. Aus den Daten wird ein mathematisches Modell der Strecke und daraus die Übertragungsfunktion bestimmt.</p>
 </section>
 </section>
 <section id="zusammenschaltung-von-blöcken" class="level3" data-number="9.5.7">
 <h3 data-number="9.5.7" class="anchored" data-anchor-id="zusammenschaltung-von-blöcken"><span class="header-section-number">9.5.7</span> Zusammenschaltung von Blöcken</h3>
 <p>Werden Blöcke kombiniert, können die resultierenden Übertragungsfunktionen berechnet werden.<br>
-Zur Vereinfachung kann die Übertragungsfunktion des Sensors mit <span class="math inline">\(M=1\)</span> angenommen werden, <span class="math inline">\(M=1\)</span>, wenn dieser im Verhältnis zur Strecke und zum Regler vernachlässigbar ist. Dies ist zum Beispiel der Fall, wenn der Sensor viel schneller ist als die Strecke und der Regler. Diese Voraussetzung ist für viele Systeme gegeben.</p>
+Zur Vereinfachung kann die Übertragungsfunktion des Sensors mit <span class="math inline">\(M=1\)</span> angenommen werden, wenn dieser im Verhältnis zur Strecke und zum Regler vernachlässigbar ist. Dies ist zum Beispiel der Fall, wenn der Sensor viel schneller ist als die Strecke und der Regler. Diese Voraussetzung ist für viele Systeme gegeben.</p>
 <p>Für den Regelkreis, <a href="#fig-Regelkreis" class="quarto-xref">Abbildung&nbsp;<span>9.1</span></a>, ergeben sich folgende Möglichkeiten.</p>
 <section id="die-führungsübertragungsfunktion" class="level4" data-number="9.5.7.1">
 <h4 data-number="9.5.7.1" class="anchored" data-anchor-id="die-führungsübertragungsfunktion"><span class="header-section-number">9.5.7.1</span> Die Führungsübertragungsfunktion</h4>
 <p>Die Führungsübertragungsfunktion gibt das Verhältnis zwischen Sollgröße und Istgröße an. Sie beschreibt damit das Verhalten des Regelkreises mit der Sollgröße als Eingang und der Istgröße als Ausgang. Ist eine Regelstrecke ideal, so ist die Führungsübertragungsfunktion gleich Eins.</p>
-<div id="d91b31b9" class="cell" data-execution_count="10">
+<div id="0df4fdf6" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Fw_eq"><span class="math display">\[
 F_{w} = \frac{G R}{G M R + 1}
@@ -1113,11 +1111,11 @@ F_{w} = \frac{G R}{G M R + 1}
 </section>
 <section id="die-schleifenübertragungsfunktion" class="level4" data-number="9.5.7.2">
 <h4 data-number="9.5.7.2" class="anchored" data-anchor-id="die-schleifenübertragungsfunktion"><span class="header-section-number">9.5.7.2</span> Die Schleifenübertragungsfunktion</h4>
-<p>Die Schleifenübertragungsfunktion ist die Übertragungsfunktion des offenen Regelkreises, also ohne Rückkopplung und ist im Laplace Bereich eine einfache Multiplikation.</p>
-<div id="096c1202" class="cell" data-execution_count="11">
+<p>Die Schleifenübertragungsfunktion ist die Übertragungsfunktion des offenen Regelkreises, also ohne Rückkopplung, und ist im Laplace-Bereich eine einfache Multiplikation.</p>
+<div id="9bbc4ce6" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
-F_{o} = G R
+F_{o} = G M R
 \tag{9.10}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
@@ -1128,7 +1126,7 @@ F_{o} = G R
 <section id="die-störübertragungsfunktion" class="level4" data-number="9.5.7.3">
 <h4 data-number="9.5.7.3" class="anchored" data-anchor-id="die-störübertragungsfunktion"><span class="header-section-number">9.5.7.3</span> Die Störübertragungsfunktion</h4>
 <p>Die Störübertragungsfunktion beschreibt, wie sich die Störgröße auf den Ausgang auswirkt.</p>
-<div id="60d1ad19" class="cell" data-execution_count="12">
+<div id="b0a32a7e" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-Dummy"><span class="math display">\[
 F_{s} = \frac{G}{F_{o} + 1}
@@ -1303,7 +1301,7 @@ F_{s} = \frac{G}{F_{o} + 1}
 <span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> pdy_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> de_PID <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> dt_PID <span class="op">=</span> <span class="fl">0.001</span><span class="op">;</span></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> s_PID <span class="op">=</span> <span class="fu">setPoint</span>(t0_PID)<span class="op">;</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> s_PID <span class="op">=</span> <span class="fu">setPoint_PID</span>(t0_PID)<span class="op">;</span></span>
 <span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>  output_PID<span class="op">.</span><span class="fu">push</span>({ t_PID<span class="op">,</span> u_PID<span class="op">,</span> s_PID })<span class="op">;</span></span>
 <span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> j_PID <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
@@ -1313,7 +1311,7 @@ F_{s} = \frac{G}{F_{o} + 1}
 <span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>    s_PID <span class="op">=</span> <span class="fu">setPoint_PID</span>(t_PID)<span class="op">;</span></span>
 <span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>   </span>
 <span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>    e_PID <span class="op">=</span> s_PID <span class="op">-</span> u_PID<span class="op">;</span></span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>    de_PID <span class="op">=</span> eprev_PID<span class="op">-</span>e_PID<span class="op">;</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>    de_PID <span class="op">=</span> e_PID<span class="op">-</span>eprev_PID<span class="op">;</span></span>
 <span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>    <span class="co">//du = (u-pu)/dt;</span></span>
 <span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>    <span class="co">//ddu = (du - pdu)/dt;</span></span>
@@ -1354,7 +1352,7 @@ F_{s} = \frac{G}{F_{o} + 1}
 <span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> x <span class="op">=</span> <span class="fu">hardstep_PID</span>(x)<span class="op">;</span></span>
 <span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">*</span> x <span class="op">*</span> (<span class="dv">3</span> <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> x)<span class="op">;</span></span>
 <span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>  <span class="cf">switch</span> (input) {</span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>  <span class="cf">switch</span> (input_PID) {</span>
 <span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'step'</span><span class="op">:</span></span>
 <span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> t_PID <span class="kw">=&gt;</span> (t_PID <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">?</span> <span class="dv">1</span> <span class="op">:</span> <span class="dv">0</span>)<span class="op">;</span></span>
 <span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">'ramp'</span><span class="op">:</span></span>
@@ -1397,7 +1395,7 @@ F_{s} = \frac{G}{F_{o} + 1}
 <h2 data-number="9.6" class="anchored" data-anchor-id="sec-Sprungantworten"><span class="header-section-number">9.6</span> Von der Sprungantwort zur Übertragungsfunktion</h2>
 <p>Dieses Kapitel beschreibt sechzehn Systeme: fünf Grundsysteme, deren Übertragungsfunktionen direkt aus physikalischen Bauelementewerten hergeleitet werden, fünf Systeme aus konkreten technischen Anwendungen, den als Nummer 11 angefügten RLC-Reihenkreis sowie fünf Systeme mit kombinierten Effekten (Teil IV), in denen mehrere physikalische Effekte gleichzeitig wirken — eine Nullstelle in der rechten s-Halbebene, ein Integrierer hinter einer Totzeit, eine differenzierende Nullstelle, eine doppelte Verzögerung mit Totzeit und Coulomb-Reibung. Die Skripte <code>generate_step_responses.py</code>, <code>generate_step_responses_applications.py</code> und <code>generate_step_responses_multi_effect.py</code> bauen jede Übertragungsfunktion <span class="math inline">\(G(s)\)</span> mit <strong>sympy</strong>, regen sie mit einem realistischen Eingangssprung an (reale Amplituden wie 5 V, 500 N, 2 L/s — kein normierter 0-auf-1-Sprung), berechnen die Sprungantwort analytisch als</p>
 <p><span class="math display">\[y(t) = \mathcal{L}^{-1}\left\{\frac{G(s)}{s}\right\},\]</span></p>
-<p>und speichern sie als CSV-Datei (<code>time_s</code>, <code>step_response</code>, 2001 Stützpunkte). Die einzige Ausnahme ist System 16 (Coulomb-Reibung): Reibung ist nichtlinear und verletzt die Superposition, deshalb wird dieses System numerisch integriert (RK4 mit Stick-Erkennung). Jedes System wird über seinem eigenen Zeitfenster abgetastet — etwa 4 bis 5 Zeitkonstanten —, sodass CSV und Plot den Übergangsvorgang dort zeigen, wo er passiert, und nicht lange Strecken eingeschwungener Werte. Kurznummerierte Kopien aller sechzehn CSV-Dateien liegen im Ordner <code>csv/</code> (<code>01.csv</code> … <code>16.csv</code>); die 1-kΩ-Varianten <code>01_a</code>, <code>02_a</code> und <code>11_b</code> werden in Teil III beschrieben. Die im gesamten Kapitel verwendeten Standard-Modellklassen — PT1, PT2, Integrierer, Totzeit, differenzierende und nichtminimalphasige Nullstellen, Totzone — sind in der folgenden Toolbox zusammengestellt.</p>
+<p>und speichern sie als CSV-Datei (<code>time_s</code>, <code>step_response</code>, 2001 Stützpunkte). Die einzige Ausnahme ist System 16 (Coulomb-Reibung): Reibung ist nichtlinear und verletzt die Superposition, deshalb wird dieses System numerisch integriert (RK4 mit Stick-Erkennung). Jedes System wird in seinem eigenen Zeitfenster abgetastet — etwa 4 bis 5 Zeitkonstanten —, sodass CSV und Plot den Übergangsvorgang dort zeigen, wo er passiert, und nicht lange Strecken eingeschwungener Werte. Kurznummerierte Kopien aller sechzehn CSV-Dateien liegen im Ordner <code>csv/</code> (<code>01.csv</code> … <code>16.csv</code>); die 1-kΩ-Varianten <code>01_a</code>, <code>02_a</code> und <code>11_b</code> werden in Teil III beschrieben. Die im gesamten Kapitel verwendeten Standard-Modellklassen — PT1, PT2, Integrierer, Totzeit, differenzierende und nichtminimalphasige Nullstellen, Totzone — sind in der folgenden Toolbox zusammengestellt.</p>
 </section>
 <section id="die-toolbox-der-standardglieder" class="level2" data-number="9.7">
 <h2 data-number="9.7" class="anchored" data-anchor-id="die-toolbox-der-standardglieder"><span class="header-section-number">9.7</span> Die Toolbox der Standardglieder</h2>
@@ -1614,8 +1612,8 @@ y(t) = 2.4\left(1 - e^{-100t}\right)\,\mathrm{A}\]</span></p>
 <h3 data-number="9.9.4" class="anchored" data-anchor-id="dc-motor-12-v-batteriesprung"><span class="header-section-number">9.9.4</span> 4. DC-Motor — 12-V-Batteriesprung</h3>
 <p><strong>Physikalischer Hintergrund.</strong> Ein DC-Motor mit Trägheit <span class="math inline">\(J = 0.02\,\mathrm{kg\,m^2}\)</span>, viskoser Reibung <span class="math inline">\(b = 0.2\,\mathrm{N\,m\,s/rad}\)</span>, Ankerwiderstand <span class="math inline">\(R = 1\,\mathrm{\Omega}\)</span> und Ankerinduktivität <span class="math inline">\(L = 0.05\,\mathrm{H}\)</span>, Drehmomentkonstante <span class="math inline">\(K_m = 0.05\,\mathrm{N\,m/A}\)</span> und Gegen-EMK-Konstante <span class="math inline">\(K_e = 0.05\,\mathrm{V\,s/rad}\)</span>, an einer 12-V-Batterie. Das Motormoment beschleunigt die Trägheit; die Gegen-EMK koppelt die Drehzahl zurück in den elektrischen Kreis — daraus ergibt sich eine Übertragungsfunktion zweiter Ordnung:</p>
 <p><span class="math display">\[G(s) = \frac{U K_m}{(Js + b)(Ls + R) + K_m K_e}
-      = \frac{0.6}{(0.02 s + 0.2)(0.05 s + 1) + 0.0025}\]</span></p>
-<p>Beide Pole sind reell und negativ (<span class="math inline">\(\approx -5.1\)</span> und <span class="math inline">\(-39.9\)</span>), der Motor läuft also ohne Überschwingen auf <span class="math inline">\(\omega_\infty \approx 2.96\,\mathrm{rad/s} \approx
+      = \frac{0.6}{0.001 s^2 + 0.03 s + 0.2025}\]</span></p>
+<p>Beide Pole sind reell und negativ (<span class="math inline">\(\approx -10.3\)</span> und <span class="math inline">\(-19.7\)</span>), der Motor läuft also ohne Überschwingen auf <span class="math inline">\(\omega_\infty \approx 2.96\,\mathrm{rad/s} \approx
 28\,\mathrm{rpm}\)</span> hoch.</p>
 <p><strong>CSV:</strong> <code>csv/04.csv</code> (0 … 1.5 s)</p>
 <div class="quarto-figure quarto-figure-center">
@@ -1695,7 +1693,7 @@ y(t) = 2.4\left(1 - e^{-100t}\right)\,\mathrm{A}\]</span></p>
 <td>12 V</td>
 <td>0 → 2.96 rad/s</td>
 <td>2</td>
-<td><span class="math inline">\(\approx -5.1,\ -39.9\)</span></td>
+<td><span class="math inline">\(\approx -10.3,\ -19.7\)</span></td>
 <td>2.96 rad/s</td>
 <td>überdämpftes PT2</td>
 </tr>
@@ -1747,8 +1745,8 @@ y(t) = 0.08\left(1 - e^{-t/20}\right)\,\mathrm{m}\]</span></p>
 <p><strong>Physikalischer Hintergrund.</strong> Ein 12-V-auf-Niederspannung-Buck-Wandler mit LC-Ausgangsfilter (<span class="math inline">\(L = 47\,\mathrm{\mu H}\)</span>, <span class="math inline">\(C = 220\,\mathrm{\mu F}\)</span>) an einer <span class="math inline">\(1\,\mathrm{\Omega}\)</span>-Last. Ein Tastverhältnissprung von <span class="math inline">\(\Delta d = 0.1\)</span> verschiebt die mittlere Ausgangsspannung um <span class="math inline">\(\Delta V = V_{in}\,\Delta d = 1.2\,\mathrm{V}\)</span>.</p>
 <p><span class="math display">\[G(s) = \frac{V_{in}\,\Delta d}{LC\,s^2 + \frac{L}{R} s + 1}
       = \frac{1.2}{1.034\cdot10^{-8}\,s^2 + 4.7\cdot10^{-5}\,s + 1}\]</span></p>
-<p>Eigenfrequenz <span class="math inline">\(\omega_n = 1/\sqrt{LC} \approx 9.57\cdot
-10^3\,\mathrm{rad/s}\)</span> (<span class="math inline">\(\approx 1.5\,\mathrm{kHz}\)</span>) mit Dämpfungsgrad <span class="math inline">\(\zeta = \tfrac{1}{2R}\sqrt{L/C} \approx 0.23\)</span>: die Ausgangsspannung schwingt nach und überschwingt, bevor sie sich innerhalb weniger Millisekunden auf 1.2 V einstellt. Solch schnelle Übergangsvorgänge sind der Grund, warum Schaltnetzteile eine sorgfältige Regelkreis-Auslegung brauchen.</p>
+<p>Eigenfrequenz <span class="math inline">\(\omega_n = 1/\sqrt{LC} \approx 9.83\cdot
+10^3\,\mathrm{rad/s}\)</span> (<span class="math inline">\(\approx 1.56\,\mathrm{kHz}\)</span>); die gedämpfte Eigenfrequenz ist <span class="math inline">\(\omega_d \approx 9.57\cdot10^3\,\mathrm{rad/s}\)</span>. Dämpfungsgrad <span class="math inline">\(\zeta = \tfrac{1}{2R}\sqrt{L/C} \approx 0.23\)</span>: die Ausgangsspannung schwingt nach und überschwingt, bevor sie sich innerhalb weniger Millisekunden auf 1.2 V einstellt. Solch schnelle Übergangsvorgänge sind der Grund, warum Schaltnetzteile eine sorgfältige Regelkreis-Auslegung brauchen.</p>
 <p><strong>CSV:</strong> <code>csv/08.csv</code> (0 … 5 ms)</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1893,7 +1891,7 @@ y(t) = 0.08\left(1 - e^{-t/20}\right)\,\mathrm{m}\]</span></p>
 </section>
 <section id="a-rl-schaltung-mit-r-1-kω" class="level3" data-number="9.11.2">
 <h3 data-number="9.11.2" class="anchored" data-anchor-id="a-rl-schaltung-mit-r-1-kω"><span class="header-section-number">9.11.2</span> 02_a — RL-Schaltung mit R = 1 kΩ</h3>
-<p>Mit <span class="math inline">\(R = 1\,\mathrm{k\Omega}\)</span> statt <span class="math inline">\(10\,\mathrm{\Omega}\)</span> fällt der Endstrom auf <span class="math inline">\(U/R = 24\,\mathrm{mA}\)</span>, und die Zeitkonstante schrumpft hundertfach auf <span class="math inline">\(\tau = L/R = 0.1\,\mathrm{ms}\)</span>: der Strom steigt 100-mal schneller an, aber nur auf ein Zehntel der ursprünglichen 2.4 A.</p>
+<p>Mit <span class="math inline">\(R = 1\,\mathrm{k\Omega}\)</span> statt <span class="math inline">\(10\,\mathrm{\Omega}\)</span> fällt der Endstrom auf <span class="math inline">\(U/R = 24\,\mathrm{mA}\)</span>, und die Zeitkonstante schrumpft hundertfach auf <span class="math inline">\(\tau = L/R = 0.1\,\mathrm{ms}\)</span>: der Strom steigt 100-mal schneller an, aber nur auf ein Hundertstel der ursprünglichen 2.4 A.</p>
 <p><span class="math display">\[G(s) = \frac{0.024}{10^{-4}\,s + 1}\]</span></p>
 <p><strong>CSV:</strong> <code>csv/02_a.csv</code> (0 … 0.5 ms)</p>
 <div class="quarto-figure quarto-figure-center">
@@ -1942,7 +1940,7 @@ y(t) = 0.08\left(1 - e^{-t/20}\right)\,\mathrm{m}\]</span></p>
 <p><strong>Physikalischer Hintergrund.</strong> In einer Asphalt- oder Betonmischanlage fördert eine Schnecke Sand mit <span class="math inline">\(q = 2\,\mathrm{kg/s}\)</span> auf ein Förderband. Das Material braucht <span class="math inline">\(L = 30\,\mathrm{m}/2\,\mathrm{m/s} = 15\,\mathrm{s}\)</span> über das Band, bevor es in das Wiegesilo fällt, dessen Inhalt das Integral des ankommenden Stroms ist.</p>
 <p><span class="math display">\[G(s) = \frac{q\,e^{-L s}}{s} = \frac{2\,e^{-15s}}{s}, \qquad
 y(t) = 2\,(t - 15)\,\sigma(t - 15)\,\mathrm{kg}\]</span></p>
-<p>Zwei Effekte multiplizieren sich: der <strong>Integrierer</strong> (das Silo summiert alles, was ankommt) und die <strong>Transporttotzeit</strong> (15 s lang kommt nichts an). Die Antwort ist exakt 15 s lang null und danach eine gerade Rampe von <span class="math inline">\(2\,\mathrm{kg/s}\)</span> — bei <span class="math inline">\(t = 60\,\mathrm{s}\)</span> sind 90 kg angekommen. Das kombiniert den Charakter von System 9 (Integrierer → Rampe) mit dem von System 10 (Totzeit → erst Stille). In der Dosierpraxis ist die Totzeit das dominante Problem: Um eine Zielmasse zu erreichen, muss die Zuteitung 15 s früher abgeschaltet werden, und jeder Fehler, der während der Totzeit passiert, kann erst korrigiert werden, wenn das Material ankommt.</p>
+<p>Zwei Effekte multiplizieren sich: der <strong>Integrierer</strong> (das Silo summiert alles, was ankommt) und die <strong>Transporttotzeit</strong> (15 s lang kommt nichts an). Die Antwort ist exakt 15 s lang null und danach eine gerade Rampe von <span class="math inline">\(2\,\mathrm{kg/s}\)</span> — bei <span class="math inline">\(t = 60\,\mathrm{s}\)</span> sind 90 kg angekommen. Das kombiniert den Charakter von System 9 (Integrierer → Rampe) mit dem von System 10 (Totzeit → erst Stille). In der Dosierpraxis ist die Totzeit das dominante Problem: Um eine Zielmasse zu erreichen, muss die Zuteilung 15 s früher abgeschaltet werden, und jeder Fehler, der während der Totzeit passiert, kann erst korrigiert werden, wenn das Material ankommt.</p>
 <p><strong>CSV:</strong> <code>csv/13.csv</code> (0 … 60 s)</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1953,9 +1951,10 @@ y(t) = 2\,(t - 15)\,\sigma(t - 15)\,\mathrm{kg}\]</span></p>
 </section>
 <section id="gummi-motorlager-eingeleitete-kraft-auf-übertragene-kraft" class="level3" data-number="9.12.3">
 <h3 data-number="9.12.3" class="anchored" data-anchor-id="gummi-motorlager-eingeleitete-kraft-auf-übertragene-kraft"><span class="header-section-number">9.12.3</span> 14. Gummi-Motorlager — eingeleitete Kraft auf übertragene Kraft</h3>
-<p><strong>Physikalischer Hintergrund.</strong> Ein 300-kg-Verbrennungsmotor ruht auf drei Gummilagern; ein Lager trägt <span class="math inline">\(m = 100\,\mathrm{kg}\)</span> Motormasse mit einer Steifigkeit von <span class="math inline">\(k = 10^5\,\mathrm{N/m}\)</span> (etwa 1 mm statische Einfederung) und einer Dämpfung von <span class="math inline">\(d = 630\,\mathrm{N\,s/m}\)</span> (<span class="math inline">\(\zeta \approx 0.1\)</span>). Beim Motorstart trifft eine Drehmoment-Stützkraft von <span class="math inline">\(F = 800\,\mathrm{N}\)</span> auf das Lager. Interessant ist die Kraft, die das Lager an den Rahmen weiterleitet: <span class="math inline">\(f_T = k\,x + d\,\dot x\)</span>.</p>
+<p><strong>Physikalischer Hintergrund.</strong> Ein 300-kg-Verbrennungsmotor ruht auf drei Gummilagern; ein Lager trägt <span class="math inline">\(m = 100\,\mathrm{kg}\)</span> Motormasse mit einer Steifigkeit von <span class="math inline">\(k = 10^5\,\mathrm{N/m}\)</span> (etwa <span class="math inline">\(9{,}8\,\mathrm{mm}\)</span> statische Einfederung durch die Eigenmasse) und einer Dämpfung von <span class="math inline">\(d = 630\,\mathrm{N\,s/m}\)</span> (<span class="math inline">\(\zeta \approx 0.1\)</span>). Beim Motorstart trifft eine Drehmoment-Stützkraft von <span class="math inline">\(F = 800\,\mathrm{N}\)</span> auf das Lager. Interessant ist die Kraft, die das Lager an den Rahmen weiterleitet: <span class="math inline">\(f_T = k\,x + d\,\dot x\)</span>.</p>
 <p><span class="math display">\[G(s) = \frac{k + d\,s}{m\,s^2 + d\,s + k}
-      = \frac{8\cdot10^5 + 504000\,s}{10^5 + 630\,s + 100\,s^2}\]</span></p>
+      = \frac{800(k + d\,s)}{m\,s^2 + d\,s + k}
+      = \frac{8\cdot10^7 + 504000\,s}{100\,s^2 + 630\,s + 10^5}\]</span></p>
 <p>Pole bei <span class="math inline">\(-3.15 \pm j\,31.5\,\mathrm{rad/s}\)</span> (<span class="math inline">\(\omega_n = 31.6\,\mathrm{rad/s} \approx 5\,\mathrm{Hz}\)</span>) und eine <strong>differenzierende Nullstelle</strong> bei <span class="math inline">\(-k/d = -159\,\mathrm{rad/s}\)</span> — der Dämpferanteil <span class="math inline">\(d\,\dot x\)</span> in der übertragenen Kraft.</p>
 <p><span class="math display">\[y(t) = 800 + e^{-3.15\,t}\left(80.1\,\sin(31.47\,t) -
 800\,\cos(31.47\,t)\right)\,\mathrm{N}\]</span></p>
@@ -1975,7 +1974,7 @@ y(t) = 2\,(t - 15)\,\sigma(t - 15)\,\mathrm{kg}\]</span></p>
       = \frac{5.4\,e^{-300 s}}{(40 s + 1)(300 s + 1)}\]</span></p>
 <p><span class="math display">\[y(t) = 5.4\left[1 - 1.154\,e^{-t'/300} + 0.154\,e^{-t'/40}\right]
 \sigma(t - 300)\,\mathrm{K}, \qquad t' = t - 300\]</span></p>
-<p>Eine volle Minute fünf lang passiert gar nichts, dann beginnt der s-förmige PT2-Anstieg wie in System 5 — Totzeit plus doppelte Verzögerung in einer Strecke. Diese Kombination (lange Totzeit <em>und</em> zugleich langsame S-Kurve) ist der Grund, warum Fernwärmekreise konservativ geregelt werden: Ein Regler, der während der 5 stillen Minuten aggressiv reagiert, überschwingt stark, sobald die Wirkung endlich eintrifft. Zusammen mit System 10 zeigt dieses System, wie stark allein die Totzeit die Regelung erschwert.</p>
+<p>Fünf volle Minuten passiert gar nichts, dann beginnt der s-förmige PT2-Anstieg wie in System 5 — Totzeit plus doppelte Verzögerung in einer Strecke. Diese Kombination (lange Totzeit <em>und</em> zugleich langsame S-Kurve) ist der Grund, warum Fernwärmekreise konservativ geregelt werden: Ein Regler, der während der 5 stillen Minuten aggressiv reagiert, überschwingt stark, sobald die Wirkung endlich eintrifft. Zusammen mit System 10 zeigt dieses System, wie stark allein die Totzeit die Regelung erschwert.</p>
 <p><strong>CSV:</strong> <code>csv/15.csv</code> (0 … 1800 s)</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2082,7 +2081,7 @@ F_c\,\operatorname{sign}(\dot x) = F,\]</span></p>
 
 </main> <!-- /main -->
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuUGxvdC5wbG90KHtcbiAgeToge1xuICAgIGdyaWQ6IHRydWUsXG4gIC8vICBkb21haW46IFswLCA0XVxuICB9LFxuICBtYXJrczogW1xuICAgIFBsb3QubGluZSh5LCB7XG4gICAgICB4OiBcInRcIixcbiAgICAgIHk6IFwic1wiLFxuICAgICAgc3Ryb2tlOiAnIzg4OCdcbiAgICB9KSxcbiAgICBQbG90LmxpbmUoeSwgeyB4OiBcInRcIiwgeTogXCJ1XCIsIHN0cm9rZTogJyMzNGYnIH0pXG4gIF1cbn0pXG5cbnZpZXdvZiBpbnB1dCA9IFNlbGVjdChcbiAgWydzdGVwJywgJ2hhcmRzdGVwJywgJ3Ntb290aHN0ZXAnLCAncmFtcCcsICdxdWFkcmF0aWMgcmFtcCddLFxuICB7XG4gICAgdmFsdWU6ICdzdGVwJyxcbiAgICBsYWJlbDogJ0lucHV0J1xuICB9XG4pXG5cbi8vdmlld29mIEtwID0gUmFuZ2UoWzFlLTEyLCAxMDBdLCB7XG4vLyAgbGFiZWw6IHRleGBLX1BgLFxuLy8gIHZhbHVlOiAxLFxuLy8gIHRyYW5zZm9ybTogTWF0aC5sb2dcbi8vfSlcblxuLy92aWV3b2YgS2kgPSBSYW5nZShbMWUtMTIsIDEwXSwge1xuLy8gIGxhYmVsOiB0ZXhgS19JYCxcbi8vICB2YWx1ZTogMCxcbi8vICB0cmFuc2Zvcm06IE1hdGgubG9nXG4vL30pXG5cbi8vdmlld29mIEtkID0gUmFuZ2UoWzFlLTEyLCAxXSwge1xuLy8gIGxhYmVsOiB0ZXhgS19kYCxcbi8vICB2YWx1ZTogMCxcbi8vICB0cmFuc2Zvcm06IE1hdGgubG9nXG4vL30pXG5cbi8vdmlld29mIGR0ID0gUmFuZ2UoWzFlLTQsIDAuMV0sIHtcbi8vICB2YWx1ZTogMC4wMDEsXG4vLyAgdHJhbnNmb3JtOiBNYXRoLmxvZyxcbi8vICBsYWJlbDogdGV4YFxcRGVsdGEgdGBcbi8vfSlcblxudmlld29mIEtwdDIgPSBSYW5nZShbMWUtMTIsIDVdLCB7XG4gIHZhbHVlOiAxLFxuICB0cmFuc2Zvcm06IE1hdGgubG9nLFxuICBsYWJlbDogdGV4YEtfe3B0Mn1gXG59KVxuXG52aWV3b2YgRCA9IFJhbmdlKFsxZS0xMiwgMTBdLCB7XG4gIHZhbHVlOiAwLjUsXG4gIHRyYW5zZm9ybTogTWF0aC5sb2csXG4gIGxhYmVsOiB0ZXhgRGBcbn0pXG5cbnZpZXdvZiBUID0gUmFuZ2UoWzFlLTEyLCA1XSwge1xuICB2YWx1ZTogMSxcbiAgdHJhbnNmb3JtOiBNYXRoLmxvZyxcbiAgbGFiZWw6IHRleGBUYFxufSlcblxudmlld29mIHRNYXggPSBSYW5nZShbMSwgMTBlM10sIHtcbiAgdmFsdWU6IDEwLFxuICB0cmFuc2Zvcm06IE1hdGgubG9nLFxuICBsYWJlbDogdGV4YHRfe21heH1gXG59KVxuXG55ID0ge1xuICBjb25zdCBvdXRwdXQgPSBbXTtcblxuICBsZXQgcDsgXG4gIGxldCB0MCA9IC0wLjU7XG4gIC8vbGV0IHRNYXggPSAyMDtcblxuICBsZXQgdCA9IHQwO1xuICBsZXQgZCA9IDA7XG4gIGxldCB1ID0gMDtcbiAgbGV0IGkgPSAwO1xuICBsZXQgZSA9IDA7XG4gIGxldCBlcHJldiA9IGU7XG4gIGxldCBwdSA9IHU7XG4gIGxldCBwcHUgPSB1O1xuICBsZXQgZHUgPSAwO1xuICBsZXQgZGR1ID0gMDtcbiAgbGV0IHBkdSA9IDA7XG4gIGxldCB5ID0gMDtcbiAgbGV0IHB5ID0gMDtcbiAgbGV0IHBweSA9IDA7XG4gIGxldCBkeSA9IDA7XG4gIGxldCBkZHkgPSAwO1xuICBsZXQgcGR5ID0gMDtcbiAgbGV0IGRlID0gMDtcbiAgbGV0IGR0ID0gMC4wMDE7XG4gIGxldCBzID0gc2V0UG9pbnQodDApO1xuICBvdXRwdXQucHVzaCh7IHQsIHUsIHMgfSk7XG5cbiAgbGV0IGogPSAxO1xuICB3aGlsZSAodCA8IHRNYXgpIHtcbiAgICB0ID0gdDAgKyBqICogZHQ7XG5cbiAgICBzID0gc2V0UG9pbnQodCk7XG4gICBcbiAgICBlID0gcyAtIHU7XG4gICAgZGUgPSBlcHJldi1lO1xuXG4gICAgLy9kdSA9ICh1LXB1KS9kdDtcbiAgICAvL2RkdSA9IChkdSAtIHBkdSkvZHQ7XG5cbiAgICAvL2R5ID0gKHB5IC0geSkvZHQ7XG4gICAgLy9kZHkgPSAoZHkgLSBwZHkpL2R0O1xuXG4gICAgcCA9IGU7XG4gICAgaSArPSBlICogZHQ7XG4gICAgZCA9IGRlL2R0O1xuXG4gICAgeSA9IHM7IC8vKEtwICogcCArIEtpICogaSArIEtkICogZCkgKiBkdDtcbiAgICBcbiAgICB1ID0gKDIqRCpUKmR0KnB1ICsgS3B0MipkdCoqMip5IC0gVCoqMipwcHUgKyAyKlQqKjIqcHUpLygyKkQqVCpkdCArIFQqKjIgKyBkdCoqMik7XG5cbiAgICBwcHUgPSBwdTtcbiAgICBwdSA9IHU7XG4gICAgLy9wZHUgPSBkdTtcblxuICAgIC8vcHB5ID0gcHk7XG4gICAgLy9weSA9IHk7XG4gICAgLy9wZHkgPSBkeTtcblxuICAgIGVwcmV2ID0gZTtcblxuICAgIG91dHB1dC5wdXNoKHsgdCwgdSwgcyB9KTtcbiAgICBqKys7XG4gIH1cblxuICByZXR1cm4gb3V0cHV0O1xufVxuXG5zZXRQb2ludCA9IHtcbiAgZnVuY3Rpb24gaGFyZHN0ZXAoeCkge1xuICAgIHJldHVybiBNYXRoLm1heCgwLCBNYXRoLm1pbigxLCB4KSk7XG4gIH1cbiAgZnVuY3Rpb24gc21vb3Roc3RlcCh4KSB7XG4gICAgdmFyIHggPSBoYXJkc3RlcCh4KTtcbiAgICByZXR1cm4geCAqIHggKiAoMyAtIDIgKiB4KTtcbiAgfVxuICBzd2l0Y2ggKGlucHV0KSB7XG4gICAgY2FzZSAnc3RlcCc6XG4gICAgICByZXR1cm4gdCA9PiAodCA+PSAwID8gMSA6IDApO1xuICAgIGNhc2UgJ3JhbXAnOlxuICAgICAgcmV0dXJuIHQgPT4gKHQgPj0gMCA/IHQgOiAwKTtcbiAgICBjYXNlICdxdWFkcmF0aWMgcmFtcCc6XG4gICAgICByZXR1cm4gdCA9PiAodCA+PSAwID8gdCAqIHQgOiAwKTtcbiAgICBjYXNlICdzbW9vdGhzdGVwJzpcbiAgICAgIHJldHVybiBzbW9vdGhzdGVwO1xuICAgIGNhc2UgJ2hhcmRzdGVwJzpcbiAgICAgIHJldHVybiBoYXJkc3RlcDtcbiAgICBkZWZhdWx0OlxuICAgICAgdGhyb3cgbmV3IEVycm9yKCdJbnZhbGlkIGlucHV0Jyk7XG4gIH1cbn1cblxuaW1wb3J0IHsgUmFuZ2UsIFNlbGVjdCB9IGZyb20gJ0BvYnNlcnZhYmxlaHEvaW5wdXRzJ1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy8gVGhlIGJhc2ljIGNvZGUgbGF5b3V0IHdhcyBmb3VuZCBvbiBzb3VyY2U6IGh0dHBzOi8vb2JzZXJ2YWJsZWhxLmNvbS9AbWJvc3RvY2svaW5wdXRzXG4vLyBiZSBhd2FyZSwgdGhlIGNvZGUgdmFyaWFibGVzIGRvIG5vdCB5ZXQgbWF0Y2ggdGhlIHZhcmlhYmxlIG5hbWVzIGluIHRoZSBkb2N1bWVudFxuXG5QbG90LnBsb3Qoe1xuICB5OiB7XG4gICAgZ3JpZDogdHJ1ZSxcbiAgLy8gIGRvbWFpbjogWzAsIDRdXG4gIH0sXG4gIG1hcmtzOiBbXG4gICAgUGxvdC5saW5lKHlfUElELCB7XG4gICAgICB4OiBcInRfUElEXCIsXG4gICAgICB5OiBcInNfUElEXCIsXG4gICAgICBzdHJva2U6ICcjODg4J1xuICAgIH0pLFxuICAgIFBsb3QubGluZSh5X1BJRCwgeyB4OiBcInRfUElEXCIsIHk6IFwidV9QSURcIiwgc3Ryb2tlOiAnIzM0ZicgfSksIC8vQkx1ZVxuICAgIFBsb3QubGluZSh5X1BJRCwgeyB4OiBcInRfUElEXCIsIHk6IFwiZV9QSURcIiwgc3Ryb2tlOiAnI2ZiMmYwMycgfSksIC8vUkVEXG4gICAgUGxvdC5saW5lKHlfUElELCB7IHg6IFwidF9QSURcIiwgeTogXCJ5X1BJRFwiLCBzdHJva2U6ICcjZDdmYjAzJyB9KSwgIC8vR3JlZW5pc2NoXG4gIF1cbn0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcbnZpZXdvZiBLcF9QSUQgPSBSYW5nZShbMWUtMTIsIDEwZTNdLCB7XG4gIGxhYmVsOiB0ZXhgS19QYCxcbiAgdmFsdWU6IDEsXG4gIHRyYW5zZm9ybTogTWF0aC5sb2dcbn0pXG5cbnZpZXdvZiBLaV9QSUQgPSBSYW5nZShbMWUtMTIsIDEwZTJdLCB7XG4gIGxhYmVsOiB0ZXhgS19JYCxcbiAgdmFsdWU6IDAsXG4gIHRyYW5zZm9ybTogTWF0aC5sb2dcbn0pXG5cbnZpZXdvZiBLZF9QSUQgPSBSYW5nZShbMWUtMTIsIDEwZTFdLCB7XG4gIGxhYmVsOiB0ZXhgS19kYCxcbiAgdmFsdWU6IDAsXG4gIHRyYW5zZm9ybTogTWF0aC5sb2dcbn0pXG5cbi8vdmlld29mIGR0ID0gUmFuZ2UoWzFlLTQsIDAuMV0sIHtcbi8vICB2YWx1ZTogMC4wMDEsXG4vLyAgdHJhbnNmb3JtOiBNYXRoLmxvZyxcbi8vICBsYWJlbDogdGV4YFxcRGVsdGEgdGBcbi8vfSlcblxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC00IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiXG52aWV3b2YgS3B0Ml9QSUQgPSBSYW5nZShbMWUtMTIsIDEwZTNdLCB7XG4gIHZhbHVlOiAxLFxuICB0cmFuc2Zvcm06IE1hdGgubG9nLFxuICBsYWJlbDogdGV4YEtfe3B0Mn1gXG59KVxuXG52aWV3b2YgRF9QSUQgPSBSYW5nZShbMWUtMTIsIDEwXSwge1xuICB2YWx1ZTogMSxcbiAgdHJhbnNmb3JtOiBNYXRoLmxvZyxcbiAgbGFiZWw6IHRleGBEYFxufSlcblxudmlld29mIFRfUElEID0gUmFuZ2UoWzFlLTEyLCA1XSwge1xuICB2YWx1ZTogMSxcbiAgdHJhbnNmb3JtOiBNYXRoLmxvZyxcbiAgbGFiZWw6IHRleGBUYFxufSlcblxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC01IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiXG52aWV3b2YgaW5wdXRfUElEID0gU2VsZWN0KFxuICBbJ3N0ZXAnLCAnaGFyZHN0ZXAnLCAnc21vb3Roc3RlcCcsICdyYW1wJywgJ3F1YWRyYXRpYyByYW1wJ10sXG4gIHtcbiAgICB2YWx1ZTogJ3N0ZXAnLFxuICAgIGxhYmVsOiAnSW5wdXQnXG4gIH1cbilcblxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC02IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiXG52aWV3b2YgdE1heF9QSUQgPSBSYW5nZShbMSwgMTBlM10sIHtcbiAgdmFsdWU6IDEwLFxuICB0cmFuc2Zvcm06IE1hdGgubG9nLFxuICBsYWJlbDogdGV4YHRfe21heH1gXG59KVxuXG55X1BJRCA9IHtcbiAgY29uc3Qgb3V0cHV0X1BJRCA9IFtdO1xuXG4gIGxldCBwX1BJRDsgXG4gIGxldCB0MF9QSUQgPSAtMC41O1xuICAvL2xldCB0TWF4X1BJRCA9IDIwO1xuXG4gIGxldCB0X1BJRCA9IHQwX1BJRDtcbiAgbGV0IGRfUElEID0gMDtcbiAgbGV0IHVfUElEID0gMDtcbiAgbGV0IGlfUElEID0gMDtcbiAgbGV0IGVfUElEID0gMDtcbiAgbGV0IGVwcmV2X1BJRCA9IGVfUElEO1xuICBsZXQgcHVfUElEID0gdV9QSUQ7XG4gIGxldCBwcHVfUElEID0gdV9QSUQ7XG4gIGxldCBkdV9QSUQgPSAwO1xuICBsZXQgZGR1X1BJRCA9IDA7XG4gIGxldCBwZHVfUElEID0gMDtcbiAgbGV0IHlfUElEID0gMDtcbiAgbGV0IHB5X1BJRCA9IDA7XG4gIGxldCBwcHlfUElEID0gMDtcbiAgbGV0IGR5X1BJRCA9IDA7XG4gIGxldCBkZHlfUElEID0gMDtcbiAgbGV0IHBkeV9QSUQgPSAwO1xuICBsZXQgZGVfUElEID0gMDtcbiAgbGV0IGR0X1BJRCA9IDAuMDAxO1xuICBsZXQgc19QSUQgPSBzZXRQb2ludCh0MF9QSUQpO1xuICBvdXRwdXRfUElELnB1c2goeyB0X1BJRCwgdV9QSUQsIHNfUElEIH0pO1xuXG4gIGxldCBqX1BJRCA9IDE7XG4gIHdoaWxlICh0X1BJRCA8IHRNYXhfUElEKSB7XG4gICAgdF9QSUQgPSB0MF9QSUQgKyBqX1BJRCAqIGR0X1BJRDtcblxuICAgIHNfUElEID0gc2V0UG9pbnRfUElEKHRfUElEKTtcbiAgIFxuICAgIGVfUElEID0gc19QSUQgLSB1X1BJRDtcbiAgICBkZV9QSUQgPSBlcHJldl9QSUQtZV9QSUQ7XG5cbiAgICAvL2R1ID0gKHUtcHUpL2R0O1xuICAgIC8vZGR1ID0gKGR1IC0gcGR1KS9kdDtcblxuICAgIC8vZHkgPSAocHkgLSB5KS9kdDtcbiAgICAvL2RkeSA9IChkeSAtIHBkeSkvZHQ7XG5cbiAgICBwX1BJRCA9IGVfUElEO1xuICAgIGlfUElEICs9IGVfUElEICogZHRfUElEO1xuICAgIGRfUElEID0gZGVfUElEL2R0X1BJRDtcblxuICAgIHlfUElEID0gKEtwX1BJRCAqIHBfUElEICsgS2lfUElEICogaV9QSUQgKyBLZF9QSUQgKiBkX1BJRCk7XG4gICAgXG4gICAgdV9QSUQgPSAoMipEX1BJRCpUX1BJRCpkdF9QSUQqcHVfUElEICsgS3B0Ml9QSUQqZHRfUElEKioyKnlfUElEIC0gVF9QSUQqKjIqcHB1X1BJRCArIDIqVF9QSUQqKjIqcHVfUElEKS8oMipEX1BJRCpUX1BJRCpkdF9QSUQgKyBUX1BJRCoqMiArIGR0X1BJRCoqMik7XG5cbiAgICBwcHVfUElEID0gcHVfUElEO1xuICAgIHB1X1BJRCA9IHVfUElEO1xuICAgIC8vcGR1ID0gZHU7XG5cbiAgICAvL3BweSA9IHB5O1xuICAgIC8vcHkgPSB5O1xuICAgIC8vcGR5ID0gZHk7XG5cbiAgICBlcHJldl9QSUQgPSBlX1BJRDtcblxuICAgIG91dHB1dF9QSUQucHVzaCh7IHRfUElELCB1X1BJRCwgc19QSUQsIGVfUElELCB5X1BJRCB9KTtcbiAgICBqX1BJRCsrO1xuICB9XG5cbiAgcmV0dXJuIG91dHB1dF9QSUQ7XG59XG5cbnNldFBvaW50X1BJRCA9IHtcbiAgZnVuY3Rpb24gaGFyZHN0ZXBfUElEKHgpIHtcbiAgICByZXR1cm4gTWF0aC5tYXgoMCwgTWF0aC5taW4oMSwgeCkpO1xuICB9XG4gIGZ1bmN0aW9uIHNtb290aHN0ZXBfUElEKHgpIHtcbiAgICB2YXIgeCA9IGhhcmRzdGVwX1BJRCh4KTtcbiAgICByZXR1cm4geCAqIHggKiAoMyAtIDIgKiB4KTtcbiAgfVxuICBzd2l0Y2ggKGlucHV0KSB7XG4gICAgY2FzZSAnc3RlcCc6XG4gICAgICByZXR1cm4gdF9QSUQgPT4gKHRfUElEID49IDAgPyAxIDogMCk7XG4gICAgY2FzZSAncmFtcCc6XG4gICAgICByZXR1cm4gdF9QSUQgPT4gKHRfUElEID49IDAgPyB0X1BJRCA6IDApO1xuICAgIGNhc2UgJ3F1YWRyYXRpYyByYW1wJzpcbiAgICAgIHJldHVybiB0X1BJRCA9PiAodF9QSUQgPj0gMCA/IHRfUElEICogdF9QSUQgOiAwKTtcbiAgICBjYXNlICdzbW9vdGhzdGVwJzpcbiAgICAgIHJldHVybiBzbW9vdGhzdGVwX1BJRDtcbiAgICBjYXNlICdoYXJkc3RlcCc6XG4gICAgICByZXR1cm4gaGFyZHN0ZXBfUElEO1xuICAgIGRlZmF1bHQ6XG4gICAgICB0aHJvdyBuZXcgRXJyb3IoJ0ludmFsaWQgaW5wdXQnKTtcbiAgfVxufVxuXG4vL2ltcG9ydCB7IFJhbmdlLCBTZWxlY3QgfSBmcm9tICdAb2JzZXJ2YWJsZWhxL2lucHV0cydcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnaW5wdXQnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnS3B0MicpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdEJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ1QnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgndE1heCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdLcF9QSUQnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnS2lfUElEJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ0tkX1BJRCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdLcHQyX1BJRCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdEX1BJRCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdUX1BJRCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdpbnB1dF9QSUQnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgndE1heF9QSUQnKSJ9XX0=
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuUGxvdC5wbG90KHtcbiAgeToge1xuICAgIGdyaWQ6IHRydWUsXG4gIC8vICBkb21haW46IFswLCA0XVxuICB9LFxuICBtYXJrczogW1xuICAgIFBsb3QubGluZSh5LCB7XG4gICAgICB4OiBcInRcIixcbiAgICAgIHk6IFwic1wiLFxuICAgICAgc3Ryb2tlOiAnIzg4OCdcbiAgICB9KSxcbiAgICBQbG90LmxpbmUoeSwgeyB4OiBcInRcIiwgeTogXCJ1XCIsIHN0cm9rZTogJyMzNGYnIH0pXG4gIF1cbn0pXG5cbnZpZXdvZiBpbnB1dCA9IFNlbGVjdChcbiAgWydzdGVwJywgJ2hhcmRzdGVwJywgJ3Ntb290aHN0ZXAnLCAncmFtcCcsICdxdWFkcmF0aWMgcmFtcCddLFxuICB7XG4gICAgdmFsdWU6ICdzdGVwJyxcbiAgICBsYWJlbDogJ0lucHV0J1xuICB9XG4pXG5cbi8vdmlld29mIEtwID0gUmFuZ2UoWzFlLTEyLCAxMDBdLCB7XG4vLyAgbGFiZWw6IHRleGBLX1BgLFxuLy8gIHZhbHVlOiAxLFxuLy8gIHRyYW5zZm9ybTogTWF0aC5sb2dcbi8vfSlcblxuLy92aWV3b2YgS2kgPSBSYW5nZShbMWUtMTIsIDEwXSwge1xuLy8gIGxhYmVsOiB0ZXhgS19JYCxcbi8vICB2YWx1ZTogMCxcbi8vICB0cmFuc2Zvcm06IE1hdGgubG9nXG4vL30pXG5cbi8vdmlld29mIEtkID0gUmFuZ2UoWzFlLTEyLCAxXSwge1xuLy8gIGxhYmVsOiB0ZXhgS19kYCxcbi8vICB2YWx1ZTogMCxcbi8vICB0cmFuc2Zvcm06IE1hdGgubG9nXG4vL30pXG5cbi8vdmlld29mIGR0ID0gUmFuZ2UoWzFlLTQsIDAuMV0sIHtcbi8vICB2YWx1ZTogMC4wMDEsXG4vLyAgdHJhbnNmb3JtOiBNYXRoLmxvZyxcbi8vICBsYWJlbDogdGV4YFxcRGVsdGEgdGBcbi8vfSlcblxudmlld29mIEtwdDIgPSBSYW5nZShbMWUtMTIsIDVdLCB7XG4gIHZhbHVlOiAxLFxuICB0cmFuc2Zvcm06IE1hdGgubG9nLFxuICBsYWJlbDogdGV4YEtfe3B0Mn1gXG59KVxuXG52aWV3b2YgRCA9IFJhbmdlKFsxZS0xMiwgMTBdLCB7XG4gIHZhbHVlOiAwLjUsXG4gIHRyYW5zZm9ybTogTWF0aC5sb2csXG4gIGxhYmVsOiB0ZXhgRGBcbn0pXG5cbnZpZXdvZiBUID0gUmFuZ2UoWzFlLTEyLCA1XSwge1xuICB2YWx1ZTogMSxcbiAgdHJhbnNmb3JtOiBNYXRoLmxvZyxcbiAgbGFiZWw6IHRleGBUYFxufSlcblxudmlld29mIHRNYXggPSBSYW5nZShbMSwgMTBlM10sIHtcbiAgdmFsdWU6IDEwLFxuICB0cmFuc2Zvcm06IE1hdGgubG9nLFxuICBsYWJlbDogdGV4YHRfe21heH1gXG59KVxuXG55ID0ge1xuICBjb25zdCBvdXRwdXQgPSBbXTtcblxuICBsZXQgcDsgXG4gIGxldCB0MCA9IC0wLjU7XG4gIC8vbGV0IHRNYXggPSAyMDtcblxuICBsZXQgdCA9IHQwO1xuICBsZXQgZCA9IDA7XG4gIGxldCB1ID0gMDtcbiAgbGV0IGkgPSAwO1xuICBsZXQgZSA9IDA7XG4gIGxldCBlcHJldiA9IGU7XG4gIGxldCBwdSA9IHU7XG4gIGxldCBwcHUgPSB1O1xuICBsZXQgZHUgPSAwO1xuICBsZXQgZGR1ID0gMDtcbiAgbGV0IHBkdSA9IDA7XG4gIGxldCB5ID0gMDtcbiAgbGV0IHB5ID0gMDtcbiAgbGV0IHBweSA9IDA7XG4gIGxldCBkeSA9IDA7XG4gIGxldCBkZHkgPSAwO1xuICBsZXQgcGR5ID0gMDtcbiAgbGV0IGRlID0gMDtcbiAgbGV0IGR0ID0gMC4wMDE7XG4gIGxldCBzID0gc2V0UG9pbnQodDApO1xuICBvdXRwdXQucHVzaCh7IHQsIHUsIHMgfSk7XG5cbiAgbGV0IGogPSAxO1xuICB3aGlsZSAodCA8IHRNYXgpIHtcbiAgICB0ID0gdDAgKyBqICogZHQ7XG5cbiAgICBzID0gc2V0UG9pbnQodCk7XG4gICBcbiAgICBlID0gcyAtIHU7XG4gICAgZGUgPSBlLWVwcmV2O1xuXG4gICAgLy9kdSA9ICh1LXB1KS9kdDtcbiAgICAvL2RkdSA9IChkdSAtIHBkdSkvZHQ7XG5cbiAgICAvL2R5ID0gKHB5IC0geSkvZHQ7XG4gICAgLy9kZHkgPSAoZHkgLSBwZHkpL2R0O1xuXG4gICAgcCA9IGU7XG4gICAgaSArPSBlICogZHQ7XG4gICAgZCA9IGRlL2R0O1xuXG4gICAgeSA9IHM7IC8vKEtwICogcCArIEtpICogaSArIEtkICogZCkgKiBkdDtcbiAgICBcbiAgICB1ID0gKDIqRCpUKmR0KnB1ICsgS3B0MipkdCoqMip5IC0gVCoqMipwcHUgKyAyKlQqKjIqcHUpLygyKkQqVCpkdCArIFQqKjIgKyBkdCoqMik7XG5cbiAgICBwcHUgPSBwdTtcbiAgICBwdSA9IHU7XG4gICAgLy9wZHUgPSBkdTtcblxuICAgIC8vcHB5ID0gcHk7XG4gICAgLy9weSA9IHk7XG4gICAgLy9wZHkgPSBkeTtcblxuICAgIGVwcmV2ID0gZTtcblxuICAgIG91dHB1dC5wdXNoKHsgdCwgdSwgcyB9KTtcbiAgICBqKys7XG4gIH1cblxuICByZXR1cm4gb3V0cHV0O1xufVxuXG5zZXRQb2ludCA9IHtcbiAgZnVuY3Rpb24gaGFyZHN0ZXAoeCkge1xuICAgIHJldHVybiBNYXRoLm1heCgwLCBNYXRoLm1pbigxLCB4KSk7XG4gIH1cbiAgZnVuY3Rpb24gc21vb3Roc3RlcCh4KSB7XG4gICAgdmFyIHggPSBoYXJkc3RlcCh4KTtcbiAgICByZXR1cm4geCAqIHggKiAoMyAtIDIgKiB4KTtcbiAgfVxuICBzd2l0Y2ggKGlucHV0KSB7XG4gICAgY2FzZSAnc3RlcCc6XG4gICAgICByZXR1cm4gdCA9PiAodCA+PSAwID8gMSA6IDApO1xuICAgIGNhc2UgJ3JhbXAnOlxuICAgICAgcmV0dXJuIHQgPT4gKHQgPj0gMCA/IHQgOiAwKTtcbiAgICBjYXNlICdxdWFkcmF0aWMgcmFtcCc6XG4gICAgICByZXR1cm4gdCA9PiAodCA+PSAwID8gdCAqIHQgOiAwKTtcbiAgICBjYXNlICdzbW9vdGhzdGVwJzpcbiAgICAgIHJldHVybiBzbW9vdGhzdGVwO1xuICAgIGNhc2UgJ2hhcmRzdGVwJzpcbiAgICAgIHJldHVybiBoYXJkc3RlcDtcbiAgICBkZWZhdWx0OlxuICAgICAgdGhyb3cgbmV3IEVycm9yKCdJbnZhbGlkIGlucHV0Jyk7XG4gIH1cbn1cblxuaW1wb3J0IHsgUmFuZ2UsIFNlbGVjdCB9IGZyb20gJ0BvYnNlcnZhYmxlaHEvaW5wdXRzJ1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy8gVGhlIGJhc2ljIGNvZGUgbGF5b3V0IHdhcyBmb3VuZCBvbiBzb3VyY2U6IGh0dHBzOi8vb2JzZXJ2YWJsZWhxLmNvbS9AbWJvc3RvY2svaW5wdXRzXG4vLyBiZSBhd2FyZSwgdGhlIGNvZGUgdmFyaWFibGVzIGRvIG5vdCB5ZXQgbWF0Y2ggdGhlIHZhcmlhYmxlIG5hbWVzIGluIHRoZSBkb2N1bWVudFxuXG5QbG90LnBsb3Qoe1xuICB5OiB7XG4gICAgZ3JpZDogdHJ1ZSxcbiAgLy8gIGRvbWFpbjogWzAsIDRdXG4gIH0sXG4gIG1hcmtzOiBbXG4gICAgUGxvdC5saW5lKHlfUElELCB7XG4gICAgICB4OiBcInRfUElEXCIsXG4gICAgICB5OiBcInNfUElEXCIsXG4gICAgICBzdHJva2U6ICcjODg4J1xuICAgIH0pLFxuICAgIFBsb3QubGluZSh5X1BJRCwgeyB4OiBcInRfUElEXCIsIHk6IFwidV9QSURcIiwgc3Ryb2tlOiAnIzM0ZicgfSksIC8vQkx1ZVxuICAgIFBsb3QubGluZSh5X1BJRCwgeyB4OiBcInRfUElEXCIsIHk6IFwiZV9QSURcIiwgc3Ryb2tlOiAnI2ZiMmYwMycgfSksIC8vUkVEXG4gICAgUGxvdC5saW5lKHlfUElELCB7IHg6IFwidF9QSURcIiwgeTogXCJ5X1BJRFwiLCBzdHJva2U6ICcjZDdmYjAzJyB9KSwgIC8vR3JlZW5pc2NoXG4gIF1cbn0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcbnZpZXdvZiBLcF9QSUQgPSBSYW5nZShbMWUtMTIsIDEwZTNdLCB7XG4gIGxhYmVsOiB0ZXhgS19QYCxcbiAgdmFsdWU6IDEsXG4gIHRyYW5zZm9ybTogTWF0aC5sb2dcbn0pXG5cbnZpZXdvZiBLaV9QSUQgPSBSYW5nZShbMWUtMTIsIDEwZTJdLCB7XG4gIGxhYmVsOiB0ZXhgS19JYCxcbiAgdmFsdWU6IDAsXG4gIHRyYW5zZm9ybTogTWF0aC5sb2dcbn0pXG5cbnZpZXdvZiBLZF9QSUQgPSBSYW5nZShbMWUtMTIsIDEwZTFdLCB7XG4gIGxhYmVsOiB0ZXhgS19kYCxcbiAgdmFsdWU6IDAsXG4gIHRyYW5zZm9ybTogTWF0aC5sb2dcbn0pXG5cbi8vdmlld29mIGR0ID0gUmFuZ2UoWzFlLTQsIDAuMV0sIHtcbi8vICB2YWx1ZTogMC4wMDEsXG4vLyAgdHJhbnNmb3JtOiBNYXRoLmxvZyxcbi8vICBsYWJlbDogdGV4YFxcRGVsdGEgdGBcbi8vfSlcblxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC00IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiXG52aWV3b2YgS3B0Ml9QSUQgPSBSYW5nZShbMWUtMTIsIDEwZTNdLCB7XG4gIHZhbHVlOiAxLFxuICB0cmFuc2Zvcm06IE1hdGgubG9nLFxuICBsYWJlbDogdGV4YEtfe3B0Mn1gXG59KVxuXG52aWV3b2YgRF9QSUQgPSBSYW5nZShbMWUtMTIsIDEwXSwge1xuICB2YWx1ZTogMSxcbiAgdHJhbnNmb3JtOiBNYXRoLmxvZyxcbiAgbGFiZWw6IHRleGBEYFxufSlcblxudmlld29mIFRfUElEID0gUmFuZ2UoWzFlLTEyLCA1XSwge1xuICB2YWx1ZTogMSxcbiAgdHJhbnNmb3JtOiBNYXRoLmxvZyxcbiAgbGFiZWw6IHRleGBUYFxufSlcblxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC01IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiXG52aWV3b2YgaW5wdXRfUElEID0gU2VsZWN0KFxuICBbJ3N0ZXAnLCAnaGFyZHN0ZXAnLCAnc21vb3Roc3RlcCcsICdyYW1wJywgJ3F1YWRyYXRpYyByYW1wJ10sXG4gIHtcbiAgICB2YWx1ZTogJ3N0ZXAnLFxuICAgIGxhYmVsOiAnSW5wdXQnXG4gIH1cbilcblxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC02IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiXG52aWV3b2YgdE1heF9QSUQgPSBSYW5nZShbMSwgMTBlM10sIHtcbiAgdmFsdWU6IDEwLFxuICB0cmFuc2Zvcm06IE1hdGgubG9nLFxuICBsYWJlbDogdGV4YHRfe21heH1gXG59KVxuXG55X1BJRCA9IHtcbiAgY29uc3Qgb3V0cHV0X1BJRCA9IFtdO1xuXG4gIGxldCBwX1BJRDsgXG4gIGxldCB0MF9QSUQgPSAtMC41O1xuICAvL2xldCB0TWF4X1BJRCA9IDIwO1xuXG4gIGxldCB0X1BJRCA9IHQwX1BJRDtcbiAgbGV0IGRfUElEID0gMDtcbiAgbGV0IHVfUElEID0gMDtcbiAgbGV0IGlfUElEID0gMDtcbiAgbGV0IGVfUElEID0gMDtcbiAgbGV0IGVwcmV2X1BJRCA9IGVfUElEO1xuICBsZXQgcHVfUElEID0gdV9QSUQ7XG4gIGxldCBwcHVfUElEID0gdV9QSUQ7XG4gIGxldCBkdV9QSUQgPSAwO1xuICBsZXQgZGR1X1BJRCA9IDA7XG4gIGxldCBwZHVfUElEID0gMDtcbiAgbGV0IHlfUElEID0gMDtcbiAgbGV0IHB5X1BJRCA9IDA7XG4gIGxldCBwcHlfUElEID0gMDtcbiAgbGV0IGR5X1BJRCA9IDA7XG4gIGxldCBkZHlfUElEID0gMDtcbiAgbGV0IHBkeV9QSUQgPSAwO1xuICBsZXQgZGVfUElEID0gMDtcbiAgbGV0IGR0X1BJRCA9IDAuMDAxO1xuICBsZXQgc19QSUQgPSBzZXRQb2ludF9QSUQodDBfUElEKTtcbiAgb3V0cHV0X1BJRC5wdXNoKHsgdF9QSUQsIHVfUElELCBzX1BJRCB9KTtcblxuICBsZXQgal9QSUQgPSAxO1xuICB3aGlsZSAodF9QSUQgPCB0TWF4X1BJRCkge1xuICAgIHRfUElEID0gdDBfUElEICsgal9QSUQgKiBkdF9QSUQ7XG5cbiAgICBzX1BJRCA9IHNldFBvaW50X1BJRCh0X1BJRCk7XG4gICBcbiAgICBlX1BJRCA9IHNfUElEIC0gdV9QSUQ7XG4gICAgZGVfUElEID0gZV9QSUQtZXByZXZfUElEO1xuXG4gICAgLy9kdSA9ICh1LXB1KS9kdDtcbiAgICAvL2RkdSA9IChkdSAtIHBkdSkvZHQ7XG5cbiAgICAvL2R5ID0gKHB5IC0geSkvZHQ7XG4gICAgLy9kZHkgPSAoZHkgLSBwZHkpL2R0O1xuXG4gICAgcF9QSUQgPSBlX1BJRDtcbiAgICBpX1BJRCArPSBlX1BJRCAqIGR0X1BJRDtcbiAgICBkX1BJRCA9IGRlX1BJRC9kdF9QSUQ7XG5cbiAgICB5X1BJRCA9IChLcF9QSUQgKiBwX1BJRCArIEtpX1BJRCAqIGlfUElEICsgS2RfUElEICogZF9QSUQpO1xuICAgIFxuICAgIHVfUElEID0gKDIqRF9QSUQqVF9QSUQqZHRfUElEKnB1X1BJRCArIEtwdDJfUElEKmR0X1BJRCoqMip5X1BJRCAtIFRfUElEKioyKnBwdV9QSUQgKyAyKlRfUElEKioyKnB1X1BJRCkvKDIqRF9QSUQqVF9QSUQqZHRfUElEICsgVF9QSUQqKjIgKyBkdF9QSUQqKjIpO1xuXG4gICAgcHB1X1BJRCA9IHB1X1BJRDtcbiAgICBwdV9QSUQgPSB1X1BJRDtcbiAgICAvL3BkdSA9IGR1O1xuXG4gICAgLy9wcHkgPSBweTtcbiAgICAvL3B5ID0geTtcbiAgICAvL3BkeSA9IGR5O1xuXG4gICAgZXByZXZfUElEID0gZV9QSUQ7XG5cbiAgICBvdXRwdXRfUElELnB1c2goeyB0X1BJRCwgdV9QSUQsIHNfUElELCBlX1BJRCwgeV9QSUQgfSk7XG4gICAgal9QSUQrKztcbiAgfVxuXG4gIHJldHVybiBvdXRwdXRfUElEO1xufVxuXG5zZXRQb2ludF9QSUQgPSB7XG4gIGZ1bmN0aW9uIGhhcmRzdGVwX1BJRCh4KSB7XG4gICAgcmV0dXJuIE1hdGgubWF4KDAsIE1hdGgubWluKDEsIHgpKTtcbiAgfVxuICBmdW5jdGlvbiBzbW9vdGhzdGVwX1BJRCh4KSB7XG4gICAgdmFyIHggPSBoYXJkc3RlcF9QSUQoeCk7XG4gICAgcmV0dXJuIHggKiB4ICogKDMgLSAyICogeCk7XG4gIH1cbiAgc3dpdGNoIChpbnB1dF9QSUQpIHtcbiAgICBjYXNlICdzdGVwJzpcbiAgICAgIHJldHVybiB0X1BJRCA9PiAodF9QSUQgPj0gMCA/IDEgOiAwKTtcbiAgICBjYXNlICdyYW1wJzpcbiAgICAgIHJldHVybiB0X1BJRCA9PiAodF9QSUQgPj0gMCA/IHRfUElEIDogMCk7XG4gICAgY2FzZSAncXVhZHJhdGljIHJhbXAnOlxuICAgICAgcmV0dXJuIHRfUElEID0+ICh0X1BJRCA+PSAwID8gdF9QSUQgKiB0X1BJRCA6IDApO1xuICAgIGNhc2UgJ3Ntb290aHN0ZXAnOlxuICAgICAgcmV0dXJuIHNtb290aHN0ZXBfUElEO1xuICAgIGNhc2UgJ2hhcmRzdGVwJzpcbiAgICAgIHJldHVybiBoYXJkc3RlcF9QSUQ7XG4gICAgZGVmYXVsdDpcbiAgICAgIHRocm93IG5ldyBFcnJvcignSW52YWxpZCBpbnB1dCcpO1xuICB9XG59XG5cbi8vaW1wb3J0IHsgUmFuZ2UsIFNlbGVjdCB9IGZyb20gJ0BvYnNlcnZhYmxlaHEvaW5wdXRzJ1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdpbnB1dCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdLcHQyJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ0QnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnVCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCd0TWF4JykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ0twX1BJRCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdLaV9QSUQnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnS2RfUElEJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ0twdDJfUElEJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ0RfUElEJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ1RfUElEJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2lucHV0X1BJRCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCd0TWF4X1BJRCcpIn1dfQ==
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }

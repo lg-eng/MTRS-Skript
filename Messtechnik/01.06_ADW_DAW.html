@@ -406,7 +406,7 @@ window.Quarto = {
 
 
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="63acb7b8" class="cell" data-execution_count="2">
+<div id="b9707da8" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(f_{a}\)</span> … Abtastfrequenz</p>
 </div>
@@ -414,10 +414,10 @@ window.Quarto = {
 <p><span class="math inline">\(T_{a}\)</span> … Abtastperiode</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(f_{g}\)</span> … hoechste im Signal enthaltene Frequenz</p>
+<p><span class="math inline">\(f_{g}\)</span> … höchste im Signal enthaltene Frequenz</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(n\)</span> … Aufloesung des Wandlers in Bit</p>
+<p><span class="math inline">\(n\)</span> … Auflösung des Wandlers in Bit</p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(U_{ms}\)</span> … Messbereichsspannbreite</p>
@@ -431,26 +431,27 @@ window.Quarto = {
 </div>
 <p>Rechner verarbeiten Signale nur in digitaler Form. In der Messkette wandelt der <strong>ADW (Analog-Digital-Wandler)</strong> das analoge Sensorsignal in Zahlenwerte; der <strong>DAW (Digital-Analog-Wandler)</strong> macht den Weg zurück, z. B. zum Stellantrieb:</p>
 <blockquote class="blockquote">
-<p>Sensor → (Verstärker) → <strong>ADW</strong> ← Rechner → <strong>DAW</strong> → (Leistungsstufe) → Aktor</p>
+<p>Sensor → (Verstärker) → <strong>ADW</strong> → Rechner → <strong>DAW</strong> → (Leistungsstufe) → Aktor</p>
 </blockquote>
 <p>Beide Umwandlungen bestehen aus denselben Teilschritten:</p>
 <ul>
 <li><strong>Abtastung:</strong> Das zeitkontinuierliche Signal wird zu festen Zeitpunkten abgetastet — nur zu diesen Zeitpunkten liegt ein Wert vor.</li>
 <li><strong>Quantisierung:</strong> Der Abtastwert wird auf endlich viele Stufen gerundet.</li>
 <li><strong>Codierung:</strong> Jede Stufe erhält einen digitalen Code (z. B. Binärzahl).</li>
+<li><strong>Halten:</strong> Der DAW hält die rekonstruierte Stufe bis zum nächsten Abtastwert und erzeugt dadurch eine Treppenform.</li>
 </ul>
-<p>In umgekehrter Richtung (DAW) läuft es umgekehrt: Code → Stufe → über Abtast-Halte geglättetes Ausgangssignal.</p>
+<p>In umgekehrter Richtung (DAW) läuft es umgekehrt: Code → Stufe → über ein Abtast-Halteglied gehaltenes, treppenförmiges Ausgangssignal. Erst ein nachgeschalteter Tiefpass bzw. Rekonstruktionsfilter glättet dieses Signal.</p>
 <section id="abtastung" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="abtastung"><span class="header-section-number">6.1</span> Abtastung</h2>
 <p>Ein kontinuierliches Signal <span class="math inline">\(u(t)\)</span> wird alle <span class="math inline">\(T_{a}\)</span> Sekunden abgetastet (Abtastperiode). Für die Amplitude zählt nur der Momentanwert zum Abtastzeitpunkt:</p>
-<div id="7a643124" class="cell" data-execution_count="3">
+<div id="175387c3" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>f_a <span class="op">=</span> MySymbol(<span class="vs">r'f_{a}'</span>, description<span class="op">=</span><span class="st">'Abtastfrequenz'</span>, unit<span class="op">=</span>u.hertz)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>T_a <span class="op">=</span> MySymbol(<span class="vs">r'T_{a}'</span>, description<span class="op">=</span><span class="st">'Abtastperiode'</span>, unit<span class="op">=</span>u.second)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>f_g <span class="op">=</span> MySymbol(<span class="vs">r'f_{g}'</span>, description<span class="op">=</span><span class="st">'höchste im Signal enthaltene Frequenz'</span>, unit<span class="op">=</span>u.hertz)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(f_a, <span class="dv">1</span><span class="op">/</span>T_a), label<span class="op">=</span><span class="st">'eq-abtastfrequenz'</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Ge(f_a, <span class="dv">2</span><span class="op">*</span>f_g), label<span class="op">=</span><span class="st">'eq-abtasttheorem'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Gt(f_a, <span class="dv">2</span><span class="op">*</span>f_g), label<span class="op">=</span><span class="st">'eq-abtasttheorem'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-abtastfrequenz"><span class="math display">\[
@@ -459,23 +460,23 @@ f_{a} = \frac{1}{T_{a}}
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-abtasttheorem"><span class="math display">\[
-f_{a} \geq 2 f_{g}
+f_{a} &gt; 2 f_{g}
 \tag{6.2}\]</span></span></p>
 </div>
 </div>
 <ul>
-<li><strong>Abtasttheorem (Shannon/Nyquist):</strong> Ein ideal bandbegrenztes Signal kann bei idealer Rekonstruktion aus Abtastwerten rekonstruiert werden, wenn die Abtastfrequenz größer als die doppelte höchste Signalfrequenz ist. Die Grenze <span class="math inline">\(f_a=2f_g\)</span> ist ein theoretischer Grenzfall; praktische Anwendungen benötigen einen Frequenzabstand und geeignete Filter.</li>
+<li><strong>Abtasttheorem (Shannon/Nyquist):</strong> Ein ideal bandbegrenztes Signal kann bei idealer Rekonstruktion aus Abtastwerten rekonstruiert werden, wenn die Abtastfrequenz größer als die doppelte höchste Signalfrequenz ist (<span class="math inline">\(f_a&gt;2f_g\)</span>). Bei <span class="math inline">\(f_a=2f_g\)</span> kann beispielsweise ein Sinus nur in seinen Nulldurchgängen abgetastet werden. Praktische Anwendungen benötigen einen Frequenzabstand und geeignete Filter.</li>
 <li>Verletzt man das Theorem, entsteht <strong>Aliasing</strong>: tiefere „Spiegelfrequenzen” täuschen Signalanteile vor, die im Original nicht vorhanden sind. Diese Verzerrung lässt sich bei bereits überlagerten Signalanteilen nicht zuverlässig nachträglich beseitigen. Deshalb werden eine ausreichend hohe Abtastfrequenz und ein vorgeschaltetes Anti-Aliasing-Filter verwendet.</li>
 </ul>
 <section id="die-vier-schritte-in-einer-grafik" class="level3" data-number="6.1.1">
 <h3 data-number="6.1.1" class="anchored" data-anchor-id="die-vier-schritte-in-einer-grafik"><span class="header-section-number">6.1.1</span> Die vier Schritte in einer Grafik</h3>
-<p>Die 4-Quadranten-Darstellung zeigt den Weg vom analogen Signal zum digitalen Code im Uhrzeigersinn — Abtastung (rechts oben), Quantisierung über die Kennlinie (links oben), gehaltenes Treppensignal (links unten), Code (rechts unten):</p>
+<p>Die 4-Quadranten-Darstellung zeigt den Weg vom analogen Signal zum digitalen Code gegen den Uhrzeigersinn — Abtastung (rechts oben), Quantisierung über die Kennlinie (links oben), gehaltenes Treppensignal (links unten), Code (rechts unten):</p>
 <div id="cell-fig-quadranten" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>f_sig <span class="op">=</span> <span class="dv">1</span>      <span class="co"># Signal-Frequenz in Hz</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>f_abtast <span class="op">=</span> <span class="dv">12</span>  <span class="co"># Abtastfrequenz in Hz</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>n_bits <span class="op">=</span> <span class="dv">3</span>     <span class="co"># Aufloesung des Quantisierers</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>n_bits <span class="op">=</span> <span class="dv">3</span>     <span class="co"># Auflösung des Quantisierers</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>u_min, u_max <span class="op">=</span> <span class="op">-</span><span class="fl">1.0</span>, <span class="fl">1.0</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>U_ms <span class="op">=</span> u_max <span class="op">-</span> u_min   <span class="co"># Messbereichsspannbreite</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>lsb <span class="op">=</span> U_ms <span class="op">/</span> <span class="dv">2</span><span class="op">**</span>n_bits <span class="co"># Quantisierungsstufe</span></span>
@@ -484,69 +485,72 @@ f_{a} \geq 2 f_{g}
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>u_sin <span class="op">=</span> np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>f_sig<span class="op">*</span>t)</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>t_s <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span><span class="op">/</span>f_abtast)          <span class="co"># Abtastzeitpunkte</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>u_s <span class="op">=</span> np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>f_sig<span class="op">*</span>t_s)            <span class="co"># Momentanwerte</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>stufen <span class="op">=</span> np.clip(np.floor((u_s <span class="op">-</span> u_min)<span class="op">/</span>lsb), <span class="dv">0</span>, <span class="dv">2</span><span class="op">**</span>n_bits <span class="op">-</span> <span class="dv">1</span>).astype(<span class="bu">int</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>u_q <span class="op">=</span> u_min <span class="op">+</span> stufen<span class="op">*</span>lsb <span class="op">+</span> lsb<span class="op">/</span><span class="dv">2</span>           <span class="co"># Quantisierte Werte</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">7</span>))</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Von analog nach digital — vier Schritte'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Gerundete Quotienten verhindern, dass fast gleiche Abtastwerte durch</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Fließkomma-Rundung auf benachbarte Quantisierungsstufen fallen.</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>quotienten <span class="op">=</span> np.<span class="bu">round</span>((u_s <span class="op">-</span> u_min)<span class="op">/</span>lsb, <span class="dv">12</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>stufen <span class="op">=</span> np.clip(np.floor(quotienten), <span class="dv">0</span>, <span class="dv">2</span><span class="op">**</span>n_bits <span class="op">-</span> <span class="dv">1</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>u_q <span class="op">=</span> u_min <span class="op">+</span> stufen<span class="op">*</span>lsb <span class="op">+</span> lsb<span class="op">/</span><span class="dv">2</span>           <span class="co"># Quantisierte Werte</span></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># rechts oben: analoges Signal mit Abtastzeitpunkten</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> axs[<span class="dv">0</span>, <span class="dv">1</span>]</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>ax.plot(t, u_sin, lw<span class="op">=</span><span class="fl">1.2</span>)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>ax.plot(t_s, u_s, <span class="st">'o'</span>, color<span class="op">=</span><span class="st">'crimson'</span>, ms<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ts_ <span class="kw">in</span> t_s:</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    ax.axvline(ts_, color<span class="op">=</span><span class="st">'gray'</span>, lw<span class="op">=</span><span class="fl">0.5</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'① Abtastung'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Zeit in s'</span>)</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'analoges Signal $u(t)$'</span>)</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="op">-</span><span class="fl">1.3</span>, <span class="fl">1.3</span>)</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># links oben: Quantisierungskennlinie</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> axs[<span class="dv">0</span>, <span class="dv">0</span>]</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>stufenlinie <span class="op">=</span> np.linspace(u_min, u_max, <span class="dv">2</span><span class="op">**</span>n_bits <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span><span class="op">**</span>n_bits):</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> u_min <span class="op">+</span> i<span class="op">*</span>lsb <span class="op">+</span> lsb<span class="op">/</span><span class="dv">2</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    ax.plot([stufenlinie[i], stufenlinie[i<span class="op">+</span><span class="dv">1</span>]], [y, y], color<span class="op">=</span><span class="st">'darkgreen'</span>, lw<span class="op">=</span><span class="fl">1.6</span>)</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">&lt;</span> <span class="dv">2</span><span class="op">**</span>n_bits <span class="op">-</span> <span class="dv">1</span>:</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        ax.plot([stufenlinie[i<span class="op">+</span><span class="dv">1</span>], stufenlinie[i<span class="op">+</span><span class="dv">1</span>]], [y, y <span class="op">+</span> lsb],</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>                color<span class="op">=</span><span class="st">'darkgreen'</span>, lw<span class="op">=</span><span class="fl">1.2</span>, ls<span class="op">=</span><span class="st">':'</span>)</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>ax.plot(u_s, u_q, <span class="st">'o'</span>, color<span class="op">=</span><span class="st">'crimson'</span>, ms<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'② Quantisierungskennlinie'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Abtastwert $u_</span><span class="sc">{s}</span><span class="st">$'</span>)</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Quantisierter Wert'</span>)</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="co"># links unten: gequanteltes, gehaltenes Signal</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> axs[<span class="dv">1</span>, <span class="dv">0</span>]</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>ax.plot(t, u_sin, color<span class="op">=</span><span class="st">'lightgray'</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>ax.plot(t_s, u_s, <span class="st">'o'</span>, color<span class="op">=</span><span class="st">'crimson'</span>, ms<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>ax.step(t_s, u_q, where<span class="op">=</span><span class="st">'post'</span>, color<span class="op">=</span><span class="st">'darkgreen'</span>, lw<span class="op">=</span><span class="fl">1.6</span>)</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>k_err <span class="op">=</span> <span class="bu">int</span>(np.argmax(np.<span class="bu">abs</span>(u_q <span class="op">-</span> u_s)))   <span class="co"># Abtastwert mit groesstem Fehler</span></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">'Quantisierungsfehler $</span><span class="ch">\\</span><span class="st">Delta Q$'</span>,</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>            xy<span class="op">=</span>(t_s[k_err], u_q[k_err]), xytext<span class="op">=</span>(t_s[k_err] <span class="op">-</span> <span class="fl">0.35</span>, <span class="fl">1.05</span>),</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>            fontsize<span class="op">=</span><span class="dv">9</span>,</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>            arrowprops<span class="op">=</span>{<span class="st">'arrowstyle'</span>: <span class="st">'-&gt;'</span>, <span class="st">'color'</span>: <span class="st">'black'</span>, <span class="st">'lw'</span>: <span class="fl">0.8</span>})</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'③ Gequanteltes, gehaltenes Signal'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Zeit in s'</span>)</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Stufenwert'</span>)</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="op">-</span><span class="fl">1.3</span>, <span class="fl">1.4</span>)</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="co"># rechts unten: Ausgangscode</span></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> axs[<span class="dv">1</span>, <span class="dv">1</span>]</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>ax.plot(t_s, stufen, drawstyle<span class="op">=</span><span class="st">'steps-post'</span>, color<span class="op">=</span><span class="st">'navy'</span>, lw<span class="op">=</span><span class="fl">1.4</span>, marker<span class="op">=</span><span class="st">'o'</span>, ms<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(t_s), <span class="dv">2</span>):</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>    code <span class="op">=</span> <span class="bu">format</span>(stufen[i], <span class="ss">f'0</span><span class="sc">{</span>n_bits<span class="sc">}</span><span class="ss">b'</span>)</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>    ax.text(t_s[i], stufen[i] <span class="op">+</span> <span class="fl">0.25</span>, code, fontsize<span class="op">=</span><span class="dv">8</span>, ha<span class="op">=</span><span class="st">'center'</span>, color<span class="op">=</span><span class="st">'navy'</span>)</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'④ Ausgangscode (3 Bit)'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Zeit in s'</span>)</span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Code-Wert'</span>)</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">7.8</span>)</span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">7</span>))</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Von analog nach digital — vier Schritte'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># rechts oben: analoges Signal mit Abtastzeitpunkten</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> axs[<span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>ax.plot(t, u_sin, lw<span class="op">=</span><span class="fl">1.2</span>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>ax.plot(t_s, u_s, <span class="st">'o'</span>, color<span class="op">=</span><span class="st">'crimson'</span>, ms<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ts_ <span class="kw">in</span> t_s:</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    ax.axvline(ts_, color<span class="op">=</span><span class="st">'gray'</span>, lw<span class="op">=</span><span class="fl">0.5</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'① Abtastung'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Zeit in s'</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'analoge Spannung $u(t)$ in V'</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="op">-</span><span class="fl">1.3</span>, <span class="fl">1.3</span>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co"># links oben: Quantisierungskennlinie</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> axs[<span class="dv">0</span>, <span class="dv">0</span>]</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>stufenlinie <span class="op">=</span> np.linspace(u_min, u_max, <span class="dv">2</span><span class="op">**</span>n_bits <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span><span class="op">**</span>n_bits):</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> u_min <span class="op">+</span> i<span class="op">*</span>lsb <span class="op">+</span> lsb<span class="op">/</span><span class="dv">2</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    ax.plot([stufenlinie[i], stufenlinie[i<span class="op">+</span><span class="dv">1</span>]], [y, y], color<span class="op">=</span><span class="st">'darkgreen'</span>, lw<span class="op">=</span><span class="fl">1.6</span>)</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">&lt;</span> <span class="dv">2</span><span class="op">**</span>n_bits <span class="op">-</span> <span class="dv">1</span>:</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>        ax.plot([stufenlinie[i<span class="op">+</span><span class="dv">1</span>], stufenlinie[i<span class="op">+</span><span class="dv">1</span>]], [y, y <span class="op">+</span> lsb],</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>                color<span class="op">=</span><span class="st">'darkgreen'</span>, lw<span class="op">=</span><span class="fl">1.2</span>, ls<span class="op">=</span><span class="st">':'</span>)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>ax.plot(u_s, u_q, <span class="st">'o'</span>, color<span class="op">=</span><span class="st">'crimson'</span>, ms<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'② Quantisierungskennlinie'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Abtastwert $u_</span><span class="sc">{s}</span><span class="st">$ in V'</span>)</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Quantisierter Wert in V'</span>)</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co"># links unten: gequanteltes, gehaltenes Signal</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> axs[<span class="dv">1</span>, <span class="dv">0</span>]</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>ax.plot(t, u_sin, color<span class="op">=</span><span class="st">'lightgray'</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>ax.plot(t_s, u_s, <span class="st">'o'</span>, color<span class="op">=</span><span class="st">'crimson'</span>, ms<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>ax.step(t_s, u_q, where<span class="op">=</span><span class="st">'post'</span>, color<span class="op">=</span><span class="st">'darkgreen'</span>, lw<span class="op">=</span><span class="fl">1.6</span>)</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>k_err <span class="op">=</span> <span class="bu">int</span>(np.argmax(np.<span class="bu">abs</span>(u_q <span class="op">-</span> u_s)))   <span class="co"># Abtastwert mit groesstem Fehler</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">'Quantisierungsfehler $</span><span class="ch">\\</span><span class="st">Delta Q$'</span>,</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>            xy<span class="op">=</span>(t_s[k_err], u_q[k_err]), xytext<span class="op">=</span>(t_s[k_err] <span class="op">-</span> <span class="fl">0.35</span>, <span class="fl">1.05</span>),</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>            fontsize<span class="op">=</span><span class="dv">9</span>,</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>            arrowprops<span class="op">=</span>{<span class="st">'arrowstyle'</span>: <span class="st">'-&gt;'</span>, <span class="st">'color'</span>: <span class="st">'black'</span>, <span class="st">'lw'</span>: <span class="fl">0.8</span>})</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'③ Gequanteltes, gehaltenes Signal'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Zeit in s'</span>)</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Stufenwert in V'</span>)</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="op">-</span><span class="fl">1.3</span>, <span class="fl">1.4</span>)</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="co"># rechts unten: Ausgangscode</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> axs[<span class="dv">1</span>, <span class="dv">1</span>]</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>ax.plot(t_s, stufen, drawstyle<span class="op">=</span><span class="st">'steps-post'</span>, color<span class="op">=</span><span class="st">'navy'</span>, lw<span class="op">=</span><span class="fl">1.4</span>, marker<span class="op">=</span><span class="st">'o'</span>, ms<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(t_s), <span class="dv">2</span>):</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>    code <span class="op">=</span> <span class="bu">format</span>(stufen[i], <span class="ss">f'0</span><span class="sc">{</span>n_bits<span class="sc">}</span><span class="ss">b'</span>)</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>    ax.text(t_s[i], stufen[i] <span class="op">+</span> <span class="fl">0.25</span>, code, fontsize<span class="op">=</span><span class="dv">8</span>, ha<span class="op">=</span><span class="st">'center'</span>, color<span class="op">=</span><span class="st">'navy'</span>)</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'④ Ausgangscode (3 Bit)'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Zeit in s'</span>)</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Code-Wert'</span>)</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">7.8</span>)</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-quadranten" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -561,16 +565,16 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 </div>
 </div>
 </div>
-<p>Der Zahlenwert des Codes entsteht, indem jeder Abtastwert auf die nächste Kennlinien-Stufe gerundet wird — die Schritte der Kennlinie sind die <strong>Quantisierungsstufen</strong>. Dass der gehaltene Wandlerausgang (③) nie exakt auf dem Originalverlauf (graue Kurve) liegt, ist die Grundlage des Quantisierungsfehlers im nächsten Abschnitt.</p>
+<p>Der Zahlenwert des Codes entsteht, indem jeder Abtastwert auf die nächste Kennlinien-Stufe gerundet wird — die Schritte der Kennlinie sind die <strong>Quantisierungsstufen</strong>. Der Quantisierungsfehler ist die Differenz zwischen Abtastwert und Stufenwert im Abtastzeitpunkt. Die Abweichung zwischen den Abtastpunkten entsteht zusätzlich durch das Halten der Stufe.</p>
 </section>
 </section>
 <section id="quantisierung" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="quantisierung"><span class="header-section-number">6.2</span> Quantisierung</h2>
 <p>Für <span class="math inline">\(n\)</span> Bit stehen <span class="math inline">\(2^{n}\)</span> Stufen über der Messbereichsspannbreite <span class="math inline">\(U_{ms}\)</span> zur Verfügung:</p>
-<div id="07fdc47f" class="cell" data-execution_count="5">
+<div id="5622588b" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>n_bit <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Aufloesung des Wandlers in Bit'</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>n_bit <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung des Wandlers in Bit'</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>U_ms <span class="op">=</span> MySymbol(<span class="vs">r'U_{ms}'</span>, description<span class="op">=</span><span class="st">'Messbereichsspannbreite'</span>, unit<span class="op">=</span>u.volt)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>dU <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="dv">\D</span><span class="vs">elta U'</span>, description<span class="op">=</span><span class="st">'Quantisierungsstufe (1 LSB)'</span>, unit<span class="op">=</span>u.volt)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(dU, U_ms<span class="op">/</span><span class="dv">2</span><span class="op">**</span>n_bit), label<span class="op">=</span><span class="st">'eq-lsb'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
@@ -582,7 +586,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 </div>
 </div>
 <p>Die Rundung auf die nächste Stufe verursacht den <strong>Quantisierungsfehler</strong> — maximal eine halbe Stufe:</p>
-<div id="0cbc1c0b" class="cell" data-execution_count="6">
+<div id="29ae60aa" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dQ <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="dv">\D</span><span class="vs">elta Q'</span>, description<span class="op">=</span><span class="st">'maximaler Quantisierungsfehler'</span>, unit<span class="op">=</span>u.volt)</span>
@@ -595,14 +599,14 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 </div>
 </div>
 <p>Beispiel 8-Bit-Wandler mit Messbereich <span class="math inline">\(0\,\mathrm{V} \ldots 10\,\mathrm{V}\)</span>:</p>
-<div id="0a1708bf" class="cell" data-execution_count="7">
+<div id="38542184" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>U_ms_ex <span class="op">=</span> MySymbol(<span class="vs">r'U_{ms}'</span>, description<span class="op">=</span><span class="st">'Messbereichsspannbreite'</span>, unit<span class="op">=</span>u.volt,</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                   value<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_values([U_ms_ex])</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>eq_ex <span class="op">=</span> Eq(dU, U_ms<span class="op">/</span><span class="dv">2</span><span class="op">**</span>n_bit).subs({U_ms: <span class="dv">10</span>, n_bit: <span class="dv">8</span>})</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(eq_ex, label<span class="op">=</span><span class="st">'eq-lsb-beispiel'</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(dU, U_ms_ex<span class="op">/</span><span class="dv">2</span><span class="op">**</span>n_bit).subs({n_bit: <span class="dv">8</span>}), label<span class="op">=</span><span class="st">'eq-lsb-beispiel'</span>)</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>dU_v <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="dv">\D</span><span class="vs">elta U'</span>, description<span class="op">=</span><span class="st">'Quantisierungsstufe (1 LSB)'</span>, unit<span class="op">=</span>u.volt,</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                value<span class="op">=</span><span class="bu">float</span>(eq_ex.rhs))</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>dQ_v <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="dv">\D</span><span class="vs">elta Q'</span>, description<span class="op">=</span><span class="st">'maximaler Quantisierungsfehler'</span>, unit<span class="op">=</span>u.volt,</span>
@@ -614,7 +618,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span id="eq-lsb-beispiel"><span class="math display">\[
-\Delta U = \frac{5}{128}
+\Delta U = \frac{U_{ms}}{256}
 \tag{6.5}\]</span></span></p>
 </div>
 <div class="cell-output cell-output-display cell-output-markdown">
@@ -625,7 +629,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 </div>
 </div>
 <ul>
-<li>Der Quantisierungsfehler ist ein systematischer Effekt; nach GUM wird er als Typ-B-Standardunsicherheit mit rund verteiltem Fehler im Intervall <span class="math inline">\(\pm \Delta U/2\)</span> bewertet (<span class="citation" data-cites="jcgm100_2008">[<a href="#ref-jcgm100_2008" role="doc-biblioref">1</a>]</span>).</li>
+<li>Der Quantisierungsfehler ist ein systematischer Effekt; nach GUM wird er als Typ-B-Standardunsicherheit mit gleichverteiltem (rechteckverteiltem) Fehler im Intervall <span class="math inline">\(\pm \Delta U/2\)</span> bewertet (<span class="citation" data-cites="jcgm100_2008">[<a href="#ref-jcgm100_2008" role="doc-biblioref">1</a>]</span>). Die Standardunsicherheit beträgt <span class="math inline">\(\Delta U/\sqrt{12}\)</span>.</li>
 </ul>
 </section>
 <section id="kenngrößen-von-adw-und-daw" class="level2" data-number="6.3">
