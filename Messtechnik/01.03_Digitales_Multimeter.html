@@ -267,6 +267,18 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ADW–DAW — Grundlagen und Kenngrößen</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.07_DAW_Schaltungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">DAW-Schaltungen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.08_ADW_Schaltungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">ADW-Schaltungen</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -281,13 +293,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Datenanalyse/Datenanalyse_Datenquellen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Datenquellen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Datenquellen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Datenanalyse/Datenanalyse_Darstellungsformen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></span></a>
   </div>
 </li>
       </ul>
@@ -304,13 +316,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../SteuerRegel/01.03_SPS.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></a>
   </div>
 </li>
       </ul>
@@ -327,19 +339,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Weiterfuehrende_Themen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Weiterführende Themen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Weiterführende Themen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Jahresplanung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">1. Grundannahmen</span></span></a>
   </div>
 </li>
       </ul>
@@ -383,7 +395,7 @@ window.Quarto = {
 
 
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="4bfbcf79" class="cell" data-execution_count="2">
+<div id="895d36b2" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(M\)</span> … Drehmoment der Lorentzkraft</p>
 </div>
@@ -417,7 +429,7 @@ window.Quarto = {
 <ul>
 <li>Klassisches Messgerät der Elektromesstechnik: <strong>Drehspulmesswerk</strong>. Lorentzkraft auf die stromdurchflossene Spule im Permanentfeld erzeugt ein Drehmoment; die Spiralfeder stellt das Gleichgewicht her — die Auslenkung ist proportional zum Strom:</li>
 </ul>
-<div id="6bc6ec75" class="cell" data-execution_count="3">
+<div id="b033d23e" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>M_bm <span class="op">=</span> MySymbol(<span class="st">'M'</span>, description<span class="op">=</span><span class="st">'Drehmoment der Lorentzkraft, proportional zum Strom'</span>)</span>
@@ -488,7 +500,7 @@ Abbildung&nbsp;3.2: Blockschaltbild eines digitalen Multimeters: Eingangsschutz,
 <li><strong>Verstärker:</strong> Impedanzwandler/Auto-Zero-Verstärker entkoppelt Teiler und ADW.</li>
 <li><strong>ADW:</strong> im DMM überwiegend <strong>Zweiflankenverfahren (Dual Slope)</strong> — Integration über feste Zeit <span class="math inline">\(T_1\)</span> gegen <span class="math inline">\(U_x\)</span>, dann Integration gegen die Referenz <span class="math inline">\(U_{ref}\)</span> bis zum Nulldurchgang in <span class="math inline">\(T_2\)</span>:</li>
 </ul>
-<div id="7256eecb" class="cell" data-execution_count="5">
+<div id="dd5fb8d3" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>U_x <span class="op">=</span> MySymbol(<span class="st">'U_x'</span>, description<span class="op">=</span><span class="st">'Eingangsspannung am ADW'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="fl">0.45</span>)</span>

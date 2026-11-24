@@ -90,7 +90,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Datenanalyse/01_Datenanalyse.html" rel="next">
+<link href="../Messtechnik/01.07_DAW_Schaltungen.html" rel="next">
 <link href="../Messtechnik/01.05_Frequenz_und_Periode.html" rel="prev">
 <script src="../site_libs/cookie-consent/cookie-consent.js"></script>
 <link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
@@ -286,6 +286,18 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ADW–DAW — Grundlagen und Kenngrößen</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.07_DAW_Schaltungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">DAW-Schaltungen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.08_ADW_Schaltungen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">ADW-Schaltungen</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -300,13 +312,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Datenanalyse/Datenanalyse_Datenquellen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Datenquellen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Datenquellen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Datenanalyse/Datenanalyse_Darstellungsformen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></span></a>
   </div>
 </li>
       </ul>
@@ -323,13 +335,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../SteuerRegel/01.03_SPS.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></a>
   </div>
 </li>
       </ul>
@@ -346,19 +358,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Weiterfuehrende_Themen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Weiterführende Themen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Weiterführende Themen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Jahresplanung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">1. Grundannahmen</span></span></a>
   </div>
 </li>
       </ul>
@@ -406,7 +418,7 @@ window.Quarto = {
 
 
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="b9707da8" class="cell" data-execution_count="2">
+<div id="eb26e1f4" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(f_{a}\)</span> … Abtastfrequenz</p>
 </div>
@@ -444,7 +456,7 @@ window.Quarto = {
 <section id="abtastung" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="abtastung"><span class="header-section-number">6.1</span> Abtastung</h2>
 <p>Ein kontinuierliches Signal <span class="math inline">\(u(t)\)</span> wird alle <span class="math inline">\(T_{a}\)</span> Sekunden abgetastet (Abtastperiode). Für die Amplitude zählt nur der Momentanwert zum Abtastzeitpunkt:</p>
-<div id="175387c3" class="cell" data-execution_count="3">
+<div id="fa679431" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>f_a <span class="op">=</span> MySymbol(<span class="vs">r'f_{a}'</span>, description<span class="op">=</span><span class="st">'Abtastfrequenz'</span>, unit<span class="op">=</span>u.hertz)</span>
@@ -571,7 +583,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 <section id="quantisierung" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="quantisierung"><span class="header-section-number">6.2</span> Quantisierung</h2>
 <p>Für <span class="math inline">\(n\)</span> Bit stehen <span class="math inline">\(2^{n}\)</span> Stufen über der Messbereichsspannbreite <span class="math inline">\(U_{ms}\)</span> zur Verfügung:</p>
-<div id="5622588b" class="cell" data-execution_count="5">
+<div id="47c5ffe3" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>n_bit <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung des Wandlers in Bit'</span>)</span>
@@ -586,7 +598,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 </div>
 </div>
 <p>Die Rundung auf die nächste Stufe verursacht den <strong>Quantisierungsfehler</strong> — maximal eine halbe Stufe:</p>
-<div id="29ae60aa" class="cell" data-execution_count="6">
+<div id="1d3e3a17" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dQ <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="dv">\D</span><span class="vs">elta Q'</span>, description<span class="op">=</span><span class="st">'maximaler Quantisierungsfehler'</span>, unit<span class="op">=</span>u.volt)</span>
@@ -599,7 +611,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 </div>
 </div>
 <p>Beispiel 8-Bit-Wandler mit Messbereich <span class="math inline">\(0\,\mathrm{V} \ldots 10\,\mathrm{V}\)</span>:</p>
-<div id="38542184" class="cell" data-execution_count="7">
+<div id="24dc64b1" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>U_ms_ex <span class="op">=</span> MySymbol(<span class="vs">r'U_{ms}'</span>, description<span class="op">=</span><span class="st">'Messbereichsspannbreite'</span>, unit<span class="op">=</span>u.volt,</span>
@@ -1100,8 +1112,8 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Datenanalyse/01_Datenanalyse.html" class="pagination-link" aria-label="Datenanalyse - Data Analysis">
-        <span class="nav-page-text">Datenanalyse - Data Analysis</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Messtechnik/01.07_DAW_Schaltungen.html" class="pagination-link" aria-label="DAW-Schaltungen">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">DAW-Schaltungen</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
