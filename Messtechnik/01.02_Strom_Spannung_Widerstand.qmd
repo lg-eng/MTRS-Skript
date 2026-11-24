@@ -121,12 +121,11 @@ dI_num = (-R_A.value/(100 + R_A.value))*100
 QBookHelpers.print_equation(Eq(delta_I, Float(dI_num, 3)), label='eq-delta-i-num')
 ```
 
-> **Platzhalter — Schaltbild:** übersichtliches Schaltbild mit Quelle $U_q$
-> (mit $R_q$), Verbraucher $R$, Voltmeter parallel zum Verbraucher
-> (spannungsrichtig) und Amperemeter in Reihe (stromrichtig), jeweils mit
-> eingezeichnetem Innenwiderstand.
-
-![Messschaltung mit Voltmeter und Amperemeter im Praktikum (Meganbeckett27, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Electric_circuit_with_voltmeter_and_ammeter.JPG))](images/Electric_circuit_with_voltmeter_and_ammeter.JPG){#fig-voltmeter-ammeter}
+> **Platzhalter — Messschaltung mit modernen Messgeräten:** Foto einer
+> spannungs- und stromrichtigen Messanordnung mit zeitgemäßem Netzteil,
+> digitalem Voltmeter und digitalem Amperemeter. Deutlich sichtbar:
+> Verbraucher, Schutzbeschaltung, Messbereichseinstellung, Reihen- und
+> Parallelschaltung der Messgeräte.
 
 ## Widerstandsmessung
 

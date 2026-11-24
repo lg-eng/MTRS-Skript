@@ -65,8 +65,8 @@ Richtig ausgewählt wäre der Vorsatz so, dass der Zahlenwert im Bereich 1 bis
 ```{python}
 #| echo: true
 #| code-fold: true
-V_s = Symbol(r'\mathrm{V}')
-kV_s = Symbol(r'\mathrm{kV}')
+V_s = Symbol(r'\,\mathrm{V}')
+kV_s = Symbol(r'\,\mathrm{kV}')
 U_sym = Symbol('U')
 QBookHelpers.print_equation(Eq(U_sym, 10*V_s), label='eq-u-volt')
 QBookHelpers.print_equation(Eq(U_sym, 0.01*kV_s), label='eq-u-kilovolt')
