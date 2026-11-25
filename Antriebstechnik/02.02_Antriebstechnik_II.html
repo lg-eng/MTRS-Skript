@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>10&nbsp; Antriebstechnik II — Wechselstrommotoren und Linearantriebe – MTRS-Skript</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../SteuerRegel/01_SteuerRegel.html" rel="next">
+<link href="../Antriebstechnik/02.01_Antriebstechnik_I.html" rel="prev">
+<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-112a5ddbc64ca47b563c5057add93be6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"express",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  ,
+"language":"de"
+  });
+});
+</script> 
+  
+<!-- Header-Include für panels.css: Toggle-Button, der .panels-hidden
+     auf <html> setzt (Ein-/Ausblenden der Seitenleisten). -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var btn = document.createElement('button');
+  btn.id = 'panels-toggle';
+  btn.title = 'Seitenleisten ein-/ausblenden';
+  btn.setAttribute('aria-label', 'Seitenleisten ein-/ausblenden');
+  btn.textContent = '\u2630';
+  btn.addEventListener('click', function () {
+    document.documentElement.classList.toggle('panels-hidden');
+  });
+  document.body.appendChild(btn);
+});
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../panels.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Antriebstechnik/02_Antriebstechnik.html">Antriebstechnik</a></li><li class="breadcrumb-item"><a href="../Antriebstechnik/02.02_Antriebstechnik_II.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Antriebstechnik II — Wechselstrommotoren und Linearantriebe</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">MTRS-Skript</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lg-eng/MTRS-Skript" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode" target="_blank"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Willkommen zum Skript</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../Messtechnik/Messtechnik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Messtechnik und Sensorik</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.01_Einfuehrung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Einführung in die Messtechnik</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.02_Strom_Spannung_Widerstand.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Strom-, Spannungs- und Widerstandsmessung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.03_Digitales_Multimeter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Digitale Multimeter</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.04_Kennwerte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Elektrische Kennwerte periodischer Signale</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.05_Frequenz_und_Periode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Frequenz- und Periodenmessung</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Messtechnik/01.06_ADW_DAW.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ADW–DAW — Grundlagen und Kenngrößen</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../Datenanalyse/01_Datenanalyse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datenanalyse - Data Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Datenanalyse/Datenanalyse_Datenquellen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Datenquellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Datenanalyse/Datenanalyse_Darstellungsformen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Darstellungsformen von Daten</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../Antriebstechnik/02_Antriebstechnik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Antriebstechnik</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Antriebstechnik/02.01_Antriebstechnik_I.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Antriebstechnik I — Grundlagen und Gleichstromantriebe</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Antriebstechnik/02.02_Antriebstechnik_II.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Antriebstechnik II — Wechselstrommotoren und Linearantriebe</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../SteuerRegel/01_SteuerRegel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Steuer- und Regelungstechnik</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../SteuerRegel/01.03_SPS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../Anhang/xx_Appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anhang</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Anhang/xx_Weiterfuehrende_Themen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Weiterführende Themen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Anhang/xx_Jahresplanung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="4">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#wechselspannung-und-drehfeld" id="toc-wechselspannung-und-drehfeld" class="nav-link active" data-scroll-target="#wechselspannung-und-drehfeld"><span class="header-section-number">10.1</span> Wechselspannung und Drehfeld</a></li>
+  <li><a href="#einphasen-wechselstrommotor" id="toc-einphasen-wechselstrommotor" class="nav-link" data-scroll-target="#einphasen-wechselstrommotor"><span class="header-section-number">10.2</span> Einphasen-Wechselstrommotor</a></li>
+  <li><a href="#asynchronmotor" id="toc-asynchronmotor" class="nav-link" data-scroll-target="#asynchronmotor"><span class="header-section-number">10.3</span> Asynchronmotor</a></li>
+  <li><a href="#synchronmotor-und-pmsm" id="toc-synchronmotor-und-pmsm" class="nav-link" data-scroll-target="#synchronmotor-und-pmsm"><span class="header-section-number">10.4</span> Synchronmotor und PMSM</a></li>
+  <li><a href="#frequenzumrichter" id="toc-frequenzumrichter" class="nav-link" data-scroll-target="#frequenzumrichter"><span class="header-section-number">10.5</span> Frequenzumrichter</a></li>
+  <li><a href="#linearantriebe" id="toc-linearantriebe" class="nav-link" data-scroll-target="#linearantriebe"><span class="header-section-number">10.6</span> Linearantriebe</a></li>
+  <li><a href="#roboterantriebe" id="toc-roboterantriebe" class="nav-link" data-scroll-target="#roboterantriebe"><span class="header-section-number">10.7</span> Roboterantriebe</a></li>
+  <li><a href="#motor-und-antrieb-auswählen" id="toc-motor-und-antrieb-auswählen" class="nav-link" data-scroll-target="#motor-und-antrieb-auswählen"><span class="header-section-number">10.8</span> Motor und Antrieb auswählen</a></li>
+  <li><a href="#kurzaufgaben" id="toc-kurzaufgaben" class="nav-link" data-scroll-target="#kurzaufgaben"><span class="header-section-number">10.9</span> Kurzaufgaben</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/lg-eng/MTRS-Skript/issues/new" target="_blank" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Antriebstechnik/02_Antriebstechnik.html">Antriebstechnik</a></li><li class="breadcrumb-item"><a href="../Antriebstechnik/02.02_Antriebstechnik_II.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Antriebstechnik II — Wechselstrommotoren und Linearantriebe</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-at-ii" class="quarto-section-identifier"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Antriebstechnik II — Wechselstrommotoren und Linearantriebe</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Verwendete Symbole:</strong></p>
+<div id="b71c1579" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(f\)</span> … Netzfrequenz</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(p\)</span> … Polpaarzahl</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(n_{0}\)</span> … Synchrondrehzahl</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(s\)</span> … Schlupf</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(n\)</span> … Drehzahl</p>
+</div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(M\)</span> … Drehmoment</p>
+</div>
+</div>
+<section id="wechselspannung-und-drehfeld" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="wechselspannung-und-drehfeld"><span class="header-section-number">10.1</span> Wechselspannung und Drehfeld</h2>
+<p>Bei einem Wechselstrommotor erzeugen zeitlich versetzte Stränge ein räumlich umlaufendes Magnetfeld. Die Drehfeldfrequenz bestimmt die Synchrondrehzahl.</p>
+<div id="68b068ca" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>n0 <span class="op">=</span> MySymbol(<span class="vs">r'n_</span><span class="op">{0}</span><span class="vs">'</span>, description<span class="op">=</span><span class="st">'Synchrondrehzahl'</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> MySymbol(<span class="st">'f'</span>, description<span class="op">=</span><span class="st">'Netzfrequenz'</span>, unit<span class="op">=</span>u.hertz)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> MySymbol(<span class="st">'p'</span>, description<span class="op">=</span><span class="st">'Polpaarzahl'</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(n0, <span class="dv">60</span><span class="op">*</span>f<span class="op">/</span>p), label<span class="op">=</span><span class="st">'eq-synchron-drehzahl'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-synchron-drehzahl"><span class="math display">\[
+n_{0} = \frac{60 f}{p}
+\tag{10.1}\]</span></span></p>
+</div>
+</div>
+<p>In Europa gibt die Netzfrequenz <span class="math inline">\(f=50\,\mathrm{Hz}\)</span> vor. Eine zweipolige Maschine <span class="math inline">\((p=1)\)</span> läuft synchron mit <span class="math inline">\(3000\,\mathrm{min^{-1}}\)</span>; eine vierpolige Maschine $ (p=2)$ mit <span class="math inline">\(1500\,\mathrm{min^{-1}}\)</span>.</p>
+<div id="3ecc62db" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span><span class="op">*</span>np.pi, <span class="dv">500</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="fl">6.5</span>, <span class="fl">3.2</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>ax.plot(theta, np.sin(theta), label<span class="op">=</span><span class="st">'L1'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>ax.plot(theta, np.sin(theta<span class="op">-</span><span class="dv">2</span><span class="op">*</span>np.pi<span class="op">/</span><span class="dv">3</span>), label<span class="op">=</span><span class="st">'L2'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>ax.plot(theta, np.sin(theta<span class="op">-</span><span class="dv">4</span><span class="op">*</span>np.pi<span class="op">/</span><span class="dv">3</span>), label<span class="op">=</span><span class="st">'L3'</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, lw<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">0</span>, <span class="dv">2</span><span class="op">*</span>np.pi)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>ax.set_xticks([<span class="dv">0</span>, np.pi<span class="op">/</span><span class="dv">2</span>, np.pi, <span class="dv">3</span><span class="op">*</span>np.pi<span class="op">/</span><span class="dv">2</span>, <span class="dv">2</span><span class="op">*</span>np.pi],</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>              [<span class="st">'$0$'</span>, <span class="st">'$</span><span class="ch">\\</span><span class="st">pi/2$'</span>, <span class="st">'$</span><span class="ch">\\</span><span class="st">pi$'</span>, <span class="st">'$3</span><span class="ch">\\</span><span class="st">pi/2$'</span>, <span class="st">'$2</span><span class="ch">\\</span><span class="st">pi$'</span>])</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Winkel in rad'</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'normierter Strangstrom'</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Dreiphasensystem mit 120° Phasenversetzung'</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">'lower left'</span>, ncol<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02.02_Antriebstechnik_II_files/figure-html/cell-5-output-1.png" width="617" height="297" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="einphasen-wechselstrommotor" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="einphasen-wechselstrommotor"><span class="header-section-number">10.2</span> Einphasen-Wechselstrommotor</h2>
+<p>Ein einphasiges Netz erzeugt ohne Zusatzmaßnahme kein rotierendes, sondern ein pulsierendes Feld. Der Motor benötigt deshalb eine Anlauf- oder Hilfsphasenschaltung.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bauart</th>
+<th>Anlauf</th>
+<th>Eigenschaften</th>
+<th>Anwendung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Kondensatormotor</td>
+<td>Betriebskondensator erzeugt Hilfsphase</td>
+<td>ruhiger, günstiger Wirkungsgrad</td>
+<td>Lüfter, Pumpen</td>
+</tr>
+<tr class="even">
+<td>Split-Phase-Motor</td>
+<td>Hilfswicklung mit hohem Widerstand</td>
+<td>hoher Anlaufstrom, einfach</td>
+<td>Haushaltsgeräte</td>
+</tr>
+<tr class="odd">
+<td>Spaltpolmotor</td>
+<td>durch den Polschlitz phasenverschobene Stromkomponente</td>
+<td>geringe Leistung, robust</td>
+<td>kleine Lüfter</td>
+</tr>
+<tr class="even">
+<td>Universalmotor</td>
+<td>Reihenschlussmotor, bürstenbehaftet</td>
+<td>hohe Drehzahl, Drehzahl lastabhängig</td>
+<td>Bohrer, Staubsauger</td>
+</tr>
+</tbody>
+</table>
+<p>Ein Universalmotor läuft mit Wechsel- und Gleichspannung. Stator und Anker sind in Reihe geschaltet. Die Drehzahl ist nicht mit <span class="math inline">\(50\,\mathrm{Hz}\)</span> koppelbar und wird über die Last oder einen Leistungsteller begrenzt.</p>
+</section>
+<section id="asynchronmotor" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="asynchronmotor"><span class="header-section-number">10.3</span> Asynchronmotor</h2>
+<p>Der Asynchron- oder Drehstrom-Induktionsmotor besitzt Läuferwicklung oder Läuferkäfig. Das drehende Statorfeld induziert eine Spannung im Läufer; daraus entsteht Läuferstrom und Drehmoment.</p>
+<div id="8b09ce06" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> MySymbol(<span class="st">'s'</span>, description<span class="op">=</span><span class="st">'Schlupf'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Läuferdrehzahl'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>n0_l <span class="op">=</span> MySymbol(<span class="vs">r'n_</span><span class="op">{0}</span><span class="vs">'</span>, description<span class="op">=</span><span class="st">'Synchrondrehzahl'</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(s, (n0_l<span class="op">-</span>n)<span class="op">/</span>n0_l), label<span class="op">=</span><span class="st">'eq-asynchron-schlupf'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-asynchron-schlupf"><span class="math display">\[
+s = \frac{- n + n_{0}}{n_{0}}
+\tag{10.2}\]</span></span></p>
+</div>
+</div>
+<p>Bei Stillstand gilt <span class="math inline">\(n=0\)</span> und damit <span class="math inline">\(s=1\)</span>. Bei <span class="math inline">\(n=n_0\)</span> wäre <span class="math inline">\(s=0\)</span>, aber dann wäre ohne zusätzliche Reibung kein induzierter Läuferstrom vorhanden. In Nennbetrieb liegt der Schlupf typischerweise bei wenigen Prozent.</p>
+<div id="cell-fig-asynchron-mom" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> np.linspace(<span class="fl">0.001</span>, <span class="dv">1</span>, <span class="dv">500</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>s_crit <span class="op">=</span> <span class="fl">0.18</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>s<span class="op">*</span>s_crit<span class="op">/</span>(s<span class="op">*</span>s <span class="op">+</span> s_crit<span class="op">*</span>s_crit)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="fl">3.5</span>))</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>ax.plot(s<span class="op">*</span><span class="dv">100</span>, M, lw<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>ax.axvline(s_crit<span class="op">*</span><span class="dv">100</span>, color<span class="op">=</span><span class="st">'crimson'</span>, ls<span class="op">=</span><span class="st">'--'</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>ax.text(s_crit<span class="op">*</span><span class="dv">100</span><span class="op">+</span><span class="dv">2</span>, <span class="fl">1.55</span>, <span class="st">'Kippunkt'</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">4</span>], [M[np.argmin(<span class="bu">abs</span>(s<span class="op">-</span><span class="fl">0.04</span>))]], <span class="st">'o'</span>, color<span class="op">=</span><span class="st">'#2e7d32'</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="dv">6</span>, M[np.argmin(<span class="bu">abs</span>(s<span class="op">-</span><span class="fl">0.04</span>))]<span class="op">-</span><span class="fl">0.15</span>, <span class="st">'Nennpunkt'</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Schlupf in %'</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'normiertes Drehmoment'</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Asynchronmotor: Drehmoment über Schlupf'</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>, <span class="fl">2.1</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-asynchron-mom" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-asynchron-mom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="02.02_Antriebstechnik_II_files/figure-html/fig-asynchron-mom-output-1.png" width="664" height="326" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-asynchron-mom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;10.1: Vereinfachtes Drehmoment-Schlupf-Verhalten eines Drehstrom-Asynchronmotors.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Direkte Netzschaltung</strong></p>
+<ul>
+<li>Vorteil: einfache, robuste Technik.</li>
+<li>Nachteil: hoher Einschaltstrom und großes Anlaufmoment.</li>
+<li>Stern-Dreieck-Anlauf reduziert den Anlaufstrom, aber auch das Anlaufmoment.</li>
+<li>Sanftanlauf begrenzt die Spannung, Frequenzumrichter stellt Drehmoment und Drehzahl frei ein.</li>
+</ul>
+<p><strong>Motorstern oder Motordreieck</strong></p>
+<p>Bei gleicher Nennspannung ist die Konfiguration nach dem Netz und der Motorklemmenbezeichnung zu wählen:</p>
+<ul>
+<li>Stern: <span class="math inline">\(U_{phase}=U_{verkett}/\sqrt{3}\)</span>; kleinerer Strom je Wicklungsstrang.</li>
+<li>Dreieck: Wicklung liegt an der verketteten Spannung; höherer Motorstrom.</li>
+<li>Die angeschlossene Spannungsrichtung darf nicht geraten, sondern muss am Typenschild geprüft werden.</li>
+</ul>
+</section>
+<section id="synchronmotor-und-pmsm" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="synchronmotor-und-pmsm"><span class="header-section-number">10.4</span> Synchronmotor und PMSM</h2>
+<p>Beim Synchronmotor läuft der Läufer mit der Drehfeldfrequenz synchron. Dauermagneterregung erzeugt einen Permanentmagnet-Synchronmotor (PMSM).</p>
+<ul>
+<li>Hoher Wirkungsgrad und hohe Leistungsdichte.</li>
+<li>Drehmoment über Rotorlage und Statorstrom gesteuert.</li>
+<li>Encoder, Resolver oder Hall-Sensoren geben die Rotorlage zurück.</li>
+<li>Feldorientierte Regelung zerlegt den Statorstrom in Magnetfluss- und Drehmomentanteil.</li>
+<li>Bei Überdrehzahl wird die Gegen-EMK relevant; der Zwischenkreis muss bremsfähig sein.</li>
+</ul>
+<p>Ein bürstenloser Drehstrommotor in Industrieanwendungen wird häufig als PMSM mit Sensor oder als sensorgesteuerter AC-Servo-Antrieb ausgeführt.</p>
+</section>
+<section id="frequenzumrichter" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="frequenzumrichter"><span class="header-section-number">10.5</span> Frequenzumrichter</h2>
+<p>Der Frequenzumrichter verändert die Drehzahl des Drehstrommotors durch geregelte Spannung und Frequenz. Die Spannungs-Frequenz-Steuerung hält das magnetische Flussniveau näherungsweise konstant.</p>
+<div id="8a52868a" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>U1 <span class="op">=</span> MySymbol(<span class="st">'U'</span>, description<span class="op">=</span><span class="st">'Motorspannung'</span>, unit<span class="op">=</span>u.volt)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>f1 <span class="op">=</span> MySymbol(<span class="st">'f'</span>, description<span class="op">=</span><span class="st">'Motorfrequenz'</span>, unit<span class="op">=</span>u.hertz)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>Phi <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="er">\</span><span class="vs">Phi'</span>, description<span class="op">=</span><span class="st">'magnetischer Fluss'</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(Phi, U1<span class="op">/</span>f1), label<span class="op">=</span><span class="st">'eq-u-f-fluss'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-u-f-fluss"><span class="math display">\[
+\Phi = \frac{U}{f}
+\tag{10.3}\]</span></span></p>
+</div>
+</div>
+<p>Im konstanten Flussbereich gilt näherungsweise <span class="math inline">\(U/f=\mathrm{konstant}\)</span>. Im Feldschwächungsbereich oberhalb der Nennfrequenz sinkt das verfügbare Drehmoment, während die Drehzahl weiter steigt.</p>
+<p><strong>Aufbau</strong></p>
+<blockquote class="blockquote">
+<p>Netzgleichrichter → Zwischenkreis → Wechselrichter → Motor</p>
+</blockquote>
+<ul>
+<li>Gleichrichter richtet die Netzspannung.</li>
+<li>Kondensatoren glätten die Zwischenkreisspannung.</li>
+<li>Der Wechselrichter erzeugt PWM-Signale für die Leistungstransistoren.</li>
+<li>Bremswiderstand oder Rückspeisung behandelt Energie bei Verzögerungen.</li>
+<li>EMV-Filter begrenzen leitungsgebundene Störungen.</li>
+</ul>
+<p><strong>Auswahlfragen</strong></p>
+<ul>
+<li>Motorart: Asynchronmotor oder Synchronmotor.</li>
+<li>Lastmoment: konstant oder quadratisch mit der Drehzahl.</li>
+<li>Bremsbetrieb: motorische Verzögerung oder regenerative Rückspeisung.</li>
+<li>Schutzklasse, Kühlung, Kabellänge und Erdung.</li>
+<li>Feldbus- oder digitale Sollwertschnittstelle.</li>
+</ul>
+</section>
+<section id="linearantriebe" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="linearantriebe"><span class="header-section-number">10.6</span> Linearantriebe</h2>
+<p>Beim Linearantrieb erfolgt die Kraftwirkung direkt entlang einer Strecke. Die bewegte Masse wird nicht über eine Drehbewegung und Gewindespindel geführt. Typische Bauformen sind:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bauform</th>
+<th>Prinzip</th>
+<th>Vorteil</th>
+<th>Grenze</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Kugelgewindetrieb</td>
+<td>Drehmotor dreht Gewindespindel</td>
+<td>steif, genau, günstiger Leistungspreis</td>
+<td>begrenzte Geschwindigkeit</td>
+</tr>
+<tr class="even">
+<td>Zahnriemen</td>
+<td>Drehmotor bewegt Zahnriemen</td>
+<td>schnell, große Hubwege</td>
+<td>elastische Verformung</td>
+</tr>
+<tr class="odd">
+<td>Linearmotor</td>
+<td>wechselndes Wanderfeld wirkt direkt</td>
+<td>höchste Beschleunigung und Dynamik</td>
+<td>hoher Elektronik- und Montageaufwand</td>
+</tr>
+<tr class="even">
+<td>Elektromagnetischer Hubantrieb</td>
+<td>Magnetkraft bewegt Anker</td>
+<td>hohe Kraft, kurzer Hub</td>
+<td>thermische Grenze, Positionierung</td>
+</tr>
+</tbody>
+</table>
+<p>Die Kraft muss Beschleunigung, Reibung, Höhenkraft und Störkräfte überwinden:</p>
+<div id="36ffe823" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>F_res <span class="op">=</span> MySymbol(<span class="st">'F_</span><span class="sc">{res}</span><span class="st">'</span>, description<span class="op">=</span><span class="st">'resultierende Antriebskraft'</span>, unit<span class="op">=</span>u.newton)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>m_lin <span class="op">=</span> MySymbol(<span class="st">'m'</span>, description<span class="op">=</span><span class="st">'bewegte Masse'</span>, unit<span class="op">=</span>u.kilogram)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>a_lin <span class="op">=</span> MySymbol(<span class="st">'a'</span>, description<span class="op">=</span><span class="st">'Beschleunigung'</span>, unit<span class="op">=</span>u.meter<span class="op">/</span>u.second<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>F_R <span class="op">=</span> MySymbol(<span class="st">'F_R'</span>, description<span class="op">=</span><span class="st">'Reibkraft'</span>, unit<span class="op">=</span>u.newton)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>F_h <span class="op">=</span> MySymbol(<span class="st">'F_h'</span>, description<span class="op">=</span><span class="st">'Höhenkraft'</span>, unit<span class="op">=</span>u.newton)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(F_res, m_lin<span class="op">*</span>a_lin<span class="op">+</span>F_R<span class="op">+</span>F_h), label<span class="op">=</span><span class="st">'eq-linear-kraftbilanz'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span id="eq-linear-kraftbilanz"><span class="math display">\[
+F_{res} = F_{R} + F_{h} + a m
+\tag{10.4}\]</span></span></p>
+</div>
+</div>
+<p>Für eine horizontale Bewegung mit <span class="math inline">\(m=20\,\mathrm{kg}\)</span> und <span class="math inline">\(a=2\,\mathrm{m/s^2}\)</span> benötigt die Masse ohne Reibung <span class="math inline">\(F=m a=40\,\mathrm{N}\)</span>.</p>
+</section>
+<section id="roboterantriebe" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="roboterantriebe"><span class="header-section-number">10.7</span> Roboterantriebe</h2>
+<p>Industrieroboter bestehen aus mehreren seriellen Achsen. Jede Achse besitzt Motor, Getriebe, Encoder und häufig eine Bremse. Bei einem Handgelenk wird die hohe Winkeldynamik durch kompakte Antriebe erreicht.</p>
+<div id="cell-fig-roboterachsen" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>links <span class="op">=</span> [(<span class="dv">0</span>, <span class="dv">0</span>), (<span class="fl">1.5</span>, <span class="dv">0</span>), (<span class="fl">2.7</span>, <span class="fl">1.1</span>), (<span class="fl">3.3</span>, <span class="fl">2.1</span>)]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="fl">3.8</span>))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> [p[<span class="dv">0</span>] <span class="cf">for</span> p <span class="kw">in</span> links]</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>ys <span class="op">=</span> [p[<span class="dv">1</span>] <span class="cf">for</span> p <span class="kw">in</span> links]</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>ax.plot(xs, ys, <span class="st">'o-'</span>, lw<span class="op">=</span><span class="dv">4</span>, color<span class="op">=</span><span class="st">'#4a78a8'</span>, ms<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">0</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="fl">1.0</span>], color<span class="op">=</span><span class="st">'gray'</span>, lw<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="fl">1.5</span>, <span class="op">-</span><span class="fl">0.25</span>, <span class="st">'Achse 2'</span>, ha<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="fl">2.7</span>, <span class="fl">0.85</span>, <span class="st">'Achse 3'</span>, ha<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="fl">3.55</span>, <span class="fl">2.15</span>, <span class="st">'Werkzeug'</span>, ha<span class="op">=</span><span class="st">'left'</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">4.2</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">3.0</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'x in m'</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'z in m'</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Serieller Roboter: vereinfachte Struktur'</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-roboterachsen" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-roboterachsen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="02.02_Antriebstechnik_II_files/figure-html/fig-roboterachsen-output-1.png" width="465" height="356" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-roboterachsen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;10.2: Vereinfachtes serielles Achsensystem eines Roboters mit Drehachsen.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>SCARA-Roboter:</strong> hohe Geschwindigkeit in der Ebene, senkrechte Z-Achse.</li>
+<li><strong>Knickarmroboter:</strong> große Reichweiten, unterschiedliche Achsenlasten.</li>
+<li><strong>Delta-Roboter:</strong> parallele Antriebe, sehr schnelle Pick-and-Place-Bewegungen.</li>
+<li><strong>Cobots:</strong> kraftbegrenzte oder kraftgeregelte Zusammenarbeit mit Menschen.</li>
+</ul>
+<p>Die inverse Kinematik berechnet aus einer Soll-Werkzeuglage die Achswinkel. Bei unterschiedlichen Achspositionen ändern sich Hebelarme und Motorlasten. Sicherheit erfordert Geschwindigkeits-, Kraft- und Arbeitsraumbegrenzungen.</p>
+</section>
+<section id="motor-und-antrieb-auswählen" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="motor-und-antrieb-auswählen"><span class="header-section-number">10.8</span> Motor und Antrieb auswählen</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Auswahlpunkt</th>
+<th>Drehstrom-Asynchronmotor</th>
+<th>PMSM/Servo</th>
+<th>Schrittmotor</th>
+<th>Linearmotor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Drehmoment/Dynamik</td>
+<td>mittel bis hoch</td>
+<td>sehr hoch</td>
+<td>hoch im Niedertempo</td>
+<td>sehr hoch</td>
+</tr>
+<tr class="even">
+<td>Regelung</td>
+<td>Frequenzumrichter</td>
+<td>Lagerortregelung/Encoder</td>
+<td>Schrittbefehle</td>
+<td>Positionsregelung</td>
+</tr>
+<tr class="odd">
+<td>Genauigkeit</td>
+<td>nur mit Sensor</td>
+<td>hoch</td>
+<td>bedingt offen</td>
+<td>sehr hoch</td>
+</tr>
+<tr class="even">
+<td>Wartung</td>
+<td>niedrig</td>
+<td>niedrig</td>
+<td>niedrig</td>
+<td>Führungssystem</td>
+</tr>
+<tr class="odd">
+<td>Kosten</td>
+<td>niedrig bis mittel</td>
+<td>mittel bis hoch</td>
+<td>niedrig</td>
+<td>hoch</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="kurzaufgaben" class="level2" data-number="10.9">
+<h2 data-number="10.9" class="anchored" data-anchor-id="kurzaufgaben"><span class="header-section-number">10.9</span> Kurzaufgaben</h2>
+<ol type="1">
+<li>Wie groß ist die Synchrondrehzahl einer zweipoligen Maschine bei <span class="math inline">\(50\,\mathrm{Hz}\)</span>?</li>
+<li>Ein Motor hat <span class="math inline">\(n=1450\,\mathrm{min^{-1}}\)</span> bei <span class="math inline">\(n_0=1500\,\mathrm{min^{-1}}\)</span>. Berechnen Sie den Schlupf.</li>
+<li>Warum wird das <span class="math inline">\(U/f\)</span>-Verhältnis eines Drehstrommotors annähernd konstant gehalten?</li>
+<li>Vergleichen Sie Kugelgewindetrieb und Linearmotor hinsichtlich Geschwindigkeit und Genauigkeit.</li>
+<li>Welche Daten benötigen Sie mindestens für eine Auswahl von Motor, Umrichter und Getriebe?</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../Antriebstechnik/02.01_Antriebstechnik_I.html" class="pagination-link" aria-label="Antriebstechnik I — Grundlagen und Gleichstromantriebe">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Antriebstechnik I — Grundlagen und Gleichstromantriebe</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../SteuerRegel/01_SteuerRegel.html" class="pagination-link" aria-label="Steuer- und Regelungstechnik">
+        <span class="nav-page-text">Steuer- und Regelungstechnik</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lg-eng/MTRS-Skript/issues/new" target="_blank" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div><div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
