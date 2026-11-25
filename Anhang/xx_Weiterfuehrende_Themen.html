@@ -426,7 +426,7 @@ window.Quarto = {
 
 <p>Dieses Kapitel bündelt Vertiefungen, die im Grundstoff meist zu weit führen: die saubere Begründung des Erweiterungsfaktors <span class="math inline">\(k\)</span> über die Verteilung der Ausgangsgröße sowie die Student-<span class="math inline">\(t\)</span>-Verteilung für wenige Messwerte.</p>
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="57aca443" class="cell" data-execution_count="2">
+<div id="505c1738" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(k\)</span> … Erweiterungsfaktor (Überdeckungsfaktor)</p>
 </div>
@@ -446,7 +446,7 @@ window.Quarto = {
 <section id="sec-k-verteilung" class="level2" data-number="14.1">
 <h2 data-number="14.1" class="anchored" data-anchor-id="sec-k-verteilung"><span class="header-section-number">14.1</span> Der Erweiterungsfaktor k aus der Verteilung begründet</h2>
 <p>Die erweiterte Unsicherheit <span class="math inline">\(U = k\,u_c\)</span> ist ein <strong>Quantil der Verteilung der Ausgangsgröße</strong>: Das Intervall <span class="math inline">\(y \pm k\,u_c\)</span> soll einen vereinbarten Anteil (meist <span class="math inline">\(p = 95\)</span> %) der plausiblen Werte der Messgröße überdecken. Bei normalverteilter Ausgangsgröße hängt der Faktor direkt an der Verteilungsfunktion <span class="math inline">\(\Psi\)</span>:</p>
-<div id="10764b95" class="cell" data-execution_count="3">
+<div id="bc65a6bc" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Psi <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="er">\</span><span class="vs">Psi'</span>)</span>
@@ -521,7 +521,7 @@ Abbildung&nbsp;14.1: Der Erweiterungsfaktor k hängt von der Verteilung der Ausg
 <section id="sec-t-verteilung" class="level2" data-number="14.2">
 <h2 data-number="14.2" class="anchored" data-anchor-id="sec-t-verteilung"><span class="header-section-number">14.2</span> Wenige Messwerte: die Student-t-Verteilung</h2>
 <p>Bei wenigen Messwerten stimmt die Normalverteilungs-Annahme nicht mehr: Die Streuung <span class="math inline">\(\sigma\)</span> ist unbekannt und wird aus gerade einmal <span class="math inline">\(n\)</span> Messwerten durch <span class="math inline">\(s\)</span> geschätzt. Standardisiert man den Mittelwert deshalb mit der Schätzung <span class="math inline">\(s\)</span> statt mit dem wahren <span class="math inline">\(\sigma\)</span>, folgt der standardisierte Schätzer nicht der Normalverteilung, sondern der <strong><span class="math inline">\(t\)</span>-Verteilung</strong> (Student-Verteilung) mit <span class="math inline">\(\nu = n - 1\)</span> Freiheitsgraden — ihre Dichte:</p>
-<div id="107faaec" class="cell" data-execution_count="5">
+<div id="993deb1e" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nu_sym <span class="op">=</span> Symbol(<span class="vs">r'</span><span class="ch">\n</span><span class="vs">u'</span>, integer<span class="op">=</span><span class="va">True</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
@@ -536,7 +536,7 @@ f_{t}(x) = \frac{\left(1 + \frac{x^{2}}{\nu}\right)^{- \frac{\nu}{2} - \frac{1}{
 \tag{14.2}\]</span></span></p>
 </div>
 </div>
-<div id="de49d909" class="cell" data-execution_count="6">
+<div id="3a9da40f" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
@@ -619,7 +619,7 @@ Abbildung&nbsp;14.2: Die t-Verteilung (Student) hat schwerere Ausläufer als die
 <section id="sec-welch-satterthwaite" class="level2" data-number="14.3">
 <h2 data-number="14.3" class="anchored" data-anchor-id="sec-welch-satterthwaite"><span class="header-section-number">14.3</span> Wenige Freiheitsgrade bei kombiniertem Budget: Welch–Satterthwaite</h2>
 <p>Besteht <span class="math inline">\(u_c\)</span> aus mehreren Beiträgen mit eigenen Freiheitsgraden (Typ A aus <span class="math inline">\(n_i\)</span> Messwerten, Typ B-Schätzungen), rechnet der GUM (<span class="citation" data-cites="jcgm100_2008">[<a href="#ref-jcgm100_2008" role="doc-biblioref">2</a>]</span>, Anhang G.4) sie zu <strong>effektiven Freiheitsgraden</strong> zusammen:</p>
-<div id="6cdc1700" class="cell" data-execution_count="8">
+<div id="b9eead20" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>u_c <span class="op">=</span> Symbol(<span class="vs">r'u_c'</span>)</span>

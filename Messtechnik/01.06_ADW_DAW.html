@@ -442,7 +442,7 @@ window.Quarto = {
 
 
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="ad9f6730" class="cell" data-execution_count="2">
+<div id="6a1abeba" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(f_{a}\)</span> … Abtastfrequenz</p>
 </div>
@@ -480,7 +480,7 @@ window.Quarto = {
 <section id="abtastung" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="abtastung"><span class="header-section-number">6.1</span> Abtastung</h2>
 <p>Ein kontinuierliches Signal <span class="math inline">\(u(t)\)</span> wird alle <span class="math inline">\(T_{a}\)</span> Sekunden abgetastet (Abtastperiode). Für die Amplitude zählt nur der Momentanwert zum Abtastzeitpunkt:</p>
-<div id="2bd0094b" class="cell" data-execution_count="3">
+<div id="4d6fd3bf" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>f_a <span class="op">=</span> MySymbol(<span class="vs">r'f_{a}'</span>, description<span class="op">=</span><span class="st">'Abtastfrequenz'</span>, unit<span class="op">=</span>u.hertz)</span>
@@ -607,7 +607,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 <section id="quantisierung" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="quantisierung"><span class="header-section-number">6.2</span> Quantisierung</h2>
 <p>Für <span class="math inline">\(n\)</span> Bit stehen <span class="math inline">\(2^{n}\)</span> Stufen über der Messbereichsspannbreite <span class="math inline">\(U_{ms}\)</span> zur Verfügung:</p>
-<div id="c7c4f7bf" class="cell" data-execution_count="5">
+<div id="f9b4a75d" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>n_bit <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung des Wandlers in Bit'</span>)</span>
@@ -622,7 +622,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 </div>
 </div>
 <p>Die Rundung auf die nächste Stufe verursacht den <strong>Quantisierungsfehler</strong> — maximal eine halbe Stufe:</p>
-<div id="878c87ad" class="cell" data-execution_count="6">
+<div id="ad6d4834" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dQ <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="dv">\D</span><span class="vs">elta Q'</span>, description<span class="op">=</span><span class="st">'maximaler Quantisierungsfehler'</span>, unit<span class="op">=</span>u.volt)</span>
@@ -635,7 +635,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 </div>
 </div>
 <p>Beispiel 8-Bit-Wandler mit Messbereich <span class="math inline">\(0\,\mathrm{V} \ldots 10\,\mathrm{V}\)</span>:</p>
-<div id="7dce05ef" class="cell" data-execution_count="7">
+<div id="6bcb3bfc" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>U_ms_ex <span class="op">=</span> MySymbol(<span class="vs">r'U_{ms}'</span>, description<span class="op">=</span><span class="st">'Messbereichsspannbreite'</span>, unit<span class="op">=</span>u.volt,</span>
@@ -720,7 +720,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 <section id="sec-mt-daw-schaltungen" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="sec-mt-daw-schaltungen"><span class="header-section-number">6.5</span> DAW-Schaltungen</h2>
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="8d43a01e" class="cell" data-execution_count="8">
+<div id="097a30e8" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>n_s <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung des DAW in Bit'</span>)</span>
@@ -774,7 +774,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 </tbody>
 </table>
 <p>Die Ausgangsspannung eines idealen Wandlernetzes folgt aus dem normierten Digitalcode:</p>
-<div id="fb3a99c4" class="cell" data-execution_count="9">
+<div id="cbca2f69" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung in Bit'</span>)</span>
@@ -813,7 +813,7 @@ U_{Soll} = \frac{U_{Ref} k}{N}
 </div>
 </div>
 <p>Mit <span class="math inline">\(n=3\)</span>, <span class="math inline">\(N=8\)</span> und <span class="math inline">\(U_{Ref}=5\,\mathrm{V}\)</span> ergibt sich für den Code <span class="math inline">\(k=5\)</span>:</p>
-<div id="4a7095ba" class="cell" data-execution_count="10">
+<div id="d28dca18" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>U_ref_v <span class="op">=</span> MySymbol(<span class="vs">r'U_{Ref}'</span>, description<span class="op">=</span><span class="st">'Referenzspannung'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="dv">5</span>)</span>
@@ -845,30 +845,102 @@ U_{Soll} = \frac{U_{Ref} k}{N}
 <section id="r-2r-netzwerk" class="level2" data-number="6.7">
 <h2 data-number="6.7" class="anchored" data-anchor-id="r-2r-netzwerk"><span class="header-section-number">6.7</span> R-2R-Netzwerk</h2>
 <p>Das R-2R-Netzwerk verwendet nur die Widerstandswerte <span class="math inline">\(R\)</span> und <span class="math inline">\(2R\)</span>. Dadurch werden Fertigung und Abgleich bei integrierten DAW einfacher.</p>
+<div id="cell-fig-r2r-schaltung" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> Rectangle</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="fl">4.2</span>))</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_resistor_horizontal(x1, x2, y, label):</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    lead <span class="op">=</span> <span class="fl">0.12</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    ax.plot([x1, x1 <span class="op">+</span> lead, x2 <span class="op">-</span> lead, x2],</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>            [y, y, y, y], color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    ax.add_patch(Rectangle((x1 <span class="op">+</span> lead, y <span class="op">-</span> <span class="fl">0.10</span>),</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                           x2 <span class="op">-</span> x1 <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>lead, <span class="fl">0.20</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                           facecolor<span class="op">=</span><span class="st">'white'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>))</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    ax.text((x1 <span class="op">+</span> x2)<span class="op">/</span><span class="dv">2</span>, y <span class="op">+</span> <span class="fl">0.28</span>, label,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>            ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_resistor_vertical(x, y1, y2, label):</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    lead <span class="op">=</span> <span class="fl">0.12</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    ax.plot([x, x, x, x],</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>            [y1, y1 <span class="op">+</span> lead, y2 <span class="op">-</span> lead, y2],</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    ax.add_patch(Rectangle((x <span class="op">-</span> <span class="fl">0.10</span>, y1 <span class="op">+</span> lead),</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>                           <span class="fl">0.20</span>, y2 <span class="op">-</span> y1 <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>lead,</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>                           facecolor<span class="op">=</span><span class="st">'white'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>))</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    ax.text(x <span class="op">+</span> <span class="fl">0.32</span>, (y1 <span class="op">+</span> y2)<span class="op">/</span><span class="dv">2</span>, label,</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>            ha<span class="op">=</span><span class="st">'left'</span>, va<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>node_x <span class="op">=</span> [<span class="fl">1.0</span>, <span class="fl">2.8</span>, <span class="fl">4.6</span>, <span class="fl">6.4</span>]</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>rail_y <span class="op">=</span> <span class="fl">3.2</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>ground_y <span class="op">=</span> <span class="fl">0.8</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Serienwiderstände 2R</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x1, x2 <span class="kw">in</span> <span class="bu">zip</span>([<span class="fl">0.1</span>, <span class="op">*</span>node_x[:<span class="op">-</span><span class="dv">1</span>]], node_x):</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    draw_resistor_horizontal(x1, x2, rail_y, <span class="vs">r'</span><span class="dv">$</span><span class="vs">2R</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Abschließender Serienwiderstand und Ausgang</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>draw_resistor_horizontal(node_x[<span class="op">-</span><span class="dv">1</span>], <span class="fl">7.7</span>, rail_y, <span class="vs">r'</span><span class="dv">$</span><span class="vs">2R</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="fl">7.7</span>, <span class="fl">8.2</span>], [rail_y, rail_y], color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="fl">8.35</span>, rail_y, <span class="vs">r'</span><span class="dv">$</span><span class="vs">U_</span><span class="dv">\m</span><span class="vs">athrm{out}</span><span class="dv">$</span><span class="vs">'</span>,</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>        ha<span class="op">=</span><span class="st">'left'</span>, va<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Verzweigungswiderstände R zu den Bitstellen</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, x <span class="kw">in</span> <span class="bu">enumerate</span>(node_x):</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>    ax.plot([x, x], [rail_y <span class="op">-</span> <span class="fl">0.10</span>, ground_y <span class="op">+</span> <span class="fl">0.10</span>],</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>    draw_resistor_vertical(x, ground_y <span class="op">+</span> <span class="fl">0.10</span>, rail_y <span class="op">-</span> <span class="fl">0.10</span>, <span class="vs">r'</span><span class="dv">$</span><span class="vs">R</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    ax.plot([x <span class="op">-</span> <span class="fl">0.38</span>, x <span class="op">-</span> <span class="fl">0.38</span>], [ground_y, ground_y <span class="op">-</span> <span class="fl">0.35</span>],</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>    ax.text(x <span class="op">-</span> <span class="fl">0.38</span>, ground_y <span class="op">-</span> <span class="fl">0.50</span>,</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f'$D_</span><span class="sc">{</span><span class="bu">len</span>(node_x)<span class="op">-</span>i<span class="op">-</span><span class="dv">1</span><span class="sc">}</span><span class="ss">$'</span>,</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>            ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'top'</span>, fontsize<span class="op">=</span><span class="dv">11</span>)</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="fl">0.1</span>, <span class="fl">0.1</span>], [rail_y, rail_y <span class="op">+</span> <span class="fl">0.65</span>],</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="fl">0.1</span>, rail_y <span class="op">+</span> <span class="fl">0.82</span>, <span class="vs">r'</span><span class="dv">$</span><span class="vs">U_</span><span class="dv">\m</span><span class="vs">athrm{Ref}</span><span class="dv">$</span><span class="vs">'</span>,</span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>        ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>ax.plot([node_x[<span class="dv">0</span>] <span class="op">-</span> <span class="fl">0.38</span>, node_x[<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> <span class="fl">0.38</span>],</span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>        [ground_y <span class="op">-</span> <span class="fl">0.35</span>, ground_y <span class="op">-</span> <span class="fl">0.35</span>],</span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.0</span>)</span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="op">-</span><span class="fl">0.2</span>, <span class="fl">9.2</span>)</span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="fl">0.1</span>, <span class="fl">4.2</span>)</span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>ax.axis(<span class="st">'off'</span>)</span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
 <div id="fig-r2r-schaltung" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-r2r-schaltung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/R2r-ladder.png" class="img-fluid figure-img">
+<img src="01.06_ADW_DAW_files/figure-html/fig-r2r-schaltung-output-1.png" width="854" height="383" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-r2r-schaltung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;6.2: R-2R-Widerstandsnetzwerk für einen Digital-Analog-Wandler (Lsibilla, <a href="https://creativecommons.org/licenses/by-sa/2.0/be/">CC BY-SA 2.0 BE</a>, via <a href="https://commons.wikimedia.org/wiki/File:R2r-ladder.png">Wikimedia Commons</a>)
+Abbildung&nbsp;6.2: R-2R-Netzwerk mit europäischen Rechteck-Widerstandssymbolen (eigene Darstellung, CC BY 4.0).
 </figcaption>
 </figure>
 </div>
-<div id="cell-fig-r2r" class="cell" data-execution_count="11">
+</div>
+</div>
+<div id="cell-fig-r2r" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>codes <span class="op">=</span> np.arange(<span class="dv">8</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>u_out <span class="op">=</span> <span class="dv">5</span><span class="op">*</span>codes<span class="op">/</span><span class="dv">8</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.plot(codes, u_out, <span class="st">'o-'</span>, color<span class="op">=</span><span class="st">'navy'</span>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(codes, [<span class="bu">format</span>(code, <span class="st">'03b'</span>) <span class="cf">for</span> code <span class="kw">in</span> codes])</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'3-Bit-Code'</span>)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Ausgangsspannung in V'</span>)</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Ideale DAW-Kennlinie'</span>)</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="fl">0.2</span>, <span class="fl">5.2</span>)</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>codes <span class="op">=</span> np.arange(<span class="dv">8</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>u_out <span class="op">=</span> <span class="dv">5</span><span class="op">*</span>codes<span class="op">/</span><span class="dv">8</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>plt.plot(codes, u_out, <span class="st">'o-'</span>, color<span class="op">=</span><span class="st">'navy'</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(codes, [<span class="bu">format</span>(code, <span class="st">'03b'</span>) <span class="cf">for</span> code <span class="kw">in</span> codes])</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'3-Bit-Code'</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Ausgangsspannung in V'</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Ideale DAW-Kennlinie'</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="fl">0.2</span>, <span class="fl">5.2</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-r2r" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -884,15 +956,15 @@ Abbildung&nbsp;6.3: Prinzip des R-2R-Netzwerks: Drei gewichtete Bits erzeugen ac
 </div>
 </div>
 <p>Jeder Stufenschritt entspricht einem 1-LSB-Wert:</p>
-<div id="82748532" class="cell" data-execution_count="12">
+<div id="6bb9eab6" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>U_ref_r2r <span class="op">=</span> MySymbol(<span class="vs">r'U_{Ref}'</span>, description<span class="op">=</span><span class="st">'Referenzspannung'</span>, unit<span class="op">=</span>u.volt)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>n_r2r <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung in Bit'</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>dU_r2r <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="dv">\D</span><span class="vs">elta U'</span>, description<span class="op">=</span><span class="st">'Stufenspannung (1 LSB)'</span>, unit<span class="op">=</span>u.volt)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([U_ref_r2r, n_r2r, dU_r2r])</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(dU_r2r, U_ref_r2r<span class="op">/</span><span class="dv">2</span><span class="op">**</span>n_r2r),</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                           label<span class="op">=</span><span class="st">'eq-r2r-lsb'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>U_ref_r2r <span class="op">=</span> MySymbol(<span class="vs">r'U_{Ref}'</span>, description<span class="op">=</span><span class="st">'Referenzspannung'</span>, unit<span class="op">=</span>u.volt)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>n_r2r <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung in Bit'</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>dU_r2r <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="dv">\D</span><span class="vs">elta U'</span>, description<span class="op">=</span><span class="st">'Stufenspannung (1 LSB)'</span>, unit<span class="op">=</span>u.volt)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([U_ref_r2r, n_r2r, dU_r2r])</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(dU_r2r, U_ref_r2r<span class="op">/</span><span class="dv">2</span><span class="op">**</span>n_r2r),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                           label<span class="op">=</span><span class="st">'eq-r2r-lsb'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(U_{Ref}\)</span> … Referenzspannung</p>
@@ -918,15 +990,15 @@ Abbildung&nbsp;6.3: Prinzip des R-2R-Netzwerks: Drei gewichtete Bits erzeugen ac
 <section id="interpolierender-daw" class="level2" data-number="6.8">
 <h2 data-number="6.8" class="anchored" data-anchor-id="interpolierender-daw"><span class="header-section-number">6.8</span> Interpolierender DAW</h2>
 <p>Ein interpolierender DAW setzt die grobe Auflösung aus Widerstands- oder Stromquellenstufen um und steigert die Feinauflösung durch einen zweiten Wandlerabschnitt.</p>
-<div id="c1c42cd0" class="cell" data-execution_count="13">
+<div id="d140390a" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>n_grob <span class="op">=</span> MySymbol(<span class="vs">r'n_{grob}'</span>, description<span class="op">=</span><span class="st">'grobe Auflösung in Bit'</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>n_fein <span class="op">=</span> MySymbol(<span class="vs">r'n_{fein}'</span>, description<span class="op">=</span><span class="st">'feine Auflösung in Bit'</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>n_interp <span class="op">=</span> MySymbol(<span class="vs">r'n_{ges}'</span>, description<span class="op">=</span><span class="st">'Gesamtauflösung in Bit'</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([n_grob, n_fein, n_interp])</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(n_interp, n_grob<span class="op">+</span>n_fein),</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                           label<span class="op">=</span><span class="st">'eq-interpolierende-auflösung'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>n_grob <span class="op">=</span> MySymbol(<span class="vs">r'n_{grob}'</span>, description<span class="op">=</span><span class="st">'grobe Auflösung in Bit'</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>n_fein <span class="op">=</span> MySymbol(<span class="vs">r'n_{fein}'</span>, description<span class="op">=</span><span class="st">'feine Auflösung in Bit'</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>n_interp <span class="op">=</span> MySymbol(<span class="vs">r'n_{ges}'</span>, description<span class="op">=</span><span class="st">'Gesamtauflösung in Bit'</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([n_grob, n_fein, n_interp])</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(n_interp, n_grob<span class="op">+</span>n_fein),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                           label<span class="op">=</span><span class="st">'eq-interpolierende-auflösung'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(n_{grob}\)</span> … grobe Auflösung in Bit</p>
@@ -944,13 +1016,13 @@ n_{ges} = n_{fein} + n_{grob}
 </div>
 </div>
 <p>Ein 6-Bit-Grobsegment und ein 4-Bit-Feinsegment ergeben daher:</p>
-<div id="67fd69f3" class="cell" data-execution_count="14">
+<div id="35ca7152" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>n_grob_v <span class="op">=</span> MySymbol(<span class="vs">r'n_{grob}'</span>, description<span class="op">=</span><span class="st">'grobe Auflösung in Bit'</span>, value<span class="op">=</span><span class="dv">6</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>n_fein_v <span class="op">=</span> MySymbol(<span class="vs">r'n_{fein}'</span>, description<span class="op">=</span><span class="st">'feine Auflösung in Bit'</span>, value<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>n_interp_v <span class="op">=</span> MySymbol(<span class="vs">r'n_{ges}'</span>, description<span class="op">=</span><span class="st">'Gesamtauflösung in Bit'</span>, value<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_values([n_grob_v, n_fein_v, n_interp_v])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>n_grob_v <span class="op">=</span> MySymbol(<span class="vs">r'n_{grob}'</span>, description<span class="op">=</span><span class="st">'grobe Auflösung in Bit'</span>, value<span class="op">=</span><span class="dv">6</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>n_fein_v <span class="op">=</span> MySymbol(<span class="vs">r'n_{fein}'</span>, description<span class="op">=</span><span class="st">'feine Auflösung in Bit'</span>, value<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>n_interp_v <span class="op">=</span> MySymbol(<span class="vs">r'n_{ges}'</span>, description<span class="op">=</span><span class="st">'Gesamtauflösung in Bit'</span>, value<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_values([n_grob_v, n_fein_v, n_interp_v])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math display">\[n_{grob} = \mathtt{\text{6}} \ \mathtt{\text{}}\]</span></p>
@@ -967,19 +1039,19 @@ n_{ges} = n_{fein} + n_{grob}
 <section id="pwm-als-digital-analog-wandlung" class="level2" data-number="6.9">
 <h2 data-number="6.9" class="anchored" data-anchor-id="pwm-als-digital-analog-wandlung"><span class="header-section-number">6.9</span> PWM als Digital-Analog-Wandlung</h2>
 <p>Bei einer pulsweitenmodulierten Ausgangsspannung wird eine Rechteckspannung mit konstanter Periodendauer <span class="math inline">\(T\)</span> erzeugt. Der Tastgrad <span class="math inline">\(D\)</span> bestimmt den zeitlichen Mittelwert:</p>
-<div id="604461e1" class="cell" data-execution_count="15">
+<div id="a96e8133" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>T_pwm <span class="op">=</span> MySymbol(<span class="st">'T'</span>, description<span class="op">=</span><span class="st">'PWM-Periode'</span>, unit<span class="op">=</span>u.second)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>t_ein <span class="op">=</span> MySymbol(<span class="vs">r't_{ein}'</span>, description<span class="op">=</span><span class="st">'Einschaltdauer'</span>, unit<span class="op">=</span>u.second)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>D_pwm <span class="op">=</span> MySymbol(<span class="st">'D'</span>, description<span class="op">=</span><span class="st">'Tastgrad'</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>U_pwm <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="dv">\b</span><span class="vs">ar{U}'</span>, description<span class="op">=</span><span class="st">'gemittelter Ausgang'</span>, unit<span class="op">=</span>u.volt)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>U_v <span class="op">=</span> MySymbol(<span class="vs">r'U_</span><span class="op">{0}</span><span class="vs">'</span>, description<span class="op">=</span><span class="st">'Pegel der eingeschalteten Spannung'</span>, unit<span class="op">=</span>u.volt)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([T_pwm, t_ein, D_pwm, U_pwm, U_v])</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(D_pwm, t_ein<span class="op">/</span>T_pwm),</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>                           label<span class="op">=</span><span class="st">'eq-pwm-tastgrad'</span>)</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(U_pwm, D_pwm<span class="op">*</span>U_v),</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>                           label<span class="op">=</span><span class="st">'eq-pwm-mittelwert'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>T_pwm <span class="op">=</span> MySymbol(<span class="st">'T'</span>, description<span class="op">=</span><span class="st">'PWM-Periode'</span>, unit<span class="op">=</span>u.second)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>t_ein <span class="op">=</span> MySymbol(<span class="vs">r't_{ein}'</span>, description<span class="op">=</span><span class="st">'Einschaltdauer'</span>, unit<span class="op">=</span>u.second)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>D_pwm <span class="op">=</span> MySymbol(<span class="st">'D'</span>, description<span class="op">=</span><span class="st">'Tastgrad'</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>U_pwm <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="dv">\b</span><span class="vs">ar{U}'</span>, description<span class="op">=</span><span class="st">'gemittelter Ausgang'</span>, unit<span class="op">=</span>u.volt)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>U_v <span class="op">=</span> MySymbol(<span class="vs">r'U_</span><span class="op">{0}</span><span class="vs">'</span>, description<span class="op">=</span><span class="st">'Pegel der eingeschalteten Spannung'</span>, unit<span class="op">=</span>u.volt)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([T_pwm, t_ein, D_pwm, U_pwm, U_v])</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(D_pwm, t_ein<span class="op">/</span>T_pwm),</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>                           label<span class="op">=</span><span class="st">'eq-pwm-tastgrad'</span>)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(U_pwm, D_pwm<span class="op">*</span>U_v),</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>                           label<span class="op">=</span><span class="st">'eq-pwm-mittelwert'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(T\)</span> … PWM-Periode</p>
@@ -1007,23 +1079,23 @@ D = \frac{t_{ein}}{T}
 \tag{6.11}\]</span></span></p>
 </div>
 </div>
-<div id="cell-fig-pwm" class="cell" data-execution_count="16">
+<div id="cell-fig-pwm" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>T_pwm_plot <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">3</span><span class="op">*</span>T_pwm_plot, <span class="dv">3000</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>), sharex<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, D <span class="kw">in</span> <span class="bu">zip</span>(axes, (<span class="fl">0.25</span>, <span class="fl">0.50</span>, <span class="fl">0.75</span>)):</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    duty <span class="op">=</span> np.mod(t, T_pwm_plot) <span class="op">&lt;</span> D<span class="op">*</span>T_pwm_plot</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    ax.plot(t, duty, drawstyle<span class="op">=</span><span class="st">'steps-post'</span>, lw<span class="op">=</span><span class="fl">1.5</span>)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="op">-</span><span class="fl">0.2</span>, <span class="fl">1.2</span>)</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    ax.set_yticks([])</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="ss">f'$D=</span><span class="sc">{</span>D<span class="sc">:.2f}</span><span class="ss">$'</span>, rotation<span class="op">=</span><span class="dv">0</span>, ha<span class="op">=</span><span class="st">'right'</span>, va<span class="op">=</span><span class="st">'center'</span>)</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>axes[<span class="op">-</span><span class="dv">1</span>].set_xlabel(<span class="st">'Zeit in s'</span>)</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>T_pwm_plot <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">3</span><span class="op">*</span>T_pwm_plot, <span class="dv">3000</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>), sharex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, D <span class="kw">in</span> <span class="bu">zip</span>(axes, (<span class="fl">0.25</span>, <span class="fl">0.50</span>, <span class="fl">0.75</span>)):</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    duty <span class="op">=</span> np.mod(t, T_pwm_plot) <span class="op">&lt;</span> D<span class="op">*</span>T_pwm_plot</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    ax.plot(t, duty, drawstyle<span class="op">=</span><span class="st">'steps-post'</span>, lw<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="op">-</span><span class="fl">0.2</span>, <span class="fl">1.2</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    ax.set_yticks([])</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="ss">f'$D=</span><span class="sc">{</span>D<span class="sc">:.2f}</span><span class="ss">$'</span>, rotation<span class="op">=</span><span class="dv">0</span>, ha<span class="op">=</span><span class="st">'right'</span>, va<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>axes[<span class="op">-</span><span class="dv">1</span>].set_xlabel(<span class="st">'Zeit in s'</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-pwm" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1086,15 +1158,15 @@ Abbildung&nbsp;6.4: PWM-Signale mit 25, 50 und 75 Prozent Tastgrad.
 <section id="sec-mt-adw-schaltungen" class="level2" data-number="6.11">
 <h2 data-number="6.11" class="anchored" data-anchor-id="sec-mt-adw-schaltungen"><span class="header-section-number">6.11</span> ADW-Schaltungen</h2>
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="bde61397" class="cell" data-execution_count="17">
+<div id="130e4a76" class="cell" data-execution_count="19">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>n_s <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung des ADW in Bit'</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>U_in_s <span class="op">=</span> MySymbol(<span class="vs">r'U_{in}'</span>, description<span class="op">=</span><span class="st">'analoge Eingangsspannung'</span>, unit<span class="op">=</span>u.volt)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>U_ref_s <span class="op">=</span> MySymbol(<span class="vs">r'U_{Ref}'</span>, description<span class="op">=</span><span class="st">'Referenzspannung'</span>, unit<span class="op">=</span>u.volt)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>t_c_s <span class="op">=</span> MySymbol(<span class="vs">r't_{c}'</span>, description<span class="op">=</span><span class="st">'Umwandlungsdauer'</span>, unit<span class="op">=</span>u.second)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>f_c_s <span class="op">=</span> MySymbol(<span class="vs">r'f_{c}'</span>, description<span class="op">=</span><span class="st">'Konversionsrate'</span>, unit<span class="op">=</span>u.hertz)</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([n_s, U_in_s, U_ref_s, t_c_s, f_c_s])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>n_s <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung des ADW in Bit'</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>U_in_s <span class="op">=</span> MySymbol(<span class="vs">r'U_{in}'</span>, description<span class="op">=</span><span class="st">'analoge Eingangsspannung'</span>, unit<span class="op">=</span>u.volt)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>U_ref_s <span class="op">=</span> MySymbol(<span class="vs">r'U_{Ref}'</span>, description<span class="op">=</span><span class="st">'Referenzspannung'</span>, unit<span class="op">=</span>u.volt)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>t_c_s <span class="op">=</span> MySymbol(<span class="vs">r't_{c}'</span>, description<span class="op">=</span><span class="st">'Umwandlungsdauer'</span>, unit<span class="op">=</span>u.second)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>f_c_s <span class="op">=</span> MySymbol(<span class="vs">r'f_{c}'</span>, description<span class="op">=</span><span class="st">'Konversionsrate'</span>, unit<span class="op">=</span>u.hertz)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([n_s, U_in_s, U_ref_s, t_c_s, f_c_s])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(n\)</span> … Auflösung des ADW in Bit</p>
@@ -1117,19 +1189,19 @@ Abbildung&nbsp;6.4: PWM-Signale mit 25, 50 und 75 Prozent Tastgrad.
 <section id="messende-verfahren" class="level2" data-number="6.12">
 <h2 data-number="6.12" class="anchored" data-anchor-id="messende-verfahren"><span class="header-section-number">6.12</span> Messende Verfahren</h2>
 <p>Beim Vergleichsverfahren wird der Eingangswert wiederholt mit einer bekannten Spannung verglichen. Die Konversionsdauer steigt je nach Verfahren mit der Auflösung oder bleibt für alle Eingangswerte gleich.</p>
-<div id="619bbac9" class="cell" data-execution_count="18">
+<div id="7804b45a" class="cell" data-execution_count="20">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung in Bit'</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>t_clk <span class="op">=</span> MySymbol(<span class="vs">r'T_{clk}'</span>, description<span class="op">=</span><span class="st">'Taktperiode'</span>, unit<span class="op">=</span>u.second)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>t_sar <span class="op">=</span> MySymbol(<span class="vs">r't_{SAR}'</span>, description<span class="op">=</span><span class="st">'Umwandlungsdauer beim sukzessiven Approximation'</span>, unit<span class="op">=</span>u.second)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>f_c <span class="op">=</span> MySymbol(<span class="vs">r'f_{c}'</span>, description<span class="op">=</span><span class="st">'Konversionsrate'</span>, unit<span class="op">=</span>u.hertz)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>t_c <span class="op">=</span> MySymbol(<span class="vs">r't_{c}'</span>, description<span class="op">=</span><span class="st">'Umwandlungsdauer'</span>, unit<span class="op">=</span>u.second)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([n, t_clk, t_sar, f_c, t_c])</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(t_sar, n<span class="op">*</span>t_clk),</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>                           label<span class="op">=</span><span class="st">'eq-sar-umwandlungsdauer'</span>)</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(f_c, <span class="dv">1</span><span class="op">/</span>t_c),</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>                           label<span class="op">=</span><span class="st">'eq-konversionsrate'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung in Bit'</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>t_clk <span class="op">=</span> MySymbol(<span class="vs">r'T_{clk}'</span>, description<span class="op">=</span><span class="st">'Taktperiode'</span>, unit<span class="op">=</span>u.second)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>t_sar <span class="op">=</span> MySymbol(<span class="vs">r't_{SAR}'</span>, description<span class="op">=</span><span class="st">'Umwandlungsdauer beim sukzessiven Approximation'</span>, unit<span class="op">=</span>u.second)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>f_c <span class="op">=</span> MySymbol(<span class="vs">r'f_{c}'</span>, description<span class="op">=</span><span class="st">'Konversionsrate'</span>, unit<span class="op">=</span>u.hertz)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>t_c <span class="op">=</span> MySymbol(<span class="vs">r't_{c}'</span>, description<span class="op">=</span><span class="st">'Umwandlungsdauer'</span>, unit<span class="op">=</span>u.second)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([n, t_clk, t_sar, f_c, t_c])</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(t_sar, n<span class="op">*</span>t_clk),</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>                           label<span class="op">=</span><span class="st">'eq-sar-umwandlungsdauer'</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(f_c, <span class="dv">1</span><span class="op">/</span>t_c),</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>                           label<span class="op">=</span><span class="st">'eq-konversionsrate'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(n\)</span> … Auflösung in Bit</p>
@@ -1158,16 +1230,16 @@ f_{c} = \frac{1}{t_{c}}
 </div>
 </div>
 <p>Für <span class="math inline">\(n=12\)</span> Bit und <span class="math inline">\(T_{clk}=100\,\mathrm{ns}\)</span> ergibt der SAR-Algorithmus:</p>
-<div id="6dc20e05" class="cell" data-execution_count="19">
+<div id="4c2ba3db" class="cell" data-execution_count="21">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>n_v <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung in Bit'</span>, value<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>T_clk_v <span class="op">=</span> MySymbol(<span class="vs">r'T_{clk}'</span>, description<span class="op">=</span><span class="st">'Taktperiode'</span>, unit<span class="op">=</span>u.second, value<span class="op">=</span><span class="fl">100e-9</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>t_sar_v <span class="op">=</span> MySymbol(<span class="vs">r't_{SAR}'</span>, description<span class="op">=</span><span class="st">'Umwandlungsdauer'</span>, unit<span class="op">=</span>u.second,</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                   value<span class="op">=</span><span class="dv">12</span><span class="op">*</span><span class="fl">100e-9</span>)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>f_c_v <span class="op">=</span> MySymbol(<span class="vs">r'f_{c}'</span>, description<span class="op">=</span><span class="st">'Konversionsrate'</span>, unit<span class="op">=</span>u.hertz,</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>                 value<span class="op">=</span><span class="dv">1</span><span class="op">/</span>(<span class="dv">12</span><span class="op">*</span><span class="fl">100e-9</span>))</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_values([n_v, T_clk_v, t_sar_v, f_c_v])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>n_v <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung in Bit'</span>, value<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>T_clk_v <span class="op">=</span> MySymbol(<span class="vs">r'T_{clk}'</span>, description<span class="op">=</span><span class="st">'Taktperiode'</span>, unit<span class="op">=</span>u.second, value<span class="op">=</span><span class="fl">100e-9</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>t_sar_v <span class="op">=</span> MySymbol(<span class="vs">r't_{SAR}'</span>, description<span class="op">=</span><span class="st">'Umwandlungsdauer'</span>, unit<span class="op">=</span>u.second,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                   value<span class="op">=</span><span class="dv">12</span><span class="op">*</span><span class="fl">100e-9</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>f_c_v <span class="op">=</span> MySymbol(<span class="vs">r'f_{c}'</span>, description<span class="op">=</span><span class="st">'Konversionsrate'</span>, unit<span class="op">=</span>u.hertz,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>                 value<span class="op">=</span><span class="dv">1</span><span class="op">/</span>(<span class="dv">12</span><span class="op">*</span><span class="fl">100e-9</span>))</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_values([n_v, T_clk_v, t_sar_v, f_c_v])</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math display">\[n = \mathtt{\text{12}} \ \mathtt{\text{}}\]</span></p>
@@ -1196,40 +1268,40 @@ Abbildung&nbsp;6.5: Funktionsschaltung eines SAR-ADW mit Komparator, Approximati
 </figcaption>
 </figure>
 </div>
-<div id="cell-fig-sar" class="cell" data-execution_count="20">
+<div id="cell-fig-sar" class="cell" data-execution_count="22">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>u_in <span class="op">=</span> <span class="fl">7.3</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>u_ref <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>n_sar <span class="op">=</span> <span class="dv">4</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>stufen <span class="op">=</span> <span class="dv">2</span><span class="op">**</span>n_sar</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>code <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>decision <span class="op">=</span> []</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>u_test_values <span class="op">=</span> []</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> bit_index <span class="kw">in</span> <span class="bu">range</span>(n_sar):</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    candidate <span class="op">=</span> code <span class="op">|</span> (<span class="dv">1</span> <span class="op">&lt;&lt;</span> (n_sar <span class="op">-</span> <span class="dv">1</span> <span class="op">-</span> bit_index))</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    u_test <span class="op">=</span> u_ref<span class="op">*</span>candidate<span class="op">/</span>stufen</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    accepted <span class="op">=</span> u_test <span class="op">&lt;=</span> u_in</span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> accepted:</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>        code <span class="op">=</span> candidate</span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    decision.append(accepted)</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    u_test_values.append(u_test)</span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>ax.step(np.arange(<span class="dv">1</span>, n_sar<span class="op">+</span><span class="dv">1</span>), u_test_values, where<span class="op">=</span><span class="st">'mid'</span>,</span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>        marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'navy'</span>, label<span class="op">=</span><span class="st">'Vergleichsspannung'</span>)</span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>ax.axhline(u_in, color<span class="op">=</span><span class="st">'crimson'</span>, ls<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">'$U_</span><span class="sc">{in}</span><span class="st">$'</span>)</span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, (u_test, accepted) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(u_test_values, decision), <span class="dv">1</span>):</span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    ax.text(i, u_test <span class="op">+</span> <span class="fl">0.25</span>, <span class="st">'1'</span> <span class="cf">if</span> accepted <span class="cf">else</span> <span class="st">'0'</span>,</span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>            ha<span class="op">=</span><span class="st">'center'</span>, color<span class="op">=</span><span class="st">'darkgreen'</span> <span class="cf">if</span> accepted <span class="cf">else</span> <span class="st">'darkred'</span>)</span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Vergleichsschritt'</span>)</span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Spannung in V'</span>)</span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(np.arange(<span class="dv">1</span>, n_sar<span class="op">+</span><span class="dv">1</span>))</span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>, <span class="fl">10.5</span>)</span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)</span>
-<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>u_in <span class="op">=</span> <span class="fl">7.3</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>u_ref <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>n_sar <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>stufen <span class="op">=</span> <span class="dv">2</span><span class="op">**</span>n_sar</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>code <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>decision <span class="op">=</span> []</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>u_test_values <span class="op">=</span> []</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> bit_index <span class="kw">in</span> <span class="bu">range</span>(n_sar):</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    candidate <span class="op">=</span> code <span class="op">|</span> (<span class="dv">1</span> <span class="op">&lt;&lt;</span> (n_sar <span class="op">-</span> <span class="dv">1</span> <span class="op">-</span> bit_index))</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    u_test <span class="op">=</span> u_ref<span class="op">*</span>candidate<span class="op">/</span>stufen</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    accepted <span class="op">=</span> u_test <span class="op">&lt;=</span> u_in</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> accepted:</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>        code <span class="op">=</span> candidate</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    decision.append(accepted)</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    u_test_values.append(u_test)</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>ax.step(np.arange(<span class="dv">1</span>, n_sar<span class="op">+</span><span class="dv">1</span>), u_test_values, where<span class="op">=</span><span class="st">'mid'</span>,</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>        marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'navy'</span>, label<span class="op">=</span><span class="st">'Vergleichsspannung'</span>)</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>ax.axhline(u_in, color<span class="op">=</span><span class="st">'crimson'</span>, ls<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">'$U_</span><span class="sc">{in}</span><span class="st">$'</span>)</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, (u_test, accepted) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(u_test_values, decision), <span class="dv">1</span>):</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>    ax.text(i, u_test <span class="op">+</span> <span class="fl">0.25</span>, <span class="st">'1'</span> <span class="cf">if</span> accepted <span class="cf">else</span> <span class="st">'0'</span>,</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>            ha<span class="op">=</span><span class="st">'center'</span>, color<span class="op">=</span><span class="st">'darkgreen'</span> <span class="cf">if</span> accepted <span class="cf">else</span> <span class="st">'darkred'</span>)</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Vergleichsschritt'</span>)</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Spannung in V'</span>)</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(np.arange(<span class="dv">1</span>, n_sar<span class="op">+</span><span class="dv">1</span>))</span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>, <span class="fl">10.5</span>)</span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)</span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-sar" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1253,16 +1325,16 @@ Abbildung&nbsp;6.6: Bitentscheidungen eines 4-Bit-SAR-Wandlers für eine Eingang
 <section id="rampenverfahren" class="level2" data-number="6.14">
 <h2 data-number="6.14" class="anchored" data-anchor-id="rampenverfahren"><span class="header-section-number">6.14</span> Rampenverfahren</h2>
 <p>Beim Rampenverfahren wird ein Zähler mit einer linearen Vergleichsspannung verglichen. Der Zähler steht still, sobald die Rampe den Eingang erreicht hat.</p>
-<div id="39dc2124" class="cell" data-execution_count="21">
+<div id="ed9f9d3f" class="cell" data-execution_count="23">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>n_rampe <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung in Bit'</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>t_rampe <span class="op">=</span> MySymbol(<span class="vs">r't_{Rampe}'</span>, description<span class="op">=</span><span class="st">'Umwandlungszeit'</span>, unit<span class="op">=</span>u.second)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>U_ref_rampe <span class="op">=</span> MySymbol(<span class="vs">r'U_{Ref}'</span>, description<span class="op">=</span><span class="st">'Referenzspannung'</span>, unit<span class="op">=</span>u.volt)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>U_in_rampe <span class="op">=</span> MySymbol(<span class="vs">r'U_{in}'</span>, description<span class="op">=</span><span class="st">'Eingangsspannung'</span>, unit<span class="op">=</span>u.volt)</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([n_rampe, t_rampe, U_ref_rampe, U_in_rampe])</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(t_rampe, U_in_rampe<span class="op">/</span>U_ref_rampe<span class="op">*</span><span class="dv">2</span><span class="op">**</span>n_rampe<span class="op">*</span>t_clk),</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>                           label<span class="op">=</span><span class="st">'eq-rampenzeit'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>n_rampe <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung in Bit'</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>t_rampe <span class="op">=</span> MySymbol(<span class="vs">r't_{Rampe}'</span>, description<span class="op">=</span><span class="st">'Umwandlungszeit'</span>, unit<span class="op">=</span>u.second)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>U_ref_rampe <span class="op">=</span> MySymbol(<span class="vs">r'U_{Ref}'</span>, description<span class="op">=</span><span class="st">'Referenzspannung'</span>, unit<span class="op">=</span>u.volt)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>U_in_rampe <span class="op">=</span> MySymbol(<span class="vs">r'U_{in}'</span>, description<span class="op">=</span><span class="st">'Eingangsspannung'</span>, unit<span class="op">=</span>u.volt)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([n_rampe, t_rampe, U_ref_rampe, U_in_rampe])</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(t_rampe, U_in_rampe<span class="op">/</span>U_ref_rampe<span class="op">*</span><span class="dv">2</span><span class="op">**</span>n_rampe<span class="op">*</span>t_clk),</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>                           label<span class="op">=</span><span class="st">'eq-rampenzeit'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(n\)</span> … Auflösung in Bit</p>
@@ -1302,14 +1374,14 @@ Abbildung&nbsp;6.7: Schaltungsaufbau eines parallelen Flash-ADW (Luca Ghio, <a h
 </figure>
 </div>
 <p>Für <span class="math inline">\(n\)</span> Bit werden ideal <span class="math inline">\(2^{n}-1\)</span> Vergleichsstufen benötigt:</p>
-<div id="6ed63338" class="cell" data-execution_count="22">
+<div id="383c1e2e" class="cell" data-execution_count="24">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>n_flash <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung in Bit'</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>M_flash <span class="op">=</span> MySymbol(<span class="st">'M'</span>, description<span class="op">=</span><span class="st">'Anzahl der Vergleichsstufen'</span>)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([n_flash, M_flash])</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(M_flash, <span class="dv">2</span><span class="op">**</span>n_flash<span class="op">-</span><span class="dv">1</span>),</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                           label<span class="op">=</span><span class="st">'eq-flash-vergleicher'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>n_flash <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung in Bit'</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>M_flash <span class="op">=</span> MySymbol(<span class="st">'M'</span>, description<span class="op">=</span><span class="st">'Anzahl der Vergleichsstufen'</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([n_flash, M_flash])</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(M_flash, <span class="dv">2</span><span class="op">**</span>n_flash<span class="op">-</span><span class="dv">1</span>),</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>                           label<span class="op">=</span><span class="st">'eq-flash-vergleicher'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(n\)</span> … Auflösung in Bit</p>
@@ -1323,33 +1395,33 @@ M = 2^{n} - 1
 \tag{6.15}\]</span></span></p>
 </div>
 </div>
-<div id="cell-fig-flash" class="cell" data-execution_count="23">
+<div id="cell-fig-flash" class="cell" data-execution_count="25">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>n_flash_plot <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>u_ref_plot <span class="op">=</span> <span class="dv">8</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>thresholds <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">2</span><span class="op">**</span>n_flash_plot)<span class="op">*</span>u_ref_plot<span class="op">/</span>(<span class="dv">2</span><span class="op">**</span>n_flash_plot)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>u_input <span class="op">=</span> <span class="fl">5.2</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>code_flash <span class="op">=</span> <span class="bu">int</span>(np.<span class="bu">sum</span>(u_input <span class="op">&gt;=</span> thresholds))</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, threshold <span class="kw">in</span> <span class="bu">enumerate</span>(thresholds, <span class="dv">1</span>):</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    ax.axhline(threshold, color<span class="op">=</span><span class="st">'gray'</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    ax.text(<span class="fl">0.05</span>, threshold<span class="op">+</span><span class="fl">0.08</span>, <span class="ss">f'$V_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">$'</span>, fontsize<span class="op">=</span><span class="dv">8</span>)</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>ax.axhspan(<span class="dv">0</span>, u_input, color<span class="op">=</span><span class="st">'tab:blue'</span>, alpha<span class="op">=</span><span class="fl">0.12</span>)</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>ax.axhline(u_input, color<span class="op">=</span><span class="st">'crimson'</span>, lw<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f'$U_</span><span class="ch">{{</span><span class="ss">in</span><span class="ch">}}</span><span class="ss">=</span><span class="sc">{</span>u_input<span class="sc">:g}</span><span class="ss">$ V'</span>)</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">0</span>, <span class="dv">1</span>], [u_input, u_input], color<span class="op">=</span><span class="st">'crimson'</span>)</span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="fl">0.75</span>, u_ref_plot<span class="op">*</span><span class="fl">0.96</span>,</span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f'Code = </span><span class="sc">{</span>code_flash<span class="sc">:03b}</span><span class="ss">'</span>,</span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>        ha<span class="op">=</span><span class="st">'right'</span>, va<span class="op">=</span><span class="st">'top'</span>, color<span class="op">=</span><span class="st">'navy'</span>,</span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>        bbox<span class="op">=</span><span class="bu">dict</span>(boxstyle<span class="op">=</span><span class="st">'round'</span>, facecolor<span class="op">=</span><span class="st">'white'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>))</span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>ax.set_xticks([])</span>
-<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>, u_ref_plot)</span>
-<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Spannung in V'</span>)</span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">False</span>)</span>
-<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">'lower left'</span>)</span>
-<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>n_flash_plot <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>u_ref_plot <span class="op">=</span> <span class="dv">8</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>thresholds <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">2</span><span class="op">**</span>n_flash_plot)<span class="op">*</span>u_ref_plot<span class="op">/</span>(<span class="dv">2</span><span class="op">**</span>n_flash_plot)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>u_input <span class="op">=</span> <span class="fl">5.2</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>code_flash <span class="op">=</span> <span class="bu">int</span>(np.<span class="bu">sum</span>(u_input <span class="op">&gt;=</span> thresholds))</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, threshold <span class="kw">in</span> <span class="bu">enumerate</span>(thresholds, <span class="dv">1</span>):</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    ax.axhline(threshold, color<span class="op">=</span><span class="st">'gray'</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    ax.text(<span class="fl">0.05</span>, threshold<span class="op">+</span><span class="fl">0.08</span>, <span class="ss">f'$V_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">$'</span>, fontsize<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>ax.axhspan(<span class="dv">0</span>, u_input, color<span class="op">=</span><span class="st">'tab:blue'</span>, alpha<span class="op">=</span><span class="fl">0.12</span>)</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>ax.axhline(u_input, color<span class="op">=</span><span class="st">'crimson'</span>, lw<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f'$U_</span><span class="ch">{{</span><span class="ss">in</span><span class="ch">}}</span><span class="ss">=</span><span class="sc">{</span>u_input<span class="sc">:g}</span><span class="ss">$ V'</span>)</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">0</span>, <span class="dv">1</span>], [u_input, u_input], color<span class="op">=</span><span class="st">'crimson'</span>)</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="fl">0.75</span>, u_ref_plot<span class="op">*</span><span class="fl">0.96</span>,</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f'Code = </span><span class="sc">{</span>code_flash<span class="sc">:03b}</span><span class="ss">'</span>,</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>        ha<span class="op">=</span><span class="st">'right'</span>, va<span class="op">=</span><span class="st">'top'</span>, color<span class="op">=</span><span class="st">'navy'</span>,</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>        bbox<span class="op">=</span><span class="bu">dict</span>(boxstyle<span class="op">=</span><span class="st">'round'</span>, facecolor<span class="op">=</span><span class="st">'white'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>))</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>ax.set_xticks([])</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>, u_ref_plot)</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Spannung in V'</span>)</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">False</span>)</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">'lower left'</span>)</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-flash" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1373,15 +1445,15 @@ Abbildung&nbsp;6.8: Vergleichsstufen und Ausgangscode eines idealisierten 3-Bit-
 <section id="sigma-delta-wandler" class="level2" data-number="6.16">
 <h2 data-number="6.16" class="anchored" data-anchor-id="sigma-delta-wandler"><span class="header-section-number">6.16</span> Sigma-Delta-Wandler</h2>
 <p>Ein Sigma-Delta-Wandler misst nicht in einem einzelnen Vergleichsentscheid, sondern über eine Modulation: Eingangs- und Rückkopplungssignal werden integriert, ein 1-Bit-Quantisierer entscheidet dauernd.</p>
-<div id="73279e1b" class="cell" data-execution_count="24">
+<div id="3932c3ff" class="cell" data-execution_count="26">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>M_s <span class="op">=</span> MySymbol(<span class="st">'M'</span>, description<span class="op">=</span><span class="st">'Überabtastungsfaktor'</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>f_s <span class="op">=</span> MySymbol(<span class="vs">r'f_{s}'</span>, description<span class="op">=</span><span class="st">'Abtastfrequenz'</span>, unit<span class="op">=</span>u.hertz)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>f_b <span class="op">=</span> MySymbol(<span class="vs">r'f_{B}'</span>, description<span class="op">=</span><span class="st">'Signalbandbreite'</span>, unit<span class="op">=</span>u.hertz)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([M_s, f_s, f_b])</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(f_s, M_s<span class="op">*</span>f_b),</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>                           label<span class="op">=</span><span class="st">'eq-sigma-delta-abtastung'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>M_s <span class="op">=</span> MySymbol(<span class="st">'M'</span>, description<span class="op">=</span><span class="st">'Überabtastungsfaktor'</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>f_s <span class="op">=</span> MySymbol(<span class="vs">r'f_{s}'</span>, description<span class="op">=</span><span class="st">'Abtastfrequenz'</span>, unit<span class="op">=</span>u.hertz)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>f_b <span class="op">=</span> MySymbol(<span class="vs">r'f_{B}'</span>, description<span class="op">=</span><span class="st">'Signalbandbreite'</span>, unit<span class="op">=</span>u.hertz)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_description([M_s, f_s, f_b])</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>QBookHelpers.print_equation(Eq(f_s, M_s<span class="op">*</span>f_b),</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>                           label<span class="op">=</span><span class="st">'eq-sigma-delta-abtastung'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(M\)</span> … Überabtastungsfaktor</p>
@@ -1399,25 +1471,25 @@ f_{s} = M f_{B}
 </div>
 </div>
 <p>Die Überabtastung bewegt Quantisierungsrauschen in höhere Frequenzbereiche. Ein nachgeschalteter Digitalfilter entfernt diesen Anteil und erhöht zugleich die Auflösung.</p>
-<div id="cell-fig-sigma-delta" class="cell" data-execution_count="25">
+<div id="cell-fig-sigma-delta" class="cell" data-execution_count="27">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>f_norm <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">500</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>noise_1 <span class="op">=</span> f_norm<span class="op">**</span><span class="dv">0</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>noise_2 <span class="op">=</span> f_norm<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>noise_4 <span class="op">=</span> f_norm<span class="op">**</span><span class="dv">4</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>ax.plot(f_norm, noise_1, color<span class="op">=</span><span class="st">'gray'</span>, ls<span class="op">=</span><span class="st">':'</span>, label<span class="op">=</span><span class="st">'1. Ordnung'</span>)</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>ax.plot(f_norm, noise_2, color<span class="op">=</span><span class="st">'tab:blue'</span>, label<span class="op">=</span><span class="st">'2. Ordnung'</span>)</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>ax.plot(f_norm, noise_4, color<span class="op">=</span><span class="st">'tab:red'</span>, label<span class="op">=</span><span class="st">'höhere Ordnung'</span>)</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>ax.axvspan(<span class="dv">0</span>, <span class="fl">0.10</span>, color<span class="op">=</span><span class="st">'tab:green'</span>, alpha<span class="op">=</span><span class="fl">0.12</span>, label<span class="op">=</span><span class="st">'Nutznutzband'</span>)</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'normierte Frequenz'</span>)</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'normierte Rauschdichte'</span>)</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>, <span class="fl">1.05</span>)</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>ax.legend(fontsize<span class="op">=</span><span class="dv">9</span>)</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>f_norm <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">500</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>noise_1 <span class="op">=</span> f_norm<span class="op">**</span><span class="dv">0</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>noise_2 <span class="op">=</span> f_norm<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>noise_4 <span class="op">=</span> f_norm<span class="op">**</span><span class="dv">4</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>ax.plot(f_norm, noise_1, color<span class="op">=</span><span class="st">'gray'</span>, ls<span class="op">=</span><span class="st">':'</span>, label<span class="op">=</span><span class="st">'1. Ordnung'</span>)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>ax.plot(f_norm, noise_2, color<span class="op">=</span><span class="st">'tab:blue'</span>, label<span class="op">=</span><span class="st">'2. Ordnung'</span>)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>ax.plot(f_norm, noise_4, color<span class="op">=</span><span class="st">'tab:red'</span>, label<span class="op">=</span><span class="st">'höhere Ordnung'</span>)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>ax.axvspan(<span class="dv">0</span>, <span class="fl">0.10</span>, color<span class="op">=</span><span class="st">'tab:green'</span>, alpha<span class="op">=</span><span class="fl">0.12</span>, label<span class="op">=</span><span class="st">'Nutznutzband'</span>)</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'normierte Frequenz'</span>)</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'normierte Rauschdichte'</span>)</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>, <span class="fl">1.05</span>)</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>ax.legend(fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-sigma-delta" class="quarto-float quarto-figure quarto-figure-center anchored">

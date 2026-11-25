@@ -411,7 +411,7 @@ window.Quarto = {
 
 
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="f4a314d6" class="cell" data-execution_count="2">
+<div id="d5d2c2e5" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(U\)</span> … Ankerspannung</p>
 </div>
@@ -451,7 +451,7 @@ window.Quarto = {
 <li><strong>Mechanik:</strong> Getriebe, Kupplung, Führungen und Arbeitsmaschine bestimmen Last und Trägheit.</li>
 </ul>
 <p>Der Motor wird nach Drehmoment, Drehzahl, Bewegungsauflösung, Verlustleistung, Einschaltdauer und Betriebsart ausgewählt. Die mechanische Leistung ist:</p>
-<div id="95c9e8c8" class="cell" data-execution_count="3">
+<div id="e519e77a" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>P_mech <span class="op">=</span> MySymbol(<span class="st">'P_</span><span class="sc">{mech}</span><span class="st">'</span>, description<span class="op">=</span><span class="st">'mechanische Leistung'</span>, unit<span class="op">=</span>u.watt)</span>
@@ -466,7 +466,7 @@ P_{mech} = M \omega
 </div>
 </div>
 <p>Für Drehzahlen in <span class="math inline">\(1/\mathrm{min}\)</span> und Drehmoment in <span class="math inline">\(\mathrm{N\,m}\)</span> gilt näherungsweise:</p>
-<div id="2a647598" class="cell" data-execution_count="4">
+<div id="c593a159" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>n_mech <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Drehzahl'</span>)</span>
@@ -516,9 +516,9 @@ P = \frac{M n}{9550}
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stderr">
-<pre><code>C:\Users\leo\AppData\Local\Temp\ipykernel_18308\791610115.py:4: RuntimeWarning: divide by zero encountered in divide
+<pre><code>C:\Users\leo\AppData\Local\Temp\ipykernel_11548\791610115.py:4: RuntimeWarning: divide by zero encountered in divide
   M_cont = np.where(n &lt;= n_N, 10.0, 10*n_N/n)
-C:\Users\leo\AppData\Local\Temp\ipykernel_18308\791610115.py:5: RuntimeWarning: divide by zero encountered in divide
+C:\Users\leo\AppData\Local\Temp\ipykernel_11548\791610115.py:5: RuntimeWarning: divide by zero encountered in divide
   M_limit = np.where(n &lt;= n_N, 18.0, 18*n_N/n)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -544,7 +544,7 @@ Abbildung&nbsp;9.1: Betriebskennfelder: konstantes Drehmoment bis zur Nenndrehza
 <section id="gebürsteter-gleichstrommotor" class="level2" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="gebürsteter-gleichstrommotor"><span class="header-section-number">9.3</span> Gebürsteter Gleichstrommotor</h2>
 <p>Beim gebürsteten DC-Motor erzeugen Permanentmagnete oder Erregerspulen das Magnetfeld. Der Strom wird über Kommutator und Kohlebürsten zur Ankerwicklung geführt; die Wicklung erzeugt dadurch kontinuierlich ein Anzugsmoment.</p>
-<div id="5416da70" class="cell" data-execution_count="6">
+<div id="a162bdff" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>U_a <span class="op">=</span> MySymbol(<span class="st">'U_a'</span>, description<span class="op">=</span><span class="st">'Ankerspannung'</span>, unit<span class="op">=</span>u.volt)</span>
@@ -586,7 +586,7 @@ M = I_{a} k
 </div>
 <p>Die Drehzahl steigt linear mit der Spannung und sinkt bei Belastung durch den Ankerwiderstand. Beim Einschalten begrenzt zunächst <span class="math inline">\(R_a\)</span> den Strom nicht vollständig, da die Gegenspannung bei Stillstand null ist; deshalb werden Anlaufstrombegrenzung oder Stromregelung benötigt.</p>
 <p><strong>Leistung und Wirkungsgrad</strong></p>
-<div id="32232772" class="cell" data-execution_count="7">
+<div id="0b577f13" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>P_el <span class="op">=</span> MySymbol(<span class="st">'P_</span><span class="sc">{el}</span><span class="st">'</span>, description<span class="op">=</span><span class="st">'aufgenommene elektrische Leistung'</span>, unit<span class="op">=</span>u.watt)</span>
@@ -643,7 +643,7 @@ Abbildung&nbsp;9.2: Ersatzschaltbild eines gebürsteten DC-Motors.
 <section id="schrittmotor" class="level2" data-number="9.5">
 <h2 data-number="9.5" class="anchored" data-anchor-id="schrittmotor"><span class="header-section-number">9.5</span> Schrittmotor</h2>
 <p>Schrittmotoren bewegen den Rotor in diskreten Winkelschritten. Die Schrittzahl ergibt die Sollposition, solange der Motor nicht außer Tritt fällt.</p>
-<div id="61252507" class="cell" data-execution_count="8">
+<div id="70cabd16" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>alpha_step <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="ch">\a</span><span class="vs">lpha_{step}'</span>, description<span class="op">=</span><span class="st">'Schrittwinkel'</span>)</span>
@@ -683,7 +683,7 @@ Abbildung&nbsp;9.3: 28BYJ-48-Schrittmotor mit ULN2003-Treiber.
 <li><strong>Halte moment:</strong> bleibt bei eingeschalteten Wicklungen stehen, erzeugt aber Verlustleistung.</li>
 </ul>
 <p>Der unipolare Schrittmotor besitzt Mittelanzapfungen und kann je Wicklungsseite einschalten. Der bipolare Motor benötigt eine H-Brücke je Phase und liefert über beide Wicklungsrichtungen mehr Drehmoment.</p>
-<div id="5c35345a" class="cell" data-execution_count="9">
+<div id="b594b44e" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>phase <span class="op">=</span> np.arange(<span class="dv">8</span>)</span>
@@ -754,7 +754,7 @@ Abbildung&nbsp;9.3: 28BYJ-48-Schrittmotor mit ULN2003-Treiber.
 <section id="auswahl--und-rechenbeispiel" class="level2" data-number="9.7">
 <h2 data-number="9.7" class="anchored" data-anchor-id="auswahl--und-rechenbeispiel"><span class="header-section-number">9.7</span> Auswahl- und Rechenbeispiel</h2>
 <p>Eine Arbeitsrolle soll <span class="math inline">\(M=2\,\mathrm{N\,m}\)</span> bei <span class="math inline">\(n=1500\,\mathrm{min^{-1}}\)</span> bewegen. Dazu wird die mechanische Leistung berechnet:</p>
-<div id="7660be2a" class="cell" data-execution_count="10">
+<div id="78c442df" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>M_bsp <span class="op">=</span> MySymbol(<span class="st">'M'</span>, description<span class="op">=</span><span class="st">'Lastmoment'</span>, unit<span class="op">=</span>u.newton<span class="op">*</span>u.meter, value<span class="op">=</span><span class="dv">2</span>)</span>
