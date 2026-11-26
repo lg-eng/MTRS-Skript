@@ -435,7 +435,7 @@ window.Quarto = {
 
 
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="f1f0851e" class="cell" data-execution_count="2">
+<div id="c5e92d51" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># kapitelweite Symbole (in allen Unterkapiteln gleich)</span></span>
@@ -456,7 +456,7 @@ window.Quarto = {
 <li><strong>Frequenz als Zielgröße:</strong> In der Nachrichtentechnik muss etwa die eingestellte Mittenfrequenz eines Sendekanals messtechnisch verifiziert werden. Beim 2,4-GHz-WLAN beträgt die Mittenfrequenz von Kanal 1 <span class="math inline">\(2412\,\mathrm{MHz}\)</span>. Eine Frequenzmessung prüft diese Mittenfrequenz; für Bandbreite und Spektrumsmaske ist dagegen eine Spektrumanalyse erforderlich.</li>
 <li><strong>Frequenz als Messsignal:</strong> Viele Sensoren wandeln eine physikalische Größe direkt in eine Frequenz um. Mit bekanntem Weg oder bekanntem Volumen je Periode ergeben sich dann Geschwindigkeit und Durchfluss:</li>
 </ul>
-<div id="ea83577a" class="cell" data-execution_count="3">
+<div id="b184b2d4" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>f_s <span class="op">=</span> MySymbol(<span class="st">'f'</span>, description<span class="op">=</span><span class="st">'Frequenz des Sensorsignals'</span>, unit<span class="op">=</span>u.hertz)</span>
@@ -558,7 +558,7 @@ Abbildung&nbsp;5.1: Sinussignal mit drei Perioden; die Periodendauer T ist über
 </div>
 </div>
 <p>Die Einheit der Frequenz ist das <a href="https://de.wikipedia.org/wiki/Hertz_%28Einheit%29">Hertz (Hz)</a> — in SI-Basiseinheiten der Kehrwert der Zeit, <span class="math inline">\(\mathrm{Hz = 1/s}\)</span>. Der Zusammenhang zwischen Frequenz und Periodendauer folgt direkt daraus:</p>
-<div id="7796822a" class="cell" data-execution_count="5">
+<div id="1157a3a4" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>T_p <span class="op">=</span> MySymbol(<span class="st">'T'</span>, description<span class="op">=</span><span class="st">'Periodendauer'</span>, unit<span class="op">=</span>u.second)</span>
@@ -747,7 +747,7 @@ Abbildung&nbsp;5.4: Der Rollentausch im Zeitablauf: oben öffnet der Takt das To
 <section id="sec-mt-frequenzmessung" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="sec-mt-frequenzmessung"><span class="header-section-number">5.4</span> Frequenzmessung</h2>
 <p>Bei der Frequenzmessung zählt der Zähler die Impulse des Messsignals innerhalb der Torzeit <span class="math inline">\(T_{g}\)</span> (Öffnungsdauer des UND-Glieds):</p>
-<div id="22973536" class="cell" data-execution_count="8">
+<div id="ef6fb956" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>N_f <span class="op">=</span> MySymbol(<span class="st">'N'</span>, description<span class="op">=</span><span class="st">'Anzahl der Impulse je Torzeit'</span>, )</span>
@@ -768,7 +768,7 @@ f = \frac{N}{T_{g}}
 </div>
 </div>
 <p>Mit der Torzeit <span class="math inline">\(T_{g} = 1\,\mathrm{s}\)</span> und einem Messsignal der Frequenz <span class="math inline">\(f = 1\,\mathrm{kHz}\)</span> ergibt sich:</p>
-<div id="4134a81b" class="cell" data-execution_count="9">
+<div id="6a25453c" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>T_g_v <span class="op">=</span> MySymbol(<span class="vs">r'T_{g}'</span>, description<span class="op">=</span><span class="st">'Torzeit'</span>, unit<span class="op">=</span>u.second, value<span class="op">=</span><span class="dv">1</span>)</span>
@@ -784,7 +784,7 @@ N = 1000
 \tag{5.6}\]</span></span></p>
 </div>
 </div>
-<div id="f5d4e7a6" class="cell" data-execution_count="10">
+<div id="52f4ec86" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>eq_f <span class="op">=</span> Eq(f_p, N_f<span class="op">/</span>T_g)</span>
@@ -805,7 +805,7 @@ N = 1000
 <section id="sec-mt-periodenmessung" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="sec-mt-periodenmessung"><span class="header-section-number">5.5</span> Periodendauermessung</h2>
 <p>Bei der Periodendauermessung tauscht man die Rollen: Das Messsignal öffnet das Tor für eine Periode, und der Zähler zählt die Taktimpulse innerhalb dieser Periode:</p>
-<div id="7f17b565" class="cell" data-execution_count="11">
+<div id="4ad7813d" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>T_q <span class="op">=</span> MySymbol(<span class="vs">r'T_{q}'</span>, description<span class="op">=</span><span class="st">'Periodendauer des Taktsignals'</span>, unit<span class="op">=</span>u.second)</span>
@@ -830,7 +830,7 @@ T = N_{q} T_{q}
 </div>
 </div>
 <p>Mit einer Taktfrequenz von <span class="math inline">\(f_{q} = 1\,\mathrm{MHz}\)</span> und einem Messsignal <span class="math inline">\(f = 1\,\mathrm{kHz}\)</span> ergibt sich:</p>
-<div id="abb0c2a7" class="cell" data-execution_count="12">
+<div id="55b6be2c" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Taktfrequenz anzeigen (print_values stellt den Vorsatz korrekt dar; die</span></span>

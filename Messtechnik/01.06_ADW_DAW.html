@@ -448,7 +448,7 @@ window.Quarto = {
 
 
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="a6a51a0f" class="cell" data-execution_count="2">
+<div id="b3d3abad" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(f_{a}\)</span> … Abtastfrequenz</p>
 </div>
@@ -486,7 +486,7 @@ window.Quarto = {
 <section id="abtastung" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="abtastung"><span class="header-section-number">6.1</span> Abtastung</h2>
 <p>Ein kontinuierliches Signal <span class="math inline">\(u(t)\)</span> wird alle <span class="math inline">\(T_{a}\)</span> Sekunden abgetastet (Abtastperiode). Für die Amplitude zählt nur der Momentanwert zum Abtastzeitpunkt:</p>
-<div id="dad36d63" class="cell" data-execution_count="3">
+<div id="01bd8113" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>f_a <span class="op">=</span> MySymbol(<span class="vs">r'f_{a}'</span>, description<span class="op">=</span><span class="st">'Abtastfrequenz'</span>, unit<span class="op">=</span>u.hertz)</span>
@@ -613,7 +613,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 <section id="quantisierung" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="quantisierung"><span class="header-section-number">6.2</span> Quantisierung</h2>
 <p>Für <span class="math inline">\(n\)</span> Bit stehen <span class="math inline">\(2^{n}\)</span> Stufen über der Messbereichsspannbreite <span class="math inline">\(U_{ms}\)</span> zur Verfügung:</p>
-<div id="3d45540f" class="cell" data-execution_count="5">
+<div id="1f8fcfaf" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>n_bit <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung des Wandlers in Bit'</span>)</span>
@@ -628,7 +628,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 </div>
 </div>
 <p>Die Rundung auf die nächste Stufe verursacht den <strong>Quantisierungsfehler</strong> — maximal eine halbe Stufe:</p>
-<div id="9419bfde" class="cell" data-execution_count="6">
+<div id="205eff8b" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dQ <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="dv">\D</span><span class="vs">elta Q'</span>, description<span class="op">=</span><span class="st">'maximaler Quantisierungsfehler'</span>, unit<span class="op">=</span>u.volt)</span>
@@ -641,7 +641,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 </div>
 </div>
 <p>Beispiel 8-Bit-Wandler mit Messbereich <span class="math inline">\(0\,\mathrm{V} \ldots 10\,\mathrm{V}\)</span>:</p>
-<div id="512b163b" class="cell" data-execution_count="7">
+<div id="d75eab44" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>U_ms_ex <span class="op">=</span> MySymbol(<span class="vs">r'U_{ms}'</span>, description<span class="op">=</span><span class="st">'Messbereichsspannbreite'</span>, unit<span class="op">=</span>u.volt,</span>
@@ -726,7 +726,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 <section id="sec-mt-daw-schaltungen" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="sec-mt-daw-schaltungen"><span class="header-section-number">6.5</span> DAW-Schaltungen</h2>
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="40a20f8f" class="cell" data-execution_count="9">
+<div id="5496b0a3" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>n_s <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung des DAW in Bit'</span>)</span>
@@ -780,7 +780,7 @@ Abbildung&nbsp;6.1: Wandlung eines analogen Signals: Abtastzeitpunkte am Origina
 </tbody>
 </table>
 <p>Die Ausgangsspannung eines idealen Wandlernetzes folgt aus dem normierten Digitalcode:</p>
-<div id="3bb6f188" class="cell" data-execution_count="10">
+<div id="f10e0ecc" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung in Bit'</span>)</span>
@@ -819,7 +819,7 @@ U_{Soll} = \frac{U_{Ref} k}{N}
 </div>
 </div>
 <p>Mit <span class="math inline">\(n=3\)</span>, <span class="math inline">\(N=8\)</span> und <span class="math inline">\(U_{Ref}=5\,\mathrm{V}\)</span> ergibt sich für den Code <span class="math inline">\(k=5\)</span>:</p>
-<div id="7e1b733e" class="cell" data-execution_count="11">
+<div id="6fb6985c" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>U_ref_v <span class="op">=</span> MySymbol(<span class="vs">r'U_{Ref}'</span>, description<span class="op">=</span><span class="st">'Referenzspannung'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="dv">5</span>)</span>
@@ -962,7 +962,7 @@ Abbildung&nbsp;6.3: Prinzip des R-2R-Netzwerks: Drei gewichtete Bits erzeugen ac
 </div>
 </div>
 <p>Jeder Stufenschritt entspricht einem 1-LSB-Wert:</p>
-<div id="080bf001" class="cell" data-execution_count="14">
+<div id="97d35801" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>U_ref_r2r <span class="op">=</span> MySymbol(<span class="vs">r'U_{Ref}'</span>, description<span class="op">=</span><span class="st">'Referenzspannung'</span>, unit<span class="op">=</span>u.volt)</span>
@@ -996,7 +996,7 @@ Abbildung&nbsp;6.3: Prinzip des R-2R-Netzwerks: Drei gewichtete Bits erzeugen ac
 <section id="interpolierender-daw" class="level2" data-number="6.8">
 <h2 data-number="6.8" class="anchored" data-anchor-id="interpolierender-daw"><span class="header-section-number">6.8</span> Interpolierender DAW</h2>
 <p>Ein interpolierender DAW setzt die grobe Auflösung aus Widerstands- oder Stromquellenstufen um und steigert die Feinauflösung durch einen zweiten Wandlerabschnitt.</p>
-<div id="2169ff72" class="cell" data-execution_count="15">
+<div id="d83fd144" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>n_grob <span class="op">=</span> MySymbol(<span class="vs">r'n_{grob}'</span>, description<span class="op">=</span><span class="st">'grobe Auflösung in Bit'</span>)</span>
@@ -1022,7 +1022,7 @@ n_{ges} = n_{fein} + n_{grob}
 </div>
 </div>
 <p>Ein 6-Bit-Grobsegment und ein 4-Bit-Feinsegment ergeben daher:</p>
-<div id="369c0a58" class="cell" data-execution_count="16">
+<div id="d19b6493" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>n_grob_v <span class="op">=</span> MySymbol(<span class="vs">r'n_{grob}'</span>, description<span class="op">=</span><span class="st">'grobe Auflösung in Bit'</span>, value<span class="op">=</span><span class="dv">6</span>)</span>
@@ -1045,7 +1045,7 @@ n_{ges} = n_{fein} + n_{grob}
 <section id="pwm-als-digital-analog-wandlung" class="level2" data-number="6.9">
 <h2 data-number="6.9" class="anchored" data-anchor-id="pwm-als-digital-analog-wandlung"><span class="header-section-number">6.9</span> PWM als Digital-Analog-Wandlung</h2>
 <p>Bei einer pulsweitenmodulierten Ausgangsspannung wird eine Rechteckspannung mit konstanter Periodendauer <span class="math inline">\(T\)</span> erzeugt. Der Tastgrad <span class="math inline">\(D\)</span> bestimmt den zeitlichen Mittelwert:</p>
-<div id="00480a7b" class="cell" data-execution_count="17">
+<div id="9ce77e00" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>T_pwm <span class="op">=</span> MySymbol(<span class="st">'T'</span>, description<span class="op">=</span><span class="st">'PWM-Periode'</span>, unit<span class="op">=</span>u.second)</span>
@@ -1164,7 +1164,7 @@ Abbildung&nbsp;6.4: PWM-Signale mit 25, 50 und 75 Prozent Tastgrad.
 <section id="sec-mt-adw-schaltungen" class="level2" data-number="6.11">
 <h2 data-number="6.11" class="anchored" data-anchor-id="sec-mt-adw-schaltungen"><span class="header-section-number">6.11</span> ADW-Schaltungen</h2>
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="feb86644" class="cell" data-execution_count="19">
+<div id="01d123c4" class="cell" data-execution_count="19">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>n_s <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung des ADW in Bit'</span>)</span>
@@ -1195,7 +1195,7 @@ Abbildung&nbsp;6.4: PWM-Signale mit 25, 50 und 75 Prozent Tastgrad.
 <section id="messende-verfahren" class="level2" data-number="6.12">
 <h2 data-number="6.12" class="anchored" data-anchor-id="messende-verfahren"><span class="header-section-number">6.12</span> Messende Verfahren</h2>
 <p>Beim Vergleichsverfahren wird der Eingangswert wiederholt mit einer bekannten Spannung verglichen. Die Konversionsdauer steigt je nach Verfahren mit der Auflösung oder bleibt für alle Eingangswerte gleich.</p>
-<div id="33b3edb0" class="cell" data-execution_count="20">
+<div id="634218e4" class="cell" data-execution_count="20">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung in Bit'</span>)</span>
@@ -1236,7 +1236,7 @@ f_{c} = \frac{1}{t_{c}}
 </div>
 </div>
 <p>Für <span class="math inline">\(n=12\)</span> Bit und <span class="math inline">\(T_{clk}=100\,\mathrm{ns}\)</span> ergibt der SAR-Algorithmus:</p>
-<div id="6f2e0b3c" class="cell" data-execution_count="21">
+<div id="54f26677" class="cell" data-execution_count="21">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>n_v <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung in Bit'</span>, value<span class="op">=</span><span class="dv">12</span>)</span>
@@ -1341,7 +1341,7 @@ Abbildung&nbsp;6.7: Kondensatorspannung beim Doppelrampen-ADW (Sigmundg, <a href
 </figcaption>
 </figure>
 </div>
-<div id="259078cd" class="cell" data-execution_count="23">
+<div id="e9ced476" class="cell" data-execution_count="23">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>n_rampe <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung in Bit'</span>)</span>
@@ -1381,7 +1381,7 @@ t_{Rampe} = \frac{2^{n} T_{clk} U_{in}}{U_{Ref}}
 <p>Ein Parallelwandler oder Flash-Wandler vergleicht den Eingang gleichzeitig mit allen Stufen eines Widerstandsnetzwerks. Ein Prioritätskodierer erzeugt den Code.</p>
 <p>Die folgende Abbildung zeigt den Aufbau als Stufen- und Prioritätsvergleich. Der gewählte Eingangswert wird mit jeder Referenzschwelle verglichen.</p>
 <p>Für <span class="math inline">\(n\)</span> Bit werden ideal <span class="math inline">\(2^{n}-1\)</span> Vergleichsstufen benötigt:</p>
-<div id="65b2e78e" class="cell" data-execution_count="24">
+<div id="9f7ca3a4" class="cell" data-execution_count="24">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>n_flash <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Auflösung in Bit'</span>)</span>
@@ -1462,7 +1462,7 @@ Abbildung&nbsp;6.9: Blockschaltbild eines Sigma-Delta-Wandlers (Em3rgent0rdr, <a
 </figcaption>
 </figure>
 </div>
-<div id="d05b08fb" class="cell" data-execution_count="26">
+<div id="4bbc27ba" class="cell" data-execution_count="26">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>M_s <span class="op">=</span> MySymbol(<span class="st">'M'</span>, description<span class="op">=</span><span class="st">'Überabtastungsfaktor'</span>)</span>

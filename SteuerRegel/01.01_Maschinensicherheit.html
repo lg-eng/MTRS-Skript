@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -361,59 +396,55 @@ document.addEventListener('DOMContentLoaded', function () {
 <section id="sec-risikomatrix-nohl" class="level2" data-number="11.2">
 <h2 data-number="11.2" class="anchored" data-anchor-id="sec-risikomatrix-nohl"><span class="header-section-number">11.2</span> Risikomatrix nach Nohl</h2>
 <p>Die Nohl-Matrix ordnet ein Risiko anhand der <strong>möglichen Schadensschwere</strong> und der <strong>Wahrscheinlichkeit, dass die Gefährdung wirksam wird</strong>, ein. Beide Größen werden in vier Stufen bewertet. Die Risikokennzahl wird in der Matrix abgelesen, nicht durch Multiplikation berechnet:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 15%">
-<col style="width: 21%">
-<col style="width: 21%">
-<col style="width: 21%">
-<col style="width: 21%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Schadensschwere / Wahrscheinlichkeit</th>
-<th style="text-align: right;">Sehr gering (1)</th>
-<th style="text-align: right;">Gering (2)</th>
-<th style="text-align: right;">Mittel (3)</th>
-<th style="text-align: right;">Hoch (4)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Leicht (1)</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td>Mittel (2)</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">5</td>
-</tr>
-<tr class="odd">
-<td>Schwer (3)</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">6</td>
-</tr>
-<tr class="even">
-<td>Tod oder Katastrophe (4)</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">7</td>
-</tr>
-</tbody>
-</table>
+<div id="cell-fig-risikomatrix-nohl" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.colors <span class="im">import</span> ListedColormap, BoundaryNorm</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>kennzahlen <span class="op">=</span> np.add.outer(np.arange(<span class="dv">1</span>, <span class="dv">5</span>), np.arange(<span class="dv">1</span>, <span class="dv">5</span>)) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>farben <span class="op">=</span> ListedColormap([<span class="st">'#bde3bf'</span>, <span class="st">'#ffe49a'</span>, <span class="st">'#f4aaaa'</span>])</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>stufen <span class="op">=</span> BoundaryNorm([<span class="fl">0.5</span>, <span class="fl">2.5</span>, <span class="fl">4.5</span>, <span class="fl">7.5</span>], farben.N)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="fl">4.8</span>))</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>ax.imshow(kennzahlen, cmap<span class="op">=</span>farben, norm<span class="op">=</span>stufen, aspect<span class="op">=</span><span class="st">'auto'</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(<span class="bu">range</span>(<span class="dv">4</span>), [<span class="st">'Sehr gering</span><span class="ch">\n</span><span class="st">(1)'</span>, <span class="st">'Gering</span><span class="ch">\n</span><span class="st">(2)'</span>, <span class="st">'Mittel</span><span class="ch">\n</span><span class="st">(3)'</span>, <span class="st">'Hoch</span><span class="ch">\n</span><span class="st">(4)'</span>])</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>ax.set_yticks(<span class="bu">range</span>(<span class="dv">4</span>), [<span class="st">'Leicht (1)'</span>, <span class="st">'Mittel (2)'</span>, <span class="st">'Schwer (3)'</span>, <span class="st">'Tod oder</span><span class="ch">\n</span><span class="st">Katastrophe (4)'</span>])</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>ax.xaxis.tick_top()</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_label_position(<span class="st">'top'</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Wahrscheinlichkeit des Wirksamwerdens'</span>, labelpad<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Mögliche Schadensschwere'</span>, labelpad<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>ax.tick_params(length<span class="op">=</span><span class="dv">0</span>, pad<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(np.arange(<span class="op">-</span><span class="fl">0.5</span>, <span class="dv">4</span>, <span class="dv">1</span>), minor<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>ax.set_yticks(np.arange(<span class="op">-</span><span class="fl">0.5</span>, <span class="dv">4</span>, <span class="dv">1</span>), minor<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>ax.grid(which<span class="op">=</span><span class="st">'minor'</span>, color<span class="op">=</span><span class="st">'white'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> zeile <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> spalte <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        ax.text(spalte, zeile, kennzahlen[zeile, spalte],</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>                ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">17</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-risikomatrix-nohl" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Vier mal vier Felder: Die Kennzahlen steigen von 1 bis 4 in der ersten Zeile bis 4 bis 7 in der vierten Zeile. 1 bis 2 bedeuten geringes, 3 bis 4 mittleres und 5 bis 7 hohes Risiko.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-risikomatrix-nohl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="01.01_Maschinensicherheit_files/figure-html/fig-risikomatrix-nohl-output-1.png" alt="Vier mal vier Felder: Die Kennzahlen steigen von 1 bis 4 in der ersten Zeile bis 4 bis 7 in der vierten Zeile. 1 bis 2 bedeuten geringes, 3 bis 4 mittleres und 5 bis 7 hohes Risiko." width="860" height="450" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-risikomatrix-nohl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;11.1: Risikomatrix nach Nohl: Die Kennzahl wird am Schnittpunkt von Schadensschwere und Wahrscheinlichkeit abgelesen.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <ul>
 <li><strong>1–2:</strong> geringes Risiko</li>
 <li><strong>3–4:</strong> mittleres Risiko; Maßnahmen prüfen und festlegen</li>
 <li><strong>5–7:</strong> hohes Risiko; dringender Handlungsbedarf</li>
 </ul>
+<p><strong>Beispiel:</strong> Bei einer schweren Verletzung und mittlerer Wahrscheinlichkeit ergibt sich am Schnittpunkt die Kennzahl <strong>5</strong>: hohes Risiko.</p>
 <p>Die Matrix hilft, Gefährdungen zu vergleichen und Maßnahmen zu priorisieren. Sie ist eine vereinfachte Beurteilungshilfe: Die konkrete Risikominderung muss für die Maschine und ihre Betriebsbedingungen begründet werden. Insbesondere bestimmt die Nohl-Matrix nicht allein den erforderlichen Performance Level einer Sicherheitsfunktion (<a href="https://www.dguv.de/medien/ifa/de/pra/container/pdf/risikomatrix-nohl.pdf">DGUV/IFA: Risikomatrix nach Nohl</a>).</p>
 </section>
 <section id="sec-maschinensicherheit-einrichtungen" class="level2" data-number="11.3">
