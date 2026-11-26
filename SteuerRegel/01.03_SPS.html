@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12&nbsp; Speicherprogrammierbare Steuerung (SPS) – MTRS-Skript</title>
+<title>13&nbsp; Speicherprogrammierbare Steuerung (SPS) – MTRS-Skript</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../SteuerRegel/01_SteuerRegel.html">Steuer- und Regelungstechnik</a></li><li class="breadcrumb-item"><a href="../SteuerRegel/01.03_SPS.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../SteuerRegel/01_SteuerRegel.html">Steuer- und Regelungstechnik</a></li><li class="breadcrumb-item"><a href="../SteuerRegel/01.03_SPS.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -297,14 +297,20 @@ document.addEventListener('DOMContentLoaded', function () {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../SteuerRegel/01.01_Maschinensicherheit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Maschinensicherheit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../SteuerRegel/01.03_SPS.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></a>
   </div>
 </li>
       </ul>
@@ -321,19 +327,19 @@ document.addEventListener('DOMContentLoaded', function () {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Weiterfuehrende_Themen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Weiterführende Themen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Weiterführende Themen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Jahresplanung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
   </div>
 </li>
       </ul>
@@ -348,24 +354,41 @@ document.addEventListener('DOMContentLoaded', function () {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#merke" id="toc-merke" class="nav-link active" data-scroll-target="#merke"><span class="header-section-number">12.1</span> Merke</a></li>
-  <li><a href="#sec-sps-grundlagen" id="toc-sec-sps-grundlagen" class="nav-link" data-scroll-target="#sec-sps-grundlagen"><span class="header-section-number">12.2</span> Steuerungstechnische Grundlagen</a></li>
-  <li><a href="#sec-sps-zyklus" id="toc-sec-sps-zyklus" class="nav-link" data-scroll-target="#sec-sps-zyklus"><span class="header-section-number">12.3</span> Zyklusaufbau</a></li>
-  <li><a href="#sec-sps-ie" id="toc-sec-sps-ie" class="nav-link" data-scroll-target="#sec-sps-ie"><span class="header-section-number">12.4</span> Programmiersprachen (IEC 61131-3)</a>
+  <li><a href="#merke" id="toc-merke" class="nav-link active" data-scroll-target="#merke"><span class="header-section-number">13.1</span> Merke</a></li>
+  <li><a href="#sec-sps-grundlagen" id="toc-sec-sps-grundlagen" class="nav-link" data-scroll-target="#sec-sps-grundlagen"><span class="header-section-number">13.2</span> Steuerungstechnische Grundlagen</a></li>
+  <li><a href="#sec-sps-zyklus" id="toc-sec-sps-zyklus" class="nav-link" data-scroll-target="#sec-sps-zyklus"><span class="header-section-number">13.3</span> Zyklusaufbau</a></li>
+  <li><a href="#sec-sps-ie" id="toc-sec-sps-ie" class="nav-link" data-scroll-target="#sec-sps-ie"><span class="header-section-number">13.4</span> Programmiersprachen (IEC 61131-3)</a>
   <ul>
-  <li><a href="#beispiel-selbsthaltung" id="toc-beispiel-selbsthaltung" class="nav-link" data-scroll-target="#beispiel-selbsthaltung"><span class="header-section-number">12.4.1</span> Beispiel: Selbsthaltung</a></li>
+  <li><a href="#beispiel-selbsthaltung" id="toc-beispiel-selbsthaltung" class="nav-link" data-scroll-target="#beispiel-selbsthaltung"><span class="header-section-number">13.4.1</span> Beispiel: Selbsthaltung</a></li>
+  <li><a href="#dasselbe-beispiel-in-verschiedenen-sps-sprachen" id="toc-dasselbe-beispiel-in-verschiedenen-sps-sprachen" class="nav-link" data-scroll-target="#dasselbe-beispiel-in-verschiedenen-sps-sprachen"><span class="header-section-number">13.4.2</span> Dasselbe Beispiel in verschiedenen SPS-Sprachen</a>
+  <ul class="collapse">
+  <li><a href="#kontaktplan-kop" id="toc-kontaktplan-kop" class="nav-link" data-scroll-target="#kontaktplan-kop"><span class="header-section-number">13.4.2.1</span> Kontaktplan (KOP)</a></li>
+  <li><a href="#funktionsbausteinsprache-fup" id="toc-funktionsbausteinsprache-fup" class="nav-link" data-scroll-target="#funktionsbausteinsprache-fup"><span class="header-section-number">13.4.2.2</span> Funktionsbausteinsprache (FUP)</a></li>
+  <li><a href="#ablaufsprache-as" id="toc-ablaufsprache-as" class="nav-link" data-scroll-target="#ablaufsprache-as"><span class="header-section-number">13.4.2.3</span> Ablaufsprache (AS)</a></li>
+  <li><a href="#anweisungsliste-awl" id="toc-anweisungsliste-awl" class="nav-link" data-scroll-target="#anweisungsliste-awl"><span class="header-section-number">13.4.2.4</span> Anweisungsliste (AWL)</a></li>
+  <li><a href="#strukturierter-text-st" id="toc-strukturierter-text-st" class="nav-link" data-scroll-target="#strukturierter-text-st"><span class="header-section-number">13.4.2.5</span> Strukturierter Text (ST)</a></li>
   </ul></li>
-  <li><a href="#sec-sps-peripherie" id="toc-sec-sps-peripherie" class="nav-link" data-scroll-target="#sec-sps-peripherie"><span class="header-section-number">12.5</span> Peripherie — Ein- und Ausgänge</a></li>
-  <li><a href="#zusammenfassung" id="toc-zusammenfassung" class="nav-link" data-scroll-target="#zusammenfassung"><span class="header-section-number">12.6</span> Zusammenfassung</a></li>
+  </ul></li>
+  <li><a href="#gleiche-aufgabe-verschiedene-darstellung" id="toc-gleiche-aufgabe-verschiedene-darstellung" class="nav-link" data-scroll-target="#gleiche-aufgabe-verschiedene-darstellung"><span class="header-section-number">13.5</span> Gleiche Aufgabe, verschiedene Darstellung</a></li>
+  <li><a href="#sec-sps-peripherie" id="toc-sec-sps-peripherie" class="nav-link" data-scroll-target="#sec-sps-peripherie"><span class="header-section-number">13.6</span> Peripherie — Ein- und Ausgänge</a></li>
+  <li><a href="#sec-sps-auswahl" id="toc-sec-sps-auswahl" class="nav-link" data-scroll-target="#sec-sps-auswahl"><span class="header-section-number">13.7</span> SPS richtig auswählen</a>
+  <ul>
+  <li><a href="#sec-sps-auswahl-beispiel" id="toc-sec-sps-auswahl-beispiel" class="nav-link" data-scroll-target="#sec-sps-auswahl-beispiel"><span class="header-section-number">13.7.1</span> Beispiel: einfache Fördermaschine</a></li>
+  <li><a href="#sec-sps-auswahl-kriterien" id="toc-sec-sps-auswahl-kriterien" class="nav-link" data-scroll-target="#sec-sps-auswahl-kriterien"><span class="header-section-number">13.7.2</span> Auswahlkriterien</a></li>
+  <li><a href="#sec-sps-vs-microcontroller" id="toc-sec-sps-vs-microcontroller" class="nav-link" data-scroll-target="#sec-sps-vs-microcontroller"><span class="header-section-number">13.7.3</span> SPS oder Microcontroller?</a></li>
+  </ul></li>
+  <li><a href="#auswahlregel" id="toc-auswahlregel" class="nav-link" data-scroll-target="#auswahlregel"><span class="header-section-number">13.8</span> Auswahlregel</a></li>
+  <li><a href="#sec-sps-auswahl-pruefschritte" id="toc-sec-sps-auswahl-pruefschritte" class="nav-link" data-scroll-target="#sec-sps-auswahl-pruefschritte"><span class="header-section-number">13.8.1</span> Prüfschritte für die Hardwareauswahl</a></li>
+  <li><a href="#zusammenfassung" id="toc-zusammenfassung" class="nav-link" data-scroll-target="#zusammenfassung"><span class="header-section-number">13.9</span> Zusammenfassung</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lg-eng/MTRS-Skript/issues/new" target="_blank" class="toc-action"><i class="bi bi-github"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../SteuerRegel/01_SteuerRegel.html">Steuer- und Regelungstechnik</a></li><li class="breadcrumb-item"><a href="../SteuerRegel/01.03_SPS.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../SteuerRegel/01_SteuerRegel.html">Steuer- und Regelungstechnik</a></li><li class="breadcrumb-item"><a href="../SteuerRegel/01.03_SPS.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-sps" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></h1>
+<h1 class="title"><span id="sec-sps" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></h1>
 </div>
 
 
@@ -384,24 +407,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <p>Die speicherprogrammierbare Steuerung (SPS) ist ein in der Automatisierungstechnik weit verbreitetes Steuerungssystem. Ihre Zentraleinheit (CPU) erfasst die Signale der Sensoren, verarbeitet sie nach einem Anwenderprogramm und gibt Steuersignale über Ausgabemodule an Aktoren aus. Gegenüber einer fest verdrahteten Relaissteuerung lässt sich die Logik durch eine Programmänderung anpassen; die Verdrahtung bleibt bestehen.</p>
 <div id="tip-sps">
-<section id="merke" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="merke"><span class="header-section-number">12.1</span> Merke</h2>
+<section id="merke" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="merke"><span class="header-section-number">13.1</span> Merke</h2>
 <p>Eine SPS ist ein für die industrielle Umgebung ausgelegter Spezialrechner. In ihrem typischen zyklischen Betrieb gilt: <strong>Eingaben lesen → Programm abarbeiten → Ausgaben schreiben</strong>.</p>
 </section>
 </div>
-<section id="sec-sps-grundlagen" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="sec-sps-grundlagen"><span class="header-section-number">12.2</span> Steuerungstechnische Grundlagen</h2>
+<section id="sec-sps-grundlagen" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="sec-sps-grundlagen"><span class="header-section-number">13.2</span> Steuerungstechnische Grundlagen</h2>
 <p>Eine Steuerung bildet Eingangssignale nach einer festgelegten Vorschrift auf Ausgangssignale ab. Im Unterschied zur Regelung wird der tatsächliche Anlagenausgang nicht zur laufenden Korrektur der Ausgangssignale zurückgeführt. Der Wirkungsablauf ist somit offen.</p>
 <p>Grundbegriffe:</p>
 <ul>
 <li><strong>Verknüpfungssteuerung:</strong> Die Ausgänge hängen nur von den aktuellen Eingangszuständen ab. Diese Zuordnung wird als kombinatorische Logik bezeichnet.</li>
 <li><strong>Ablaufsteuerung:</strong> Die Ausgänge hängen zusätzlich vom aktuellen <strong>Schritt</strong> eines Ablaufs ab. Übergänge werden häufig durch Endschalter oder andere Bedingungssignale ausgelöst. Beispiele sind Ampelphasen und Werkzeugwechsel.</li>
 <li><strong>Binäre Signale:</strong> Sie können genau zwei Zustände annehmen, beispielsweise „0“ und „1“ beziehungsweise „aus“ und „ein“. Die Grundfunktionen der Booleschen Algebra sind <strong>UND</strong>, <strong>ODER</strong> und <strong>NICHT</strong>. Daraus lassen sich unter anderem <strong>NAND</strong>, <strong>NOR</strong>, <strong>Exklusiv-ODER (XOR)</strong> und Speicherfunktionen wie das RS-Flipflop bilden.</li>
-<li><strong>Normung:</strong> Die Programmiersprachen von SPS sind in <strong>IEC 61131-3</strong> (ÖNORM EN 61131-3) festgelegt; ihre wichtigsten Eigenschaften sind in <a href="#sec-sps-ie" class="quarto-xref"><span>Kapitel 12.4</span></a> beschrieben.</li>
+<li><strong>Normung:</strong> Die Programmiersprachen von SPS sind in <strong>IEC 61131-3</strong> (ÖNORM EN 61131-3) festgelegt; ihre wichtigsten Eigenschaften sind in <a href="#sec-sps-ie" class="quarto-xref"><span>Kapitel 13.4</span></a> beschrieben.</li>
 </ul>
 </section>
-<section id="sec-sps-zyklus" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="sec-sps-zyklus"><span class="header-section-number">12.3</span> Zyklusaufbau</h2>
+<section id="sec-sps-zyklus" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="sec-sps-zyklus"><span class="header-section-number">13.3</span> Zyklusaufbau</h2>
 <p>Im zyklischen Betrieb wiederholt die SPS die folgenden Schritte:</p>
 <div id="cell-fig-sps-zyklus" class="cell" data-execution_count="2">
 <details class="code-fold">
@@ -446,7 +469,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <img src="01.03_SPS_files/figure-html/fig-sps-zyklus-output-1.png" width="652" height="211" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sps-zyklus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;12.1: Zyklusablauf einer SPS: Die drei Schritte werden in fester Reihenfolge wiederholt.
+Abbildung&nbsp;13.1: Zyklusablauf einer SPS: Die drei Schritte werden in fester Reihenfolge wiederholt.
 </figcaption>
 </figure>
 </div>
@@ -464,8 +487,8 @@ Abbildung&nbsp;12.1: Zyklusablauf einer SPS: Die drei Schritte werden in fester 
 <li><strong>Watchdog:</strong> Überschreitet die Programmbearbeitung eine festgelegte Zeit, beispielsweise wegen einer Endlosschleife, erkennt der Watchdog einen Fehler. Die SPS löst dann die dafür konfigurierte Fehlerreaktion aus.</li>
 </ul>
 </section>
-<section id="sec-sps-ie" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="sec-sps-ie"><span class="header-section-number">12.4</span> Programmiersprachen (IEC 61131-3)</h2>
+<section id="sec-sps-ie" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="sec-sps-ie"><span class="header-section-number">13.4</span> Programmiersprachen (IEC 61131-3)</h2>
 <p>Die folgenden SPS-Programmiersprachen sind in <strong>IEC 61131-3</strong> genormt:</p>
 <table class="caption-top table">
 <colgroup>
@@ -511,8 +534,8 @@ Abbildung&nbsp;12.1: Zyklusablauf einer SPS: Die drei Schritte werden in fester 
 <ul>
 <li>Übliche Praxis: <strong>KOP/FUP</strong> für Verknüpfungslogik, <strong>AS</strong> für Ablaufsteuerung, <strong>ST</strong> für algorithmische Anteile.</li>
 </ul>
-<section id="beispiel-selbsthaltung" class="level3" data-number="12.4.1">
-<h3 data-number="12.4.1" class="anchored" data-anchor-id="beispiel-selbsthaltung"><span class="header-section-number">12.4.1</span> Beispiel: Selbsthaltung</h3>
+<section id="beispiel-selbsthaltung" class="level3" data-number="13.4.1">
+<h3 data-number="13.4.1" class="anchored" data-anchor-id="beispiel-selbsthaltung"><span class="header-section-number">13.4.1</span> Beispiel: Selbsthaltung</h3>
 <p>Eine typische Programmieraufgabe ist die Selbsthaltung: Der Ausgang <code>Q</code> soll nach kurzem Betätigen der Einschalttaste <code>S1</code> eingeschaltet bleiben, bis die Ausschalttaste <code>S2</code> betätigt wird. Zur Speicherung des Zustands wird der gespeicherte Ausgang in die Bedingung einbezogen:</p>
 <pre class="text"><code>Q = (S1 OR Q) AND NOT S2</code></pre>
 <ul>
@@ -521,16 +544,98 @@ Abbildung&nbsp;12.1: Zyklusablauf einer SPS: Die drei Schritte werden in fester 
 </ul>
 <p>Das <code>Q</code> auf der rechten Seite steht dabei für den im vorherigen Bearbeitungsschritt gespeicherten Wert.</p>
 </section>
+<section id="dasselbe-beispiel-in-verschiedenen-sps-sprachen" class="level3" data-number="13.4.2">
+<h3 data-number="13.4.2" class="anchored" data-anchor-id="dasselbe-beispiel-in-verschiedenen-sps-sprachen"><span class="header-section-number">13.4.2</span> Dasselbe Beispiel in verschiedenen SPS-Sprachen</h3>
+<p>Für alle folgenden Darstellungen gilt dieselbe Aufgabe:</p>
+<ul>
+<li><code>S1</code> = Einschalttaster</li>
+<li><code>S2</code> = Ausschalttaster</li>
+<li><code>Q</code> = Motor</li>
+<li>Wenn <code>S1</code> gedrückt wird: <code>Q</code> einschalten</li>
+<li>Wenn <code>S2</code> gedrückt wird: <code>Q</code> ausschalten</li>
+<li><code>Q</code> bleibt nach Loslassen von <code>S1</code> eingeschaltet</li>
+</ul>
+<section id="kontaktplan-kop" class="level4" data-number="13.4.2.1">
+<h4 data-number="13.4.2.1" class="anchored" data-anchor-id="kontaktplan-kop"><span class="header-section-number">13.4.2.1</span> Kontaktplan (KOP)</h4>
+<pre class="text"><code>       S1          Q
+--+-----| |----------------+----------------( )
+  |                        |
+  |        Q               |
+  +--------| |-------------+
+                   |
+       S2          |
+--+-----| |----------------+
+  |     (geöffnet bei betätigtem S2)
+  |</code></pre>
+<p>Der Strompfad ist eingeschaltet, wenn <code>S1</code> gedrückt wird oder <code>Q</code> bereits eingeschaltet ist. Gleichzeitig muss <code>S2</code> nicht betätigt sein.</p>
 </section>
-<section id="sec-sps-peripherie" class="level2" data-number="12.5">
-<h2 data-number="12.5" class="anchored" data-anchor-id="sec-sps-peripherie"><span class="header-section-number">12.5</span> Peripherie — Ein- und Ausgänge</h2>
+<section id="funktionsbausteinsprache-fup" class="level4" data-number="13.4.2.2">
+<h4 data-number="13.4.2.2" class="anchored" data-anchor-id="funktionsbausteinsprache-fup"><span class="header-section-number">13.4.2.2</span> Funktionsbausteinsprache (FUP)</h4>
+<pre class="text"><code>S1 ──┐
+     ├─ OR ──┐
+Q ───┘       ├─ AND ── Q
+             │
+S2 ─ NOT ────┘</code></pre>
+<p>Die Rückführung von <code>Q</code> auf den Eingang des ODER-Bausteins bildet die Selbsthaltung.</p>
+</section>
+<section id="ablaufsprache-as" class="level4" data-number="13.4.2.3">
+<h4 data-number="13.4.2.3" class="anchored" data-anchor-id="ablaufsprache-as"><span class="header-section-number">13.4.2.3</span> Ablaufsprache (AS)</h4>
+<p>Die Ablaufsprache bildet Zustände und die dazugehörigen Aktionen ab:</p>
+<pre class="text"><code>Schritt 0: Motor aus
+    Übergang: S1 = 1
+    Aktion: Schritt 1 aktivieren
+
+Schritt 1: Motor ein
+    Aktion: Q = 1
+    Übergang: S2 = 1
+    Aktion: Schritt 0 aktivieren</code></pre>
+</section>
+<section id="anweisungsliste-awl" class="level4" data-number="13.4.2.4">
+<h4 data-number="13.4.2.4" class="anchored" data-anchor-id="anweisungsliste-awl"><span class="header-section-number">13.4.2.4</span> Anweisungsliste (AWL)</h4>
+<pre class="text"><code>LD    S1
+OR    Q
+LD    S2
+NOT
+AND
+ST    Q</code></pre>
+<ul>
+<li><code>LD</code>: Eingang laden</li>
+<li><code>OR</code>: logisches ODER</li>
+<li><code>AND</code>: logisches UND</li>
+<li><code>NOT</code>: logisches NICHT</li>
+<li><code>ST</code>: Ergebnis speichern</li>
+</ul>
+</section>
+<section id="strukturierter-text-st" class="level4" data-number="13.4.2.5">
+<h4 data-number="13.4.2.5" class="anchored" data-anchor-id="strukturierter-text-st"><span class="header-section-number">13.4.2.5</span> Strukturierter Text (ST)</h4>
+<pre class="iecst"><code>IF S2 THEN
+    Q := FALSE;
+ELSIF S1 THEN
+    Q := TRUE;
+END_IF;</code></pre>
+<p><code>S2</code> hat Vorrang vor <code>S1</code>: Bei gleichzeitig betätigten Tasten wird der Motor ausgeschaltet.</p>
+<p>Als einfachere Form entspricht die ST-Anweisung genau der Booleschen Gleichung:</p>
+<pre class="iecst"><code>Q := (S1 OR Q) AND NOT S2;</code></pre>
+</section>
+</section>
+</section>
+<div id="tip-sps-sprachen">
+<section id="gleiche-aufgabe-verschiedene-darstellung" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="gleiche-aufgabe-verschiedene-darstellung"><span class="header-section-number">13.5</span> Gleiche Aufgabe, verschiedene Darstellung</h2>
+<p>Alle Beispiele beschreiben dieselbe Selbsthaltung:</p>
+<pre class="text"><code>Einschalten durch S1 ODER gespeichertes Q
+UND gleichzeitig S2 nicht betätigt</code></pre>
+</section>
+</div>
+<section id="sec-sps-peripherie" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="sec-sps-peripherie"><span class="header-section-number">13.6</span> Peripherie — Ein- und Ausgänge</h2>
 <div id="fig-s7-1500" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-s7-1500-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/S7-1500.jpg" class="img-fluid figure-img" width="420">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-s7-1500-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;12.2: Siemens S7-1500: Modul mit Klemmenleiste und Status-LEDs (Oleg Yunakov, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:SIMATIC_S7-150.jpg">Wikimedia Commons</a>)
+Abbildung&nbsp;13.2: Siemens S7-1500: Modul mit Klemmenleiste und Status-LEDs (Oleg Yunakov, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:SIMATIC_S7-150.jpg">Wikimedia Commons</a>)
 </figcaption>
 </figure>
 </div>
@@ -540,13 +645,174 @@ Abbildung&nbsp;12.2: Siemens S7-1500: Modul mit Klemmenleiste und Status-LEDs (O
 <li><strong>Analoge Eingänge (AI) und Ausgänge (AO):</strong> Sie verarbeiten kontinuierliche elektrische Signale, beispielsweise 0 bis 10 V oder 4 bis 20 mA. Die SPS verwendet dazu Analog-Digital- und Digital-Analog-Wandler.</li>
 </ul>
 </section>
-<section id="zusammenfassung" class="level2" data-number="12.6">
-<h2 data-number="12.6" class="anchored" data-anchor-id="zusammenfassung"><span class="header-section-number">12.6</span> Zusammenfassung</h2>
+<section id="sec-sps-auswahl" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="sec-sps-auswahl"><span class="header-section-number">13.7</span> SPS richtig auswählen</h2>
+<p>Die Auswahl beginnt nicht bei einem Fabrikat, sondern bei der Maschine und ihren Anforderungen. Dabei werden benötigte Ein- und Ausgänge, Prozesszeit, Umgebung, Sicherheit und Erweiterbarkeit festgelegt.</p>
+<section id="sec-sps-auswahl-beispiel" class="level3" data-number="13.7.1">
+<h3 data-number="13.7.1" class="anchored" data-anchor-id="sec-sps-auswahl-beispiel"><span class="header-section-number">13.7.1</span> Beispiel: einfache Fördermaschine</h3>
+<p>Eine Fördermaschine soll Start- und Stopp-Taster, zwei Lichtschranken, Endschalter und einen Not-Halt erfassen. Sie steuert einen Motorstarter, einen Alarm-Leuchte und ein Magnetventil. Der Förderbetrieb soll bei einem Motorüberlastrelais geprüft werden.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 30%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Signal</th>
+<th>Typ</th>
+<th style="text-align: right;">Anzahl</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Digitale Eingänge</td>
+<td>24 V, DC</td>
+<td style="text-align: right;">8</td>
+<td>Start, Stopp, Not-Halt, zwei Lichtschranken, zwei Endschalter, Überlast</td>
+</tr>
+<tr class="even">
+<td>Digitale Ausgänge</td>
+<td>24 V, DC oder Relais</td>
+<td style="text-align: right;">4</td>
+<td>Motorstarter, Magnetventil, Alarm, Betriebsleuchte</td>
+</tr>
+<tr class="odd">
+<td>Analoge Ein- oder Ausgänge</td>
+<td>—</td>
+<td style="text-align: right;">0</td>
+<td>In dieser einfachen Maschine nicht erforderlich</td>
+</tr>
+<tr class="even">
+<td>Kommunikation</td>
+<td>optional</td>
+<td style="text-align: right;">1 Schnittstelle</td>
+<td>Meldungen an eine Bedientafel oder Überwachung</td>
+</tr>
+</tbody>
+</table>
+<p>Für das Beispiel ist daher eine <strong>kompakte SPS</strong> mit mindestens:</p>
+<ul>
+<li>8 digitalen Eingängen und 4 digitalen Ausgängen,</li>
+<li>24-V-Versorgung,</li>
+<li>zyklischer Verarbeitung deutlich schneller als der Prozess,</li>
+<li>Handbetrieb oder Diagnoseausgabe,</li>
+<li>ausreichender Reserve für Erweiterungen</li>
+</ul>
+<p>eine sinnvolle Grundauswahl. Eine Reserve von etwa 20 bis 30 Prozent an Ein- und Ausgängen erleichtert spätere Änderungen. Für die konkrete Hardwareauswahl wird außerdem geprüft, ob die SPS die geforderten Lasten der Ausgänge direkt schalten kann oder ob Schutz- und Leistungsschaltungen benötigt werden.</p>
+</section>
+<section id="sec-sps-auswahl-kriterien" class="level3" data-number="13.7.2">
+<h3 data-number="13.7.2" class="anchored" data-anchor-id="sec-sps-auswahl-kriterien"><span class="header-section-number">13.7.2</span> Auswahlkriterien</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kriterium</th>
+<th>Für die SPS spricht</th>
+<th>Für einen Microcontroller spricht</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Prozess</td>
+<td>Viele Ein-/Ausgänge, Ablaufsteuerung, unterschiedliche Sensoren und Aktoren</td>
+<td>Wenige Signale, definierte Einzel- oder Embedded-Funktion</td>
+</tr>
+<tr class="even">
+<td>Industrieumgebung</td>
+<td>24-V-Signale, Schaltstörungen, Staub, hohe Temperatur, Elektromagnetische Verträglichkeit</td>
+<td>Kontrollierte Umgebung oder direkt integrierte Plattform</td>
+</tr>
+<tr class="odd">
+<td>Verfügbarkeit</td>
+<td>Industrielle Lebensdauer, Ersatzteilversorgung, Diagnose und Watchdog</td>
+<td>Kurzlebiges oder preisoptimiertes Produkt</td>
+</tr>
+<tr class="even">
+<td>Integration</td>
+<td>Standard-Schnittstellen, HMI, Feldbus, Netzwerk und Diagnose</td>
+<td>Eigenentwickelte Software und spezielle Hardware</td>
+</tr>
+<tr class="odd">
+<td>Programmierung</td>
+<td>IEC-61131-3-Sprachen, Wartung durch Fachpersonal</td>
+<td>C, C++, Arduino, Python oder andere Embedded-Umgebungen</td>
+</tr>
+<tr class="even">
+<td>Kosten</td>
+<td>Bei Sondermaschinen und kleinen Serien durch kurze Entwicklungs- und Wartungszeiten oft wirtschaftlicher</td>
+<td>Bei großer Stückzahl wegen niedrigerer Hardwarekosten pro Gerät oft wirtschaftlicher</td>
+</tr>
+<tr class="odd">
+<td>Sicherheit</td>
+<td>Sicherheits-SPS oder Safety-Module für validierte Sicherheitsfunktionen</td>
+<td>Nur mit zertifizierter Safety-Architektur geeignet</td>
+</tr>
+</tbody>
+</table>
+<p>Die Kriterien sind keine feste Grenze. Beispielsweise kann ein einzelnes Arduino-, ESP32- oder Raspberry-Pi-Board für eine schnelle Mess- oder Datenerfassungsaufgabe sinnvoll sein. Sobald die Anwendung industrielle Ein-/Ausgänge, lange Betriebszeiten, Diagnose, Standardintegration oder Maschinensicherheit verlangt, wird eine SPS oder eine geeignete Kombination aus SPS und Microcontroller bevorzugt.</p>
+</section>
+<section id="sec-sps-vs-microcontroller" class="level3" data-number="13.7.3">
+<h3 data-number="13.7.3" class="anchored" data-anchor-id="sec-sps-vs-microcontroller"><span class="header-section-number">13.7.3</span> SPS oder Microcontroller?</h3>
+<p>Ein <strong>Microcontroller</strong> ist ein kleiner Rechner auf einem Chip. Er eignet sich besonders, wenn eine einzelne oder klar abgegrenzte Aufgabe direkt am Gerät gelöst werden soll:</p>
+<ul>
+<li>ein Sensorwert soll gemessen und gefiltert werden,</li>
+<li>eine kleine Stromversorgung oder ein Display soll angesteuert werden,</li>
+<li>ein Kommunikations- oder Kommunikationsgateway soll Daten weiterreichen,</li>
+<li>eine Bewegung soll präzise aus mehreren Sensor- und PWM-Signalen berechnet werden,</li>
+<li>ein Gerät wird in hoher Stückzahl produziert und der Kostenwert pro Gerät ist entscheidend.</li>
+</ul>
+<p>Eine <strong>SPS</strong> eignet sich besonders für Maschinen mit vielen binären und analogen Signalen, Abläufen, Wartungsanforderungen und definierten Industrie-Schnittstellen:</p>
+<ul>
+<li>Start, Stopp, Endschalter, Näherungsschalter und Aktoren werden zusammengeführt,</li>
+<li>Abläufe werden mit AS oder KOP übersichtlich dokumentiert,</li>
+<li>Module können erweitert oder ersetzt werden,</li>
+<li>Fehler werden über Standarddiagnose und HMI angezeigt,</li>
+<li>die Elektronik ist für Schaltstörungen und industrielle Betriebsbedingungen ausgelegt.</li>
+</ul>
+</section>
+</section>
+<div id="tip-sps-selection">
+<section id="auswahlregel" class="level2" data-number="13.8">
+<h2 data-number="13.8" class="anchored" data-anchor-id="auswahlregel"><span class="header-section-number">13.8</span> Auswahlregel</h2>
+<ul>
+<li>Bei vielen Industrie-Ein-/Ausgängen: <strong>SPS</strong>.</li>
+<li>Bei einem klar abgegrenzten Gerät und wenigen Signalen: <strong>Microcontroller</strong>.</li>
+<li>Bei Sondermaschinen oder kleinen Serien ist die SPS oft wirtschaftlicher, weil Entwicklungsaufwand, Wartung und Industrie-Peripherie dominieren.</li>
+<li>Bei großer Stückzahl kann ein Microcontroller trotz höherem Entwicklungsaufwand pro Gerät deutlich günstiger sein.</li>
+<li>Bei einem rechenintensiven Teil in einer großen Anlage: <strong>Microcontroller als fachspezifisches Zusatzgerät</strong>, Anlagensicherheits- und Hauptablauf weiterhin über die SPS.</li>
+</ul>
+</section>
+</div>
+<section id="sec-sps-auswahl-pruefschritte" class="level3" data-number="13.8.1">
+<h3 data-number="13.8.1" class="anchored" data-anchor-id="sec-sps-auswahl-pruefschritte"><span class="header-section-number">13.8.1</span> Prüfschritte für die Hardwareauswahl</h3>
+<ol type="1">
+<li>Alle Ein- und Ausgänge mit Signalart, Spannung, Strom und Sicherheitsfunktion erfassen.</li>
+<li>Zykluszeit und Reaktionszeit aus der Maschinendynamik bestimmen.</li>
+<li>Anzahl der Ein-/Ausgänge um Reserve erweitern.</li>
+<li>Analoge Auflösung, Messbereich und benötigte Kommunikation festlegen.</li>
+<li>Leistung der Ausgänge, externe Relais oder Leistungstechnik prüfen.</li>
+<li>Normale und Sicherheitsfunktion trennen.</li>
+<li>Versorgung, Gehäuse, Temperaturbereich, EMV und Montage berücksichtigen.</li>
+<li>Diagnose, Ersatzteile, Softwarelizenz und Wartungszugang bewerten.</li>
+</ol>
+<p>Für das Förderbeispiel wäre eine kompakte SPS mit einem 24-V-Eingangsmodul, einem Digitalausgangsmodul und einem Not-Aus-Kanal ausreichend, sofern die Risikoanalyse keine eigene Sicherheitssteuerung fordert. Eine normale SPS darf die Sicherheitsfunktion nicht ersetzen.</p>
+</section>
+<section id="zusammenfassung" class="level2" data-number="13.9">
+<h2 data-number="13.9" class="anchored" data-anchor-id="zusammenfassung"><span class="header-section-number">13.9</span> Zusammenfassung</h2>
 <ul>
 <li>Eine SPS verarbeitet Eingangssignale nach einem Anwenderprogramm und erzeugt daraus Ausgangssignale.</li>
 <li>Im zyklischen Betrieb liest sie die Eingänge, bearbeitet das Programm und schreibt die Ausgänge.</li>
 <li>Wichtige Programmiersprachen nach IEC 61131-3 sind KOP, FUP, AS, AWL und ST.</li>
 <li>Bei der Ansteuerung realer Anlagen sind Signaltypen, Zykluszeit und Fehlerreaktionen des Watchdogs zu berücksichtigen.</li>
+<li>Die SPS-Auswahl folgt der Maschinenaufgabe: Ein-/Ausgänge, Prozesszeit, Umfeld, Kommunikation, Erweiterbarkeit und Sicherheit sind entscheidend.</li>
+<li>Für kleine, klar abgegrenzte oder preisoptimierte Geräte ist ein Microcontroller oft besser geeignet; für robuste Industrieanlagen ist eine SPS meist die zweckmäßige zentrale Steuerung.</li>
 </ul>
 
 
@@ -956,7 +1222,7 @@ Abbildung&nbsp;12.2: Siemens S7-1500: Modul mit Klemmenleiste und Status-LEDs (O
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="pagination-link" aria-label="Regelungstechnik">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

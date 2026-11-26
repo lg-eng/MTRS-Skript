@@ -326,14 +326,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../SteuerRegel/01.01_Maschinensicherheit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Maschinensicherheit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../SteuerRegel/01.03_SPS.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></a>
   </div>
 </li>
       </ul>
@@ -350,19 +356,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Weiterfuehrende_Themen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Weiterführende Themen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Weiterführende Themen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Jahresplanung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
   </div>
 </li>
       </ul>
@@ -406,7 +412,7 @@ window.Quarto = {
 
 
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="6692185c" class="cell" data-execution_count="2">
+<div id="c2b2407a" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(M\)</span> … Drehmoment der Lorentzkraft</p>
 </div>
@@ -440,7 +446,7 @@ window.Quarto = {
 <ul>
 <li>Klassisches Messgerät der Elektromesstechnik: <strong>Drehspulmesswerk</strong>. Lorentzkraft auf die stromdurchflossene Spule im Permanentfeld erzeugt ein Drehmoment; die Spiralfeder stellt das Gleichgewicht her — die Auslenkung ist proportional zum Strom:</li>
 </ul>
-<div id="d0589e37" class="cell" data-execution_count="3">
+<div id="933dd295" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>M_bm <span class="op">=</span> MySymbol(<span class="st">'M'</span>, description<span class="op">=</span><span class="st">'Drehmoment der Lorentzkraft, proportional zum Strom'</span>)</span>
@@ -511,7 +517,7 @@ Abbildung&nbsp;3.2: Blockschaltbild eines digitalen Multimeters: Eingangsschutz,
 <li><strong>Verstärker:</strong> Impedanzwandler/Auto-Zero-Verstärker entkoppelt Teiler und ADW.</li>
 <li><strong>ADW:</strong> im DMM überwiegend <strong>Zweiflankenverfahren (Dual Slope)</strong> — Integration über feste Zeit <span class="math inline">\(T_1\)</span> gegen <span class="math inline">\(U_x\)</span>, dann Integration gegen die Referenz <span class="math inline">\(U_{ref}\)</span> bis zum Nulldurchgang in <span class="math inline">\(T_2\)</span>:</li>
 </ul>
-<div id="9425a215" class="cell" data-execution_count="5">
+<div id="3bdd080b" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>U_x <span class="op">=</span> MySymbol(<span class="st">'U_x'</span>, description<span class="op">=</span><span class="st">'Eingangsspannung am ADW'</span>, unit<span class="op">=</span>u.volt, value<span class="op">=</span><span class="fl">0.45</span>)</span>

@@ -326,14 +326,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../SteuerRegel/01.01_Maschinensicherheit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Maschinensicherheit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../SteuerRegel/01.03_SPS.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></a>
   </div>
 </li>
       </ul>
@@ -350,19 +356,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Weiterfuehrende_Themen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Weiterführende Themen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Weiterführende Themen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Jahresplanung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
   </div>
 </li>
       </ul>
@@ -412,7 +418,7 @@ window.Quarto = {
 
 
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="d454ae8b" class="cell" data-execution_count="2">
+<div id="f3a1b967" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(f\)</span> … Netzfrequenz</p>
 </div>
@@ -435,7 +441,7 @@ window.Quarto = {
 <section id="wechselspannung-und-drehfeld" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="wechselspannung-und-drehfeld"><span class="header-section-number">10.1</span> Wechselspannung und Drehfeld</h2>
 <p>Bei einem Wechselstrommotor erzeugen zeitlich versetzte Stränge ein räumlich umlaufendes Magnetfeld. Die Drehfeldfrequenz bestimmt die Synchrondrehzahl.</p>
-<div id="f35062ec" class="cell" data-execution_count="3">
+<div id="bc06f783" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>n0 <span class="op">=</span> MySymbol(<span class="vs">r'n_</span><span class="op">{0}</span><span class="vs">'</span>, description<span class="op">=</span><span class="st">'Synchrondrehzahl'</span>)</span>
@@ -450,7 +456,7 @@ n_{0} = \frac{60 f}{p}
 </div>
 </div>
 <p>In Europa gibt die Netzfrequenz <span class="math inline">\(f=50\,\mathrm{Hz}\)</span> vor. Eine zweipolige Maschine <span class="math inline">\((p=1)\)</span> läuft synchron mit <span class="math inline">\(3000\,\mathrm{min^{-1}}\)</span>; eine vierpolige Maschine $ (p=2)$ mit <span class="math inline">\(1500\,\mathrm{min^{-1}}\)</span>.</p>
-<div id="eb4b9f30" class="cell" data-execution_count="4">
+<div id="1b70931b" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span><span class="op">*</span>np.pi, <span class="dv">500</span>)</span>
@@ -529,7 +535,7 @@ n_{0} = \frac{60 f}{p}
 <section id="asynchronmotor" class="level2" data-number="10.3">
 <h2 data-number="10.3" class="anchored" data-anchor-id="asynchronmotor"><span class="header-section-number">10.3</span> Asynchronmotor</h2>
 <p>Der Asynchron- oder Drehstrom-Induktionsmotor besitzt Läuferwicklung oder Läuferkäfig. Das drehende Statorfeld induziert eine Spannung im Läufer; daraus entsteht Läuferstrom und Drehmoment.</p>
-<div id="9b3dce4f" class="cell" data-execution_count="5">
+<div id="76fcd04c" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> MySymbol(<span class="st">'s'</span>, description<span class="op">=</span><span class="st">'Schlupf'</span>)</span>
@@ -607,7 +613,7 @@ Abbildung&nbsp;10.1: Vereinfachtes Drehmoment-Schlupf-Verhalten eines Drehstrom-
 <section id="frequenzumrichter" class="level2" data-number="10.5">
 <h2 data-number="10.5" class="anchored" data-anchor-id="frequenzumrichter"><span class="header-section-number">10.5</span> Frequenzumrichter</h2>
 <p>Der Frequenzumrichter verändert die Drehzahl des Drehstrommotors durch geregelte Spannung und Frequenz. Die Spannungs-Frequenz-Steuerung hält das magnetische Flussniveau näherungsweise konstant.</p>
-<div id="f0a81296" class="cell" data-execution_count="7">
+<div id="a754c6d4" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>U1 <span class="op">=</span> MySymbol(<span class="st">'U'</span>, description<span class="op">=</span><span class="st">'Motorspannung'</span>, unit<span class="op">=</span>u.volt)</span>
@@ -688,7 +694,7 @@ Abbildung&nbsp;10.1: Vereinfachtes Drehmoment-Schlupf-Verhalten eines Drehstrom-
 </tbody>
 </table>
 <p>Die Kraft muss Beschleunigung, Reibung, Höhenkraft und Störkräfte überwinden:</p>
-<div id="b3277545" class="cell" data-execution_count="8">
+<div id="9d14b742" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>F_res <span class="op">=</span> MySymbol(<span class="st">'F_</span><span class="sc">{res}</span><span class="st">'</span>, description<span class="op">=</span><span class="st">'resultierende Antriebskraft'</span>, unit<span class="op">=</span>u.newton)</span>

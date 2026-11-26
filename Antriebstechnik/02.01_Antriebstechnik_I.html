@@ -326,14 +326,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../SteuerRegel/01.01_Maschinensicherheit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Maschinensicherheit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../SteuerRegel/01.02_Regelungstechnik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regelungstechnik</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../SteuerRegel/01.03_SPS.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Speicherprogrammierbare Steuerung (SPS)</span></span></a>
   </div>
 </li>
       </ul>
@@ -350,19 +356,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Anhang_RLC_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Appendix A: RLC Circuit Analysis: Series CLR with Output across R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Weiterfuehrende_Themen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Weiterführende Themen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Weiterführende Themen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Anhang/xx_Jahresplanung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Jahresplan: Wochenweise Lehrstoffverteilung MTRS</span></span></a>
   </div>
 </li>
       </ul>
@@ -379,7 +385,7 @@ window.Quarto = {
   <ul>
   <li><a href="#aufgaben-und-struktur-eines-elektrischen-antriebs" id="toc-aufgaben-und-struktur-eines-elektrischen-antriebs" class="nav-link active" data-scroll-target="#aufgaben-und-struktur-eines-elektrischen-antriebs"><span class="header-section-number">9.1</span> Aufgaben und Struktur eines elektrischen Antriebs</a></li>
   <li><a href="#drehmoment-drehzahl-verhalten" id="toc-drehmoment-drehzahl-verhalten" class="nav-link" data-scroll-target="#drehmoment-drehzahl-verhalten"><span class="header-section-number">9.2</span> Drehmoment-Drehzahl-Verhalten</a></li>
-  <li><a href="#gebürsteter-gleichstrommotor" id="toc-gebürsteter-gleichstrommotor" class="nav-link" data-scroll-target="#gebürsteter-gleichstrommotor"><span class="header-section-number">9.3</span> Gebürsteter Gleichstrommotor</a></li>
+  <li><a href="#dc-bürstenmotor" id="toc-dc-bürstenmotor" class="nav-link" data-scroll-target="#dc-bürstenmotor"><span class="header-section-number">9.3</span> DC-Bürstenmotor</a></li>
   <li><a href="#bldc-motor" id="toc-bldc-motor" class="nav-link" data-scroll-target="#bldc-motor"><span class="header-section-number">9.4</span> BLDC-Motor</a></li>
   <li><a href="#schrittmotor" id="toc-schrittmotor" class="nav-link" data-scroll-target="#schrittmotor"><span class="header-section-number">9.5</span> Schrittmotor</a></li>
   <li><a href="#motorbauarten-vergleichen" id="toc-motorbauarten-vergleichen" class="nav-link" data-scroll-target="#motorbauarten-vergleichen"><span class="header-section-number">9.6</span> Motorbauarten vergleichen</a></li>
@@ -411,7 +417,7 @@ window.Quarto = {
 
 
 <p><strong>Verwendete Symbole:</strong></p>
-<div id="d5d2c2e5" class="cell" data-execution_count="2">
+<div id="9fba3b66" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(U\)</span> … Ankerspannung</p>
 </div>
@@ -451,7 +457,7 @@ window.Quarto = {
 <li><strong>Mechanik:</strong> Getriebe, Kupplung, Führungen und Arbeitsmaschine bestimmen Last und Trägheit.</li>
 </ul>
 <p>Der Motor wird nach Drehmoment, Drehzahl, Bewegungsauflösung, Verlustleistung, Einschaltdauer und Betriebsart ausgewählt. Die mechanische Leistung ist:</p>
-<div id="e519e77a" class="cell" data-execution_count="3">
+<div id="4c54adf9" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>P_mech <span class="op">=</span> MySymbol(<span class="st">'P_</span><span class="sc">{mech}</span><span class="st">'</span>, description<span class="op">=</span><span class="st">'mechanische Leistung'</span>, unit<span class="op">=</span>u.watt)</span>
@@ -466,7 +472,7 @@ P_{mech} = M \omega
 </div>
 </div>
 <p>Für Drehzahlen in <span class="math inline">\(1/\mathrm{min}\)</span> und Drehmoment in <span class="math inline">\(\mathrm{N\,m}\)</span> gilt näherungsweise:</p>
-<div id="c593a159" class="cell" data-execution_count="4">
+<div id="2e4f15c0" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>n_mech <span class="op">=</span> MySymbol(<span class="st">'n'</span>, description<span class="op">=</span><span class="st">'Drehzahl'</span>)</span>
@@ -516,9 +522,9 @@ P = \frac{M n}{9550}
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stderr">
-<pre><code>C:\Users\leo\AppData\Local\Temp\ipykernel_11548\791610115.py:4: RuntimeWarning: divide by zero encountered in divide
+<pre><code>C:\Users\leo\AppData\Local\Temp\ipykernel_28080\791610115.py:4: RuntimeWarning: divide by zero encountered in divide
   M_cont = np.where(n &lt;= n_N, 10.0, 10*n_N/n)
-C:\Users\leo\AppData\Local\Temp\ipykernel_11548\791610115.py:5: RuntimeWarning: divide by zero encountered in divide
+C:\Users\leo\AppData\Local\Temp\ipykernel_28080\791610115.py:5: RuntimeWarning: divide by zero encountered in divide
   M_limit = np.where(n &lt;= n_N, 18.0, 18*n_N/n)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -541,10 +547,10 @@ Abbildung&nbsp;9.1: Betriebskennfelder: konstantes Drehmoment bis zur Nenndrehza
 <li><strong>Abbremsen:</strong> Motor kann mechanische Leistung zurück in elektrische Energie wandeln.</li>
 </ul>
 </section>
-<section id="gebürsteter-gleichstrommotor" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="gebürsteter-gleichstrommotor"><span class="header-section-number">9.3</span> Gebürsteter Gleichstrommotor</h2>
-<p>Beim gebürsteten DC-Motor erzeugen Permanentmagnete oder Erregerspulen das Magnetfeld. Der Strom wird über Kommutator und Kohlebürsten zur Ankerwicklung geführt; die Wicklung erzeugt dadurch kontinuierlich ein Anzugsmoment.</p>
-<div id="a162bdff" class="cell" data-execution_count="6">
+<section id="dc-bürstenmotor" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="dc-bürstenmotor"><span class="header-section-number">9.3</span> DC-Bürstenmotor</h2>
+<p>Beim DC-Bürstenmotor erzeugen Permanentmagnete oder Erregerspulen das Magnetfeld. Der Strom wird über Kommutator und Kohlebürsten zur Ankerwicklung geführt; die Wicklung erzeugt dadurch kontinuierlich ein Anzugsmoment.</p>
+<div id="b7a0090d" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>U_a <span class="op">=</span> MySymbol(<span class="st">'U_a'</span>, description<span class="op">=</span><span class="st">'Ankerspannung'</span>, unit<span class="op">=</span>u.volt)</span>
@@ -586,7 +592,7 @@ M = I_{a} k
 </div>
 <p>Die Drehzahl steigt linear mit der Spannung und sinkt bei Belastung durch den Ankerwiderstand. Beim Einschalten begrenzt zunächst <span class="math inline">\(R_a\)</span> den Strom nicht vollständig, da die Gegenspannung bei Stillstand null ist; deshalb werden Anlaufstrombegrenzung oder Stromregelung benötigt.</p>
 <p><strong>Leistung und Wirkungsgrad</strong></p>
-<div id="0b577f13" class="cell" data-execution_count="7">
+<div id="40b3d5fe" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>P_el <span class="op">=</span> MySymbol(<span class="st">'P_</span><span class="sc">{el}</span><span class="st">'</span>, description<span class="op">=</span><span class="st">'aufgenommene elektrische Leistung'</span>, unit<span class="op">=</span>u.watt)</span>
@@ -618,7 +624,7 @@ P_{mech} = M \omega
 <img src="images/brushed-dc-equivalent-circuit.svg" class="img-fluid quarto-figure quarto-figure-center figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dc-ersatz-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;9.2: Ersatzschaltbild eines gebürsteten DC-Motors.
+Abbildung&nbsp;9.2: Ersatzschaltbild eines DC-Bürstenmotors.
 </figcaption>
 </figure>
 </div>
@@ -638,12 +644,12 @@ Abbildung&nbsp;9.2: Ersatzschaltbild eines gebürsteten DC-Motors.
 <li><strong>Feldorientierte Regelung:</strong> Strom in Drehmoment- und Flusskomponente zerlegen.</li>
 <li>Rückmeldesysteme: Hall-Sensoren, Encoder oder sensorlose Gegen-EMK-Auswertung.</li>
 </ul>
-<p>Gegenüber dem gebürsteten Motor entfallen mechanische Bürsten und der Kommutator. Die Elektronik übernimmt die Stromkommutierung. Typische Vorteile sind höhere Drehzahl, geringere Wartung, bessere Kühlung und höherer Wirkungsgrad.</p>
+<p>Gegenüber dem DC-Bürstenmotor entfallen mechanische Bürsten und der Kommutator. Die Elektronik übernimmt die Stromkommutierung. Typische Vorteile sind höhere Drehzahl, geringere Wartung, bessere Kühlung und höherer Wirkungsgrad.</p>
 </section>
 <section id="schrittmotor" class="level2" data-number="9.5">
 <h2 data-number="9.5" class="anchored" data-anchor-id="schrittmotor"><span class="header-section-number">9.5</span> Schrittmotor</h2>
 <p>Schrittmotoren bewegen den Rotor in diskreten Winkelschritten. Die Schrittzahl ergibt die Sollposition, solange der Motor nicht außer Tritt fällt.</p>
-<div id="70cabd16" class="cell" data-execution_count="8">
+<div id="acd6622a" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>alpha_step <span class="op">=</span> MySymbol(<span class="vs">r'</span><span class="ch">\a</span><span class="vs">lpha_{step}'</span>, description<span class="op">=</span><span class="st">'Schrittwinkel'</span>)</span>
@@ -683,7 +689,7 @@ Abbildung&nbsp;9.3: 28BYJ-48-Schrittmotor mit ULN2003-Treiber.
 <li><strong>Halte moment:</strong> bleibt bei eingeschalteten Wicklungen stehen, erzeugt aber Verlustleistung.</li>
 </ul>
 <p>Der unipolare Schrittmotor besitzt Mittelanzapfungen und kann je Wicklungsseite einschalten. Der bipolare Motor benötigt eine H-Brücke je Phase und liefert über beide Wicklungsrichtungen mehr Drehmoment.</p>
-<div id="b594b44e" class="cell" data-execution_count="9">
+<div id="9a601a4b" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>phase <span class="op">=</span> np.arange(<span class="dv">8</span>)</span>
@@ -731,7 +737,7 @@ Abbildung&nbsp;9.3: 28BYJ-48-Schrittmotor mit ULN2003-Treiber.
 </thead>
 <tbody>
 <tr class="odd">
-<td>gebürsteter DC-Motor</td>
+<td>DC-Bürstenmotor</td>
 <td>einfach, hohes Drehmoment, günstig</td>
 <td>Bürstenverschleiß, Wartung</td>
 <td>Aktoren, Kleinantriebe</td>
@@ -754,7 +760,7 @@ Abbildung&nbsp;9.3: 28BYJ-48-Schrittmotor mit ULN2003-Treiber.
 <section id="auswahl--und-rechenbeispiel" class="level2" data-number="9.7">
 <h2 data-number="9.7" class="anchored" data-anchor-id="auswahl--und-rechenbeispiel"><span class="header-section-number">9.7</span> Auswahl- und Rechenbeispiel</h2>
 <p>Eine Arbeitsrolle soll <span class="math inline">\(M=2\,\mathrm{N\,m}\)</span> bei <span class="math inline">\(n=1500\,\mathrm{min^{-1}}\)</span> bewegen. Dazu wird die mechanische Leistung berechnet:</p>
-<div id="78c442df" class="cell" data-execution_count="10">
+<div id="a8e0939d" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>M_bsp <span class="op">=</span> MySymbol(<span class="st">'M'</span>, description<span class="op">=</span><span class="st">'Lastmoment'</span>, unit<span class="op">=</span>u.newton<span class="op">*</span>u.meter, value<span class="op">=</span><span class="dv">2</span>)</span>
@@ -783,9 +789,9 @@ P = \frac{M n}{9550}
 <h2 data-number="9.8" class="anchored" data-anchor-id="kurzaufgaben"><span class="header-section-number">9.8</span> Kurzaufgaben</h2>
 <ol type="1">
 <li>Ein Motor liefert <span class="math inline">\(0{,}5\,\mathrm{kW}\)</span> bei <span class="math inline">\(1000\,\mathrm{min^{-1}}\)</span>. Berechnen Sie das Drehmoment.</li>
-<li>Ein gebürsteter DC-Motor hat <span class="math inline">\(R_a=2\,\Omega\)</span> und <span class="math inline">\(U_a=24\,\mathrm{V}\)</span>. Welche Spannung fällt bei <span class="math inline">\(I_a=3\,\mathrm{A}\)</span> am Widerstand ab?</li>
+<li>Ein DC-Bürstenmotor hat <span class="math inline">\(R_a=2\,\Omega\)</span> und <span class="math inline">\(U_a=24\,\mathrm{V}\)</span>. Welche Spannung fällt bei <span class="math inline">\(I_a=3\,\mathrm{A}\)</span> am Widerstand ab?</li>
 <li>Erklären Sie, warum ein Schrittmotor bei zu hoher Last nicht am Sollort stehen bleiben kann.</li>
-<li>Vergleichen Sie gebürsteten DC-Motor und BLDC-Motor hinsichtlich Kommutierung und Wartung.</li>
+<li>Vergleichen Sie DC-Bürstenmotor und BLDC-Motor hinsichtlich Kommutierung und Wartung.</li>
 </ol>
 
 
